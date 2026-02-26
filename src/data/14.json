@@ -1,0 +1,916 @@
+{
+  "category_name": "Mods d'Armes",
+  "category_description": "Bonus, malus et localisation des mods d'armes",
+  "data": [
+    {
+      "element_name": "CTRL + F pour une recherche rapide avec mot clef",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "CTRL + F pour une recherche rapide avec mot clef",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": ""
+    },
+    {
+      "element_name": "Type",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "Type",
+      "Colonne_2": "Calibre",
+      "Colonne_3": "Nom",
+      "Colonne_4": "Bonus",
+      "Colonne_5": "Malus",
+      "Colonne_6": "Obtention"
+    },
+    {
+      "element_name": ".45 (5)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": ".45 (5)",
+      "Colonne_3": "Charg. .45 ACP étendu",
+      "Colonne_4": ".+ 15 Munitions",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Support de l'agent Edwards"
+    },
+    {
+      "element_name": "Charg. .45 ACP approv. précision",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. .45 ACP approv. précision",
+      "Colonne_4": ".+ 30% Stabilité",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Charg. .45 ACP approv. forcée",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. .45 ACP approv. forcée",
+      "Colonne_4": ".+ 5% cadence de tir",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Réserve au garage"
+    },
+    {
+      "element_name": "Charg. .45 ACP ressort court",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. .45 ACP ressort court",
+      "Colonne_4": ".+ 20% Vitesse de rechargement",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Charg. .45 ACP surdimensionné",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. .45 ACP surdimensionné",
+      "Colonne_4": ".+ 20 Munitions",
+      "Colonne_5": ".- 10% Vitesse de rechargement",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "5.56 (5)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "5.56 (5)",
+      "Colonne_3": "Charg. étendu léger 5.56",
+      "Colonne_4": ".+ 15 Munitions",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Département de la justice"
+    },
+    {
+      "element_name": "Charg. 5.56 tactique",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. 5.56 tactique",
+      "Colonne_4": ".+ 10% Dégâts de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Avant poste de propagande Parias"
+    },
+    {
+      "element_name": "Charg. 5.56 ressort équilibré",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. 5.56 ressort équilibré",
+      "Colonne_4": ".+ 30% Stabilité",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Bonus (Intendant Maison Blanche)"
+    },
+    {
+      "element_name": "Charg. 5.56 infanterie",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. 5.56 infanterie",
+      "Colonne_4": ".+ 70% Portée optimale",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Spécialisation « Survivaliste »"
+    },
+    {
+      "element_name": "Charg. étendu solide 5.56",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. étendu solide 5.56",
+      "Colonne_4": ".+ 20 Munitions",
+      "Colonne_5": ".- 10% Vitesse de rechargement",
+      "Colonne_6": "Projet - Hebdomadaire"
+    },
+    {
+      "element_name": "7.62 (8)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "7.62 (8)",
+      "Colonne_3": "Charg. précision condensé",
+      "Colonne_4": ".+ 5 Munitions",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Projet - Théâtre"
+    },
+    {
+      "element_name": "Charg. précision réparé",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. précision réparé",
+      "Colonne_4": ".+ 20% Portée optimale",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Siège du bureau"
+    },
+    {
+      "element_name": "Charg. précision léger",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. précision léger",
+      "Colonne_4": ".+ 20% Vitesse de rechargement",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Charg. précision robuste",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. précision robuste",
+      "Colonne_4": ".+ 20% Stabilité",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Charg. étendu léger 7.62",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. étendu léger 7.62",
+      "Colonne_4": ".+ 15 Munitions",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Charg. 7.62 pondéré",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. 7.62 pondéré",
+      "Colonne_4": ".+ 20% Stabilité",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Site du crash du drone"
+    },
+    {
+      "element_name": "Charg. 7.62 mince",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. 7.62 mince",
+      "Colonne_4": ".+ 20% Vitesse de rechargement",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Charg. 7.62 précision",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. 7.62 précision",
+      "Colonne_4": ".+ 10% Dégâts de headshot",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Bonus (Intendant Maison Blanche)"
+    },
+    {
+      "element_name": "9mm (5)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "9mm (5)",
+      "Colonne_3": "Charg. 9mm segmenté",
+      "Colonne_4": ".+ 20% Vitesse de rechargement",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Soutien de l'agent Brooks"
+    },
+    {
+      "element_name": "Charg. 9mm ressort lourd",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. 9mm ressort lourd",
+      "Colonne_4": ".+ 10% Dégâts de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Charg. 9mm étendu",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. 9mm étendu",
+      "Colonne_4": ".+ 20 Munitions",
+      "Colonne_5": ".- 10% Vitesse de rechargement",
+      "Colonne_6": "Projet - Hebdomadaire"
+    },
+    {
+      "element_name": "Charg. 9mm surdimensionné",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. 9mm surdimensionné",
+      "Colonne_4": ".+ 15 Munitions",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Patrouille du camps disparus"
+    },
+    {
+      "element_name": "Pistolet (3)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "Pistolet (3)",
+      "Colonne_3": "Charg. pistolet étendu",
+      "Colonne_4": ".+ 11 Munitions",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Jeff l'Apiculteur"
+    },
+    {
+      "element_name": "Charg. pistolet de terrain",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. pistolet de terrain",
+      "Colonne_4": ".+ 30% Portée optimale",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Bonus (Intendant Maison Blanche)"
+    },
+    {
+      "element_name": "Charg. pistolet Police",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Charg. pistolet Police",
+      "Colonne_4": ".+ 20% Vitesse de rechargement",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Ressort (6)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "Ressort (6)",
+      "Colonne_3": "Ressort intégré compensé",
+      "Colonne_4": ".+ 20% Vitesse de rechargement",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Communauté de chantier"
+    },
+    {
+      "element_name": "Ressort intégré sous-équilibré",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Ressort intégré sous-équilibré",
+      "Colonne_4": ".+ 5% cadence de tir",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Ressort intégré rapide",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Ressort intégré rapide",
+      "Colonne_4": ".+ 5% Dégâts d'arme",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Ressort tubulaire souple",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Ressort tubulaire souple",
+      "Colonne_4": ".+ 20% Vitesse de rechargement",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Ressort tubulaire dur",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Ressort tubulaire dur",
+      "Colonne_4": ".+ 5% cadence de tir",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - SHD Balise"
+    },
+    {
+      "element_name": "Ressort tubulaire anti-horaire",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Ressort tubulaire anti-horaire",
+      "Colonne_4": ".+ 5% Dégâts aux headshot",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Ressort intégré suréquilibré",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Ressort intégré suréquilibré",
+      "Colonne_4": ".+ 30% Stabilité",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Barillet (1)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "Barillet (1)",
+      "Colonne_3": "Barillet à chargement rapide",
+      "Colonne_4": ".+ 20% Vitesse de rechargement",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Fixation (5)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "Fixation (5)",
+      "Colonne_3": "Fixation de ceinture agile",
+      "Colonne_4": ".+ 5% Cadence de tir",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Transmission à Navy Hill"
+    },
+    {
+      "element_name": "Fixation sans perturbation",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Fixation sans perturbation",
+      "Colonne_4": ".+ 10% Dégâts de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Fixation étalonnée",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Fixation étalonnée",
+      "Colonne_4": ".+ 30% Stabilité",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Conservateurs disparus"
+    },
+    {
+      "element_name": "Petite sacoche tactique",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Petite sacoche tactique",
+      "Colonne_4": ".+ 20% Vitesse de rechargement",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Bonus (Intendant Maison Blanche)"
+    },
+    {
+      "element_name": "Grande sacoche",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Grande sacoche",
+      "Colonne_4": ".+ 50 Munitions",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Spécialisation « Artilleur »"
+    },
+    {
+      "element_name": "Grande sacoche",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Grande sacoche",
+      "Colonne_4": ".+ 35 Munitions",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": ".45 (6)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": ".45 (6)",
+      "Colonne_3": "Petit silencieux .45",
+      "Colonne_4": ".+ 30% Précision",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Silencieux Osprey .45",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Silencieux Osprey .45",
+      "Colonne_4": ".+ 10% Probabilité de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Bonus (Intendant Maison Blanche)"
+    },
+    {
+      "element_name": "Frein ventilé bruyant .45",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Frein ventilé bruyant .45",
+      "Colonne_4": ".+ 50% Portée optimale",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Attaque sur le camp médical"
+    },
+    {
+      "element_name": "Frein de bouche .45",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Frein de bouche .45",
+      "Colonne_4": ".+ 10% aux dégâts de headshot",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Communauté de la serre"
+    },
+    {
+      "element_name": "Compensateur .45",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Compensateur .45",
+      "Colonne_4": ".+ 30% Stabilité",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Cache-flamme .45",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Cache-flamme .45",
+      "Colonne_4": ".+ 5% Dégâts de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "5.56 (6)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "5.56 (6)",
+      "Colonne_3": "Grand silencieux 5.56",
+      "Colonne_4": ".+ 30% Précision",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Compensateur 5.56",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Compensateur 5.56",
+      "Colonne_4": ".+ 30% Stabilité",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Projet Campus"
+    },
+    {
+      "element_name": "Silencieux de fusil Omega 5.56",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Silencieux de fusil Omega 5.56",
+      "Colonne_4": ".+ 40% Stabilité",
+      "Colonne_5": ".- 10% Portée optimale",
+      "Colonne_6": "Mission annexe - Potomac"
+    },
+    {
+      "element_name": "Frein de bouche 5.56",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Frein de bouche 5.56",
+      "Colonne_4": ".+ 5% Probabilité coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Projet - Théâtre"
+    },
+    {
+      "element_name": "Frein ventilé bruyant 5.56",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Frein ventilé bruyant 5.56",
+      "Colonne_4": ".+ 50% Portée optimale",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Bonus (Intendant Maison Blanche)"
+    },
+    {
+      "element_name": "Cache-flamme 5.56",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Cache-flamme 5.56",
+      "Colonne_4": ".+ 10% Dégâts de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Projet - Théâtre"
+    },
+    {
+      "element_name": "7.62 (6)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "7.62 (6)",
+      "Colonne_3": "Grand silencieux 7.62",
+      "Colonne_4": ".+ 30% Précision",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Silencieux de fusil Omega 7.62",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Silencieux de fusil Omega 7.62",
+      "Colonne_4": ".+ 40% Stabilité",
+      "Colonne_5": ".- 10% Portée optimale",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Cache-flamme 7.62",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Cache-flamme 7.62",
+      "Colonne_4": ".+ 10% Dégâts de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Empire Autumn Hotel"
+    },
+    {
+      "element_name": "Frein de bouche 7.62",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Frein de bouche 7.62",
+      "Colonne_4": ".+ 5% Probabilité coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Compensateur 7.62",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Compensateur 7.62",
+      "Colonne_4": ".+ 30% Stabilité",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Bonus (Intendant Maison Blanche)"
+    },
+    {
+      "element_name": "Frein ventilé bruyant 7.62",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Frein ventilé bruyant 7.62",
+      "Colonne_4": ".+ 50% Portée optimale",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "9mm (6)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "9mm (6)",
+      "Colonne_3": "Petit silencieux 9mm",
+      "Colonne_4": ".+ 30% Précision",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Bonus (Intendant Maison Blanche)"
+    },
+    {
+      "element_name": "Silencieux Osprey 9mm",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Silencieux Osprey 9mm",
+      "Colonne_4": ".+ 5% Probabilité de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission - Wire Scavengers (Charognard)"
+    },
+    {
+      "element_name": "Compensateur 9mm",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Compensateur 9mm",
+      "Colonne_4": ".+ 30% Stabilité",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission principal - Archive Nationale"
+    },
+    {
+      "element_name": "Cache-flamme 9mm",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Cache-flamme 9mm",
+      "Colonne_4": ".+ 10% Dégâts de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Frein de bouche 9mm",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Frein de bouche 9mm",
+      "Colonne_4": ".+ 10% Dégâts aux headshot",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Frein ventilé bruyant 9mm",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Frein ventilé bruyant 9mm",
+      "Colonne_4": ".+ 50% Portée optimale",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Lunette (7)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "Lunette (7)",
+      "Colonne_3": "Petite lunette RDS",
+      "Colonne_4": ".+ 50% Stabilité",
+      "Colonne_5": ".- 20% Précision",
+      "Colonne_6": "Projet - Théâtre"
+    },
+    {
+      "element_name": "Lunette ACOG (4x)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Lunette ACOG (4x)",
+      "Colonne_4": ".+ 50% Portée optimale",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Bonus (Intendant Maison Blanche)"
+    },
+    {
+      "element_name": "Lunette C79 (3,4x)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Lunette C79 (3,4x)",
+      "Colonne_4": ".+ 5% Probilité de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Récupérateurs disparus"
+    },
+    {
+      "element_name": "Lunette CCQBS (8x)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Lunette CCQBS (8x)",
+      "Colonne_4": ".+ 30% Dégâts headshot",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Labo quarantaine DC-62"
+    },
+    {
+      "element_name": "Lunette VX1 (12x)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Lunette VX1 (12x)",
+      "Colonne_4": ".+ 35% Dégâts headshot",
+      "Colonne_5": ".- 10% Vitesse de rechargement",
+      "Colonne_6": "Obtenu sur un fusil de précision"
+    },
+    {
+      "element_name": "Lunette numérique",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Lunette numérique",
+      "Colonne_4": ".+ 45% Dégâts headshot",
+      "Colonne_5": ".- 5% Dégâts critique",
+      "Colonne_6": "Spécialisation « Tireur d'élite »"
+    },
+    {
+      "element_name": "Mire (3)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "Mire (3)",
+      "Colonne_3": "Mire métallique ouverte",
+      "Colonne_4": ".+ 30% Précision",
+      "Colonne_5": ".- 10% Précision",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Mire métallique pondérée",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Mire métallique pondérée",
+      "Colonne_4": ".+ 30% Stabilité",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Mire métallique épurée",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Mire métallique épurée",
+      "Colonne_4": ".+ 14% Vitesse de rechargement",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Projet - Théâtre"
+    },
+    {
+      "element_name": "Visée (7)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "Visée (7)",
+      "Colonne_3": "Visée holo 552",
+      "Colonne_4": ".+ 30% Précision",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - QG des forces de police"
+    },
+    {
+      "element_name": "Visée point rouge T2 Micro",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Visée point rouge T2 Micro",
+      "Colonne_4": ".+ 30% Précision",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Bonus (Intendant Maison Blanche)"
+    },
+    {
+      "element_name": "Visée point rouge PRO",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Visée point rouge PRO",
+      "Colonne_4": ".+ 30% Stabilité",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Outcast Work Camp"
+    },
+    {
+      "element_name": "Visée holo EXPS3",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Visée holo EXPS3",
+      "Colonne_4": ".+ 10% Dégâts de headshot",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Visée reflex",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Visée reflex",
+      "Colonne_4": ".+ 5% maniement d'arme",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Projet - Théâtre"
+    },
+    {
+      "element_name": "Visée reflex basse",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Visée reflex basse",
+      "Colonne_4": ".+ 15% Dégâts de headshot",
+      "Colonne_5": ".- 25% Portée optimale",
+      "Colonne_6": "Mission annexe - Diffusion au Columbia Plaza"
+    },
+    {
+      "element_name": "Visée point rouge russe",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Visée point rouge russe",
+      "Colonne_4": ".+ 10% Dégâts de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Visée reflex mini rustique",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Visée reflex mini rustique",
+      "Colonne_4": ".+ 5% Probabilité de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Point de contrôle Lv 4"
+    },
+    {
+      "element_name": "Poignée (4)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "Poignée (4)",
+      "Colonne_3": "Poignée incliné",
+      "Colonne_4": ".+ 30% Stabilité",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Museum Water Source"
+    },
+    {
+      "element_name": "Poignée verticale",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Poignée verticale",
+      "Colonne_4": ".+ 30% Précision",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Projet Théâtre"
+    },
+    {
+      "element_name": "Poignée courte",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Poignée courte",
+      "Colonne_4": ".+ 5% Dégâts de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Bonus (Intendant Maison Blanche)"
+    },
+    {
+      "element_name": "Poignée courte tactique",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Poignée courte tactique",
+      "Colonne_4": ".+ 15% dégâts coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Spécialisation « Incendiaire »"
+    },
+    {
+      "element_name": "Pointeur (5)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "Pointeur (5)",
+      "Colonne_3": "Pointeur laser",
+      "Colonne_4": ".+ 5% Probabilité de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Avant poste de propagande True Sons"
+    },
+    {
+      "element_name": "Petit pointeur laser",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Petit pointeur laser",
+      "Colonne_4": ".+ 7% Probabilité de coup critique",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Spécialisation « Démolisseur »"
+    },
+    {
+      "element_name": "Pointeur laser lié",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Pointeur laser lié",
+      "Colonne_4": "Applique une impulsion sur les cibles visées",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Spécialisation « Technicien »"
+    },
+    {
+      "element_name": "Autre (2)",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "Autre (2)",
+      "Colonne_3": "Protège-rail",
+      "Colonne_4": ".+ 14% Vitesse de rechargement",
+      "Colonne_5": "Pas d'effet négatif",
+      "Colonne_6": "Mission annexe - Bureau d'Odéa Tech"
+    },
+    {
+      "element_name": "Lampe torche",
+      "element_description": "-",
+      "Liste des différents mods d'arme": "",
+      "Colonne_2": "",
+      "Colonne_3": "Lampe torche",
+      "Colonne_4": "(Pas d'effet)",
+      "Colonne_5": "(Pas d'effet)",
+      "Colonne_6": "Butin tank avec tronçonneuse"
+    }
+  ]
+}

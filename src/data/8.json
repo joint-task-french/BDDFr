@@ -1,0 +1,429 @@
+{
+  "category_name": "Talents d'Équipements",
+  "category_description": "Talents pour sacs à dos et torses",
+  "data": [
+    {
+      "element_name": "Type",
+      "element_description": "Description",
+      "CTRL + F pour une recherche rapide avec mot clef": "Type",
+      "Colonne_2": "",
+      "Colonne_3": "nom",
+      "Talents d'Équipements": "Description",
+      "Colonne_5": "Prérequis"
+    },
+    {
+      "element_name": "ComplémentaritéTag Team",
+      "element_description": "Le dernier ennemi blessé par une compétence est marqué.Infliger des dégâts d'arme à cet ennemi supprime la marque et diminue les temps de recharge de 6s.Ne consomme pas la marque si aucune compétence n'est en recharge.Temps de recharge : 4s",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "ComplémentaritéTag Team",
+      "Talents d'Équipements": "Le dernier ennemi blessé par une compétence est marqué.Infliger des dégâts d'arme à cet ennemi supprime la marque et diminue les temps de recharge de 6s.Ne consomme pas la marque si aucune compétence n'est en recharge.Temps de recharge : 4s",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "DynamisationKinetic Momentum",
+      "element_description": "Au combat, chaque compétence génère un bonus cumulable si elle est active ou si elle n'est pas en recharge.Ces bonus augmentent le total de dégâts de compétence de 1,5% et le total de réparation de compétence de 2%.Ils sont cumulables 15 fois maximum par compétence et s'annulent quand la compétence est en recharge.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "DynamisationKinetic Momentum",
+      "Talents d'Équipements": "Au combat, chaque compétence génère un bonus cumulable si elle est active ou si elle n'est pas en recharge.Ces bonus augmentent le total de dégâts de compétence de 1,5% et le total de réparation de compétence de 2%.Ils sont cumulables 15 fois maximum par compétence et s'annulent quand la compétence est en recharge.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Les éliminations par compétence ont 25% de probabilité de réinitialiser les recharges de compétence.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "DouéSkilled",
+      "Talents d'Équipements": "Les éliminations par compétence ont 25% de probabilité de réinitialiser les recharges de compétence.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Augmente les totaux de dégâts d'arme et de dégâts de compétence de 15% contre les ennemis touchés par impulsion.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "ObservateurSpotter",
+      "Talents d'Équipements": "Augmente les totaux de dégâts d'arme et de dégâts de compétence de 15% contre les ennemis touchés par impulsion.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Livraison ExplosiveExplosive Delivery",
+      "element_description": "Quand vous déployez un objet de compétence, 1.5s après que celui-ci touche le sol, il génère une explosion infligeant des dégâts aux ennemis situés à moins de 5m.Les dégâts sont étalonnés selon le Tier de compétence et infligent 25-100% des dégâts d'une grenade offensive.Une fois maximum par compétence.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "Livraison ExplosiveExplosive Delivery",
+      "Talents d'Équipements": "Quand vous déployez un objet de compétence, 1.5s après que celui-ci touche le sol, il génère une explosion infligeant des dégâts aux ennemis situés à moins de 5m.Les dégâts sont étalonnés selon le Tier de compétence et infligent 25-100% des dégâts d'une grenade offensive.Une fois maximum par compétence.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Détermination EmpathiqueEmpathic Resolve",
+      "element_description": "Réparer un allié augmente ses totaux de dégâts d'arme et de dégâts de compétence de 3-15% pendant 20s.Sur soi, le bénéfice est de 1-7%.L'efficacité augmente en fonction de votre Tier de compétence.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "Détermination EmpathiqueEmpathic Resolve",
+      "Talents d'Équipements": "Réparer un allié augmente ses totaux de dégâts d'arme et de dégâts de compétence de 3-15% pendant 20s.Sur soi, le bénéfice est de 1-7%.L'efficacité augmente en fonction de votre Tier de compétence.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "ObservationOverwatch",
+      "element_description": "Au bout de 10s à couvert, augmente les totaux de dégâts d'arme et de dégâts de compétence de 12% pour vous et vos alliés.Cet effet dure tant que vous restez à couvert ou que vous vous déplacez d'un abri à l'autre.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "ObservationOverwatch",
+      "Talents d'Équipements": "Au bout de 10s à couvert, augmente les totaux de dégâts d'arme et de dégâts de compétence de 12% pour vous et vos alliés.Cet effet dure tant que vous restez à couvert ou que vous vous déplacez d'un abri à l'autre.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Intimidation",
+      "element_description": "Quand vous disposez d'une protection bonus,vous gagnez 3 effets chaque seconde jusqu'à un max de 9. Chaque effet cumulé augmente les dégâts d'arme de +4% contre les ennemis situés à moins de 10m.Tous les effets cumulés sont perdus si vous n'avez plus de protection bonus.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "Intimidation",
+      "Talents d'Équipements": "Quand vous disposez d'une protection bonus,vous gagnez 3 effets chaque seconde jusqu'à un max de 9. Chaque effet cumulé augmente les dégâts d'arme de +4% contre les ennemis situés à moins de 10m.Tous les effets cumulés sont perdus si vous n'avez plus de protection bonus.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Quand votre protection est détruite, répare 95% (50%) de votre protection.Temps de recharge : 60s",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "IncassableUnbreakable",
+      "Talents d'Équipements": "Quand votre protection est détruite, répare 95% (50%) de votre protection.Temps de recharge : 60s",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Avant-gardeVanguard",
+      "element_description": "Déployer un bouclier le rend invulnérable pendant 5s (2s) et donne à tous les autres alliés 45% (20%) de votre protection en protection bonus pendant 20s.Temps de recharge : 25s.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "Avant-gardeVanguard",
+      "Talents d'Équipements": "Déployer un bouclier le rend invulnérable pendant 5s (2s) et donne à tous les autres alliés 45% (20%) de votre protection en protection bonus pendant 20s.Temps de recharge : 25s.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Rechargement ProtégéProtected Reload",
+      "element_description": "Confère +20% de protection bonus quand vous rechargez.Confère 0-18% de votre protection en protection bonus pour tout vos alliés quand ceux-ci rechargent, en fonction de votre attribut essentiel bleu",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "Rechargement ProtégéProtected Reload",
+      "Talents d'Équipements": "Confère +20% de protection bonus quand vous rechargez.Confère 0-18% de votre protection en protection bonus pour tout vos alliés quand ceux-ci rechargent, en fonction de votre attribut essentiel bleu",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Tous les dégâts que vous infligez sont accrus de 25%.Tous les dégâts que vous subissez sont accrus de 50%.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "Canon de verreGlass Canon",
+      "Talents d'Équipements": "Tous les dégâts que vous infligez sont accrus de 25%.Tous les dégâts que vous subissez sont accrus de 50%.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Changer d'arme augmente le total de dégâts d'arme de 23% pendant 5s.Ce buff se dissipe pendant 5s si vous changez d'arme pendant qu'il est actif.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "DégaineurGunslinger",
+      "Talents d'Équipements": "Changer d'arme augmente le total de dégâts d'arme de 23% pendant 5s.Ce buff se dissipe pendant 5s si vous changez d'arme pendant qu'il est actif.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Augmente le total de dégâts d'arme de 5% à chaque seconde pendant que vous ciblez un ennemi en zoom 8x ou supérieur, jusqu'à 50%.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "Mise au pointFocus",
+      "Talents d'Équipements": "Augmente le total de dégâts d'arme de 5% à chaque seconde pendant que vous ciblez un ennemi en zoom 8x ou supérieur, jusqu'à 50%.",
+      "Colonne_5": "Une lunette à grossissement 8x minimum."
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "A couvert, le maniement d'arme est amélioré de +45%.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "PréparéBraced",
+      "Talents d'Équipements": "A couvert, le maniement d'arme est amélioré de +45%.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Blesser des ennemis avec une compétence augmente le total de dégâts d'arme de 15% pendant 15s.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "ÉtincelleSpark",
+      "Talents d'Équipements": "Blesser des ennemis avec une compétence augmente le total de dégâts d'arme de 15% pendant 15s.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Les coups critiques augmentent le total de degâts d'arme de 1% pendant 10s.Peut se cumuler jusqu'à 20 fois.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "OblitérationOblitarate",
+      "Talents d'Équipements": "Les coups critiques augmentent le total de degâts d'arme de 1% pendant 10s.Peut se cumuler jusqu'à 20 fois.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Inflige aveuglement à un ennemi touché à la tête. Temps de recharge : 30s.Inflige saignement à un ennemi touché à la poitrine. Temps de recharge : 30s.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "TraumaTrauma",
+      "Talents d'Équipements": "Inflige aveuglement à un ennemi touché à la tête. Temps de recharge : 30s.Inflige saignement à un ennemi touché à la poitrine. Temps de recharge : 30s.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Éliminer un ennemi ajoute 1 munition d'un type de munition spéciale aléatoire dans votre arme d'appoint.Temps de recharge :15s",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "RéaffectationReassigned",
+      "Talents d'Équipements": "Éliminer un ennemi ajoute 1 munition d'un type de munition spéciale aléatoire dans votre arme d'appoint.Temps de recharge :15s",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Le rayon d'effet des grenades est accru +50%. Les grenades sont récupérées si elles tuent l'ennemi.Il est désormais possible d'ajuster le lancer des grenades en maintenant le bouton de tir enfoncé pour les faires exploser plus tôt.Confère +15% de protection bonus lorsque vous visez avec les grenades.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "ExploseurMad bomber",
+      "Talents d'Équipements": "Le rayon d'effet des grenades est accru +50%. Les grenades sont récupérées si elles tuent l'ennemi.Il est désormais possible d'ajuster le lancer des grenades en maintenant le bouton de tir enfoncé pour les faires exploser plus tôt.Confère +15% de protection bonus lorsque vous visez avec les grenades.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Zone de défenseTamper Proof",
+      "element_description": "Les ennemis qui passent à moins de 3m de votre ruche, votre tourelle, ou votre impulsion télécommandée subissent une électrocution.Armement : 2sTemps de recharge par compétence : 10s",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "Zone de défenseTamper Proof",
+      "Talents d'Équipements": "Les ennemis qui passent à moins de 3m de votre ruche, votre tourelle, ou votre impulsion télécommandée subissent une électrocution.Armement : 2sTemps de recharge par compétence : 10s",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Employer un kit de protection à 50% de probabilité de ne pas consommer le kit de protection.Les bonus de kit de protection de spécialisation sont accrus de 100% (50%).10 secondes sont nécessaires pour armer le talent.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "EfficaceEfficient",
+      "Talents d'Équipements": "Employer un kit de protection à 50% de probabilité de ne pas consommer le kit de protection.Les bonus de kit de protection de spécialisation sont accrus de 100% (50%).10 secondes sont nécessaires pour armer le talent.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Si vous êtes à moins de 30% de votre protection, les headshots effectués depuis un abri réparent 20% de votre protection.Temps de recharge : 2s.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "RetranchementEntrench",
+      "Talents d'Équipements": "Si vous êtes à moins de 30% de votre protection, les headshots effectués depuis un abri réparent 20% de votre protection.Temps de recharge : 2s.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chasseur de TêteHeadHunter",
+      "element_description": "Après avoir tué un ennemi avec un headshot, le prochain tir réussi dans les 30s (5s) bénéficie d'un bonus de 125% (20%) des dégâts du tir mortel précédent.Ces dégâts sont limités à 800% (200%) de vos dégâts d'arme. Cette limite monte à 1250% (300%) si vos dégâts de headshot sont supérieurs à 150%.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "Chasseur de TêteHeadHunter",
+      "Talents d'Équipements": "Après avoir tué un ennemi avec un headshot, le prochain tir réussi dans les 30s (5s) bénéficie d'un bonus de 125% (20%) des dégâts du tir mortel précédent.Ces dégâts sont limités à 800% (200%) de vos dégâts d'arme. Cette limite monte à 1250% (300%) si vos dégâts de headshot sont supérieurs à 150%.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Armement CombinéCombined Arms",
+      "element_description": "Tirer sur un ennemi augmente le total de dégâts de compétence de 25% pendant 3s.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "Armement CombinéCombined Arms",
+      "Talents d'Équipements": "Tirer sur un ennemi augmente le total de dégâts de compétence de 25% pendant 3s.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Afflux d'énergieEnergize",
+      "element_description": "Utiliser un kit de protection confère +1 en Tier de compétence pendant 15s. Si vous êtes déjà au Tier de compétence 6, donne surcharge.Temps de recharge : 60s",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "Afflux d'énergieEnergize",
+      "Talents d'Équipements": "Utiliser un kit de protection confère +1 en Tier de compétence pendant 15s. Si vous êtes déjà au Tier de compétence 6, donne surcharge.Temps de recharge : 60s",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Les éliminations par compétence augmente le total de dégâts de compétence de 25% pendant 20s.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "Soutien techniqueTech support",
+      "Talents d'Équipements": "Les éliminations par compétence augmente le total de dégâts de compétence de 25% pendant 20s.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Les éliminations réalisées en étant à couvert réduisent de 10% le temps de recharge des compétences.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "CalculéCalculated",
+      "Talents d'Équipements": "Les éliminations réalisées en étant à couvert réduisent de 10% le temps de recharge des compétences.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Sous le chocShock and Awe",
+      "element_description": "Infliger un effet d'état à un ennemi augmente les totaux de dégâts et de réparation des compétences de 20% pendant 20s.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "Sous le chocShock and Awe",
+      "Talents d'Équipements": "Infliger un effet d'état à un ennemi augmente les totaux de dégâts et de réparation des compétences de 20% pendant 20s.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Quand votre protection est intacte, augmente la réparation de compétence de 130%.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "ProtecteurSafeguard",
+      "Talents d'Équipements": "Quand votre protection est intacte, augmente la réparation de compétence de 130%.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "OverclockOverclock",
+      "element_description": "Les alliés situés à moins de 7m des objets déployés par vos compétences bénéficient de +25% à la vitesse de rechargement et leurs temps de recharge en cours sont diminués de 0.2s",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "OverclockOverclock",
+      "Talents d'Équipements": "Les alliés situés à moins de 7m des objets déployés par vos compétences bénéficient de +25% à la vitesse de rechargement et leurs temps de recharge en cours sont diminués de 0.2s",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Éliminer un ennemi augmente ou renouvelle un effet cumulé de +10% de protection bonus pendant 10s.Peut se cumuler jusq'à 10 fois.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "SangsueBloodsucker",
+      "Talents d'Équipements": "Éliminer un ennemi augmente ou renouvelle un effet cumulé de +10% de protection bonus pendant 10s.Peut se cumuler jusq'à 10 fois.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "LeadershipLeadership",
+      "element_description": "Réaliser un chagement d'abri confère +15% de votre protection en protection bonus pour vous et vos alliés pendant 10s.Ce bonus est doublé si vous finissez à moins de 10m d'un ennemi.Temps de recharge : 10s",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "LeadershipLeadership",
+      "Talents d'Équipements": "Réaliser un chagement d'abri confère +15% de votre protection en protection bonus pour vous et vos alliés pendant 10s.Ce bonus est doublé si vous finissez à moins de 10m d'un ennemi.Temps de recharge : 10s",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "ProtecteurProtector",
+      "element_description": "Quand votre bouclier est endommagé, vous gagnez +5% de protection bonus et tous vos alliés gagnent 15% de votre protection en protection bonus pendant 3s.Temps de recharge : 3s",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "ProtecteurProtector",
+      "Talents d'Équipements": "Quand votre bouclier est endommagé, vous gagnez +5% de protection bonus et tous vos alliés gagnent 15% de votre protection en protection bonus pendant 3s.Temps de recharge : 3s",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Augmente le total des dégâts d'arme de 25%.Subir des dégâts désactive ce buff pendant 4s.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "VigilanceVigilance",
+      "Talents d'Équipements": "Augmente le total des dégâts d'arme de 25%.Subir des dégâts désactive ce buff pendant 4s.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "PolyvalenceVersatile",
+      "element_description": "Augmente le total de dégâts d'arme pendant 10s quand vous passez d'une arme principale à une arme secondaire et inversement si ces armes sont différentes.35% contre les ennemis situés à moins de 15m pour les fusils calibre 12 et les PM.35% contre les ennemis situés à plus de 25m pour les fusils et les fusils de précision.10% contre les ennemis situés à 15-25m pour les FM et les fusils d'assaut.Au maximum une fois toutes les 5s par type d'arme.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "PolyvalenceVersatile",
+      "Talents d'Équipements": "Augmente le total de dégâts d'arme pendant 10s quand vous passez d'une arme principale à une arme secondaire et inversement si ces armes sont différentes.35% contre les ennemis situés à moins de 15m pour les fusils calibre 12 et les PM.35% contre les ennemis situés à plus de 25m pour les fusils et les fusils de précision.10% contre les ennemis situés à 15-25m pour les FM et les fusils d'assaut.Au maximum une fois toutes les 5s par type d'arme.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Les ennemis que vous touchez au calibre 12 et au fusil de précision subissent des dégâts accrus de 10% de toutes les sources pendant 5s.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "OpportunisteOpportunistic",
+      "Talents d'Équipements": "Les ennemis que vous touchez au calibre 12 et au fusil de précision subissent des dégâts accrus de 10% de toutes les sources pendant 5s.",
+      "Colonne_5": "Fusil de précision ou calibre 12 seulement."
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Éliminer un ennemi augmente le total de dégâts d'arme de 5% pendant 15s.Peut se cumuler jusqu'à 5 fois.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "Force irrésistibleUnstoppable force",
+      "Talents d'Équipements": "Éliminer un ennemi augmente le total de dégâts d'arme de 5% pendant 15s.Peut se cumuler jusqu'à 5 fois.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "CompagnonCompanion",
+      "element_description": "Quand vous êtes à moins de 5m d'un allié ou d'un objet de compétence, le total de dégâts d'arme est augmenté de 15%.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "CompagnonCompanion",
+      "Talents d'Équipements": "Quand vous êtes à moins de 5m d'un allié ou d'un objet de compétence, le total de dégâts d'arme est augmenté de 15%.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "À couvert, augmente le total de dégâts d'arme de +15%.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "Maîtrise de soiComposure",
+      "Talents d'Équipements": "À couvert, augmente le total de dégâts d'arme de +15%.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Les headshots augmentent le total de dégâts d'arme de 10% pendant 1.5s5s avec les fusils de précision.Les éliminations par heashot augmentent le total de dégâts d'arme de 15% pendant 10s.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "TrépanationConcussion",
+      "Talents d'Équipements": "Les headshots augmentent le total de dégâts d'arme de 10% pendant 1.5s5s avec les fusils de précision.Les éliminations par heashot augmentent le total de dégâts d'arme de 15% pendant 10s.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Quand vous infligez un effet d'état, il s'applique également à tous les ennemis situés à moins de 8m de votre cible.Temps de recharge : 15s",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "Mort rampanteCreeping death",
+      "Talents d'Équipements": "Quand vous infligez un effet d'état, il s'applique également à tous les ennemis situés à moins de 8m de votre cible.Temps de recharge : 15s",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Infliger un effet d'état augmente le total de dégâts d'arme de 18% pendant 20s.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "MéchancetéWicked",
+      "Talents d'Équipements": "Infliger un effet d'état augmente le total de dégâts d'arme de 18% pendant 20s.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "GalvanisationGalvanize",
+      "element_description": "Infliger aveuglement, entrave, confusion ou électrocution à un ennemi confère aux alliés situés à moins de 20m de cet ennemi 40% de votre protection en protection bonus pendant 10s.",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "GalvanisationGalvanize",
+      "Talents d'Équipements": "Infliger aveuglement, entrave, confusion ou électrocution à un ennemi confère aux alliés situés à moins de 20m de cet ennemi 40% de votre protection en protection bonus pendant 10s.",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Chargement en cours...",
+      "element_description": "Si vous êtes à moins de 15% de votre protection, les coups critiques réparent 2.5% de la protection détruite.Les éliminations vous permettent de réparer jusqu'à 100% de protection sur 4-10s, en fonction de votre attribut essentiel rouge",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "Chargement en cours...",
+      "Colonne_3": "SerrementClutch",
+      "Talents d'Équipements": "Si vous êtes à moins de 15% de votre protection, les coups critiques réparent 2.5% de la protection détruite.Les éliminations vous permettent de réparer jusqu'à 100% de protection sur 4-10s, en fonction de votre attribut essentiel rouge",
+      "Colonne_5": "n/a"
+    },
+    {
+      "element_name": "Poussée d'adrénalineAdrenaline rush",
+      "element_description": "Quand vous vous trouvez à 10m d'un ennemi, vous gagnez un bonus de protection de 20% (10%) pendant 5s. Cet effet peut se cumuler jusqu'à 3 fois.Temps de recharge : 5s",
+      "CTRL + F pour une recherche rapide avec mot clef": "",
+      "Colonne_2": "",
+      "Colonne_3": "Poussée d'adrénalineAdrenaline rush",
+      "Talents d'Équipements": "Quand vous vous trouvez à 10m d'un ennemi, vous gagnez un bonus de protection de 20% (10%) pendant 5s. Cet effet peut se cumuler jusqu'à 3 fois.Temps de recharge : 5s",
+      "Colonne_5": "n/a"
+    }
+  ]
+}

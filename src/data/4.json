@@ -1,0 +1,348 @@
+{
+  "category_name": "Ensembles d'Équipement",
+  "category_description": "Bonus des Gear Sets (4 pièces)",
+  "data": [
+    {
+      "element_name": "CTRL + F pour une recherche rapide avec mot clef",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "",
+      "Ensemble de Marque": "CTRL + F pour une recherche rapide avec mot clef",
+      "Colonne_4": "",
+      "Colonne_5": ""
+    },
+    {
+      "element_name": "Bonus 1 pièce",
+      "element_description": "-",
+      "Colonne_1": "Logo",
+      "Colonne_2": "Ensemble de marque",
+      "Ensemble de Marque": "Bonus 1 pièce",
+      "Colonne_4": "Bonus 2 pièces",
+      "Colonne_5": "Bonus 3 pièces"
+    },
+    {
+      "element_name": ".+10% Dégâts de Pistolet mitrailleur",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Sokolov Concern",
+      "Ensemble de Marque": ".+10% Dégâts de Pistolet mitrailleur",
+      "Colonne_4": ".+13% Dégâts de coup critique",
+      "Colonne_5": ".+8% Probabilité de coup critique"
+    },
+    {
+      "element_name": ".+13%Dégâts d'headshot",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Providence Defense",
+      "Ensemble de Marque": ".+13%Dégâts d'headshot",
+      "Colonne_4": ".+8% Probabilité de coup critique",
+      "Colonne_5": ".+13% Dégâts de coup critique"
+    },
+    {
+      "element_name": ".+10% Dégâts de fusil",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Overlord Armaments",
+      "Ensemble de Marque": ".+10% Dégâts de fusil",
+      "Colonne_4": ".+30% Précision",
+      "Colonne_5": ".+30% Maniement d'arme"
+    },
+    {
+      "element_name": ".+30% Santé",
+      "element_description": "-",
+      "Colonne_1": "5.11",
+      "Colonne_2": "5.11 Tactical",
+      "Ensemble de Marque": ".+30% Santé",
+      "Colonne_4": ".+ 30% Réparations subies",
+      "Colonne_5": ".+30% Protection contre altérations d'état"
+    },
+    {
+      "element_name": ".+20% Dégâts de Pistolet",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Douglas & Harding",
+      "Ensemble de Marque": ".+20% Dégâts de Pistolet",
+      "Colonne_4": ".+30% Stabilité",
+      "Colonne_5": ".+50% Précision"
+    },
+    {
+      "element_name": ".+10% Dégâts - Fusil mitrailleur",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Petrov Defense Group",
+      "Ensemble de Marque": ".+10% Dégâts - Fusil mitrailleur",
+      "Colonne_4": ".+15% Maniement d'arme",
+      "Colonne_5": ".+50% Capacité munitions"
+    },
+    {
+      "element_name": ".+8% Dégâts de compétences",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Wyvern Wear",
+      "Ensemble de Marque": ".+8% Dégâts de compétences",
+      "Colonne_4": ".+18% Effets d'état",
+      "Colonne_5": ".+45% Durée de compétence"
+    },
+    {
+      "element_name": ".+18% Compétences de réparation",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Alps Summit Armement",
+      "Ensemble de Marque": ".+18% Compétences de réparation",
+      "Colonne_4": ".+30% Durée de compétence",
+      "Colonne_5": ".+30% Récupération de compétence"
+    },
+    {
+      "element_name": ".+15% Réparations subies",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Richter & Kaiser GmbH",
+      "Ensemble de Marque": ".+15% Réparations subies",
+      "Colonne_4": ".+25% Resistance aux explosions",
+      "Colonne_5": ".+40% Compétences de réparation"
+    },
+    {
+      "element_name": ".+5% Protection totale",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Gila Guard",
+      "Ensemble de Marque": ".+5% Protection totale",
+      "Colonne_4": ".+60% Santé",
+      "Colonne_5": ".+2% Régénération de protection"
+    },
+    {
+      "element_name": ".+15% Durée de compétence",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Murakami Industries",
+      "Ensemble de Marque": ".+15% Durée de compétence",
+      "Colonne_4": ".+35% Compétences de réparation",
+      "Colonne_5": ".+18% Dégâts de compétences"
+    },
+    {
+      "element_name": ".+10% Dégâts de fusil d'assaut",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Fenris Group AB",
+      "Ensemble de Marque": ".+10% Dégâts de fusil d'assaut",
+      "Colonne_4": ".+30% Vitesse de rechargement",
+      "Colonne_5": ".+50% Stabilité"
+    },
+    {
+      "element_name": ".+10% Dégâts - Fusil de précision",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Airaldi Holding",
+      "Ensemble de Marque": ".+10% Dégâts - Fusil de précision",
+      "Colonne_4": ".+13% Dégâts d'headshot",
+      "Colonne_5": ".+5% Dégâts aux protections"
+    },
+    {
+      "element_name": ".+15% Dégâts d'explosion",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "China Light Industries Corporation",
+      "Ensemble de Marque": ".+15% Dégâts d'explosion",
+      "Colonne_4": ".+20% Récupération de compétence",
+      "Colonne_5": ".+25% Effets d'état"
+    },
+    {
+      "element_name": ".+10% Protection contre les altérations d'état",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Yaahl Gear",
+      "Ensemble de Marque": ".+10% Protection contre les altérations d'état",
+      "Colonne_4": ".+10% Dégâts d'arme",
+      "Colonne_5": ".+40% Résistance à l'impulsion"
+    },
+    {
+      "element_name": ".+10% Dégâts fusils calibre 12",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Badger Tuff",
+      "Ensemble de Marque": ".+10% Dégâts fusils calibre 12",
+      "Colonne_4": ".+5% Protection totale",
+      "Colonne_5": ".+15% Pourcentage de protection pour élimination"
+    },
+    {
+      "element_name": ".+13% Dégâts de coup critique",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Grupo Sombra S.A",
+      "Ensemble de Marque": ".+13% Dégâts de coup critique",
+      "Colonne_4": ".+20% Dégâts d'explosion",
+      "Colonne_5": ".+13% Dégâts d'headshot"
+    },
+    {
+      "element_name": ".+10% Récupération de compétence",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Hana-U Corporation",
+      "Ensemble de Marque": ".+10% Récupération de compétence",
+      "Colonne_4": ".+10% Dégâts de compétences",
+      "Colonne_5": ".+15% Dégâts d'arme"
+    },
+    {
+      "element_name": ".+10% Effets d'état",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Golan Gear Ltd",
+      "Ensemble de Marque": ".+10% Effets d'état",
+      "Colonne_4": ".+1,5% Régénération de protection",
+      "Colonne_5": ".+10% Protection totale"
+    },
+    {
+      "element_name": ".+8% Probabilité de coup critique",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Česká Výroba s.r.o",
+      "Ensemble de Marque": ".+8% Probabilité de coup critique",
+      "Colonne_4": ".+20% Protection contre les altérations d'état",
+      "Colonne_5": ".+90% Santé"
+    },
+    {
+      "element_name": ".+5% Dégâts d'arme",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Walker, Harris & co",
+      "Ensemble de Marque": ".+5% Dégâts d'arme",
+      "Colonne_4": ".+5% Dégâts aux protections",
+      "Colonne_5": ".+10% Dégâts à la santé"
+    },
+    {
+      "element_name": ".+1% Régénération de protection",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Belstone Armory",
+      "Ensemble de Marque": ".+1% Régénération de protection",
+      "Colonne_4": ".+10% Protection pour élimination",
+      "Colonne_5": ".+45% Réparations subies"
+    },
+    {
+      "element_name": ".+10% Santé pour compétence",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Empress International",
+      "Ensemble de Marque": ".+10% Santé pour compétence",
+      "Colonne_4": ".+10% Dégâts de compétences",
+      "Colonne_5": ".+8% efficacité de compétence"
+    },
+    {
+      "element_name": ".+5% Protection totale",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Uzina Getica",
+      "Ensemble de Marque": ".+5% Protection totale",
+      "Colonne_4": ".+10% Protection pour élimination",
+      "Colonne_5": ".+30% Protection contre les altérations d'état"
+    },
+    {
+      "element_name": ".+10% Récupération de compétence",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Brazos de Arcabuz",
+      "Ensemble de Marque": ".+10% Récupération de compétence",
+      "Colonne_4": ".+1 Tier de compétence",
+      "Colonne_5": ".+50% Taille du chargeur"
+    },
+    {
+      "element_name": ".+13% Dégâts d'headshot",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Hasburg Guard",
+      "Ensemble de Marque": ".+13% Dégâts d'headshot",
+      "Colonne_4": ".+20% Dégâts - Fusil de précision",
+      "Colonne_5": ".+25% Effets d'état"
+    },
+    {
+      "element_name": ".+10% Effets d'état",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Electrique",
+      "Ensemble de Marque": ".+10% Effets d'état",
+      "Colonne_4": ".+20% Resistance - Électrocutions",
+      "Colonne_5": ".+30% Dégâts - Pistolet mitrailleur"
+    },
+    {
+      "element_name": ".+20% Résistance - Explosion",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Langmo",
+      "Ensemble de Marque": ".+20% Résistance - Explosion",
+      "Colonne_4": ".+20% Santé pour compétence",
+      "Colonne_5": ".+30% Dégâts - Fusil Mitrailleur"
+    },
+    {
+      "element_name": ".+10% Protection pour élimination",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Palisade Steelworks",
+      "Ensemble de Marque": ".+10% Protection pour élimination",
+      "Colonne_4": ".+60% Santé",
+      "Colonne_5": ".+1 Tier de compétence"
+    },
+    {
+      "element_name": ".+15% Taille du chargeur",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Zwiadowka Sp. z o.o.",
+      "Ensemble de Marque": ".+15% Taille du chargeur",
+      "Colonne_4": ".+20% Dégâts de fusil",
+      "Colonne_5": ".+30% Maniement d'arme"
+    },
+    {
+      "element_name": ".+30% Vitesse de rechargement",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Legatus S.p.A.",
+      "Ensemble de Marque": ".+30% Vitesse de rechargement",
+      "Colonne_4": ".+70% Portée optimale",
+      "Colonne_5": ".+15% Dégâts d'arme"
+    },
+    {
+      "element_name": ".+5% Cadence de tir",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Unit Alloys",
+      "Ensemble de Marque": ".+5% Cadence de tir",
+      "Colonne_4": ".+20% Dégâts - Fusil d'assaut",
+      "Colonne_5": ".+50% Taille du chargeur"
+    },
+    {
+      "element_name": ".+10% Précision",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Urban Lookout",
+      "Ensemble de Marque": ".+10% Précision",
+      "Colonne_4": ".+30% Durée de compétence",
+      "Colonne_5": ".+30% Dégâts - Fusil de précision"
+    },
+    {
+      "element_name": ".+5% Dégâts d'arme",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Imminence Armaments",
+      "Ensemble de Marque": ".+5% Dégâts d'arme",
+      "Colonne_4": ".+100% Menace augmentée",
+      "Colonne_5": ".+60% Dégâts - Pistolet"
+    },
+    {
+      "element_name": ".+15% Durée de compétence",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Shiny Monkey Gear",
+      "Ensemble de Marque": ".+15% Durée de compétence",
+      "Colonne_4": ".+5% Efficacité de compétence",
+      "Colonne_5": ".+52% Compétence de réparation"
+    },
+    {
+      "element_name": ".+20% Résistance - Explosions",
+      "element_description": "-",
+      "Colonne_1": "",
+      "Colonne_2": "Lengmo",
+      "Ensemble de Marque": ".+20% Résistance - Explosions",
+      "Colonne_4": ".+20% Santé pour compétence",
+      "Colonne_5": ".+30% Dégâts - Fusil-mitrailleur"
+    }
+  ]
+}

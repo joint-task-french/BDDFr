@@ -1,0 +1,1276 @@
+{
+  "category_name": "Modèles d'Équipements",
+  "category_description": "Liste des modèles d'équipements selon les marques",
+  "data": [
+    {
+      "element_name": "Ensemble de marque",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Ensemble de marque",
+      "Colonne_3": "Nom",
+      "Colonne_4": "Attribut essentiel",
+      "Colonne_5": "Attribut 1",
+      "Colonne_6": "Mod 1"
+    },
+    {
+      "element_name": "True Patriot",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "True Patriot",
+      "Colonne_3": "Masque de classe A de Heft",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Ongoing Directive",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Ongoing Directive",
+      "Colonne_3": "Masque de collecteur",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Hard Wired",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Hard Wired",
+      "Colonne_3": "Masque AR Rhodeswood",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "As et Huit",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "As et Huit",
+      "Colonne_3": "Masque de tireur d'élite Lyudmila",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Dilemme du Négociateur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Dilemme du Négociateur",
+      "Colonne_3": "Masque Snow Job",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Pointe de Lance",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Pointe de Lance",
+      "Colonne_3": "Masque Ray Face",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Cogneur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Cogneur",
+      "Colonne_3": "Masque Cogneur",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Système Corrompu",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Système Corrompu",
+      "Colonne_3": "Masque Vecteur d'attaque",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Protocole Eclipse",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Protocole Eclipse",
+      "Colonne_3": "Masque de protection contre les biorisques",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Rempart de la Founderie",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Rempart de la Founderie",
+      "Colonne_3": "Masque anti-chaleur",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Future Initiative",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Future Initiative",
+      "Colonne_3": "Masque de brouillard de guerre",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Fureur du chasseur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Fureur du chasseur",
+      "Colonne_3": "Bouche du chasseur",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Rigger",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Rigger",
+      "Colonne_3": "Masque antipoussière Rigger",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Heartbreaker",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Heartbreaker",
+      "Colonne_3": "Masque de discrétion",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Initiative Umbra",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Initiative Umbra",
+      "Colonne_3": "Masque Initiative Umbra",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Hotshot",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Hotshot",
+      "Colonne_3": "Masque Hotshot",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "The cavalier",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "The cavalier",
+      "Colonne_3": "Masque Cavalier",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Ortiz: Exuro",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Ortiz: Exuro",
+      "Colonne_3": "Masque Ortiz Exuro",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Aegis",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Aegis",
+      "Colonne_3": "Masque Aegis",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Breaking Point",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Breaking Point",
+      "Colonne_3": "Masque Breaking Point",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Virtuose",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Virtuose",
+      "Colonne_3": "Masque Virtuose",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "True Patriot",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "True Patriot",
+      "Colonne_3": "Protection corporelle d'Appleton",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Ongoing Directive",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Ongoing Directive",
+      "Colonne_3": "Harnais de ressources",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Hard Wired",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Hard Wired",
+      "Colonne_3": "Gilet Renforcé Serpentine",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "As et Huit",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "As et Huit",
+      "Colonne_3": "Gilet Tania Silent",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Dilemme du Négociateur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Dilemme du Négociateur",
+      "Colonne_3": "Protection Highball",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Pointe de Lance",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Pointe de Lance",
+      "Colonne_3": "Gilet de combat Wright",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Cogneur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Cogneur",
+      "Colonne_3": "Harnais Striker",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Système Corrompu",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Système Corrompu",
+      "Colonne_3": "Armure menace combinée",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Protocole Eclipse",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Protocole Eclipse",
+      "Colonne_3": "Pastron scellé",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Rempart de la Founderie",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Rempart de la Founderie",
+      "Colonne_3": "Armure de plates forgées",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Future Initiative",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Future Initiative",
+      "Colonne_3": "Protection de torse Terrapin",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Fureur du chasseur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Fureur du chasseur",
+      "Colonne_3": "Cage du chasseur",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Rigger",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Rigger",
+      "Colonne_3": "Harnais d'accès rapide Rigger",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Heartbreaker",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Heartbreaker",
+      "Colonne_3": "Gilet d'inflexibilité",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Initiative Umbra",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Initiative Umbra",
+      "Colonne_3": "Veste Initiative Umbra",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Hotshot",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Hotshot",
+      "Colonne_3": "Veste Hotshot",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "The cavalier",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "The cavalier",
+      "Colonne_3": "Veste Cavalier",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Ortiz: Exuro",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Ortiz: Exuro",
+      "Colonne_3": "Veste Ortiz Exuro",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Aegis",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Aegis",
+      "Colonne_3": "Veste Aegis",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Breaking Point",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Breaking Point",
+      "Colonne_3": "Veste Breaking Point",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Virtuose",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Virtuose",
+      "Colonne_3": "Veste Virtuose",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "True Patriot",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "True Patriot",
+      "Colonne_3": "Holster à faible friction de Young",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Ongoing Directive",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Ongoing Directive",
+      "Colonne_3": "Holster pour munitions spéciales",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Hard Wired",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Hard Wired",
+      "Colonne_3": "Harnais Ullswater",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "As et Huit",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "As et Huit",
+      "Colonne_3": "Holster arme d'appoint Klavdiya",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Dilemme du Négociateur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Dilemme du Négociateur",
+      "Colonne_3": "Points d'accroche de cuisse Bogey",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Pointe de Lance",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Pointe de Lance",
+      "Colonne_3": "Système de holster Lilley",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Cogneur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Cogneur",
+      "Colonne_3": "Holster Striker",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Système Corrompu",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Système Corrompu",
+      "Colonne_3": "Holster moulé",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Protocole Eclipse",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Protocole Eclipse",
+      "Colonne_3": "Points d'accroche de cuisse PPE",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Rempart de la Founderie",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Rempart de la Founderie",
+      "Colonne_3": "Ceinture à outils",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Future Initiative",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Future Initiative",
+      "Colonne_3": "Holster Tush Tactics",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Fureur du chasseur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Fureur du chasseur",
+      "Colonne_3": "Carquois du chasseur",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Rigger",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Rigger",
+      "Colonne_3": "Pochette fonctionnelle Rigger",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Heartbreaker",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Heartbreaker",
+      "Colonne_3": "Holster d'anticipation",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Initiative Umbra",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Initiative Umbra",
+      "Colonne_3": "Holster Initiative Umbra",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Hotshot",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Hotshot",
+      "Colonne_3": "Holster Hotshot",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "The cavalier",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "The cavalier",
+      "Colonne_3": "Holster Cavalier",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Ortiz: Exuro",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Ortiz: Exuro",
+      "Colonne_3": "Holster Ortiz Exuro",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Aegis",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Aegis",
+      "Colonne_3": "Holster Aegis",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Breaking Point",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Breaking Point",
+      "Colonne_3": "Holster Breaking Point",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Virtuose",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Virtuose",
+      "Colonne_3": "Holster Virtuose",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "True Patriot",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "True Patriot",
+      "Colonne_3": "Sac à dos de Driver",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Ongoing Directive",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Ongoing Directive",
+      "Colonne_3": "Harnais pour paquetage",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Hard Wired",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Hard Wired",
+      "Colonne_3": "Porte-dynamo Abberton",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "As et Huit",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "As et Huit",
+      "Colonne_3": "Pack Ziba Low Profile",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Dilemme du Négociateur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Dilemme du Négociateur",
+      "Colonne_3": "Sac à dos Nibble",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Pointe de Lance",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Pointe de Lance",
+      "Colonne_3": "Pack tactique Brad",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Cogneur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Cogneur",
+      "Colonne_3": "Sac à dos Striker",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Système Corrompu",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Système Corrompu",
+      "Colonne_3": "Conteneur de surcharge",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Protocole Eclipse",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Protocole Eclipse",
+      "Colonne_3": "Sac de confinement",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Rempart de la Founderie",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Rempart de la Founderie",
+      "Colonne_3": "Support de bouclier",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Future Initiative",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Future Initiative",
+      "Colonne_3": "Sac de transport radio 2k-RTS",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Fureur du chasseur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Fureur du chasseur",
+      "Colonne_3": "Kit du chasseur",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Rigger",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Rigger",
+      "Colonne_3": "Sac d'équipement Rigger",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Heartbreaker",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Heartbreaker",
+      "Colonne_3": "Sac autoportant",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Initiative Umbra",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Initiative Umbra",
+      "Colonne_3": "Sac à dos Initiative Umbra",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Hotshot",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Hotshot",
+      "Colonne_3": "Sac à dos Hotshot",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "The cavalier",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "The cavalier",
+      "Colonne_3": "Sac à dos Cavalier",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Ortiz: Exuro",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Ortiz: Exuro",
+      "Colonne_3": "Sac à dos Ortiz Exuro",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Aegis",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Aegis",
+      "Colonne_3": "Sac à dos Aegis",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Breaking Point",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Breaking Point",
+      "Colonne_3": "Sac à dos Breaking Point",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "Virtuose",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Virtuose",
+      "Colonne_3": "Sac à dos Virtuose",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "oui"
+    },
+    {
+      "element_name": "True Patriot",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "True Patriot",
+      "Colonne_3": "Protège-mains de Ross",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Ongoing Directive",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Ongoing Directive",
+      "Colonne_3": "Gants de combat rapproché",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Hard Wired",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Hard Wired",
+      "Colonne_3": "Gants ESD Molesey",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "As et Huit",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "As et Huit",
+      "Colonne_3": "Gants Roza Stable",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Dilemme du Négociateur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Dilemme du Négociateur",
+      "Colonne_3": "Gants Mirror",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Pointe de Lance",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Pointe de Lance",
+      "Colonne_3": "Gants de combat Reyes",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Cogneur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Cogneur",
+      "Colonne_3": "Gants Striker",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Système Corrompu",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Système Corrompu",
+      "Colonne_3": "Gants de contrôle Haptique",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Protocole Eclipse",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Protocole Eclipse",
+      "Colonne_3": "Gants tactiques de qualité médicale",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Rempart de la Founderie",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Rempart de la Founderie",
+      "Colonne_3": "Gants de creuset",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Future Initiative",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Future Initiative",
+      "Colonne_3": "Gants de contrôleur APM",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Fureur du chasseur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Fureur du chasseur",
+      "Colonne_3": "Griffes du chasseur",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Rigger",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Rigger",
+      "Colonne_3": "Gants antidérapants Rigger",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Heartbreaker",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Heartbreaker",
+      "Colonne_3": "Gants de dextérité",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Initiative Umbra",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Initiative Umbra",
+      "Colonne_3": "Gants Initiative Umbra",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Hotshot",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Hotshot",
+      "Colonne_3": "Gants Hotshot",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "The cavalier",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "The cavalier",
+      "Colonne_3": "Gants Cavalier",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Ortiz: Exuro",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Ortiz: Exuro",
+      "Colonne_3": "Gants Ortiz Exuro",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Aegis",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Aegis",
+      "Colonne_3": "Gants Aegis",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Breaking Point",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Breaking Point",
+      "Colonne_3": "Gants Breaking Point",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Virtuose",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Virtuose",
+      "Colonne_3": "Gants Virtuose",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "True Patriot",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "True Patriot",
+      "Colonne_3": "Genouillères de Sheridan",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Ongoing Directive",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Ongoing Directive",
+      "Colonne_3": "Genouillères",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Hard Wired",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Hard Wired",
+      "Colonne_3": "Genouillères de stabilisation Strines",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "As et Huit",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "As et Huit",
+      "Colonne_3": "Protections Nina Prone",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Dilemme du Négociateur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Dilemme du Négociateur",
+      "Colonne_3": "Genouillères Lowball",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Pointe de Lance",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Pointe de Lance",
+      "Colonne_3": "Genouillères Trombley",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Cogneur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Cogneur",
+      "Colonne_3": "Genoullières Striker",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Système Corrompu",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Système Corrompu",
+      "Colonne_3": "Genouillière Zero-day",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Protocole Eclipse",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Protocole Eclipse",
+      "Colonne_3": "Protection de genoux anti-déchirure",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Rempart de la Founderie",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Rempart de la Founderie",
+      "Colonne_3": "Genouillères de forge",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Future Initiative",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Future Initiative",
+      "Colonne_3": "Genouillères ajustées",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Fureur du chasseur",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Fureur du chasseur",
+      "Colonne_3": "Genouillères du chasseur",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Rigger",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Rigger",
+      "Colonne_3": "Protections antichocs Rigger",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Heartbreaker",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Heartbreaker",
+      "Colonne_3": "Genouillères d'agressivité",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Initiative Umbra",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Initiative Umbra",
+      "Colonne_3": "Genouillères Initiative Umbra",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Hotshot",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Hotshot",
+      "Colonne_3": "Genouillères Hotshot",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "The cavalier",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "The cavalier",
+      "Colonne_3": "Genouillères Cavalier",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Ortiz: Exuro",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Ortiz: Exuro",
+      "Colonne_3": "Genouillères Ortiz Exuro",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Aegis",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Aegis",
+      "Colonne_3": "Genouillères Aegis",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Breaking Point",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Breaking Point",
+      "Colonne_3": "Genouillières Breaking Point",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    },
+    {
+      "element_name": "Virtuose",
+      "element_description": "-",
+      "Modèle de set": "",
+      "Colonne_2": "Virtuose",
+      "Colonne_3": "Genouillères Virtuose",
+      "Colonne_4": "",
+      "Colonne_5": "",
+      "Colonne_6": "non"
+    }
+  ]
+}

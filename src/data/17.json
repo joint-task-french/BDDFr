@@ -1,0 +1,888 @@
+{
+  "category_name": "Mods de Compétences",
+  "category_description": "Emplacements, effets des mods et statistiques max",
+  "data": [
+    {
+      "element_name": "CTRL + F pour une recherche rapide avec mot clef",
+      "element_description": "-",
+      "Mods de compétence": "CTRL + F pour une recherche rapide avec mot clef",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "",
+      "Colonne_5": ""
+    },
+    {
+      "element_name": "NOM DE LA COMPÉTENCE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "NOM DE LA COMPÉTENCE",
+      "Colonne_3": "EMPLACEMENT",
+      "Colonne_4": "EFFET DU MODS",
+      "Colonne_5": "STATS MAX"
+    },
+    {
+      "element_name": "IMPULSION",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "IMPULSION",
+      "Colonne_3": "BOBINE",
+      "Colonne_4": "Vitesse de charge",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "Taille du cône",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Taille du cône",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "Rayon",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Rayon",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "LOGEMENT",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "LOGEMENT",
+      "Colonne_4": "Récup. de compétence",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "Durée effet",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Durée effet",
+      "Colonne_5": "17.5%"
+    },
+    {
+      "element_name": "Santé",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Santé",
+      "Colonne_5": "6%"
+    },
+    {
+      "element_name": "IMPULSION(ARTILLEUR)",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "IMPULSION(ARTILLEUR)",
+      "Colonne_3": "BOBINE",
+      "Colonne_4": "Rayon",
+      "Colonne_5": "15%"
+    },
+    {
+      "element_name": "LOGEMENT",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "LOGEMENT",
+      "Colonne_4": "Durée effet",
+      "Colonne_5": "15%"
+    },
+    {
+      "element_name": "TOURELLE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "TOURELLE",
+      "Colonne_3": "MÉCANISME DE TIR",
+      "Colonne_4": "Dégâts de brûlure",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Dégâts",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Dégâts",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "LOGEMENT",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "LOGEMENT",
+      "Colonne_4": "Mun. supp. Sniper",
+      "Colonne_5": ".+1"
+    },
+    {
+      "element_name": "Mun. supp. Mortier",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Mun. supp. Mortier",
+      "Colonne_5": ".+1"
+    },
+    {
+      "element_name": "Santé",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Santé",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "Durée",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Durée",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "DÉSIGNATION",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "DÉSIGNATION",
+      "Colonne_4": "Récup. de compétence",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "Durée",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Durée",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "TOURELLE(DÉMOLISSEUR)",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "TOURELLE(DÉMOLISSEUR)",
+      "Colonne_3": "MÉCANISME DE TIR",
+      "Colonne_4": "Dégât",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "DÉSIGNATION",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "DÉSIGNATION",
+      "Colonne_4": "Mun. supp. Mortier",
+      "Colonne_5": ".+1"
+    },
+    {
+      "element_name": "RUCHE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "RUCHE",
+      "Colonne_3": "DRONES",
+      "Colonne_4": "Efficacité stimulants",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "Dégâts",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Dégâts",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Soins",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Soins",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Protection récupérée",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Protection récupérée",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "LANCEUR",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "LANCEUR",
+      "Colonne_4": "Rayon",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Charges de réparation",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Charges de réparation",
+      "Colonne_5": "4"
+    },
+    {
+      "element_name": "Charges d'aiguillon",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Charges d'aiguillon",
+      "Colonne_5": "4"
+    },
+    {
+      "element_name": "Charges de stimulant",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Charges de stimulant",
+      "Colonne_5": "4"
+    },
+    {
+      "element_name": "SYSTEME",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "SYSTEME",
+      "Colonne_4": "Durée",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Santé",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Santé",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "RUCHE(TECHNICIEN)",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "RUCHE(TECHNICIEN)",
+      "Colonne_3": "LANCEUR",
+      "Colonne_4": "Portée",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "SYSTEME",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "SYSTEME",
+      "Colonne_4": "Durée",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "LANCEUR CHIMIQUE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "LANCEUR CHIMIQUE",
+      "Colonne_3": "AGITATEUR",
+      "Colonne_4": "Intensité de brûlure",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "Dégâts",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Dégâts",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Durée d'entrave",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Durée d'entrave",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "Résistance entrave",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Résistance entrave",
+      "Colonne_5": "17.5%"
+    },
+    {
+      "element_name": "Soin",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Soin",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "PNEUMATIQUE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "PNEUMATIQUE",
+      "Colonne_4": "Durée",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Munitions",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Munitions",
+      "Colonne_5": ".+1"
+    },
+    {
+      "element_name": "Rayon",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Rayon",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "Récup. de compétence",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Récup. de compétence",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "LUCIOLE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "LUCIOLE",
+      "Colonne_3": "CHARGE UTILE",
+      "Colonne_4": "Durée effet aveuglement",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "Dégâts",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Dégâts",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "PROPULSION",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "PROPULSION",
+      "Colonne_4": "Vitesse",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "Récup. de compétence",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Récup. de compétence",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "DÉSIGNATION",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "DÉSIGNATION",
+      "Colonne_4": "Cible max",
+      "Colonne_5": ".+1"
+    },
+    {
+      "element_name": "MINE TÉLÉGUIDÉE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "MINE TÉLÉGUIDÉE",
+      "Colonne_3": "ENTRAÎNEMENT",
+      "Colonne_4": "Récup. de compétence",
+      "Colonne_5": "6%"
+    },
+    {
+      "element_name": "Dégâts",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Dégâts",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Rayon",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Rayon",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "DÉSIGNATION",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "DÉSIGNATION",
+      "Colonne_4": "Mines à sous-munitions",
+      "Colonne_5": ".+1"
+    },
+    {
+      "element_name": "Santé",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Santé",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "CHARGE UTILE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "CHARGE UTILE",
+      "Colonne_4": "Soins",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "Récup. de compétence",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Récup. de compétence",
+      "Colonne_5": "6%"
+    },
+    {
+      "element_name": "Dégâts",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Dégâts",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "MINE TÉLÉGUIDÉE(SURVIVALISTE)",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "MINE TÉLÉGUIDÉE(SURVIVALISTE)",
+      "Colonne_3": "DÉSIGNATION",
+      "Colonne_4": "Santé",
+      "Colonne_5": "15%"
+    },
+    {
+      "element_name": "CHARGE UTILE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "CHARGE UTILE",
+      "Colonne_4": "Soins",
+      "Colonne_5": "15%"
+    },
+    {
+      "element_name": "DRONE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "DRONE",
+      "Colonne_3": "BATTERIE",
+      "Colonne_4": "Durée de la déviation",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "Durée",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Durée",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "APPROVISIONNEMENT",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "APPROVISIONNEMENT",
+      "Colonne_4": "Dégâts",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Réparation de protection",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Réparation de protection",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "Réduction des dégâts",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Réduction des dégâts",
+      "Colonne_5": "6%"
+    },
+    {
+      "element_name": "COQUE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "COQUE",
+      "Colonne_4": "Portée scan",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "Bombes supplémentaires",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Bombes supplémentaires",
+      "Colonne_5": ".+2"
+    },
+    {
+      "element_name": "Santé",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Santé",
+      "Colonne_5": "10%"
+    },
+    {
+      "element_name": "DRONE(TIREUR D'ÉLITE)",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "DRONE(TIREUR D'ÉLITE)",
+      "Colonne_3": "BATTERIE",
+      "Colonne_4": "Durée",
+      "Colonne_5": "15%"
+    },
+    {
+      "element_name": "COQUE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "COQUE",
+      "Colonne_4": "Portée scan",
+      "Colonne_5": "20%"
+    },
+    {
+      "element_name": "BOUCLIER",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "BOUCLIER",
+      "Colonne_3": "CIRCUIT IMPRIMÉ",
+      "Colonne_4": "Bonus de dégâts (par ennemi)",
+      "Colonne_5": "1%"
+    },
+    {
+      "element_name": "Dégâts du déflecteur",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Dégâts du déflecteur",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Régénération en étui",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Régénération en étui",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Santé du bouclier",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Santé du bouclier",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "REVÊTEMENT DUR",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "REVÊTEMENT DUR",
+      "Colonne_4": "Régénération active",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Santé du bouclier",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Santé du bouclier",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Dégâts du déflecteur",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Dégâts du déflecteur",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "GYRO",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "GYRO",
+      "Colonne_4": "Bonus de dégâts (par ennemi)",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Régénération en étui",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Régénération en étui",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Dégâts du déflecteur",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Dégâts du déflecteur",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "BOUCLIER(INCENDIAIRE)",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "BOUCLIER(INCENDIAIRE)",
+      "Colonne_3": "REVÊTEMENT DUR",
+      "Colonne_4": "Santé du bouclier",
+      "Colonne_5": "8%"
+    },
+    {
+      "element_name": "CIRCUIT IMPRIMÉ",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "CIRCUIT IMPRIMÉ",
+      "Colonne_4": "Régénération active",
+      "Colonne_5": "8%"
+    },
+    {
+      "element_name": "PIEGE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "PIEGE",
+      "Colonne_3": "ÉLECTRONIQUE",
+      "Colonne_4": "Rayon d'électrocution",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "Durée",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Durée",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "CHARGE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "CHARGE",
+      "Colonne_4": "Durée",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "CHARGE ADHÉSIVE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "CHARGE ADHÉSIVE",
+      "Colonne_3": "LANCEUR",
+      "Colonne_4": "Rayon de souffle",
+      "Colonne_5": "6%"
+    },
+    {
+      "element_name": "Récupération de comp.",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Récupération de comp.",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Durée",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Durée",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "CHARGE UTILE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "CHARGE UTILE",
+      "Colonne_4": "Dégâts",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "Durée",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Durée",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "Rayon de souffle",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Rayon de souffle",
+      "Colonne_5": "6%"
+    },
+    {
+      "element_name": "Intensité de brûlure",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Intensité de brûlure",
+      "Colonne_5": "5%"
+    },
+    {
+      "element_name": "LEURRE",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "LEURRE",
+      "Colonne_3": "LOGEMENT",
+      "Colonne_4": "Santé",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "PROJECTEUR",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "PROJECTEUR",
+      "Colonne_4": "Durée",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "ABRI INTELLIGENT",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "ABRI INTELLIGENT",
+      "Colonne_3": "LANCEUR INTELLIGENT",
+      "Colonne_4": "Durée",
+      "Colonne_5": ""
+    },
+    {
+      "element_name": "Rayon",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Rayon",
+      "Colonne_5": ""
+    },
+    {
+      "element_name": "Recharge",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Recharge",
+      "Colonne_5": "7.5%"
+    },
+    {
+      "element_name": "PROJECTILE INTELLIGENT",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "PROJECTILE INTELLIGENT",
+      "Colonne_4": "Dégâts sur cible non abritées",
+      "Colonne_5": ""
+    },
+    {
+      "element_name": "Protection bonus",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Protection bonus",
+      "Colonne_5": ""
+    },
+    {
+      "element_name": "Résistance - Explosion",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Résistance - Explosion",
+      "Colonne_5": ""
+    },
+    {
+      "element_name": "Résistance - Impulsion",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Résistance - Impulsion",
+      "Colonne_5": ""
+    },
+    {
+      "element_name": "Maniement d'arme",
+      "element_description": "-",
+      "Mods de compétence": "",
+      "Colonne_2": "",
+      "Colonne_3": "",
+      "Colonne_4": "Maniement d'arme",
+      "Colonne_5": "7.5%"
+    }
+  ]
+}

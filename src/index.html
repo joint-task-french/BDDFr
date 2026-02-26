@@ -5,25 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Base de Données SHD - The Division 2</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./dist/main.min.css">
 
-  <link href="./dist/main.min.css" rel="stylesheet">
-
+  <script src="./js/index.js" defer></script>
 </head>
 <body class="bg-tactical-bg text-gray-300 font-sans antialiased flex h-screen overflow-hidden bg-grid">
 
-<!-- Menu Latéral (Sommaire Dynamique) -->
 <aside class="w-64 sm:w-72 bg-tactical-panel border-r border-tactical-border flex flex-col h-full z-30 transition-transform duration-300 absolute md:relative -translate-x-full md:translate-x-0 shadow-[4px_0_24px_rgba(0,0,0,0.8)]" id="sidebar">
   <div class="p-4 sm:p-6 border-b border-tactical-border flex justify-between items-center shrink-0">
     <div class="flex items-center gap-2">
       <svg class="w-7 h-7 sm:w-8 sm:h-8 text-shd" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
       </svg>
-      <h1 class="text-md sm:text-xl font-bold text-white tracking-widest">RÉSEAU SHD: <span class="text-blue-500">JT<span class="text-white">F</span></span><span class="text-red-500">r</span></h1>
+      <h1 class="text-xl sm:text-2xl font-bold text-white tracking-widest uppercase">Réseau <span class="text-shd">SHD</span></h1>
     </div>
-    <button onclick="toggleSidebar()" class="md:hidden text-gray-500 hover:text-shd p-2 -mr-2">
+    <button onclick="window.toggleSidebar()" class="md:hidden text-gray-500 hover:text-shd p-2 -mr-2">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
     </button>
   </div>
@@ -34,26 +30,22 @@
   </div>
 
   <div class="flex-1 overflow-y-auto py-2 scrollbar-thin">
-    <nav id="nav-links" class="space-y-1 px-2">
-      <!-- Liens générés au fur et à mesure par le lazy-loading -->
-    </nav>
+    <nav id="nav-links" class="space-y-1 px-2"></nav>
   </div>
 
   <div class="p-4 border-t border-tactical-border text-xs text-gray-600 flex justify-between items-center shrink-0">
-    <span>ISAC System v3.3</span>
+    <span>ISAC System v3.5</span>
     <span class="inline-block w-2 h-2 rounded-full bg-shd animate-pulse shadow-[0_0_8px_#ff9000]" id="status-led"></span>
   </div>
 </aside>
 
-<div id="mobile-overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-20 hidden md:hidden transition-opacity"></div>
+<div id="mobile-overlay" onclick="window.toggleSidebar()" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-20 hidden md:hidden transition-opacity"></div>
 
-<!-- Contenu Principal -->
 <main class="flex-1 flex flex-col h-full w-full relative z-10 overflow-hidden">
-  <!-- En-tête de la zone de données -->
   <header class="bg-tactical-bg/90 backdrop-blur-md border-b border-tactical-border shrink-0 z-20 shadow-lg">
     <div class="px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div class="flex items-center gap-3">
-        <button onclick="toggleSidebar()" class="md:hidden text-gray-400 hover:text-shd focus:outline-none p-1 shrink-0">
+        <button onclick="window.toggleSidebar()" class="md:hidden text-gray-400 hover:text-shd focus:outline-none p-1 shrink-0">
           <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
         <h2 class="text-lg sm:text-2xl font-bold text-white tracking-wider uppercase flex items-center gap-2 sm:gap-3 leading-tight truncate">
@@ -61,7 +53,6 @@
         </h2>
       </div>
 
-      <!-- Barre de Recherche Globale -->
       <div class="relative w-full sm:w-80 group shrink-0">
         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
           <svg class="h-5 w-5 text-gray-500 group-focus-within:text-shd transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
@@ -71,10 +62,8 @@
     </div>
   </header>
 
-  <!-- Zone d'affichage scrollable principale -->
   <div class="flex-1 overflow-auto relative bg-tactical-bg" id="main-scroll-area">
 
-    <!-- Écran de chargement initial -->
     <div id="loader" class="absolute inset-0 z-50 flex items-center justify-center flex-col bg-tactical-bg transition-opacity duration-300">
       <div class="relative w-20 h-20 mb-4">
         <svg class="animate-spin w-full h-full text-shd/20" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="4"></circle></svg>
@@ -83,12 +72,8 @@
       <p class="text-shd tracking-widest uppercase font-semibold text-lg animate-pulse">Liaison au serveur SHD...</p>
     </div>
 
-    <!-- VUE 1 : Affichage progressif normal des catégories -->
-    <div id="categories-container" class="space-y-8 pb-12 p-0 sm:p-4 lg:p-6 hidden">
-      <!-- Les sections s'ajouteront ici une par une -->
-    </div>
+    <div id="categories-container" class="space-y-8 pb-12 p-0 sm:p-4 lg:p-6 hidden"></div>
 
-    <!-- VUE 2 : Tableau spécial de recherche unifiée (Épuré) -->
     <div id="search-results-container" class="hidden h-full flex flex-col p-0 sm:p-4 lg:p-6">
       <div class="mb-4 flex justify-between items-end px-4 sm:px-0">
         <div>
@@ -107,15 +92,12 @@
               <th class="px-4 py-4 text-xs font-bold text-gray-300 uppercase tracking-widest align-bottom">Description</th>
             </tr>
             </thead>
-            <tbody class="divide-y divide-tactical-border/40 bg-transparent" id="search-table-body">
-            <!-- Lignes de recherche générées ici -->
-            </tbody>
+            <tbody class="divide-y divide-tactical-border/40 bg-transparent" id="search-table-body"></tbody>
           </table>
         </div>
       </div>
     </div>
 
-    <!-- Message d'état vide total -->
     <div id="empty-state" class="hidden absolute inset-0 flex flex-col items-center justify-center text-gray-500 text-center p-6">
       <svg class="w-20 h-20 mb-4 text-tactical-border" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
       <p class="text-xl uppercase tracking-widest text-gray-400">Aucune archive trouvée dans le dossier /data/.</p>
@@ -124,6 +106,5 @@
 
   </div>
 </main>
-<script src="./js/index.js"></script>
 </body>
 </html>

@@ -1,12 +1,18 @@
-let allData = []; // Stocke la totalité des données chargées en mémoire
+let allData = [];
 let isFirstLoad = true;
 let loadedModulesCount = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
     loadAllCategoriesProgressively();
+
+    document.getElementById('search-input').addEventListener('input', triggerSearch);
 });
 
-// 1. CHARGEMENT PROGRESSIF ET NON-BLOQUANT (LAZY LOADING)
+window.toggleSidebar = function() {
+    document.getElementById('sidebar').classList.toggle('-translate-x-full');
+    document.getElementById('mobile-overlay').classList.toggle('hidden');
+};
+
 async function loadAllCategoriesProgressively() {
     const statusEl = document.getElementById('loading-status');
     const led = document.getElementById('status-led');
@@ -59,16 +65,15 @@ async function loadAllCategoriesProgressively() {
     }
 }
 
-// 2. GESTION DU SOMMAIRE LATÉRAL
 function appendCategoryToSidebar(name, id) {
     const navContainer = document.getElementById('nav-links');
     const link = document.createElement('button');
 
-    link.className = `w-full text-left px-3 py-2.5 sm:py-2 rounded mb-1 text-sm font-medium transition-all duration-200 text-gray-400 hover:bg-tactical-hover hover:text-gray-200 border-l-2 border-transparent hover:border-shd uppercase tracking-wide wrap-break-word leading-snug`;
+    link.className = `w-full text-left px-3 py-2.5 sm:py-2 rounded mb-1 text-sm font-medium transition-all duration-200 text-gray-400 hover:bg-tactical-hover hover:text-gray-200 border-l-2 border-transparent hover:border-shd uppercase tracking-wide break-words leading-snug`;
     link.innerText = name;
 
     link.onclick = () => {
-        if (window.innerWidth < 768) toggleSidebar();
+        if (window.innerWidth < 768) window.toggleSidebar();
 
         const searchInput = document.getElementById('search-input');
         if (searchInput.value) {
@@ -85,7 +90,6 @@ function appendCategoryToSidebar(name, id) {
     navContainer.appendChild(link);
 }
 
-// 3. AFFICHAGE ADAPTATIF DES CATÉGORIES
 function appendCategoryToMainView(json, id) {
     const container = document.getElementById('categories-container');
 
@@ -94,14 +98,14 @@ function appendCategoryToMainView(json, id) {
     section.className = "bg-tactical-panel/60 sm:rounded-lg border border-tactical-border shadow-lg overflow-hidden fade-in relative shrink-0 scroll-mt-6 flex flex-col max-h-[80vh]";
 
     let html = `
-                <div class="px-6 py-5 border-b border-tactical-border bg-linear-to-r from-tactical-panel to-tactical-bg relative overflow-hidden shrink-0 z-20 shadow-md">
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-shd"></div>
-                    <h3 class="text-2xl font-bold text-white uppercase tracking-widest flex items-center gap-3">
-                        ${json.category_name}
-                    </h3>
-                    ${json.category_description ? `<p class="text-gray-400 text-sm mt-2 font-medium tracking-wide">${json.category_description}</p>` : ''}
-                </div>
-            `;
+        <div class="px-6 py-5 border-b border-tactical-border bg-gradient-to-r from-tactical-panel to-tactical-bg relative overflow-hidden shrink-0 z-20 shadow-md">
+            <div class="absolute left-0 top-0 bottom-0 w-1 bg-shd"></div>
+            <h3 class="text-2xl font-bold text-white uppercase tracking-widest flex items-center gap-3">
+                ${json.category_name}
+            </h3>
+            ${json.category_description ? `<p class="text-gray-400 text-sm mt-2 font-medium tracking-wide">${json.category_description}</p>` : ''}
+        </div>
+    `;
 
     if (id === 'cat-1' || json.category_name.toLowerCase().includes('présentation') || json.category_name.toLowerCase().includes('accueil')) {
         html += `<div class="p-4 sm:p-6 space-y-4 overflow-y-auto flex-1 custom-scrollbar">`;
@@ -123,11 +127,11 @@ function appendCategoryToMainView(json, id) {
     }
     else if (json.data && json.data.length > 0) {
         html += `
-                    <div class="overflow-auto w-full flex-1 relative bg-tactical-panel/30 custom-scrollbar">
-                        <table class="min-w-full divide-y divide-tactical-border border-collapse text-left">
-                            <thead class="sticky top-0 z-10 shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
-                                <tr>
-                `;
+            <div class="overflow-auto w-full flex-1 relative bg-tactical-panel/30 custom-scrollbar">
+                <table class="min-w-full divide-y divide-tactical-border border-collapse text-left">
+                    <thead class="sticky top-0 z-10 shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+                        <tr>
+        `;
 
         const columns = Object.keys(json.data[0]).filter(c => c && c !== 'element_name' && c !== 'element_description');
 
@@ -139,13 +143,12 @@ function appendCategoryToMainView(json, id) {
 
         json.data.forEach((row, index) => {
             const rowClass = index % 2 === 0 ? 'bg-transparent' : 'bg-tactical-hover/20';
-            // Ajout d'un ID unique par ligne et d'une durée de transition fluide pour le flash lumineux
             html += `<tr id="${id}-row-${index}" class="row-hover transition-all duration-700 ${rowClass}">`;
 
             columns.forEach(col => {
-                html += `<td class="px-4 sm:px-6 py-3 text-sm text-gray-300 min-w-[140px] max-w-[300px] whitespace-normal wrap-break-word align-top leading-relaxed border-y border-transparent">
-                            ${formatCellContent(col, row[col])}
-                        </td>`;
+                html += `<td class="px-4 sm:px-6 py-3 text-sm text-gray-300 min-w-[140px] max-w-[300px] whitespace-normal break-words align-top leading-relaxed border-y border-transparent">
+                    ${formatCellContent(col, row[col])}
+                </td>`;
             });
 
             html += `</tr>`;
@@ -159,7 +162,6 @@ function appendCategoryToMainView(json, id) {
     container.appendChild(section);
 }
 
-// 4. TABLEAU SPÉCIAL DE RECHERCHE UNIFIÉE (ÉPURÉ)
 function triggerSearch() {
     const term = document.getElementById('search-input').value.toLowerCase();
     const catContainer = document.getElementById('categories-container');
@@ -190,24 +192,20 @@ function triggerSearch() {
                 const elDesc = item.element_description && item.element_description !== "-" ? item.element_description : "-";
 
                 const tr = document.createElement('tr');
-                // Ajout du curseur pointer et d'un hover plus marqué
                 tr.className = `row-hover transition-colors duration-150 ${matchCount % 2 === 0 ? 'bg-tactical-bg/50' : 'bg-tactical-hover/30'} cursor-pointer hover:bg-shd/10`;
+                tr.onclick = () => window.scrollToElement(cat.id, `${cat.id}-row-${index}`);
 
-                // Action au clic : Navigation fluide et flash vers l'élément exact
-                tr.onclick = () => scrollToElement(cat.id, `${cat.id}-row-${index}`);
-
-                // La colonne 'Données Tactiques' a été supprimée ici
                 tr.innerHTML = `
-                            <td class="px-4 py-3 text-xs sm:text-sm text-shd font-bold uppercase tracking-widest align-top border-y border-tactical-border/30">
-                                ${cat.category_name}
-                            </td>
-                            <td class="px-4 py-3 text-sm sm:text-[15px] text-white font-bold align-top border-y border-tactical-border/30 wrap-break-word whitespace-normal">
-                                ${formatCellContent('element_name', elName)}
-                            </td>
-                            <td class="px-4 py-3 text-sm text-gray-400 align-top border-y border-tactical-border/30 wrap-break-word whitespace-normal">
-                                ${formatCellContent('element_description', elDesc)}
-                            </td>
-                        `;
+                    <td class="px-4 py-3 text-xs sm:text-sm text-shd font-bold uppercase tracking-widest align-top border-y border-tactical-border/30">
+                        ${cat.category_name}
+                    </td>
+                    <td class="px-4 py-3 text-sm sm:text-[15px] text-white font-bold align-top border-y border-tactical-border/30 break-words whitespace-normal">
+                        ${formatCellContent('element_name', elName)}
+                    </td>
+                    <td class="px-4 py-3 text-sm text-gray-400 align-top border-y border-tactical-border/30 break-words whitespace-normal">
+                        ${formatCellContent('element_description', elDesc)}
+                    </td>
+                `;
                 tbody.appendChild(tr);
             }
         });
@@ -220,47 +218,32 @@ function triggerSearch() {
     }
 }
 
-document.getElementById('search-input').addEventListener('input', triggerSearch);
-
-// NOUVEAU : Fonction pour scroller vers la donnée exacte depuis la recherche
-function scrollToElement(catId, rowId) {
-    // 1. Vide la barre de recherche et rétablit l'affichage normal des catégories
+window.scrollToElement = function(catId, rowId) {
     const searchInput = document.getElementById('search-input');
     searchInput.value = '';
     triggerSearch();
 
-    // 2. Laisse un court délai pour que le DOM se réaffiche correctement, puis on défile
     setTimeout(() => {
         const targetRow = document.getElementById(rowId);
         if (targetRow) {
-            // S'assurer que la catégorie parente est aussi scrollée si elle a sa propre barre de défilement (overflow-auto)
             const parentTableContainer = targetRow.closest('.overflow-auto');
             if (parentTableContainer) {
-                // On aligne la ligne au centre du tableau de la catégorie
                 const offsetTop = targetRow.offsetTop - (parentTableContainer.clientHeight / 2) + (targetRow.clientHeight / 2);
                 parentTableContainer.scrollTo({ top: offsetTop, behavior: 'smooth' });
             }
 
-            // On aligne la catégorie entière au centre de l'écran principal
             const mainScrollArea = document.getElementById('main-scroll-area');
             const categoryElement = document.getElementById(catId);
             if (categoryElement && mainScrollArea) {
                 categoryElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
 
-            // 3. Effet de surbrillance tactique (Flash Orange) pour ne pas perdre la ligne de vue
             targetRow.classList.add('highlight-pulse');
             setTimeout(() => {
                 targetRow.classList.remove('highlight-pulse');
-            }, 2000); // L'effet s'estompe après 2 secondes
+            }, 2000);
         }
     }, 50);
-}
-
-// 5. UTILITAIRES
-function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('-translate-x-full');
-    document.getElementById('mobile-overlay').classList.toggle('hidden');
 }
 
 function formatCellContent(columnName, cellValue, isCompactMode = false) {
@@ -284,8 +267,8 @@ function formatCellContent(columnName, cellValue, isCompactMode = false) {
 
     if (valueStr.startsWith('http://') || valueStr.startsWith('https://')) {
         return `<a href="${valueStr}" target="_blank" class="inline-flex items-center gap-1 text-xs text-shd hover:text-white transition-colors underline decoration-shd/50 underline-offset-2 uppercase tracking-widest break-all">
-                    Lien Externe
-                </a>`;
+            Lien Externe
+        </a>`;
     }
 
     if (['oui', 'actif', 'vrai', 'true', 'disponible', '✔'].includes(valLower)) {

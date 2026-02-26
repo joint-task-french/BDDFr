@@ -1,15 +1,7 @@
 @import "tailwindcss";
 
-@font-face {
-    font-family: Rajdhani;
-    src: url(/fonts/Rajdhani-Regular.ttf) format("ttf");
-}
-
-
 @theme {
-    --font-display: "Rajdhani", "sans-serif";
-
-    --color-shd-DEFAULT: #ff9000;
+    --color-shd: #ff9000;
     --color-shd-dark: #cc7300;
     --color-shd-glow: rgba(255, 144, 0, 0.2);
 
@@ -17,40 +9,87 @@
     --color-tactical-panel: #15181d;
     --color-tactical-border: #242a33;
     --color-tactical-hover: #1c2128;
+
+    --font-sans: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
 }
 
-
-::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: #0d0f12; }
-::-webkit-scrollbar-thumb { background: #242a33; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #ff9000; }
-
-.fade-in { animation: fadeIn 0.5s ease-out forwards; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-
-.bg-grid {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 20px 20px;
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('../fonts/Rajdhani-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('../fonts/Rajdhani-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('../fonts/Rajdhani-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('../fonts/Rajdhani-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('../fonts/Rajdhani-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
-.row-hover:hover td {
-    background-color: rgba(255, 144, 0, 0.05);
-    border-top-color: rgba(255, 144, 0, 0.3);
-    border-bottom-color: rgba(255, 144, 0, 0.3);
-}
-.row-hover:hover td:first-child {
-    box-shadow: inset 3px 0 0 0 #ff9000;
+@layer base {
+    body {
+        font-family: var(--font-sans);
+    }
 }
 
-/* Classe spéciale pour mettre en évidence la ligne après un clic dans la recherche */
-.highlight-pulse td {
-    background-color: rgba(255, 144, 0, 0.3) !important;
-    border-top: 1px solid #ff9000 !important;
-    border-bottom: 1px solid #ff9000 !important;
-}
-.highlight-pulse td:first-child {
-    box-shadow: inset 5px 0 0 0 #ff9000 !important;
-}
+@layer utilities {
+    .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
-html { scroll-behavior: smooth; }
+    .bg-grid {
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+
+    .row-hover:hover td {
+        background-color: var(--color-shd-glow);
+        border-top-color: rgba(255, 144, 0, 0.3);
+        border-bottom-color: rgba(255, 144, 0, 0.3);
+    }
+    .row-hover:hover td:first-child {
+        box-shadow: inset 3px 0 0 0 var(--color-shd);
+    }
+
+    .highlight-pulse td {
+        background-color: rgba(255, 144, 0, 0.3) !important;
+        border-top: 1px solid var(--color-shd) !important;
+        border-bottom: 1px solid var(--color-shd) !important;
+    }
+    .highlight-pulse td:first-child {
+        box-shadow: inset 5px 0 0 0 var(--color-shd) !important;
+    }
+
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--color-tactical-bg); }
+    ::-webkit-scrollbar-thumb { background: var(--color-tactical-border); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--color-shd); }
+
+    html { scroll-behavior: smooth; }
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Ensembles (Gear Sets + Marques) — The Division 2",
+  "description": "Tous les ensembles d'équipement fusionnés, avec bonus, talents et attributs essentiels",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["nom", "type"],
+    "properties": {
+      "nom": { "type": "string" },
+      "type": {
+        "type": "string",
+        "enum": ["gear_set", "marque"],
+        "description": "Type d'ensemble"
+      },
+      "logo": {
+        "type": "string",
+        "description": "Nom du fichier logo dans public/img/ensembles/ (ex: ongoing-directive.png)"
+      },
+      "attributsEssentiels": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Attribut(s) essentiel(s) par défaut de l'ensemble (ex: ['Protection', 'Dégâts d\\'arme'])"
+      },
+      "bonus1piece": { "type": "string" },
+      "bonus2pieces": { "type": "string" },
+      "bonus3pieces": { "type": "string" },
+      "bonus4pieces": { "type": "string", "description": "Talent de set à 4 pièces (gear sets uniquement)" },
+      "talentTorse": { "type": "string", "description": "Talent spécifique au torse du set (gear sets uniquement)" },
+      "talentSac": { "type": "string", "description": "Talent spécifique au sac à dos du set (gear sets uniquement)" }
+    }
+  }
+}
+

@@ -1,12 +1,16 @@
 import { useBuild } from '../../context/BuildContext'
+import { SPECIALISATIONS } from '../../utils/formatters'
 
 export default function SkillSlot({ slotIndex, skill, onSelect }) {
-  const { dispatch } = useBuild()
+  const { dispatch, skillNeedsSpec } = useBuild()
 
   const remove = (e) => {
     e.stopPropagation()
     dispatch({ type: 'REMOVE_SKILL', slot: slotIndex })
   }
+
+  const missingSpec = skill ? skillNeedsSpec(skill) : null
+  const specLabel = missingSpec ? SPECIALISATIONS[missingSpec]?.label : null
 
   return (
     <div className="build-slot group" onClick={skill ? undefined : onSelect}>
@@ -19,6 +23,11 @@ export default function SkillSlot({ slotIndex, skill, onSelect }) {
           <div className="border-l-2 border-l-yellow-500 pl-3">
             <div className="font-bold text-white text-sm uppercase tracking-wide">{skill.variante}</div>
             <div className="text-xs text-yellow-400 font-bold">{skill.competence}</div>
+            {missingSpec && (
+              <div className="text-[10px] text-yellow-500 mt-1 bg-yellow-500/10 px-2 py-1 rounded">
+                ⚠ Nécessite la spé {specLabel}
+              </div>
+            )}
             {skill.statistiques && (
               <div className="text-[10px] text-gray-400 mt-2 leading-relaxed whitespace-pre-line">
                 {skill.statistiques}

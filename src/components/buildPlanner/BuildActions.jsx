@@ -2,14 +2,14 @@ import { useState } from 'react'
 import { useBuild } from '../../context/BuildContext'
 
 export default function BuildActions() {
-  const { weapons, weaponTalents, gear, gearTalents, skills, dispatch } = useBuild()
+  const { specialWeapon, weapons, weaponTalents, sidearm, sidearmTalent, gear, gearTalents, skills, dispatch } = useBuild()
   const [showSaves, setShowSaves] = useState(false)
 
   const saveBuild = () => {
     const name = prompt('Nom du build :')
     if (!name) return
     const saves = JSON.parse(localStorage.getItem('div2_builds') || '{}')
-    saves[name] = { weapons, weaponTalents, gear, gearTalents, skills, savedAt: new Date().toISOString() }
+    saves[name] = { specialWeapon, weapons, weaponTalents, sidearm, sidearmTalent, gear, gearTalents, skills, savedAt: new Date().toISOString() }
     localStorage.setItem('div2_builds', JSON.stringify(saves))
     alert(`Build "${name}" sauvegardé !`)
   }

@@ -1,9 +1,10 @@
 import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
+import { SPECIALISATIONS } from '../../utils/formatters'
 import SelectionModal from '../common/SelectionModal'
 
 export default function SkillPicker({ data, slotIndex, onClose }) {
-  const { dispatch, canEquipSkill } = useBuild()
+  const { dispatch, canEquipSkill, skillNeedsSpec } = useBuild()
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('all')
 
@@ -83,13 +84,18 @@ export default function SkillPicker({ data, slotIndex, onClose }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {variants.map(s => {
               const blocked = !canEquipSkill(s, slotIndex)
+              const missingSpec = skillNeedsSpec(s)
+              const specLabel = missingSpec ? SPECIALISATIONS[missingSpec]?.label : null
               return (
                 <div
                   key={s.variante}
                   onClick={() => !blocked && select(s)}
-                  className={`modal-item group ${blocked ? 'disabled' : ''}`}
+                  className={`modal-item group ${blocked ? 'disabled' : ''} ${missingSpec ? 'border-yellow-500/30' : ''}`}
                 >
                   {blocked && <div className="text-[10px] text-red-400 mb-1">⚠ Même type déjà équipé</div>}
+                  {missingSpec && !blocked && (
+                    <div className="text-[10px] text-yellow-500 mb-1">⚠ Nécessite la spé {specLabel}</div>
+                  )}
                   <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-shd transition-colors">
                     {s.variante}
                   </div>

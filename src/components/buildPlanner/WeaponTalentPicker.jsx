@@ -2,18 +2,20 @@ import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
 import SelectionModal from '../common/SelectionModal'
 
-export default function WeaponTalentPicker({ data, slotIndex, onClose }) {
-  const { weapons, dispatch } = useBuild()
-  const weapon = weapons[slotIndex]
+export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClose }) {
+  const { weapons, sidearm, dispatch } = useBuild()
+  const isSidearm = slotIndex === 'sidearm'
+  const weapon = isSidearm ? sidearm : weapons[slotIndex]
+  const wType = weaponType || weapon?.type
   const [search, setSearch] = useState('')
 
   const compatibleTalents = useMemo(() => {
-    if (!weapon || !data.talentsArmes) return []
+    if (!wType || !data.talentsArmes) return []
     return data.talentsArmes.filter(t => {
       if (!t.compatibilite) return true
-      return t.compatibilite[weapon.type] === true
+      return t.compatibilite[wType] === true
     })
-  }, [data.talentsArmes, weapon])
+  }, [data.talentsArmes, wType])
 
   const filtered = useMemo(() => {
     if (!search) return compatibleTalents
@@ -25,7 +27,11 @@ export default function WeaponTalentPicker({ data, slotIndex, onClose }) {
   }, [compatibleTalents, search])
 
   const select = (talent) => {
-    dispatch({ type: 'SET_WEAPON_TALENT', slot: slotIndex, talent })
+    if (isSidearm) {
+      dispatch({ type: 'SET_SIDEARM_TALENT', talent })
+    } else {
+      dispatch({ type: 'SET_WEAPON_TALENT', slot: slotIndex, talent })
+    }
     onClose()
   }
 

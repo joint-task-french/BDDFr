@@ -10,8 +10,7 @@ const CATEGORIES = [
   { key: 'equipements', label: 'Équipements', icon: '🛡️' },
   { key: 'talentsArmes', label: "Talents d'Armes", icon: '🎯' },
   { key: 'talentsEquipements', label: "Talents d'Équipements", icon: '🏅' },
-  { key: 'ensemblesGear', label: 'Gear Sets', icon: '🔗' },
-  { key: 'ensemblesMarque', label: 'Ensembles de Marque', icon: '🏷️' },
+  { key: 'ensembles', label: 'Ensembles', icon: '🔗' },
   { key: 'competences', label: 'Compétences', icon: '⚡' },
   { key: 'modsArmes', label: "Mods d'Armes", icon: '🔧' },
   { key: 'modsEquipements', label: "Mods d'Équipements", icon: '⚙️' },
@@ -60,6 +59,7 @@ export default function DatabasePage() {
         category={activeCat}
         items={filteredData}
         searchTerm={searchTerm}
+        allData={data}
       />
     </div>
   )

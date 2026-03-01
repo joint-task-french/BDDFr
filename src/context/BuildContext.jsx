@@ -1,17 +1,32 @@
-import { createContext, useContext, useReducer, useCallback } from 'react'
+import { createContext, useContext, useReducer, useCallback, useMemo } from 'react'
+import { getSpecFromWeapon, getSkillRequiredSpec } from '../utils/formatters'
 
 const BuildContext = createContext(null)
 
 const INITIAL_STATE = {
-  weapons: [null, null, null],
-  weaponTalents: [null, null, null],
+  // Arme spécifique (signature) — détermine la spécialisation
+  specialWeapon: null,
+  // Armes classiques : primaire, secondaire
+  weapons: [null, null],
+  weaponTalents: [null, null],
+  // Arme de poing
+  sidearm: null,
+  sidearmTalent: null,
+  // Équipements
   gear: { masque: null, torse: null, holster: null, sac_a_dos: null, gants: null, genouilleres: null },
   gearTalents: { torse: null, sac_a_dos: null },
+  // Compétences
   skills: [null, null],
 }
 
 function buildReducer(state, action) {
   switch (action.type) {
+    case 'SET_SPECIAL_WEAPON': {
+      return { ...state, specialWeapon: action.weapon }
+    }
+    case 'REMOVE_SPECIAL_WEAPON': {
+      return { ...state, specialWeapon: null }
+    }
     case 'SET_WEAPON': {
       const weapons = [...state.weapons]
       weapons[action.slot] = action.weapon
@@ -30,6 +45,15 @@ function buildReducer(state, action) {
       const weaponTalents = [...state.weaponTalents]
       weaponTalents[action.slot] = action.talent
       return { ...state, weaponTalents }
+    }
+    case 'SET_SIDEARM': {
+      return { ...state, sidearm: action.weapon, sidearmTalent: null }
+    }
+    case 'REMOVE_SIDEARM': {
+      return { ...state, sidearm: null, sidearmTalent: null }
+    }
+    case 'SET_SIDEARM_TALENT': {
+      return { ...state, sidearmTalent: action.talent }
     }
     case 'SET_GEAR': {
       const gear = { ...state.gear, [action.slot]: action.piece }
@@ -73,8 +97,14 @@ function buildReducer(state, action) {
 export function BuildProvider({ children }) {
   const [state, dispatch] = useReducer(buildReducer, INITIAL_STATE)
 
-  // Contraintes exotiques
-  const hasExoticWeapon = state.weapons.some(w => w?.estExotique)
+  // Spécialisation déduite de l'arme spécifique
+  const specialisation = useMemo(
+    () => getSpecFromWeapon(state.specialWeapon?.nom),
+    [state.specialWeapon]
+  )
+
+  // Contraintes exotiques — armes classiques + arme de poing
+  const hasExoticWeapon = state.weapons.some(w => w?.estExotique) || state.sidearm?.estExotique
   const hasExoticGear = Object.values(state.gear).some(g => g?.estExotique)
 
   // Compétences déjà utilisées (par type)
@@ -82,9 +112,13 @@ export function BuildProvider({ children }) {
 
   const canEquipExoticWeapon = useCallback((slot) => {
     if (!hasExoticWeapon) return true
-    // Peut remplacer sa propre exotique
     return state.weapons[slot]?.estExotique === true
   }, [hasExoticWeapon, state.weapons])
+
+  const canEquipExoticSidearm = useCallback(() => {
+    if (!hasExoticWeapon) return true
+    return state.sidearm?.estExotique === true
+  }, [hasExoticWeapon, state.sidearm])
 
   const canEquipExoticGear = useCallback((slot) => {
     if (!hasExoticGear) return true
@@ -92,20 +126,32 @@ export function BuildProvider({ children }) {
   }, [hasExoticGear, state.gear])
 
   const canEquipSkill = useCallback((skill, slot) => {
+    // Contrainte : pas deux compétences du même type
     const otherSlot = slot === 0 ? 1 : 0
     const otherSkill = state.skills[otherSlot]
-    if (!otherSkill) return true
-    return otherSkill.competence !== skill.competence
+    if (otherSkill && otherSkill.competence === skill.competence) return false
+    return true
   }, [state.skills])
+
+  // Vérifie si une compétence nécessite une spécialisation spécifique
+  const skillNeedsSpec = useCallback((skill) => {
+    const required = getSkillRequiredSpec(skill.variante)
+    if (!required) return null // pas de spé requise
+    if (required === specialisation) return null // spé correcte
+    return required // retourne la spé manquante
+  }, [specialisation])
 
   const value = {
     ...state,
     dispatch,
+    specialisation,
     hasExoticWeapon,
     hasExoticGear,
     canEquipExoticWeapon,
+    canEquipExoticSidearm,
     canEquipExoticGear,
     canEquipSkill,
+    skillNeedsSpec,
     usedSkillTypes,
   }
 
@@ -117,4 +163,3 @@ export function useBuild() {
   if (!ctx) throw new Error('useBuild must be inside BuildProvider')
   return ctx
 }
-

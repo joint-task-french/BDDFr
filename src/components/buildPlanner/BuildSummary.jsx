@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
-import { GEAR_SLOT_LABELS } from '../../utils/formatters'
+import { GEAR_SLOT_LABELS, SPECIALISATIONS } from '../../utils/formatters'
 
 export default function BuildSummary({ data }) {
-  const { weapons, weaponTalents, gear, gearTalents, skills } = useBuild()
+  const { specialWeapon, weapons, weaponTalents, sidearm, sidearmTalent, gear, gearTalents, skills, specialisation } = useBuild()
 
-  const weaponCount = weapons.filter(Boolean).length
+  const weaponCount = (specialWeapon ? 1 : 0) + weapons.filter(Boolean).length + (sidearm ? 1 : 0)
   const gearCount = Object.values(gear).filter(Boolean).length
   const skillCount = skills.filter(Boolean).length
 
@@ -24,7 +24,6 @@ export default function BuildSummary({ data }) {
   const stats = useMemo(() => {
     const s = {
       degatsArme: 0,
-      protection: 0,
       bonusActifs: [],
     }
 
@@ -32,33 +31,30 @@ export default function BuildSummary({ data }) {
     weapons.forEach(w => {
       if (w?.degatsBase) s.degatsArme += w.degatsBase
     })
+    if (sidearm?.degatsBase) s.degatsArme += sidearm.degatsBase
 
     // Brand/gear set bonuses
     for (const [brand, count] of Object.entries(brandCount)) {
-      // Check gear sets first (file 2)
-      const gearSet = (data.ensemblesGear || []).find(gs =>
-        gs.nom.toLowerCase() === brand.toLowerCase()
+      const ensemble = (data.ensembles || []).find(e =>
+        e.nom.toLowerCase() === brand.toLowerCase()
       )
-      if (gearSet) {
-        if (count >= 2 && gearSet.bonus2pieces) s.bonusActifs.push({ marque: brand, niveau: '2p', bonus: gearSet.bonus2pieces })
-        if (count >= 3 && gearSet.bonus3pieces) s.bonusActifs.push({ marque: brand, niveau: '3p', bonus: gearSet.bonus3pieces })
-        if (count >= 4 && gearSet.bonus4pieces) s.bonusActifs.push({ marque: brand, niveau: '4p', bonus: gearSet.bonus4pieces })
-        continue
-      }
+      if (!ensemble) continue
 
-      // Check brand sets (file 4)
-      const brandSet = (data.ensemblesMarque || []).find(bs =>
-        bs.nom.toLowerCase() === brand.toLowerCase()
-      )
-      if (brandSet) {
-        if (count >= 1 && brandSet.bonus1piece) s.bonusActifs.push({ marque: brand, niveau: '1p', bonus: brandSet.bonus1piece })
-        if (count >= 2 && brandSet.bonus2pieces) s.bonusActifs.push({ marque: brand, niveau: '2p', bonus: brandSet.bonus2pieces })
-        if (count >= 3 && brandSet.bonus3pieces) s.bonusActifs.push({ marque: brand, niveau: '3p', bonus: brandSet.bonus3pieces })
+      if (ensemble.type === 'gear_set') {
+        if (count >= 2 && ensemble.bonus2pieces) s.bonusActifs.push({ marque: brand, niveau: '2p', bonus: ensemble.bonus2pieces })
+        if (count >= 3 && ensemble.bonus3pieces) s.bonusActifs.push({ marque: brand, niveau: '3p', bonus: ensemble.bonus3pieces })
+        if (count >= 4 && ensemble.bonus4pieces) s.bonusActifs.push({ marque: brand, niveau: '4p', bonus: ensemble.bonus4pieces })
+      } else {
+        if (count >= 1 && ensemble.bonus1piece) s.bonusActifs.push({ marque: brand, niveau: '1p', bonus: ensemble.bonus1piece })
+        if (count >= 2 && ensemble.bonus2pieces) s.bonusActifs.push({ marque: brand, niveau: '2p', bonus: ensemble.bonus2pieces })
+        if (count >= 3 && ensemble.bonus3pieces) s.bonusActifs.push({ marque: brand, niveau: '3p', bonus: ensemble.bonus3pieces })
       }
     }
 
     return s
-  }, [weapons, brandCount, data])
+  }, [weapons, sidearm, brandCount, data])
+
+  const specInfo = specialisation ? SPECIALISATIONS[specialisation] : null
 
   if (weaponCount === 0 && gearCount === 0 && skillCount === 0) {
     return (
@@ -74,12 +70,25 @@ export default function BuildSummary({ data }) {
     <div className="bg-tactical-panel border border-tactical-border rounded-lg p-4 sm:p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        {/* Armes */}
+        {/* Spécialisation + Armes */}
         <div className="space-y-2">
           <h4 className="text-sm font-bold text-red-400 uppercase tracking-widest border-b border-red-500/30 pb-2">
-            🔫 Armes ({weaponCount}/3)
+            🔫 Armement ({weaponCount}/4)
           </h4>
-          {['Primaire', 'Secondaire', 'Arme de poing'].map((label, i) => {
+          {/* Spécialisation */}
+          <div className="text-sm">
+            <span className="text-gray-500 text-xs">Spécialisation : </span>
+            {specialWeapon ? (
+              <>
+                <span className="text-purple-400 font-bold">{specInfo?.icon} {specInfo?.label}</span>
+                <span className="text-gray-500 text-xs ml-1">({specialWeapon.nom})</span>
+              </>
+            ) : (
+              <span className="text-gray-600">—</span>
+            )}
+          </div>
+          {/* Primaire / Secondaire */}
+          {['Primaire', 'Secondaire'].map((label, i) => {
             const w = weapons[i]
             const t = weaponTalents[i]
             return (
@@ -97,6 +106,19 @@ export default function BuildSummary({ data }) {
               </div>
             )
           })}
+          {/* Arme de poing */}
+          <div className="text-sm">
+            <span className="text-gray-500 text-xs">Arme de poing : </span>
+            {sidearm ? (
+              <>
+                <span className="text-white font-bold">{sidearm.nom}</span>
+                {sidearm.estExotique && <span className="text-shd text-xs ml-1">★</span>}
+                {sidearmTalent && <span className="text-shd text-xs ml-1">[{sidearmTalent.nom}]</span>}
+              </>
+            ) : (
+              <span className="text-gray-600">—</span>
+            )}
+          </div>
         </div>
 
         {/* Équipements */}
@@ -206,4 +228,3 @@ export default function BuildSummary({ data }) {
     </div>
   )
 }
-

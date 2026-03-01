@@ -36,7 +36,7 @@ function BuildPlannerContent({ data }) {
       <section className="mb-8" id="section-weapons">
         <h3 className="text-sm font-bold text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2">
           <span>🔫</span> Armement
-          <span className="text-gray-600 text-xs font-normal">(1 arme exotique max.)</span>
+          <span className="text-gray-600 text-xs font-normal">(1 spé + 2 armes + 1 arme de poing — 1 arme exotique max.)</span>
         </h3>
         <WeaponSection data={data} />
       </section>

@@ -57,7 +57,7 @@ export default function Sidebar({ open, onClose }) {
 
       {/* Status */}
       <div className="mt-auto p-4 border-t border-tactical-border text-xs text-gray-600 flex justify-between items-center shrink-0">
-        <span className='text-blue-700'>BDD</span><span className='text-white'>F</span><span className='text-red-500'>r</span><span> v2.0</span>
+        <span><span className='text-blue-700'>BDD</span><span className='text-white'>F</span><span className='text-red-500'>r</span><span> v2.0</span></span>
         <span className="inline-block w-2 h-2 rounded-full bg-shd animate-pulse shadow-[0_0_8px_#ff9000]" />
       </div>
     </aside>

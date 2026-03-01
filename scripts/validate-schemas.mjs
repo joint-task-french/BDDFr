@@ -12,7 +12,7 @@ import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const DATA_DIR = join(__dirname, '..', 'public', 'data')
+const DATA_DIR = join(__dirname, '..', 'src', 'data')
 const SCHEMA_DIR = join(__dirname, '..', 'src', 'data', 'schemas')
 
 function stripComments(text) {

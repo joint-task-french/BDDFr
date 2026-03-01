@@ -9,7 +9,6 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, '..', 'src', 'data');
-const PUBLIC_DIR = join(__dirname, '..', 'public', 'data');
 
 function readJsonc(name) {
   const raw = readFileSync(join(DATA_DIR, name), 'utf8');
@@ -20,7 +19,6 @@ function writeJsonc(name, obj, comment = '') {
   const header = comment ? `// ${comment}\n` : '';
   const content = header + JSON.stringify(obj, null, 2) + '\n';
   writeFileSync(join(DATA_DIR, name), content, 'utf8');
-  writeFileSync(join(PUBLIC_DIR, name), content, 'utf8');
   console.log(`  ✔ ${name} (${Array.isArray(obj) ? obj.length + ' entrées' : 'objet'})`);
 }
 
@@ -196,12 +194,10 @@ writeJsonc('mods-armes.jsonc', modsArmesClean, 'Modifications d\'armes — The D
 console.log('\n=== Suppression fichiers exotiques séparés ===');
 import { unlinkSync, existsSync } from 'fs';
 for (const f of ['armes-exotiques.jsonc', 'equipements-exotiques.jsonc']) {
-  for (const dir of [DATA_DIR, PUBLIC_DIR]) {
-    const p = join(dir, f);
-    if (existsSync(p)) {
-      unlinkSync(p);
-      console.log(`  ✔ Supprimé ${f}`);
-    }
+  const p = join(DATA_DIR, f);
+  if (existsSync(p)) {
+    unlinkSync(p);
+    console.log(`  ✔ Supprimé ${f}`);
   }
 }
 

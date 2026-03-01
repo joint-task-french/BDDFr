@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "sync-data": "node scripts/sync-data.mjs",
+    "predev": "npm run sync-data",
     "dev": "vite",
+    "prebuild": "npm run sync-data",
     "build": "vite build",
     "preview": "vite preview",
     "validate": "node scripts/validate-schemas.mjs"

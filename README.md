@@ -96,10 +96,11 @@ Composition d'un build complet :
 │   ├── deploy.yml              # Déploiement automatique sur GitHub Pages
 │   └── pr-validate.yml         # Validation des données sur les Pull Requests
 ├── public/
-│   ├── data/                   # Données JSONC servies en production
+│   ├── data/                   # ⚠️ Auto-généré par sync-data — ne pas modifier
 │   ├── fonts/                  # Police Rajdhani (TTF)
 │   └── img/ensembles/          # Logos des marques et gear sets
 ├── scripts/
+│   ├── sync-data.mjs           # Copie src/data/*.jsonc → public/data/ (pré-build)
 │   └── validate-schemas.mjs    # Script de validation JSONC ↔ schémas JSON
 ├── src/
 │   ├── components/
@@ -171,6 +172,7 @@ npm install
 | `npm run build` | Build de production dans `dist/` |
 | `npm run preview` | Prévisualisation du build de production |
 | `npm run validate` | Validation des données JSONC contre les schémas JSON |
+| `npm run sync-data` | Synchronise `src/data/` → `public/data/` (auto avant dev/build) |
 
 ### Validation des données
 
@@ -200,11 +202,11 @@ npm run validate
 
 ### Modifier les données
 
-1. Les fichiers de données sont dans `src/data/*.jsonc`
+1. Les fichiers de données sont dans `src/data/*.jsonc` — c'est la **seule source de vérité**
 2. Chaque fichier est un tableau JSON avec commentaires (`//`)
 3. Référez-vous aux schémas dans `src/data/schemas/` pour les champs attendus
 4. Après modification, lancez `npm run validate` pour vérifier
-5. Copiez vos modifications dans `public/data/` (les deux doivent être synchronisés)
+5. Le dossier `public/data/` est **généré automatiquement** — ne le modifiez pas à la main
 
 ### Ajouter une arme
 

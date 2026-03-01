@@ -8,7 +8,6 @@ import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DATA_DIR = join(__dirname, '..', 'src', 'data')
-const PUBLIC_DIR = join(__dirname, '..', 'public', 'data')
 
 function readJsonc(dir, name) {
   const raw = readFileSync(join(dir, name), 'utf8')
@@ -19,14 +18,13 @@ function writeJsonc(name, obj, comment = '') {
   const header = comment ? `// ${comment}\n` : ''
   const content = header + JSON.stringify(obj, null, 2) + '\n'
   writeFileSync(join(DATA_DIR, name), content, 'utf8')
-  writeFileSync(join(PUBLIC_DIR, name), content, 'utf8')
   console.log(`  ✔ ${name} (${Array.isArray(obj) ? obj.length + ' entrées' : 'objet'})`)
 }
 
 console.log('\n=== Fusion gear sets + marques → ensembles.jsonc ===')
 
-const gearSets = readJsonc(PUBLIC_DIR, 'ensembles-gear.jsonc')
-const brandSets = readJsonc(PUBLIC_DIR, 'ensembles-marque.jsonc')
+const gearSets = readJsonc(DATA_DIR, 'ensembles-gear.jsonc')
+const brandSets = readJsonc(DATA_DIR, 'ensembles-marque.jsonc')
 
 const ensembles = []
 
@@ -68,12 +66,10 @@ writeJsonc('ensembles.jsonc', ensembles, 'Tous les ensembles (gear sets + marque
 
 // Supprimer les anciens fichiers
 for (const f of ['ensembles-gear.jsonc', 'ensembles-marque.jsonc']) {
-  for (const dir of [DATA_DIR, PUBLIC_DIR]) {
-    const p = join(dir, f)
-    if (existsSync(p)) {
-      unlinkSync(p)
-      console.log(`  ✔ Supprimé ${f} de ${dir === DATA_DIR ? 'src/data' : 'public/data'}`)
-    }
+  const p = join(DATA_DIR, f)
+  if (existsSync(p)) {
+    unlinkSync(p)
+    console.log(`  ✔ Supprimé ${f}`)
   }
 }
 

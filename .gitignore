@@ -1,3 +1,6 @@
 node_modules/
 .idea/
 dist/
+
+# Généré automatiquement depuis src/data/ par npm run sync-data
+public/data/

@@ -9,7 +9,6 @@ import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DATA_DIR = join(__dirname, '..', 'src', 'data')
-const PUBLIC_DIR = join(__dirname, '..', 'public', 'data')
 
 // Récupérer le 1.json depuis git
 const raw = execSync('git show 0d240c9:src/data/1.json', { cwd: join(__dirname, '..'), encoding: 'utf8' })
@@ -76,7 +75,6 @@ meta.changelog = entries
 
 const content = '// Métadonnées et changelog — The Division 2\n' + JSON.stringify(meta, null, 2) + '\n'
 writeFileSync(metaPath, content, 'utf8')
-writeFileSync(join(PUBLIC_DIR, 'metadata.jsonc'), content, 'utf8')
 
 console.log(`✅ Changelog extrait : ${entries.length} entrées ajoutées au metadata.jsonc`)
 

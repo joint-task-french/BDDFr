@@ -1,4 +1,4 @@
-// Tous les ensembles (gear sets + marques) — The Division 2
+// Ensembles (Gear Sets + Marques) — The Division 2
 [
   {
     "nom": "Ongoing Directive",
@@ -73,7 +73,7 @@
     "talentSac": "Mesures critiques :Augmente les dégâts de Négociations hostiles aux ennemis marqués supplémentaires de 60% à 112%. EXIGENCE :Négociations hostiles"
   },
   {
-    "nom": "Strikers Battlegear",
+    "nom": "Cogneur",
     "type": "gear_set",
     "logo": "",
     "attributsEssentiels": [],
@@ -85,7 +85,7 @@
     "talentSac": "Gestion du risque :Augmente le bonus aux dégâts d'arme obtenu par les stacks de 0,65% à 0,90%. EXIGENCE :Amplification Striker"
   },
   {
-    "nom": "Corruption système DZ UNIQUEMENT",
+    "nom": "Système Corrompu",
     "type": "gear_set",
     "logo": "",
     "attributsEssentiels": [],
@@ -97,7 +97,7 @@
     "talentSac": "Execution Multithereading :Augmente la protection bonus du protocole Hackstep de 50% à 100%. EXIGENCE :Protocole Hackstep"
   },
   {
-    "nom": "Protocole Eclypse",
+    "nom": "Protocole Eclipse",
     "type": "gear_set",
     "logo": "",
     "attributsEssentiels": [],
@@ -109,7 +109,7 @@
     "talentSac": "Amplificateur de Symptôme :Augmente tous les dégâts que vous infligez aux cibles affectés par un  effet d'état de 30%. EXIGENCE :Transmission Indirecte"
   },
   {
-    "nom": "Foundry Bulwark",
+    "nom": "Rempart de la Founderie",
     "type": "gear_set",
     "logo": "",
     "attributsEssentiels": [],
@@ -121,7 +121,7 @@
     "talentSac": "Processus de Raffinerie :Augmente les réparations de Répération de Fortune de 25% à 35%. EXIGENCE :Réparation de fortune"
   },
   {
-    "nom": "Future Initative",
+    "nom": "Future Initiative",
     "type": "gear_set",
     "logo": "",
     "attributsEssentiels": [],
@@ -193,7 +193,7 @@
     "talentSac": "Bénédiction :L'agent peut louper un headshot avant réinitialisation du cycle."
   },
   {
-    "nom": "Cavalier",
+    "nom": "The cavalier",
     "type": "gear_set",
     "logo": "",
     "attributsEssentiels": [],
@@ -241,7 +241,7 @@
     "talentSac": "Point d'honneur :Augmente le bonus de dégâts d'arme d'En ligne de mire de 4% à 7,2%"
   },
   {
-    "nom": "Virtuoso",
+    "nom": "Virtuose",
     "type": "gear_set",
     "logo": "",
     "attributsEssentiels": [],

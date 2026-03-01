@@ -24,6 +24,18 @@ export default function GearCard({ item, ensembles }) {
   const BASE = import.meta.env.BASE_URL
   const ensemble = ensembles?.find(e => e.nom.toLowerCase() === (item.marque || '').toLowerCase())
 
+  // Résoudre le talent gear set pour torse/sac depuis l'ensemble
+  const gearSetTalent = useMemo(() => {
+    if (!isGearSet || !ensemble) return null
+    if (item.emplacement === 'torse' && hasContent(ensemble.talentTorse)) return { label: 'Talent Torse', text: ensemble.talentTorse }
+    if (item.emplacement === 'sac_a_dos' && hasContent(ensemble.talentSac)) return { label: 'Talent Sac', text: ensemble.talentSac }
+    return null
+  }, [isGearSet, ensemble, item.emplacement])
+
+  // Déterminer les talents à afficher (priorité : talent de la pièce > gear set)
+  const hasPieceTalent = hasContent(item.talent) || hasContent(item.talent1)
+  const hasGearSetTalent = !hasPieceTalent && gearSetTalent
+
   return (
     <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`}>
       {/* Header */}
@@ -84,14 +96,23 @@ export default function GearCard({ item, ensembles }) {
       </div>
 
       {/* Talents */}
-      {(hasContent(item.talent) || hasContent(item.talent1)) && (
+      {(hasPieceTalent || hasGearSetTalent) && (
         <div className="px-4 py-2.5 border-t border-tactical-border/50 space-y-1.5">
+          {/* Talent nommé (champ talent) */}
           {hasContent(item.talent) && (
-            <div className="text-[11px] text-gray-400">
-              <span className="text-shd font-bold uppercase tracking-widest text-[10px]">Talent : </span>
+            <div className="text-[11px] text-gray-400 leading-relaxed">
+              <span className="text-yellow-400 font-bold uppercase tracking-widest text-[10px]">Talent : </span>
               {item.talent}
             </div>
           )}
+          {/* Talent gear set résolu depuis l'ensemble */}
+          {hasGearSetTalent && (
+            <div className="text-[11px] text-gray-400 leading-relaxed">
+              <span className="text-emerald-400 font-bold uppercase tracking-widest text-[10px]">{gearSetTalent.label} : </span>
+              {gearSetTalent.text}
+            </div>
+          )}
+          {/* Talents exotiques (talent1/talent2) */}
           {hasContent(item.talent1) && (
             <div className="text-[11px] text-gray-400 leading-relaxed">
               <span className="text-shd font-bold uppercase tracking-widest text-[10px]">Talent 1 : </span>

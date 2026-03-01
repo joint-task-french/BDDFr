@@ -1,12 +1,28 @@
+import { useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
 
-export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent }) {
+function hasContent(v) {
+  return v && v !== '' && v !== 'n/a' && v !== '-'
+}
+
+export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles }) {
   const { dispatch } = useBuild()
 
   const remove = (e) => {
     e.stopPropagation()
     dispatch({ type: 'REMOVE_GEAR', slot: slotKey })
   }
+
+  // Résoudre le talent gear set depuis l'ensemble
+  const gearSetTalent = useMemo(() => {
+    if (!piece || piece.source !== 'gear_set' || piece.estExotique) return null
+    if (!ensembles || !piece.marque) return null
+    const ens = ensembles.find(e => e.nom.toLowerCase() === piece.marque.toLowerCase())
+    if (!ens) return null
+    if (slotKey === 'torse' && hasContent(ens.talentTorse)) return ens.talentTorse
+    if (slotKey === 'sac_a_dos' && hasContent(ens.talentSac)) return ens.talentSac
+    return null
+  }, [piece, ensembles, slotKey])
 
   const borderColor = piece?.estExotique
     ? 'border-l-shd'
@@ -48,7 +64,24 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                 )}
               </div>
             )}
-            {hasTalentSlot && !piece.estExotique && (
+            {/* Talent nommé dédié */}
+            {piece.estNomme && !piece.estExotique && hasContent(piece.talent) && (
+              <div className="mt-3 pt-3 border-t border-tactical-border">
+                <div className="text-xs text-yellow-400 font-bold uppercase tracking-widest">Talent Nommé</div>
+                <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{piece.talent}</div>
+              </div>
+            )}
+            {/* Talent gear set résolu depuis l'ensemble */}
+            {gearSetTalent && !piece.estExotique && (
+              <div className="mt-3 pt-3 border-t border-tactical-border">
+                <div className="text-xs text-emerald-400 font-bold uppercase tracking-widest">
+                  Talent {slotKey === 'torse' ? 'Torse' : 'Sac'} (Set)
+                </div>
+                <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{gearSetTalent}</div>
+              </div>
+            )}
+            {/* Talent libre (torse/sac hors gear set) */}
+            {hasTalentSlot && !piece.estExotique && !gearSetTalent && (
               talent ? (
                 <div className="mt-3 pt-3 border-t border-tactical-border">
                   <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent : {talent.nom}</div>

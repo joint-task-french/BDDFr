@@ -24,6 +24,7 @@ export default function GearSection({ data }) {
             hasTalentSlot={slot === 'torse' || slot === 'sac_a_dos'}
             onSelect={() => setPickerSlot(slot)}
             onSelectTalent={() => setTalentSlot(slot)}
+            ensembles={data.ensembles}
           />
         ))}
       </div>

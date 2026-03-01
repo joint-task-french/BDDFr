@@ -10,14 +10,20 @@ function hasContent(v) {
 }
 
 export default function WeaponCard({ item }) {
-  const nameColor = item.estExotique ? 'text-red-400' : 'text-shd'
+  const isExotic = item.estExotique
+  const isNamed = item.estNomme && !isExotic
+  const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : 'text-shd'
 
   return (
     <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden hover:border-tactical-border/80 transition-colors">
       {/* Header : Nom + Type + Fabricant */}
       <div className="px-4 py-3 border-b border-tactical-border/50">
-        <div className={`font-bold text-base uppercase tracking-wide ${nameColor}`}>
-          {item.estExotique && <span className="mr-1">★</span>}
+        <div className="flex items-center gap-2">
+          {isExotic && <span className="text-[9px] font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
+          {isNamed && <span className="text-[9px] font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
+        </div>
+        <div className={`font-bold text-base uppercase tracking-wide ${isExotic || isNamed ? 'mt-1' : ''} ${nameColor}`}>
+          {isExotic && <span className="mr-1">★</span>}
           {item.nom}
         </div>
         <div className="flex gap-3 text-xs text-gray-500 mt-0.5">
@@ -39,9 +45,16 @@ export default function WeaponCard({ item }) {
         <Stat label="Attribut" value={item.attributEssentiel?.replace(/^\.\+?/, '') || null} />
       </div>
 
-      {/* Talents exotiques / Obtention */}
-      {(hasContent(item.talent1) || hasContent(item.obtention)) && (
+      {/* Talents exotiques / nommés / Obtention */}
+      {(hasContent(item.talent1) || hasContent(item.talentNomme) || hasContent(item.obtention)) && (
         <div className="px-4 py-2.5 border-t border-tactical-border/50 space-y-1.5">
+          {/* Talent dédié arme nommée */}
+          {hasContent(item.talentNomme) && (
+            <div className="text-[11px] text-gray-400 leading-relaxed">
+              <span className="text-yellow-400 font-bold uppercase tracking-widest text-[10px]">Talent : </span>
+              {item.talentNomme}
+            </div>
+          )}
           {hasContent(item.talent1) && (
             <div className="text-[11px] text-gray-400 leading-relaxed">
               <span className="text-shd font-bold uppercase tracking-widest text-[10px]">Talent 1 : </span>

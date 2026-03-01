@@ -55,6 +55,11 @@ export default function WeaponSlot({ label, weapon, talent, onSelect, onRemove, 
                   <div className="text-[11px] text-gray-400 mt-2 leading-relaxed line-clamp-2">{weapon.talent2}</div>
                 )}
               </div>
+            ) : weapon.estNomme && weapon.talentNomme ? (
+              <div className="mt-3 pt-3 border-t border-tactical-border">
+                <div className="text-xs text-yellow-400 font-bold uppercase tracking-widest">Talent Nommé</div>
+                <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{weapon.talentNomme}</div>
+              </div>
             ) : talent ? (
               <div className="mt-3 pt-3 border-t border-tactical-border">
                 <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent : {talent.nom}</div>

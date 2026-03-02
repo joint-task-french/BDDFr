@@ -13,7 +13,7 @@ import arme_fusil_assaut from '../img/game_assets/armes/fusil_assaut.png'
 import arme_fusil from '../img/game_assets/armes/fusil.png'
 import arme_sniper from '../img/game_assets/armes/sniper.png'
 import arme_pistolet_mitrailleur from '../img/game_assets/armes/pistolet_mitrailleur.png'
-import arme_lmg from '../img/game_assets/armes/lmg_TODO.png'
+import arme_lmg from '../img/game_assets/armes/fusil_mitrailleur.png'
 import arme_calibre12 from '../img/game_assets/armes/calibre12.png'
 import arme_pistolet from '../img/game_assets/armes/pistolet.png'
 

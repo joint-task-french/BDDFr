@@ -1,6 +1,16 @@
 // Historique des modifications — The Division 2 / BDDFr
 [
   {
+    "date": "Le 02/03/2026",
+    "patch": "Refonte total BDDFr",
+    "changements": [
+      "Utilisation de Github Pages pour la base de donnée",
+      "Projet open-source permettant a tout le monde de proposer des modifications",
+      "Changement structuration des données vers un format JSONC",
+      "Ajout de scripts permettant de valider les fichiers de données"
+    ]
+  },
+  {
     "date": "Le 25/02/2026",
     "patch": "",
     "changements": [

@@ -1,5 +1,5 @@
 import { WEAPON_TYPE_LABELS } from '../../../utils/formatters'
-import { WEAPON_TYPE_ICONS, WEAPON_TALENT_ICONS, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
+import { WEAPON_TYPE_ICONS, resolveIcon, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
 
 function fmt(n) {
   if (!n) return '—'
@@ -75,7 +75,7 @@ export default function WeaponCard({ item }) {
 }
 
 function TalentLine({ color, label, text, icone }) {
-  const icon = icone ? WEAPON_TALENT_ICONS[icone] : null
+  const icon = resolveIcon(icone)
   return (
     <div className="text-[11px] text-gray-400 leading-relaxed flex items-start gap-1.5">
       <GameIcon src={icon} alt="" size="w-4 h-4 mt-0.5" />

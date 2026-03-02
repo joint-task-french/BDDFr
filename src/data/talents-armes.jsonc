@@ -1,9 +1,10 @@
-// Talents d'armes et matrice de compatibilité
+// Talents d'armes — The Division 2
 [
   {
     "nom": "Tir déstabilisant",
     "description": "Toucher un ennemi au corps augmente de +55% les dégâts du headshot suivant pendant 10s. Peut se cumuler jusqu'à 3 fois.",
     "prerequis": "n/a",
+    "icone": "breadbasket",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -63,6 +64,7 @@
     "nom": "Contrainte",
     "description": "Vous gagnez +10% aux dégâts de coup critique toutes les 0.5s pendant que vous tirez.Peut se cumuler jusqu'à 5 fois.",
     "prerequis": "n/a",
+    "icone": "strained",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -77,6 +79,7 @@
     "nom": "Corps à corps",
     "description": "Tuer une cible située dans un rayon de 7 mètres augmente les dégâts d'arme de +30% pendant 10 secondes.",
     "prerequis": "n/a",
+    "icone": "close_and_personal",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -181,6 +184,7 @@
     "nom": "Réalisme",
     "description": "Dégâts d'arme accrus de 30% contre les ennemis aveuglés.Au bout de 4 éliminations, inflige aveuglement au prochain ennemi touché.",
     "prerequis": "n/a",
+    "icone": "naked",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -330,6 +334,7 @@
     "nom": "Myope",
     "description": "Stabilité accrue de +80% au prix de -35% de portée optimale.",
     "prerequis": "n/a",
+    "icone": "near_sighted",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -359,6 +364,7 @@
     "nom": "Mesure",
     "description": "Pour la moitié supérieure du chargeur, augmente la cadence de tir de 25% et diminue les dégâts d'arme de 25%.Pour la moitié inférieure du chargeur, la cadence de tir diminue de 18% et les dégâts d'arme augmentent de 30%.",
     "prerequis": "n/a",
+    "icone": "measured",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -373,6 +379,7 @@
     "nom": "Surcapacité",
     "description": "Au bout de 3 rechargements réalisés à vide, la capacité de base de votre chargeur est augmentée de 100%",
     "prerequis": "n/a",
+    "icone": "overflowing",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -387,6 +394,7 @@
     "nom": "Nudité",
     "description": "Toucher un ennemi sans protection confère +50% aux dégâts de headshot pendant 5s.",
     "prerequis": "n/a",
+    "icone": "naked",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -401,6 +409,7 @@
     "nom": "Premier sang",
     "description": "En zoom, la première munition tirée hors combat ou après avoir complètement rechargé le chargeur vide inflige des dégâts de headshot quelle que soit la partie du corps touchée.",
     "prerequis": "Nécessite une lunette à grossissement 8x minimum",
+    "icone": "first_blood",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -415,6 +424,7 @@
     "nom": "Martèlement",
     "description": "Après 3 éliminations consécutives, le chargeur se remplit et les dégâts de l'arme sont augmentés de +40% pendant 10 secondes.",
     "prerequis": "n/a",
+    "icone": "pummel",
     "compatibilite": {
       "fusil": false,
       "calibre_12": true,
@@ -429,6 +439,7 @@
     "nom": "Motivé",
     "description": "Le rechargement confère +1% aux dégâts d'arme pendant 10s.Peut se cumuler jusqu'à 25 fois.",
     "prerequis": "n/a",
+    "icone": "pumped_up",
     "compatibilite": {
       "fusil": false,
       "calibre_12": true,
@@ -443,6 +454,7 @@
     "nom": "Outsider",
     "description": "Après avoir tué un ennemi, confère 100% de portée optimale et +100% de précision pendant 10s.",
     "prerequis": "n/a",
+    "icone": "outsider",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -457,6 +469,7 @@
     "nom": "Indéfectible",
     "description": "Changer d'arme pour celle-ci confère +300% au maniement d'arme pendant 5s. Les éliminations renouvellent ce buff. Changer une nouvelle fois d'arme désactive cet effet pour toutes les armes pendant 5s.",
     "prerequis": "n/a",
+    "icone": "unwavering",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -471,6 +484,7 @@
     "nom": "Déséquilibre",
     "description": "Confère +18% de dégâts d'arme aux prix de -25% de stabilité et de -25% de précision.",
     "prerequis": "n/a",
+    "icone": "unhinged",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -485,6 +499,7 @@
     "nom": "Frénésie",
     "description": "Quand vous rechargez à vide, pour chaque tranche de 10 balles de capacité du chargeur, vous gagnez +3% de cadence de tir et +3% de dégâts d'arme pendant 5s.",
     "prerequis": "n/a",
+    "icone": "frenzy",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -499,6 +514,7 @@
     "nom": "Accablement",
     "description": "Fixer un ennemi qui n'est actuellement pas fixé confère +10% aux dégâts des armes pendant 12s.Peut se cumuler un maximum de 4 fois.",
     "prerequis": "n/a",
+    "icone": "overwhelm",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -513,6 +529,7 @@
     "nom": "Débarras",
     "description": "Éliminer une cible offre +70% de probabilité de remplir le chargeur.",
     "prerequis": "n/a",
+    "icone": "salvage",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -527,6 +544,7 @@
     "nom": "Finisseur",
     "description": "Prendre une arme autre que celle-ci dans les 10s suivant l'élimination d'un ennemi augmente de 30% la probabilité de coup critique et de 30% les dégâts de coup critique pendant 15s.",
     "prerequis": "n/a",
+    "icone": "finisher",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -541,6 +559,7 @@
     "nom": "Coup de massue",
     "description": "Infliger des dégâts avec une grenade applique une marque sur la cible. Les cibles avec une marque subiront 20% de dégâts en plus à leur protection et -20% de vitesse de déplacement. La marque disparaïtra après 10s.",
     "prerequis": "n/a",
+    "icone": "sledgehammer",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -555,6 +574,7 @@
     "nom": "Résolu",
     "description": "Après avoir tué un ennemi avec un headshot, le tir suivant qui touche un ennemi inflige un headshot garanti. Même si le talent est actif, le fait de tuer un ennemi ne déclenchera pas à nouveau le talent.",
     "prerequis": "n/a",
+    "icone": "determined",
     "compatibilite": {
       "fusil": true,
       "calibre_12": false,
@@ -569,6 +589,7 @@
     "nom": "Coup de tonnerre",
     "description": "Inflige 30% de dégâts supplémentaires aux cibles électrocutées.Au bout de 4 éliminations, inflige électrocution au prochain ennemi touché.",
     "prerequis": "n/a",
+    "icone": "thunder_strike",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -583,6 +604,7 @@
     "nom": "Stablilisation",
     "description": "Tirer confère un bonus +1% de précision d'arme et +1% de stabilité d'arme par tir, jusqu'à un maximum de 60%.Arrêter de tirer déclenche un délai de 2s, au terme duquel les bonus se réinitialisent.",
     "prerequis": "n/a",
+    "icone": "stabilize",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -597,6 +619,7 @@
     "nom": "Derrière toi",
     "description": "Inflige +20% de dégâts d'armes aux ennemis qui ne vous ciblent pas.",
     "prerequis": "n/a",
+    "icone": "behind_you",
     "compatibilite": {
       "fusil": true,
       "calibre_12": false,
@@ -611,6 +634,7 @@
     "nom": "Imprudence",
     "description": "Inflige +3,5% (+2%) au tir suivant avec la même arme pour chaque plomb qui touche la cible si au moins 6 plombs touchent un ennemi",
     "prerequis": "n/a",
+    "icone": "brazen",
     "compatibilite": {
       "fusil": false,
       "calibre_12": true,
@@ -625,6 +649,7 @@
     "nom": "Frappe de précision",
     "description": "Tuer des ennemis situés à plus de 20m cumule des effets. Le maximum d'effets est de 3.Toucher un ennemi situé à moins de 20m consomme tous les effets pour conférer +20% de dégâts contre les ennemis situés à moins de 20m pendant 5s.",
     "prerequis": "n/a",
+    "icone": "precision_strike",
     "compatibilite": {
       "fusil": true,
       "calibre_12": false,
@@ -639,6 +664,7 @@
     "nom": "Point de pression",
     "description": "Dégâts d'arme accrus de 15% contre les ennemis affectés par des effets d'état.",
     "prerequis": "n/a",
+    "icone": "primer_rounds",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -653,6 +679,7 @@
     "nom": "Rationalisation",
     "description": "Augmente les dégâts d'arme de 42% (32%) quand il n'y a aucune compétence déployé ou en recharge.",
     "prerequis": "n/a",
+    "icone": "optimized",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -667,6 +694,7 @@
     "nom": "Petit faible",
     "description": "Détruire un point faible confère +27% de dégâts d'arme pendant 10s.",
     "prerequis": "n/a",
+    "icone": "eyeless",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -681,6 +709,7 @@
     "nom": "Immobilisation",
     "description": "Dégâts d'arme accrus de 20% (10%) contre les ennemis entravés.Au bout de 4 éliminations, inflige Entrave au prochain ennemi touché.",
     "prerequis": "n/a",
+    "icone": "steady_handed",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,

@@ -1,4 +1,4 @@
-import { WEAPON_TALENT_ICONS, WEAPON_TYPE_ICONS, GameIcon } from '../../../utils/gameAssets'
+import { resolveIcon, WEAPON_TYPE_ICONS, GameIcon } from '../../../utils/gameAssets'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
@@ -18,7 +18,7 @@ export default function TalentArmeCard({ item }) {
   const compatTypes = item.compatibilite
     ? Object.entries(item.compatibilite).filter(([, v]) => v).map(([k]) => k)
     : []
-  const talentIcon = item.icone ? WEAPON_TALENT_ICONS[item.icone] : null
+  const talentIcon = resolveIcon(item.icone)
 
   return (
     <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden">

@@ -1,0 +1,40 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": ["/src/data/armes.jsonc"],
+            "url": "./src/data/schemas/armes.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/equipements.jsonc"],
+            "url": "./src/data/schemas/equipements.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/talents-armes.jsonc"],
+            "url": "./src/data/schemas/talents-armes.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/talents-equipements.jsonc"],
+            "url": "./src/data/schemas/talents-equipements.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/ensembles.jsonc"],
+            "url": "./src/data/schemas/ensembles.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/competences.jsonc"],
+            "url": "./src/data/schemas/competences.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/mods-*.jsonc"],
+            "url": "./src/data/schemas/mods-*.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/changelog.jsonc"],
+            "url": "./src/data/schemas/changelog.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/metadata.jsonc"],
+            "url": "./src/data/schemas/metadata.schema.json"
+        }
+    ]
+}

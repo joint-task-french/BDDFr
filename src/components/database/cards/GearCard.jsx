@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
-import { GEAR_SLOT_LABELS, GEAR_SLOT_ICONS } from '../../../utils/formatters'
+import { GEAR_SLOT_LABELS } from '../../../utils/formatters'
+import { GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-' && v !== 'FALSE'
@@ -58,7 +59,8 @@ export default function GearCard({ item, ensembles }) {
           )}
           <span>{item.marque}</span>
           <span>·</span>
-          <span>{GEAR_SLOT_ICONS[item.emplacement] || ''} {GEAR_SLOT_LABELS[item.emplacement] || item.emplacement}</span>
+          <GameIcon src={GEAR_SLOT_ICONS_IMG[item.emplacement]} alt="" size="w-4 h-4" className="opacity-60" />
+          <span>{GEAR_SLOT_LABELS[item.emplacement] || item.emplacement}</span>
         </div>
       </div>
 
@@ -70,7 +72,10 @@ export default function GearCard({ item, ensembles }) {
             <span className="text-blue-400 font-bold shrink-0 uppercase tracking-widest text-[10px]">Essentiel{attrsEssentiels.length > 1 ? 's' : ''}</span>
             <div className="flex flex-wrap gap-1">
               {attrsEssentiels.map((attr, i) => (
-                <span key={i} className="text-blue-300 bg-blue-500/10 px-1.5 py-0.5 rounded text-[10px]">{attr}</span>
+                <span key={i} className="text-blue-300 bg-blue-500/10 px-1.5 py-0.5 rounded text-[10px] flex items-center gap-1">
+                  <GameIcon src={resolveAttributeIcon(attr)} alt="" size="w-3 h-3" />
+                  {attr}
+                </span>
               ))}
             </div>
           </div>

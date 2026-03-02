@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import ShdIcon from '../common/ShdIcon'
+import JTFrLogo from '../common/JTFrLogo.jsx'
 
 export default function Sidebar({ open, onClose }) {
   const linkClass = ({ isActive }) =>
@@ -18,7 +18,7 @@ export default function Sidebar({ open, onClose }) {
       {/* Logo */}
       <div className="p-4 sm:p-6 border-b border-tactical-border flex justify-between items-center shrink-0">
         <div className="flex items-center gap-2">
-          <ShdIcon className="w-7 h-7 sm:w-8 sm:h-8 text-shd" />
+          <JTFrLogo className="w-7 h-7 sm:w-8 sm:h-8 text-shd" />
           <h1 className="text-xl sm:text-2xl font-bold text-white tracking-widest uppercase">
             Réseau <span className="text-shd">SHD</span>: <span className='text-blue-700'>JT</span><span className='text-white'>F</span><span className='text-red-500'>r</span>
           </h1>

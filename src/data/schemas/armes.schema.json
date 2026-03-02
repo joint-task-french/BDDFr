@@ -8,6 +8,7 @@
     "required": ["nom", "type"],
     "properties": {
       "nom": { "type": "string", "description": "Nom de l'arme" },
+      "icone": { "type": "string", "description": "Slug du fichier icône du talent exotique/nommé dans game_assets/talents/arme/ (sans .png)" },
       "type": {
         "type": "string",
         "enum": ["fusil_assaut", "fusil", "fusil_precision", "pistolet_mitrailleur", "fusil_mitrailleur", "calibre_12", "pistolet", "arme_specifique", "autre"],

@@ -1,3 +1,5 @@
+import { resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
+
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
@@ -42,7 +44,8 @@ export default function EnsembleCard({ item }) {
             {item.attributsEssentiels && item.attributsEssentiels.length > 0 && (
               <div className="flex flex-wrap gap-1 mt-1.5">
                 {item.attributsEssentiels.map((attr, i) => (
-                  <span key={i} className="text-[9px] font-bold uppercase tracking-widest bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded">
+                  <span key={i} className="text-[9px] font-bold uppercase tracking-widest bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded flex items-center gap-1">
+                    <GameIcon src={resolveAttributeIcon(attr)} alt="" size="w-3 h-3" />
                     {attr}
                   </span>
                 ))}

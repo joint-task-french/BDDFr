@@ -8,6 +8,7 @@
     "properties": {
       "competence": { "type": "string", "description": "Nom de la compétence (ex: TOURELLE, DRONE)" },
       "variante": { "type": "string", "description": "Nom de la variante" },
+      "icone": { "type": "string", "description": "Slug du fichier icône dans game_assets/competances/ (sans .png)" },
       "expertise": { "type": "string" },
       "statistiques": { "type": "string" },
       "effetEtat": { "type": "string" },

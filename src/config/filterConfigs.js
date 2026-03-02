@@ -146,11 +146,13 @@ export function getTalentArmeFilters() {
       key: 'compatibilite', type: 'checkboxes', label: 'Compatible avec',
       options: typeOptions,
     },
+    { key: 'estExotique', type: 'toggle', label: 'Exotique uniquement' },
+    { key: 'aParfait', type: 'toggle', label: 'Avec version parfaite' },
   ]
 }
 
 export function getTalentArmeDefaults() {
-  return { compatibilite: [] }
+  return { compatibilite: [], estExotique: false, aParfait: false }
 }
 
 export function applyTalentArmeFilters(items, filters) {
@@ -159,6 +161,8 @@ export function applyTalentArmeFilters(items, filters) {
       const compat = item.compatibilite || {}
       return filters.compatibilite.every(type => compat[type] === true)
     }
+    if (filters.estExotique && !item.estExotique) return false
+    if (filters.aParfait && !item.perfectDescription) return false
     return true
   })
 }
@@ -176,11 +180,13 @@ export function getTalentEquipFilters() {
         { value: 'tous', label: 'Les deux' },
       ],
     },
+    { key: 'estExotique', type: 'toggle', label: 'Exotique uniquement' },
+    { key: 'aParfait', type: 'toggle', label: 'Avec version parfaite' },
   ]
 }
 
 export function getTalentEquipDefaults() {
-  return { emplacement: '' }
+  return { emplacement: '', estExotique: false, aParfait: false }
 }
 
 export function applyTalentEquipFilters(items, filters) {
@@ -189,6 +195,8 @@ export function applyTalentEquipFilters(items, filters) {
       if (filters.emplacement === 'tous') return item.emplacement === 'tous'
       return item.emplacement === filters.emplacement || item.emplacement === 'tous'
     }
+    if (filters.estExotique && !item.estExotique) return false
+    if (filters.aParfait && !item.perfectDescription) return false
     return true
   })
 }

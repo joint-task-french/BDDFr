@@ -1,5 +1,6 @@
 import { WEAPON_TYPE_LABELS } from '../../../utils/formatters'
-import { WEAPON_TYPE_ICONS, resolveIcon, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
+import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
+import TalentInline from './TalentInline'
 
 function fmt(n) {
   if (!n) return '—'
@@ -10,12 +11,33 @@ function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function WeaponCard({ item }) {
+/**
+ * Résout les talents d'une arme : cherche chaque slug dans talentsArmes.
+ * Si le slug ne matche pas un nom de talent connu, on le retourne tel quel (texte brut).
+ */
+function resolveTalents(item, talentsArmes) {
+  if (!item.talents || item.talents.length === 0) return []
+  if (!talentsArmes || talentsArmes.length === 0) {
+    return item.talents.filter(t => hasContent(t))
+  }
+
+  return item.talents.filter(t => hasContent(t)).map(slug => {
+    // Chercher par nom exact (insensible à la casse)
+    const found = talentsArmes.find(ta =>
+      ta.nom.toLowerCase() === slug.toLowerCase()
+    )
+    return found || slug // retourne l'objet talent ou le texte brut
+  })
+}
+
+export default function WeaponCard({ item, talentsArmes }) {
   const isExotic = item.estExotique
   const isNamed = item.estNomme && !isExotic
   const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : 'text-shd'
   const typeIcon = WEAPON_TYPE_ICONS[item.type]
   const attrIcon = resolveAttributeIcon(item.attributEssentiel)
+
+  const resolvedTalents = resolveTalents(item, talentsArmes)
 
   return (
     <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden hover:border-tactical-border/80 transition-colors">
@@ -49,40 +71,24 @@ export default function WeaponCard({ item }) {
         <StatWithIcon label="Attribut" value={item.attributEssentiel?.replace(/^\.\+?/, '') || null} icon={attrIcon} />
       </div>
 
-      {/* Talents exotiques / nommés / Obtention */}
-      {(hasContent(item.talent1) || hasContent(item.talentNomme) || hasContent(item.obtention)) && (
-        <div className="px-4 py-2.5 border-t border-tactical-border/50 space-y-1.5">
-          {/* Talent dédié arme nommée */}
-          {hasContent(item.talentNomme) && (
-            <TalentLine color="text-yellow-400" label="Talent" text={item.talentNomme} icone={item.icone} />
-          )}
-          {hasContent(item.talent1) && (
-            <TalentLine color="text-shd" label="Talent 1" text={item.talent1} icone={item.icone} />
-          )}
-          {hasContent(item.talent2) && item.talent2 !== 'n/a' && (
-            <TalentLine color="text-shd" label="Talent 2" text={item.talent2} />
-          )}
-          {hasContent(item.obtention) && (
-            <div className="text-[11px] text-gray-500 leading-relaxed">
-              <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Obtention : </span>
-              {item.obtention}
-            </div>
-          )}
+      {/* Talents résolus */}
+      {resolvedTalents.length > 0 && (
+        <div className="px-3 py-2.5 border-t border-tactical-border/50 space-y-2">
+          {resolvedTalents.map((talent, i) => (
+            <TalentInline key={i} talent={talent} isExotic={isExotic} />
+          ))}
         </div>
       )}
-    </div>
-  )
-}
 
-function TalentLine({ color, label, text, icone }) {
-  const icon = resolveIcon(icone)
-  return (
-    <div className="text-[11px] text-gray-400 leading-relaxed flex items-start gap-1.5">
-      <GameIcon src={icon} alt="" size="w-4 h-4 mt-0.5" />
-      <div>
-        <span className={`${color} font-bold uppercase tracking-widest text-[10px]`}>{label} : </span>
-        {text}
-      </div>
+      {/* Obtention */}
+      {hasContent(item.obtention) && (
+        <div className="px-4 py-2 border-t border-tactical-border/50">
+          <div className="text-[11px] text-gray-500 leading-relaxed">
+            <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Obtention : </span>
+            {item.obtention}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -109,5 +115,3 @@ function StatWithIcon({ label, value, icon }) {
     </div>
   )
 }
-
-

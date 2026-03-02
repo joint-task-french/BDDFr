@@ -65,8 +65,12 @@ export default function CategorySection({ category, items, searchTerm, allData }
 
   // Props supplémentaires pour certaines cards
   const extraProps = {}
-  if (category?.key === 'equipements' && allData?.ensembles) {
-    extraProps.ensembles = allData.ensembles
+  if (category?.key === 'armes' && allData?.talentsArmes) {
+    extraProps.talentsArmes = allData.talentsArmes
+  }
+  if (category?.key === 'equipements') {
+    if (allData?.ensembles) extraProps.ensembles = allData.ensembles
+    if (allData?.talentsEquipements) extraProps.talentsEquipements = allData.talentsEquipements
   }
 
   return (

@@ -25,10 +25,12 @@
       "degatsMax": { "type": "integer", "description": "Dégâts maximum" },
       "estExotique": { "type": "boolean", "description": "True si arme exotique" },
       "estNomme": { "type": "boolean", "description": "True si arme nommée (talent dédié fixe)" },
-      "talentNomme": { "type": "string", "description": "Talent dédié de l'arme nommée (non modifiable)" },
-      "talent1": { "type": "string", "description": "Talent exotique principal (exotiques uniquement)" },
-      "talent2": { "type": "string", "description": "Talent exotique secondaire (exotiques uniquement)" },
-      "obtention": { "type": "string", "description": "Comment obtenir l'arme (exotiques uniquement)" }
+      "talents": {
+        "type": "array",
+        "description": "Liste de slugs de talents (référencent les noms dans talents-armes.jsonc). Pour les exotiques, les talents dédiés sont directement dans cette liste.",
+        "items": { "type": "string" }
+      },
+      "obtention": { "type": "string", "description": "Comment obtenir l'arme" }
     }
   }
 }

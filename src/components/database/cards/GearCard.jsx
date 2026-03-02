@@ -1,12 +1,29 @@
 import { useMemo } from 'react'
 import { GEAR_SLOT_LABELS } from '../../../utils/formatters'
 import { GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
+import TalentInline from './TalentInline'
 
 function hasContent(v) {
-  return v && v !== '' && v !== 'n/a' && v !== '-' && v !== 'FALSE'
+  return v && v !== '' && v !== 'n/a' && v !== '-' && v !== 'FALSE' && v !== 'TRUE'
 }
 
-export default function GearCard({ item, ensembles }) {
+/**
+ * Résout les talents d'un équipement : cherche chaque slug dans talentsEquipements.
+ */
+function resolveTalents(item, talentsEquipements) {
+  if (!item.talents || item.talents.length === 0) return []
+  if (!talentsEquipements || talentsEquipements.length === 0) {
+    return item.talents.filter(t => hasContent(t))
+  }
+  return item.talents.filter(t => hasContent(t)).map(slug => {
+    const found = talentsEquipements.find(te =>
+      te.nom.toLowerCase() === slug.toLowerCase()
+    )
+    return found || slug
+  })
+}
+
+export default function GearCard({ item, ensembles, talentsEquipements }) {
   const isExotic = item.estExotique
   const isNamed = item.estNomme && !isExotic
   const isGearSet = item.source === 'gear_set' && !isExotic
@@ -33,9 +50,9 @@ export default function GearCard({ item, ensembles }) {
     return null
   }, [isGearSet, ensemble, item.emplacement])
 
-  // Déterminer les talents à afficher (priorité : talent de la pièce > gear set)
-  const hasPieceTalent = hasContent(item.talent) || hasContent(item.talent1)
-  const hasGearSetTalent = !hasPieceTalent && gearSetTalent
+  const resolvedTalents = resolveTalents(item, talentsEquipements)
+  const hasResolvedTalents = resolvedTalents.length > 0
+  const hasGearSetTalent = !hasResolvedTalents && gearSetTalent
 
   return (
     <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`}>
@@ -100,42 +117,32 @@ export default function GearCard({ item, ensembles }) {
         )}
       </div>
 
-      {/* Talents */}
-      {(hasPieceTalent || hasGearSetTalent) && (
-        <div className="px-4 py-2.5 border-t border-tactical-border/50 space-y-1.5">
-          {/* Talent nommé (champ talent) */}
-          {hasContent(item.talent) && (
-            <div className="text-[11px] text-gray-400 leading-relaxed">
-              <span className="text-yellow-400 font-bold uppercase tracking-widest text-[10px]">Talent : </span>
-              {item.talent}
-            </div>
-          )}
-          {/* Talent gear set résolu depuis l'ensemble */}
-          {hasGearSetTalent && (
-            <div className="text-[11px] text-gray-400 leading-relaxed">
-              <span className="text-emerald-400 font-bold uppercase tracking-widest text-[10px]">{gearSetTalent.label} : </span>
-              {gearSetTalent.text}
-            </div>
-          )}
-          {/* Talents exotiques (talent1/talent2) */}
-          {hasContent(item.talent1) && (
-            <div className="text-[11px] text-gray-400 leading-relaxed">
-              <span className="text-shd font-bold uppercase tracking-widest text-[10px]">Talent 1 : </span>
-              {item.talent1}
-            </div>
-          )}
-          {hasContent(item.talent2) && item.talent2 !== 'n/a' && (
-            <div className="text-[11px] text-gray-400 leading-relaxed">
-              <span className="text-shd font-bold uppercase tracking-widest text-[10px]">Talent 2 : </span>
-              {item.talent2}
-            </div>
-          )}
-          {hasContent(item.obtention) && (
-            <div className="text-[11px] text-gray-500">
-              <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Obtention : </span>
-              {item.obtention}
-            </div>
-          )}
+      {/* Talents résolus */}
+      {hasResolvedTalents && (
+        <div className="px-3 py-2.5 border-t border-tactical-border/50 space-y-2">
+          {resolvedTalents.map((talent, i) => (
+            <TalentInline key={i} talent={talent} isExotic={isExotic} />
+          ))}
+        </div>
+      )}
+
+      {/* Talent gear set résolu depuis l'ensemble */}
+      {hasGearSetTalent && (
+        <div className="px-4 py-2.5 border-t border-tactical-border/50">
+          <div className="text-[11px] text-gray-400 leading-relaxed">
+            <span className="text-emerald-400 font-bold uppercase tracking-widest text-[10px]">{gearSetTalent.label} : </span>
+            {gearSetTalent.text}
+          </div>
+        </div>
+      )}
+
+      {/* Obtention */}
+      {hasContent(item.obtention) && (
+        <div className="px-4 py-2 border-t border-tactical-border/50">
+          <div className="text-[11px] text-gray-500">
+            <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Obtention : </span>
+            {item.obtention}
+          </div>
         </div>
       )}
     </div>

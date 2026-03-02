@@ -54,21 +54,15 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
             {piece.attributUnique && (
               <div className="text-[10px] text-purple-400 mt-1">✦ {piece.attributUnique}</div>
             )}
-            {/* Talents exotiques intégrés */}
-            {piece.estExotique && piece.talent1 && (
+            {/* Talents exotiques/nommés (depuis talents[]) */}
+            {piece.talents && piece.talents.length > 0 && (piece.estExotique || piece.estNomme) && (
               <div className="mt-3 pt-3 border-t border-tactical-border">
-                <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent Exotique</div>
-                <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{piece.talent1}</div>
-                {piece.talent2 && piece.talent2 !== 'n/a' && (
-                  <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-2">{piece.talent2}</div>
-                )}
-              </div>
-            )}
-            {/* Talent nommé dédié */}
-            {piece.estNomme && !piece.estExotique && hasContent(piece.talent) && (
-              <div className="mt-3 pt-3 border-t border-tactical-border">
-                <div className="text-xs text-yellow-400 font-bold uppercase tracking-widest">Talent Nommé</div>
-                <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{piece.talent}</div>
+                <div className={`text-xs font-bold uppercase tracking-widest ${piece.estExotique ? 'text-shd' : 'text-yellow-400'}`}>
+                  {piece.estExotique ? 'Talent Exotique' : 'Talent Nommé'}
+                </div>
+                {piece.talents.filter(t => t && t !== 'n/a').map((t, i) => (
+                  <div key={i} className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{t}</div>
+                ))}
               </div>
             )}
             {/* Talent gear set résolu depuis l'ensemble */}

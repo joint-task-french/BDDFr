@@ -46,19 +46,15 @@ export default function WeaponSlot({ label, weapon, talent, onSelect, onRemove, 
                 <StatChip icon="🎯" value={weapon.headshot ? `${weapon.headshot} HS` : null} color="text-yellow-400" />
               </div>
             )}
-            {/* Talents exotiques */}
-            {weapon.estExotique && weapon.talent1 ? (
+            {/* Talents exotiques/nommés (depuis talents[]) */}
+            {weapon.talents && weapon.talents.length > 0 && (weapon.estExotique || weapon.estNomme) ? (
               <div className="mt-3 pt-3 border-t border-tactical-border">
-                <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent Exotique</div>
-                <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{weapon.talent1}</div>
-                {weapon.talent2 && weapon.talent2 !== 'n/a' && (
-                  <div className="text-[11px] text-gray-400 mt-2 leading-relaxed line-clamp-2">{weapon.talent2}</div>
-                )}
-              </div>
-            ) : weapon.estNomme && weapon.talentNomme ? (
-              <div className="mt-3 pt-3 border-t border-tactical-border">
-                <div className="text-xs text-yellow-400 font-bold uppercase tracking-widest">Talent Nommé</div>
-                <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{weapon.talentNomme}</div>
+                <div className={`text-xs font-bold uppercase tracking-widest ${weapon.estExotique ? 'text-shd' : 'text-yellow-400'}`}>
+                  {weapon.estExotique ? 'Talent Exotique' : 'Talent Nommé'}
+                </div>
+                {weapon.talents.filter(t => t && t !== 'n/a').map((t, i) => (
+                  <div key={i} className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{t}</div>
+                ))}
               </div>
             ) : talent ? (
               <div className="mt-3 pt-3 border-t border-tactical-border">

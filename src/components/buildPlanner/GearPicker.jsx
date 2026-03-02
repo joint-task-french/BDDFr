@@ -111,8 +111,9 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
               </div>
               <div className="text-xs text-gray-500">{p.marque}</div>
               {p.attributEssentiel && <div className="text-[10px] text-blue-400 mt-1">{p.attributEssentiel}</div>}
-              {p.talent && <div className="text-[10px] text-shd/70 mt-1">🏅 {p.talent}</div>}
-              {p.talent1 && <div className="text-[10px] text-shd/70 mt-1 line-clamp-2">🏅 {p.talent1}</div>}
+              {p.talents && p.talents.length > 0 && (
+                <div className="text-[10px] text-shd/70 mt-1 line-clamp-2">🏅 {p.talents[0]}</div>
+              )}
             </div>
           )
         })}

@@ -13,11 +13,9 @@
     "degatsBase": 58886,
     "degatsMax": 135438,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "ACR-E",
@@ -32,11 +30,9 @@
     "degatsBase": 58886,
     "degatsMax": 135438,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "F2000",
@@ -51,11 +47,9 @@
     "degatsBase": 49095,
     "degatsMax": 112919,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SHIELD SPLINTERER",
@@ -70,11 +64,9 @@
     "degatsBase": 49095,
     "degatsMax": 112919,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "AUG A3-CQC",
@@ -89,11 +81,9 @@
     "degatsBase": 57206,
     "degatsMax": 131574,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MAIN INVISIBLE",
@@ -108,11 +98,9 @@
     "degatsBase": 57206,
     "degatsMax": 131574,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "AK-M",
@@ -127,11 +115,9 @@
     "degatsBase": 67161,
     "degatsMax": 154470,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "AK-M DU MARCHÉ NOIRE",
@@ -146,11 +132,9 @@
     "degatsBase": 64703,
     "degatsMax": 148817,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MANIAQUE",
@@ -165,11 +149,9 @@
     "degatsBase": 64703,
     "degatsMax": 148817,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "FAL",
@@ -184,11 +166,9 @@
     "degatsBase": 57634,
     "degatsMax": 132558,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "FAL SA-58",
@@ -203,11 +183,9 @@
     "degatsBase": 57634,
     "degatsMax": 132558,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "FAL TACTIQUE SA-58",
@@ -222,11 +200,9 @@
     "degatsBase": 57634,
     "degatsMax": 132558,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "FAMAS 2010",
@@ -241,11 +217,9 @@
     "degatsBase": 45263,
     "degatsMax": 104105,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "BURNOUT",
@@ -260,11 +234,9 @@
     "degatsBase": 45263,
     "degatsMax": 104105,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "G36 MILITAIRE",
@@ -279,11 +251,9 @@
     "degatsBase": 52552,
     "degatsMax": 120870,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "L'INNÉ",
@@ -298,11 +268,9 @@
     "degatsBase": 52552,
     "degatsMax": 120870,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "G36",
@@ -317,11 +285,9 @@
     "degatsBase": 52552,
     "degatsMax": 120870,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "G36 AMÉLIORÉ",
@@ -336,11 +302,9 @@
     "degatsBase": 52552,
     "degatsMax": 120870,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M4 POLICE",
@@ -355,11 +319,9 @@
     "degatsBase": 46908,
     "degatsMax": 107888,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "PYROMANE",
@@ -374,11 +336,9 @@
     "degatsBase": 46908,
     "degatsMax": 107888,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "CARBINE 7",
@@ -393,11 +353,9 @@
     "degatsBase": 49781,
     "degatsMax": 114496,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "LA FOREUSE",
@@ -412,11 +370,9 @@
     "degatsBase": 49781,
     "degatsMax": 114496,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "HONEY BADGER",
@@ -431,11 +387,9 @@
     "degatsBase": 51261,
     "degatsMax": 117900,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "CARCAJOU FURIEUX",
@@ -450,11 +404,9 @@
     "degatsBase": 51261,
     "degatsMax": 117900,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "P416 MILITAIRE",
@@ -469,11 +421,9 @@
     "degatsBase": 47356,
     "degatsMax": 113654,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "P416 G3 PERSONNALISÉ",
@@ -488,11 +438,9 @@
     "degatsBase": 47356,
     "degatsMax": 108919,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "VISION GLORIEUSE",
@@ -507,11 +455,9 @@
     "degatsBase": 47356,
     "degatsMax": 108919,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MK16",
@@ -526,11 +472,9 @@
     "degatsBase": 59210,
     "degatsMax": 136183,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MK16 SOCOM",
@@ -545,11 +489,9 @@
     "degatsBase": 59210,
     "degatsMax": 136183,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MK16 TACTIQUE",
@@ -564,11 +506,9 @@
     "degatsBase": 59210,
     "degatsMax": 136183,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "CTAR-21",
@@ -583,11 +523,9 @@
     "degatsBase": 44793,
     "degatsMax": 103024,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "LE FENDOIR",
@@ -602,11 +540,9 @@
     "degatsBase": 44793,
     "degatsMax": 103024,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SIG556",
@@ -621,11 +557,9 @@
     "degatsBase": 55922,
     "degatsMax": 128621,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "ANIMAL MÉCANIQUE",
@@ -640,11 +574,9 @@
     "degatsBase": 55922,
     "degatsMax": 128621,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "PDR",
@@ -659,11 +591,9 @@
     "degatsBase": 57606,
     "degatsMax": 132494,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SUJET DE TEST",
@@ -678,11 +608,9 @@
     "degatsBase": 57606,
     "degatsMax": 132494,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "TKB-408",
@@ -697,11 +625,9 @@
     "degatsBase": 63493,
     "degatsMax": 146034,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "TUEUR DE ROI",
@@ -716,11 +642,9 @@
     "degatsBase": 63493,
     "degatsMax": 146034,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MG5",
@@ -735,11 +659,9 @@
     "degatsBase": 54310,
     "degatsMax": 124913,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "BIG SHOW",
@@ -754,11 +676,9 @@
     "degatsBase": 54310,
     "degatsMax": 124913,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SLEIPNER",
@@ -773,11 +693,9 @@
     "degatsBase": 54310,
     "degatsMax": 124913,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MG5 INFANTERIE",
@@ -792,11 +710,9 @@
     "degatsBase": 52322,
     "degatsMax": 120341,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "STONER LAMG",
@@ -811,11 +727,9 @@
     "degatsBase": 62347,
     "degatsMax": 143398,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "GRONDEMENT",
@@ -830,11 +744,9 @@
     "degatsBase": 62347,
     "degatsMax": 143398,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "Écran bleu",
@@ -849,11 +761,11 @@
     "degatsBase": 62347,
     "degatsMax": 143398,
     "estExotique": true,
-    "talent1": "Munitions désactivatrices :Tirer sur un ennemi le marque et inflige un effet cumulable sur l'agent jusqu'à un maximum de 50. Tirer sur un ennemi marqué renouvelle la marque et ajoute des effets cumulables sur l'agent. Quand vous déployez une compétence non-bouclier, vous supprimez tous les effets cumulés sur l'agent et toute les cibles marquées déclenchent un effet.1 - 10 effets : Détecte et désactive les cibles marquées pendant 5s.11 - 25 effets : Détecte, désactive et désoriente les cibles marquées pendant 5s.26 - 49 effets : 50 stacks : Détecte, désactive et désoriente les cibles marquées ainsi que tous les ennemis à moins de 10m des cibles marquées pendant 5s.  Cet effet se déclenche immédiatement si un ennemi marqué est tué.",
-    "talent2": "n/a",
     "obtention": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Munitions désactivatrices"
+    ]
   },
   {
     "nom": "M249B",
@@ -868,11 +780,9 @@
     "degatsBase": 48289,
     "degatsMax": 111065,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "BLACK FRIDAY",
@@ -887,11 +797,9 @@
     "degatsBase": 48289,
     "degatsMax": 111065,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "STINGER",
@@ -906,11 +814,9 @@
     "degatsBase": 48289,
     "degatsMax": 111065,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M249 PARA TACTIQUE",
@@ -925,11 +831,9 @@
     "degatsBase": 48289,
     "degatsMax": 111065,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MK46 MILITAIRE",
@@ -944,11 +848,9 @@
     "degatsBase": 48289,
     "degatsMax": 111065,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M60 CLASSIQUE",
@@ -963,11 +865,9 @@
     "degatsBase": 67698,
     "degatsMax": 155705,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M60 E4 MILITAIRE",
@@ -982,11 +882,9 @@
     "degatsBase": 65220,
     "degatsMax": 150006,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M60 E6 DU MARCHÉ NOIRE",
@@ -1001,11 +899,9 @@
     "degatsBase": 65220,
     "degatsMax": 150006,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "BELLE ÉPOQUE",
@@ -1020,11 +916,9 @@
     "degatsBase": 65220,
     "degatsMax": 150006,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "RPK-74 CLASSIQUE",
@@ -1039,11 +933,9 @@
     "degatsBase": 71524,
     "degatsMax": 164505,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "RPK-74 MILITAIRE",
@@ -1058,11 +950,9 @@
     "degatsBase": 71524,
     "degatsMax": 164505,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "RPK-74 DU MARCHÉ NOIRE",
@@ -1077,11 +967,9 @@
     "degatsBase": 71524,
     "degatsMax": 164505,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "NOUVEAU ET FIABLE",
@@ -1096,11 +984,9 @@
     "degatsBase": 71524,
     "degatsMax": 164505,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "L86 LSW MILITAIRE",
@@ -1115,11 +1001,9 @@
     "degatsBase": 61084,
     "degatsMax": 140493,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "L86 A2 PERSONNALISÉ",
@@ -1134,11 +1018,9 @@
     "degatsBase": 61084,
     "degatsMax": 140493,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "TABULA RASA",
@@ -1153,11 +1035,9 @@
     "degatsBase": 61084,
     "degatsMax": 140493,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "IWI NEGEV",
@@ -1172,11 +1052,9 @@
     "degatsBase": 57595,
     "degatsMax": 132469,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "CARNAGE",
@@ -1191,11 +1069,9 @@
     "degatsBase": 57595,
     "degatsMax": 132469,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "GR9",
@@ -1210,11 +1086,9 @@
     "degatsBase": 49469,
     "degatsMax": 113779,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "DÉFI",
@@ -1229,11 +1103,9 @@
     "degatsBase": 49469,
     "degatsMax": 113779,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "CRICKET",
@@ -1248,11 +1120,9 @@
     "degatsBase": 49469,
     "degatsMax": 113779,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "Px4 STORM TYPE F",
@@ -1267,11 +1137,9 @@
     "degatsBase": 91760,
     "degatsMax": 211048,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "Px4 STORM TYPE T",
@@ -1286,11 +1154,9 @@
     "degatsBase": 91760,
     "degatsMax": 211048,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "X-45",
@@ -1305,11 +1171,9 @@
     "degatsBase": 88301,
     "degatsMax": 203092,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "X-45 TACTIQUE",
@@ -1324,11 +1188,9 @@
     "degatsBase": 88301,
     "degatsMax": 203092,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M9 MILITAIRE",
@@ -1343,11 +1205,9 @@
     "degatsBase": 102563,
     "degatsMax": 235895,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M9A1 D'OFFICER",
@@ -1362,11 +1222,9 @@
     "degatsBase": 95675,
     "degatsMax": 220053,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "93R",
@@ -1381,11 +1239,9 @@
     "degatsBase": 52965,
     "degatsMax": 121820,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "93R DE TIREUR D'ÉLITE",
@@ -1400,11 +1256,9 @@
     "degatsBase": 52965,
     "degatsMax": 121820,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "D50",
@@ -1419,11 +1273,9 @@
     "degatsBase": 189126,
     "degatsMax": 434990,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "D50 DE SURVIVALISTE",
@@ -1438,11 +1290,9 @@
     "degatsBase": 189126,
     "degatsMax": 427425,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M1911",
@@ -1457,11 +1307,9 @@
     "degatsBase": 129854,
     "degatsMax": 298664,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M45A1",
@@ -1476,11 +1324,9 @@
     "degatsBase": 117409,
     "degatsMax": 270041,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M1911 TACTIQUE",
@@ -1495,11 +1341,9 @@
     "degatsBase": 117409,
     "degatsMax": 270041,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MOZAMBIQUE SPÉCIAL",
@@ -1514,11 +1358,9 @@
     "degatsBase": 117409,
     "degatsMax": 270041,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "FIRST WAVE PF45",
@@ -1533,11 +1375,9 @@
     "degatsBase": 100704,
     "degatsMax": 231619,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "PF45 PERSONNALISÉ",
@@ -1552,11 +1392,9 @@
     "degatsBase": 93941,
     "degatsMax": 216064,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "PARATONNERRE",
@@ -1571,11 +1409,9 @@
     "degatsBase": 93941,
     "degatsMax": 216064,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "PETITE ABEILLE OUVRIERE",
@@ -1590,11 +1426,9 @@
     "degatsBase": 79900,
     "degatsMax": 183770,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SUBNOSED DICEROS",
@@ -1609,11 +1443,9 @@
     "degatsBase": 211246,
     "degatsMax": 485866,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "DICEROS",
@@ -1628,11 +1460,9 @@
     "degatsBase": 204752,
     "degatsMax": 470930,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "DICEROS SPÉCIAL",
@@ -1647,11 +1477,9 @@
     "degatsBase": 198258,
     "degatsMax": 448063,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "586 MAGNUM",
@@ -1666,11 +1494,9 @@
     "degatsBase": 233223,
     "degatsMax": 536413,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "ORBIT",
@@ -1685,11 +1511,9 @@
     "degatsBase": 233223,
     "degatsMax": 536413,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "POLICE 686 MAGNUM",
@@ -1704,11 +1528,9 @@
     "degatsBase": 233223,
     "degatsMax": 536413,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "PROPHÈTE",
@@ -1723,11 +1545,9 @@
     "degatsBase": 233223,
     "degatsMax": 536413,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "LE MOISSONNEUR",
@@ -1742,11 +1562,9 @@
     "degatsBase": 256545,
     "degatsMax": 590054,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "KARD-45",
@@ -1761,11 +1579,9 @@
     "degatsBase": 114300,
     "degatsMax": 258318,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "TDI \"KARD\" PERSONNALISÉ",
@@ -1780,11 +1596,9 @@
     "degatsBase": 114300,
     "degatsMax": 258318,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MAXIM 9",
@@ -1799,11 +1613,9 @@
     "degatsBase": 125385,
     "degatsMax": 283370,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "P320",
@@ -1818,11 +1630,9 @@
     "degatsBase": 87522,
     "degatsMax": 197800,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "ACS-12",
@@ -1837,11 +1647,9 @@
     "degatsBase": 180738,
     "degatsMax": 415697,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "ROCK'N'ROLL",
@@ -1856,11 +1664,9 @@
     "degatsBase": 180738,
     "degatsMax": 415697,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "GAUCHER",
@@ -1875,11 +1681,9 @@
     "degatsBase": 180738,
     "degatsMax": 415697,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SASG-12 S MARCHÉ NOIR",
@@ -1894,11 +1698,9 @@
     "degatsBase": 349740,
     "degatsMax": 804402,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SASG-12",
@@ -1913,11 +1715,9 @@
     "degatsBase": 349740,
     "degatsMax": 804402,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SASG-12 TACTIQUE",
@@ -1932,11 +1732,9 @@
     "degatsBase": 349740,
     "degatsMax": 804402,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "TSUNAMI",
@@ -1951,11 +1749,9 @@
     "degatsBase": 349740,
     "degatsMax": 804402,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SUPER 90 MARINE",
@@ -1970,11 +1766,9 @@
     "degatsBase": 389865,
     "degatsMax": 896690,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SUPER 90",
@@ -1989,11 +1783,9 @@
     "degatsBase": 389865,
     "degatsMax": 896690,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "COMME DE LA COLLE",
@@ -2008,11 +1800,9 @@
     "degatsBase": 389865,
     "degatsMax": 896690,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SUPER 90 SBS TACTIQUE",
@@ -2027,11 +1817,9 @@
     "degatsBase": 389865,
     "degatsMax": 896690,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "ENFORCER",
@@ -2046,11 +1834,9 @@
     "degatsBase": 389865,
     "degatsMax": 869399,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "FUSIL À CANON SCIÉ",
@@ -2065,11 +1851,9 @@
     "degatsBase": 635700,
     "degatsMax": 1462110,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "ALLUME-FEU",
@@ -2084,11 +1868,9 @@
     "degatsBase": 635700,
     "degatsMax": 1436682,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "BAGUETTE MAGIQUE DE SECOURS",
@@ -2103,11 +1885,9 @@
     "degatsBase": 635700,
     "degatsMax": 1468467,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "FUSIL À DOUBLE CANON",
@@ -2122,11 +1902,9 @@
     "degatsBase": 677979,
     "degatsMax": 1559352,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "BAGUETTE MAGIQUE",
@@ -2141,11 +1919,9 @@
     "degatsBase": 677979,
     "degatsMax": 1559352,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "KSG",
@@ -2160,11 +1936,9 @@
     "degatsBase": 678672,
     "degatsMax": 1560946,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "L'INHUMATEUR",
@@ -2179,11 +1953,9 @@
     "degatsBase": 678672,
     "degatsMax": 1560946,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M870 MCS PERSONNALISÉ",
@@ -2198,11 +1970,9 @@
     "degatsBase": 703527,
     "degatsMax": 1618112,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M870 POLICE",
@@ -2217,11 +1987,9 @@
     "degatsBase": 703527,
     "degatsMax": 1618112,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M870 EXPRESS",
@@ -2236,11 +2004,9 @@
     "degatsBase": 703527,
     "degatsMax": 1618112,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M870 MILITAIRE",
@@ -2255,11 +2021,9 @@
     "degatsBase": 703527,
     "degatsMax": 1618112,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M870",
@@ -2274,11 +2038,9 @@
     "degatsBase": 703527,
     "degatsMax": 1618112,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "CUÉLEBRE",
@@ -2293,11 +2055,9 @@
     "degatsBase": 703527,
     "degatsMax": 1618112,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SPAS-12",
@@ -2312,11 +2072,9 @@
     "degatsBase": 715833,
     "degatsMax": 1646416,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "ÉPINE",
@@ -2331,11 +2089,9 @@
     "degatsBase": 715833,
     "degatsMax": 1646416,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SIX12",
@@ -2350,11 +2106,9 @@
     "degatsBase": 409469,
     "degatsMax": 941779,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "LA SERPILLIERE",
@@ -2369,11 +2123,9 @@
     "degatsBase": 409469,
     "degatsMax": 941779,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "G28*",
@@ -2388,11 +2140,9 @@
     "degatsBase": 206376,
     "degatsMax": 474665,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "RELIQUE*",
@@ -2407,11 +2157,9 @@
     "degatsBase": 206376,
     "degatsMax": 474665,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SACRUM IMPERIUM*",
@@ -2426,11 +2174,9 @@
     "degatsBase": 206376,
     "degatsMax": 474665,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SOCOM MK20 SSR*",
@@ -2445,11 +2191,9 @@
     "degatsBase": 145815,
     "degatsMax": 335375,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "LES TÉNÈBRES*",
@@ -2464,11 +2208,9 @@
     "degatsBase": 145815,
     "degatsMax": 335375,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M700 CARBON",
@@ -2483,11 +2225,9 @@
     "degatsBase": 412412,
     "degatsMax": 948548,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "BRUTUS",
@@ -2502,11 +2242,9 @@
     "degatsBase": 412412,
     "degatsMax": 948548,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M700 TACTIQUE",
@@ -2521,11 +2259,9 @@
     "degatsBase": 412412,
     "degatsMax": 948548,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MODEL 700",
@@ -2540,11 +2276,9 @@
     "degatsBase": 441461,
     "degatsMax": 1015360,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "GRAND BATON D'EKIM",
@@ -2559,11 +2293,9 @@
     "degatsBase": 441461,
     "degatsMax": 1015360,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SVD DE SURPLUS*",
@@ -2578,11 +2310,9 @@
     "degatsBase": 156626,
     "degatsMax": 360240,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SVD DE PARACHUTISTE*",
@@ -2597,11 +2327,9 @@
     "degatsBase": 156626,
     "degatsMax": 360240,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "COMMANDO*",
@@ -2616,11 +2344,9 @@
     "degatsBase": 156626,
     "degatsMax": 360240,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "EFFROYABLE SENTENCE*",
@@ -2635,11 +2361,9 @@
     "degatsBase": 156626,
     "degatsMax": 360240,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SRS FURTIF",
@@ -2654,11 +2378,9 @@
     "degatsBase": 409255,
     "degatsMax": 941287,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SRS A1",
@@ -2673,11 +2395,9 @@
     "degatsBase": 409255,
     "degatsMax": 941287,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "ÉPINGLE",
@@ -2692,11 +2412,9 @@
     "degatsBase": 409255,
     "degatsMax": 941287,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M44 PERSONNALISÉ",
@@ -2711,11 +2429,9 @@
     "degatsBase": 433456,
     "degatsMax": 996949,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M44 CLASSIQUE",
@@ -2730,11 +2446,9 @@
     "degatsBase": 417588,
     "degatsMax": 960452,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M44 DE CHASSE",
@@ -2749,11 +2463,9 @@
     "degatsBase": 417588,
     "degatsMax": 960452,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MORT BLANCHE",
@@ -2768,11 +2480,9 @@
     "degatsBase": 417588,
     "degatsMax": 960452,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "OH, NOEL",
@@ -2787,11 +2497,9 @@
     "degatsBase": 417588,
     "degatsMax": 960452,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SR-1",
@@ -2806,11 +2514,9 @@
     "degatsBase": 409255,
     "degatsMax": 941287,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "ADRESTIA",
@@ -2825,11 +2531,9 @@
     "degatsBase": 409255,
     "degatsMax": 941287,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "TUEUR ATTITRÉ",
@@ -2844,11 +2548,9 @@
     "degatsBase": 409255,
     "degatsMax": 941287,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "TACTICAL .308",
@@ -2863,11 +2565,9 @@
     "degatsBase": 403709,
     "degatsMax": 928531,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SCALPEL",
@@ -2882,11 +2582,9 @@
     "degatsBase": 403709,
     "degatsMax": 928531,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SMG-9 CONVERTI",
@@ -2901,11 +2599,9 @@
     "degatsBase": 48501,
     "degatsMax": 111552,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SMG-9 A2 CONVERTI",
@@ -2920,11 +2616,9 @@
     "degatsBase": 46726,
     "degatsMax": 107470,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MP5A2",
@@ -2939,11 +2633,9 @@
     "degatsBase": 53893,
     "degatsMax": 123954,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MP5-N",
@@ -2958,11 +2650,9 @@
     "degatsBase": 53893,
     "degatsMax": 123954,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MP5 ST",
@@ -2977,11 +2667,9 @@
     "degatsBase": 53893,
     "degatsMax": 123954,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "CABARET",
@@ -2996,11 +2684,9 @@
     "degatsBase": 53893,
     "degatsMax": 123954,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "PP-19",
@@ -3015,11 +2701,9 @@
     "degatsBase": 63579,
     "degatsMax": 146232,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "PP-19 AMÉLIORÉ",
@@ -3034,11 +2718,9 @@
     "degatsBase": 63579,
     "degatsMax": 146232,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "COUP DE FROID",
@@ -3053,11 +2735,9 @@
     "degatsBase": 63579,
     "degatsMax": 146232,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "AUG A3 PARA XS",
@@ -3072,11 +2752,9 @@
     "degatsBase": 58651,
     "degatsMax": 134897,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "AUG A3 PARA XS AMÉLIORÉ",
@@ -3091,11 +2769,9 @@
     "degatsBase": 58651,
     "degatsMax": 134897,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "AUG A3 TACTIQUE",
@@ -3110,11 +2786,9 @@
     "degatsBase": 58651,
     "degatsMax": 134897,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "VECTOR TACTIQUE SBR 9MM",
@@ -3129,11 +2803,9 @@
     "degatsBase": 40496,
     "degatsMax": 93141,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "VECTOR SBR 9MM",
@@ -3148,11 +2820,9 @@
     "degatsBase": 39301,
     "degatsMax": 90392,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "VECTOR .45 ACP",
@@ -3167,11 +2837,9 @@
     "degatsBase": 38295,
     "degatsMax": 88079,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "HIVER FUNESTE",
@@ -3186,11 +2854,9 @@
     "degatsBase": 38295,
     "degatsMax": 88079,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MP7",
@@ -3205,11 +2871,9 @@
     "degatsBase": 46395,
     "degatsMax": 106709,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "L'ÉCHANGEUR",
@@ -3224,11 +2888,9 @@
     "degatsBase": 46395,
     "degatsMax": 106709,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "T821 DU MARCHÉ NOIR",
@@ -3243,11 +2905,9 @@
     "degatsBase": 76899,
     "degatsMax": 176868,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "T821 POLICE",
@@ -3262,11 +2922,9 @@
     "degatsBase": 76899,
     "degatsMax": 176868,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "UMP-45 POLICE",
@@ -3281,11 +2939,9 @@
     "degatsBase": 63677,
     "degatsMax": 146457,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "UMP-45 TACTIQUE",
@@ -3300,11 +2956,9 @@
     "degatsBase": 63677,
     "degatsMax": 146457,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M1928",
@@ -3319,11 +2973,9 @@
     "degatsBase": 78399,
     "degatsMax": 180318,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "TOMMY GUN",
@@ -3338,11 +2990,9 @@
     "degatsBase": 50616,
     "degatsMax": 116417,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "L'ACQUIS",
@@ -3357,11 +3007,9 @@
     "degatsBase": 50616,
     "degatsMax": 116417,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "L'ENNEIGEUR",
@@ -3376,11 +3024,9 @@
     "degatsBase": 93084,
     "degatsMax": 175929,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "P90",
@@ -3395,11 +3041,9 @@
     "degatsBase": 39449,
     "degatsMax": 90733,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "BOUCLIER D'EMELINE",
@@ -3414,11 +3058,9 @@
     "degatsBase": 39449,
     "degatsMax": 90733,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MPX",
@@ -3433,11 +3075,9 @@
     "degatsBase": 50989,
     "degatsMax": 117275,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "L'ÉCARTEUR",
@@ -3452,11 +3092,9 @@
     "degatsBase": 50989,
     "degatsMax": 117275,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "L'APPARTEMENT",
@@ -3471,11 +3109,9 @@
     "degatsBase": 50989,
     "degatsMax": 117275,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "BACKFIRE",
@@ -3490,11 +3126,9 @@
     "degatsBase": 50989,
     "degatsMax": 117275,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "CMMG BANSHEE",
@@ -3509,11 +3143,9 @@
     "degatsBase": 47838,
     "degatsMax": 110027,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "RANCUNE",
@@ -3528,11 +3160,9 @@
     "degatsBase": 47838,
     "degatsMax": 110027,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "UIC15 MOD2*",
@@ -3547,11 +3177,9 @@
     "degatsBase": 144500,
     "degatsMax": 332350,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "ACR SS*",
@@ -3566,11 +3194,9 @@
     "degatsBase": 92344,
     "degatsMax": 212391,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M16A2",
@@ -3585,11 +3211,9 @@
     "degatsBase": 106948,
     "degatsMax": 245980,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MURMURE",
@@ -3604,11 +3228,9 @@
     "degatsBase": 106948,
     "degatsMax": 245980,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M1A SOCOM*",
@@ -3623,11 +3245,9 @@
     "degatsBase": 129150,
     "degatsMax": 297045,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M1A CQB*",
@@ -3642,11 +3262,9 @@
     "degatsBase": 129150,
     "degatsMax": 297045,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "COOLER*",
@@ -3661,11 +3279,9 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MÉDECIN DE FAMILLE*",
@@ -3680,11 +3296,9 @@
     "degatsBase": 129150,
     "degatsMax": 297045,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M1A CLASSIQUE*",
@@ -3699,11 +3313,9 @@
     "degatsBase": 231290,
     "degatsMax": 531967,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SECRET DU CHEF*",
@@ -3718,11 +3330,9 @@
     "degatsBase": 231290,
     "degatsMax": 531967,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "LVOA-C*",
@@ -3737,11 +3347,9 @@
     "degatsBase": 100590,
     "degatsMax": 231357,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SURGE*",
@@ -3756,11 +3364,9 @@
     "degatsBase": 100590,
     "degatsMax": 231357,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MDR URBAIN*",
@@ -3775,11 +3381,9 @@
     "degatsBase": 102947,
     "degatsMax": 236778,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "VINDICATOR*",
@@ -3794,11 +3398,9 @@
     "degatsBase": 102947,
     "degatsMax": 236778,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "Mk17 MILITAIRE*",
@@ -3813,11 +3415,9 @@
     "degatsBase": 145815,
     "degatsMax": 335375,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "Mk17 DE LA POLICE*",
@@ -3832,11 +3432,9 @@
     "degatsBase": 145815,
     "degatsMax": 335375,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "REGARD ÉTERNEL*",
@@ -3851,11 +3449,9 @@
     "degatsBase": 145815,
     "degatsMax": 335375,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SIG 716 CQB*",
@@ -3870,11 +3466,9 @@
     "degatsBase": 125834,
     "degatsMax": 289418,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "SIG 716*",
@@ -3889,11 +3483,9 @@
     "degatsBase": 121128,
     "degatsMax": 278594,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "OUTILS D'ARTISTE*",
@@ -3908,11 +3500,9 @@
     "degatsBase": 121128,
     "degatsMax": 278594,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "USC .45 ACP*",
@@ -3927,11 +3517,9 @@
     "degatsBase": 97719,
     "degatsMax": 224754,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "1886",
@@ -3946,11 +3534,9 @@
     "degatsBase": 386892,
     "degatsMax": 889852,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "LA VIRGINIENNE",
@@ -3965,11 +3551,9 @@
     "degatsBase": 386892,
     "degatsMax": 889852,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MK47 RESOLUTE*",
@@ -3984,11 +3568,9 @@
     "degatsBase": 121142,
     "degatsMax": 278627,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "HARMONIE*",
@@ -4003,11 +3585,9 @@
     "degatsBase": 121142,
     "degatsMax": 278627,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "LA VORACE*",
@@ -4022,11 +3602,9 @@
     "degatsBase": 134360,
     "degatsMax": 309028,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "M4 ALLÉGÉE*",
@@ -4041,11 +3619,9 @@
     "degatsBase": 103747,
     "degatsMax": 238618,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "MINIGUN",
@@ -4060,11 +3636,9 @@
     "degatsBase": 84600,
     "degatsMax": 0,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "CARREAUX",
@@ -4079,11 +3653,9 @@
     "degatsBase": 3600000,
     "degatsMax": 0,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "FUSIL TAC-50",
@@ -4098,11 +3670,9 @@
     "degatsBase": 1400000,
     "degatsMax": 0,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "LANCE-FLAMMES K8-JETSTREAM",
@@ -4117,11 +3687,9 @@
     "degatsBase": 303600,
     "degatsMax": 0,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "LANCEUR P-017",
@@ -4136,11 +3704,9 @@
     "degatsBase": 1800000,
     "degatsMax": 0,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "LANCE-GRENADES MULTIPLE M32A1",
@@ -4155,11 +3721,9 @@
     "degatsBase": 1700000,
     "degatsMax": 0,
     "estExotique": false,
-    "talent1": "",
-    "talent2": "",
     "obtention": "",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": []
   },
   {
     "nom": "Bonne nuit",
@@ -4174,11 +3738,11 @@
     "degatsBase": 715833,
     "degatsMax": 1646416,
     "estExotique": true,
-    "talent1": "Marchand de sable : (PVE)Les attaques au corps à corps tuent instantanément les ennemis non élite.temps de recharge : 15s.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Marchand de sable"
+    ]
   },
   {
     "nom": "Berceuse",
@@ -4193,11 +3757,11 @@
     "degatsBase": 715833,
     "degatsMax": 1646416,
     "estExotique": true,
-    "talent1": "Marchand de sable : (PVE)Les attaques au corps à corps tuent instantanément les ennemis non élite.temps de recharge : 15s.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Marchand de sable"
+    ]
   },
   {
     "nom": "Scorpio",
@@ -4212,11 +3776,11 @@
     "degatsBase": 409469,
     "degatsMax": 941779,
     "estExotique": true,
-    "talent1": "Choc septique :Tirer sur une cible lui des effets de venin qui durent 10 secondes. Le cumul d'effets aggrave les débuffs sur la cible.2 - Poison (Saignement)4 - Désorientation (Désactivation)6 - Électrocution (Immobilisation)9 - La cible subit 20% de dégâts supplémentaires (de toutes les sources). Le cumul n'augmente plus.La durée des effets d'état est basée sur le pourcentage de plombs qui atteignent leur cible lors du tir.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Choc septique"
+    ]
   },
   {
     "nom": "Overlord",
@@ -4231,11 +3795,11 @@
     "degatsBase": 678672,
     "degatsMax": 1560946,
     "estExotique": true,
-    "talent1": "Capitulation :Toucher un ennemi inflige -4% à la vitesse de déplacement pour chaque plomb qui atteint la cible pendant 5s. Tirer à nouveau sur l'ennemi réapplique les effets cumulables.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Capitulation"
+    ]
   },
   {
     "nom": "Shérif",
@@ -4250,11 +3814,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Autentico :Dégâts d'arme +35%Précision +100%Pas de diminution des dégâts.Ces bonus sont intégrés aux statistiques de base de l'arme.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Autentico"
+    ]
   },
   {
     "nom": "Impitoyable",
@@ -4269,11 +3833,11 @@
     "degatsBase": 102143,
     "degatsMax": 234929,
     "estExotique": true,
-    "talent1": "Détente binaire : (PVE)Cette arme tire lorsque l'utilisateur presse et relâche la détente.Si les deux balles touchent le même ennemi, vous gagnez un bonus.À 7 bonus, tirer sur un ennemi inflige des dégâts accrus de +500% et crée une explosion de 7m qui inflige 500% (250%) des dégâts d'arme et consomme les bonus cumulés.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Détente binaire"
+    ]
   },
   {
     "nom": "Inflexible",
@@ -4288,11 +3852,11 @@
     "degatsBase": 102143,
     "degatsMax": 234929,
     "estExotique": true,
-    "talent1": "Détente binaire : (PVP)Cette arme tire lorsque l'utilisateur presse et relâche la détente.Si les deux balles touchent le même ennemi, vous gagnez un bonus.À 7 bonus, tirer sur un ennemi inflige des dégâts accrus de +500% et crée une explosion de 7m qui inflige 500% (250%) des dégâts d'arme et consomme les bonus cumulés.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Détente binaire"
+    ]
   },
   {
     "nom": "Diamondback",
@@ -4307,11 +3871,11 @@
     "degatsBase": 386892,
     "degatsMax": 889852,
     "estExotique": true,
-    "talent1": "Morsure Fatale : (PVE)La Diamondback marque un ennemi désigné aléatoirement dans un rayon de 20 m. S'il n'y a pas aucun ennemi dans les 20 m, l'ennemi le plus proche est marqué.Toucher cet ennemi supprime la marque et assure un coup critique aux dégâts accrus de +20%. Après avoir touché une marque, tous les tirs assurent des coups critiques pendant 5s.Un nouvel ennemi est marqué aléatoirement par la suite et à chaque fois que vous rechargez.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Morsure Fatale"
+    ]
   },
   {
     "nom": "La Vorace",
@@ -4326,11 +3890,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Geri et Freki :Tire des deux canons en même temps d'une seule pression sur la gâchette.Utilisé à l'épaule droite ses tirs confèrent des effets offensifs. Utilisé à l'épaule gauche, ses tirs confèrent des effets défensifs.Les coups au but réalisés d'une épaule déclenchent tous les effets de l'épaule opposée.À l'activation chaque effet offensif infilge +100% des dégâts d'arme, et chaque effet défensif confère +4% de protection bonus et +10% de dégâts aux plaques de protection pendant 5s.Les effets voient leur efficacité doublée s'ils sont appliqués 10 fois.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Geri et Freki"
+    ]
   },
   {
     "nom": "Médecin de famille",
@@ -4345,11 +3909,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Médecin de Famille :Tirer sur un ennemi avec cette arme applique une marque pendant 5 secondes.Si une cible marquée est tuée, elle lâche un kit de réparation de protection de 10% qui s'applique à tout le groupe automatiquement.Le kit ne confère pas de bonus d'armure.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Médecin de Famille"
+    ]
   },
   {
     "nom": "Vindicator",
@@ -4364,11 +3928,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Interface d'assaut Ortiz :En zoom, l'arme met en surbrillance une partie aléatoire du corps de chaque ennemi. L'arme inflige +60% de dégâts d'arme sur les parties de corps en surbrillance.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Interface d'assaut Ortiz"
+    ]
   },
   {
     "nom": "Bittersweet",
@@ -4383,11 +3947,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Transfusion :Réaliser des headshots cumule des effets jusqu'à un maximun de 8. Quand vous tirez sur un allié ou un proxy de compétence, vous les réparez de 50% de la valeur totale des dégâts de l'arme pour chaque effet cumulé.Les alliés soignés recevront 50% du bonus de vos compétences de réparation en bonus de protection pour chaque effe*t pendant 10s.Après avoir soigné un allié ou une compétence, tous les tirs au but assurent des headshots pendant 8s si vous avez cumulé le maximun d'effets.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Transfusion"
+    ]
   },
   {
     "nom": "Eagle Bearer",
@@ -4402,11 +3966,12 @@
     "degatsBase": 47356,
     "degatsMax": 108919,
     "estExotique": true,
-    "talent1": "Frappe de l'aigle :La précision de vos tirs augmentent lorsque vous tirez encontinu, jusqu'à 30% (100%)Les éliminations par headshot confèrent confère le buff ténacité pendant 15s (10s)La puissance de Ténacité est augmenté de 1% pour les dégâts corporels et de 5% pour les headshots.",
-    "talent2": "Ténacité :40-80% des dégâts subis sont retardés jusqu'à l'expiration du buff.L'intégralité du total de dégâts retardés est réduite pour chaque ennemi éliminé pendant que le buff était actif, jusqu'à 100% avec 3 éliminations.",
     "obtention": "Dégâts de fusil d'assautDégâts à la santé",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Frappe de l'aigle",
+      "Ténacité"
+    ]
   },
   {
     "nom": "Caméléon",
@@ -4421,11 +3986,11 @@
     "degatsBase": 44660,
     "degatsMax": 102718,
     "estExotique": true,
-    "talent1": "Instinct d'adaptation :Placer 30 headshots confère +20% de probalitité de coup critique et 50% aux dégâts de coup critique pendant 45 s.Placer 65 tirs au corps confère +90% aux dégâts d'arme pendant 45 s.Placer 20 tirs aux jambes confère +150% à la vitesse de rechargement pendant 45 s.Les buffs se réinitilialisent hors combat.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil d'assaut Dégâts à la santé",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Instinct d'adaptation"
+    ]
   },
   {
     "nom": "Big Horn",
@@ -4440,11 +4005,11 @@
     "degatsBase": 57206,
     "degatsMax": 131574,
     "estExotique": true,
-    "talent1": "Chasseur de gros gibier :Quand vous zoomez, l'arme passe en mode semi-automatique et les tirs infligent 450% de dégâts d'armes à chaque tir.Les headshots confèrent +6% de dégâts headshot. Cet effet est cumulable 25 fois. Une fois le cumul maximum atteint, 10 effets se dissipent toutes les 4 secondes jusqu'à disparition de tous les effets. Les headshots ralentissent la disparition des effets.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil d'assaut Dégâts à la santé",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Chasseur de gros gibier"
+    ]
   },
   {
     "nom": "Capacitor",
@@ -4459,11 +4024,11 @@
     "degatsBase": 57606,
     "degatsMax": 132494,
     "estExotique": true,
-    "talent1": "Capacité :Tirer sur des ennemis cumule des effets jusqu'à un maximum de 40.Chaque effet confère 1.5% de dégâts de compétences. Au bout de 5 secondes, les effets cumulés diminuent de 1 par seconde.Pour chaque tier de compétence, confère 7.5% de dégâts d'arme.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil d'assaut Dégâts aux protections",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Capacité"
+    ]
   },
   {
     "nom": "Feu de Saint-Elme",
@@ -4478,11 +4043,11 @@
     "degatsBase": 46908,
     "degatsMax": 107888,
     "estExotique": true,
-    "talent1": "Actum Est :Tirer sur un ennemi avec cette arme confère 1 effet cumulable. Au bout de 100, votre prochain chargeur contiendra des munitions électriques. (50% du chargeur en pvp)",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil d'assaut Dégâts à la santé",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Actum Est"
+    ]
   },
   {
     "nom": "Strega",
@@ -4497,11 +4062,11 @@
     "degatsBase": 57634,
     "degatsMax": 132558,
     "estExotique": true,
-    "talent1": "Pertubation :Abattre un ennemi applique une marque à tous les ennemis situés à moins de 20m. Il est possible d'appliquer plusieurs marques au même ennemi. Inflige aux ennemis marqués des dégâts amplifiés de 15% par marque.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil d'assaut Dégâts à la santé",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Pertubation"
+    ]
   },
   {
     "nom": "Pestilence",
@@ -4516,11 +4081,11 @@
     "degatsBase": 48289,
     "degatsMax": 111065,
     "estExotique": true,
-    "talent1": "Peste des Parias :Les coups au but appliquent un débuff qui inflige 100% des dégâts d'arme sur 10s. Cet effet est cumulable 50 fois.Quand un ennemi qui subit ce débuff meurt, le cumul d'effets est transféré à un ennemi situé dans un rayon de 25m.",
-    "talent2": "n/a",
     "obtention": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Peste des Parias"
+    ]
   },
   {
     "nom": "Bullet King",
@@ -4535,11 +4100,11 @@
     "degatsBase": 45132,
     "degatsMax": 103804,
     "estExotique": true,
-    "talent1": "Déluge de feu :Cette arme ne nécessite pas de rechargement.Pour chaque 100 balles qui touchent un ennemi, des munitions sont ajoutées dans votre réserve et celles de vos alliés",
-    "talent2": "n/a",
     "obtention": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Déluge de feu"
+    ]
   },
   {
     "nom": "Dragon de Fer",
@@ -4554,11 +4119,11 @@
     "degatsBase": 54310,
     "degatsMax": 124913,
     "estExotique": true,
-    "talent1": "Ardent :Tirer chauffe l'arme, remplissant la jauge de chaleur. La jauge est équivalente à 50% de la capacité du chargeur de l'arme.Quand la jauge est pleine, les balles tirées par l'arme embrasse les ennemies.Lorsque vous ne tirez pas, la jauge se vide progressivement. Recharger ou changer d'arme vide complétement la jauge.",
-    "talent2": "n/a",
     "obtention": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Ardent"
+    ]
   },
   {
     "nom": "Pakhan",
@@ -4573,11 +4138,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Pakhan :Chaque élimination avec cette arme augmente de +75% la capacité de base de votre chargeur pour le prochain chargeur, jusqu'à un maximun de 4 effets.",
-    "talent2": "n/a",
     "obtention": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Pakhan"
+    ]
   },
   {
     "nom": "Nemesis",
@@ -4592,11 +4157,11 @@
     "degatsBase": 940240,
     "degatsMax": 2162552,
     "estExotique": true,
-    "talent1": "Accélarateur électromagnétique : Les tirs infligent 0-100% de dégâts en fonction du temps de pression avant de relâcher la détente.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil de précision Dégâts de headshot",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Accélarateur électromagnétique"
+    ]
   },
   {
     "nom": "Mantis",
@@ -4611,11 +4176,11 @@
     "degatsBase": 409255,
     "degatsMax": 941287,
     "estExotique": true,
-    "talent1": "Visée analytique :Votre vue zoomée affiche des informations supplémentaires sur les ennemis qui ne vous ciblent pas.Les dégâts de headshot et de point faible contre les ennemis qui ne vous ciblent pas sont augmentés de 50%.Les éliminations par headshot réinitialisent le temps de recharge de la compétence leurre. Si le leurre est actif, cet effet s'applique quand le leurre passe en recharge.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil de précision Dégâts de headshot",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Visée analytique"
+    ]
   },
   {
     "nom": "Effroyable Sentence",
@@ -4630,11 +4195,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Point Final :Les tirs sur vos ennemis génèrent un cumul pouvant atteindre 20 effets. Les headshot accumelent 2 effets. Chaque effet confère +2% de dégâts d'arme et de +5% de dégâts d'headshot. Au rechargement, le cumul d'effets est supprimé et vous gagnez +5% de protection maximum comme protection temporaire pendant 10s pour chaque effet cumulé.Les éliminations par headshot avec Effroyable Sentence réapprovisionnent intégralement le chargeur.Cet effet ne compte pas comme un rechargement.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil de précision Dégâts de headshot",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Point Final"
+    ]
   },
   {
     "nom": "Sacrum Imperium",
@@ -4649,11 +4214,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Le piège :Marque les ennemis dans le champ de visée (10 maximum). Si l'agent tue une cible marquée avec un headshot, toutes les autres cibles subissent un malus de déplacement de 50% (20% en pvp) et Brûlure pendant 10s.Temps de recharge : 30sTuer un ennemi par headshot diminue le temps de recharge de 10s.Les cibles sont marquées au bout de 1s dans le champ de visée.",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil de précision Dégâts de headshot",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Le piège"
+    ]
   },
   {
     "nom": "Linceul",
@@ -4668,11 +4233,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Cible de priorité élevée :Dégâts d'arme accrus de 125% contre les ennemi des rangs les plus élevés actuellement en combat, selon la hiérarchie des Tiers.Tier 1 : chasseur, renégat, chef, tank, bouclier, armes lourdes, lance-roquettes, médecin, contrôleur, chien de guerre, maraudeurTier 2 : support, ingénieur, garde du corps, immobilisateir, poseur de bombe, mini-char, opérateur de droneTier 3 : tout autre ennemi ou proxy de compétence",
-    "talent2": "n/a",
     "obtention": "Dégâts de fusil de précision Dégâts de headshot",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Cible de priorité élevée"
+    ]
   },
   {
     "nom": "Liberté",
@@ -4687,11 +4252,11 @@
     "degatsBase": 189126,
     "degatsMax": 434990,
     "estExotique": true,
-    "talent1": "La Liberté ou la Mort :Les tirs réussis confèrent un bonus de +2% aux dégâts d'arme. Cumulable jusqu'à 30 foisLes headshots consomment tout les effets cumulés pour réparer votre bouclier de 3% par effet",
-    "talent2": "n/a",
     "obtention": "Dégâts de pistolet",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "La Liberté ou la Mort"
+    ]
   },
   {
     "nom": "Regulus",
@@ -4706,11 +4271,11 @@
     "degatsBase": 282072,
     "degatsMax": 648766,
     "estExotique": true,
-    "talent1": "Régicide :Les éliminations par headshot créent une exploxion de 5m infligeant 400% des dégâts d'arme et saignement à tous les ennemis touchés.",
-    "talent2": "n/a",
     "obtention": "Dégâts de pistolet",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Régicide"
+    ]
   },
   {
     "nom": "Petite abeille ouvrière",
@@ -4725,11 +4290,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Petite abeille ouvrière :Chaque tir sur une cible différente octroie 1 cumul, jusqu'à 10, chaque cumul conférant 20% (2%) d'augmentation de dégâts d'arme.Les cumuls s'activent une fois que l'agent change d'arme et durent 10 secondes.",
-    "talent2": "n/a",
     "obtention": "Dégâts de pistolet",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Petite abeille ouvrière"
+    ]
   },
   {
     "nom": "Mosquito",
@@ -4744,11 +4309,11 @@
     "degatsBase": 102563,
     "degatsMax": 235895,
     "estExotique": true,
-    "talent1": "Chanson du Mosquito :Toucher un ennemi lui attribue une marque cumulable. Les marques sont partagées par tous les joueurs.Au bout de 5 marques, l'ennemi est contraint de cibler le dernier joueur qui a attribué une marque pendant 5s et subit +25% de dégâts en plus à la protection.Les marques cumulées se dissipent toutes les 5s. Activer l'effet sur un ennemi supprime toutes les marques cumulées sur les autres ennemis.",
-    "talent2": "n/a",
     "obtention": "Dégâts de pistolet",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Chanson du Mosquito"
+    ]
   },
   {
     "nom": "Tempest",
@@ -4763,11 +4328,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Mesure :Vous infligez 25% de dégats accrus pendant 20s après que votre bouclier a été détruit.",
-    "talent2": "n/a",
     "obtention": "Dégâts de pistolet",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Mesure"
+    ]
   },
   {
     "nom": "Flux continu",
@@ -4782,11 +4347,11 @@
     "degatsBase": 39449,
     "degatsMax": 90733,
     "estExotique": true,
-    "talent1": "Conversation ininterrompue :Quand vous rechargez, la cadence de tir pour l'intégralité du chargeur augmente de 25% pour chaque ennemi situé à moins de 15m.Cumulable 5 fois maximum.Les éliminations remplissent 50% de votre chargeur.",
-    "talent2": "n/a",
     "obtention": "Dégâts de pistolet-mitrailleurProbabilité de coup critique",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Conversation ininterrompue"
+    ]
   },
   {
     "nom": "Lady death",
@@ -4801,11 +4366,11 @@
     "degatsBase": 35401,
     "degatsMax": 81422,
     "estExotique": true,
-    "talent1": "Souffle ultime :Quand vous vous déplacez, confère 4 bonus par seconde, 8 bonus si vous sprintez. Le nombre de bonus est équivalent à la taille du chargeur. Chaque munition tirée consomme un bonus qui augmente les dégâts de 75% (60%)Les éliminations confèrent +20% en vitesse de déplacement pendant 10s.",
-    "talent2": "n/a",
     "obtention": "Dégâts de pistolet-mitrailleurProbabilité de coup critique",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Souffle ultime"
+    ]
   },
   {
     "nom": "Contre-feu",
@@ -4820,11 +4385,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Paiement en nature :Infliger des dégâts aux ennemis ajoute un effet de 2% de dégâts critique. Le cumul d'effets peut atteindre 100 effets et dure 10s.Au rechargement, vous subissez un saignement infligeant 0,5% des dégâts de la protection par effet cumulé.",
-    "talent2": "n/a",
     "obtention": "Dégâts de pistolet-mitrailleurProbabilité de coup critique",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Paiement en nature"
+    ]
   },
   {
     "nom": "Ouroboros",
@@ -4839,11 +4404,11 @@
     "degatsBase": 38295,
     "degatsMax": 88079,
     "estExotique": true,
-    "talent1": "Rule them all :Quand l'agent subit un effet d'état, le prochain chargeur sera rempli à 50% du dernier effet d'état subit.Ne fonctionne qu'en combat.",
-    "talent2": "n/a",
     "obtention": "Dégâts de pistolet-mitrailleurProbabilité de coup critique",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Rule them all"
+    ]
   },
   {
     "nom": "Oxpecker",
@@ -4858,11 +4423,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Symbiose :Quand vous avez un bouclier déployé, vous perdez de la santé de bouclier au rythme de 10% par seconde.Votre bouclier reçoit des réparations équivalent à 25% des dégâts infligés par cette arme.",
-    "talent2": "n/a",
     "obtention": "Dégâts de pistolet-mitrailleurProbabilité de coup critique",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Symbiose"
+    ]
   },
   {
     "nom": "Forme d'onde",
@@ -4877,11 +4442,11 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Courant alternatif :Génère un effet de 3% de dégâts de compétences pour une de vos compétences à chaque seconde, jusqu'à un maximum de 10 effets. Au bout de 10 secondes au maximum, les effets sont transférés à votre autre compétence. Le processus se répète ensuite indéfiniment.",
-    "talent2": "n/a",
     "obtention": "Tier de compétence",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Courant alternatif"
+    ]
   },
   {
     "nom": "Électrochoc",
@@ -4896,10 +4461,10 @@
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
-    "talent1": "Defibrillator :Lorsqu' \"Électrochoc\" est équipé, l'étourdissement de l'agent dû à l'effet d'électrocution est réduit de 50%.L'utilisation d'un bouclier permet d'augmenter les dégâts à corps à corps de 100%.En utilisant le Feu de Saint-Elme avec le Holster, vous infligerez 100% de dégâts au corps à corps supplémentaires et votre prochaine attaque au corps à corps électrocutera votre cible.En utilisant les trois objets, vous bénéficierez de tous les bonus mentionnés ci-dessus et l'électrocution provoquée par l'attaque au corps à corps portera sur un rayon de 5 m à partir de la première cible. 15 secondes de recharge.",
-    "talent2": "n/a",
     "obtention": "Protection",
     "estNomme": false,
-    "talentNomme": ""
+    "talents": [
+      "Defibrillator"
+    ]
   }
 ]

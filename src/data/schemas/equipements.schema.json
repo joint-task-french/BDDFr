@@ -22,7 +22,12 @@
       },
       "attribut1": { "type": "string" },
       "attributUnique": { "type": "string" },
-      "talent": { "type": "string", "description": "Talent de pièce nommée" },
+      "talent": { "type": "string", "description": "Ancien champ talent — migrer vers talents[]" },
+      "talents": {
+        "type": "array",
+        "description": "Liste de slugs de talents (référencent les noms dans talents-equipements.jsonc). Pour les exotiques, les talents dédiés.",
+        "items": { "type": "string" }
+      },
       "mod": { "type": "string" },
       "estNomme": { "type": "boolean" },
       "estExotique": { "type": "boolean" },
@@ -31,9 +36,7 @@
         "enum": ["gear_set", "marque", "exotic"],
         "description": "Provenance de la pièce"
       },
-      "talent1": { "type": "string", "description": "Talent exotique principal (exotiques uniquement)" },
-      "talent2": { "type": "string", "description": "Talent exotique secondaire (exotiques uniquement)" },
-      "obtention": { "type": "string", "description": "Comment obtenir l'équipement (exotiques uniquement)" }
+      "obtention": { "type": "string", "description": "Comment obtenir l'équipement" }
     }
   }
 }

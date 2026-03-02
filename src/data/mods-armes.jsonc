@@ -531,7 +531,7 @@
   {
     "nom": "Lampe torche",
     "type": "accessoire",
-    "bonus": "(Pas d'effet)",
-    "malus": "(Pas d'effet)"
+    "bonus": "Éclaire en face de vous",
+    "malus": "Pas d'effet négatif"
   }
 ]

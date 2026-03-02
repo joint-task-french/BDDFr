@@ -18,6 +18,7 @@
     "nom": "Tueur",
     "description": "Éliminer un ennemi par coup critique augmente de +50% les dégâts de coup critique pendant 10s.",
     "prerequis": "n/a",
+    "icone": "killer",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -32,6 +33,7 @@
     "nom": "Préservation",
     "description": "Éliminer un ennemi répare 10% de votre protection sur 5s.Les éliminations par headshot améliorent la réparation de +10% supplémentaires.",
     "prerequis": "n/a",
+    "icone": "preservation",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -46,6 +48,7 @@
     "nom": "Optimiste",
     "description": "Les dégâts d'arme augmentent de +3,5% pour chaque tranche de 10% de munitions manquantes dans le chargeur.",
     "prerequis": "n/a",
+    "icone": "optimist",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -88,6 +91,7 @@
     "nom": "Mains rapides",
     "description": "Les coups critiques améliorent la vitesse de rechargement d'arme de 3%. Peut se cumuler jusqu'à 40 fois.",
     "prerequis": "n/a",
+    "icone": "fast_hands",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -102,6 +106,7 @@
     "nom": "Sadique",
     "description": "Dégâts d'arme accrus de 30% (+20%) contre les ennemis affectés par un saignementAu bout de 4 éliminations, inflige un saignement au prochain ennemi touché.",
     "prerequis": "n/a",
+    "icone": "sadist",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -116,6 +121,7 @@
     "nom": "Vindicatif",
     "description": "Éliminer un ennemi touché par un effet d'état vous confère à vous ainsi qu'aux alliés à moins de 15m 16% à la probabilité de coup critique et 16% aux dégâts de coup critique pendant 20s.",
     "prerequis": "n/a",
+    "icone": "vindicative",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -130,6 +136,7 @@
     "nom": "Ranger",
     "description": "Augmente les dégâts d'arme de 2% pour chaque tranche de 4m entre vous et votre cible.",
     "prerequis": "n/a",
+    "icone": "ranger",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -144,6 +151,7 @@
     "nom": "Main ferme",
     "description": "Les tirs réussis confèrent un bonus de 1% à la précision et à la stabilité.Au bout de 100 bonus cumulés, l'effet est consommé pour remplir le chargeur.",
     "prerequis": "n/a",
+    "icone": "jazz_hands",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -158,6 +166,7 @@
     "nom": "Pointe",
     "description": "Les headshots confèrent +20% de dégâts de compétence pendant 15s.",
     "prerequis": "n/a",
+    "icone": "spike",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -186,6 +195,7 @@
     "nom": "Inflammabilité",
     "description": "Dégâts d'arme accrus de 25% contre les ennemis affectés par une brûlureAu bout de 4 éliminations, inflige une brûlure au prochain ennemi touché.",
     "prerequis": "n/a",
+    "icone": "ignited",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -200,6 +210,7 @@
     "nom": "Perpétuation",
     "description": "Les headshots confèrent +50% aux dégâts des effets d'état et à la durée du prochain effet d'état que vous infligez.Temps de recharge : 20s.",
     "prerequis": "n/a",
+    "icone": "perpetuation",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -214,6 +225,7 @@
     "nom": "Reformation",
     "description": "Les headshots confèrent +60% à la réparation de compétence pendant 15s.",
     "prerequis": "n/a",
+    "icone": "reformation",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -228,6 +240,7 @@
     "nom": "Futur Parfait",
     "description": "Les élimintations par arme confèrent +1 Tier de compétence pendant 15s. Cet effet peut se cumuler jusqu'à 3 fois.Les éliminations par arme au Tier de compétence 6 confèrent surcharge pendant 15s.Temps de recharge de la surcharge : 90s.",
     "prerequis": "n/a",
+    "icone": "future_perfect",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -242,6 +255,7 @@
     "nom": "Synchro",
     "description": "Toucher un ennemi confère +15% de dégâts de compétence pendant 5s. Utiliser une compétence non-bouclier ou endommager un ennemi avec une compétence confère +15% aux dégâts d'arme pendant 5s.Les augmentations sont doublées quand les deux buffs sont activés en même temps.",
     "prerequis": "n/a",
+    "icone": "in_sync",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -256,6 +270,7 @@
     "nom": "Ligne plate",
     "description": "Dégâts d'arme accrus de 15% contre les ennemis touchés par impulsion. Après 3 éliminations, génère une impulsion au prochain ennemi touché.",
     "prerequis": "n/a",
+    "icone": "flatline",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -270,6 +285,7 @@
     "nom": "Fusilier",
     "description": "Placer un headshot ajoute un bonus de +10% de dégâts d'arme pendant 5s.Peut se cumuler jusqu'à 5 fois. Les headshots ultérieurs renouvellent la durée du bonus",
     "prerequis": "n/a",
+    "icone": "rifleman",
     "compatibilite": {
       "fusil": true,
       "calibre_12": false,
@@ -284,6 +300,7 @@
     "nom": "Boomerang",
     "description": "Les coups critiques ont 50% de probabilité de renvoyer les munitions dans le chargeur. Si une munition est renvoyée dans le chargeur, les dégâts du prochain tir sont accrus de +40%.",
     "prerequis": "n/a",
+    "icone": "boomerang",
     "compatibilite": {
       "fusil": true,
       "calibre_12": false,
@@ -298,6 +315,7 @@
     "nom": "Tir chanceux",
     "description": "Augmente la capacité du chargeur de 20%. Les tirs ratés effectués depuis un abri ont une probabilité de 100% de retourner dans le chargeur.",
     "prerequis": "n/a",
+    "icone": "lucky_shot",
     "compatibilite": {
       "fusil": true,
       "calibre_12": false,
@@ -326,6 +344,7 @@
     "nom": "A vide",
     "description": "Recharger une arme vide améliore son maniement de +60% pendant 10s.",
     "prerequis": "n/a",
+    "icone": "on_empty",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,

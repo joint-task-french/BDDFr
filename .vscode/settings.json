@@ -1,6 +1,10 @@
 {
     "json.schemas": [
         {
+            "fileMatch": ["/src/data/attributs.jsonc"],
+            "url": "./src/data/schemas/attributs.schema.json"
+        },
+        {
             "fileMatch": ["/src/data/armes.jsonc"],
             "url": "./src/data/schemas/armes.schema.json"
         },

@@ -5,11 +5,13 @@ import TalentEquipCard from './cards/TalentEquipCard'
 import EnsembleCard from './cards/EnsembleCard'
 import SkillCard from './cards/SkillCard'
 import ModArmeCard from './cards/ModArmeCard'
+import AttributCard from './cards/AttributCard'
 
 // Layout grids par catégorie
 const GRID_CONFIG = {
   armes:             'grid-cols-1 lg:grid-cols-2',
   equipements:       'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
+  attributs:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
   talentsArmes:      'grid-cols-1 sm:grid-cols-2',
   talentsEquipements:'grid-cols-1 sm:grid-cols-2',
   ensembles:         'grid-cols-1 sm:grid-cols-2',
@@ -23,6 +25,7 @@ const GRID_CONFIG = {
 const CARD_COMPONENTS = {
   armes: WeaponCard,
   equipements: GearCard,
+  attributs: AttributCard,
   talentsArmes: TalentArmeCard,
   talentsEquipements: TalentEquipCard,
   ensembles: EnsembleCard,
@@ -65,12 +68,14 @@ export default function CategorySection({ category, items, searchTerm, allData }
 
   // Props supplémentaires pour certaines cards
   const extraProps = {}
-  if (category?.key === 'armes' && allData?.talentsArmes) {
-    extraProps.talentsArmes = allData.talentsArmes
+  if (category?.key === 'armes') {
+    if (allData?.talentsArmes) extraProps.talentsArmes = allData.talentsArmes
+    if (allData?.attributs) extraProps.allAttributs = allData.attributs
   }
   if (category?.key === 'equipements') {
     if (allData?.ensembles) extraProps.ensembles = allData.ensembles
     if (allData?.talentsEquipements) extraProps.talentsEquipements = allData.talentsEquipements
+    if (allData?.attributs) extraProps.allAttributs = allData.attributs
   }
 
   return (

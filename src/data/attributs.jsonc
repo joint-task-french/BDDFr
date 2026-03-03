@@ -1,0 +1,233 @@
+// Attributs — The Division 2
+// Référentiel de tous les attributs disponibles sur les armes et équipements.
+// Les valeurs min/max correspondent aux valeurs classiques (hors bonus exotique/nommé).
+[
+  // ================================================================
+  // ATTRIBUTS OFFENSIFS
+  // ================================================================
+  {
+    "nom": "Dégâts aux armes",
+    "categorie": "offensif",
+    "cible": ["arme"],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "description": "Augmente les dégâts infligés par les armes"
+  },
+  {
+    "nom": "Dégâts de coup critique",
+    "categorie": "offensif",
+    "cible": ["arme", "equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente les dégâts infligés lors d'un coup critique"
+  },
+  {
+    "nom": "Chance de coup critique",
+    "categorie": "offensif",
+    "cible": ["arme", "equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente la probabilité de déclencher un coup critique"
+  },
+  {
+    "nom": "Dégâts de headshot",
+    "categorie": "offensif",
+    "cible": ["arme", "equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente les dégâts infligés lors d'un tir à la tête"
+  },
+  {
+    "nom": "Dégâts à la santé",
+    "categorie": "offensif",
+    "cible": ["arme"],
+    "unite": "%",
+    "min": 1,
+    "max": 21,
+    "description": "Augmente les dégâts infligés à la santé de l'ennemi"
+  },
+  {
+    "nom": "Dégâts sur cible non abritée",
+    "categorie": "offensif",
+    "cible": ["arme", "equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente les dégâts infligés aux cibles non abritées"
+  },
+  {
+    "nom": "Dégâts Fusil d'assaut",
+    "categorie": "offensif",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente les dégâts infligés par les fusils d'assaut"
+  },
+  {
+    "nom": "Dégâts Fusil",
+    "categorie": "offensif",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente les dégâts infligés par les fusils"
+  },
+  {
+    "nom": "Dégâts Fusil de précision",
+    "categorie": "offensif",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente les dégâts infligés par les fusils de précision"
+  },
+  {
+    "nom": "Dégâts Pistolet-mitrailleur",
+    "categorie": "offensif",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente les dégâts infligés par les pistolets-mitrailleurs"
+  },
+  {
+    "nom": "Dégâts Fusil-mitrailleur",
+    "categorie": "offensif",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente les dégâts infligés par les fusils-mitrailleurs"
+  },
+  {
+    "nom": "Dégâts Calibre 12",
+    "categorie": "offensif",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente les dégâts infligés par les armes de calibre 12"
+  },
+  {
+    "nom": "Dégâts Pistolet",
+    "categorie": "offensif",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente les dégâts infligés par les pistolets"
+  },
+
+  // ================================================================
+  // ATTRIBUTS DÉFENSIFS
+  // ================================================================
+  {
+    "nom": "Armure",
+    "categorie": "défensif",
+    "cible": ["equipement"],
+    "unite": "pts",
+    "min": 1,
+    "max": 170000,
+    "description": "Augmente la valeur totale d'armure"
+  },
+  {
+    "nom": "Santé",
+    "categorie": "défensif",
+    "cible": ["equipement"],
+    "unite": "pts",
+    "min": 1,
+    "max": 18935,
+    "description": "Augmente la valeur totale de santé"
+  },
+  {
+    "nom": "Régénération d'armure",
+    "categorie": "défensif",
+    "cible": ["equipement"],
+    "unite": "pts/s",
+    "min": 1,
+    "max": 4525,
+    "description": "Régénère l'armure au fil du temps"
+  },
+  {
+    "nom": "Protection aux explosions",
+    "categorie": "défensif",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Réduit les dégâts subis par les explosions"
+  },
+  {
+    "nom": "Armure aux protections",
+    "categorie": "défensif",
+    "cible": ["arme"],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente les protections conférées par l'armure"
+  },
+
+  // ================================================================
+  // ATTRIBUTS UTILITAIRES
+  // ================================================================
+  {
+    "nom": "Hâte de compétence",
+    "categorie": "utilitaire",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Réduit le temps de recharge des compétences"
+  },
+  {
+    "nom": "Dégâts de compétence",
+    "categorie": "utilitaire",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente les dégâts infligés par les compétences"
+  },
+  {
+    "nom": "Réparation de compétence",
+    "categorie": "utilitaire",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 20,
+    "description": "Augmente les soins prodigués par les compétences"
+  },
+  {
+    "nom": "Durée de compétence",
+    "categorie": "utilitaire",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 20,
+    "description": "Augmente la durée active des compétences"
+  },
+  {
+    "nom": "Durée d'effet d'état",
+    "categorie": "utilitaire",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la durée des effets d'état infligés"
+  },
+  {
+    "nom": "Résistance aux effets d'état",
+    "categorie": "utilitaire",
+    "cible": ["equipement"],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Réduit la durée des effets d'état subis"
+  }
+]
+

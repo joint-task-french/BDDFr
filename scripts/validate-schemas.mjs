@@ -23,6 +23,7 @@ function stripComments(text) {
 const VALIDATIONS = [
   { data: 'armes.jsonc', schema: 'armes.schema.json' },
   { data: 'equipements.jsonc', schema: 'equipements.schema.json' },
+  { data: 'attributs.jsonc', schema: 'attributs.schema.json' },
   { data: 'talents-armes.jsonc', schema: 'talents-armes.schema.json' },
   { data: 'talents-equipements.jsonc', schema: 'talents-equipements.schema.json' },
   { data: 'ensembles.jsonc', schema: 'ensembles.schema.json' },

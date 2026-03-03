@@ -71,6 +71,23 @@
             </SchemaInfo>
           </value>
         </entry>
+        <entry key="attributs.schema">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="attributs.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/attributs.schema.json" />
+              <option name="schemaVersion" value="JSON Schema 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/data/attributs.jsonc" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
         <entry key="equipements.schema">
           <value>
             <SchemaInfo>

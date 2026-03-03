@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Attributs — The Division 2",
+  "description": "Référentiel de tous les attributs disponibles sur les armes et équipements, avec leurs valeurs min/max classiques",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["nom", "categorie", "cible"],
+    "properties": {
+      "nom": { "type": "string", "description": "Nom de l'attribut tel qu'affiché en jeu" },
+      "categorie": {
+        "type": "string",
+        "enum": ["offensif", "défensif", "utilitaire"],
+        "description": "Catégorie de l'attribut"
+      },
+      "cible": {
+        "type": "array",
+        "description": "Sur quel type d'objet cet attribut peut apparaître",
+        "items": {
+          "type": "string",
+          "enum": ["arme", "equipement"]
+        },
+        "minItems": 1
+      },
+      "unite": { "type": "string", "description": "Unité d'affichage (%, pts, etc.)" },
+      "min": { "type": "number", "description": "Valeur minimum classique de l'attribut" },
+      "max": { "type": "number", "description": "Valeur maximum classique de l'attribut" },
+      "description": { "type": "string", "description": "Description courte de ce que fait l'attribut" }
+    }
+  }
+}
+

@@ -16,6 +16,7 @@ import {
 const CATEGORIES = [
   { key: 'armes', label: 'Armes', icon: '🔫' },
   { key: 'equipements', label: 'Équipements', icon: '🛡️' },
+  { key: 'attributs', label: 'Attributs', icon: '📊' },
   { key: 'talentsArmes', label: "Talents d'Armes", icon: '🎯' },
   { key: 'talentsEquipements', label: "Talents d'Équipements", icon: '🏅' },
   { key: 'ensembles', label: 'Ensembles', icon: '🔗' },

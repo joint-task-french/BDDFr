@@ -70,7 +70,7 @@ export function serializeBuild(state) {
   if (Object.keys(gm).length > 0) b.gm = gm
 
   // Mods de compétences (slugs)
-  const sm = (state.skillMods || []).map(m => m ? (m.slug || m.statistique) : null)
+  const sm = (state.skillMods || []).map(m => m ? (Array.isArray(m) ? m.map(mod => mod?.slug || mod?.statistique || null) : [m.slug || m.statistique]) : null)
   if (sm.some(Boolean)) b.sm = sm
 
   return b
@@ -85,9 +85,9 @@ export function encodeBuild(state) {
   const json = JSON.stringify(compact)
   // Encode en base64 URL-safe
   return btoa(unescape(encodeURIComponent(json)))
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=+$/, '')
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '')
 }
 
 /**
@@ -117,8 +117,7 @@ export function resolveBuild(compact, data) {
   const findBySlugOrName = (items, id, nameField = 'nom') => {
     if (!id || !items) return null
     const lower = id.toLowerCase()
-    return items.find(i => i.slug === id || i.slug === lower) ||
-           items.find(i => (i[nameField] || '').toLowerCase() === lower) || null
+    return items.find(i => i.slug === id || i.slug === lower) || items.find(i => (i[nameField] || '').toLowerCase() === lower) || null
   }
 
   const findWeapon = (id) => {
@@ -153,10 +152,8 @@ export function resolveBuild(compact, data) {
     const lc = compId.toLowerCase()
     const lv = varId.toLowerCase()
     return (data.competences || []).find(s =>
-      (s.competenceSlug === compId || s.competenceSlug === lc ||
-       s.competence.toLowerCase() === lc) &&
-      (s.slug === varId || s.slug === lv ||
-       s.variante.toLowerCase() === lv)
+        (s.competenceSlug === compId || s.competenceSlug === lc || s.competence.toLowerCase() === lc) &&
+        (s.slug === varId || s.slug === lv || s.variante.toLowerCase() === lv)
     ) || null
   }
 
@@ -221,9 +218,7 @@ export function resolveBuild(compact, data) {
 
   // Mods d'armes
   const findModArme = (id) => findBySlugOrName(data.modsArmes || [], id)
-  build.weaponMods = (compact.wm || [null, null]).map(slotMods =>
-    slotMods ? slotMods.map(id => findModArme(id)) : null
-  )
+  build.weaponMods = (compact.wm || [null, null]).map(slotMods => slotMods ? slotMods.map(id => findModArme(id)) : null)
   while (build.weaponMods.length < 2) build.weaponMods.push(null)
   build.sidearmMods = compact.sam ? compact.sam.map(id => findModArme(id)) : null
 
@@ -236,9 +231,12 @@ export function resolveBuild(compact, data) {
   }
 
   // Mods de compétences
-  build.skillMods = (compact.sm || [null, null]).map(id =>
-    id ? findBySlugOrName(data.modsCompetences || [], id, 'statistique') || null : null
-  )
+  const findModComp = (id) => findBySlugOrName(data.modsCompetences || [], id, 'statistique')
+  build.skillMods = (compact.sm || [null, null]).map(mods => {
+    if (!mods) return null
+    if (Array.isArray(mods)) return mods.map(id => findModComp(id))
+    return [findModComp(mods)]
+  })
   while (build.skillMods.length < 2) build.skillMods.push(null)
 
   return build
@@ -253,4 +251,3 @@ export function generateShareUrl(state) {
   const base = window.location.href.split('?')[0].split('#')[0]
   return `${base}#/build?b=${encoded}`
 }
-

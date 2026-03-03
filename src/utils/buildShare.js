@@ -242,12 +242,11 @@ export function resolveBuild(compact, data) {
   return build
 }
 
-/**
- * Génère l'URL complète de partage du build
- */
 export function generateShareUrl(state) {
   const encoded = encodeBuild(state)
   if (!encoded) return null
-  const base = window.location.href.split('?')[0].split('#')[0]
-  return `${base}#/build?b=${encoded}`
+
+  const origin = window.location.origin
+  const base = import.meta.env.BASE_URL
+  return `${origin}${base}build?b=${encoded}`
 }

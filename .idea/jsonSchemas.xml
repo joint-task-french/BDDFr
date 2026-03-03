@@ -20,6 +20,23 @@
             </SchemaInfo>
           </value>
         </entry>
+        <entry key="class-spe.schema">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="class-spe.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/class-spe.schema.json" />
+              <option name="schemaVersion" value="JSON Schema 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/data/class-spe.jsonc" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
         <entry key="changelog.schema">
           <value>
             <SchemaInfo>

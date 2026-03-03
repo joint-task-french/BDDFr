@@ -1,4 +1,4 @@
-import {Link, NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import JTFrLogo from '../common/JTFrLogo.jsx'
 
 export default function Sidebar({ open, onClose }) {
@@ -55,8 +55,23 @@ export default function Sidebar({ open, onClose }) {
         </NavLink>
       </nav>
 
+      {/* Spacer pushes outils + footer to bottom */}
+      <div className="flex-1" />
+
+      {/* Outils — en bas de la sidebar */}
+      <div className="px-3 pb-2">
+        <div className="text-[9px] text-gray-600 uppercase tracking-widest px-3 mb-1.5">Outils</div>
+        <NavLink to="/generator" className={linkClass} onClick={onClose}>
+          <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+          Générateur JSONC
+        </NavLink>
+      </div>
+
       {/* Footer */}
-      <div className="mt-auto p-4 border-t border-tactical-border text-xs text-gray-600 flex justify-between items-center shrink-0">
+      <div className="p-4 border-t border-tactical-border text-xs text-gray-600 flex justify-between items-center shrink-0">
         <div className="flex items-center gap-3">
           <a href="https://github.com/join-task-french/BDDFr" target="_blank" rel="noopener noreferrer"
             className="text-gray-500 hover:text-shd transition-colors" title="GitHub">

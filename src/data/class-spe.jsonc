@@ -1,0 +1,94 @@
+// Classes de spécialisation — The Division 2
+// Chaque spécialisation a une arme spécifique avec ses statistiques
+[
+  {
+    "cle": "demolisseur",
+    "nom": "Démolisseur",
+    "icone": "💥",
+    "arme": {
+      "nom": "LANCE-GRENADES MULTIPLE M32A1",
+      "portee": 60,
+      "rpm": 98,
+      "chargeur": 6,
+      "rechargement": 6.2,
+      "headshot": "75%",
+      "degatsBase": 1700000
+    },
+    "slug": "demolisseur"
+  },
+  {
+    "cle": "survivaliste",
+    "nom": "Survivaliste",
+    "icone": "🏹",
+    "arme": {
+      "nom": "CARREAUX",
+      "portee": 30,
+      "rpm": 98,
+      "chargeur": 1,
+      "rechargement": 3,
+      "headshot": "25%",
+      "degatsBase": 3600000
+    },
+    "slug": "survivaliste"
+  },
+  {
+    "cle": "tireur_elite",
+    "nom": "Tireur d'élite",
+    "icone": "🎯",
+    "arme": {
+      "nom": "FUSIL TAC-50",
+      "portee": 70,
+      "rpm": 41,
+      "chargeur": 6,
+      "rechargement": 3.2,
+      "headshot": "200%",
+      "degatsBase": 1400000
+    },
+    "slug": "tireur_elite"
+  },
+  {
+    "cle": "artilleur",
+    "nom": "Artilleur",
+    "icone": "⚙️",
+    "arme": {
+      "nom": "MINIGUN",
+      "portee": 35,
+      "rpm": 100,
+      "chargeur": 150,
+      "rechargement": 1.7,
+      "headshot": "65%",
+      "degatsBase": 84600
+    },
+    "slug": "artilleur"
+  },
+  {
+    "cle": "technicien",
+    "nom": "Technicien",
+    "icone": "🔧",
+    "arme": {
+      "nom": "LANCEUR P-017",
+      "portee": 60,
+      "rpm": 98,
+      "chargeur": 6,
+      "rechargement": 3.5,
+      "headshot": "75%",
+      "degatsBase": 1800000
+    },
+    "slug": "technicien"
+  },
+  {
+    "cle": "incendiaire",
+    "nom": "Incendiaire",
+    "icone": "🔥",
+    "arme": {
+      "nom": "LANCE-FLAMMES K8-JETSTREAM",
+      "portee": 35,
+      "rpm": 500,
+      "chargeur": 50,
+      "rechargement": 3.3,
+      "headshot": "65%",
+      "degatsBase": 303600
+    },
+    "slug": "incendiaire"
+  }
+]

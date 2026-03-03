@@ -4,25 +4,54 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["nom", "emplacement"],
+    "required": [
+      "nom",
+      "emplacement",
+      "slug"
+    ],
     "properties": {
-      "nom": { "type": "string" },
-      "icone": { "type": "string", "description": "Slug du fichier icône dans game_assets/talents/equipements/ (sans .png)" },
-      "description": { "type": "string" },
-      "prerequis": { "type": "string" },
-      "estExotique": { "type": "boolean", "description": "True si talent exotique (dédié à un équipement exotique)." },
+      "nom": {
+        "type": "string"
+      },
+      "icone": {
+        "type": "string",
+        "description": "Slug du fichier icône dans game_assets/talents/equipements/ (sans .png)"
+      },
+      "description": {
+        "type": "string"
+      },
+      "prerequis": {
+        "type": "string"
+      },
+      "estExotique": {
+        "type": "boolean",
+        "description": "True si talent exotique (dédié à un équipement exotique)."
+      },
       "emplacement": {
         "type": "string",
-        "enum": ["torse", "sac_a_dos", "tous"],
+        "enum": [
+          "torse",
+          "sac_a_dos",
+          "tous"
+        ],
         "description": "Sur quel emplacement le talent peut être utilisé"
       },
-      "perfectDescription": { "type": "string", "description": "Description de la version parfaite du talent" },
+      "perfectDescription": {
+        "type": "string",
+        "description": "Description de la version parfaite du talent"
+      },
       "equipementsParfaits": {
         "type": "array",
         "description": "Noms des équipements nommés qui portent la version parfaite de ce talent",
-        "items": { "type": "string" }
+        "items": {
+          "type": "string"
+        }
+      },
+      "slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
       }
     }
   }
 }
-

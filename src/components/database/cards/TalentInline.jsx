@@ -16,7 +16,7 @@ const COMPAT_LABELS = {
  * Même présentation que TalentArmeCard mais en version compacte.
  * Si le talent a une perfectDescription, un switch permet de basculer.
  */
-export default function TalentInline({ talent, isExotic = false }) {
+export default function TalentInline({ talent, isExotic = false, allArmes, allEquipements }) {
   const [showPerfect, setShowPerfect] = useState(false)
 
   if (!talent) return null
@@ -83,15 +83,21 @@ export default function TalentInline({ talent, isExotic = false }) {
 
       {/* Armes/équipements nommés portant la version parfaite */}
       {showPerfect && talent.armesParfaites?.length > 0 && (
-        <div className="text-[10px] text-yellow-500/70 flex items-center gap-1">
+        <div className="text-[10px] text-yellow-500/70 mt-0.5 flex items-center gap-1">
           <span className="text-yellow-400 font-bold uppercase tracking-widest">Arme :</span>
-          {talent.armesParfaites.join(', ')}
+          {talent.armesParfaites.map(slug => {
+            const arme = allArmes?.find(a => a.slug === slug)
+            return arme?.nom || slug
+          }).join(', ')}
         </div>
       )}
       {showPerfect && talent.equipementsParfaits?.length > 0 && (
-        <div className="text-[10px] text-yellow-500/70 flex items-center gap-1">
+        <div className="text-[10px] text-yellow-500/70 mt-0.5 flex items-center gap-1">
           <span className="text-yellow-400 font-bold uppercase tracking-widest">Équipement :</span>
-          {talent.equipementsParfaits.join(', ')}
+          {talent.equipementsParfaits.map(slug => {
+            const eq = allEquipements?.find(e => e.slug === slug)
+            return eq?.nom || slug
+          }).join(', ')}
         </div>
       )}
 

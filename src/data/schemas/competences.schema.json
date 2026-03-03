@@ -1,25 +1,116 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Compétences",
+  "title": "Compétences — The Division 2",
+  "description": "Structure groupée par type de compétence, chaque type contient ses variantes et emplacements de mods",
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["competence", "variante", "tier1", "tier2", "tier3", "tier4", "tier5", "tier6", "surcharge"],
+    "required": [
+      "competence",
+      "variantes",
+      "slug"
+    ],
     "properties": {
-      "competence": { "type": "string", "description": "Nom de la compétence (ex: TOURELLE, DRONE)" },
-      "variante": { "type": "string", "description": "Nom de la variante" },
-      "icone": { "type": "string", "description": "Slug du fichier icône dans game_assets/competances/ (sans .png)" },
-      "expertise": { "type": "string" },
-      "statistiques": { "type": "string" },
-      "effetEtat": { "type": "string" },
-      "tier1": { "type": "string" },
-      "tier2": { "type": "string" },
-      "tier3": { "type": "string" },
-      "tier4": { "type": "string" },
-      "tier5": { "type": "string" },
-      "tier6": { "type": "string" },
-      "surcharge": { "type": "string" }
+      "competence": {
+        "type": "string",
+        "description": "Nom du type de compétence (ex: TOURELLE, DRONE)"
+      },
+      "icone": {
+        "type": "string",
+        "description": "Slug du fichier icône dans game_assets/competances/ (sans .png)"
+      },
+      "emplacementsMods": {
+        "type": "array",
+        "description": "Emplacements de mods disponibles pour cette compétence (communs à toutes les variantes)",
+        "items": {
+          "type": "object",
+          "required": [
+            "emplacement"
+          ],
+          "properties": {
+            "emplacement": {
+              "type": "string",
+              "description": "Nom de l'emplacement de mod"
+            },
+            "prerequis": {
+              "type": "string",
+              "description": "Clé de spécialisation requise pour cet emplacement (optionnel)"
+            }
+          }
+        }
+      },
+      "variantes": {
+        "type": "array",
+        "description": "Liste des variantes de cette compétence",
+        "items": {
+          "type": "object",
+          "required": [
+            "variante",
+            "tier1",
+            "tier2",
+            "tier3",
+            "tier4",
+            "tier5",
+            "tier6",
+            "surcharge",
+            "slug"
+          ],
+          "properties": {
+            "variante": {
+              "type": "string",
+              "description": "Nom de la variante"
+            },
+            "prerequis": {
+              "type": "string",
+              "description": "Clé de spécialisation requise pour cette variante (optionnel)"
+            },
+            "icone": {
+              "type": "string",
+              "description": "Slug du fichier icône spécifique à cette variante"
+            },
+            "expertise": {
+              "type": "string"
+            },
+            "statistiques": {
+              "type": "string"
+            },
+            "effetEtat": {
+              "type": "string"
+            },
+            "tier1": {
+              "type": "string"
+            },
+            "tier2": {
+              "type": "string"
+            },
+            "tier3": {
+              "type": "string"
+            },
+            "tier4": {
+              "type": "string"
+            },
+            "tier5": {
+              "type": "string"
+            },
+            "tier6": {
+              "type": "string"
+            },
+            "surcharge": {
+              "type": "string"
+            },
+            "slug": {
+              "type": "string",
+              "pattern": "^[a-z0-9_]+$",
+              "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
+            }
+          }
+        }
+      },
+      "slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
+      }
     }
   }
 }
-

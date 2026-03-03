@@ -6,7 +6,7 @@ function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function TalentEquipCard({ item }) {
+export default function TalentEquipCard({ item, equipements }) {
   const [showPerfect, setShowPerfect] = useState(false)
 
   const isExotic = item.estExotique
@@ -75,7 +75,10 @@ export default function TalentEquipCard({ item }) {
       {showPerfect && item.equipementsParfaits?.length > 0 && (
         <div className="px-4 pb-2 text-[10px] text-yellow-500/70 flex items-center gap-1">
           <span className="text-yellow-400 font-bold uppercase tracking-widest">Équipement :</span>
-          {item.equipementsParfaits.join(', ')}
+          {item.equipementsParfaits.map(slug => {
+            const eq = equipements?.find(e => e.slug === slug)
+            return eq?.nom || slug
+          }).join(', ')}
         </div>
       )}
     </div>

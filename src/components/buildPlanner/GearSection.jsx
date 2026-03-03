@@ -25,6 +25,7 @@ export default function GearSection({ data }) {
             onSelect={() => setPickerSlot(slot)}
             onSelectTalent={() => setTalentSlot(slot)}
             ensembles={data.ensembles}
+            talentsEquipements={data.talentsEquipements}
             allAttributs={data.attributs}
             gearAttributes={gearAttributes[slot] || null}
             onSetAttributes={(attrs) => dispatch({ type: 'SET_GEAR_ATTRIBUTES', slot, attributes: attrs })}

@@ -4,60 +4,70 @@
     "categorie": "utilitaire",
     "protocole": "PROTOCOLE UTILITAIRE : INTENSITÉ",
     "statistique": "% Durée de compétence",
-    "valeurMax": "10%"
+    "valeurMax": "10%",
+    "slug": "duree_de_competence"
   },
   {
     "categorie": "utilitaire",
     "protocole": "PROTOCOLE UTILITAIRE : INTENSITÉ",
     "statistique": "% Récup de compétence",
-    "valeurMax": "12%"
+    "valeurMax": "12%",
+    "slug": "recup_de_competence"
   },
   {
     "categorie": "utilitaire",
     "protocole": "PROTOCOLE UTILITAIRE : INTENSITÉ",
     "statistique": "% Compétence de réparation",
-    "valeurMax": "20%"
+    "valeurMax": "20%",
+    "slug": "competence_de_reparation"
   },
   {
     "categorie": "défensif",
     "protocole": "PROTOCOLE DÉFENSIF : ENDURANCE",
     "statistique": "% Protection contre ennemi d'élite",
-    "valeurMax": "13%"
+    "valeurMax": "13%",
+    "slug": "protection_contre_ennemi_d_elite"
   },
   {
     "categorie": "défensif",
     "protocole": "PROTOCOLE DÉFENSIF : ENDURANCE",
     "statistique": "Protection pour élimination",
-    "valeurMax": "18935"
+    "valeurMax": "18935",
+    "slug": "protection_pour_elimination"
   },
   {
     "categorie": "défensif",
     "protocole": "PROTOCOLE DÉFENSIF : ENDURANCE",
     "statistique": "% Réparation subies",
-    "valeurMax": "20%"
+    "valeurMax": "20%",
+    "slug": "reparation_subies"
   },
   {
     "categorie": "défensif",
     "protocole": "PROTOCOLE DÉFENSIF : ENDURANCE",
     "statistique": "Résistance aux effets d'état(saignements, électrocutions, brûlures, aveug./Assour., désactivation, désorientation, entrave, impulsion)",
-    "valeurMax": "10%"
+    "valeurMax": "10%",
+    "slug": "resistance_aux_effets_d_etat_saignements_electrocutions_brulures_aveug_assour_desactivation_desorientation_entrave_impulsion"
   },
   {
     "categorie": "offensif",
     "protocole": "SYSTÈME OFFENSIF : ARME À FEU",
     "statistique": "% Probabilité de coup critique",
-    "valeurMax": "6%"
+    "valeurMax": "6%",
+    "slug": "probabilite_de_coup_critique"
   },
   {
     "categorie": "offensif",
     "protocole": "SYSTÈME OFFENSIF : ARME À FEU",
     "statistique": "% Dégâts coup critique",
-    "valeurMax": "12%"
+    "valeurMax": "12%",
+    "slug": "degats_coup_critique"
   },
   {
     "categorie": "offensif",
     "protocole": "SYSTÈME OFFENSIF : ARME À FEU",
     "statistique": "% Dégâts aux headshot",
-    "valeurMax": "10%"
+    "valeurMax": "10%",
+    "slug": "degats_aux_headshot"
   }
 ]

@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
-import { WEAPON_TYPE_LABELS, CLASSIC_WEAPON_TYPES, SPECIALISATIONS } from '../../utils/formatters'
+import { WEAPON_TYPE_LABELS, CLASSIC_WEAPON_TYPES } from '../../utils/formatters'
 import SelectionModal from '../common/SelectionModal'
 import Badge from '../common/Badge'
 import StatChip from '../common/StatChip'
@@ -20,7 +20,20 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
     const armes = data.armes || []
     switch (mode) {
       case 'special':
-        return armes.filter(w => w.type === 'arme_specifique')
+        // Armes spécifiques viennent de classSpe
+        return (data.classSpe || []).map(spec => ({
+          nom: spec.arme.nom,
+          type: 'arme_specifique',
+          portee: spec.arme.portee,
+          rpm: spec.arme.rpm,
+          chargeur: spec.arme.chargeur,
+          rechargement: spec.arme.rechargement,
+          headshot: spec.arme.headshot,
+          degatsBase: spec.arme.degatsBase,
+          _specCle: spec.cle,
+          _specNom: spec.nom,
+          _specIcone: spec.icone,
+        }))
       case 'sidearm':
         return armes.filter(w => w.type === 'pistolet')
       case 'classic':
@@ -101,12 +114,8 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
         /* Armes spécifiques — affichage dédié par spécialisation */
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {filtered.map(w => {
-            // Trouver la spécialisation correspondante
-            const specEntry = Object.entries(SPECIALISATIONS).find(
-              ([, s]) => s.arme.toUpperCase() === w.nom.toUpperCase()
-            )
-            const specLabel = specEntry ? specEntry[1].label : ''
-            const specIcon = specEntry ? specEntry[1].icon : '🎖️'
+            const specLabel = w._specNom || ''
+            const specIcon = w._specIcone || '🎖️'
 
             return (
               <div

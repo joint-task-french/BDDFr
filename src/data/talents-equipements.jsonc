@@ -4,472 +4,946 @@
     "nom": "Complémentarité",
     "description": "Le dernier ennemi blessé par une compétence est marqué.Infliger des dégâts d'arme à cet ennemi supprime la marque et diminue les temps de recharge de 6s.Ne consomme pas la marque si aucune compétence n'est en recharge.Temps de recharge : 4s",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "complementarite"
   },
   {
     "nom": "Dynamisation",
     "description": "Au combat, chaque compétence génère un bonus cumulable si elle est active ou si elle n'est pas en recharge.Ces bonus augmentent le total de dégâts de compétence de 1,5% et le total de réparation de compétence de 2%.Ils sont cumulables 15 fois maximum par compétence et s'annulent quand la compétence est en recharge.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "dynamisation"
   },
   {
     "nom": "Doué",
     "description": "Les éliminations par compétence ont 25% de probabilité de réinitialiser les recharges de compétence.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "doue"
   },
   {
     "nom": "Observateur",
     "description": "Augmente les totaux de dégâts d'arme et de dégâts de compétence de 15% contre les ennemis touchés par impulsion.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "observateur"
   },
   {
     "nom": "Livraison Explosive",
     "description": "Quand vous déployez un objet de compétence, 1.5s après que celui-ci touche le sol, il génère une explosion infligeant des dégâts aux ennemis situés à moins de 5m.Les dégâts sont étalonnés selon le Tier de compétence et infligent 25-100% des dégâts d'une grenade offensive.Une fois maximum par compétence.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "livraison_explosive"
   },
   {
     "nom": "Détermination Empathique",
     "description": "Réparer un allié augmente ses totaux de dégâts d'arme et de dégâts de compétence de 3-15% pendant 20s.Sur soi, le bénéfice est de 1-7%.L'efficacité augmente en fonction de votre Tier de compétence.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "determination_empathique"
   },
   {
     "nom": "Observation",
     "description": "Au bout de 10s à couvert, augmente les totaux de dégâts d'arme et de dégâts de compétence de 12% pour vous et vos alliés.Cet effet dure tant que vous restez à couvert ou que vous vous déplacez d'un abri à l'autre.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "observation"
   },
   {
     "nom": "Intimidation",
     "description": "Quand vous disposez d'une protection bonus,vous gagnez 3 effets chaque seconde jusqu'à un max de 9. Chaque effet cumulé augmente les dégâts d'arme de +4% contre les ennemis situés à moins de 10m.Tous les effets cumulés sont perdus si vous n'avez plus de protection bonus.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "intimidation"
   },
   {
     "nom": "Incassable",
     "description": "Quand votre protection est détruite, répare 95% (50%) de votre protection.Temps de recharge : 60s",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "incassable"
   },
   {
     "nom": "Avant-garde",
     "description": "Déployer un bouclier le rend invulnérable pendant 5s (2s) et donne à tous les autres alliés 45% (20%) de votre protection en protection bonus pendant 20s.Temps de recharge : 25s.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "avant_garde"
   },
   {
     "nom": "Rechargement Protégé",
     "description": "Confère +20% de protection bonus quand vous rechargez.Confère 0-18% de votre protection en protection bonus pour tout vos alliés quand ceux-ci rechargent, en fonction de votre attribut essentiel bleu",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "rechargement_protege"
   },
   {
     "nom": "Canon de verre",
     "description": "Tous les dégâts que vous infligez sont accrus de 25%.Tous les dégâts que vous subissez sont accrus de 50%.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "canon_de_verre"
   },
   {
     "nom": "Dégaineur",
     "description": "Changer d'arme augmente le total de dégâts d'arme de 23% pendant 5s.Ce buff se dissipe pendant 5s si vous changez d'arme pendant qu'il est actif.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "degaineur"
   },
   {
     "nom": "Mise au point",
     "description": "Augmente le total de dégâts d'arme de 5% à chaque seconde pendant que vous ciblez un ennemi en zoom 8x ou supérieur, jusqu'à 50%.",
     "prerequis": "Une lunette à grossissement 8x minimum.",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "mise_au_point"
   },
   {
     "nom": "Préparé",
     "description": "A couvert, le maniement d'arme est amélioré de +45%.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "prepare"
   },
   {
     "nom": "Étincelle",
     "description": "Blesser des ennemis avec une compétence augmente le total de dégâts d'arme de 15% pendant 15s.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "etincelle"
   },
   {
     "nom": "Oblitération",
     "description": "Les coups critiques augmentent le total de degâts d'arme de 1% pendant 10s.Peut se cumuler jusqu'à 20 fois.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "obliteration"
   },
   {
     "nom": "Trauma",
     "description": "Inflige aveuglement à un ennemi touché à la tête. Temps de recharge : 30s.Inflige saignement à un ennemi touché à la poitrine. Temps de recharge : 30s.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "trauma"
   },
   {
     "nom": "Réaffectation",
     "description": "Éliminer un ennemi ajoute 1 munition d'un type de munition spéciale aléatoire dans votre arme d'appoint.Temps de recharge :15s",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "reaffectation"
   },
   {
     "nom": "Exploseur",
     "description": "Le rayon d'effet des grenades est accru +50%. Les grenades sont récupérées si elles tuent l'ennemi.Il est désormais possible d'ajuster le lancer des grenades en maintenant le bouton de tir enfoncé pour les faires exploser plus tôt.Confère +15% de protection bonus lorsque vous visez avec les grenades.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "exploseur"
   },
   {
     "nom": "Zone de défense",
     "description": "Les ennemis qui passent à moins de 3m de votre ruche, votre tourelle, ou votre impulsion télécommandée subissent une électrocution.Armement : 2sTemps de recharge par compétence : 10s",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "zone_de_defense"
   },
   {
     "nom": "Efficace",
     "description": "Employer un kit de protection à 50% de probabilité de ne pas consommer le kit de protection.Les bonus de kit de protection de spécialisation sont accrus de 100% (50%).10 secondes sont nécessaires pour armer le talent.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "efficace"
   },
   {
     "nom": "Retranchement",
     "description": "Si vous êtes à moins de 30% de votre protection, les headshots effectués depuis un abri réparent 20% de votre protection.Temps de recharge : 2s.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "retranchement"
   },
   {
     "nom": "Chasseur de Tête",
     "description": "Après avoir tué un ennemi avec un headshot, le prochain tir réussi dans les 30s (5s) bénéficie d'un bonus de 125% (20%) des dégâts du tir mortel précédent.Ces dégâts sont limités à 800% (200%) de vos dégâts d'arme. Cette limite monte à 1250% (300%) si vos dégâts de headshot sont supérieurs à 150%.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "chasseur_de_tete"
   },
   {
     "nom": "Armement Combiné",
     "description": "Tirer sur un ennemi augmente le total de dégâts de compétence de 25% pendant 3s.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "armement_combine"
   },
   {
     "nom": "Afflux d'énergie",
     "description": "Utiliser un kit de protection confère +1 en Tier de compétence pendant 15s. Si vous êtes déjà au Tier de compétence 6, donne surcharge.Temps de recharge : 60s",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "afflux_d_energie"
   },
   {
     "nom": "Soutien technique",
     "description": "Les éliminations par compétence augmente le total de dégâts de compétence de 25% pendant 20s.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "soutien_technique"
   },
   {
     "nom": "Calculé",
     "description": "Les éliminations réalisées en étant à couvert réduisent de 10% le temps de recharge des compétences.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "calcule"
   },
   {
     "nom": "Sous le choc",
     "description": "Infliger un effet d'état à un ennemi augmente les totaux de dégâts et de réparation des compétences de 20% pendant 20s.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "sous_le_choc"
   },
   {
     "nom": "Protecteur",
     "description": "Quand votre protection est intacte, augmente la réparation de compétence de 130%.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "protecteur"
   },
   {
     "nom": "Overclock",
     "description": "Les alliés situés à moins de 7m des objets déployés par vos compétences bénéficient de +25% à la vitesse de rechargement et leurs temps de recharge en cours sont diminués de 0.2s",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "overclock"
   },
   {
     "nom": "Sangsue",
     "description": "Éliminer un ennemi augmente ou renouvelle un effet cumulé de +10% de protection bonus pendant 10s.Peut se cumuler jusq'à 10 fois.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "sangsue"
   },
   {
     "nom": "Leadership",
     "description": "Réaliser un chagement d'abri confère +15% de votre protection en protection bonus pour vous et vos alliés pendant 10s.Ce bonus est doublé si vous finissez à moins de 10m d'un ennemi.Temps de recharge : 10s",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "leadership"
   },
   {
     "nom": "Protecteur",
     "description": "Quand votre bouclier est endommagé, vous gagnez +5% de protection bonus et tous vos alliés gagnent 15% de votre protection en protection bonus pendant 3s.Temps de recharge : 3s",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "protecteur"
   },
   {
     "nom": "Vigilance",
     "description": "Augmente le total des dégâts d'arme de 25%.Subir des dégâts désactive ce buff pendant 4s.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "vigilance"
   },
   {
     "nom": "Polyvalence",
     "description": "Augmente le total de dégâts d'arme pendant 10s quand vous passez d'une arme principale à une arme secondaire et inversement si ces armes sont différentes.35% contre les ennemis situés à moins de 15m pour les fusils calibre 12 et les PM.35% contre les ennemis situés à plus de 25m pour les fusils et les fusils de précision.10% contre les ennemis situés à 15-25m pour les FM et les fusils d'assaut.Au maximum une fois toutes les 5s par type d'arme.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "polyvalence"
   },
   {
     "nom": "Opportuniste",
     "description": "Les ennemis que vous touchez au calibre 12 et au fusil de précision subissent des dégâts accrus de 10% de toutes les sources pendant 5s.",
     "prerequis": "Fusil de précision ou calibre 12 seulement.",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "opportuniste"
   },
   {
     "nom": "Force irrésistible",
     "description": "Éliminer un ennemi augmente le total de dégâts d'arme de 5% pendant 15s.Peut se cumuler jusqu'à 5 fois.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "force_irresistible"
   },
   {
     "nom": "Compagnon",
     "description": "Quand vous êtes à moins de 5m d'un allié ou d'un objet de compétence, le total de dégâts d'arme est augmenté de 15%.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "compagnon"
   },
   {
     "nom": "Maîtrise de soi",
     "description": "À couvert, augmente le total de dégâts d'arme de +15%.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "maitrise_de_soi"
   },
   {
     "nom": "Trépanation",
     "description": "Les headshots augmentent le total de dégâts d'arme de 10% pendant 1.5s5s avec les fusils de précision.Les éliminations par heashot augmentent le total de dégâts d'arme de 15% pendant 10s.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "trepanation"
   },
   {
     "nom": "Mort rampante",
     "description": "Quand vous infligez un effet d'état, il s'applique également à tous les ennemis situés à moins de 8m de votre cible.Temps de recharge : 15s",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "mort_rampante"
   },
   {
     "nom": "Méchanceté",
     "description": "Infliger un effet d'état augmente le total de dégâts d'arme de 18% pendant 20s.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "mechancete"
   },
   {
     "nom": "Galvanisation",
     "description": "Infliger aveuglement, entrave, confusion ou électrocution à un ennemi confère aux alliés situés à moins de 20m de cet ennemi 40% de votre protection en protection bonus pendant 10s.",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "galvanisation"
   },
   {
     "nom": "Serrement",
     "description": "Si vous êtes à moins de 15% de votre protection, les coups critiques réparent 2.5% de la protection détruite.Les éliminations vous permettent de réparer jusqu'à 100% de protection sur 4-10s, en fonction de votre attribut essentiel rouge",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "serrement"
   },
   {
     "nom": "Poussée d'adrénaline",
     "description": "Quand vous vous trouvez à 10m d'un ennemi, vous gagnez un bonus de protection de 20% (10%) pendant 5s. Cet effet peut se cumuler jusqu'à 3 fois.Temps de recharge : 5s",
     "prerequis": "n/a",
-    "emplacement": "tous"
+    "emplacement": "tous",
+    "slug": "poussee_d_adrenaline"
   },
   {
     "nom": "Gâchette facile",
     "icone": "gachette_facile",
     "description": "Quand votre pistolet est dans son étui, confère un buff cumulable jusqu'à 100 fois toutes les 0.3s.Quand vous le dégainez, votre premier tir consomme le buff et inflige +10 % (+0,1%) de dégâts par buff cumulé. Cela inflige des dégâts de headshot, quel que soit l'endroit touché.ExigencePistolet équipé",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "gachette_facile"
   },
   {
     "nom": "Optimisation de transfert",
     "icone": "optimisation_de_transfert",
     "description": "(PVE)Augmente de +15% la récupération de compétence Ruche par tier de compétence.Faire exploser une ruche annule vos temps de recharge de compétence et donne surcharge pendant 15s. S'il est déjà au Tier de compétence 6, cet effet s'applique également à tous les alliés.Les alliés qui reçoivent cet effet ne peuvent plus en bénéficier pendant 120s.",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "optimisation_de_transfert"
   },
   {
     "nom": "Inflexibilité",
     "icone": "inflexibilite",
     "description": "Immunité au vacillement par les explosions.Augmente le total de dégâts d'arme de 3% pour chaque seconde que vous restez immobile. Ce bonus peut se cumuler 10 fois jusqu'à ce que vous bougiez. Le cumul de bonus se dissipe 10s après avoir bougé.",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "inflexibilite"
   },
   {
     "nom": "Un tiens vaut mieux ...",
     "icone": "un_tiens_vaut_mieux",
     "description": "Quand vous lancez une grenade confère, vous la récupérez et obtenez +1 au tier de compétence pendant 15s. Si vous êtes déjà au Tier de compétence 6, donne surcharge. (ne donne pas de surcharge en pvp)",
     "emplacement": "sac_a_dos",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "un_tiens_vaut_mieux"
   },
   {
     "nom": "Que deux tu l'auras",
     "icone": "que_deux_tu_l_auras",
     "description": "Capacité en kit de protection +1Capacité en grenades +3Capacité en munition +25%Compétence de réparation +10%Effets d'états +10%",
     "emplacement": "sac_a_dos",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "que_deux_tu_l_auras"
   },
   {
     "nom": "Instinct de meute",
     "icone": "instinct_de_meute",
     "description": "Vous et vos alliés recevez un bonus basé sur ka distance à laquelle se trouve le dernier ennemi touché.0-15 m : +25% aux dégâts de coup critique15-25 m : +10% aux dégâts de coup critique et +10% à la probabilité de coup critiquePlus de 25 m : +25% à la probabilité de coup critique",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "instinct_de_meute"
   },
   {
     "nom": "Nano-plaquage ablatif",
     "icone": "nano_plaquage_ablatif",
     "description": "Quand votre protection ou celle d'un allié est détruite, celui-ci gagne 80% (40%) de votre protection en protection bonus pendant 10s.Temps de recharge par allié : 45sTuer un ennemi avec votre arme spécifique supprime ce temps de recharge pour tous les alliés.",
     "emplacement": "torse",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "nano_plaquage_ablatif"
   },
   {
     "nom": "Éclat du dragon",
     "icone": "eclat_du_dragon",
     "description": "Au combat, inflige brûlure à l'ennemi le plus proche dans un rayon de 20m.Temps de recharge de 35s.",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "eclat_du_dragon"
   },
   {
     "nom": "Contre",
     "icone": "contre",
     "description": "Changer d'arme donne les groupes de bonus suivants un par un, dans l'ordre :1. +20% (+10%)  de cadence de tir, +20% (+10%) de dégâts d'arme2. +50% (+25%) taille du chargeur, +50% de vitesse de rechargementLes bonus restent actifs 12s ou jusqu'à l'échange d'arme suivant. Passer à votre arme d'appoint ne déclenche pas le groupe de bonus suivant",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "contre"
   },
   {
     "nom": "Esquive réparatrice",
     "icone": "esquive_reparatrice",
     "description": "Vous réparez 5% (3%) de votre protection pour chaque mètre de course d'un couvert à l'autre.Les dégâts subis lors d'un changement d'abri sont restaurés pendant 10s.",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "esquive_reparatrice"
   },
   {
     "nom": "Exubérant",
     "icone": "exuberant",
     "description": "Infliger des dégâts à un ennemi avec une grenade ou frapper un ennemi avec une attaque au corps à corps active Voir rouge.Voir rouge confère +25% aux dégâts d'arme +100% aux dégâts de corps à corps.Voir rouge dure 20 secondes et possède un temps de recharge de 60 secondes.Une fois en recharge, infliger des dégâts à un ennemi avec une attaque de corps à corps ou frapper un ennemi avec l'effet d'une grenade réinitialise instantanément ce temps de recharge.",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "exuberant"
   },
   {
     "nom": "Poigne de fer",
     "icone": "poigne_de_fer",
     "description": "Pénalité de recul -50% en tirant de la hanche.Pénialité de recul -50% en tirant à l'aveuglette depuis un abri.",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "poigne_de_fer"
   },
   {
     "nom": "Ecran de fumée",
     "icone": "ecran_de_fumee",
     "description": "(PVE)Quand votre protection est détruite, vous lâchez une bombe fumigène qui empêche les ennemis de vous voir pendant 3s.Temps de recharge : 40s",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "ecran_de_fumee"
   },
   {
     "nom": "Maillon faible",
     "icone": "maillon_faible",
     "description": "Dégâts d'arme accrus de 30% contre les ennemi des rangs les plus faibles actuellement en combat, selon la hiérarchie des Tiers.Tier 1 : chasseur, renégat, chef, tank, bouclier, armes lourdes, lance-roquettes, médecin, contrôleur, chien de guerre, maraudeurTier 2 : support, ingénieur, garde du corps, immobilisateir, poseur de bombe, mini-char, opérateur de droneTier 3 : tout autre ennemi ou proxy de compétence",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "maillon_faible"
   },
   {
     "nom": "Parkour !",
     "icone": "parkour",
     "description": "(PVE)Se déplacer d'un abri à un autre ou franchir un obstacle recharge votre arme actuelle et vous bénéficiez d'un bonus de +25% de à la protection pendant 5s.",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "parkour"
   },
   {
     "nom": "Ostracisation",
     "icone": "ostracisation",
     "description": "Toucher un ennemi lui applique une marque. La marque disparaît au bout de 15s, ou à la mort de l'ennemi marqué.Vous subissez +600% de dégâts de l'ennemi marqué.Vous infligez +20% de dégâts aux ennemis non marqués.S'il ne reste qu'un ennemi en combat, la marque disparaît et ne peut pas être appliquée de nouveau.",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "ostracisation"
   },
   {
     "nom": "Élimination confirmée",
     "icone": "elimination_confirmee",
     "description": "Les ennemis éliminés génèrent un trophée. La récupération des trophées fournit à la fois un buff à court terme et à long terme. Le premier buff dépend du nombre d'attribut essentiels équipés et dure 10s.Offensif - +5% de dégâts d'armeDéfensif - +10% de protection bonusUtilitaire - +5% d'efficacité de compétencePour chaque trophée récupéré, vous obtenez en plus +1% de dégâts d'arme, +1% d'efficacité de compétence et 0,1% de régénération de protection pendant 300s.Effet cumulable 30 fois.",
     "emplacement": "sac_a_dos",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "elimination_confirmee"
   },
   {
     "nom": "Débrouillardise",
     "icone": "debrouillardise",
     "description": "Utilise tout objet d'ensemble d'équipement et/ou de marque équipé pour remplir une condition de déverrouillage de bonus d'ensemble. Peut déverrouiller les bonus de plusieurs ensembles simultanément.",
     "emplacement": "sac_a_dos",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "debrouillardise"
   },
   {
     "nom": "Médecin de combat",
     "icone": "medecin_de_combat",
     "description": "Vitesse de ranimation +80%Temps des malus d'affaiblissement -50%Efficacité de la ruche +45%Confère +50% de résistance aux dégâts à l'agent ranimé et au réanimateur, et pendant 5s après une ranimation de ruche réussi, ou 10s après une ranimation manuelle réussie.Toute ranimation réussie donne +1 Tier de coméptence pendant 5s.Les ranimations au Tier de compétence 6 donnent une surchage pendant 15s.",
     "emplacement": "sac_a_dos",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "medecin_de_combat"
   },
   {
     "nom": "Charge toxique",
     "icone": "charge_toxique",
     "description": "Les effets d'état infligent également un débuff de dégâts sur la durée pendant 10s.Le total de dégâts infligés est égal à 50% (20%) des dégâts de votre grenade offensive e est accru par par vos attributs d'effet d'état.",
     "emplacement": "torse",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "charge_toxique"
   },
   {
     "nom": "Cercle vicieux",
     "icone": "cercle_vicieux",
     "description": "Subir des dégats cumule des effets jusqu'à un maximum de 30. Chaque effet confère +1,5% de dégats d'arme. Subir des dégâts quand le cumul est à son maximum déclenche une purge qui consomme le cumul, supprime les effets d'état et génère un nuage qui restaure +5% de la protection maximum pendant 10s pour tous les alliés situés dans la zone d'effet.",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "cercle_vicieux"
   },
   {
     "nom": "Agent chimique",
     "icone": "agent_chimique",
     "description": "CatalyseInfliger et subir des effets d'état permet d'accumuler des effets de Catalyse jusqu'à un maximun de 12. Chaque effet confère :+2% dégâts d'arme+2% déffets d'étatChaque ennemi situé dans un rayon de 25m et affecté par un effet d'état confère +1 effet/s. Recevoir un effet d'état confère +2 effet/s.Les effets cumulés se dissipent au rythme de 1 effet(s)/s au bout de 5s si ni vous ni un ennemi à portée n'êtes affectés par un effet d'état.RéactifQuand le cumul est à son maximun, tuer un ennemi subissant un effet d'état confère des bonus pendant 5s :+25% de protection bonus+20% de vitesse de rechargementStabilisationPendant que vous êtes en feu, vous conservez votre capacité à viser.",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "agent_chimique"
   },
   {
     "nom": "Abrégé",
     "icone": "abrege",
     "description": "Si vos armes principale et secondaire ne sont pas exotiques ou spécifiées et du même type, le talent de l'arme secondaire sera également appliqué à l'arme principale.Ne s'applique pas si le talent de l'arme principale ou secondaire inclut un changement d'arme.Ne s'applique pas si les talnets des armes principales et secondaire sont les mêmes.",
     "emplacement": "torse",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "abrege"
   },
   {
     "nom": "Avantage sanglant",
     "icone": "avantage_sanglant",
     "description": "Endommager un ennemi situé à moins de 15m inflige un saignement à la cible.Répare 3-48% de votre protection par seconde pour chaque ennemi subissant un saignement situé à moins de 15m.1 ennemi - 3%2 ennemis - 6%3 ennemis - 12%4 ennemis - 24%5 ennemis - 48%",
     "emplacement": "torse",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "avantage_sanglant"
   },
   {
     "nom": "Hoarder",
     "icone": "hoarder",
     "description": "+3 capacité de grenade.+50% Portée des grenades.+35% Dégâts des grenades.+25% dégats des grenades pour chaques ennemis supplémentaires \"attrapés\" dans l'explosion",
     "emplacement": "sac_a_dos",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "hoarder"
   },
   {
     "nom": "Prétendant",
     "icone": "pretendant",
     "description": ".+25% (20%) de résistance aux dégâts des ennemis à moins de 20m (15m).",
     "emplacement": "torse",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "pretendant"
   },
   {
     "nom": "Lien",
     "icone": "lien",
     "description": "(Ne fonctionne pas en PVP)Vous et vos alliés bénéficiez de +30% de dégâts critiques, +15% d'éfficacité de compétence et +2% de régénération de protection quand un allié se trouve à moins de 10m de vous. Vous bénéficiez de +15% de dégâts critiques, +8% d'éfficacité de compétence et +1% de régénération de protection quand une de vos compétences se trouve à moins de 10m de vous.Seul l'ensemble de bonus le plus puissant peut être actif à la fois.",
     "emplacement": "torse",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "lien"
   },
   {
     "nom": "Plan de fuite",
     "icone": "plan_de_fuite",
     "description": "Franchir un obstacle confère +10% de vitesse de déplacement pendant 3s. Au bout de 5s, d'immobilité, vous recevez +20% de vitesse de déplacement pendant 5s. recevoir un effet d'état confère +10% de vitesse de déplacement pendant 5s. Le bonus de vitesse de déplacément max. est de 20%. Ces bonus ne se cumulent pas avec les bonus de déplacement d'autres sources. -50% aux pénalités d'entrave au déplacement causées par les effets d'état.",
     "emplacement": "tous",
-    "estExotique": true
+    "estExotique": true,
+    "slug": "plan_de_fuite"
+  },
+  {
+    "nom": "Munitions Parabellum",
+    "slug": "munitions_parabellum",
+    "description": "Augmente l'amplification des dégâts d'arme pour les munitions à pointe creuse à 50%. (+35%)Ce bonus ne s'applique pas aux membres du groupe. EXIGENCE :Règles d'engagement",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "ongoing_directive"
+  },
+  {
+    "nom": "Spécialiste des traumatismes",
+    "slug": "specialiste_des_traumatismes",
+    "description": "Augmente la durée de vos effets d'état de saignement de 50% et tous les dégâts de saignement infligés de 100%EXIGENCE :Règles d'engagement",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "ongoing_directive"
+  },
+  {
+    "nom": "Drapeau brandi",
+    "slug": "drapeau_brandi",
+    "description": "Augmente la vitesse de rotation de \"Rouge Blanc Bleu\" de 1,5s. EXIGENCE :Rouge, blanc, bleu",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "true_patriot"
+  },
+  {
+    "nom": "Élan patriotique",
+    "slug": "elan_patriotique",
+    "description": "Augmente l'efficacité du debuff de \"Rouge Blanc Bleu\" Rouge : de 8% à 12%Blanc : de 2% à 3%Bleu : de 8% à 12%EXIGENCE :Rouge, blanc, bleu",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "true_patriot"
+  },
+  {
+    "nom": "Renforcement positif",
+    "slug": "renforcement_positif",
+    "description": "Augmente le bonus de compétence de réparation de la Boucle de rétroaction de +10% à +25%. EXIGENCE :Boucle de rétroaction",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "hard_wired"
+  },
+  {
+    "nom": "Cour-circuit",
+    "slug": "cour_circuit",
+    "description": "Diminue le temps de recharge de la Boucle de rétroaction de 10s à 5s. EXIGENCE :Boucle de rétroaction",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "hard_wired"
+  },
+  {
+    "nom": "Sans Limite",
+    "slug": "sans_limite",
+    "description": "Augmente le bonus de dégâts de La main du mort de 30% à 50%. EXIGENCE :La main du mort",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "as_et_huit"
+  },
+  {
+    "nom": "As dans la manche",
+    "slug": "as_dans_la_manche",
+    "description": "Améliore 1 tir supplémentaire quand vous révélez votre main. EXIGENCE :La main du mort",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "as_et_huit"
+  },
+  {
+    "nom": "Destruction Spécialisée",
+    "slug": "destruction_specialisee",
+    "description": "Augmente le bonus de dégâts d'arme spécifique de la Reconnaissance agressive de 15% à 30%. Effectuer 3 éliminations à l'arme spécifique génère des munitions d'arme spécifique. EXIGENCE :Reconnaissance agressive",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "pointe_de_lance"
+  },
+  {
+    "nom": "Mouvement spécifique",
+    "slug": "mouvement_specifique",
+    "description": "+50% dégâts d'arme pendant 15s après avoir complétement épuisé les munitions de l'arme spécifiqueDouble la quantité de munitions générée par Reconnaissance Agressive. EXIGENCE :Reconnaissance agressive",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "pointe_de_lance"
+  },
+  {
+    "nom": "Contrôle de masse",
+    "slug": "controle_de_masse",
+    "description": "Le nombre de marque de Négociations hostiles passe de 3 à 5EXIGENCE :Négociations hostiles",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "dilemme_du_negociateur"
+  },
+  {
+    "nom": "Mesures critiques",
+    "slug": "mesures_critiques",
+    "description": "Augmente les dégâts de Négociations hostiles aux ennemis marqués supplémentaires de 60% à 112%. EXIGENCE :Négociations hostiles",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "dilemme_du_negociateur"
+  },
+  {
+    "nom": "Avantage accru",
+    "slug": "avantage_accru",
+    "description": "Augmente le nombre maximum de bonus cumulables de l'Amplification Striker de 100 à 200. 3 cumuls par secondes entre 100 et 200 cumuls. EXIGENCE :Amplification Striker",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "cogneur"
+  },
+  {
+    "nom": "Gestion du risque",
+    "slug": "gestion_du_risque",
+    "description": "Augmente le bonus aux dégâts d'arme obtenu par les stacks de 0,65% à 0,90%. EXIGENCE :Amplification Striker",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "cogneur"
+  },
+  {
+    "nom": "Optimisation de compilation",
+    "slug": "optimisation_de_compilation",
+    "description": "Diminue le temps de recharge du Protocole Hackstep de 20s à 15s. EXIGENCE :Protocole Hackstep",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "systeme_corrompu"
+  },
+  {
+    "nom": "Execution Multithereading",
+    "slug": "execution_multithereading",
+    "description": "Augmente la protection bonus du protocole Hackstep de 50% à 100%. EXIGENCE :Protocole Hackstep",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "systeme_corrompu"
+  },
+  {
+    "nom": "Prolifération",
+    "slug": "proliferation",
+    "description": "Augmente la portée et la durée de Transmission Indirecte de 10m (5m) à 15m (7m) et de 50% à 75%. EXIGENCE :Transmission Indirecte",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "protocole_eclipse"
+  },
+  {
+    "nom": "Amplificateur de Symptôme",
+    "slug": "amplificateur_de_symptome",
+    "description": "Augmente tous les dégâts que vous infligez aux cibles affectés par un  effet d'état de 30%. EXIGENCE :Transmission Indirecte",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "protocole_eclipse"
+  },
+  {
+    "nom": "Matériaux Améliorés",
+    "slug": "materiaux_ameliores",
+    "description": "Augmente la vitesse de Réparation de Fortune de 10s à 5s. EXIGENCE :Réparation de fortune",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "rempart_de_la_founderie"
+  },
+  {
+    "nom": "Processus de Raffinerie",
+    "slug": "processus_de_raffinerie",
+    "description": "Augmente les réparations de Répération de Fortune de 25% à 35%. EXIGENCE :Réparation de fortune",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "rempart_de_la_founderie"
+  },
+  {
+    "nom": "Supériorité Tactique",
+    "slug": "superiorite_tactique",
+    "description": "Augmente le bonus aux dégâts de Contrôle du Terrain de 15% à 25%. EXIGENCE :Contrôle efficace",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "future_initiative"
+  },
+  {
+    "nom": "Tactiques de Combat Améliorées",
+    "slug": "tactiques_de_combat_ameliorees",
+    "description": "Augmente la réparation de proximité de Contrôle du Terrain de 60% à 120%. EXIGENCE :Contrôle efficace",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "future_initiative"
+  },
+  {
+    "nom": "Faim insatiable",
+    "slug": "faim_insatiable",
+    "description": "Augmente de 10s à 30s la durée des effets cumulés de Prédateur ultime. EXIGENCE :Prédateur Ultime",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "fureur_du_chasseur"
+  },
+  {
+    "nom": "Force écrasante",
+    "slug": "force_ecrasante",
+    "description": "Augmente de 5m à 10m le rayon d'effet de la désorientation d'une élimination par Prédateur ultime. EXIGENCE :Prédateur Ultime",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "fureur_du_chasseur"
+  },
+  {
+    "nom": "Meilleurs potes",
+    "slug": "meilleurs_potes",
+    "description": "Augmente le buff de dégâts de 25% à 50%. EXIGENCE :Entretien efficace",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "rigger"
+  },
+  {
+    "nom": "Disponibilité totale",
+    "slug": "disponibilite_totale",
+    "description": "Annuler vos compétences réinitialise leur temps de rechargeEXIGENCE :Entretien efficace",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "rigger"
+  },
+  {
+    "nom": "Max BPM",
+    "slug": "max_bpm",
+    "description": "Augmente le nombre maximum de bonus cumulables de Coup de coeur de 50 à 100. EXIGENCE :Coeup de coeur",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "heartbreaker"
+  },
+  {
+    "nom": "Froid",
+    "slug": "froid",
+    "description": "Augmente le total de protection bonus gagnée par effet cumulé de Coup de coeur de 1% à  2%. EXIGENCE :Coeup de coeur",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "heartbreaker"
+  },
+  {
+    "nom": "Depuis les ombres",
+    "slug": "depuis_les_ombres",
+    "description": "Augmente les cumuls max de \"Depuis les ombres\" de 50 à 100, et le gain de cumuls de 10 à 20. EXIGENCE :Depuis l'ombre à la lumière",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "initiative_umbra"
+  },
+  {
+    "nom": "À la lumière",
+    "slug": "a_la_lumiere",
+    "description": "Augmente les cumuls max de \"À la lumière\" de 50 à 100, et le gain de cumuls de 10 à 20, et la consommation des cumuls de 10 à 20. EXIGENCE :Depuis l'ombre à la lumière",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "initiative_umbra"
+  },
+  {
+    "nom": "Audace",
+    "slug": "audace",
+    "description": "Augmente la protection bonus de 50% à 100%.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "hotshot"
+  },
+  {
+    "nom": "Bénédiction",
+    "slug": "benediction",
+    "description": "L'agent peut louper un headshot avant réinitialisation du cycle.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "hotshot"
+  },
+  {
+    "nom": "Surcharge",
+    "slug": "surcharge",
+    "description": "Augmente la protection maximale contre les dégâts subis pendant la charge à 70%.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "the_cavalier"
+  },
+  {
+    "nom": "Protection de charge",
+    "slug": "protection_de_charge",
+    "description": "Charger confère 10% protection par seconde.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "the_cavalier"
+  },
+  {
+    "nom": "Combustion en chaine",
+    "slug": "combustion_en_chaine",
+    "description": "Les ennemis enflammés par le prototype de tourelle incinératrice Ortiz enflamment les ennemis situés à moins de 2m.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "ortiz_exuro"
+  },
+  {
+    "nom": "Coup de chaud",
+    "slug": "coup_de_chaud",
+    "description": "Confère +25% d'arme contre les ennemis enflammés par le prototype de tourelle incinératrice Ortiz. Portée du prototype de tourelle Incinératrice \"Ortiz\" +25%.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "ortiz_exuro"
+  },
+  {
+    "nom": "Tromperie",
+    "slug": "tromperie",
+    "description": "Les ennemis qui ciblent votre leurre contribuent aussi au bonus de résistance aux dégâts de stoïque.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "aegis"
+  },
+  {
+    "nom": "Placage en polyéthyléne",
+    "slug": "placage_en_polyethylene",
+    "description": "Augmente le bonus de résistance aux dégâts de stoïque de 4% à 5%",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "aegis"
+  },
+  {
+    "nom": "Point de non-retour",
+    "slug": "point_de_non_retour",
+    "description": "Augmente la durée des bonus d'En ligne de mire de 10s à 15s",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "breaking_point"
+  },
+  {
+    "nom": "Point d'honneur",
+    "slug": "point_d_honneur",
+    "description": "Augmente le bonus de dégâts d'arme d'En ligne de mire de 4% à 7,2%",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "breaking_point"
+  },
+  {
+    "nom": "Fortissimo",
+    "slug": "fortissimo",
+    "description": "Double les bonus de dégâts d'arme de Symphonie.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "virtuose"
+  },
+  {
+    "nom": "Accelerando",
+    "slug": "accelerando",
+    "description": "Diminue de 4 à 3 le nombre d'effets nécessaires pour déclencher le double bonus de Symphonie.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "virtuose"
+  },
+  {
+    "nom": "Intérêt accru",
+    "slug": "interet_accru",
+    "description": "Améliore les réparations de Retour à l'envoyeur de 10% (5%) à 25% (15%) et de 20% (10%) à 35% (20%).",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "refactor"
+  },
+  {
+    "nom": "Surprotection",
+    "slug": "surprotection",
+    "description": "Quand votre protection est intacte, les réparations de Retour à l'envoyeur vous donnent un bonus d'armure pouvant atteindre 80% de votre armure totale. Ne s'applique pas aux alliés.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "refactor"
+  },
+  {
+    "nom": "Esprit de ruche",
+    "slug": "esprit_de_ruche",
+    "description": "Diminue le temps de recharge de surchage de 40 à 25.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "measured_assembly"
+  },
+  {
+    "nom": "Coopération intelligente",
+    "slug": "cooperation_intelligente",
+    "description": "Diminue le temps de recharge pour la destruction des mortiers et compétences ennemies de 10 à 1.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "measured_assembly"
+  },
+  {
+    "nom": "Durabilité",
+    "slug": "durabilite",
+    "description": "Augmente le nombre maximun d'effets cumulés de 50 à 75.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "point_de_bascule"
+  },
+  {
+    "nom": "Boule de neige",
+    "slug": "boule_de_neige",
+    "description": "Augmente les dégâts de coup critique subis de 4 à 7 par effet cumulé.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "point_de_bascule"
+  },
+  {
+    "nom": "Tous pour un",
+    "slug": "tous_pour_un",
+    "description": "Augmente le nombre marques pouvant être appliquées de 4 à 8.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "concentrated_company"
+  },
+  {
+    "nom": "Un pour tous",
+    "slug": "un_pour_tous",
+    "description": "Augmente le bonus de dégâts d'arme par effet de 3% à 5%.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "concentrated_company"
   }
 ]

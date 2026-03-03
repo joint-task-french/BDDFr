@@ -77,6 +77,15 @@ export default function CategorySection({ category, items, searchTerm, allData }
     if (allData?.talentsEquipements) extraProps.talentsEquipements = allData.talentsEquipements
     if (allData?.attributs) extraProps.allAttributs = allData.attributs
   }
+  if (category?.key === 'talentsArmes') {
+    if (allData?.armes) extraProps.armes = allData.armes
+  }
+  if (category?.key === 'talentsEquipements') {
+    if (allData?.equipements) extraProps.equipements = allData.equipements
+  }
+  if (category?.key === 'ensembles') {
+    if (allData?.talentsEquipements) extraProps.talentsEquipements = allData.talentsEquipements
+  }
 
   return (
     <div className="fade-in">

@@ -1,93 +1,111 @@
 // Emplacements de mods de compétences — The Division 2
 [
   {
-    "competence": "IMPULSION",
+    "competence": "impulsion",
     "emplacement": "BOBINE",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "impulsion_bobine"
   },
   {
-    "competence": "IMPULSION(ARTILLEUR)",
+    "competence": "impulsion",
     "emplacement": "BOBINE",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "impulsion_artilleur_bobine"
   },
   {
-    "competence": "TOURELLE",
+    "competence": "tourelle",
     "emplacement": "MÉCANISME DE TIR",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "tourelle_mecanisme_de_tir"
   },
   {
-    "competence": "TOURELLE(DÉMOLISSEUR)",
+    "competence": "tourelle",
     "emplacement": "MÉCANISME DE TIR",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "tourelle_demolisseur_mecanisme_de_tir"
   },
   {
-    "competence": "RUCHE",
+    "competence": "ruche",
     "emplacement": "DRONES",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "ruche_drones"
   },
   {
-    "competence": "RUCHE(TECHNICIEN)",
+    "competence": "ruche",
     "emplacement": "LANCEUR",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "ruche_technicien_lanceur"
   },
   {
-    "competence": "LANCEUR CHIMIQUE",
+    "competence": "lanceur_chimique",
     "emplacement": "AGITATEUR",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "lanceur_chimique_agitateur"
   },
   {
-    "competence": "LUCIOLE",
+    "competence": "luciole",
     "emplacement": "CHARGE UTILE",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "luciole_charge_utile"
   },
   {
-    "competence": "MINE TÉLÉGUIDÉE",
+    "competence": "mine_teleguide",
     "emplacement": "ENTRAÎNEMENT",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "mine_teleguidee_entrainement"
   },
   {
-    "competence": "MINE TÉLÉGUIDÉE(SURVIVALISTE)",
+    "competence": "mine_teleguide",
     "emplacement": "DÉSIGNATION",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "mine_teleguidee_survivaliste_designation"
   },
   {
-    "competence": "DRONE",
+    "competence": "drone",
     "emplacement": "BATTERIE",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "drone_batterie"
   },
   {
-    "competence": "DRONE(TIREUR D'ÉLITE)",
+    "competence": "drone",
     "emplacement": "BATTERIE",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "drone_tireur_d_elite_batterie"
   },
   {
-    "competence": "BOUCLIER",
+    "competence": "bouclier",
     "emplacement": "CIRCUIT IMPRIMÉ",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "bouclier_circuit_imprime"
   },
   {
-    "competence": "BOUCLIER(INCENDIAIRE)",
+    "competence": "bouclier",
     "emplacement": "REVÊTEMENT DUR",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "bouclier_incendiaire_revetement_dur"
   },
   {
-    "competence": "PIEGE",
+    "competence": "piege",
     "emplacement": "ÉLECTRONIQUE",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "piege_electronique"
   },
   {
-    "competence": "CHARGE ADHÉSIVE",
+    "competence": "charge_adhesive",
     "emplacement": "LANCEUR",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "charge_adhesive_lanceur"
   },
   {
-    "competence": "LEURRE",
+    "competence": "leurre",
     "emplacement": "LOGEMENT",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "leurre_logement"
   },
   {
-    "competence": "ABRI INTELLIGENT",
+    "competence": "abri_intelligent",
     "emplacement": "LANCEUR INTELLIGENT",
-    "statistiques": []
+    "statistiques": [],
+    "slug": "abri_intelligent_lanceur_intelligent"
   }
 ]

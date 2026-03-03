@@ -1,605 +1,773 @@
-// Compétences et variantes
+// Compétences et variantes — The Division 2
+// Structure: objet par type de compétence, avec variantes en sous-tableau
 [
   {
     "competence": "Abri intelligent",
-    "variante": "Précision",
-    "expertise": "+1% Durée",
-    "statistiques": "Rayon : 6m Recharge : 40,9s Durée : 24s Maniabilité d'arme : 15% Dégâts sur cibles non abritées : 10% Santé : 663 623 PV",
-    "effetEtat": "N/A",
-    "tier1": "+10% Rayon +25% Maniement d'arme +7% Dégâts sur cibles non abritées +70% Santé",
-    "tier2": "+20% Rayon +35% Maniement d'arme +9% Dégâts sur cibles non abritées +140% Santé",
-    "tier3": "+30% Rayon +45% Maniement d'arme +12% Dégâts sur cibles non abritées +210% Santé",
-    "tier4": "+40% Rayon +55% Maniement d'arme +16% Dégâts sur cibles non abritées +280% Santé",
-    "tier5": "+50% Rayon +65% Maniement d'arme +21% Dégâts sur cibles non abritées +350% Santé",
-    "tier6": "+60% Rayon +75% Maniement d'arme +27% Dégâts sur cibles non abritées +420% Santé",
-    "surcharge": "+100% Rayon +100% Maniement d'arme +35% Dégâts sur cibles non abritées +420% Santé"
-  },
-  {
-    "competence": "Abri intelligent",
-    "variante": "Fortifié",
-    "expertise": "+1% Protection bonus",
-    "statistiques": "Rayon : 8 mRecharge : 40,9 sDurée : 36 sProtection bonus : 50%Résistance - Explosions : 5%Résistance - Impulsion : 5%Santé : 663 623 PV",
-    "effetEtat": "N/A",
-    "tier1": "+10% Rayon +10% Protection bonus +10% Résistance - Explosions +5% Résistance - Impulsion +70% Santé",
-    "tier2": "+20% Rayon +20% Protection bonus +15% Résistance - Explosions +10% Résistance - Impulsion +140% Santé",
-    "tier3": "+30% Rayon +30% Protection bonus +20% Résistance - Explosions +15% Résistance - Impulsion +210% Santé",
-    "tier4": "+40% Rayon +40% Protection bonus +25% Résistance - Explosions +25% Résistance - Impulsion +280% Santé",
-    "tier5": "+50% Rayon +50% Protection bonus +35% Résistance - Explosions +35% Résistance - Impulsion +350% Santé",
-    "tier6": "+60% Rayon +60% Protection bonus +40% Résistance - Explosions +45% Résistance - Impulsion +420% Santé",
-    "surcharge": "+100% Rayon +100% Protection bonus +60% Résistance - Explosions +45% Résistance - Impulsion +420% Santé"
-  },
-  {
-    "competence": "BOMBE ADHÉSIVE",
-    "variante": "BRÛLURE",
-    "expertise": "+1% de dégâts de brûlure",
-    "statistiques": "Recharge : 54,5 sDégâts : 1 094 977Durée : 12 sDégâts JcJ : 240 895",
-    "effetEtat": "BRÛLURE",
-    "tier1": "+ 10% dégâts de brûlure + 35% Durée de brülure + 15% Récup. de compétence",
-    "tier2": "+ 20% dégâts de brûlure + 40% Durée de brülure + 30% Récup. de compétence",
-    "tier3": "+ 30% dégâts de brûlure + 60% Durée de brülure + 45% Récup. de compétence",
-    "tier4": "+ 40% dégâts de brûlure + 80% Durée de brülure + 60% Récup. de compétence",
-    "tier5": "+ 50% dégâts de brûlure + 100% Durée de brülure + 75% Récup. de compétence",
-    "tier6": "+ 60% dégâts de brûlure + 120% Durée de brülure + 90% Récup. de compétence",
-    "surcharge": "+ 100% dégâts de brûlure + 200% Durée de brülure + 500% Récup. de compétence"
+    "variantes": [
+      {
+        "variante": "Précision",
+        "expertise": "+1% Durée",
+        "statistiques": "Rayon : 6m Recharge : 40,9s Durée : 24s Maniabilité d'arme : 15% Dégâts sur cibles non abritées : 10% Santé : 663 623 PV",
+        "effetEtat": "N/A",
+        "tier1": "+10% Rayon +25% Maniement d'arme +7% Dégâts sur cibles non abritées +70% Santé",
+        "tier2": "+20% Rayon +35% Maniement d'arme +9% Dégâts sur cibles non abritées +140% Santé",
+        "tier3": "+30% Rayon +45% Maniement d'arme +12% Dégâts sur cibles non abritées +210% Santé",
+        "tier4": "+40% Rayon +55% Maniement d'arme +16% Dégâts sur cibles non abritées +280% Santé",
+        "tier5": "+50% Rayon +65% Maniement d'arme +21% Dégâts sur cibles non abritées +350% Santé",
+        "tier6": "+60% Rayon +75% Maniement d'arme +27% Dégâts sur cibles non abritées +420% Santé",
+        "surcharge": "+100% Rayon +100% Maniement d'arme +35% Dégâts sur cibles non abritées +420% Santé",
+        "slug": "precision"
+      },
+      {
+        "variante": "Fortifié",
+        "expertise": "+1% Protection bonus",
+        "statistiques": "Rayon : 8 mRecharge : 40,9 sDurée : 36 sProtection bonus : 50%Résistance - Explosions : 5%Résistance - Impulsion : 5%Santé : 663 623 PV",
+        "effetEtat": "N/A",
+        "tier1": "+10% Rayon +10% Protection bonus +10% Résistance - Explosions +5% Résistance - Impulsion +70% Santé",
+        "tier2": "+20% Rayon +20% Protection bonus +15% Résistance - Explosions +10% Résistance - Impulsion +140% Santé",
+        "tier3": "+30% Rayon +30% Protection bonus +20% Résistance - Explosions +15% Résistance - Impulsion +210% Santé",
+        "tier4": "+40% Rayon +40% Protection bonus +25% Résistance - Explosions +25% Résistance - Impulsion +280% Santé",
+        "tier5": "+50% Rayon +50% Protection bonus +35% Résistance - Explosions +35% Résistance - Impulsion +350% Santé",
+        "tier6": "+60% Rayon +60% Protection bonus +40% Résistance - Explosions +45% Résistance - Impulsion +420% Santé",
+        "surcharge": "+100% Rayon +100% Protection bonus +60% Résistance - Explosions +45% Résistance - Impulsion +420% Santé",
+        "slug": "fortifie"
+      }
+    ],
+    "emplacementsMods": [
+      {
+        "emplacement": "LANCEUR INTELLIGENT"
+      }
+    ],
+    "slug": "abri_intelligent"
   },
   {
     "competence": "BOMBE ADHÉSIVE",
-    "variante": "EXPLOSIVE",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Recharge : 60 sDégâts : 1 459 970Rayon de souffle : 3 mDurée : 12 sDégâts JcJ : 321 193",
-    "effetEtat": "N/A",
-    "tier1": "+ 10% Dégâts + 20% Rayon de souffle + 15% Récup. de compétence",
-    "tier2": "+ 20% Dégâts + 30% Rayon de souffle + 30% Récup. de compétence",
-    "tier3": "+ 30% Dégâts + 40% Rayon de souffle + 45% Récup. de compétence",
-    "tier4": "+ 40% Dégâts + 50% Rayon de souffle + 60% Récup. de compétence",
-    "tier5": "+ 50% Dégâts + 60% Rayon de souffle + 75% Récup. de compétence",
-    "tier6": "+ 60% Dégâts + 70% Rayon de souffle + 90% Récup. de compétence",
-    "surcharge": "+ 80% Dégâts + 200% Rayon de souffle + 90% Récup. de compétence"
-  },
-  {
-    "competence": "BOMBE ADHÉSIVE",
-    "variante": "IEM(récompense traque saison 1)",
-    "expertise": "+1% de Rayon de souffle IEM",
-    "statistiques": "Recharge : 27,3 sDurée : 9,6 sRayon d'explosion IEM : 4 m",
-    "effetEtat": "DÉSACTIVATION",
-    "tier1": "+ 10% Rayon de souffle IEM + 10% Durée",
-    "tier2": "+ 20% Rayon de souffle IEM + 20% Durée",
-    "tier3": "+ 30% Rayon de souffle IEM + 30% Durée",
-    "tier4": "+ 40% Rayon de souffle IEM + 40% Durée",
-    "tier5": "+ 50% Rayon de souffle IEM + 50% Durée",
-    "tier6": "+ 60% Rayon de souffle IEM + 60% Durée",
-    "surcharge": "+ 150% Rayon de souffle IEM + 100% Durée"
-  },
-  {
-    "competence": "PIEGE",
-    "variante": "ÉLECTRIQUE",
-    "expertise": "+1% de durée d'électrocution",
-    "statistiques": "Recharge : 54,5 sPièges : 6 Rayon d'électrocution : 2,5 mDurée d'électrocution : 3 sDurée : 72 sDurée d'électrocution JcJ : 1,5 s",
-    "effetEtat": "ÉLECTROCUTION",
-    "tier1": "+2 Piège + 10% Rayon d'électrocution + 10% Durée d'électrocution",
-    "tier2": "+2 Piège + 20% Rayon d'électrocution + 20% Durée d'électrocution",
-    "tier3": "+4 Piège + 30% Rayon d'électrocution + 30% Durée d'électrocution",
-    "tier4": "+6 Piège + 40% Rayon d'électrocution + 40% Durée d'électrocution",
-    "tier5": "+8 Piège + 50% Rayon d'électrocution + 50% Durée d'électrocution",
-    "tier6": "+10 Piège + 60% Rayon d'électrocution + 60% Durée d'électrocution",
-    "surcharge": "+12 Piège + 70% Rayon d'électrocution + 200% Durée d'électrocution"
-  },
-  {
-    "competence": "PIEGE",
-    "variante": "RÉPARATION(récompense traque saison 2)",
-    "expertise": "+1% de réparation",
-    "statistiques": "Recharge : 40 sRéparation : 182 496 PVPièges : 2Rayon de réparation : 0,75 mDurée : 72 sRéparation JcJ : 92 248 PV",
-    "effetEtat": "N/A",
-    "tier1": "+1 Piège + 20% Réparation",
-    "tier2": "+2 Piège + 40% Réparation",
-    "tier3": "+3 Piège + 60% Réparation",
-    "tier4": "+4 Piège + 80% Réparation",
-    "tier5": "+5 Piège + 100% Réparation",
-    "tier6": "+6 Piège + 120% Réparation",
-    "surcharge": "+6 Piège + 140% RéparationSérum immunisant :Les pièges octroient également une immunité aux effets d'état pendant 10s."
+    "variantes": [
+      {
+        "variante": "BRÛLURE",
+        "expertise": "+1% de dégâts de brûlure",
+        "statistiques": "Recharge : 54,5 sDégâts : 1 094 977Durée : 12 sDégâts JcJ : 240 895",
+        "effetEtat": "BRÛLURE",
+        "tier1": "+ 10% dégâts de brûlure + 35% Durée de brülure + 15% Récup. de compétence",
+        "tier2": "+ 20% dégâts de brûlure + 40% Durée de brülure + 30% Récup. de compétence",
+        "tier3": "+ 30% dégâts de brûlure + 60% Durée de brülure + 45% Récup. de compétence",
+        "tier4": "+ 40% dégâts de brûlure + 80% Durée de brülure + 60% Récup. de compétence",
+        "tier5": "+ 50% dégâts de brûlure + 100% Durée de brülure + 75% Récup. de compétence",
+        "tier6": "+ 60% dégâts de brûlure + 120% Durée de brülure + 90% Récup. de compétence",
+        "surcharge": "+ 100% dégâts de brûlure + 200% Durée de brülure + 500% Récup. de compétence",
+        "slug": "brulure"
+      },
+      {
+        "variante": "EXPLOSIVE",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Recharge : 60 sDégâts : 1 459 970Rayon de souffle : 3 mDurée : 12 sDégâts JcJ : 321 193",
+        "effetEtat": "N/A",
+        "tier1": "+ 10% Dégâts + 20% Rayon de souffle + 15% Récup. de compétence",
+        "tier2": "+ 20% Dégâts + 30% Rayon de souffle + 30% Récup. de compétence",
+        "tier3": "+ 30% Dégâts + 40% Rayon de souffle + 45% Récup. de compétence",
+        "tier4": "+ 40% Dégâts + 50% Rayon de souffle + 60% Récup. de compétence",
+        "tier5": "+ 50% Dégâts + 60% Rayon de souffle + 75% Récup. de compétence",
+        "tier6": "+ 60% Dégâts + 70% Rayon de souffle + 90% Récup. de compétence",
+        "surcharge": "+ 80% Dégâts + 200% Rayon de souffle + 90% Récup. de compétence",
+        "slug": "explosive"
+      },
+      {
+        "variante": "IEM",
+        "expertise": "+1% de Rayon de souffle IEM",
+        "statistiques": "Recharge : 27,3 sDurée : 9,6 sRayon d'explosion IEM : 4 m",
+        "effetEtat": "DÉSACTIVATION",
+        "tier1": "+ 10% Rayon de souffle IEM + 10% Durée",
+        "tier2": "+ 20% Rayon de souffle IEM + 20% Durée",
+        "tier3": "+ 30% Rayon de souffle IEM + 30% Durée",
+        "tier4": "+ 40% Rayon de souffle IEM + 40% Durée",
+        "tier5": "+ 50% Rayon de souffle IEM + 50% Durée",
+        "tier6": "+ 60% Rayon de souffle IEM + 60% Durée",
+        "surcharge": "+ 150% Rayon de souffle IEM + 100% Durée",
+        "slug": "iem"
+      }
+    ],
+    "slug": "bombe_adhesive"
   },
   {
     "competence": "PIEGE",
-    "variante": "SHRAPNEL(récompense traque saison 3)",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Recharge : 60 sDégâts : 729 985Pièges : 9Rayon d'explosion : 2 mDurée : 72 sDégâts JcJ : 182 496",
-    "effetEtat": "N/A",
-    "tier1": "+1 Piège + 10% Dégâts",
-    "tier2": "+2 Piège + 20% Dégâts",
-    "tier3": "+3 Piège + 30% Dégâts",
-    "tier4": "+4 Piège + 40% Dégâts",
-    "tier5": "+5 Piège + 50% Dégâts",
-    "tier6": "+6 Piège + 60% Dégâts",
-    "surcharge": "+6 Piège + 100% Dégâts"
+    "variantes": [
+      {
+        "variante": "ÉLECTRIQUE",
+        "expertise": "+1% de durée d'électrocution",
+        "statistiques": "Recharge : 54,5 sPièges : 6 Rayon d'électrocution : 2,5 mDurée d'électrocution : 3 sDurée : 72 sDurée d'électrocution JcJ : 1,5 s",
+        "effetEtat": "ÉLECTROCUTION",
+        "tier1": "+2 Piège + 10% Rayon d'électrocution + 10% Durée d'électrocution",
+        "tier2": "+2 Piège + 20% Rayon d'électrocution + 20% Durée d'électrocution",
+        "tier3": "+4 Piège + 30% Rayon d'électrocution + 30% Durée d'électrocution",
+        "tier4": "+6 Piège + 40% Rayon d'électrocution + 40% Durée d'électrocution",
+        "tier5": "+8 Piège + 50% Rayon d'électrocution + 50% Durée d'électrocution",
+        "tier6": "+10 Piège + 60% Rayon d'électrocution + 60% Durée d'électrocution",
+        "surcharge": "+12 Piège + 70% Rayon d'électrocution + 200% Durée d'électrocution",
+        "slug": "electrique"
+      },
+      {
+        "variante": "RÉPARATION",
+        "expertise": "+1% de réparation",
+        "statistiques": "Recharge : 40 sRéparation : 182 496 PVPièges : 2Rayon de réparation : 0,75 mDurée : 72 sRéparation JcJ : 92 248 PV",
+        "effetEtat": "N/A",
+        "tier1": "+1 Piège + 20% Réparation",
+        "tier2": "+2 Piège + 40% Réparation",
+        "tier3": "+3 Piège + 60% Réparation",
+        "tier4": "+4 Piège + 80% Réparation",
+        "tier5": "+5 Piège + 100% Réparation",
+        "tier6": "+6 Piège + 120% Réparation",
+        "surcharge": "+6 Piège + 140% RéparationSérum immunisant :Les pièges octroient également une immunité aux effets d'état pendant 10s.",
+        "slug": "reparation"
+      },
+      {
+        "variante": "SHRAPNEL",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Recharge : 60 sDégâts : 729 985Pièges : 9Rayon d'explosion : 2 mDurée : 72 sDégâts JcJ : 182 496",
+        "effetEtat": "N/A",
+        "tier1": "+1 Piège + 10% Dégâts",
+        "tier2": "+2 Piège + 20% Dégâts",
+        "tier3": "+3 Piège + 30% Dégâts",
+        "tier4": "+4 Piège + 40% Dégâts",
+        "tier5": "+5 Piège + 50% Dégâts",
+        "tier6": "+6 Piège + 60% Dégâts",
+        "surcharge": "+6 Piège + 100% Dégâts",
+        "slug": "shrapnel"
+      }
+    ],
+    "emplacementsMods": [
+      {
+        "emplacement": "ÉLECTRONIQUE"
+      }
+    ],
+    "slug": "piege"
   },
   {
     "competence": "LEURRE",
-    "variante": "DIVERSION HOLOGRAPHIQUE",
-    "expertise": "+1% de meance",
-    "statistiques": "Recharge : 22,7 sDurée : 18 sSanté : 929 072 PVMenace : 100%",
-    "effetEtat": "N/A",
-    "tier1": "+ 15% Durée + 50% Santé + 15% Menace",
-    "tier2": "+ 30% Durée + 100% Santé + 30% Menace",
-    "tier3": "+ 45% Durée + 150% Santé + 45% Menace",
-    "tier4": "+ 60% Durée + 200% Santé + 60% Menace",
-    "tier5": "+ 75% Durée + 250% Santé + 75% Menace",
-    "tier6": "+ 90% Durée + 300% Santé + 90% Menace",
-    "surcharge": "+ 90% Durée + 600% Santé + 200% Récup. de compétence + 90% Menace"
+    "variantes": [
+      {
+        "variante": "DIVERSION HOLOGRAPHIQUE",
+        "expertise": "+1% de meance",
+        "statistiques": "Recharge : 22,7 sDurée : 18 sSanté : 929 072 PVMenace : 100%",
+        "effetEtat": "N/A",
+        "tier1": "+ 15% Durée + 50% Santé + 15% Menace",
+        "tier2": "+ 30% Durée + 100% Santé + 30% Menace",
+        "tier3": "+ 45% Durée + 150% Santé + 45% Menace",
+        "tier4": "+ 60% Durée + 200% Santé + 60% Menace",
+        "tier5": "+ 75% Durée + 250% Santé + 75% Menace",
+        "tier6": "+ 90% Durée + 300% Santé + 90% Menace",
+        "surcharge": "+ 90% Durée + 600% Santé + 200% Récup. de compétence + 90% Menace",
+        "slug": "diversion_holographique"
+      }
+    ],
+    "emplacementsMods": [
+      {
+        "emplacement": "LOGEMENT"
+      }
+    ],
+    "slug": "leurre"
   },
   {
     "competence": "IMPULSION",
-    "variante": "SCANNER",
-    "expertise": "+1% de durée",
-    "statistiques": "Recharge : 18,2 sDurée : 9,6 sRayon d'effet : 100 mRécup en conflit : 109 s",
-    "effetEtat": "N/A",
-    "tier1": "+ 15% Durée Effet",
-    "tier2": "+ 30% Durée Effet",
-    "tier3": "+ 45% Durée Effet",
-    "tier4": "+ 60% Durée Effet",
-    "tier5": "+ 75% Durée Effet",
-    "tier6": "+ 90% Durée Effet",
-    "surcharge": "+ 200% Durée EffetExploitation de faille :Vos dégâts et ceux de vos alliés sont accrus de 15% contre les cibles touchées par votre impulsion"
-  },
-  {
-    "competence": "IMPULSION",
-    "variante": "CAPTEUR DISTANT",
-    "expertise": "+1% de rayon",
-    "statistiques": "Recharge : 18,2 sDurée : 54 sRayon d'effet : 15 m",
-    "effetEtat": "N/A",
-    "tier1": "+ 15% Durée + 15% Rayon",
-    "tier2": "+ 30% Durée + 30% Rayon",
-    "tier3": "+ 45% Durée + 45% Rayon",
-    "tier4": "+ 60% Durée + 60% Rayon",
-    "tier5": "+ 75% Durée + 75% Rayon",
-    "tier6": "+ 90% Durée + 90% Rayon",
-    "surcharge": "+ 120% Durée + 120% RayonExploitation de faille :Vos dégâts et ceux de vos alliés sont accrus de 15% contre les cibles touchées par votre impulsion"
-  },
-  {
-    "competence": "IMPULSION",
-    "variante": "BROUILLEUR",
-    "expertise": "+1% de rayon",
-    "statistiques": "Recharge : 27,3 sDurée : 3 sRayon: 20 mTemps de charge : 2 s",
-    "effetEtat": "DÉSACTIVATION",
-    "tier1": "+ 10% Rayon + 10% Durée effet",
-    "tier2": "+ 20% Rayon + 20% Durée effet",
-    "tier3": "+ 30% Rayon + 30% Durée effet",
-    "tier4": "+ 40% Rayon + 40% Durée effet",
-    "tier5": "+ 50% Rayon + 50% Durée effet",
-    "tier6": "+ 60% Rayon + 60% Durée effet",
-    "surcharge": "+ 150% Rayon + 100% Durée effet + 100% Vitess de chargeExploitation de faille :Vos dégâts et ceux de vos alliés sont accrus de 15% contre les cibles touchées par votre impulsion"
-  },
-  {
-    "competence": "IMPULSION",
-    "variante": "BANSHEE(spécialisation artilleur)",
-    "expertise": "+1% de durée de désorientation",
-    "statistiques": "Recharge : 27,3 sDurée : 12 sDurée d'effet : 4 sRayon : 30  mAngle de cône : 20",
-    "effetEtat": "DÉSORIENTATION",
-    "tier1": "+ 10% Taille du cône + 10% Durée de confusion",
-    "tier2": "+ 20% Taille du cône + 20% Durée de confusion",
-    "tier3": "+ 30% Taille du cône + 30% Durée de confusion",
-    "tier4": "+ 40% Taille du cône + 40% Durée de confusion",
-    "tier5": "+ 50% Taille du cône + 50% Durée de confusion",
-    "tier6": "+ 60% Taille du cône + 60% Durée de confusion",
-    "surcharge": "+ 150% Taille du cône + 100% Durée de confusion + 100% Vitess de charge"
-  },
-  {
-    "competence": "IMPULSION",
-    "variante": "ACHILLES(récompense traque saison 4)",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Nombre de zones : 1Zone sensible : 398 174 PVDurée de zone : 12 sRecharge : 34,4 s",
-    "effetEtat": "N/A",
-    "tier1": "+10% Zone sensible  +10% Durée  +10% Récup. de compétence",
-    "tier2": "+20% Zone sensible +20% Durée +20% Récup. de compétence",
-    "tier3": "+1 Zone(s) +30% Zone sensible +30% Durée +30% Récup. de compétence",
-    "tier4": "+1 Zone(s)  +40% Zone sensible  +40% Durée  +40% Récup. de compétence",
-    "tier5": "+1 Zone(s) +50% Zone sensible +50% Durée +50% Récup. de compétence",
-    "tier6": "+2 Zone(s) +60% Zone sensible +60% Durée +60% Récup. de compétence",
-    "surcharge": "+5 Zone(s) +100% Zone sensible +100% Durée +100% Récup. de compétence"
+    "variantes": [
+      {
+        "variante": "SCANNER",
+        "expertise": "+1% de durée",
+        "statistiques": "Recharge : 18,2 sDurée : 9,6 sRayon d'effet : 100 mRécup en conflit : 109 s",
+        "effetEtat": "N/A",
+        "tier1": "+ 15% Durée Effet",
+        "tier2": "+ 30% Durée Effet",
+        "tier3": "+ 45% Durée Effet",
+        "tier4": "+ 60% Durée Effet",
+        "tier5": "+ 75% Durée Effet",
+        "tier6": "+ 90% Durée Effet",
+        "surcharge": "+ 200% Durée EffetExploitation de faille :Vos dégâts et ceux de vos alliés sont accrus de 15% contre les cibles touchées par votre impulsion",
+        "slug": "scanner"
+      },
+      {
+        "variante": "CAPTEUR DISTANT",
+        "expertise": "+1% de rayon",
+        "statistiques": "Recharge : 18,2 sDurée : 54 sRayon d'effet : 15 m",
+        "effetEtat": "N/A",
+        "tier1": "+ 15% Durée + 15% Rayon",
+        "tier2": "+ 30% Durée + 30% Rayon",
+        "tier3": "+ 45% Durée + 45% Rayon",
+        "tier4": "+ 60% Durée + 60% Rayon",
+        "tier5": "+ 75% Durée + 75% Rayon",
+        "tier6": "+ 90% Durée + 90% Rayon",
+        "surcharge": "+ 120% Durée + 120% RayonExploitation de faille :Vos dégâts et ceux de vos alliés sont accrus de 15% contre les cibles touchées par votre impulsion",
+        "slug": "capteur_distant"
+      },
+      {
+        "variante": "BROUILLEUR",
+        "expertise": "+1% de rayon",
+        "statistiques": "Recharge : 27,3 sDurée : 3 sRayon: 20 mTemps de charge : 2 s",
+        "effetEtat": "DÉSACTIVATION",
+        "tier1": "+ 10% Rayon + 10% Durée effet",
+        "tier2": "+ 20% Rayon + 20% Durée effet",
+        "tier3": "+ 30% Rayon + 30% Durée effet",
+        "tier4": "+ 40% Rayon + 40% Durée effet",
+        "tier5": "+ 50% Rayon + 50% Durée effet",
+        "tier6": "+ 60% Rayon + 60% Durée effet",
+        "surcharge": "+ 150% Rayon + 100% Durée effet + 100% Vitess de chargeExploitation de faille :Vos dégâts et ceux de vos alliés sont accrus de 15% contre les cibles touchées par votre impulsion",
+        "slug": "brouilleur"
+      },
+      {
+        "variante": "BANSHEE",
+        "prerequis": "artilleur",
+        "expertise": "+1% de durée de désorientation",
+        "statistiques": "Recharge : 27,3 sDurée : 12 sDurée d'effet : 4 sRayon : 30  mAngle de cône : 20",
+        "effetEtat": "DÉSORIENTATION",
+        "tier1": "+ 10% Taille du cône + 10% Durée de confusion",
+        "tier2": "+ 20% Taille du cône + 20% Durée de confusion",
+        "tier3": "+ 30% Taille du cône + 30% Durée de confusion",
+        "tier4": "+ 40% Taille du cône + 40% Durée de confusion",
+        "tier5": "+ 50% Taille du cône + 50% Durée de confusion",
+        "tier6": "+ 60% Taille du cône + 60% Durée de confusion",
+        "surcharge": "+ 150% Taille du cône + 100% Durée de confusion + 100% Vitess de charge",
+        "slug": "banshee"
+      },
+      {
+        "variante": "ACHILLES",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Nombre de zones : 1Zone sensible : 398 174 PVDurée de zone : 12 sRecharge : 34,4 s",
+        "effetEtat": "N/A",
+        "tier1": "+10% Zone sensible  +10% Durée  +10% Récup. de compétence",
+        "tier2": "+20% Zone sensible +20% Durée +20% Récup. de compétence",
+        "tier3": "+1 Zone(s) +30% Zone sensible +30% Durée +30% Récup. de compétence",
+        "tier4": "+1 Zone(s)  +40% Zone sensible  +40% Durée  +40% Récup. de compétence",
+        "tier5": "+1 Zone(s) +50% Zone sensible +50% Durée +50% Récup. de compétence",
+        "tier6": "+2 Zone(s) +60% Zone sensible +60% Durée +60% Récup. de compétence",
+        "surcharge": "+5 Zone(s) +100% Zone sensible +100% Durée +100% Récup. de compétence",
+        "slug": "achilles"
+      }
+    ],
+    "emplacementsMods": [
+      {
+        "emplacement": "BOBINE"
+      },
+      {
+        "emplacement": "BOBINE",
+        "prerequis": "artilleur"
+      }
+    ],
+    "slug": "impulsion"
   },
   {
     "competence": "TOURELLE",
-    "variante": "ASSAUT",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Recharge : 22,7 sDurée : 216 sSanté : 1 061 796 PVDégâts : 29 199Dégâts JcJ : 7 299",
-    "effetEtat": "N/A",
-    "tier1": "+ 20% Dégâts + 70% Santé",
-    "tier2": "+ 40% Dégâts + 140% Santé",
-    "tier3": "+ 60% Dégâts + 210% Santé",
-    "tier4": "+ 80% Dégâts + 280% Santé",
-    "tier5": "+ 100% Dégâts + 350% Santé",
-    "tier6": "+ 120% Dégâts + 420% Santé",
-    "surcharge": "+ 175% Dégâts + 560% Santé"
-  },
-  {
-    "competence": "TOURELLE",
-    "variante": "INCINÉRATRICE",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Recharge : 54,5 sDurée : 18 sSanté : 1 061 796 PVDégâts : 14 600Portée ; 15 mDégâts de brûlure : 58 399Durée de brülure : 4 sDégâts JcJ : 11 679Dégâts de brülure JcJ : 9 343",
-    "effetEtat": "BRÛLURE",
-    "tier1": "+ 10% Dégâts + 5% Angle de cône + 10% Intensité de brûlure + 10% Durée + 70% Santé",
-    "tier2": "+ 20% Dégâts + 10% Angle de cône + 20% Intensité de brûlure + 20% Durée + 140% Santé",
-    "tier3": "+ 30% Dégâts + 15% Angle de cône + 30% Intensité de brûlure + 30% Durée + 210% Santé",
-    "tier4": "+ 40% Dégâts + 20% Angle de cône + 10% Intensité de brûlure + 10% Durée + 280% Santé",
-    "tier5": "+ 50% Dégâts + 25% Angle de cône + 50% Intensité de brûlure + 50% Durée + 350% Santé",
-    "tier6": "+ 60% Dégâts + 30% Angle de cône + 60% Intensité de brûlure + 60% Durée + 420% Santé",
-    "surcharge": "+ 60% Dégâts + 200% Angle de cône + 60% Intensité de brûlure + 100% Durée + 560% Santé"
-  },
-  {
-    "competence": "TOURELLE",
-    "variante": "SNIPER",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Recharge : 18,2 sDurée : 360 sSanté : 1 061 796 PVDégâts : 802 983Munitions : 3Dégâts JcJ : 256 954",
-    "effetEtat": "N/A",
-    "tier1": "+ 15% Dégâts + 2 munitions sniper + 70% Santé",
-    "tier2": "+ 30% Dégâts + 4 munitions sniper + 140% Santé",
-    "tier3": "+ 45% Dégâts + 6 munitions sniper + 210% Santé",
-    "tier4": "+ 60% Dégâts + 8 munitions sniper + 280% Santé",
-    "tier5": "+ 75% Dégâts + 10 munitions sniper + 350% Santé",
-    "tier6": "+ 90% Dégâts + 12 munitions sniper + 420% Santé",
-    "surcharge": "+ 90% Dégâts + 15 munitions sniper + 560% Santé + 100% Cadence de tir"
-  },
-  {
-    "competence": "TOURELLE",
-    "variante": "ARTILLERIE(spécialisation démolisseur)",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Recharge : 18,2 sDurée : 360 sSanté : 1 061 796 PVDégâts : 802 983Munitions : 3Rayon de souffle : 4,5 mDégâts de saignement : 32 849Durée de saignement : 7 sDégâts JcJ : 200 745Dégâts de saignement JcJ : 8 212",
-    "effetEtat": "SAIGNEMENT",
-    "tier1": "+ 15% Dégâts + 70% Santé + 8% Rayon de souffle du mortier + 1 munitions mortier",
-    "tier2": "+30% Dégâts + 140% Santé + 16% Rayon de souffle du mortier + 2 munitions mortier",
-    "tier3": "+45% Dégâts + 210% Santé + 24% Rayon de souffle du mortier +3 munitions mortier",
-    "tier4": "+ 60% Dégâts + 280% Santé + 32% Rayon de souffle du mortier + 4 munitions mortier",
-    "tier5": "+ 75% Dégâts + 350% Santé + 40% Rayon de souffle du mortier + 5 munitions mortier",
-    "tier6": "+ 90% Dégâts + 420% Santé + 50% Rayon de souffle du mortier + 6 munitions mortier",
-    "surcharge": "+ 137,5% Dégâts + 560% Santé + 75% Rayon de souffle du mortier + 10 munitions mortier"
-  },
-  {
-    "competence": "RUCHE",
-    "variante": "RECONSTITUANTE",
-    "expertise": "+1% de durée",
-    "statistiques": "Vitesse de récup. : 10 sCharges : 8Portée : 8 mDurée : 216 sSanté : 796 347 PVSoins : 65 699 PVSoins JcJ : 40 076 PV",
-    "effetEtat": "N/A",
-    "tier1": "+ 4 Charges de réparation + 20% Soins + 10% Portée + 10% Vitesse de drone + 70% Santé",
-    "tier2": "+ 8 Charges de réparation + 40% Soins + 20% Portée + 20% Vitesse de drone + 140% Santé",
-    "tier3": "+ 12 Charges de réparation + 60% Soins + 30% Portée + 30% Vitesse de drone + 210% Santé",
-    "tier4": "+ 16 Charges de réparation + 80% Soins + 40% Portée + 40% Vitesse de drone + 280% Santé",
-    "tier5": "+ 20 Charges de réparation + 100% Soins + 50% Portée + 50% Vitesse de drone + 350% Santé",
-    "tier6": "+ 24 Charges de réparation + 120% Soins + 60% Portée + 60% Vitesse de drone + 420% Santé",
-    "surcharge": "+ 24 Charges de réparation + 140% Soins + 200% Portée + 80% Vitesse de drone +420% Santé + 150% Récup de compétence"
-  },
-  {
-    "competence": "RUCHE",
-    "variante": "AIGUILLON",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Vitesse de récup. : 10 sCharges : 28Portée : 8 mDurée : 180 sSanté : 796 347 PVDégâts : 265 449Dégâts de saignement : 29 863Durée de saignement : 7 sDégâts JcJ : 63 707Dégâts de saignement JcJ : 7 465",
-    "effetEtat": "SAIGNEMENT",
-    "tier1": "+ 1 Charges d'aiguillon + 20% Dégâts + 5% Portée + 5% Vitesse de drone + 70% Santé",
-    "tier2": "+ 2 Charges d'aiguillon + 40% Dégâts + 10% Portée + 10% Vitesse de drone + 140% Santé",
-    "tier3": "+ 3 Charges d'aiguillon + 60% Dégâts + 15% Portée + 15% Vitesse de drone + 210% Santé",
-    "tier4": "+ 4 Charges d'aiguillon + 80% Dégâts + 20% Portée + 20% Vitesse de drone + 280% Santé",
-    "tier5": "+ 5 Charges d'aiguillon + 100% Dégâts + 25% Portée + 25% Vitesse de drone + 350% Santé",
-    "tier6": "+ 6 Charges d'aiguillon + 120% Dégâts + 30% Portée + 30% Vitesse de drone + 420% Santé",
-    "surcharge": "+ 6 Charges d'aiguillon + 200% Dégâts + 100% Portée + 80% Vitesse de drone +420% Santé + 300% Récup de compétence"
+    "variantes": [
+      {
+        "variante": "ASSAUT",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Recharge : 22,7 sDurée : 216 sSanté : 1 061 796 PVDégâts : 29 199Dégâts JcJ : 7 299",
+        "effetEtat": "N/A",
+        "tier1": "+ 20% Dégâts + 70% Santé",
+        "tier2": "+ 40% Dégâts + 140% Santé",
+        "tier3": "+ 60% Dégâts + 210% Santé",
+        "tier4": "+ 80% Dégâts + 280% Santé",
+        "tier5": "+ 100% Dégâts + 350% Santé",
+        "tier6": "+ 120% Dégâts + 420% Santé",
+        "surcharge": "+ 175% Dégâts + 560% Santé",
+        "slug": "assaut"
+      },
+      {
+        "variante": "INCINÉRATRICE",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Recharge : 54,5 sDurée : 18 sSanté : 1 061 796 PVDégâts : 14 600Portée ; 15 mDégâts de brûlure : 58 399Durée de brülure : 4 sDégâts JcJ : 11 679Dégâts de brülure JcJ : 9 343",
+        "effetEtat": "BRÛLURE",
+        "tier1": "+ 10% Dégâts + 5% Angle de cône + 10% Intensité de brûlure + 10% Durée + 70% Santé",
+        "tier2": "+ 20% Dégâts + 10% Angle de cône + 20% Intensité de brûlure + 20% Durée + 140% Santé",
+        "tier3": "+ 30% Dégâts + 15% Angle de cône + 30% Intensité de brûlure + 30% Durée + 210% Santé",
+        "tier4": "+ 40% Dégâts + 20% Angle de cône + 10% Intensité de brûlure + 10% Durée + 280% Santé",
+        "tier5": "+ 50% Dégâts + 25% Angle de cône + 50% Intensité de brûlure + 50% Durée + 350% Santé",
+        "tier6": "+ 60% Dégâts + 30% Angle de cône + 60% Intensité de brûlure + 60% Durée + 420% Santé",
+        "surcharge": "+ 60% Dégâts + 200% Angle de cône + 60% Intensité de brûlure + 100% Durée + 560% Santé",
+        "slug": "incineratrice"
+      },
+      {
+        "variante": "SNIPER",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Recharge : 18,2 sDurée : 360 sSanté : 1 061 796 PVDégâts : 802 983Munitions : 3Dégâts JcJ : 256 954",
+        "effetEtat": "N/A",
+        "tier1": "+ 15% Dégâts + 2 munitions sniper + 70% Santé",
+        "tier2": "+ 30% Dégâts + 4 munitions sniper + 140% Santé",
+        "tier3": "+ 45% Dégâts + 6 munitions sniper + 210% Santé",
+        "tier4": "+ 60% Dégâts + 8 munitions sniper + 280% Santé",
+        "tier5": "+ 75% Dégâts + 10 munitions sniper + 350% Santé",
+        "tier6": "+ 90% Dégâts + 12 munitions sniper + 420% Santé",
+        "surcharge": "+ 90% Dégâts + 15 munitions sniper + 560% Santé + 100% Cadence de tir",
+        "slug": "sniper"
+      },
+      {
+        "variante": "ARTILLERIE",
+        "prerequis": "demolisseur",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Recharge : 18,2 sDurée : 360 sSanté : 1 061 796 PVDégâts : 802 983Munitions : 3Rayon de souffle : 4,5 mDégâts de saignement : 32 849Durée de saignement : 7 sDégâts JcJ : 200 745Dégâts de saignement JcJ : 8 212",
+        "effetEtat": "SAIGNEMENT",
+        "tier1": "+ 15% Dégâts + 70% Santé + 8% Rayon de souffle du mortier + 1 munitions mortier",
+        "tier2": "+30% Dégâts + 140% Santé + 16% Rayon de souffle du mortier + 2 munitions mortier",
+        "tier3": "+45% Dégâts + 210% Santé + 24% Rayon de souffle du mortier +3 munitions mortier",
+        "tier4": "+ 60% Dégâts + 280% Santé + 32% Rayon de souffle du mortier + 4 munitions mortier",
+        "tier5": "+ 75% Dégâts + 350% Santé + 40% Rayon de souffle du mortier + 5 munitions mortier",
+        "tier6": "+ 90% Dégâts + 420% Santé + 50% Rayon de souffle du mortier + 6 munitions mortier",
+        "surcharge": "+ 137,5% Dégâts + 560% Santé + 75% Rayon de souffle du mortier + 10 munitions mortier",
+        "slug": "artillerie"
+      }
+    ],
+    "emplacementsMods": [
+      {
+        "emplacement": "MÉCANISME DE TIR"
+      },
+      {
+        "emplacement": "MÉCANISME DE TIR",
+        "prerequis": "demolisseur"
+      }
+    ],
+    "slug": "tourelle"
   },
   {
     "competence": "RUCHE",
-    "variante": "RÉANIMATION",
-    "expertise": "+1% de portée",
-    "statistiques": "Vitesse de récup. : 163,6 sCharges : 1Portée : 8 mDurée : 216 sSanté : 796 347 PVProtection ranimation : 25 %",
-    "effetEtat": "N/A",
-    "tier1": "+ 1 Charges réparation par ruche + 10% Réanimation + 5% Portée + 5% Vitesse de drone + 70% Santé",
-    "tier2": "+ 2 Charges réparation par ruche + 20% Réanimation + 10% Portée + 10% Vitesse de drone + 140% Santé",
-    "tier3": "+ 3 Charges réparation par ruche + 30% Réanimation + 15% Portée + 15% Vitesse de drone + 210% Santé",
-    "tier4": "+ 4 Charges réparation par ruche + 40% Réanimation + 20% Portée + 20% Vitesse de drone + 280% Santé",
-    "tier5": "+ 5 Charges réparation par ruche + 50% Réanimation + 25% Portée + 35% Vitesse de drone + 350% Santé",
-    "tier6": "+ 6 Charges réparation par ruche + 60% Réanimation + 30% Portée + 30% Vitesse de drone + 420% Santé",
-    "surcharge": "+ 6 Charges réparation par ruche + 200% Réanimation + 100% Portée + 80% Vitesse de drone +420% Santé + 300% Récup de compétence"
-  },
-  {
-    "competence": "RUCHE",
-    "variante": "BOOSTER",
-    "expertise": "+1% d'efficacité stimulant",
-    "statistiques": "Vitesse de récup. : 10,2 sCharges : 8Portée : 8 mDurée : 216 sSanté : 796 347 PVQuantité buff : 20 %Durée Buff : 5 s",
-    "effetEtat": "N/A",
-    "tier1": "+ 4 Charges de stimulant + 33% Efficacité stimulants + 5% Portée + 5% Vitesse de drone + 70% Santé",
-    "tier2": "+ 8 Charges de stimulant + 66% Efficacité stimulants + 10% Portée + 10% Vitesse de drone + 140% Santé",
-    "tier3": "+ 12 Charges de stimulant + 100% Efficacité stimulants + 15% Portée + 15% Vitesse de drone + 210% Santé",
-    "tier4": "+ 16 Charges de stimulant + 133% Efficacité stimulants + 20% Portée + 20% Vitesse de drone + 280% Santé",
-    "tier5": "+ 20 Charges de stimulant + 166% Efficacité stimulants + 25% Portée + 25% Vitesse de drone + 350% Santé",
-    "tier6": "+ 24 Charges de stimulant + 200% Efficacité stimulants + 30% Portée + 30% Vitesse de drone + 420% Santé",
-    "surcharge": "+ 4 Charges de stimulant + 400% Efficacité stimulants + 100% Portée + 80% Vitesse de drone + 420% Santé + 150% Récup de compétence"
-  },
-  {
-    "competence": "RUCHE",
-    "variante": "ARTIFICIER(spécialisation tacticien)",
-    "expertise": "+1% d'efficacité",
-    "statistiques": "Vitesse de récup. : 10,2 sCharges : 8Portée : 8 mDurée 216 sSanté : 796 347 PVNiveau de buff ; 10 sRéparation de compétence : 11 %Rafraîchissement de comp. : 3 s",
-    "effetEtat": "N/A",
-    "tier1": "+ 4 Charges + 100% Efficacité de charge + 2s Rafraîssement de comp + 10% Portée + 10% Vitesse de drone + 70% Santé",
-    "tier2": "+ 8 Charges + 200% Efficacité de charge + 4s Rafraîssement de comp + 20% Portée + 20% Vitesse de drone + 140% Santé",
-    "tier3": "+ 12 Charges + 300% Efficacité de charge + 6s Rafraîssement de comp + 30% Portée + 30% Vitesse de drone + 210% Santé",
-    "tier4": "+ 16 Charges + 400% Efficacité de charge + 8s Rafraîssement de comp + 40% Portée + 40% Vitesse de drone + 280% Santé",
-    "tier5": "+ 20 Charges + 500% Efficacité de charge + 10s Rafraîssement de comp + 50% Portée + 50% Vitesse de drone + 350% Santé",
-    "tier6": "+ 24 Charges + 600% Efficacité de charge + 12s Rafraîssement de comp + 60% Portée + 60% Vitesse de drone + 420% Santé",
-    "surcharge": "+ 24 Charges  + 700% Efficacité de charge + 22s Rafraîchissement de comp + 200% Portée + 80% Vitesse de drone + 420% Santé + 150% Récup de compétence"
+    "variantes": [
+      {
+        "variante": "RECONSTITUANTE",
+        "expertise": "+1% de durée",
+        "statistiques": "Vitesse de récup. : 10 sCharges : 8Portée : 8 mDurée : 216 sSanté : 796 347 PVSoins : 65 699 PVSoins JcJ : 40 076 PV",
+        "effetEtat": "N/A",
+        "tier1": "+ 4 Charges de réparation + 20% Soins + 10% Portée + 10% Vitesse de drone + 70% Santé",
+        "tier2": "+ 8 Charges de réparation + 40% Soins + 20% Portée + 20% Vitesse de drone + 140% Santé",
+        "tier3": "+ 12 Charges de réparation + 60% Soins + 30% Portée + 30% Vitesse de drone + 210% Santé",
+        "tier4": "+ 16 Charges de réparation + 80% Soins + 40% Portée + 40% Vitesse de drone + 280% Santé",
+        "tier5": "+ 20 Charges de réparation + 100% Soins + 50% Portée + 50% Vitesse de drone + 350% Santé",
+        "tier6": "+ 24 Charges de réparation + 120% Soins + 60% Portée + 60% Vitesse de drone + 420% Santé",
+        "surcharge": "+ 24 Charges de réparation + 140% Soins + 200% Portée + 80% Vitesse de drone +420% Santé + 150% Récup de compétence",
+        "slug": "reconstituante"
+      },
+      {
+        "variante": "AIGUILLON",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Vitesse de récup. : 10 sCharges : 28Portée : 8 mDurée : 180 sSanté : 796 347 PVDégâts : 265 449Dégâts de saignement : 29 863Durée de saignement : 7 sDégâts JcJ : 63 707Dégâts de saignement JcJ : 7 465",
+        "effetEtat": "SAIGNEMENT",
+        "tier1": "+ 1 Charges d'aiguillon + 20% Dégâts + 5% Portée + 5% Vitesse de drone + 70% Santé",
+        "tier2": "+ 2 Charges d'aiguillon + 40% Dégâts + 10% Portée + 10% Vitesse de drone + 140% Santé",
+        "tier3": "+ 3 Charges d'aiguillon + 60% Dégâts + 15% Portée + 15% Vitesse de drone + 210% Santé",
+        "tier4": "+ 4 Charges d'aiguillon + 80% Dégâts + 20% Portée + 20% Vitesse de drone + 280% Santé",
+        "tier5": "+ 5 Charges d'aiguillon + 100% Dégâts + 25% Portée + 25% Vitesse de drone + 350% Santé",
+        "tier6": "+ 6 Charges d'aiguillon + 120% Dégâts + 30% Portée + 30% Vitesse de drone + 420% Santé",
+        "surcharge": "+ 6 Charges d'aiguillon + 200% Dégâts + 100% Portée + 80% Vitesse de drone +420% Santé + 300% Récup de compétence",
+        "slug": "aiguillon"
+      },
+      {
+        "variante": "RÉANIMATION",
+        "expertise": "+1% de portée",
+        "statistiques": "Vitesse de récup. : 163,6 sCharges : 1Portée : 8 mDurée : 216 sSanté : 796 347 PVProtection ranimation : 25 %",
+        "effetEtat": "N/A",
+        "tier1": "+ 1 Charges réparation par ruche + 10% Réanimation + 5% Portée + 5% Vitesse de drone + 70% Santé",
+        "tier2": "+ 2 Charges réparation par ruche + 20% Réanimation + 10% Portée + 10% Vitesse de drone + 140% Santé",
+        "tier3": "+ 3 Charges réparation par ruche + 30% Réanimation + 15% Portée + 15% Vitesse de drone + 210% Santé",
+        "tier4": "+ 4 Charges réparation par ruche + 40% Réanimation + 20% Portée + 20% Vitesse de drone + 280% Santé",
+        "tier5": "+ 5 Charges réparation par ruche + 50% Réanimation + 25% Portée + 35% Vitesse de drone + 350% Santé",
+        "tier6": "+ 6 Charges réparation par ruche + 60% Réanimation + 30% Portée + 30% Vitesse de drone + 420% Santé",
+        "surcharge": "+ 6 Charges réparation par ruche + 200% Réanimation + 100% Portée + 80% Vitesse de drone +420% Santé + 300% Récup de compétence",
+        "slug": "reanimation"
+      },
+      {
+        "variante": "BOOSTER",
+        "expertise": "+1% d'efficacité stimulant",
+        "statistiques": "Vitesse de récup. : 10,2 sCharges : 8Portée : 8 mDurée : 216 sSanté : 796 347 PVQuantité buff : 20 %Durée Buff : 5 s",
+        "effetEtat": "N/A",
+        "tier1": "+ 4 Charges de stimulant + 33% Efficacité stimulants + 5% Portée + 5% Vitesse de drone + 70% Santé",
+        "tier2": "+ 8 Charges de stimulant + 66% Efficacité stimulants + 10% Portée + 10% Vitesse de drone + 140% Santé",
+        "tier3": "+ 12 Charges de stimulant + 100% Efficacité stimulants + 15% Portée + 15% Vitesse de drone + 210% Santé",
+        "tier4": "+ 16 Charges de stimulant + 133% Efficacité stimulants + 20% Portée + 20% Vitesse de drone + 280% Santé",
+        "tier5": "+ 20 Charges de stimulant + 166% Efficacité stimulants + 25% Portée + 25% Vitesse de drone + 350% Santé",
+        "tier6": "+ 24 Charges de stimulant + 200% Efficacité stimulants + 30% Portée + 30% Vitesse de drone + 420% Santé",
+        "surcharge": "+ 4 Charges de stimulant + 400% Efficacité stimulants + 100% Portée + 80% Vitesse de drone + 420% Santé + 150% Récup de compétence",
+        "slug": "booster"
+      },
+      {
+        "variante": "ARTIFICIER",
+        "prerequis": "technicien",
+        "expertise": "+1% d'efficacité",
+        "statistiques": "Vitesse de récup. : 10,2 sCharges : 8Portée : 8 mDurée 216 sSanté : 796 347 PVNiveau de buff ; 10 sRéparation de compétence : 11 %Rafraîchissement de comp. : 3 s",
+        "effetEtat": "N/A",
+        "tier1": "+ 4 Charges + 100% Efficacité de charge + 2s Rafraîssement de comp + 10% Portée + 10% Vitesse de drone + 70% Santé",
+        "tier2": "+ 8 Charges + 200% Efficacité de charge + 4s Rafraîssement de comp + 20% Portée + 20% Vitesse de drone + 140% Santé",
+        "tier3": "+ 12 Charges + 300% Efficacité de charge + 6s Rafraîssement de comp + 30% Portée + 30% Vitesse de drone + 210% Santé",
+        "tier4": "+ 16 Charges + 400% Efficacité de charge + 8s Rafraîssement de comp + 40% Portée + 40% Vitesse de drone + 280% Santé",
+        "tier5": "+ 20 Charges + 500% Efficacité de charge + 10s Rafraîssement de comp + 50% Portée + 50% Vitesse de drone + 350% Santé",
+        "tier6": "+ 24 Charges + 600% Efficacité de charge + 12s Rafraîssement de comp + 60% Portée + 60% Vitesse de drone + 420% Santé",
+        "surcharge": "+ 24 Charges  + 700% Efficacité de charge + 22s Rafraîchissement de comp + 200% Portée + 80% Vitesse de drone + 420% Santé + 150% Récup de compétence",
+        "slug": "artificier"
+      }
+    ],
+    "emplacementsMods": [
+      {
+        "emplacement": "DRONES"
+      },
+      {
+        "emplacement": "LANCEUR",
+        "prerequis": "technicien"
+      }
+    ],
+    "slug": "ruche"
   },
   {
     "competence": "LANCEUR CHIMIQUE",
-    "variante": "RENFORCEUR",
-    "expertise": "+1% de durée",
-    "statistiques": "Munitions : 2Recharge munitions : 27,3 sRayon nuage : 3 mDurée nuage : 5 sRéparation alliée : 218 995 PVRéparation progressive : 43 799 PVRéparation alliée JcJ : 109 497 PVRéparation progressive JcJ : 21 899 PV",
-    "effetEtat": "N/A",
-    "tier1": "+ 1 munitions + 10% Rayon + 20% Soin",
-    "tier2": "+ 2 munitions + 20% Rayon + 40% Soin",
-    "tier3": "+ 3 munitions + 30% Rayon + 60% Soin",
-    "tier4": "+ 4 munitions + 40% Rayon + 80% Soin",
-    "tier5": "+ 5 munitions + 50% Rayon + 100% Soin",
-    "tier6": "+ 6 munitions + 60% Rayon + 120% Soin",
-    "surcharge": "+ 6 munitions + 150% Rayon + 100% Durée + 140% Soin"
-  },
-  {
-    "competence": "LANCEUR CHIMIQUE",
-    "variante": "ALLUME-FEU",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Munitions : 1Recharge munitions : 27,3 sRayon nuage : 3 mDurée nuage : 24 sDégâts : 291 994Dégâts de brûlure : 87 598Durée de brûlure : 4 sDégâts JcJ : 116 797Dégâts de brûlure JcJ : 14 015",
-    "effetEtat": "BRÛLURE",
-    "tier1": "+ 1 munitions + 5% Rayon + 10% Durée de brûlure + 10% Dégâts de brûlure",
-    "tier2": "+ 2 munitions + 10% Rayon + 20% Durée de brûlure + 20% Dégâts de brûlure",
-    "tier3": "+ 3 munitions + 15% Rayon + 30% Durée de brûlure + 30% Dégâts de brûlure",
-    "tier4": "+ 4 munitions + 20% Rayon + 40% Durée de brûlure + 40% Dégâts de brûlure",
-    "tier5": "+ 5 munitions + 25% Rayon + 50% Durée de brûlure + 50% Dégâts de brûlure",
-    "tier6": "+ 6 munitions + 30% Rayon + 60% Durée de brûlure + 60% Dégâts de brûlure",
-    "surcharge": "+ 6 munitions + 135% Rayon + 100% Durée de brûlure + 60% Dégâts de brûlure"
-  },
-  {
-    "competence": "LANCEUR CHIMIQUE",
-    "variante": "MOUSSE ANTI-ÉMEUTE",
-    "expertise": "+1% de de résistance entrave",
-    "statistiques": "Munitions : 1Recharge munitions : 27,3 sRayon nuage : 3 mDurée entrave : 6 sIntégrité mousse : 452 470 PVDurée entrave JcJ : 2 s",
-    "effetEtat": "ENTRAVE",
-    "tier1": "+ 1 munitions + 50% Résistance entrave + 10% Durée entrave + 5% Rayon",
-    "tier2": "+ 2 munitions + 100% Résistance entrave + 20% Durée entrave + 10% Rayon",
-    "tier3": "+ 3 munitions + 150% Résistance entrave + 30% Durée entrave + 15% Rayon",
-    "tier4": "+4 munitions + 200% Résistance entrave + 40% Durée entrave + 20% Rayon",
-    "tier5": "+ 5 munitions + 250% Résistance entrave + 50% Durée entrave + 25% Rayon",
-    "tier6": "+ 6 munitions + 300% Résistance entrave + 60% Durée entrave + 30% Rayon",
-    "surcharge": "+ 6 munitions + 500% Résistance entrave + 100% Durée entrave + 135% Rayon"
-  },
-  {
-    "competence": "LANCEUR CHIMIQUE",
-    "variante": "OXYDATION",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Munitions : 1Recharge munitions : 22,7 sRayon nuage : 3,5 mDurée nuage : 5 sDégâts nuage : 53 399Dégâts JcJ : 20 439",
-    "effetEtat": "N/A",
-    "tier1": "+ 1 munitions + 2% Rayon + 20% Durée + 10% Dégâts",
-    "tier2": "+ 2 munitions + 4% Rayon + 40% Durée + 20% Dégâts",
-    "tier3": "+ 3 munitions + 6% Rayon + 60% Durée + 30% Dégâts",
-    "tier4": "+ 4 munitions + 8% Rayon + 80% Durée + 40% Dégâts",
-    "tier5": "+ 5 munitions + 10% Rayon + 100% Durée + 50% Dégâts",
-    "tier6": "+ 6 munitions + 12% Rayon + 120% Durée + 60% Dégâts",
-    "surcharge": "+ 6 munitions + 10 % Rayon + 150% Durée + 80% Dégâts"
+    "variantes": [
+      {
+        "variante": "RENFORCEUR",
+        "expertise": "+1% de durée",
+        "statistiques": "Munitions : 2Recharge munitions : 27,3 sRayon nuage : 3 mDurée nuage : 5 sRéparation alliée : 218 995 PVRéparation progressive : 43 799 PVRéparation alliée JcJ : 109 497 PVRéparation progressive JcJ : 21 899 PV",
+        "effetEtat": "N/A",
+        "tier1": "+ 1 munitions + 10% Rayon + 20% Soin",
+        "tier2": "+ 2 munitions + 20% Rayon + 40% Soin",
+        "tier3": "+ 3 munitions + 30% Rayon + 60% Soin",
+        "tier4": "+ 4 munitions + 40% Rayon + 80% Soin",
+        "tier5": "+ 5 munitions + 50% Rayon + 100% Soin",
+        "tier6": "+ 6 munitions + 60% Rayon + 120% Soin",
+        "surcharge": "+ 6 munitions + 150% Rayon + 100% Durée + 140% Soin",
+        "slug": "renforceur"
+      },
+      {
+        "variante": "ALLUME-FEU",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Munitions : 1Recharge munitions : 27,3 sRayon nuage : 3 mDurée nuage : 24 sDégâts : 291 994Dégâts de brûlure : 87 598Durée de brûlure : 4 sDégâts JcJ : 116 797Dégâts de brûlure JcJ : 14 015",
+        "effetEtat": "BRÛLURE",
+        "tier1": "+ 1 munitions + 5% Rayon + 10% Durée de brûlure + 10% Dégâts de brûlure",
+        "tier2": "+ 2 munitions + 10% Rayon + 20% Durée de brûlure + 20% Dégâts de brûlure",
+        "tier3": "+ 3 munitions + 15% Rayon + 30% Durée de brûlure + 30% Dégâts de brûlure",
+        "tier4": "+ 4 munitions + 20% Rayon + 40% Durée de brûlure + 40% Dégâts de brûlure",
+        "tier5": "+ 5 munitions + 25% Rayon + 50% Durée de brûlure + 50% Dégâts de brûlure",
+        "tier6": "+ 6 munitions + 30% Rayon + 60% Durée de brûlure + 60% Dégâts de brûlure",
+        "surcharge": "+ 6 munitions + 135% Rayon + 100% Durée de brûlure + 60% Dégâts de brûlure",
+        "slug": "allume_feu"
+      },
+      {
+        "variante": "MOUSSE ANTI-ÉMEUTE",
+        "expertise": "+1% de de résistance entrave",
+        "statistiques": "Munitions : 1Recharge munitions : 27,3 sRayon nuage : 3 mDurée entrave : 6 sIntégrité mousse : 452 470 PVDurée entrave JcJ : 2 s",
+        "effetEtat": "ENTRAVE",
+        "tier1": "+ 1 munitions + 50% Résistance entrave + 10% Durée entrave + 5% Rayon",
+        "tier2": "+ 2 munitions + 100% Résistance entrave + 20% Durée entrave + 10% Rayon",
+        "tier3": "+ 3 munitions + 150% Résistance entrave + 30% Durée entrave + 15% Rayon",
+        "tier4": "+4 munitions + 200% Résistance entrave + 40% Durée entrave + 20% Rayon",
+        "tier5": "+ 5 munitions + 250% Résistance entrave + 50% Durée entrave + 25% Rayon",
+        "tier6": "+ 6 munitions + 300% Résistance entrave + 60% Durée entrave + 30% Rayon",
+        "surcharge": "+ 6 munitions + 500% Résistance entrave + 100% Durée entrave + 135% Rayon",
+        "slug": "mousse_anti_emeute"
+      },
+      {
+        "variante": "OXYDATION",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Munitions : 1Recharge munitions : 22,7 sRayon nuage : 3,5 mDurée nuage : 5 sDégâts nuage : 53 399Dégâts JcJ : 20 439",
+        "effetEtat": "N/A",
+        "tier1": "+ 1 munitions + 2% Rayon + 20% Durée + 10% Dégâts",
+        "tier2": "+ 2 munitions + 4% Rayon + 40% Durée + 20% Dégâts",
+        "tier3": "+ 3 munitions + 6% Rayon + 60% Durée + 30% Dégâts",
+        "tier4": "+ 4 munitions + 8% Rayon + 80% Durée + 40% Dégâts",
+        "tier5": "+ 5 munitions + 10% Rayon + 100% Durée + 50% Dégâts",
+        "tier6": "+ 6 munitions + 12% Rayon + 120% Durée + 60% Dégâts",
+        "surcharge": "+ 6 munitions + 10 % Rayon + 150% Durée + 80% Dégâts",
+        "slug": "oxydation"
+      }
+    ],
+    "emplacementsMods": [
+      {
+        "emplacement": "AGITATEUR"
+      }
+    ],
+    "slug": "lanceur_chimique"
   },
   {
     "competence": "LUCIOLE",
-    "variante": "AVEUGLANTE",
-    "expertise": "+1% de durée effet aveuglement",
-    "statistiques": "Recharge : 45,5 sCibles max : 3Santé : 663 623 PVVitesse : 1Durée aveuglement : 5 sDurée aveuglement JcJ : 2 s",
-    "effetEtat": "AVEUGLE",
-    "tier1": "+ 1 Cibles max + 35% Vitesse + 10% Durée effet aveuglement",
-    "tier2": "+ 2 Cibles max + 70% Vitesse + 20% Durée effet aveuglement",
-    "tier3": "+ 3 Cibles max + 105% Vitesse + 30% Durée effet aveuglement",
-    "tier4": "+ 4 Cibles max + 140% Vitesse + 40% Durée effet aveuglement",
-    "tier5": "+ 5 Cibles max + 175% Vitesse + 50% Duréée effet aveuglement",
-    "tier6": "+ 6 Cibles max + 210% Vitesse + 60% Durée effet aveuglement",
-    "surcharge": "+ 10 Cibles max + 250% Vitesse + 100% Durée effet aveuglement"
-  },
-  {
-    "competence": "LUCIOLE",
-    "variante": "EXPLOSIVE",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Recharge : 27,3 sCibles max : 3Santé : 663 623 PVVitesse : 1Dégâts : 729 985Dégâts JcJ : 255 494",
-    "effetEtat": "N/A",
-    "tier1": "+ 1 Cibles max + 35% Vitesse + 15% Dégâts",
-    "tier2": "+ 2 Cibles max + 70% Vitesse + 30% Dégâts",
-    "tier3": "+ 3 Cibles max + 105% Vitesse + 45% Dégâts",
-    "tier4": "+ 4 Cibles max + 140% Vitesse + 60% Dégâts",
-    "tier5": "+ 5 Cibles max + 175% Vitesse + 75% Dégâts",
-    "tier6": "+ 6 Cibles max + 210% Vitesse + 90% Dégâts",
-    "surcharge": "+ 10 Cibles max + 250% Vitesse + 137,5% Dégâts"
-  },
-  {
-    "competence": "LUCIOLE",
-    "variante": "DÉMOLISSEUSSE",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Recharge : 45,5 sCibles max : 3Santé : 663 623 PVVitesse : 1Dégâts : 1 824 962Dégâts JcJ : 3 649 924",
-    "effetEtat": "N/A",
-    "tier1": "+ 1 Cibles max + 35% Vitesse + 35% Dégâts",
-    "tier2": "+ 2 Cibles max + 70% Vitesse + 70% Dégâts",
-    "tier3": "+ 3 Cibles max + 105% Vitesse + 105% Dégâts",
-    "tier4": "+ 4 Cibles max + 140% Vitesse + 140% Dégâts",
-    "tier5": "+ 5 Cibles max + 175% Vitesse + 175% Dégâts",
-    "tier6": "+ 6 Cibles max + 210% Vitesse + 210% Dégâts",
-    "surcharge": "+ 10 Cibles max + 250% Vitesse + 300% Dégâts"
-  },
-  {
-    "competence": "MINE TÉLÉGUIDÉ",
-    "variante": "EXPLOSIVE",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Recharge : 31,8 sSanté : 199 087 PVDégâts : 1 167 976Rayon de souffle : 4 mDégâts de saignement : 32 849Durée de saignement : 7 sDégâts JcJ : 210 235Dégâts de saignement JcJ : 8 212",
-    "effetEtat": "SAIGNEMENT",
-    "tier1": "+ 10% Dégâts + 5% Rayon",
-    "tier2": "+ 20% Dégâts + 10% Rayon",
-    "tier3": "+ 30% Dégâts + 15% Rayon",
-    "tier4": "+ 40% Dégâts + 20% Rayon",
-    "tier5": "+ 50% Dégâts + 25% Rayon",
-    "tier6": "+ 60% Dégâts + 30% Rayon",
-    "surcharge": "+ 80% Dégâts + 200% Rayon"
+    "variantes": [
+      {
+        "variante": "AVEUGLANTE",
+        "expertise": "+1% de durée effet aveuglement",
+        "statistiques": "Recharge : 45,5 sCibles max : 3Santé : 663 623 PVVitesse : 1Durée aveuglement : 5 sDurée aveuglement JcJ : 2 s",
+        "effetEtat": "AVEUGLE",
+        "tier1": "+ 1 Cibles max + 35% Vitesse + 10% Durée effet aveuglement",
+        "tier2": "+ 2 Cibles max + 70% Vitesse + 20% Durée effet aveuglement",
+        "tier3": "+ 3 Cibles max + 105% Vitesse + 30% Durée effet aveuglement",
+        "tier4": "+ 4 Cibles max + 140% Vitesse + 40% Durée effet aveuglement",
+        "tier5": "+ 5 Cibles max + 175% Vitesse + 50% Duréée effet aveuglement",
+        "tier6": "+ 6 Cibles max + 210% Vitesse + 60% Durée effet aveuglement",
+        "surcharge": "+ 10 Cibles max + 250% Vitesse + 100% Durée effet aveuglement",
+        "slug": "aveuglante"
+      },
+      {
+        "variante": "EXPLOSIVE",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Recharge : 27,3 sCibles max : 3Santé : 663 623 PVVitesse : 1Dégâts : 729 985Dégâts JcJ : 255 494",
+        "effetEtat": "N/A",
+        "tier1": "+ 1 Cibles max + 35% Vitesse + 15% Dégâts",
+        "tier2": "+ 2 Cibles max + 70% Vitesse + 30% Dégâts",
+        "tier3": "+ 3 Cibles max + 105% Vitesse + 45% Dégâts",
+        "tier4": "+ 4 Cibles max + 140% Vitesse + 60% Dégâts",
+        "tier5": "+ 5 Cibles max + 175% Vitesse + 75% Dégâts",
+        "tier6": "+ 6 Cibles max + 210% Vitesse + 90% Dégâts",
+        "surcharge": "+ 10 Cibles max + 250% Vitesse + 137,5% Dégâts",
+        "slug": "explosive"
+      },
+      {
+        "variante": "DÉMOLISSEUSSE",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Recharge : 45,5 sCibles max : 3Santé : 663 623 PVVitesse : 1Dégâts : 1 824 962Dégâts JcJ : 3 649 924",
+        "effetEtat": "N/A",
+        "tier1": "+ 1 Cibles max + 35% Vitesse + 35% Dégâts",
+        "tier2": "+ 2 Cibles max + 70% Vitesse + 70% Dégâts",
+        "tier3": "+ 3 Cibles max + 105% Vitesse + 105% Dégâts",
+        "tier4": "+ 4 Cibles max + 140% Vitesse + 140% Dégâts",
+        "tier5": "+ 5 Cibles max + 175% Vitesse + 175% Dégâts",
+        "tier6": "+ 6 Cibles max + 210% Vitesse + 210% Dégâts",
+        "surcharge": "+ 10 Cibles max + 250% Vitesse + 300% Dégâts",
+        "slug": "demolisseusse"
+      }
+    ],
+    "emplacementsMods": [
+      {
+        "emplacement": "CHARGE UTILE"
+      }
+    ],
+    "slug": "luciole"
   },
   {
     "competence": "MINE TÉLÉGUIDÉ",
-    "variante": "EXPLOSION AÉRIENNE",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Recharge : 27,3 sSanté : 199 087 PVDégâts : 364 992Dégâts de brûlure : 87 598Durée de brûlure : 4 sDégâts JcJ : 145 996Dégâts de brûlure JcJ : 13 139Rayon : 6 m",
-    "effetEtat": "BRÛLURE",
-    "tier1": "+ 10% Dégâts + 10% Dégâts de brûlure + 50% Durée de brûlure",
-    "tier2": "+ 20% Dégâts + 20% Dégâts de brûlure + 100% Durée de brûlure",
-    "tier3": "+ 30% Dégâts + 30% Dégâts de brûlure + 150% Durée de brûlure",
-    "tier4": "+ 40% Dégâts + 40% Dégâts de brûlure + 200% Durée de brûlure",
-    "tier5": "+ 50% Dégâts + 50% Dégâts de brûlure + 250% Durée de brûlure",
-    "tier6": "+ 60% Dégâts + 60% Dégâts de brûlure + 300% Durée de brûlure",
-    "surcharge": "+ 100% Dégâts + 100% Dégâts de brûlure + 400% Durée de brûlure + 300% Récup de compétence"
-  },
-  {
-    "competence": "MINE TÉLÉGUIDÉ",
-    "variante": "SOUS-MUNITIONS",
-    "expertise": "+1% de dégâts",
-    "statistiques": "Recharge : 45,5 sSanté : 199 087 PVDégâts : 802 983Nombre de mines : 3Rayon de souffle : 2 mDégâts JcJ : 144 537",
-    "effetEtat": "N/A",
-    "tier1": "+ 10% Dégâts+ 1 Mines à sous-munitions",
-    "tier2": "+ 20% Dégâts+ 2 Mines à sous-munitions",
-    "tier3": "+ 30% Dégâts+ 3 Mines à sous-munitions",
-    "tier4": "+ 40% Dégâts+ 4 Mines à sous-munitions",
-    "tier5": "+ 50% Dégâts+ 5 Mines à sous-munitions",
-    "tier6": "+ 60% Dégâts+ 6 Mines à sous-munitions",
-    "surcharge": "+ 10% Dégâts+ 1 Mines à sous-munitions + 100% Rayon,"
-  },
-  {
-    "competence": "MINE TÉLÉGUIDÉ",
-    "variante": "RÉPARATRICE(spécialisation survivaliste)",
-    "expertise": "+1% de soins",
-    "statistiques": "Recharge : 22,7 sDurée : 216 sSoins : 19 710 PV/sRayon : 3 mDurée du nuage : 9,6 sSanté : 199 087 PVSoins JcJ : 9 854 PV",
-    "effetEtat": "N/A",
-    "tier1": "+ 20% Soins + 5% Rayon",
-    "tier2": "+ 40% Soins + 10% Rayon",
-    "tier3": "+ 60% Soins + 15% Rayon",
-    "tier4": "+ 80% Soins + 20% Rayon",
-    "tier5": "+ 100% Soins + 25% Rayon",
-    "tier6": "+ 120% Soins + 30% Rayon",
-    "surcharge": "+ 160% Soins + 150% Rayon"
-  },
-  {
-    "competence": "DRONE",
-    "variante": "FRAPPEUR",
-    "expertise": "+1% de dégâts du frappeur",
-    "statistiques": "Recharge : 22,7 sSanté : 530 898 PVDurée : 216 sDégâts : 18 250Dégâts JcJ : 3 649",
-    "effetEtat": "N/A",
-    "tier1": "+ 20% Dégâts du frappeur + 70% Santé",
-    "tier2": "+ 40% Dégâts du frappeur + 140% Santé",
-    "tier3": "+ 60% Dégâts du frappeur + 210% Santé",
-    "tier4": "+ 80% Dégâts du frappeur + 280% Santé",
-    "tier5": "+ 100% Dégâts du frappeur + 350% Santé",
-    "tier6": "+ 120% Dégâts du frappeur + 420% Santé",
-    "surcharge": "+ 175% Dégâts du frappeur + 560% Santé"
-  },
-  {
-    "competence": "DRONE",
-    "variante": "DÉFENSEUR",
-    "expertise": "+1% de réduction des dégâts",
-    "statistiques": "Recharge : 18,2 sSanté : 1 061 796 PVDurée : 24 sRéduction des dégâts : 20 %Réduction des dégâts JcJ : 10 %",
-    "effetEtat": "N/A",
-    "tier1": "+ 70% Santé + 5% Réduction des dégâts",
-    "tier2": "+ 140% Santé + 10% Réduction des dégâts",
-    "tier3": "+ 210% Santé + 15% Réduction des dégâts",
-    "tier4": "+ 280% Santé + 20% Réduction des dégâts",
-    "tier5": "+ 350% Santé + 25% Réduction des dégâts",
-    "tier6": "+ 420% Santé + 30% Réduction des dégâts",
-    "surcharge": "+ 560% Santé + 60% Réduction des dégâts"
-  },
-  {
-    "competence": "DRONE",
-    "variante": "BOMBARDIER",
-    "expertise": "+1% de dégâts de souffle",
-    "statistiques": "Recharge : 22,7 sSanté : 1 061 796 PVDégâts d'explosion : 620 487Nombres de bombes : 3Rayon de souffle : 4,5 mDégâts JcJ : 167 531",
-    "effetEtat": "N/A",
-    "tier1": "+ 10% Dégâts de souffle + 70% Santé + 1 Bombes supplémentaires",
-    "tier2": "+ 20% Dégâts de souffle + 140% Santé + 2 Bombes supplémentaires",
-    "tier3": "+ 30% Dégâts de souffle + 210% Santé + 3 Bombes supplémentaires",
-    "tier4": "+ 40% Dégâts de souffle + 280% Santé + 4 Bombes supplémentaires",
-    "tier5": "+ 50% Dégâts de souffle + 350% Santé + 5 Bombes supplémentaires",
-    "tier6": "+ 60% Dégâts de souffle + 420% Santé + 6 Bombes supplémentaires",
-    "surcharge": "+ 60% Dégâts de souffle + 420% Santé + 6 Bombes supplémentaires + 5 Rayon de souffle"
+    "variantes": [
+      {
+        "variante": "EXPLOSIVE",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Recharge : 31,8 sSanté : 199 087 PVDégâts : 1 167 976Rayon de souffle : 4 mDégâts de saignement : 32 849Durée de saignement : 7 sDégâts JcJ : 210 235Dégâts de saignement JcJ : 8 212",
+        "effetEtat": "SAIGNEMENT",
+        "tier1": "+ 10% Dégâts + 5% Rayon",
+        "tier2": "+ 20% Dégâts + 10% Rayon",
+        "tier3": "+ 30% Dégâts + 15% Rayon",
+        "tier4": "+ 40% Dégâts + 20% Rayon",
+        "tier5": "+ 50% Dégâts + 25% Rayon",
+        "tier6": "+ 60% Dégâts + 30% Rayon",
+        "surcharge": "+ 80% Dégâts + 200% Rayon",
+        "slug": "explosive"
+      },
+      {
+        "variante": "EXPLOSION AÉRIENNE",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Recharge : 27,3 sSanté : 199 087 PVDégâts : 364 992Dégâts de brûlure : 87 598Durée de brûlure : 4 sDégâts JcJ : 145 996Dégâts de brûlure JcJ : 13 139Rayon : 6 m",
+        "effetEtat": "BRÛLURE",
+        "tier1": "+ 10% Dégâts + 10% Dégâts de brûlure + 50% Durée de brûlure",
+        "tier2": "+ 20% Dégâts + 20% Dégâts de brûlure + 100% Durée de brûlure",
+        "tier3": "+ 30% Dégâts + 30% Dégâts de brûlure + 150% Durée de brûlure",
+        "tier4": "+ 40% Dégâts + 40% Dégâts de brûlure + 200% Durée de brûlure",
+        "tier5": "+ 50% Dégâts + 50% Dégâts de brûlure + 250% Durée de brûlure",
+        "tier6": "+ 60% Dégâts + 60% Dégâts de brûlure + 300% Durée de brûlure",
+        "surcharge": "+ 100% Dégâts + 100% Dégâts de brûlure + 400% Durée de brûlure + 300% Récup de compétence",
+        "slug": "explosion_aerienne"
+      },
+      {
+        "variante": "SOUS-MUNITIONS",
+        "expertise": "+1% de dégâts",
+        "statistiques": "Recharge : 45,5 sSanté : 199 087 PVDégâts : 802 983Nombre de mines : 3Rayon de souffle : 2 mDégâts JcJ : 144 537",
+        "effetEtat": "N/A",
+        "tier1": "+ 10% Dégâts+ 1 Mines à sous-munitions",
+        "tier2": "+ 20% Dégâts+ 2 Mines à sous-munitions",
+        "tier3": "+ 30% Dégâts+ 3 Mines à sous-munitions",
+        "tier4": "+ 40% Dégâts+ 4 Mines à sous-munitions",
+        "tier5": "+ 50% Dégâts+ 5 Mines à sous-munitions",
+        "tier6": "+ 60% Dégâts+ 6 Mines à sous-munitions",
+        "surcharge": "+ 10% Dégâts+ 1 Mines à sous-munitions + 100% Rayon,",
+        "slug": "sous_munitions"
+      },
+      {
+        "variante": "RÉPARATRICE",
+        "prerequis": "survivaliste",
+        "expertise": "+1% de soins",
+        "statistiques": "Recharge : 22,7 sDurée : 216 sSoins : 19 710 PV/sRayon : 3 mDurée du nuage : 9,6 sSanté : 199 087 PVSoins JcJ : 9 854 PV",
+        "effetEtat": "N/A",
+        "tier1": "+ 20% Soins + 5% Rayon",
+        "tier2": "+ 40% Soins + 10% Rayon",
+        "tier3": "+ 60% Soins + 15% Rayon",
+        "tier4": "+ 80% Soins + 20% Rayon",
+        "tier5": "+ 100% Soins + 25% Rayon",
+        "tier6": "+ 120% Soins + 30% Rayon",
+        "surcharge": "+ 160% Soins + 150% Rayon",
+        "slug": "reparatrice"
+      }
+    ],
+    "emplacementsMods": [
+      {
+        "emplacement": "ENTRAÎNEMENT"
+      },
+      {
+        "emplacement": "DÉSIGNATION",
+        "prerequis": "survivaliste"
+      }
+    ],
+    "slug": "mine_teleguide"
   },
   {
     "competence": "DRONE",
-    "variante": "RÉPARATEUR",
-    "expertise": "+1% de durée",
-    "statistiques": "Recharge : 22,7 sSanté : 1 061 796 PVDurée : 216 sSoins : 19 710 PV/sSoins JcJ : 9 854 PV",
-    "effetEtat": "N/A",
-    "tier1": "+ 20% Réparation protection + 70% Santé",
-    "tier2": "+ 40% Réparation protection + 140% Santé",
-    "tier3": "+ 60% Réparation protection + 210% Santé",
-    "tier4": "+ 80% Réparation protection + 280% Santé",
-    "tier5": "+ 100% Réparation protection + 350% Santé",
-    "tier6": "+ 120% Réparation protection + 420% Santé",
-    "surcharge": "+ 175% Réparation protection + 500% Santé"
-  },
-  {
-    "competence": "DRONE",
-    "variante": "TACTICIEN(spécialisation tireur d'élite)",
-    "expertise": "+1% de portée scan",
-    "statistiques": "Recharge : 18,2 sSanté : 1 061 796 PVDurée : 360 sPortée scan : 50 m",
-    "effetEtat": "N/A",
-    "tier1": "+ 5 mètres + 70% Santé",
-    "tier2": "+ 10 mètres + 140% Santé",
-    "tier3": "+ 15 mètres + 210% Santé",
-    "tier4": "+ 20 mètres + 280% Santé",
-    "tier5": "+ 25 mètres + 350% Santé",
-    "tier6": "+ 30 mètres + 420% Santé",
-    "surcharge": "+ 40 mètres + 420% SantéExploitation de faille :Vos dégâts et ceux de vos alliés sont accrus de 15% contre les cibles touchées par votre impulsion"
+    "variantes": [
+      {
+        "variante": "FRAPPEUR",
+        "expertise": "+1% de dégâts du frappeur",
+        "statistiques": "Recharge : 22,7 sSanté : 530 898 PVDurée : 216 sDégâts : 18 250Dégâts JcJ : 3 649",
+        "effetEtat": "N/A",
+        "tier1": "+ 20% Dégâts du frappeur + 70% Santé",
+        "tier2": "+ 40% Dégâts du frappeur + 140% Santé",
+        "tier3": "+ 60% Dégâts du frappeur + 210% Santé",
+        "tier4": "+ 80% Dégâts du frappeur + 280% Santé",
+        "tier5": "+ 100% Dégâts du frappeur + 350% Santé",
+        "tier6": "+ 120% Dégâts du frappeur + 420% Santé",
+        "surcharge": "+ 175% Dégâts du frappeur + 560% Santé",
+        "slug": "frappeur"
+      },
+      {
+        "variante": "DÉFENSEUR",
+        "expertise": "+1% de réduction des dégâts",
+        "statistiques": "Recharge : 18,2 sSanté : 1 061 796 PVDurée : 24 sRéduction des dégâts : 20 %Réduction des dégâts JcJ : 10 %",
+        "effetEtat": "N/A",
+        "tier1": "+ 70% Santé + 5% Réduction des dégâts",
+        "tier2": "+ 140% Santé + 10% Réduction des dégâts",
+        "tier3": "+ 210% Santé + 15% Réduction des dégâts",
+        "tier4": "+ 280% Santé + 20% Réduction des dégâts",
+        "tier5": "+ 350% Santé + 25% Réduction des dégâts",
+        "tier6": "+ 420% Santé + 30% Réduction des dégâts",
+        "surcharge": "+ 560% Santé + 60% Réduction des dégâts",
+        "slug": "defenseur"
+      },
+      {
+        "variante": "BOMBARDIER",
+        "expertise": "+1% de dégâts de souffle",
+        "statistiques": "Recharge : 22,7 sSanté : 1 061 796 PVDégâts d'explosion : 620 487Nombres de bombes : 3Rayon de souffle : 4,5 mDégâts JcJ : 167 531",
+        "effetEtat": "N/A",
+        "tier1": "+ 10% Dégâts de souffle + 70% Santé + 1 Bombes supplémentaires",
+        "tier2": "+ 20% Dégâts de souffle + 140% Santé + 2 Bombes supplémentaires",
+        "tier3": "+ 30% Dégâts de souffle + 210% Santé + 3 Bombes supplémentaires",
+        "tier4": "+ 40% Dégâts de souffle + 280% Santé + 4 Bombes supplémentaires",
+        "tier5": "+ 50% Dégâts de souffle + 350% Santé + 5 Bombes supplémentaires",
+        "tier6": "+ 60% Dégâts de souffle + 420% Santé + 6 Bombes supplémentaires",
+        "surcharge": "+ 60% Dégâts de souffle + 420% Santé + 6 Bombes supplémentaires + 5 Rayon de souffle",
+        "slug": "bombardier"
+      },
+      {
+        "variante": "RÉPARATEUR",
+        "expertise": "+1% de durée",
+        "statistiques": "Recharge : 22,7 sSanté : 1 061 796 PVDurée : 216 sSoins : 19 710 PV/sSoins JcJ : 9 854 PV",
+        "effetEtat": "N/A",
+        "tier1": "+ 20% Réparation protection + 70% Santé",
+        "tier2": "+ 40% Réparation protection + 140% Santé",
+        "tier3": "+ 60% Réparation protection + 210% Santé",
+        "tier4": "+ 80% Réparation protection + 280% Santé",
+        "tier5": "+ 100% Réparation protection + 350% Santé",
+        "tier6": "+ 120% Réparation protection + 420% Santé",
+        "surcharge": "+ 175% Réparation protection + 500% Santé",
+        "slug": "reparateur"
+      },
+      {
+        "variante": "TACTICIEN",
+        "prerequis": "tireur_elite",
+        "expertise": "+1% de portée scan",
+        "statistiques": "Recharge : 18,2 sSanté : 1 061 796 PVDurée : 360 sPortée scan : 50 m",
+        "effetEtat": "N/A",
+        "tier1": "+ 5 mètres + 70% Santé",
+        "tier2": "+ 10 mètres + 140% Santé",
+        "tier3": "+ 15 mètres + 210% Santé",
+        "tier4": "+ 20 mètres + 280% Santé",
+        "tier5": "+ 25 mètres + 350% Santé",
+        "tier6": "+ 30 mètres + 420% Santé",
+        "surcharge": "+ 40 mètres + 420% SantéExploitation de faille :Vos dégâts et ceux de vos alliés sont accrus de 15% contre les cibles touchées par votre impulsion",
+        "slug": "tacticien"
+      }
+    ],
+    "emplacementsMods": [
+      {
+        "emplacement": "BATTERIE"
+      },
+      {
+        "emplacement": "BATTERIE",
+        "prerequis": "tireur_elite"
+      }
+    ],
+    "slug": "drone"
   },
   {
     "competence": "BOUCLIER",
-    "variante": "REMPART",
-    "expertise": "+1% de régénération active",
-    "statistiques": "Recharge : 18,2 sSanté : 2 654 490 PVRégénération active : 79 635 PV/sRégénération en étui : 132 725 PV/sModificateur de dégâts subis JcJ : 5",
-    "effetEtat": "N/A",
-    "tier1": "+ 20% Régénération active + 67% Santé de bouclier + 5% Régénation en étui",
-    "tier2": "+ 40% Régénération active + 133% Santé de bouclier + 10% Régénation en étui",
-    "tier3": "+ 60% Régénération active + 200% Santé de bouclier + 15% Régénation en étui",
-    "tier4": "+ 80% Régénération active + 266% Santé de bouclier + 20% Régénation en étui",
-    "tier5": "+ 100% Régénération active + 333% Santé de bouclier + 25% Régénation en étui",
-    "tier6": "+ 120% Régénération active + 400% Santé de bouclier + 40% Régénation en étui",
-    "surcharge": "+ 500% Régénération active + 400% Santé de bouclier + 40% Régénation en étuiMur défensif :Votre bouclier est invulnerable"
+    "variantes": [
+      {
+        "variante": "REMPART",
+        "expertise": "+1% de régénération active",
+        "statistiques": "Recharge : 18,2 sSanté : 2 654 490 PVRégénération active : 79 635 PV/sRégénération en étui : 132 725 PV/sModificateur de dégâts subis JcJ : 5",
+        "effetEtat": "N/A",
+        "tier1": "+ 20% Régénération active + 67% Santé de bouclier + 5% Régénation en étui",
+        "tier2": "+ 40% Régénération active + 133% Santé de bouclier + 10% Régénation en étui",
+        "tier3": "+ 60% Régénération active + 200% Santé de bouclier + 15% Régénation en étui",
+        "tier4": "+ 80% Régénération active + 266% Santé de bouclier + 20% Régénation en étui",
+        "tier5": "+ 100% Régénération active + 333% Santé de bouclier + 25% Régénation en étui",
+        "tier6": "+ 120% Régénération active + 400% Santé de bouclier + 40% Régénation en étui",
+        "surcharge": "+ 500% Régénération active + 400% Santé de bouclier + 40% Régénation en étuiMur défensif :Votre bouclier est invulnerable",
+        "slug": "rempart"
+      },
+      {
+        "variante": "CROISÉ",
+        "expertise": "+1% de régénération active",
+        "statistiques": "Recharge : 18,2 sSanté : 1 327 245 PVRégénération active : 39 817 PV/sRégénération en étui : 66 362 PV/sModificateur de dégâts subis JcJ : 5",
+        "effetEtat": "N/A",
+        "tier1": "+ 10% Régénération active + 40% Santé de bouclier + 5% Régénation en étui",
+        "tier2": "+ 20% Régénération active + 66% Santé de bouclier + 10% Régénation en étui",
+        "tier3": "+ 30% Régénération active + 100% Santé de bouclier + 15% Régénation en étui",
+        "tier4": "+ 40% Régénération active + 150% Santé de bouclier + 20% Régénation en étui",
+        "tier5": "+ 50% Régénération active + 200% Santé de bouclier + 25% Régénation en étui",
+        "tier6": "+ 60% Régénération active + 250% Santé de bouclier + 40% Régénation en étui",
+        "surcharge": "+ 500% Régénération active + 250% Santé de bouclier + 40% Régénation en étuiMur défensif :Votre bouclier est invulnerable",
+        "slug": "croise"
+      },
+      {
+        "variante": "DÉFLECTEUR",
+        "expertise": "+1% de régénération active",
+        "statistiques": "Recharge : 18,2 sSanté : 2 123 592 PVRégénération active : 63 708 PV/sRégénération en étui : 106 180 PV/sDégâts moyens (dépend du type d'arme) : 88 511Modificateur de dégâts subis JcJ : 5",
+        "effetEtat": "N/A",
+        "tier1": "+ 10% Régénération active + 40% Santé de bouclier + 5% Régénation en étui + 10% Dégâts du déflecteur",
+        "tier2": "+ 20% Régénération active + 66% Santé de bouclier + 10% Régénation en étui + 20% Dégâts du déflecteur",
+        "tier3": "+ 30% Régénération active + 100% Santé de bouclier + 15% Régénation en étui + 30% Dégâts du déflecteur",
+        "tier4": "+ 40% Régénération active + 150% Santé de bouclier + 20% Régénation en étui + 40% Dégâts du déflecteur",
+        "tier5": "+ 50% Régénération active + 200% Santé de bouclier + 25% Régénation en étui + 50% Dégâts du déflecteur",
+        "tier6": "+ 60% Régénération active + 250% Santé de bouclier + 40% Régénation en étui + 60% Dégâts du déflecteur",
+        "surcharge": "+ 60% Régénération active + 250% Santé de bouclier + 40% Régénation en étui + 100% Dégâts du déflecteurMur défensif :Votre bouclier est invulnerable",
+        "slug": "deflecteur"
+      },
+      {
+        "variante": "STRIKER",
+        "prerequis": "incendiaire",
+        "expertise": "+1% de régénération active",
+        "statistiques": "Bonus de dégâts (par ennemi) : 5  %Angle de Buff : 45 Portée de buff : 10 mRecharge : 18,2 sSanté : 1 327 245 PVRégénération active : 39 817 PV/sRégénération en étui : 66 362 PV/sModificateur de dégâts subis JcJ : 5",
+        "effetEtat": "N/A",
+        "tier1": "+ 10% Régénération active + 40% Santé de bouclier + 5% Régénation en étui + 1% Buff de force",
+        "tier2": "+ 20% Régénération active + 66% Santé de bouclier + 10% Régénation en étui + 1,2% Buff de force",
+        "tier3": "+ 30% Régénération active + 100% Santé de bouclier + 15% Régénation en étui + 1,4% Buff de force",
+        "tier4": "+ 40% Régénération active + 150% Santé de bouclier + 20% Régénation en étui + 1,6% Buff de force",
+        "tier5": "+ 50% Régénération active + 200% Santé de bouclier + 25% Régénation en étui + 1,8% Buff de force",
+        "tier6": "+ 60% Régénération active + 250% Santé de bouclier + 40% Régénation en étui + 2% Buff de force",
+        "surcharge": "+ 500% Régénération active + 400% Santé de bouclier + 100% Régénation en étui + 2.5% Buff de forceMur défensif :Votre bouclier est invulnerable",
+        "slug": "striker"
+      }
+    ],
+    "emplacementsMods": [
+      {
+        "emplacement": "CIRCUIT IMPRIMÉ"
+      },
+      {
+        "emplacement": "REVÊTEMENT DUR",
+        "prerequis": "incendiaire"
+      }
+    ],
+    "slug": "bouclier"
   },
   {
-    "competence": "BOUCLIER",
-    "variante": "CROISÉ",
-    "expertise": "+1% de régénération active",
-    "statistiques": "Recharge : 18,2 sSanté : 1 327 245 PVRégénération active : 39 817 PV/sRégénération en étui : 66 362 PV/sModificateur de dégâts subis JcJ : 5",
-    "effetEtat": "N/A",
-    "tier1": "+ 10% Régénération active + 40% Santé de bouclier + 5% Régénation en étui",
-    "tier2": "+ 20% Régénération active + 66% Santé de bouclier + 10% Régénation en étui",
-    "tier3": "+ 30% Régénération active + 100% Santé de bouclier + 15% Régénation en étui",
-    "tier4": "+ 40% Régénération active + 150% Santé de bouclier + 20% Régénation en étui",
-    "tier5": "+ 50% Régénération active + 200% Santé de bouclier + 25% Régénation en étui",
-    "tier6": "+ 60% Régénération active + 250% Santé de bouclier + 40% Régénation en étui",
-    "surcharge": "+ 500% Régénération active + 250% Santé de bouclier + 40% Régénation en étuiMur défensif :Votre bouclier est invulnerable"
-  },
-  {
-    "competence": "BOUCLIER",
-    "variante": "DÉFLECTEUR",
-    "expertise": "+1% de régénération active",
-    "statistiques": "Recharge : 18,2 sSanté : 2 123 592 PVRégénération active : 63 708 PV/sRégénération en étui : 106 180 PV/sDégâts moyens (dépend du type d'arme) : 88 511Modificateur de dégâts subis JcJ : 5",
-    "effetEtat": "N/A",
-    "tier1": "+ 10% Régénération active + 40% Santé de bouclier + 5% Régénation en étui + 10% Dégâts du déflecteur",
-    "tier2": "+ 20% Régénération active + 66% Santé de bouclier + 10% Régénation en étui + 20% Dégâts du déflecteur",
-    "tier3": "+ 30% Régénération active + 100% Santé de bouclier + 15% Régénation en étui + 30% Dégâts du déflecteur",
-    "tier4": "+ 40% Régénération active + 150% Santé de bouclier + 20% Régénation en étui + 40% Dégâts du déflecteur",
-    "tier5": "+ 50% Régénération active + 200% Santé de bouclier + 25% Régénation en étui + 50% Dégâts du déflecteur",
-    "tier6": "+ 60% Régénération active + 250% Santé de bouclier + 40% Régénation en étui + 60% Dégâts du déflecteur",
-    "surcharge": "+ 60% Régénération active + 250% Santé de bouclier + 40% Régénation en étui + 100% Dégâts du déflecteurMur défensif :Votre bouclier est invulnerable"
-  },
-  {
-    "competence": "BOUCLIER",
-    "variante": "STRIKER(spécialisation incendiaire)",
-    "expertise": "+1% de régénération active",
-    "statistiques": "Bonus de dégâts (par ennemi) : 5  %Angle de Buff : 45 Portée de buff : 10 mRecharge : 18,2 sSanté : 1 327 245 PVRégénération active : 39 817 PV/sRégénération en étui : 66 362 PV/sModificateur de dégâts subis JcJ : 5",
-    "effetEtat": "N/A",
-    "tier1": "+ 10% Régénération active + 40% Santé de bouclier + 5% Régénation en étui + 1% Buff de force",
-    "tier2": "+ 20% Régénération active + 66% Santé de bouclier + 10% Régénation en étui + 1,2% Buff de force",
-    "tier3": "+ 30% Régénération active + 100% Santé de bouclier + 15% Régénation en étui + 1,4% Buff de force",
-    "tier4": "+ 40% Régénération active + 150% Santé de bouclier + 20% Régénation en étui + 1,6% Buff de force",
-    "tier5": "+ 50% Régénération active + 200% Santé de bouclier + 25% Régénation en étui + 1,8% Buff de force",
-    "tier6": "+ 60% Régénération active + 250% Santé de bouclier + 40% Régénation en étui + 2% Buff de force",
-    "surcharge": "+ 500% Régénération active + 400% Santé de bouclier + 100% Régénation en étui + 2.5% Buff de forceMur défensif :Votre bouclier est invulnerable"
+    "competence": "CHARGE ADHÉSIVE",
+    "variantes": [],
+    "emplacementsMods": [
+      {
+        "emplacement": "LANCEUR"
+      }
+    ],
+    "slug": "charge_adhesive"
   }
 ]

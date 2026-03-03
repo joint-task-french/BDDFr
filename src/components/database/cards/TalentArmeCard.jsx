@@ -73,7 +73,10 @@ export default function TalentArmeCard({ item }) {
       {showPerfect && item.armesParfaites?.length > 0 && (
         <div className="px-4 pb-2 text-[10px] text-yellow-500/70 flex items-center gap-1">
           <span className="text-yellow-400 font-bold uppercase tracking-widest">Arme :</span>
-          {item.armesParfaites.join(', ')}
+          {item.armesParfaites.map(slug => {
+            const arme = armes?.find(a => a.slug === slug)
+            return arme?.nom || slug
+          }).join(', ')}
         </div>
       )}
 

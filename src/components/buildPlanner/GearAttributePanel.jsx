@@ -8,8 +8,8 @@ import AttributePicker from './AttributePicker'
  */
 function getClassicSlotCount(piece) {
   if (!piece) return 0
-  if (piece.source === 'gear_set') return 1
-  if (piece.estExotique) {
+  if (piece.type === 'gear_set') return 1
+  if (piece.type === 'exotique') {
     const essCount = Array.isArray(piece.attributEssentiel) ? piece.attributEssentiel.length : 0
     return essCount >= 3 ? 1 : 2
   }
@@ -17,11 +17,11 @@ function getClassicSlotCount(piece) {
 }
 
 /**
- * Trouve le premier attribut équipement d'une catégorie donnée dans le référentiel
+ * Trouve le premier attribut essentiel d'une catégorie donnée dans le référentiel
  */
 function findDefaultAttr(allAttributs, categorie) {
   if (!allAttributs || !categorie) return null
-  const ref = allAttributs.find(a => a.cible?.includes('equipement') && a.categorie === categorie)
+  const ref = allAttributs.find(a => a.cible?.includes('equipement') && a.categorie === categorie && a.estEssentiel === true)
   if (!ref) return null
   return { nom: ref.nom, valeur: ref.max, min: ref.min, max: ref.max, unite: ref.unite, categorie: ref.categorie }
 }
@@ -33,9 +33,9 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
   const [pickerOpen, setPickerOpen] = useState(null)
   const [modPickerOpen, setModPickerOpen] = useState(false)
 
-  const isExotic = piece?.estExotique
+  const isExotic = piece?.type === 'exotique'
   const classicCount = getClassicSlotCount(piece)
-  const hasMod = piece?.mod === 'oui'
+  const hasMod = piece?.mod === true
 
   // Attributs essentiels de la pièce
   const essentialCategories = useMemo(() => {
@@ -159,6 +159,7 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
         <AttributePicker
           attributs={allAttributs}
           cible="equipement"
+          essentiel={pickerOpen.startsWith('essential-') ? true : false}
           categorie={
             pickerOpen.startsWith('essential-') && essentialCategories[0] && !isExotic
               ? essentialCategories[0]

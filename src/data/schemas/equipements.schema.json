@@ -5,54 +5,109 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["nom", "emplacement"],
+    "required": [
+      "nom",
+      "emplacement",
+      "slug"
+    ],
     "properties": {
-      "nom": { "type": "string" },
-      "marque": { "type": "string", "description": "Nom de la marque, du gear set, ou 'Exotique'" },
+      "nom": {
+        "type": "string"
+      },
+      "marque": {
+        "type": "string",
+        "description": "Nom de la marque, du gear set, ou 'Exotique'"
+      },
       "emplacement": {
         "type": "string",
-        "enum": ["masque", "torse", "holster", "sac_a_dos", "gants", "genouilleres"],
+        "enum": [
+          "masque",
+          "torse",
+          "holster",
+          "sac_a_dos",
+          "gants",
+          "genouilleres"
+        ],
         "description": "Emplacement sur le personnage"
       },
       "attributEssentiel": {
         "type": "array",
         "items": {
           "type": "string",
-          "enum": ["offensif", "défensif", "utilitaire"],
+          "enum": [
+            "offensif",
+            "défensif",
+            "utilitaire"
+          ],
           "maxItems": 3,
           "minItems": 1,
           "description": "Catégorie de l'attribut essentiel par défaut : offensif, défensif ou utilitaire"
         }
       },
-      "attribut1": { "type": "string" },
-      "attributUnique": { "type": "string" },
+      "attribut1": {
+        "type": "string"
+      },
+      "attributUnique": {
+        "type": "string"
+      },
       "attributs": {
         "type": "array",
         "description": "Attributs fixés par défaut sur cet équipement, avec leur valeur spécifique. Le nom référence un attribut dans attributs.jsonc.",
         "items": {
           "type": "object",
-          "required": ["nom", "valeur"],
+          "required": [
+            "nom",
+            "valeur"
+          ],
           "properties": {
-            "nom": { "type": "string", "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)" },
-            "valeur": { "type": "number", "description": "Valeur de l'attribut sur cet équipement" }
+            "nom": {
+              "type": "string",
+              "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)"
+            },
+            "valeur": {
+              "type": "number",
+              "description": "Valeur de l'attribut sur cet équipement"
+            }
           }
         }
       },
-      "talent": { "type": "string", "description": "Ancien champ talent — migrer vers talents[]" },
+      "talent": {
+        "type": "string",
+        "description": "Ancien champ talent — migrer vers talents[]"
+      },
       "talents": {
         "type": "array",
         "description": "Liste de slugs de talents (référencent les noms dans talents-equipements.jsonc). Pour les exotiques, les talents dédiés.",
-        "items": { "type": "string" }
+        "items": {
+          "type": "string"
+        }
       },
-      "mod": { "type": "string" },
-      "estNomme": { "type": "boolean" },
-      "estExotique": { "type": "boolean" },
-      "source": {
+      "mod": {
+        "type": "boolean",
+        "description": "True si l'équipement accepte un mod"
+      },
+      "estNomme": {
+        "type": "boolean",
+        "description": "True si l'équipement est un nommé"
+      },
+      "type": {
         "type": "string",
-        "enum": ["gear_set", "marque", "exotic"],
-        "description": "Provenance de la pièce"
+        "enum": [
+          "standard",
+          "gear_set",
+          "exotique"
+        ],
+        "description": "Type de l'équipement : standard, gear_set ou exotique"
       },
-      "obtention": { "type": "string", "description": "Comment obtenir l'équipement" }
+      "obtention": {
+        "type": "string",
+        "description": "Comment obtenir l'équipement"
+      },
+      "slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
+      }
     }
   }
 }

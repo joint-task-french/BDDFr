@@ -1,10 +1,9 @@
 import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
-import { SPECIALISATIONS } from '../../utils/formatters'
 import SelectionModal from '../common/SelectionModal'
 
 export default function SkillPicker({ data, slotIndex, onClose }) {
-  const { dispatch, canEquipSkill, skillNeedsSpec } = useBuild()
+  const { dispatch, canEquipSkill, skillNeedsSpec, SPECIALISATIONS } = useBuild()
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('all')
 
@@ -85,7 +84,7 @@ export default function SkillPicker({ data, slotIndex, onClose }) {
             {variants.map(s => {
               const blocked = !canEquipSkill(s, slotIndex)
               const missingSpec = skillNeedsSpec(s)
-              const specLabel = missingSpec ? SPECIALISATIONS[missingSpec]?.label : null
+              const specLabel = missingSpec ? SPECIALISATIONS?.[missingSpec]?.label : null
               return (
                 <div
                   key={s.variante}

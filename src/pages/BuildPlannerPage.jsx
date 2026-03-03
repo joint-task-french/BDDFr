@@ -21,7 +21,7 @@ export default function BuildPlannerPage() {
   )
 
   return (
-    <BuildProvider>
+    <BuildProvider classSpe={data.classSpe}>
       <BuildPlannerContent data={data} />
     </BuildProvider>
   )

@@ -22,17 +22,16 @@ function resolveTalents(item, talentsEquipements) {
     return item.talents.filter(t => hasContent(t))
   }
   return item.talents.filter(t => hasContent(t)).map(slug => {
-    const found = talentsEquipements.find(te =>
-      te.nom.toLowerCase() === slug.toLowerCase()
-    )
+    const found = talentsEquipements.find(te => te.slug === slug) ||
+                  talentsEquipements.find(te => te.nom.toLowerCase() === slug.toLowerCase())
     return found || slug
   })
 }
 
 export default function GearCard({ item, ensembles, talentsEquipements, allAttributs }) {
-  const isExotic = item.estExotique
+  const isExotic = item.type === 'exotique'
   const isNamed = item.estNomme && !isExotic
-  const isGearSet = item.source === 'gear_set' && !isExotic
+  const isGearSet = item.type === 'gear_set'
 
   const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isGearSet ? 'text-emerald-400' : 'text-shd'
   const borderColor = isExotic ? 'border-l-red-500' : isNamed ? 'border-l-yellow-500' : isGearSet ? 'border-l-emerald-500' : 'border-l-shd/50'
@@ -41,20 +40,28 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
   const attrsEssentiels = useMemo(() => {
     if (Array.isArray(item.attributEssentiel) && item.attributEssentiel.length > 0) return item.attributEssentiel
     if (!ensembles || !item.marque) return []
-    const ensemble = ensembles.find(e => e.nom.toLowerCase() === item.marque.toLowerCase())
+    const ensemble = ensembles.find(e => e.slug === item.marque || e.nom.toLowerCase() === item.marque.toLowerCase())
     return ensemble?.attributsEssentiels || []
   }, [item, ensembles])
 
   const BASE = import.meta.env.BASE_URL
-  const ensemble = ensembles?.find(e => e.nom.toLowerCase() === (item.marque || '').toLowerCase())
+  const ensemble = ensembles?.find(e => e.slug === (item.marque || '') || e.nom.toLowerCase() === (item.marque || '').toLowerCase())
 
-  // Résoudre le talent gear set pour torse/sac depuis l'ensemble
+  // Résoudre le talent gear set pour torse/sac depuis l'ensemble (slug → objet talent)
   const gearSetTalent = useMemo(() => {
     if (!isGearSet || !ensemble) return null
-    if (item.emplacement === 'torse' && hasContent(ensemble.talentTorse)) return { label: 'Talent Torse', text: ensemble.talentTorse }
-    if (item.emplacement === 'sac_a_dos' && hasContent(ensemble.talentSac)) return { label: 'Talent Sac', text: ensemble.talentSac }
+    const findTalent = (slug) => {
+      if (!slug || !hasContent(slug)) return null
+      const found = talentsEquipements?.find(t => t.slug === slug) ||
+                    talentsEquipements?.find(t => t.nom.toLowerCase() === slug.toLowerCase())
+      if (found) return { label: found.nom, text: found.description || '' }
+      // Fallback: afficher le slug/texte tel quel
+      return { label: slug, text: '' }
+    }
+    if (item.emplacement === 'torse' && hasContent(ensemble.talentTorse)) return findTalent(ensemble.talentTorse)
+    if (item.emplacement === 'sac_a_dos' && hasContent(ensemble.talentSac)) return findTalent(ensemble.talentSac)
     return null
-  }, [isGearSet, ensemble, item.emplacement])
+  }, [isGearSet, ensemble, item.emplacement, talentsEquipements])
 
   const resolvedTalents = resolveTalents(item, talentsEquipements)
   const hasResolvedTalents = resolvedTalents.length > 0
@@ -80,7 +87,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
               onError={(e) => { e.target.style.display = 'none' }}
             />
           )}
-          <span>{item.marque}</span>
+          <span>{ensemble?.nom || item.marque}</span>
           <span>·</span>
           <GameIcon src={GEAR_SLOT_ICONS_IMG[item.emplacement]} alt="" size="w-4 h-4" className="opacity-60" />
           <span>{GEAR_SLOT_LABELS[item.emplacement] || item.emplacement}</span>
@@ -115,10 +122,10 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
             <span className="text-gray-300">{item.attributUnique}</span>
           </div>
         )}
-        {hasContent(item.mod) && item.mod !== 'oui' && (
+        {item.mod !== undefined && typeof item.mod !== 'boolean' && hasContent(item.mod) && (
           <div className="flex items-start gap-2 text-xs">
             <span className="text-gray-500 font-bold shrink-0 uppercase tracking-widest text-[10px]">Mod</span>
-            <span className="text-gray-400">{item.mod}</span>
+            <span className="text-gray-400">{String(item.mod)}</span>
           </div>
         )}
       </div>

@@ -42,8 +42,8 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
     // Sort: exotics first, then named, then gear sets, then standard
     const order = { exotic: 0, named: 1, gear_set: 2, marque: 3 }
     list.sort((a, b) => {
-      const oa = a.estExotique ? 0 : a.estNomme ? 1 : (order[a.source] ?? 3)
-      const ob = b.estExotique ? 0 : b.estNomme ? 1 : (order[b.source] ?? 3)
+      const oa = a.type === 'exotique' ? 0 : a.estNomme ? 1 : a.type === 'gear_set' ? 2 : 3
+      const ob = b.type === 'exotique' ? 0 : b.estNomme ? 1 : b.type === 'gear_set' ? 2 : 3
       return oa - ob
     })
     return list
@@ -52,10 +52,22 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
   const canExotic = canEquipExoticGear(slotKey)
 
   const select = (piece) => {
-    if (piece.estExotique && !canExotic) return
+    if (piece.type === 'exotique' && !canExotic) return
     dispatch({ type: 'SET_GEAR', slot: slotKey, piece })
     onSelectTalent(slotKey)
   }
+
+  // Résolution slug → nom pour les marques
+  const marqueNames = useMemo(() => {
+    const map = {}
+    for (const e of (data.ensembles || [])) {
+      if (e.slug) map[e.slug] = e.nom
+      map[e.nom.toLowerCase()] = e.nom
+    }
+    return map
+  }, [data.ensembles])
+
+  const resolveMarque = (slug) => marqueNames[slug] || marqueNames[slug?.toLowerCase()] || slug
 
   const filterButtons = (
     <>
@@ -75,7 +87,7 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
             brandFilter === b ? 'bg-shd/20 text-shd border-shd/40' : 'text-gray-500 border-tactical-border hover:text-gray-300'
           }`}
         >
-          {b}
+          {resolveMarque(b)}
         </button>
       ))}
     </>
@@ -92,24 +104,24 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
         {filtered.map(p => {
-          const blocked = p.estExotique && !canExotic
-          const borderClass = p.estExotique ? 'border-shd/60 bg-shd/5'
+          const blocked = p.type === 'exotique' && !canExotic
+          const borderClass = p.type === 'exotique' ? 'border-shd/60 bg-shd/5'
             : p.estNomme ? 'border-yellow-600/40 bg-yellow-900/5'
-            : p.source === 'gear_set' ? 'border-emerald-600/40 bg-emerald-900/5' : ''
+            : p.type === 'gear_set' ? 'border-emerald-600/40 bg-emerald-900/5' : ''
           return (
             <div
               key={p.nom}
               onClick={() => !blocked && select(p)}
               className={`modal-item group ${borderClass} ${blocked ? 'disabled' : ''}`}
             >
-              {p.estExotique && <Badge type="exotic" />}
-              {p.estNomme && !p.estExotique && <Badge type="named" />}
-              {p.source === 'gear_set' && !p.estExotique && <Badge type="gearset" />}
+              {p.type === 'exotique' && <Badge type="exotic" />}
+              {p.estNomme && p.type !== 'exotique' && <Badge type="named" />}
+              {p.type === 'gear_set' && <Badge type="gearset" />}
               {blocked && <div className="text-[10px] text-red-400 mt-1">⚠ Exotique déjà équipé</div>}
               <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-shd transition-colors mt-1">
                 {p.nom}
               </div>
-              <div className="text-xs text-gray-500">{p.marque}</div>
+              <div className="text-xs text-gray-500">{resolveMarque(p.marque)}</div>
               {Array.isArray(p.attributEssentiel) && p.attributEssentiel.length > 0 && <div className="text-[10px] text-blue-400 mt-1">{p.attributEssentiel.join(', ')}</div>}
               {p.talents && p.talents.length > 0 && (
                 <div className="text-[10px] text-shd/70 mt-1 line-clamp-2">🏅 {p.talents[0]}</div>

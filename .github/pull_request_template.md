@@ -29,6 +29,7 @@
 
 - [ ] `src/data/armes.jsonc`
 - [ ] `src/data/equipements.jsonc`
+- [ ] `src/data/attributs.jsonc`
 - [ ] `src/data/talents-armes.jsonc`
 - [ ] `src/data/talents-equipements.jsonc`
 - [ ] `src/data/ensembles.jsonc`
@@ -47,7 +48,6 @@
 
 - [ ] Le code compile sans erreur (`npm run build`)
 - [ ] Les données sont valides (`npm run validate`)
-- [ ] Les modifications sont cohérentes avec les schémas JSON (`src/data/schemas/`)
 - [ ] Le site fonctionne correctement en local (`npm run dev`)
 - [ ] Les textes sont en français
 

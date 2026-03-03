@@ -21,7 +21,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "acr"
   },
   {
     "nom": "ACR-E",
@@ -44,7 +45,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "acr_e"
   },
   {
     "nom": "F2000",
@@ -67,7 +69,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "f2000"
   },
   {
     "nom": "SHIELD SPLINTERER",
@@ -90,7 +93,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "shield_splinterer"
   },
   {
     "nom": "AUG A3-CQC",
@@ -113,7 +117,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "aug_a3_cqc"
   },
   {
     "nom": "MAIN INVISIBLE",
@@ -136,7 +141,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "main_invisible"
   },
   {
     "nom": "AK-M",
@@ -159,7 +165,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "ak_m"
   },
   {
     "nom": "AK-M DU MARCHÉ NOIRE",
@@ -182,7 +189,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "ak_m_du_marche_noire"
   },
   {
     "nom": "MANIAQUE",
@@ -205,7 +213,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "maniaque"
   },
   {
     "nom": "FAL",
@@ -228,7 +237,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "fal"
   },
   {
     "nom": "FAL SA-58",
@@ -251,7 +261,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "fal_sa_58"
   },
   {
     "nom": "FAL TACTIQUE SA-58",
@@ -274,7 +285,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "fal_tactique_sa_58"
   },
   {
     "nom": "FAMAS 2010",
@@ -297,7 +309,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "famas_2010"
   },
   {
     "nom": "BURNOUT",
@@ -320,7 +333,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "burnout"
   },
   {
     "nom": "G36 MILITAIRE",
@@ -343,7 +357,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "g36_militaire"
   },
   {
     "nom": "L'INNÉ",
@@ -366,7 +381,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "l_inne"
   },
   {
     "nom": "G36",
@@ -389,7 +405,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "g36"
   },
   {
     "nom": "G36 AMÉLIORÉ",
@@ -412,7 +429,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "g36_ameliore"
   },
   {
     "nom": "M4 POLICE",
@@ -435,7 +453,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "m4_police"
   },
   {
     "nom": "PYROMANE",
@@ -458,7 +477,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "pyromane"
   },
   {
     "nom": "CARBINE 7",
@@ -481,7 +501,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "carbine_7"
   },
   {
     "nom": "LA FOREUSE",
@@ -504,7 +525,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "la_foreuse"
   },
   {
     "nom": "HONEY BADGER",
@@ -527,7 +549,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "honey_badger"
   },
   {
     "nom": "CARCAJOU FURIEUX",
@@ -550,7 +573,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "carcajou_furieux"
   },
   {
     "nom": "P416 MILITAIRE",
@@ -573,7 +597,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "p416_militaire"
   },
   {
     "nom": "P416 G3 PERSONNALISÉ",
@@ -596,7 +621,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "p416_g3_personnalise"
   },
   {
     "nom": "VISION GLORIEUSE",
@@ -619,7 +645,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "vision_glorieuse"
   },
   {
     "nom": "MK16",
@@ -642,7 +669,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "mk16"
   },
   {
     "nom": "MK16 SOCOM",
@@ -665,7 +693,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "mk16_socom"
   },
   {
     "nom": "MK16 TACTIQUE",
@@ -688,7 +717,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "mk16_tactique"
   },
   {
     "nom": "CTAR-21",
@@ -711,7 +741,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "ctar_21"
   },
   {
     "nom": "LE FENDOIR",
@@ -734,7 +765,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "le_fendoir"
   },
   {
     "nom": "SIG556",
@@ -757,7 +789,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "sig556"
   },
   {
     "nom": "ANIMAL MÉCANIQUE",
@@ -780,7 +813,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "animal_mecanique"
   },
   {
     "nom": "PDR",
@@ -803,7 +837,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "pdr"
   },
   {
     "nom": "SUJET DE TEST",
@@ -826,7 +861,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "sujet_de_test"
   },
   {
     "nom": "TKB-408",
@@ -849,7 +885,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "tkb_408"
   },
   {
     "nom": "TUEUR DE ROI",
@@ -872,7 +909,8 @@
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "tueur_de_roi"
   },
   {
     "nom": "MG5",
@@ -894,7 +932,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mg5"
   },
   {
     "nom": "BIG SHOW",
@@ -916,7 +955,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "big_show"
   },
   {
     "nom": "SLEIPNER",
@@ -938,7 +978,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "sleipner"
   },
   {
     "nom": "MG5 INFANTERIE",
@@ -960,7 +1001,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mg5_infanterie"
   },
   {
     "nom": "STONER LAMG",
@@ -982,7 +1024,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "stoner_lamg"
   },
   {
     "nom": "GRONDEMENT",
@@ -1004,7 +1047,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "grondement"
   },
   {
     "nom": "Écran bleu",
@@ -1022,13 +1066,14 @@
     "obtention": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée",
     "estNomme": false,
     "talents": [
-      "Munitions désactivatrices"
+      "munitions_desactivatrices"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "ecran_bleu"
   },
   {
     "nom": "M249B",
@@ -1050,7 +1095,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m249b"
   },
   {
     "nom": "BLACK FRIDAY",
@@ -1072,7 +1118,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "black_friday"
   },
   {
     "nom": "STINGER",
@@ -1094,7 +1141,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "stinger"
   },
   {
     "nom": "M249 PARA TACTIQUE",
@@ -1116,7 +1164,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m249_para_tactique"
   },
   {
     "nom": "MK46 MILITAIRE",
@@ -1138,7 +1187,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mk46_militaire"
   },
   {
     "nom": "M60 CLASSIQUE",
@@ -1160,7 +1210,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m60_classique"
   },
   {
     "nom": "M60 E4 MILITAIRE",
@@ -1182,7 +1233,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m60_e4_militaire"
   },
   {
     "nom": "M60 E6 DU MARCHÉ NOIRE",
@@ -1204,7 +1256,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m60_e6_du_marche_noire"
   },
   {
     "nom": "BELLE ÉPOQUE",
@@ -1226,7 +1279,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "belle_epoque"
   },
   {
     "nom": "RPK-74 CLASSIQUE",
@@ -1248,7 +1302,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "rpk_74_classique"
   },
   {
     "nom": "RPK-74 MILITAIRE",
@@ -1270,7 +1325,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "rpk_74_militaire"
   },
   {
     "nom": "RPK-74 DU MARCHÉ NOIRE",
@@ -1292,7 +1348,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "rpk_74_du_marche_noire"
   },
   {
     "nom": "NOUVEAU ET FIABLE",
@@ -1314,7 +1371,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "nouveau_et_fiable"
   },
   {
     "nom": "L86 LSW MILITAIRE",
@@ -1336,7 +1394,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "l86_lsw_militaire"
   },
   {
     "nom": "L86 A2 PERSONNALISÉ",
@@ -1358,7 +1417,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "l86_a2_personnalise"
   },
   {
     "nom": "TABULA RASA",
@@ -1380,7 +1440,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "tabula_rasa"
   },
   {
     "nom": "IWI NEGEV",
@@ -1402,7 +1463,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "iwi_negev"
   },
   {
     "nom": "CARNAGE",
@@ -1424,7 +1486,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "carnage"
   },
   {
     "nom": "GR9",
@@ -1446,7 +1509,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "gr9"
   },
   {
     "nom": "DÉFI",
@@ -1468,7 +1532,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "defi"
   },
   {
     "nom": "CRICKET",
@@ -1490,7 +1555,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "cricket"
   },
   {
     "nom": "Px4 STORM TYPE F",
@@ -1512,7 +1578,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "px4_storm_type_f"
   },
   {
     "nom": "Px4 STORM TYPE T",
@@ -1534,7 +1601,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "px4_storm_type_t"
   },
   {
     "nom": "X-45",
@@ -1556,7 +1624,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "x_45"
   },
   {
     "nom": "X-45 TACTIQUE",
@@ -1578,7 +1647,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "x_45_tactique"
   },
   {
     "nom": "M9 MILITAIRE",
@@ -1600,7 +1670,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m9_militaire"
   },
   {
     "nom": "M9A1 D'OFFICER",
@@ -1622,7 +1693,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m9a1_d_officer"
   },
   {
     "nom": "93R",
@@ -1644,7 +1716,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "93r"
   },
   {
     "nom": "93R DE TIREUR D'ÉLITE",
@@ -1666,7 +1739,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "93r_de_tireur_d_elite"
   },
   {
     "nom": "D50",
@@ -1688,7 +1762,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "d50"
   },
   {
     "nom": "D50 DE SURVIVALISTE",
@@ -1710,7 +1785,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "d50_de_survivaliste"
   },
   {
     "nom": "M1911",
@@ -1732,7 +1808,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m1911"
   },
   {
     "nom": "M45A1",
@@ -1754,7 +1831,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m45a1"
   },
   {
     "nom": "M1911 TACTIQUE",
@@ -1776,7 +1854,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m1911_tactique"
   },
   {
     "nom": "MOZAMBIQUE SPÉCIAL",
@@ -1798,7 +1877,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mozambique_special"
   },
   {
     "nom": "FIRST WAVE PF45",
@@ -1820,7 +1900,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "first_wave_pf45"
   },
   {
     "nom": "PF45 PERSONNALISÉ",
@@ -1842,7 +1923,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "pf45_personnalise"
   },
   {
     "nom": "PARATONNERRE",
@@ -1864,7 +1946,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "paratonnerre"
   },
   {
     "nom": "PETITE ABEILLE OUVRIERE",
@@ -1886,7 +1969,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "petite_abeille_ouvriere"
   },
   {
     "nom": "SUBNOSED DICEROS",
@@ -1908,7 +1992,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "subnosed_diceros"
   },
   {
     "nom": "DICEROS",
@@ -1930,7 +2015,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "diceros"
   },
   {
     "nom": "DICEROS SPÉCIAL",
@@ -1952,7 +2038,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "diceros_special"
   },
   {
     "nom": "586 MAGNUM",
@@ -1974,7 +2061,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "586_magnum"
   },
   {
     "nom": "ORBIT",
@@ -1996,7 +2084,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "orbit"
   },
   {
     "nom": "POLICE 686 MAGNUM",
@@ -2018,7 +2107,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "police_686_magnum"
   },
   {
     "nom": "PROPHÈTE",
@@ -2040,7 +2130,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "prophete"
   },
   {
     "nom": "LE MOISSONNEUR",
@@ -2062,7 +2153,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "le_moissonneur"
   },
   {
     "nom": "KARD-45",
@@ -2084,7 +2176,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "kard_45"
   },
   {
     "nom": "TDI \"KARD\" PERSONNALISÉ",
@@ -2106,7 +2199,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "tdi_kard_personnalise"
   },
   {
     "nom": "MAXIM 9",
@@ -2128,7 +2222,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "maxim_9"
   },
   {
     "nom": "P320",
@@ -2150,7 +2245,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "p320"
   },
   {
     "nom": "ACS-12",
@@ -2172,7 +2268,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "acs_12"
   },
   {
     "nom": "ROCK'N'ROLL",
@@ -2194,7 +2291,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "rock_n_roll"
   },
   {
     "nom": "GAUCHER",
@@ -2216,7 +2314,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "gaucher"
   },
   {
     "nom": "SASG-12 S MARCHÉ NOIR",
@@ -2238,7 +2337,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "sasg_12_s_marche_noir"
   },
   {
     "nom": "SASG-12",
@@ -2260,7 +2360,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "sasg_12"
   },
   {
     "nom": "SASG-12 TACTIQUE",
@@ -2282,7 +2383,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "sasg_12_tactique"
   },
   {
     "nom": "TSUNAMI",
@@ -2304,7 +2406,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "tsunami"
   },
   {
     "nom": "SUPER 90 MARINE",
@@ -2326,7 +2429,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "super_90_marine"
   },
   {
     "nom": "SUPER 90",
@@ -2348,7 +2452,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "super_90"
   },
   {
     "nom": "COMME DE LA COLLE",
@@ -2370,7 +2475,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "comme_de_la_colle"
   },
   {
     "nom": "SUPER 90 SBS TACTIQUE",
@@ -2392,7 +2498,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "super_90_sbs_tactique"
   },
   {
     "nom": "ENFORCER",
@@ -2414,7 +2521,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "enforcer"
   },
   {
     "nom": "FUSIL À CANON SCIÉ",
@@ -2436,7 +2544,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "fusil_a_canon_scie"
   },
   {
     "nom": "ALLUME-FEU",
@@ -2458,7 +2567,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "allume_feu"
   },
   {
     "nom": "BAGUETTE MAGIQUE DE SECOURS",
@@ -2480,7 +2590,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "baguette_magique_de_secours"
   },
   {
     "nom": "FUSIL À DOUBLE CANON",
@@ -2502,7 +2613,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "fusil_a_double_canon"
   },
   {
     "nom": "BAGUETTE MAGIQUE",
@@ -2524,7 +2636,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "baguette_magique"
   },
   {
     "nom": "KSG",
@@ -2546,7 +2659,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "ksg"
   },
   {
     "nom": "L'INHUMATEUR",
@@ -2568,7 +2682,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "l_inhumateur"
   },
   {
     "nom": "M870 MCS PERSONNALISÉ",
@@ -2590,7 +2705,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m870_mcs_personnalise"
   },
   {
     "nom": "M870 POLICE",
@@ -2612,7 +2728,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m870_police"
   },
   {
     "nom": "M870 EXPRESS",
@@ -2634,7 +2751,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m870_express"
   },
   {
     "nom": "M870 MILITAIRE",
@@ -2656,7 +2774,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m870_militaire"
   },
   {
     "nom": "M870",
@@ -2678,7 +2797,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m870"
   },
   {
     "nom": "CUÉLEBRE",
@@ -2700,7 +2820,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "cuelebre"
   },
   {
     "nom": "SPAS-12",
@@ -2722,7 +2843,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "spas_12"
   },
   {
     "nom": "ÉPINE",
@@ -2744,7 +2866,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "epine"
   },
   {
     "nom": "SIX12",
@@ -2766,7 +2889,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "six12"
   },
   {
     "nom": "LA SERPILLIERE",
@@ -2788,7 +2912,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "la_serpilliere"
   },
   {
     "nom": "G28*",
@@ -2810,7 +2935,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "g28"
   },
   {
     "nom": "RELIQUE*",
@@ -2832,7 +2958,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "relique"
   },
   {
     "nom": "SACRUM IMPERIUM*",
@@ -2854,7 +2981,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "sacrum_imperium"
   },
   {
     "nom": "SOCOM MK20 SSR*",
@@ -2876,7 +3004,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "socom_mk20_ssr"
   },
   {
     "nom": "LES TÉNÈBRES*",
@@ -2898,7 +3027,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "les_tenebres"
   },
   {
     "nom": "M700 CARBON",
@@ -2920,7 +3050,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m700_carbon"
   },
   {
     "nom": "BRUTUS",
@@ -2942,7 +3073,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "brutus"
   },
   {
     "nom": "M700 TACTIQUE",
@@ -2964,7 +3096,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m700_tactique"
   },
   {
     "nom": "MODEL 700",
@@ -2986,7 +3119,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "model_700"
   },
   {
     "nom": "GRAND BATON D'EKIM",
@@ -3008,7 +3142,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "grand_baton_d_ekim"
   },
   {
     "nom": "SVD DE SURPLUS*",
@@ -3030,7 +3165,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "svd_de_surplus"
   },
   {
     "nom": "SVD DE PARACHUTISTE*",
@@ -3052,7 +3188,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "svd_de_parachutiste"
   },
   {
     "nom": "COMMANDO*",
@@ -3074,7 +3211,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "commando"
   },
   {
     "nom": "EFFROYABLE SENTENCE*",
@@ -3096,7 +3234,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "effroyable_sentence"
   },
   {
     "nom": "SRS FURTIF",
@@ -3118,7 +3257,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "srs_furtif"
   },
   {
     "nom": "SRS A1",
@@ -3140,7 +3280,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "srs_a1"
   },
   {
     "nom": "ÉPINGLE",
@@ -3162,7 +3303,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "epingle"
   },
   {
     "nom": "M44 PERSONNALISÉ",
@@ -3184,7 +3326,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m44_personnalise"
   },
   {
     "nom": "M44 CLASSIQUE",
@@ -3206,7 +3349,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m44_classique"
   },
   {
     "nom": "M44 DE CHASSE",
@@ -3228,7 +3372,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m44_de_chasse"
   },
   {
     "nom": "MORT BLANCHE",
@@ -3256,7 +3401,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mort_blanche"
   },
   {
     "nom": "OH, NOEL",
@@ -3278,7 +3424,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "oh_noel"
   },
   {
     "nom": "SR-1",
@@ -3300,7 +3447,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "sr_1"
   },
   {
     "nom": "ADRESTIA",
@@ -3322,7 +3470,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "adrestia"
   },
   {
     "nom": "TUEUR ATTITRÉ",
@@ -3344,7 +3493,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "tueur_attitre"
   },
   {
     "nom": "TACTICAL .308",
@@ -3366,7 +3516,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "tactical_308"
   },
   {
     "nom": "SCALPEL",
@@ -3388,7 +3539,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "scalpel"
   },
   {
     "nom": "SMG-9 CONVERTI",
@@ -3410,7 +3562,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "smg_9_converti"
   },
   {
     "nom": "SMG-9 A2 CONVERTI",
@@ -3432,7 +3585,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "smg_9_a2_converti"
   },
   {
     "nom": "MP5A2",
@@ -3454,7 +3608,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mp5a2"
   },
   {
     "nom": "MP5-N",
@@ -3476,7 +3631,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mp5_n"
   },
   {
     "nom": "MP5 ST",
@@ -3498,7 +3654,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mp5_st"
   },
   {
     "nom": "CABARET",
@@ -3520,7 +3677,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "cabaret"
   },
   {
     "nom": "PP-19",
@@ -3542,7 +3700,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "pp_19"
   },
   {
     "nom": "PP-19 AMÉLIORÉ",
@@ -3564,7 +3723,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "pp_19_ameliore"
   },
   {
     "nom": "COUP DE FROID",
@@ -3586,7 +3746,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "coup_de_froid"
   },
   {
     "nom": "AUG A3 PARA XS",
@@ -3608,7 +3769,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "aug_a3_para_xs"
   },
   {
     "nom": "AUG A3 PARA XS AMÉLIORÉ",
@@ -3630,7 +3792,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "aug_a3_para_xs_ameliore"
   },
   {
     "nom": "AUG A3 TACTIQUE",
@@ -3652,7 +3815,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "aug_a3_tactique"
   },
   {
     "nom": "VECTOR TACTIQUE SBR 9MM",
@@ -3674,7 +3838,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "vector_tactique_sbr_9mm"
   },
   {
     "nom": "VECTOR SBR 9MM",
@@ -3696,7 +3861,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "vector_sbr_9mm"
   },
   {
     "nom": "VECTOR .45 ACP",
@@ -3718,7 +3884,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "vector_45_acp"
   },
   {
     "nom": "HIVER FUNESTE",
@@ -3740,7 +3907,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "hiver_funeste"
   },
   {
     "nom": "MP7",
@@ -3762,7 +3930,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mp7"
   },
   {
     "nom": "L'ÉCHANGEUR",
@@ -3784,7 +3953,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "l_echangeur"
   },
   {
     "nom": "T821 DU MARCHÉ NOIR",
@@ -3806,7 +3976,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "t821_du_marche_noir"
   },
   {
     "nom": "T821 POLICE",
@@ -3828,7 +3999,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "t821_police"
   },
   {
     "nom": "UMP-45 POLICE",
@@ -3850,7 +4022,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "ump_45_police"
   },
   {
     "nom": "UMP-45 TACTIQUE",
@@ -3872,7 +4045,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "ump_45_tactique"
   },
   {
     "nom": "M1928",
@@ -3894,7 +4068,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m1928"
   },
   {
     "nom": "TOMMY GUN",
@@ -3916,7 +4091,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "tommy_gun"
   },
   {
     "nom": "L'ACQUIS",
@@ -3938,7 +4114,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "l_acquis"
   },
   {
     "nom": "L'ENNEIGEUR",
@@ -3960,7 +4137,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "l_enneigeur"
   },
   {
     "nom": "P90",
@@ -3982,7 +4160,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "p90"
   },
   {
     "nom": "BOUCLIER D'EMELINE",
@@ -4004,7 +4183,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "bouclier_d_emeline"
   },
   {
     "nom": "MPX",
@@ -4026,7 +4206,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mpx"
   },
   {
     "nom": "L'ÉCARTEUR",
@@ -4048,7 +4229,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "l_ecarteur"
   },
   {
     "nom": "L'APPARTEMENT",
@@ -4070,7 +4252,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "l_appartement"
   },
   {
     "nom": "BACKFIRE",
@@ -4092,7 +4275,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "backfire"
   },
   {
     "nom": "CMMG BANSHEE",
@@ -4114,7 +4298,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "cmmg_banshee"
   },
   {
     "nom": "RANCUNE",
@@ -4136,7 +4321,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "rancune"
   },
   {
     "nom": "UIC15 MOD2*",
@@ -4158,7 +4344,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "uic15_mod2"
   },
   {
     "nom": "ACR SS*",
@@ -4180,7 +4367,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "acr_ss"
   },
   {
     "nom": "M16A2",
@@ -4202,7 +4390,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m16a2"
   },
   {
     "nom": "MURMURE",
@@ -4224,7 +4413,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "murmure"
   },
   {
     "nom": "M1A SOCOM*",
@@ -4246,7 +4436,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m1a_socom"
   },
   {
     "nom": "M1A CQB*",
@@ -4268,7 +4459,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m1a_cqb"
   },
   {
     "nom": "COOLER*",
@@ -4290,7 +4482,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "cooler"
   },
   {
     "nom": "MÉDECIN DE FAMILLE*",
@@ -4312,7 +4505,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "medecin_de_famille"
   },
   {
     "nom": "M1A CLASSIQUE*",
@@ -4334,7 +4528,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "m1a_classique"
   },
   {
     "nom": "SECRET DU CHEF*",
@@ -4356,7 +4551,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "secret_du_chef"
   },
   {
     "nom": "LVOA-C*",
@@ -4378,7 +4574,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "lvoa_c"
   },
   {
     "nom": "SURGE*",
@@ -4400,7 +4597,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "surge"
   },
   {
     "nom": "MDR URBAIN*",
@@ -4422,7 +4620,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mdr_urbain"
   },
   {
     "nom": "VINDICATOR*",
@@ -4444,7 +4643,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "vindicator"
   },
   {
     "nom": "Mk17 MILITAIRE*",
@@ -4466,7 +4666,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mk17_militaire"
   },
   {
     "nom": "Mk17 DE LA POLICE*",
@@ -4488,7 +4689,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mk17_de_la_police"
   },
   {
     "nom": "REGARD ÉTERNEL*",
@@ -4510,7 +4712,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "regard_eternel"
   },
   {
     "nom": "SIG 716 CQB*",
@@ -4532,7 +4735,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "sig_716_cqb"
   },
   {
     "nom": "SIG 716*",
@@ -4554,7 +4758,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "sig_716"
   },
   {
     "nom": "OUTILS D'ARTISTE*",
@@ -4576,7 +4781,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "outils_d_artiste"
   },
   {
     "nom": "USC .45 ACP*",
@@ -4598,7 +4804,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "usc_45_acp"
   },
   {
     "nom": "1886",
@@ -4620,7 +4827,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "1886"
   },
   {
     "nom": "LA VIRGINIENNE",
@@ -4642,7 +4850,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "la_virginienne"
   },
   {
     "nom": "MK47 RESOLUTE*",
@@ -4664,7 +4873,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mk47_resolute"
   },
   {
     "nom": "HARMONIE*",
@@ -4686,7 +4896,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "harmonie"
   },
   {
     "nom": "LA VORACE*",
@@ -4708,7 +4919,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "la_vorace"
   },
   {
     "nom": "M4 ALLÉGÉE*",
@@ -4730,109 +4942,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
-  },
-  {
-    "nom": "MINIGUN",
-    "type": "arme_specifique",
-    "fabricant": "X",
-    "portee": 35,
-    "rpm": 100,
-    "chargeur": 150,
-    "rechargement": 1.7,
-    "headshot": "65%",
-    "attributEssentiel": "X",
-    "degatsBase": 84600,
-    "degatsMax": 0,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": []
-  },
-  {
-    "nom": "CARREAUX",
-    "type": "arme_specifique",
-    "fabricant": "X",
-    "portee": 30,
-    "rpm": 98,
-    "chargeur": 1,
-    "rechargement": 3,
-    "headshot": "25%",
-    "attributEssentiel": "X",
-    "degatsBase": 3600000,
-    "degatsMax": 0,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": []
-  },
-  {
-    "nom": "FUSIL TAC-50",
-    "type": "arme_specifique",
-    "fabricant": "X",
-    "portee": 70,
-    "rpm": 41,
-    "chargeur": 6,
-    "rechargement": 3.2,
-    "headshot": "200%",
-    "attributEssentiel": "X",
-    "degatsBase": 1400000,
-    "degatsMax": 0,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": []
-  },
-  {
-    "nom": "LANCE-FLAMMES K8-JETSTREAM",
-    "type": "arme_specifique",
-    "fabricant": "X",
-    "portee": 35,
-    "rpm": 500,
-    "chargeur": 50,
-    "rechargement": 3.3,
-    "headshot": "65%",
-    "attributEssentiel": "X",
-    "degatsBase": 303600,
-    "degatsMax": 0,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": []
-  },
-  {
-    "nom": "LANCEUR P-017",
-    "type": "arme_specifique",
-    "fabricant": "X",
-    "portee": 60,
-    "rpm": 98,
-    "chargeur": 6,
-    "rechargement": 3.5,
-    "headshot": "75%",
-    "attributEssentiel": "X",
-    "degatsBase": 1800000,
-    "degatsMax": 0,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": []
-  },
-  {
-    "nom": "LANCE-GRENADES MULTIPLE M32A1",
-    "type": "arme_specifique",
-    "fabricant": "X",
-    "portee": 60,
-    "rpm": 98,
-    "chargeur": 6,
-    "rechargement": 6.2,
-    "headshot": "75%",
-    "attributEssentiel": "X",
-    "degatsBase": 1700000,
-    "degatsMax": 0,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": []
+    ],
+    "slug": "m4_allegee"
   },
   {
     "nom": "Bonne nuit",
@@ -4850,13 +4961,14 @@
     "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
     "estNomme": false,
     "talents": [
-      "Marchand de sable"
+      "marchand_de_sable"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "bonne_nuit"
   },
   {
     "nom": "Berceuse",
@@ -4874,13 +4986,14 @@
     "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
     "estNomme": false,
     "talents": [
-      "Marchand de sable"
+      "marchand_de_sable"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "berceuse"
   },
   {
     "nom": "Scorpio",
@@ -4898,13 +5011,14 @@
     "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
     "estNomme": false,
     "talents": [
-      "Choc septique"
+      "choc_septique"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "scorpio"
   },
   {
     "nom": "Overlord",
@@ -4922,13 +5036,14 @@
     "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
     "estNomme": false,
     "talents": [
-      "Capitulation"
+      "capitulation"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "overlord"
   },
   {
     "nom": "Shérif",
@@ -4946,14 +5061,15 @@
     "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
     "estNomme": false,
     "talents": [
-      "Autentico"
+      "autentico"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "sherif"
   },
   {
     "nom": "Impitoyable",
@@ -4971,13 +5087,14 @@
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
     "talents": [
-      "Détente binaire"
+      "detente_binaire"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "impitoyable"
   },
   {
     "nom": "Inflexible",
@@ -4995,13 +5112,14 @@
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
     "talents": [
-      "Détente binaire"
+      "detente_binaire"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "inflexible"
   },
   {
     "nom": "Diamondback",
@@ -5019,13 +5137,14 @@
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
     "talents": [
-      "Morsure Fatale"
+      "morsure_fatale"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "diamondback"
   },
   {
     "nom": "La Vorace",
@@ -5043,13 +5162,14 @@
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
     "talents": [
-      "Geri et Freki"
+      "geri_et_freki"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "la_vorace"
   },
   {
     "nom": "Médecin de famille",
@@ -5067,13 +5187,14 @@
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
     "talents": [
-      "Médecin de Famille"
+      "medecin_de_famille"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "medecin_de_famille"
   },
   {
     "nom": "Vindicator",
@@ -5091,14 +5212,15 @@
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
     "talents": [
-      "Interface d'assaut Ortiz"
+      "interface_d_assaut_ortiz"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "vindicator"
   },
   {
     "nom": "Bittersweet",
@@ -5116,13 +5238,14 @@
     "obtention": "Dégâts de fusilDégâts de coup critique",
     "estNomme": false,
     "talents": [
-      "Transfusion"
+      "transfusion"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "bittersweet"
   },
   {
     "nom": "Eagle Bearer",
@@ -5140,15 +5263,16 @@
     "obtention": "Dégâts de fusil d'assautDégâts à la santé",
     "estNomme": false,
     "talents": [
-      "Frappe de l'aigle",
-      "Ténacité"
+      "frappe_de_l_aigle",
+      "tenacite"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "eagle_bearer"
   },
   {
     "nom": "Caméléon",
@@ -5166,14 +5290,15 @@
     "obtention": "Dégâts de fusil d'assaut Dégâts à la santé",
     "estNomme": false,
     "talents": [
-      "Instinct d'adaptation"
+      "instinct_d_adaptation"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "cameleon"
   },
   {
     "nom": "Big Horn",
@@ -5191,14 +5316,15 @@
     "obtention": "Dégâts de fusil d'assaut Dégâts à la santé",
     "estNomme": false,
     "talents": [
-      "Chasseur de gros gibier"
+      "chasseur_de_gros_gibier"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "big_horn"
   },
   {
     "nom": "Capacitor",
@@ -5216,14 +5342,15 @@
     "obtention": "Dégâts de fusil d'assaut Dégâts aux protections",
     "estNomme": false,
     "talents": [
-      "Capacité"
+      "capacite"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "capacitor"
   },
   {
     "nom": "Feu de Saint-Elme",
@@ -5241,14 +5368,15 @@
     "obtention": "Dégâts de fusil d'assaut Dégâts à la santé",
     "estNomme": false,
     "talents": [
-      "Actum Est"
+      "actum_est"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "feu_de_saint_elme"
   },
   {
     "nom": "Strega",
@@ -5266,14 +5394,15 @@
     "obtention": "Dégâts de fusil d'assaut Dégâts à la santé",
     "estNomme": false,
     "talents": [
-      "Pertubation"
+      "pertubation"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "strega"
   },
   {
     "nom": "Pestilence",
@@ -5291,13 +5420,14 @@
     "obtention": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée",
     "estNomme": false,
     "talents": [
-      "Peste des Parias"
+      "peste_des_parias"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "pestilence"
   },
   {
     "nom": "Bullet King",
@@ -5315,13 +5445,14 @@
     "obtention": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée",
     "estNomme": false,
     "talents": [
-      "Déluge de feu"
+      "deluge_de_feu"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "bullet_king"
   },
   {
     "nom": "Dragon de Fer",
@@ -5339,13 +5470,14 @@
     "obtention": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée",
     "estNomme": false,
     "talents": [
-      "Ardent"
+      "ardent"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "dragon_de_fer"
   },
   {
     "nom": "Pakhan",
@@ -5363,13 +5495,14 @@
     "obtention": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée",
     "estNomme": false,
     "talents": [
-      "Pakhan"
+      "pakhan"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "pakhan"
   },
   {
     "nom": "Nemesis",
@@ -5387,13 +5520,14 @@
     "obtention": "Dégâts de fusil de précision Dégâts de headshot",
     "estNomme": false,
     "talents": [
-      "Accélarateur électromagnétique"
+      "accelarateur_electromagnetique"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "nemesis"
   },
   {
     "nom": "Mantis",
@@ -5411,13 +5545,14 @@
     "obtention": "Dégâts de fusil de précision Dégâts de headshot",
     "estNomme": false,
     "talents": [
-      "Visée analytique"
+      "visee_analytique"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mantis"
   },
   {
     "nom": "Effroyable Sentence",
@@ -5435,13 +5570,14 @@
     "obtention": "Dégâts de fusil de précision Dégâts de headshot",
     "estNomme": false,
     "talents": [
-      "Point Final"
+      "point_final"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "effroyable_sentence"
   },
   {
     "nom": "Sacrum Imperium",
@@ -5459,13 +5595,14 @@
     "obtention": "Dégâts de fusil de précision Dégâts de headshot",
     "estNomme": false,
     "talents": [
-      "Le piège"
+      "le_piege"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "sacrum_imperium"
   },
   {
     "nom": "Linceul",
@@ -5483,13 +5620,14 @@
     "obtention": "Dégâts de fusil de précision Dégâts de headshot",
     "estNomme": false,
     "talents": [
-      "Cible de priorité élevée"
+      "cible_de_priorite_elevee"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "linceul"
   },
   {
     "nom": "Liberté",
@@ -5507,13 +5645,14 @@
     "obtention": "Dégâts de pistolet",
     "estNomme": false,
     "talents": [
-      "La Liberté ou la Mort"
+      "la_liberte_ou_la_mort"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "liberte"
   },
   {
     "nom": "Regulus",
@@ -5531,13 +5670,14 @@
     "obtention": "Dégâts de pistolet",
     "estNomme": false,
     "talents": [
-      "Régicide"
+      "regicide"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "regulus"
   },
   {
     "nom": "Petite abeille ouvrière",
@@ -5555,13 +5695,14 @@
     "obtention": "Dégâts de pistolet",
     "estNomme": false,
     "talents": [
-      "Petite abeille ouvrière"
+      "petite_abeille_ouvriere"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "petite_abeille_ouvriere"
   },
   {
     "nom": "Mosquito",
@@ -5579,13 +5720,14 @@
     "obtention": "Dégâts de pistolet",
     "estNomme": false,
     "talents": [
-      "Chanson du Mosquito"
+      "chanson_du_mosquito"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "mosquito"
   },
   {
     "nom": "Tempest",
@@ -5603,13 +5745,14 @@
     "obtention": "Dégâts de pistolet",
     "estNomme": false,
     "talents": [
-      "Mesure"
+      "mesure"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "tempest"
   },
   {
     "nom": "Flux continu",
@@ -5627,13 +5770,14 @@
     "obtention": "Dégâts de pistolet-mitrailleurProbabilité de coup critique",
     "estNomme": false,
     "talents": [
-      "Conversation ininterrompue"
+      "conversation_ininterrompue"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "flux_continu"
   },
   {
     "nom": "Lady death",
@@ -5651,13 +5795,14 @@
     "obtention": "Dégâts de pistolet-mitrailleurProbabilité de coup critique",
     "estNomme": false,
     "talents": [
-      "Souffle ultime"
+      "souffle_ultime"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "lady_death"
   },
   {
     "nom": "Contre-feu",
@@ -5675,13 +5820,14 @@
     "obtention": "Dégâts de pistolet-mitrailleurProbabilité de coup critique",
     "estNomme": false,
     "talents": [
-      "Paiement en nature"
+      "paiement_en_nature"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "contre_feu"
   },
   {
     "nom": "Ouroboros",
@@ -5699,13 +5845,14 @@
     "obtention": "Dégâts de pistolet-mitrailleurProbabilité de coup critique",
     "estNomme": false,
     "talents": [
-      "Rule them all"
+      "rule_them_all"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "ouroboros"
   },
   {
     "nom": "Oxpecker",
@@ -5723,13 +5870,14 @@
     "obtention": "Dégâts de pistolet-mitrailleurProbabilité de coup critique",
     "estNomme": false,
     "talents": [
-      "Symbiose"
+      "symbiose"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "oxpecker"
   },
   {
     "nom": "Forme d'onde",
@@ -5747,14 +5895,15 @@
     "obtention": "Tier de compétence",
     "estNomme": false,
     "talents": [
-      "Courant alternatif"
+      "courant_alternatif"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur",
       "accessoire"
-    ]
+    ],
+    "slug": "forme_d_onde"
   },
   {
     "nom": "Électrochoc",
@@ -5772,12 +5921,13 @@
     "obtention": "Protection",
     "estNomme": false,
     "talents": [
-      "Defibrillator"
+      "defibrillator"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "slug": "electrochoc"
   }
 ]

@@ -85,7 +85,9 @@ export function getGearFilters(data) {
 
   // Marques uniques depuis les données
   const marques = data?.ensembles
-    ? [...new Set(data.ensembles.map(e => e.nom))].sort().map(m => ({ value: m, label: m }))
+    ? [...new Map(data.ensembles.map(e => [e.slug || e.nom, e.nom])).entries()]
+        .sort((a, b) => a[1].localeCompare(b[1]))
+        .map(([slug, nom]) => ({ value: slug, label: nom }))
     : []
 
   const catAttrOptions = [
@@ -107,7 +109,7 @@ export function getGearFilters(data) {
       key: 'attributEssentiel', type: 'select', label: 'Attribut essentiel',
       options: catAttrOptions,
     },
-    { key: 'estExotique', type: 'toggle', label: 'Exotique uniquement' },
+    { key: 'typeExotique', type: 'toggle', label: 'Exotique uniquement' },
     { key: 'estNomme', type: 'toggle', label: 'Nommé uniquement' },
   ]
 }
@@ -117,7 +119,7 @@ export function getGearDefaults() {
     emplacement: '',
     marque: '',
     attributEssentiel: '',
-    estExotique: false,
+    typeExotique: false,
     estNomme: false,
   }
 }
@@ -127,7 +129,7 @@ export function applyGearFilters(items, filters) {
     if (filters.emplacement && item.emplacement !== filters.emplacement) return false
     if (filters.marque && item.marque !== filters.marque) return false
     if (filters.attributEssentiel && !(Array.isArray(item.attributEssentiel) && item.attributEssentiel.includes(filters.attributEssentiel))) return false
-    if (filters.estExotique && !item.estExotique) return false
+    if (filters.typeExotique && item.type !== 'exotique') return false
     if (filters.estNomme && !item.estNomme) return false
     return true
   })

@@ -3,6 +3,7 @@ import Layout from './components/layout/Layout'
 import DatabasePage from './pages/DatabasePage'
 import BuildPlannerPage from './pages/BuildPlannerPage'
 import ChangelogPage from './pages/ChangelogPage'
+import GeneratorPage from './pages/GeneratorPage'
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
         <Route index element={<DatabasePage />} />
         <Route path="build" element={<BuildPlannerPage />} />
         <Route path="changelog" element={<ChangelogPage />} />
+        <Route path="generator" element={<GeneratorPage />} />
       </Route>
     </Routes>
   )

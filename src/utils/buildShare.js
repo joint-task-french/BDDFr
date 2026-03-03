@@ -1,76 +1,76 @@
 // Encodage/décodage de builds pour partage par URL
-// Le build est compressé en un objet compact avec uniquement les noms,
+// Le build est compressé en un objet compact avec uniquement les slugs,
 // puis encodé en base64 dans le hash de l'URL.
 
 /**
- * Sérialise le state du build en un objet compact (noms uniquement)
+ * Sérialise le state du build en un objet compact (slugs)
  */
 export function serializeBuild(state) {
   const b = {}
 
-  // Arme spécifique (nom)
-  if (state.specialWeapon) b.sw = state.specialWeapon.nom
+  // Arme spécifique (slug ou nom)
+  if (state.specialWeapon) b.sw = state.specialWeapon.slug || state.specialWeapon.nom
 
-  // Armes classiques (noms)
-  const w = (state.weapons || []).map(w => w?.nom || null)
+  // Armes classiques (slugs)
+  const w = (state.weapons || []).map(w => w?.slug || w?.nom || null)
   if (w.some(Boolean)) b.w = w
 
-  // Talents d'armes (noms)
-  const wt = (state.weaponTalents || []).map(t => t?.nom || null)
+  // Talents d'armes (slugs)
+  const wt = (state.weaponTalents || []).map(t => t?.slug || t?.nom || null)
   if (wt.some(Boolean)) b.wt = wt
 
   // Arme de poing
-  if (state.sidearm) b.sa = state.sidearm.nom
-  if (state.sidearmTalent) b.sat = state.sidearmTalent.nom
+  if (state.sidearm) b.sa = state.sidearm.slug || state.sidearm.nom
+  if (state.sidearmTalent) b.sat = state.sidearmTalent.slug || state.sidearmTalent.nom
 
-  // Équipements (par slot)
+  // Équipements (par slot — slugs)
   const g = {}
   for (const [slot, piece] of Object.entries(state.gear || {})) {
-    if (piece) g[slot] = piece.nom
+    if (piece) g[slot] = piece.slug || piece.nom
   }
   if (Object.keys(g).length > 0) b.g = g
 
-  // Talents d'équipement
+  // Talents d'équipement (slugs)
   const gt = {}
   for (const [slot, talent] of Object.entries(state.gearTalents || {})) {
-    if (talent) gt[slot] = talent.nom
+    if (talent) gt[slot] = talent.slug || talent.nom
   }
   if (Object.keys(gt).length > 0) b.gt = gt
 
-  // Compétences (variante car unique dans un type)
-  const s = (state.skills || []).map(s => s ? { c: s.competence, v: s.variante } : null)
+  // Compétences (slugs compétence + variante)
+  const s = (state.skills || []).map(s => s ? { c: s.competenceSlug || s.competence, v: s.slug || s.variante } : null)
   if (s.some(Boolean)) b.s = s
 
-  // Attributs d'armes (nom + valeur)
-  const wa = (state.weaponAttributes || []).map(a => a ? { n: a.nom, v: a.valeur } : null)
+  // Attributs d'armes (slug + valeur)
+  const wa = (state.weaponAttributes || []).map(a => a ? { n: a.slug || a.nom, v: a.valeur } : null)
   if (wa.some(Boolean)) b.wa = wa
-  if (state.sidearmAttribute) b.saa = { n: state.sidearmAttribute.nom, v: state.sidearmAttribute.valeur }
+  if (state.sidearmAttribute) b.saa = { n: state.sidearmAttribute.slug || state.sidearmAttribute.nom, v: state.sidearmAttribute.valeur }
 
   // Attributs d'équipements
   const ga = {}
   for (const [slot, attrs] of Object.entries(state.gearAttributes || {})) {
     if (!attrs) continue
     const entry = {}
-    if (attrs.essentiels?.some(Boolean)) entry.e = attrs.essentiels.map(a => a ? { n: a.nom, v: a.valeur } : null)
-    if (attrs.classiques?.some(Boolean)) entry.c = attrs.classiques.map(a => a ? { n: a.nom, v: a.valeur } : null)
+    if (attrs.essentiels?.some(Boolean)) entry.e = attrs.essentiels.map(a => a ? { n: a.slug || a.nom, v: a.valeur } : null)
+    if (attrs.classiques?.some(Boolean)) entry.c = attrs.classiques.map(a => a ? { n: a.slug || a.nom, v: a.valeur } : null)
     if (Object.keys(entry).length > 0) ga[slot] = entry
   }
   if (Object.keys(ga).length > 0) b.ga = ga
 
-  // Mods d'armes (nom du mod)
-  const wm = (state.weaponMods || []).map(m => m ? m.map(mod => mod?.nom || null) : null)
+  // Mods d'armes (slugs)
+  const wm = (state.weaponMods || []).map(m => m ? m.map(mod => mod?.slug || mod?.nom || null) : null)
   if (wm.some(Boolean)) b.wm = wm
-  if (state.sidearmMods) b.sam = state.sidearmMods.map(mod => mod?.nom || null)
+  if (state.sidearmMods) b.sam = state.sidearmMods.map(mod => mod?.slug || mod?.nom || null)
 
-  // Mods d'équipements (statistique du mod)
+  // Mods d'équipements (slugs)
   const gm = {}
   for (const [slot, mod] of Object.entries(state.gearMods || {})) {
-    if (mod) gm[slot] = mod.statistique
+    if (mod) gm[slot] = mod.slug || mod.statistique
   }
   if (Object.keys(gm).length > 0) b.gm = gm
 
-  // Mods de compétences (statistique du mod)
-  const sm = (state.skillMods || []).map(m => m ? m.statistique : null)
+  // Mods de compétences (slugs)
+  const sm = (state.skillMods || []).map(m => m ? (m.slug || m.statistique) : null)
   if (sm.some(Boolean)) b.sm = sm
 
   return b
@@ -107,28 +107,56 @@ export function decodeBuild(encoded) {
 }
 
 /**
- * Résout un build compact (noms) vers un build complet (objets) en utilisant les données
+ * Résout un build compact (slugs) vers un build complet (objets) en utilisant les données.
+ * Compatible avec les anciens liens qui utilisent des noms.
  */
 export function resolveBuild(compact, data) {
   if (!compact || !data) return null
 
-  const findWeapon = (name) =>
-    name ? (data.armes || []).find(a => a.nom.toLowerCase() === name.toLowerCase()) || null : null
+  // Helper: cherche par slug puis par nom (rétrocompatibilité)
+  const findBySlugOrName = (items, id, nameField = 'nom') => {
+    if (!id || !items) return null
+    const lower = id.toLowerCase()
+    return items.find(i => i.slug === id || i.slug === lower) ||
+           items.find(i => (i[nameField] || '').toLowerCase() === lower) || null
+  }
 
-  const findWeaponTalent = (name) =>
-    name ? (data.talentsArmes || []).find(t => t.nom.toLowerCase() === name.toLowerCase()) || null : null
+  const findWeapon = (id) => {
+    if (!id) return null
+    const found = findBySlugOrName(data.armes || [], id)
+    if (found) return found
+    // Search in specialisation weapons (class-spe.jsonc)
+    for (const spec of (data.classSpe || [])) {
+      if (spec.cle === id || spec.slug === id || spec.arme?.nom?.toLowerCase() === id.toLowerCase()) {
+        return {
+          nom: spec.arme.nom,
+          slug: spec.slug || spec.cle,
+          type: 'arme_specifique',
+          portee: spec.arme.portee,
+          rpm: spec.arme.rpm,
+          chargeur: spec.arme.chargeur,
+          rechargement: spec.arme.rechargement,
+          headshot: spec.arme.headshot,
+          degatsBase: spec.arme.degatsBase,
+        }
+      }
+    }
+    return null
+  }
 
-  const findGear = (name) =>
-    name ? (data.equipements || []).find(e => e.nom.toLowerCase() === name.toLowerCase()) || null : null
+  const findWeaponTalent = (id) => findBySlugOrName(data.talentsArmes || [], id)
+  const findGear = (id) => findBySlugOrName(data.equipements || [], id)
+  const findGearTalent = (id) => findBySlugOrName(data.talentsEquipements || [], id)
 
-  const findGearTalent = (name) =>
-    name ? (data.talentsEquipements || []).find(t => t.nom.toLowerCase() === name.toLowerCase()) || null : null
-
-  const findSkill = (competence, variante) => {
-    if (!competence || !variante) return null
+  const findSkill = (compId, varId) => {
+    if (!compId || !varId) return null
+    const lc = compId.toLowerCase()
+    const lv = varId.toLowerCase()
     return (data.competences || []).find(s =>
-      s.competence.toLowerCase() === competence.toLowerCase() &&
-      s.variante.toLowerCase() === variante.toLowerCase()
+      (s.competenceSlug === compId || s.competenceSlug === lc ||
+       s.competence.toLowerCase() === lc) &&
+      (s.slug === varId || s.slug === lv ||
+       s.variante.toLowerCase() === lv)
     ) || null
   }
 
@@ -152,16 +180,16 @@ export function resolveBuild(compact, data) {
   // Équipements
   build.gear = { masque: null, torse: null, holster: null, sac_a_dos: null, gants: null, genouilleres: null }
   if (compact.g) {
-    for (const [slot, name] of Object.entries(compact.g)) {
-      build.gear[slot] = findGear(name)
+    for (const [slot, id] of Object.entries(compact.g)) {
+      build.gear[slot] = findGear(id)
     }
   }
 
   // Talents d'équipement
   build.gearTalents = { torse: null, sac_a_dos: null }
   if (compact.gt) {
-    for (const [slot, name] of Object.entries(compact.gt)) {
-      build.gearTalents[slot] = findGearTalent(name)
+    for (const [slot, id] of Object.entries(compact.gt)) {
+      build.gearTalents[slot] = findGearTalent(id)
     }
   }
 
@@ -172,9 +200,9 @@ export function resolveBuild(compact, data) {
   // Attributs d'armes
   const resolveAttr = (compactAttr) => {
     if (!compactAttr || !data.attributs) return null
-    const ref = data.attributs.find(a => a.nom.toLowerCase() === compactAttr.n.toLowerCase())
+    const ref = findBySlugOrName(data.attributs, compactAttr.n)
     if (!ref) return { nom: compactAttr.n, valeur: compactAttr.v }
-    return { nom: ref.nom, valeur: compactAttr.v, min: ref.min, max: ref.max, unite: ref.unite, categorie: ref.categorie }
+    return { ...ref, valeur: compactAttr.v }
   }
   build.weaponAttributes = (compact.wa || [null, null]).map(a => resolveAttr(a))
   while (build.weaponAttributes.length < 2) build.weaponAttributes.push(null)
@@ -192,24 +220,24 @@ export function resolveBuild(compact, data) {
   }
 
   // Mods d'armes
-  const findModArme = (name) => name ? (data.modsArmes || []).find(m => m.nom.toLowerCase() === name.toLowerCase()) || null : null
+  const findModArme = (id) => findBySlugOrName(data.modsArmes || [], id)
   build.weaponMods = (compact.wm || [null, null]).map(slotMods =>
-    slotMods ? slotMods.map(name => findModArme(name)) : null
+    slotMods ? slotMods.map(id => findModArme(id)) : null
   )
   while (build.weaponMods.length < 2) build.weaponMods.push(null)
-  build.sidearmMods = compact.sam ? compact.sam.map(name => findModArme(name)) : null
+  build.sidearmMods = compact.sam ? compact.sam.map(id => findModArme(id)) : null
 
   // Mods d'équipements
   build.gearMods = {}
   if (compact.gm) {
-    for (const [slot, stat] of Object.entries(compact.gm)) {
-      build.gearMods[slot] = (data.modsEquipements || []).find(m => m.statistique === stat) || null
+    for (const [slot, id] of Object.entries(compact.gm)) {
+      build.gearMods[slot] = findBySlugOrName(data.modsEquipements || [], id, 'statistique') || null
     }
   }
 
   // Mods de compétences
-  build.skillMods = (compact.sm || [null, null]).map(stat =>
-    stat ? (data.modsEquipements || []).find(m => m.statistique === stat) || null : null
+  build.skillMods = (compact.sm || [null, null]).map(id =>
+    id ? findBySlugOrName(data.modsCompetences || [], id, 'statistique') || null : null
   )
   while (build.skillMods.length < 2) build.skillMods.push(null)
 

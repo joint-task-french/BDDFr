@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { useBuild } from '../../context/BuildContext'
-import { SPECIALISATIONS } from '../../utils/formatters'
 import WeaponSlot from './WeaponSlot'
 import WeaponPicker from './WeaponPicker'
 import WeaponTalentPicker from './WeaponTalentPicker'
 
 export default function WeaponSection({ data }) {
-  const { specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods, sidearm, sidearmTalent, sidearmAttribute, sidearmMods, specialisation, dispatch } = useBuild()
+  const { specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods, sidearm, sidearmTalent, sidearmAttribute, sidearmMods, specialisation, SPECIALISATIONS, dispatch } = useBuild()
   const [pickerOpen, setPickerOpen] = useState(null) // 'special' | 'primary' | 'secondary' | 'sidearm' | null
   const [talentPickerSlot, setTalentPickerSlot] = useState(null)
 

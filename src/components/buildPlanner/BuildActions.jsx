@@ -3,13 +3,25 @@ import { useBuild } from '../../context/BuildContext'
 import { generateShareUrl } from '../../utils/buildShare'
 
 export default function BuildActions() {
-  const { specialWeapon, weapons, weaponTalents, sidearm, sidearmTalent, gear, gearTalents, skills, dispatch } = useBuild()
+  const {
+    specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods,
+    sidearm, sidearmTalent, sidearmAttribute, sidearmMods,
+    gear, gearTalents, gearAttributes, gearMods,
+    skills, skillMods,
+    dispatch
+  } = useBuild()
   const [showSaves, setShowSaves] = useState(false)
   const [shareStatus, setShareStatus] = useState(null) // null | 'copied' | 'error'
 
+  const buildState = {
+    specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods,
+    sidearm, sidearmTalent, sidearmAttribute, sidearmMods,
+    gear, gearTalents, gearAttributes, gearMods,
+    skills, skillMods,
+  }
+
   const shareBuild = async () => {
-    const state = { specialWeapon, weapons, weaponTalents, sidearm, sidearmTalent, gear, gearTalents, skills }
-    const url = generateShareUrl(state)
+    const url = generateShareUrl(buildState)
     if (!url) {
       setShareStatus('error')
       setTimeout(() => setShareStatus(null), 2000)
@@ -30,7 +42,7 @@ export default function BuildActions() {
     const name = prompt('Nom du build :')
     if (!name) return
     const saves = JSON.parse(localStorage.getItem('div2_builds') || '{}')
-    saves[name] = { specialWeapon, weapons, weaponTalents, sidearm, sidearmTalent, gear, gearTalents, skills, savedAt: new Date().toISOString() }
+    saves[name] = { ...buildState, savedAt: new Date().toISOString() }
     localStorage.setItem('div2_builds', JSON.stringify(saves))
     alert(`Build "${name}" sauvegardé !`)
   }

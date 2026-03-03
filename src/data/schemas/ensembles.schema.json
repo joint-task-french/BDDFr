@@ -48,11 +48,11 @@
       },
       "talentTorse": {
         "type": "string",
-        "description": "Talent spécifique au torse du set (gear sets uniquement)"
+        "description": "Slug du talent de torse (référence talents-equipements.jsonc) — gear sets uniquement"
       },
       "talentSac": {
         "type": "string",
-        "description": "Talent spécifique au sac à dos du set (gear sets uniquement)"
+        "description": "Slug du talent de sac à dos (référence talents-equipements.jsonc) — gear sets uniquement"
       },
       "slug": {
         "type": "string",

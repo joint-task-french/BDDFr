@@ -29,9 +29,9 @@ function resolveTalents(item, talentsEquipements) {
 }
 
 export default function GearCard({ item, ensembles, talentsEquipements, allAttributs }) {
-  const isExotic = item.estExotique
+  const isExotic = item.type === 'exotique'
   const isNamed = item.estNomme && !isExotic
-  const isGearSet = item.source === 'gear_set' && !isExotic
+  const isGearSet = item.type === 'gear_set'
 
   const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isGearSet ? 'text-emerald-400' : 'text-shd'
   const borderColor = isExotic ? 'border-l-red-500' : isNamed ? 'border-l-yellow-500' : isGearSet ? 'border-l-emerald-500' : 'border-l-shd/50'
@@ -47,13 +47,21 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
   const BASE = import.meta.env.BASE_URL
   const ensemble = ensembles?.find(e => e.slug === (item.marque || '') || e.nom.toLowerCase() === (item.marque || '').toLowerCase())
 
-  // Résoudre le talent gear set pour torse/sac depuis l'ensemble
+  // Résoudre le talent gear set pour torse/sac depuis l'ensemble (slug → objet talent)
   const gearSetTalent = useMemo(() => {
     if (!isGearSet || !ensemble) return null
-    if (item.emplacement === 'torse' && hasContent(ensemble.talentTorse)) return { label: 'Talent Torse', text: ensemble.talentTorse }
-    if (item.emplacement === 'sac_a_dos' && hasContent(ensemble.talentSac)) return { label: 'Talent Sac', text: ensemble.talentSac }
+    const findTalent = (slug) => {
+      if (!slug || !hasContent(slug)) return null
+      const found = talentsEquipements?.find(t => t.slug === slug) ||
+                    talentsEquipements?.find(t => t.nom.toLowerCase() === slug.toLowerCase())
+      if (found) return { label: found.nom, text: found.description || '' }
+      // Fallback: afficher le slug/texte tel quel
+      return { label: slug, text: '' }
+    }
+    if (item.emplacement === 'torse' && hasContent(ensemble.talentTorse)) return findTalent(ensemble.talentTorse)
+    if (item.emplacement === 'sac_a_dos' && hasContent(ensemble.talentSac)) return findTalent(ensemble.talentSac)
     return null
-  }, [isGearSet, ensemble, item.emplacement])
+  }, [isGearSet, ensemble, item.emplacement, talentsEquipements])
 
   const resolvedTalents = resolveTalents(item, talentsEquipements)
   const hasResolvedTalents = resolvedTalents.length > 0

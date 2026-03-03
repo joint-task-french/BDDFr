@@ -6,13 +6,15 @@
     "nom": "Dégâts aux armes",
     "categorie": "offensif",
     "cible": [
-      "arme"
+      "arme",
+      "equipement"
     ],
     "unite": "%",
     "min": 1,
     "max": 15,
     "description": "Augmente les dégâts infligés par les armes",
-    "slug": "degats_aux_armes"
+    "slug": "degats_aux_armes",
+    "estEssentiel": true
   },
   {
     "nom": "Dégâts de coup critique",
@@ -25,7 +27,8 @@
     "min": 1,
     "max": 12,
     "description": "Augmente les dégâts infligés lors d'un coup critique",
-    "slug": "degats_de_coup_critique"
+    "slug": "degats_de_coup_critique",
+    "estEssentiel": false
   },
   {
     "nom": "Chance de coup critique",
@@ -38,7 +41,8 @@
     "min": 1,
     "max": 6,
     "description": "Augmente la probabilité de déclencher un coup critique",
-    "slug": "chance_de_coup_critique"
+    "slug": "chance_de_coup_critique",
+    "estEssentiel": false
   },
   {
     "nom": "Dégâts de headshot",
@@ -51,7 +55,8 @@
     "min": 1,
     "max": 10,
     "description": "Augmente les dégâts infligés lors d'un tir à la tête",
-    "slug": "degats_de_headshot"
+    "slug": "degats_de_headshot",
+    "estEssentiel": false
   },
   {
     "nom": "Dégâts à la santé",
@@ -63,7 +68,8 @@
     "min": 1,
     "max": 21,
     "description": "Augmente les dégâts infligés à la santé de l'ennemi",
-    "slug": "degats_a_la_sante"
+    "slug": "degats_a_la_sante",
+    "estEssentiel": false
   },
   {
     "nom": "Dégâts sur cible non abritée",
@@ -76,7 +82,8 @@
     "min": 1,
     "max": 10,
     "description": "Augmente les dégâts infligés aux cibles non abritées",
-    "slug": "degats_sur_cible_non_abritee"
+    "slug": "degats_sur_cible_non_abritee",
+    "estEssentiel": false
   },
   {
     "nom": "Dégâts Fusil d'assaut",
@@ -88,7 +95,8 @@
     "min": 1,
     "max": 12,
     "description": "Augmente les dégâts infligés par les fusils d'assaut",
-    "slug": "degats_fusil_d_assaut"
+    "slug": "degats_fusil_d_assaut",
+    "estEssentiel": false
   },
   {
     "nom": "Dégâts Fusil",
@@ -100,7 +108,8 @@
     "min": 1,
     "max": 12,
     "description": "Augmente les dégâts infligés par les fusils",
-    "slug": "degats_fusil"
+    "slug": "degats_fusil",
+    "estEssentiel": false
   },
   {
     "nom": "Dégâts Fusil de précision",
@@ -112,7 +121,8 @@
     "min": 1,
     "max": 12,
     "description": "Augmente les dégâts infligés par les fusils de précision",
-    "slug": "degats_fusil_de_precision"
+    "slug": "degats_fusil_de_precision",
+    "estEssentiel": false
   },
   {
     "nom": "Dégâts Pistolet-mitrailleur",
@@ -124,7 +134,8 @@
     "min": 1,
     "max": 12,
     "description": "Augmente les dégâts infligés par les pistolets-mitrailleurs",
-    "slug": "degats_pistolet_mitrailleur"
+    "slug": "degats_pistolet_mitrailleur",
+    "estEssentiel": false
   },
   {
     "nom": "Dégâts Fusil-mitrailleur",
@@ -136,7 +147,8 @@
     "min": 1,
     "max": 12,
     "description": "Augmente les dégâts infligés par les fusils-mitrailleurs",
-    "slug": "degats_fusil_mitrailleur"
+    "slug": "degats_fusil_mitrailleur",
+    "estEssentiel": false
   },
   {
     "nom": "Dégâts Calibre 12",
@@ -148,7 +160,8 @@
     "min": 1,
     "max": 12,
     "description": "Augmente les dégâts infligés par les armes de calibre 12",
-    "slug": "degats_calibre_12"
+    "slug": "degats_calibre_12",
+    "estEssentiel": false
   },
   {
     "nom": "Dégâts Pistolet",
@@ -160,7 +173,8 @@
     "min": 1,
     "max": 12,
     "description": "Augmente les dégâts infligés par les pistolets",
-    "slug": "degats_pistolet"
+    "slug": "degats_pistolet",
+    "estEssentiel": false
   },
   {
     "nom": "Armure",
@@ -172,7 +186,8 @@
     "min": 1,
     "max": 170000,
     "description": "Augmente la valeur totale d'armure",
-    "slug": "armure"
+    "slug": "armure",
+    "estEssentiel": true
   },
   {
     "nom": "Santé",
@@ -184,7 +199,8 @@
     "min": 1,
     "max": 18935,
     "description": "Augmente la valeur totale de santé",
-    "slug": "sante"
+    "slug": "sante",
+    "estEssentiel": false
   },
   {
     "nom": "Régénération d'armure",
@@ -196,7 +212,8 @@
     "min": 1,
     "max": 4525,
     "description": "Régénère l'armure au fil du temps",
-    "slug": "regeneration_d_armure"
+    "slug": "regeneration_d_armure",
+    "estEssentiel": false
   },
   {
     "nom": "Protection aux explosions",
@@ -208,7 +225,8 @@
     "min": 1,
     "max": 10,
     "description": "Réduit les dégâts subis par les explosions",
-    "slug": "protection_aux_explosions"
+    "slug": "protection_aux_explosions",
+    "estEssentiel": false
   },
   {
     "nom": "Armure aux protections",
@@ -220,7 +238,8 @@
     "min": 1,
     "max": 12,
     "description": "Augmente les protections conférées par l'armure",
-    "slug": "armure_aux_protections"
+    "slug": "armure_aux_protections",
+    "estEssentiel": false
   },
   {
     "nom": "Hâte de compétence",
@@ -232,7 +251,8 @@
     "min": 1,
     "max": 12,
     "description": "Réduit le temps de recharge des compétences",
-    "slug": "hate_de_competence"
+    "slug": "hate_de_competence",
+    "estEssentiel": false
   },
   {
     "nom": "Dégâts de compétence",
@@ -244,7 +264,8 @@
     "min": 1,
     "max": 10,
     "description": "Augmente les dégâts infligés par les compétences",
-    "slug": "degats_de_competence"
+    "slug": "degats_de_competence",
+    "estEssentiel": false
   },
   {
     "nom": "Réparation de compétence",
@@ -256,7 +277,8 @@
     "min": 1,
     "max": 20,
     "description": "Augmente les soins prodigués par les compétences",
-    "slug": "reparation_de_competence"
+    "slug": "reparation_de_competence",
+    "estEssentiel": false
   },
   {
     "nom": "Durée de compétence",
@@ -268,7 +290,8 @@
     "min": 1,
     "max": 20,
     "description": "Augmente la durée active des compétences",
-    "slug": "duree_de_competence"
+    "slug": "duree_de_competence",
+    "estEssentiel": false
   },
   {
     "nom": "Durée d'effet d'état",
@@ -280,7 +303,8 @@
     "min": 1,
     "max": 10,
     "description": "Augmente la durée des effets d'état infligés",
-    "slug": "duree_d_effet_d_etat"
+    "slug": "duree_d_effet_d_etat",
+    "estEssentiel": false
   },
   {
     "nom": "Résistance aux effets d'état",
@@ -292,6 +316,20 @@
     "min": 1,
     "max": 10,
     "description": "Réduit la durée des effets d'état subis",
-    "slug": "resistance_aux_effets_d_etat"
+    "slug": "resistance_aux_effets_d_etat",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Tiers de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 1,
+    "description": "Augmente le tier de compétence de 1",
+    "estEssentiel": true,
+    "slug": "tiers_de_competence"
   }
 ]

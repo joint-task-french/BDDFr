@@ -45,6 +45,26 @@ export function useDataLoader() {
             result.competencesGrouped = result.competences
             result.competences = flattenCompetences(result.competences)
           }
+          // Merge specific weapons from classSpe into armes for display
+          if (result.classSpe && result.armes) {
+            const specWeapons = result.classSpe.map(spec => ({
+              nom: spec.arme.nom,
+              slug: spec.slug || spec.cle,
+              type: 'arme_specifique',
+              fabricant: spec.nom,
+              portee: spec.arme.portee,
+              rpm: spec.arme.rpm,
+              chargeur: spec.arme.chargeur,
+              rechargement: spec.arme.rechargement,
+              headshot: spec.arme.headshot,
+              degatsBase: spec.arme.degatsBase,
+              estExotique: false,
+              estNomme: false,
+              talents: [],
+              specialisation: spec.nom,
+            }))
+            result.armes = [...result.armes, ...specWeapons]
+          }
           // Initialize specialisations cache for components outside BuildProvider
           if (result.classSpe) {
             getSpecialisations(result.classSpe)

@@ -237,7 +237,7 @@ export function resolveBuild(compact, data) {
 
   // Mods de compétences
   build.skillMods = (compact.sm || [null, null]).map(id =>
-    id ? findBySlugOrName(data.modsEquipements || [], id, 'statistique') || null : null
+    id ? findBySlugOrName(data.modsCompetences || [], id, 'statistique') || null : null
   )
   while (build.skillMods.length < 2) build.skillMods.push(null)
 

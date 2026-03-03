@@ -53,6 +53,10 @@
         "type": "string",
         "description": "Description courte de ce que fait l'attribut"
       },
+      "estEssentiel": {
+        "type": "boolean",
+        "description": "True si cet attribut est un attribut essentiel (core attribute). Les attributs essentiels et classiques forment deux pools séparés."
+      },
       "slug": {
         "type": "string",
         "pattern": "^[a-z0-9_]+$",

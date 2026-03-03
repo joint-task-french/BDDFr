@@ -545,5 +545,405 @@
     "emplacement": "tous",
     "estExotique": true,
     "slug": "plan_de_fuite"
+  },
+  {
+    "nom": "Munitions Parabellum",
+    "slug": "munitions_parabellum",
+    "description": "Augmente l'amplification des dégâts d'arme pour les munitions à pointe creuse à 50%. (+35%)Ce bonus ne s'applique pas aux membres du groupe. EXIGENCE :Règles d'engagement",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "ongoing_directive"
+  },
+  {
+    "nom": "Spécialiste des traumatismes",
+    "slug": "specialiste_des_traumatismes",
+    "description": "Augmente la durée de vos effets d'état de saignement de 50% et tous les dégâts de saignement infligés de 100%EXIGENCE :Règles d'engagement",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "ongoing_directive"
+  },
+  {
+    "nom": "Drapeau brandi",
+    "slug": "drapeau_brandi",
+    "description": "Augmente la vitesse de rotation de \"Rouge Blanc Bleu\" de 1,5s. EXIGENCE :Rouge, blanc, bleu",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "true_patriot"
+  },
+  {
+    "nom": "Élan patriotique",
+    "slug": "elan_patriotique",
+    "description": "Augmente l'efficacité du debuff de \"Rouge Blanc Bleu\" Rouge : de 8% à 12%Blanc : de 2% à 3%Bleu : de 8% à 12%EXIGENCE :Rouge, blanc, bleu",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "true_patriot"
+  },
+  {
+    "nom": "Renforcement positif",
+    "slug": "renforcement_positif",
+    "description": "Augmente le bonus de compétence de réparation de la Boucle de rétroaction de +10% à +25%. EXIGENCE :Boucle de rétroaction",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "hard_wired"
+  },
+  {
+    "nom": "Cour-circuit",
+    "slug": "cour_circuit",
+    "description": "Diminue le temps de recharge de la Boucle de rétroaction de 10s à 5s. EXIGENCE :Boucle de rétroaction",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "hard_wired"
+  },
+  {
+    "nom": "Sans Limite",
+    "slug": "sans_limite",
+    "description": "Augmente le bonus de dégâts de La main du mort de 30% à 50%. EXIGENCE :La main du mort",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "as_et_huit"
+  },
+  {
+    "nom": "As dans la manche",
+    "slug": "as_dans_la_manche",
+    "description": "Améliore 1 tir supplémentaire quand vous révélez votre main. EXIGENCE :La main du mort",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "as_et_huit"
+  },
+  {
+    "nom": "Destruction Spécialisée",
+    "slug": "destruction_specialisee",
+    "description": "Augmente le bonus de dégâts d'arme spécifique de la Reconnaissance agressive de 15% à 30%. Effectuer 3 éliminations à l'arme spécifique génère des munitions d'arme spécifique. EXIGENCE :Reconnaissance agressive",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "pointe_de_lance"
+  },
+  {
+    "nom": "Mouvement spécifique",
+    "slug": "mouvement_specifique",
+    "description": "+50% dégâts d'arme pendant 15s après avoir complétement épuisé les munitions de l'arme spécifiqueDouble la quantité de munitions générée par Reconnaissance Agressive. EXIGENCE :Reconnaissance agressive",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "pointe_de_lance"
+  },
+  {
+    "nom": "Contrôle de masse",
+    "slug": "controle_de_masse",
+    "description": "Le nombre de marque de Négociations hostiles passe de 3 à 5EXIGENCE :Négociations hostiles",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "dilemme_du_negociateur"
+  },
+  {
+    "nom": "Mesures critiques",
+    "slug": "mesures_critiques",
+    "description": "Augmente les dégâts de Négociations hostiles aux ennemis marqués supplémentaires de 60% à 112%. EXIGENCE :Négociations hostiles",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "dilemme_du_negociateur"
+  },
+  {
+    "nom": "Avantage accru",
+    "slug": "avantage_accru",
+    "description": "Augmente le nombre maximum de bonus cumulables de l'Amplification Striker de 100 à 200. 3 cumuls par secondes entre 100 et 200 cumuls. EXIGENCE :Amplification Striker",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "cogneur"
+  },
+  {
+    "nom": "Gestion du risque",
+    "slug": "gestion_du_risque",
+    "description": "Augmente le bonus aux dégâts d'arme obtenu par les stacks de 0,65% à 0,90%. EXIGENCE :Amplification Striker",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "cogneur"
+  },
+  {
+    "nom": "Optimisation de compilation",
+    "slug": "optimisation_de_compilation",
+    "description": "Diminue le temps de recharge du Protocole Hackstep de 20s à 15s. EXIGENCE :Protocole Hackstep",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "systeme_corrompu"
+  },
+  {
+    "nom": "Execution Multithereading",
+    "slug": "execution_multithereading",
+    "description": "Augmente la protection bonus du protocole Hackstep de 50% à 100%. EXIGENCE :Protocole Hackstep",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "systeme_corrompu"
+  },
+  {
+    "nom": "Prolifération",
+    "slug": "proliferation",
+    "description": "Augmente la portée et la durée de Transmission Indirecte de 10m (5m) à 15m (7m) et de 50% à 75%. EXIGENCE :Transmission Indirecte",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "protocole_eclipse"
+  },
+  {
+    "nom": "Amplificateur de Symptôme",
+    "slug": "amplificateur_de_symptome",
+    "description": "Augmente tous les dégâts que vous infligez aux cibles affectés par un  effet d'état de 30%. EXIGENCE :Transmission Indirecte",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "protocole_eclipse"
+  },
+  {
+    "nom": "Matériaux Améliorés",
+    "slug": "materiaux_ameliores",
+    "description": "Augmente la vitesse de Réparation de Fortune de 10s à 5s. EXIGENCE :Réparation de fortune",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "rempart_de_la_founderie"
+  },
+  {
+    "nom": "Processus de Raffinerie",
+    "slug": "processus_de_raffinerie",
+    "description": "Augmente les réparations de Répération de Fortune de 25% à 35%. EXIGENCE :Réparation de fortune",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "rempart_de_la_founderie"
+  },
+  {
+    "nom": "Supériorité Tactique",
+    "slug": "superiorite_tactique",
+    "description": "Augmente le bonus aux dégâts de Contrôle du Terrain de 15% à 25%. EXIGENCE :Contrôle efficace",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "future_initiative"
+  },
+  {
+    "nom": "Tactiques de Combat Améliorées",
+    "slug": "tactiques_de_combat_ameliorees",
+    "description": "Augmente la réparation de proximité de Contrôle du Terrain de 60% à 120%. EXIGENCE :Contrôle efficace",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "future_initiative"
+  },
+  {
+    "nom": "Faim insatiable",
+    "slug": "faim_insatiable",
+    "description": "Augmente de 10s à 30s la durée des effets cumulés de Prédateur ultime. EXIGENCE :Prédateur Ultime",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "fureur_du_chasseur"
+  },
+  {
+    "nom": "Force écrasante",
+    "slug": "force_ecrasante",
+    "description": "Augmente de 5m à 10m le rayon d'effet de la désorientation d'une élimination par Prédateur ultime. EXIGENCE :Prédateur Ultime",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "fureur_du_chasseur"
+  },
+  {
+    "nom": "Meilleurs potes",
+    "slug": "meilleurs_potes",
+    "description": "Augmente le buff de dégâts de 25% à 50%. EXIGENCE :Entretien efficace",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "rigger"
+  },
+  {
+    "nom": "Disponibilité totale",
+    "slug": "disponibilite_totale",
+    "description": "Annuler vos compétences réinitialise leur temps de rechargeEXIGENCE :Entretien efficace",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "rigger"
+  },
+  {
+    "nom": "Max BPM",
+    "slug": "max_bpm",
+    "description": "Augmente le nombre maximum de bonus cumulables de Coup de coeur de 50 à 100. EXIGENCE :Coeup de coeur",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "heartbreaker"
+  },
+  {
+    "nom": "Froid",
+    "slug": "froid",
+    "description": "Augmente le total de protection bonus gagnée par effet cumulé de Coup de coeur de 1% à  2%. EXIGENCE :Coeup de coeur",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "heartbreaker"
+  },
+  {
+    "nom": "Depuis les ombres",
+    "slug": "depuis_les_ombres",
+    "description": "Augmente les cumuls max de \"Depuis les ombres\" de 50 à 100, et le gain de cumuls de 10 à 20. EXIGENCE :Depuis l'ombre à la lumière",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "initiative_umbra"
+  },
+  {
+    "nom": "À la lumière",
+    "slug": "a_la_lumiere",
+    "description": "Augmente les cumuls max de \"À la lumière\" de 50 à 100, et le gain de cumuls de 10 à 20, et la consommation des cumuls de 10 à 20. EXIGENCE :Depuis l'ombre à la lumière",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "initiative_umbra"
+  },
+  {
+    "nom": "Audace",
+    "slug": "audace",
+    "description": "Augmente la protection bonus de 50% à 100%.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "hotshot"
+  },
+  {
+    "nom": "Bénédiction",
+    "slug": "benediction",
+    "description": "L'agent peut louper un headshot avant réinitialisation du cycle.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "hotshot"
+  },
+  {
+    "nom": "Surcharge",
+    "slug": "surcharge",
+    "description": "Augmente la protection maximale contre les dégâts subis pendant la charge à 70%.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "the_cavalier"
+  },
+  {
+    "nom": "Protection de charge",
+    "slug": "protection_de_charge",
+    "description": "Charger confère 10% protection par seconde.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "the_cavalier"
+  },
+  {
+    "nom": "Combustion en chaine",
+    "slug": "combustion_en_chaine",
+    "description": "Les ennemis enflammés par le prototype de tourelle incinératrice Ortiz enflamment les ennemis situés à moins de 2m.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "ortiz_exuro"
+  },
+  {
+    "nom": "Coup de chaud",
+    "slug": "coup_de_chaud",
+    "description": "Confère +25% d'arme contre les ennemis enflammés par le prototype de tourelle incinératrice Ortiz. Portée du prototype de tourelle Incinératrice \"Ortiz\" +25%.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "ortiz_exuro"
+  },
+  {
+    "nom": "Tromperie",
+    "slug": "tromperie",
+    "description": "Les ennemis qui ciblent votre leurre contribuent aussi au bonus de résistance aux dégâts de stoïque.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "aegis"
+  },
+  {
+    "nom": "Placage en polyéthyléne",
+    "slug": "placage_en_polyethylene",
+    "description": "Augmente le bonus de résistance aux dégâts de stoïque de 4% à 5%",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "aegis"
+  },
+  {
+    "nom": "Point de non-retour",
+    "slug": "point_de_non_retour",
+    "description": "Augmente la durée des bonus d'En ligne de mire de 10s à 15s",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "breaking_point"
+  },
+  {
+    "nom": "Point d'honneur",
+    "slug": "point_d_honneur",
+    "description": "Augmente le bonus de dégâts d'arme d'En ligne de mire de 4% à 7,2%",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "breaking_point"
+  },
+  {
+    "nom": "Fortissimo",
+    "slug": "fortissimo",
+    "description": "Double les bonus de dégâts d'arme de Symphonie.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "virtuose"
+  },
+  {
+    "nom": "Accelerando",
+    "slug": "accelerando",
+    "description": "Diminue de 4 à 3 le nombre d'effets nécessaires pour déclencher le double bonus de Symphonie.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "virtuose"
+  },
+  {
+    "nom": "Intérêt accru",
+    "slug": "interet_accru",
+    "description": "Améliore les réparations de Retour à l'envoyeur de 10% (5%) à 25% (15%) et de 20% (10%) à 35% (20%).",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "refactor"
+  },
+  {
+    "nom": "Surprotection",
+    "slug": "surprotection",
+    "description": "Quand votre protection est intacte, les réparations de Retour à l'envoyeur vous donnent un bonus d'armure pouvant atteindre 80% de votre armure totale. Ne s'applique pas aux alliés.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "refactor"
+  },
+  {
+    "nom": "Esprit de ruche",
+    "slug": "esprit_de_ruche",
+    "description": "Diminue le temps de recharge de surchage de 40 à 25.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "measured_assembly"
+  },
+  {
+    "nom": "Coopération intelligente",
+    "slug": "cooperation_intelligente",
+    "description": "Diminue le temps de recharge pour la destruction des mortiers et compétences ennemies de 10 à 1.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "measured_assembly"
+  },
+  {
+    "nom": "Durabilité",
+    "slug": "durabilite",
+    "description": "Augmente le nombre maximun d'effets cumulés de 50 à 75.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "point_de_bascule"
+  },
+  {
+    "nom": "Boule de neige",
+    "slug": "boule_de_neige",
+    "description": "Augmente les dégâts de coup critique subis de 4 à 7 par effet cumulé.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "point_de_bascule"
+  },
+  {
+    "nom": "Tous pour un",
+    "slug": "tous_pour_un",
+    "description": "Augmente le nombre marques pouvant être appliquées de 4 à 8.",
+    "emplacement": "torse",
+    "estExotique": false,
+    "gearSet": "concentrated_company"
+  },
+  {
+    "nom": "Un pour tous",
+    "slug": "un_pour_tous",
+    "description": "Augmente le bonus de dégâts d'arme par effet de 3% à 5%.",
+    "emplacement": "sac_a_dos",
+    "estExotique": false,
+    "gearSet": "concentrated_company"
   }
 ]

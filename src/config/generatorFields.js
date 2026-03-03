@@ -136,15 +136,12 @@ export const FIELDS = {
       ]},
       { key: 'talents', label: 'Talents', type: 'autocomplete_array', suggestionsKey: 'talentsEquipements', placeholder: 'Rechercher un talent...' },
       { key: 'mod', label: 'Emplacement de mod', type: 'boolean' },
-      { key: '_rarity', label: 'Rareté', type: 'radioGroup', target: { exo: 'estExotique', nom: 'estNomme' }, options: [
-        { value: '', label: 'Standard' },
-        { value: 'exo', label: 'Exotique' },
-        { value: 'nom', label: 'Nommé' },
-      ]},
-      { key: 'source', label: 'Source', type: 'tagSelect', singleSelect: true, hiddenWhen: { key: '_rarity', value: 'exo' }, options: [
+      { key: 'type', label: 'Type', type: 'tagSelect', singleSelect: true, options: [
+        { value: 'standard', label: 'Standard', color: 'blue' },
+        { value: 'exotique', label: 'Exotique', color: 'red' },
         { value: 'gear_set', label: 'Gear Set', color: 'green' },
-        { value: 'marque', label: 'Marque', color: 'blue' },
       ]},
+      { key: 'estNomme', label: 'Nommé', type: 'boolean', hiddenWhen: { key: 'type', value: 'exotique' } },
       { key: 'obtention', label: 'Obtention', type: 'text' },
       { key: 'attributUnique', label: 'Attribut unique', type: 'text' },
     ],
@@ -205,12 +202,12 @@ export const FIELDS = {
         { value: 'Défensif', label: 'Défensif', color: 'blue' },
         { value: 'Utilitaire', label: 'Utilitaire', color: 'yellow' },
       ]},
-      { key: 'bonus1piece', label: 'Bonus 1 pièce', type: 'text' },
+      { key: 'bonus1piece', label: 'Bonus 1 pièce', type: 'text', hiddenWhen: { key: 'type', value: 'gear_set' } },
       { key: 'bonus2pieces', label: 'Bonus 2 pièces', type: 'text' },
       { key: 'bonus3pieces', label: 'Bonus 3 pièces', type: 'text' },
-      { key: 'bonus4pieces', label: 'Bonus 4 pièces (gear set)', type: 'textarea' },
-      { key: 'talentTorse', label: 'Talent Torse (gear set)', type: 'textarea' },
-      { key: 'talentSac', label: 'Talent Sac (gear set)', type: 'textarea' },
+      { key: 'bonus4pieces', label: 'Bonus 4 pièces (gear set)', type: 'textarea', hiddenWhen: { key: 'type', value: 'marque' } },
+      { key: 'talentTorse', label: 'Talent Torse (gear set)', type: 'autocomplete', suggestionsKey: 'talentsEquipements', hiddenWhen: { key: 'type', value: 'marque' } },
+      { key: 'talentSac', label: 'Talent Sac (gear set)', type: 'autocomplete', suggestionsKey: 'talentsEquipements', hiddenWhen: { key: 'type', value: 'marque' } },
     ],
   },
 
@@ -219,7 +216,7 @@ export const FIELDS = {
     fields: [
       { key: 'competence', label: 'Compétence', type: 'autocomplete', suggestionsKey: 'competences', required: true, placeholder: 'TOURELLE, DRONE...', isIdentity: true },
       { key: 'variante', label: 'Variante', type: 'autocomplete', required: true, suggestionsKey: 'variantes', isIdentity: true },
-      { key: 'prerequis', label: 'Spécialisation requise', type: 'autocomplete', suggestionsKey: 'specialisations' },
+      { key: 'prerequis', label: 'Spécialisation requise', type: 'tagSelect', singleSelect: true, dynamicOptions: 'specialisations' },
       { key: 'icone', label: 'Icône (slug)', type: 'text' },
       { key: 'expertise', label: 'Expertise', type: 'text' },
       { key: 'statistiques', label: 'Statistiques', type: 'textarea' },
@@ -290,7 +287,7 @@ export const FIELDS = {
     fields: [
       { key: 'competence', label: 'Compétence', type: 'autocomplete', suggestionsKey: 'competences', required: true, isIdentity: true },
       { key: 'emplacement', label: 'Emplacement', type: 'autocomplete', suggestionsKey: 'emplacementsModsCompetences', required: true },
-      { key: 'prerequis', label: 'Spécialisation requise', type: 'autocomplete', suggestionsKey: 'specialisations' },
+      { key: 'prerequis', label: 'Spécialisation requise', type: 'tagSelect', singleSelect: true, dynamicOptions: 'specialisations' },
       { key: 'statistiques', label: 'Statistiques', type: 'array', itemType: 'text', placeholder: 'Nom de la statistique...' },
     ],
   },
@@ -343,7 +340,7 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   }
 
   // Spécialisations (depuis class-spe.jsonc)
-  s.specialisations = (loadedData?.classSpe || []).map(sp => sp.cle).sort()
+  s.specialisations = (loadedData?.classSpe || []).map(sp => ({ value: sp.cle, label: sp.nom })).sort((a, b) => a.label.localeCompare(b.label))
 
   // Emplacements de mods de compétences (from competencesGrouped or from flat enriched data)
   const groupedComps = loadedData?.competencesGrouped || []
@@ -423,7 +420,7 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   s.armesNommees = [...armesNom.entries()].sort((a, b) => a[1].localeCompare(b[1])).map(([slug, nom]) => ({ value: slug, label: nom }))
 
   const equipNom = new Map()
-  merged.equipements?.forEach(e => { if ((e.estNomme || e.estExotique) && e.slug) equipNom.set(e.slug, e.nom) })
+  merged.equipements?.forEach(e => { if ((e.estNomme || e.type === 'exotique') && e.slug) equipNom.set(e.slug, e.nom) })
   if (generatorData?.equipements?.nom && generatorData.equipements._rarity) {
     const slug = generatorData.equipements.slug || slugify(generatorData.equipements.nom)
     equipNom.set(slug, generatorData.equipements.nom)
@@ -514,10 +511,6 @@ export function cleanOutput(data, categoryKey) {
     result[field.key] = val
   }
 
-  // Auto-fill: si exotique, forcer source = 'exotic'
-  if (categoryKey === 'equipements' && result.estExotique) {
-    result.source = 'exotic'
-  }
 
   // Auto-generate slug si absent ou si nouveau (pas en mode édition)
   if (!result.slug) {
@@ -556,7 +549,7 @@ export function generateEquipmentSet(ensembleData) {
     emplacement: slot,
     attributEssentiel: attrEss.length > 0 ? [...attrEss] : ['offensif'],
     mod: SLOTS_WITH_MOD.includes(slot),
-    source: type === 'gear_set' ? 'gear_set' : 'marque',
+    type: type === 'gear_set' ? 'gear_set' : 'standard',
   }))
 }
 

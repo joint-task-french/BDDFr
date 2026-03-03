@@ -9,11 +9,10 @@
     ],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_classe_a_de_heft"
+    "slug": "masque_de_classe_a_de_heft",
+    "type": "gear_set"
   },
   {
     "nom": "Masque de collecteur",
@@ -24,11 +23,10 @@
     ],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_collecteur"
+    "slug": "masque_de_collecteur",
+    "type": "gear_set"
   },
   {
     "nom": "Masque AR Rhodeswood",
@@ -39,11 +37,10 @@
     ],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_ar_rhodeswood"
+    "slug": "masque_ar_rhodeswood",
+    "type": "gear_set"
   },
   {
     "nom": "Masque de tireur d'élite Lyudmila",
@@ -54,11 +51,10 @@
     ],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_tireur_d_elite_lyudmila"
+    "slug": "masque_de_tireur_d_elite_lyudmila",
+    "type": "gear_set"
   },
   {
     "nom": "Masque Snow Job",
@@ -67,11 +63,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_snow_job"
+    "slug": "masque_snow_job",
+    "type": "gear_set"
   },
   {
     "nom": "Masque Ray Face",
@@ -80,11 +75,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_ray_face"
+    "slug": "masque_ray_face",
+    "type": "gear_set"
   },
   {
     "nom": "Masque Cogneur",
@@ -93,11 +87,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_cogneur"
+    "slug": "masque_cogneur",
+    "type": "gear_set"
   },
   {
     "nom": "Masque Vecteur d'attaque",
@@ -106,11 +99,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_vecteur_d_attaque"
+    "slug": "masque_vecteur_d_attaque",
+    "type": "gear_set"
   },
   {
     "nom": "Masque de protection contre les biorisques",
@@ -119,11 +111,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_protection_contre_les_biorisques"
+    "slug": "masque_de_protection_contre_les_biorisques",
+    "type": "gear_set"
   },
   {
     "nom": "Masque anti-chaleur",
@@ -132,11 +123,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_anti_chaleur"
+    "slug": "masque_anti_chaleur",
+    "type": "gear_set"
   },
   {
     "nom": "Masque de brouillard de guerre",
@@ -145,11 +135,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_brouillard_de_guerre"
+    "slug": "masque_de_brouillard_de_guerre",
+    "type": "gear_set"
   },
   {
     "nom": "Bouche du chasseur",
@@ -158,11 +147,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "bouche_du_chasseur"
+    "slug": "bouche_du_chasseur",
+    "type": "gear_set"
   },
   {
     "nom": "Masque antipoussière Rigger",
@@ -171,11 +159,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_antipoussiere_rigger"
+    "slug": "masque_antipoussiere_rigger",
+    "type": "gear_set"
   },
   {
     "nom": "Masque de discrétion",
@@ -184,11 +171,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_discretion"
+    "slug": "masque_de_discretion",
+    "type": "gear_set"
   },
   {
     "nom": "Masque Initiative Umbra",
@@ -197,11 +183,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_initiative_umbra"
+    "slug": "masque_initiative_umbra",
+    "type": "gear_set"
   },
   {
     "nom": "Masque Hotshot",
@@ -210,11 +195,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_hotshot"
+    "slug": "masque_hotshot",
+    "type": "gear_set"
   },
   {
     "nom": "Masque Cavalier",
@@ -223,11 +207,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_cavalier"
+    "slug": "masque_cavalier",
+    "type": "gear_set"
   },
   {
     "nom": "Masque Ortiz Exuro",
@@ -236,11 +219,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_ortiz_exuro"
+    "slug": "masque_ortiz_exuro",
+    "type": "gear_set"
   },
   {
     "nom": "Masque Aegis",
@@ -249,11 +231,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_aegis"
+    "slug": "masque_aegis",
+    "type": "gear_set"
   },
   {
     "nom": "Masque Breaking Point",
@@ -262,11 +243,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_breaking_point"
+    "slug": "masque_breaking_point",
+    "type": "gear_set"
   },
   {
     "nom": "Masque Virtuose",
@@ -275,11 +255,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_virtuose"
+    "slug": "masque_virtuose",
+    "type": "gear_set"
   },
   {
     "nom": "Protection corporelle d'Appleton",
@@ -288,11 +267,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protection_corporelle_d_appleton"
+    "slug": "protection_corporelle_d_appleton",
+    "type": "gear_set"
   },
   {
     "nom": "Harnais de ressources",
@@ -301,11 +279,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "harnais_de_ressources"
+    "slug": "harnais_de_ressources",
+    "type": "gear_set"
   },
   {
     "nom": "Gilet Renforcé Serpentine",
@@ -314,11 +291,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gilet_renforce_serpentine"
+    "slug": "gilet_renforce_serpentine",
+    "type": "gear_set"
   },
   {
     "nom": "Gilet Tania Silent",
@@ -327,11 +303,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gilet_tania_silent"
+    "slug": "gilet_tania_silent",
+    "type": "gear_set"
   },
   {
     "nom": "Protection Highball",
@@ -340,11 +315,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protection_highball"
+    "slug": "protection_highball",
+    "type": "gear_set"
   },
   {
     "nom": "Gilet de combat Wright",
@@ -353,11 +327,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gilet_de_combat_wright"
+    "slug": "gilet_de_combat_wright",
+    "type": "gear_set"
   },
   {
     "nom": "Harnais Striker",
@@ -366,11 +339,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "harnais_striker"
+    "slug": "harnais_striker",
+    "type": "gear_set"
   },
   {
     "nom": "Armure menace combinée",
@@ -379,11 +351,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "armure_menace_combinee"
+    "slug": "armure_menace_combinee",
+    "type": "gear_set"
   },
   {
     "nom": "Pastron scellé",
@@ -392,11 +363,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "pastron_scelle"
+    "slug": "pastron_scelle",
+    "type": "gear_set"
   },
   {
     "nom": "Armure de plates forgées",
@@ -405,11 +375,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "armure_de_plates_forgees"
+    "slug": "armure_de_plates_forgees",
+    "type": "gear_set"
   },
   {
     "nom": "Protection de torse Terrapin",
@@ -418,11 +387,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protection_de_torse_terrapin"
+    "slug": "protection_de_torse_terrapin",
+    "type": "gear_set"
   },
   {
     "nom": "Cage du chasseur",
@@ -431,11 +399,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "cage_du_chasseur"
+    "slug": "cage_du_chasseur",
+    "type": "gear_set"
   },
   {
     "nom": "Harnais d'accès rapide Rigger",
@@ -444,11 +411,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "harnais_d_acces_rapide_rigger"
+    "slug": "harnais_d_acces_rapide_rigger",
+    "type": "gear_set"
   },
   {
     "nom": "Gilet d'inflexibilité",
@@ -457,11 +423,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gilet_d_inflexibilite"
+    "slug": "gilet_d_inflexibilite",
+    "type": "gear_set"
   },
   {
     "nom": "Veste Initiative Umbra",
@@ -470,11 +435,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "veste_initiative_umbra"
+    "slug": "veste_initiative_umbra",
+    "type": "gear_set"
   },
   {
     "nom": "Veste Hotshot",
@@ -483,11 +447,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "veste_hotshot"
+    "slug": "veste_hotshot",
+    "type": "gear_set"
   },
   {
     "nom": "Veste Cavalier",
@@ -496,11 +459,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "veste_cavalier"
+    "slug": "veste_cavalier",
+    "type": "gear_set"
   },
   {
     "nom": "Veste Ortiz Exuro",
@@ -509,11 +471,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "veste_ortiz_exuro"
+    "slug": "veste_ortiz_exuro",
+    "type": "gear_set"
   },
   {
     "nom": "Veste Aegis",
@@ -522,11 +483,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "veste_aegis"
+    "slug": "veste_aegis",
+    "type": "gear_set"
   },
   {
     "nom": "Veste Breaking Point",
@@ -535,11 +495,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "veste_breaking_point"
+    "slug": "veste_breaking_point",
+    "type": "gear_set"
   },
   {
     "nom": "Veste Virtuose",
@@ -548,11 +507,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "veste_virtuose"
+    "slug": "veste_virtuose",
+    "type": "gear_set"
   },
   {
     "nom": "Holster à faible friction de Young",
@@ -561,11 +519,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_a_faible_friction_de_young"
+    "slug": "holster_a_faible_friction_de_young",
+    "type": "gear_set"
   },
   {
     "nom": "Holster pour munitions spéciales",
@@ -574,11 +531,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_pour_munitions_speciales"
+    "slug": "holster_pour_munitions_speciales",
+    "type": "gear_set"
   },
   {
     "nom": "Harnais Ullswater",
@@ -587,11 +543,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "harnais_ullswater"
+    "slug": "harnais_ullswater",
+    "type": "gear_set"
   },
   {
     "nom": "Holster arme d'appoint Klavdiya",
@@ -600,11 +555,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_arme_d_appoint_klavdiya"
+    "slug": "holster_arme_d_appoint_klavdiya",
+    "type": "gear_set"
   },
   {
     "nom": "Points d'accroche de cuisse Bogey",
@@ -613,11 +567,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "points_d_accroche_de_cuisse_bogey"
+    "slug": "points_d_accroche_de_cuisse_bogey",
+    "type": "gear_set"
   },
   {
     "nom": "Système de holster Lilley",
@@ -626,11 +579,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "systeme_de_holster_lilley"
+    "slug": "systeme_de_holster_lilley",
+    "type": "gear_set"
   },
   {
     "nom": "Holster Striker",
@@ -639,11 +591,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_striker"
+    "slug": "holster_striker",
+    "type": "gear_set"
   },
   {
     "nom": "Holster moulé",
@@ -652,11 +603,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_moule"
+    "slug": "holster_moule",
+    "type": "gear_set"
   },
   {
     "nom": "Points d'accroche de cuisse PPE",
@@ -665,11 +615,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "points_d_accroche_de_cuisse_ppe"
+    "slug": "points_d_accroche_de_cuisse_ppe",
+    "type": "gear_set"
   },
   {
     "nom": "Ceinture à outils",
@@ -678,11 +627,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "ceinture_a_outils"
+    "slug": "ceinture_a_outils",
+    "type": "gear_set"
   },
   {
     "nom": "Holster Tush Tactics",
@@ -691,11 +639,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_tush_tactics"
+    "slug": "holster_tush_tactics",
+    "type": "gear_set"
   },
   {
     "nom": "Carquois du chasseur",
@@ -704,11 +651,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "carquois_du_chasseur"
+    "slug": "carquois_du_chasseur",
+    "type": "gear_set"
   },
   {
     "nom": "Pochette fonctionnelle Rigger",
@@ -717,11 +663,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "pochette_fonctionnelle_rigger"
+    "slug": "pochette_fonctionnelle_rigger",
+    "type": "gear_set"
   },
   {
     "nom": "Holster d'anticipation",
@@ -730,11 +675,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_d_anticipation"
+    "slug": "holster_d_anticipation",
+    "type": "gear_set"
   },
   {
     "nom": "Holster Initiative Umbra",
@@ -743,11 +687,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_initiative_umbra"
+    "slug": "holster_initiative_umbra",
+    "type": "gear_set"
   },
   {
     "nom": "Holster Hotshot",
@@ -756,11 +699,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_hotshot"
+    "slug": "holster_hotshot",
+    "type": "gear_set"
   },
   {
     "nom": "Holster Cavalier",
@@ -769,11 +711,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_cavalier"
+    "slug": "holster_cavalier",
+    "type": "gear_set"
   },
   {
     "nom": "Holster Ortiz Exuro",
@@ -782,11 +723,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_ortiz_exuro"
+    "slug": "holster_ortiz_exuro",
+    "type": "gear_set"
   },
   {
     "nom": "Holster Aegis",
@@ -795,11 +735,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_aegis"
+    "slug": "holster_aegis",
+    "type": "gear_set"
   },
   {
     "nom": "Holster Breaking Point",
@@ -808,11 +747,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_breaking_point"
+    "slug": "holster_breaking_point",
+    "type": "gear_set"
   },
   {
     "nom": "Holster Virtuose",
@@ -821,11 +759,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_virtuose"
+    "slug": "holster_virtuose",
+    "type": "gear_set"
   },
   {
     "nom": "Sac à dos de Driver",
@@ -834,11 +771,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_de_driver"
+    "slug": "sac_a_dos_de_driver",
+    "type": "gear_set"
   },
   {
     "nom": "Harnais pour paquetage",
@@ -847,11 +783,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "harnais_pour_paquetage"
+    "slug": "harnais_pour_paquetage",
+    "type": "gear_set"
   },
   {
     "nom": "Porte-dynamo Abberton",
@@ -860,11 +795,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "porte_dynamo_abberton"
+    "slug": "porte_dynamo_abberton",
+    "type": "gear_set"
   },
   {
     "nom": "Pack Ziba Low Profile",
@@ -873,11 +807,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "pack_ziba_low_profile"
+    "slug": "pack_ziba_low_profile",
+    "type": "gear_set"
   },
   {
     "nom": "Sac à dos Nibble",
@@ -886,11 +819,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_nibble"
+    "slug": "sac_a_dos_nibble",
+    "type": "gear_set"
   },
   {
     "nom": "Pack tactique Brad",
@@ -899,11 +831,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "pack_tactique_brad"
+    "slug": "pack_tactique_brad",
+    "type": "gear_set"
   },
   {
     "nom": "Sac à dos Striker",
@@ -912,11 +843,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_striker"
+    "slug": "sac_a_dos_striker",
+    "type": "gear_set"
   },
   {
     "nom": "Conteneur de surcharge",
@@ -925,11 +855,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "conteneur_de_surcharge"
+    "slug": "conteneur_de_surcharge",
+    "type": "gear_set"
   },
   {
     "nom": "Sac de confinement",
@@ -938,11 +867,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_de_confinement"
+    "slug": "sac_de_confinement",
+    "type": "gear_set"
   },
   {
     "nom": "Support de bouclier",
@@ -951,11 +879,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "support_de_bouclier"
+    "slug": "support_de_bouclier",
+    "type": "gear_set"
   },
   {
     "nom": "Sac de transport radio 2k-RTS",
@@ -964,11 +891,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_de_transport_radio_2k_rts"
+    "slug": "sac_de_transport_radio_2k_rts",
+    "type": "gear_set"
   },
   {
     "nom": "Kit du chasseur",
@@ -977,11 +903,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "kit_du_chasseur"
+    "slug": "kit_du_chasseur",
+    "type": "gear_set"
   },
   {
     "nom": "Sac d'équipement Rigger",
@@ -990,11 +915,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_d_equipement_rigger"
+    "slug": "sac_d_equipement_rigger",
+    "type": "gear_set"
   },
   {
     "nom": "Sac autoportant",
@@ -1003,11 +927,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_autoportant"
+    "slug": "sac_autoportant",
+    "type": "gear_set"
   },
   {
     "nom": "Sac à dos Initiative Umbra",
@@ -1016,11 +939,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_initiative_umbra"
+    "slug": "sac_a_dos_initiative_umbra",
+    "type": "gear_set"
   },
   {
     "nom": "Sac à dos Hotshot",
@@ -1029,11 +951,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_hotshot"
+    "slug": "sac_a_dos_hotshot",
+    "type": "gear_set"
   },
   {
     "nom": "Sac à dos Cavalier",
@@ -1042,11 +963,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_cavalier"
+    "slug": "sac_a_dos_cavalier",
+    "type": "gear_set"
   },
   {
     "nom": "Sac à dos Ortiz Exuro",
@@ -1055,11 +975,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_ortiz_exuro"
+    "slug": "sac_a_dos_ortiz_exuro",
+    "type": "gear_set"
   },
   {
     "nom": "Sac à dos Aegis",
@@ -1068,11 +987,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_aegis"
+    "slug": "sac_a_dos_aegis",
+    "type": "gear_set"
   },
   {
     "nom": "Sac à dos Breaking Point",
@@ -1081,11 +999,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_breaking_point"
+    "slug": "sac_a_dos_breaking_point",
+    "type": "gear_set"
   },
   {
     "nom": "Sac à dos Virtuose",
@@ -1094,11 +1011,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": true,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_virtuose"
+    "slug": "sac_a_dos_virtuose",
+    "type": "gear_set"
   },
   {
     "nom": "Protège-mains de Ross",
@@ -1107,11 +1023,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protege_mains_de_ross"
+    "slug": "protege_mains_de_ross",
+    "type": "gear_set"
   },
   {
     "nom": "Gants de combat rapproché",
@@ -1120,11 +1035,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_de_combat_rapproche"
+    "slug": "gants_de_combat_rapproche",
+    "type": "gear_set"
   },
   {
     "nom": "Gants ESD Molesey",
@@ -1133,11 +1047,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_esd_molesey"
+    "slug": "gants_esd_molesey",
+    "type": "gear_set"
   },
   {
     "nom": "Gants Roza Stable",
@@ -1146,11 +1059,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_roza_stable"
+    "slug": "gants_roza_stable",
+    "type": "gear_set"
   },
   {
     "nom": "Gants Mirror",
@@ -1159,11 +1071,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_mirror"
+    "slug": "gants_mirror",
+    "type": "gear_set"
   },
   {
     "nom": "Gants de combat Reyes",
@@ -1172,11 +1083,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_de_combat_reyes"
+    "slug": "gants_de_combat_reyes",
+    "type": "gear_set"
   },
   {
     "nom": "Gants Striker",
@@ -1185,11 +1095,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_striker"
+    "slug": "gants_striker",
+    "type": "gear_set"
   },
   {
     "nom": "Gants de contrôle Haptique",
@@ -1198,11 +1107,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_de_controle_haptique"
+    "slug": "gants_de_controle_haptique",
+    "type": "gear_set"
   },
   {
     "nom": "Gants tactiques de qualité médicale",
@@ -1211,11 +1119,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_tactiques_de_qualite_medicale"
+    "slug": "gants_tactiques_de_qualite_medicale",
+    "type": "gear_set"
   },
   {
     "nom": "Gants de creuset",
@@ -1224,11 +1131,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_de_creuset"
+    "slug": "gants_de_creuset",
+    "type": "gear_set"
   },
   {
     "nom": "Gants de contrôleur APM",
@@ -1237,11 +1143,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_de_controleur_apm"
+    "slug": "gants_de_controleur_apm",
+    "type": "gear_set"
   },
   {
     "nom": "Griffes du chasseur",
@@ -1250,11 +1155,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "griffes_du_chasseur"
+    "slug": "griffes_du_chasseur",
+    "type": "gear_set"
   },
   {
     "nom": "Gants antidérapants Rigger",
@@ -1263,11 +1167,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_antiderapants_rigger"
+    "slug": "gants_antiderapants_rigger",
+    "type": "gear_set"
   },
   {
     "nom": "Gants de dextérité",
@@ -1276,11 +1179,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_de_dexterite"
+    "slug": "gants_de_dexterite",
+    "type": "gear_set"
   },
   {
     "nom": "Gants Initiative Umbra",
@@ -1289,11 +1191,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_initiative_umbra"
+    "slug": "gants_initiative_umbra",
+    "type": "gear_set"
   },
   {
     "nom": "Gants Hotshot",
@@ -1302,11 +1203,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_hotshot"
+    "slug": "gants_hotshot",
+    "type": "gear_set"
   },
   {
     "nom": "Gants Cavalier",
@@ -1315,11 +1215,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_cavalier"
+    "slug": "gants_cavalier",
+    "type": "gear_set"
   },
   {
     "nom": "Gants Ortiz Exuro",
@@ -1328,11 +1227,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_ortiz_exuro"
+    "slug": "gants_ortiz_exuro",
+    "type": "gear_set"
   },
   {
     "nom": "Gants Aegis",
@@ -1341,11 +1239,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_aegis"
+    "slug": "gants_aegis",
+    "type": "gear_set"
   },
   {
     "nom": "Gants Breaking Point",
@@ -1354,11 +1251,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_breaking_point"
+    "slug": "gants_breaking_point",
+    "type": "gear_set"
   },
   {
     "nom": "Gants Virtuose",
@@ -1367,11 +1263,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_virtuose"
+    "slug": "gants_virtuose",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères de Sheridan",
@@ -1380,11 +1275,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_de_sheridan"
+    "slug": "genouilleres_de_sheridan",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères",
@@ -1393,11 +1287,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres"
+    "slug": "genouilleres",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères de stabilisation Strines",
@@ -1406,11 +1299,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_de_stabilisation_strines"
+    "slug": "genouilleres_de_stabilisation_strines",
+    "type": "gear_set"
   },
   {
     "nom": "Protections Nina Prone",
@@ -1419,11 +1311,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protections_nina_prone"
+    "slug": "protections_nina_prone",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères Lowball",
@@ -1432,11 +1323,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_lowball"
+    "slug": "genouilleres_lowball",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères Trombley",
@@ -1445,11 +1335,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_trombley"
+    "slug": "genouilleres_trombley",
+    "type": "gear_set"
   },
   {
     "nom": "Genoullières Striker",
@@ -1458,11 +1347,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genoullieres_striker"
+    "slug": "genoullieres_striker",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillière Zero-day",
@@ -1471,11 +1359,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilliere_zero_day"
+    "slug": "genouilliere_zero_day",
+    "type": "gear_set"
   },
   {
     "nom": "Protection de genoux anti-déchirure",
@@ -1484,11 +1371,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protection_de_genoux_anti_dechirure"
+    "slug": "protection_de_genoux_anti_dechirure",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères de forge",
@@ -1497,11 +1383,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_de_forge"
+    "slug": "genouilleres_de_forge",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères ajustées",
@@ -1510,11 +1395,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_ajustees"
+    "slug": "genouilleres_ajustees",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères du chasseur",
@@ -1523,11 +1407,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_du_chasseur"
+    "slug": "genouilleres_du_chasseur",
+    "type": "gear_set"
   },
   {
     "nom": "Protections antichocs Rigger",
@@ -1536,11 +1419,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protections_antichocs_rigger"
+    "slug": "protections_antichocs_rigger",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères d'agressivité",
@@ -1549,11 +1431,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_d_agressivite"
+    "slug": "genouilleres_d_agressivite",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères Initiative Umbra",
@@ -1562,11 +1443,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_initiative_umbra"
+    "slug": "genouilleres_initiative_umbra",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères Hotshot",
@@ -1575,11 +1455,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_hotshot"
+    "slug": "genouilleres_hotshot",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères Cavalier",
@@ -1588,11 +1467,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_cavalier"
+    "slug": "genouilleres_cavalier",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères Ortiz Exuro",
@@ -1601,11 +1479,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_ortiz_exuro"
+    "slug": "genouilleres_ortiz_exuro",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères Aegis",
@@ -1614,11 +1491,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_aegis"
+    "slug": "genouilleres_aegis",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillières Breaking Point",
@@ -1627,11 +1503,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouillieres_breaking_point"
+    "slug": "genouillieres_breaking_point",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères Virtuose",
@@ -1640,11 +1515,10 @@
     "attributEssentiel": [],
     "attribut1": "",
     "mod": false,
-    "source": "gear_set",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_virtuose"
+    "slug": "genouilleres_virtuose",
+    "type": "gear_set"
   },
   {
     "nom": "Genouillères d'agilité",
@@ -1655,12 +1529,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_d_agilite"
+    "slug": "genouilleres_d_agilite",
+    "type": "standard"
   },
   {
     "nom": "Genouillères de combat urbain",
@@ -1671,12 +1543,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_de_combat_urbain"
+    "slug": "genouilleres_de_combat_urbain",
+    "type": "standard"
   },
   {
     "nom": "Protections Dingson",
@@ -1687,12 +1557,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protections_dingson"
+    "slug": "protections_dingson",
+    "type": "standard"
   },
   {
     "nom": "Protections Tay",
@@ -1703,12 +1571,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protections_tay"
+    "slug": "protections_tay",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Patella",
@@ -1719,12 +1585,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_patella"
+    "slug": "genouilleres_patella",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Sidewinder",
@@ -1735,12 +1599,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_sidewinder"
+    "slug": "genouilleres_sidewinder",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Suneata",
@@ -1751,12 +1613,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_suneata"
+    "slug": "genouilleres_suneata",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Knäskydd",
@@ -1767,12 +1627,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_knaskydd"
+    "slug": "genouilleres_knaskydd",
+    "type": "standard"
   },
   {
     "nom": "HX 02",
@@ -1783,12 +1641,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "hx_02"
+    "slug": "hx_02",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Exo.K1",
@@ -1799,12 +1655,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_exo_k1"
+    "slug": "genouilleres_exo_k1",
+    "type": "standard"
   },
   {
     "nom": "Renforts d'articulation Hulian",
@@ -1815,12 +1669,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "renforts_d_articulation_hulian"
+    "slug": "renforts_d_articulation_hulian",
+    "type": "standard"
   },
   {
     "nom": "Protections de genoux",
@@ -1831,12 +1683,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protections_de_genoux"
+    "slug": "protections_de_genoux",
+    "type": "standard"
   },
   {
     "nom": "Protections Dionysus",
@@ -1847,12 +1697,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protections_dionysus"
+    "slug": "protections_dionysus",
+    "type": "standard"
   },
   {
     "nom": "Clutch XO-Skin Sport Pads",
@@ -1863,12 +1711,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "clutch_xo_skin_sport_pads"
+    "slug": "clutch_xo_skin_sport_pads",
+    "type": "standard"
   },
   {
     "nom": "Renforts de genoux Jonti",
@@ -1879,12 +1725,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "renforts_de_genoux_jonti"
+    "slug": "renforts_de_genoux_jonti",
+    "type": "standard"
   },
   {
     "nom": "Yukon Kneepads",
@@ -1895,12 +1739,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "yukon_kneepads"
+    "slug": "yukon_kneepads",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Sundown",
@@ -1911,12 +1753,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_sundown"
+    "slug": "genouilleres_sundown",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Nahar",
@@ -1927,12 +1767,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_nahar"
+    "slug": "genouilleres_nahar",
+    "type": "standard"
   },
   {
     "nom": "Genouillères de logistique",
@@ -1943,12 +1781,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_de_logistique"
+    "slug": "genouilleres_de_logistique",
+    "type": "standard"
   },
   {
     "nom": "Genouilllères Mesa",
@@ -1959,12 +1795,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouillleres_mesa"
+    "slug": "genouillleres_mesa",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Poleyn",
@@ -1975,12 +1809,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_poleyn"
+    "slug": "genouilleres_poleyn",
+    "type": "standard"
   },
   {
     "nom": "Protection passe-partout",
@@ -1991,12 +1823,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protection_passe_partout"
+    "slug": "protection_passe_partout",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Dosoftei",
@@ -2007,12 +1837,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_dosoftei"
+    "slug": "genouilleres_dosoftei",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Cerinola",
@@ -2023,12 +1851,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_cerinola"
+    "slug": "genouilleres_cerinola",
+    "type": "standard"
   },
   {
     "nom": "Genouillères HG",
@@ -2039,12 +1865,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_hg"
+    "slug": "genouilleres_hg",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Electrique",
@@ -2055,12 +1879,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_electrique"
+    "slug": "genouilleres_electrique",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Lengmo",
@@ -2071,12 +1893,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_lengmo"
+    "slug": "genouilleres_lengmo",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Steelworks",
@@ -2087,12 +1907,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_steelworks"
+    "slug": "genouilleres_steelworks",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Zwiadowka Sp. z o.o.",
@@ -2103,12 +1921,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_zwiadowka_sp_z_o_o"
+    "slug": "genouilleres_zwiadowka_sp_z_o_o",
+    "type": "standard"
   },
   {
     "nom": "Genouillères Legatus S.p.A.",
@@ -2119,12 +1935,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "genouilleres_legatus_s_p_a"
+    "slug": "genouilleres_legatus_s_p_a",
+    "type": "standard"
   },
   {
     "nom": "Holster modulaire",
@@ -2135,12 +1949,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_modulaire"
+    "slug": "holster_modulaire",
+    "type": "standard"
   },
   {
     "nom": "Système de holster Morar",
@@ -2151,12 +1963,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "systeme_de_holster_morar"
+    "slug": "systeme_de_holster_morar",
+    "type": "standard"
   },
   {
     "nom": "Holster de Jambe",
@@ -2167,12 +1977,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_de_jambe"
+    "slug": "holster_de_jambe",
+    "type": "standard"
   },
   {
     "nom": "Holster Didactyl",
@@ -2183,12 +1991,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_didactyl"
+    "slug": "holster_didactyl",
+    "type": "standard"
   },
   {
     "nom": "Brêlage de cuisse Jaivardhan",
@@ -2199,12 +2005,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "brelage_de_cuisse_jaivardhan"
+    "slug": "brelage_de_cuisse_jaivardhan",
+    "type": "standard"
   },
   {
     "nom": "Holster Jackrabbit",
@@ -2215,12 +2019,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_jackrabbit"
+    "slug": "holster_jackrabbit",
+    "type": "standard"
   },
   {
     "nom": "Holster de cuisse Haidate",
@@ -2231,12 +2033,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_de_cuisse_haidate"
+    "slug": "holster_de_cuisse_haidate",
+    "type": "standard"
   },
   {
     "nom": "Holster Fodral",
@@ -2247,12 +2047,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_fodral"
+    "slug": "holster_fodral",
+    "type": "standard"
   },
   {
     "nom": "Holster rapide Artemis",
@@ -2263,12 +2061,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_rapide_artemis"
+    "slug": "holster_rapide_artemis",
+    "type": "standard"
   },
   {
     "nom": "Holster Vertical Y",
@@ -2279,12 +2075,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_vertical_y"
+    "slug": "holster_vertical_y",
+    "type": "standard"
   },
   {
     "nom": "\"Graffham\" Thigh Combo",
@@ -2295,12 +2089,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "graffham_thigh_combo"
+    "slug": "graffham_thigh_combo",
+    "type": "standard"
   },
   {
     "nom": "Holster Compact LBE",
@@ -2311,12 +2103,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_compact_lbe"
+    "slug": "holster_compact_lbe",
+    "type": "standard"
   },
   {
     "nom": "Saccoche de jambe",
@@ -2327,12 +2117,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "saccoche_de_jambe"
+    "slug": "saccoche_de_jambe",
+    "type": "standard"
   },
   {
     "nom": "FK 918",
@@ -2343,12 +2131,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "fk_918"
+    "slug": "fk_918",
+    "type": "standard"
   },
   {
     "nom": "Holster Snoqualmie",
@@ -2359,12 +2145,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_snoqualmie"
+    "slug": "holster_snoqualmie",
+    "type": "standard"
   },
   {
     "nom": "Holster \"Huffle\"",
@@ -2375,12 +2159,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_huffle"
+    "slug": "holster_huffle",
+    "type": "standard"
   },
   {
     "nom": "Holster Duel",
@@ -2391,12 +2173,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_duel"
+    "slug": "holster_duel",
+    "type": "standard"
   },
   {
     "nom": "Holster Shomer",
@@ -2407,12 +2187,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_shomer"
+    "slug": "holster_shomer",
+    "type": "standard"
   },
   {
     "nom": "Holster de reconnaissance",
@@ -2423,12 +2201,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_de_reconnaissance"
+    "slug": "holster_de_reconnaissance",
+    "type": "standard"
   },
   {
     "nom": "Holster de portée tactique",
@@ -2439,12 +2215,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_de_portee_tactique"
+    "slug": "holster_de_portee_tactique",
+    "type": "standard"
   },
   {
     "nom": "Holster Fauld & Tasset",
@@ -2455,12 +2229,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_fauld_tasset"
+    "slug": "holster_fauld_tasset",
+    "type": "standard"
   },
   {
     "nom": "Étui robuste",
@@ -2471,12 +2243,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "etui_robuste"
+    "slug": "etui_robuste",
+    "type": "standard"
   },
   {
     "nom": "Fourreau Constantin",
@@ -2487,12 +2257,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "fourreau_constantin"
+    "slug": "fourreau_constantin",
+    "type": "standard"
   },
   {
     "nom": "Holster Guerra",
@@ -2503,12 +2271,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_guerra"
+    "slug": "holster_guerra",
+    "type": "standard"
   },
   {
     "nom": "Holster HG",
@@ -2519,12 +2285,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_hg"
+    "slug": "holster_hg",
+    "type": "standard"
   },
   {
     "nom": "Holster Electrique",
@@ -2535,12 +2299,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_electrique"
+    "slug": "holster_electrique",
+    "type": "standard"
   },
   {
     "nom": "Holster Langmo",
@@ -2551,12 +2313,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_langmo"
+    "slug": "holster_langmo",
+    "type": "standard"
   },
   {
     "nom": "Holster Steelworks",
@@ -2567,12 +2327,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_steelworks"
+    "slug": "holster_steelworks",
+    "type": "standard"
   },
   {
     "nom": "Holster Zwiadowka Sp. z o.o.",
@@ -2583,12 +2341,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "holster_zwiadowka_sp_z_o_o"
+    "slug": "holster_zwiadowka_sp_z_o_o",
+    "type": "standard"
   },
   {
     "nom": "Hoslter Legatus S.p.A.",
@@ -2599,12 +2355,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "hoslter_legatus_s_p_a"
+    "slug": "hoslter_legatus_s_p_a",
+    "type": "standard"
   },
   {
     "nom": "Gants tactiques d'assaut",
@@ -2615,12 +2369,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_tactiques_d_assaut"
+    "slug": "gants_tactiques_d_assaut",
+    "type": "standard"
   },
   {
     "nom": "Gants de protection Neptune",
@@ -2631,12 +2383,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_de_protection_neptune"
+    "slug": "gants_de_protection_neptune",
+    "type": "standard"
   },
   {
     "nom": "Gants Station Grip",
@@ -2647,12 +2397,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_station_grip"
+    "slug": "gants_station_grip",
+    "type": "standard"
   },
   {
     "nom": "Gants d'escalade",
@@ -2663,12 +2411,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_d_escalade"
+    "slug": "gants_d_escalade",
+    "type": "standard"
   },
   {
     "nom": "Gants Diamondback",
@@ -2679,12 +2425,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_diamondback"
+    "slug": "gants_diamondback",
+    "type": "standard"
   },
   {
     "nom": "Protection de mains Kote",
@@ -2695,12 +2439,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protection_de_mains_kote"
+    "slug": "protection_de_mains_kote",
+    "type": "standard"
   },
   {
     "nom": "Gants de précision Persephone",
@@ -2711,12 +2453,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_de_precision_persephone"
+    "slug": "gants_de_precision_persephone",
+    "type": "standard"
   },
   {
     "nom": "ST 520",
@@ -2727,12 +2467,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "st_520"
+    "slug": "st_520",
+    "type": "standard"
   },
   {
     "nom": "Gants Shasta",
@@ -2743,12 +2481,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_shasta"
+    "slug": "gants_shasta",
+    "type": "standard"
   },
   {
     "nom": "Gants de longue durée Meles",
@@ -2759,12 +2495,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_de_longue_duree_meles"
+    "slug": "gants_de_longue_duree_meles",
+    "type": "standard"
   },
   {
     "nom": "Gants à micro-plaques",
@@ -2775,12 +2509,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_a_micro_plaques"
+    "slug": "gants_a_micro_plaques",
+    "type": "standard"
   },
   {
     "nom": "Gants de combat",
@@ -2791,12 +2523,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_de_combat"
+    "slug": "gants_de_combat",
+    "type": "standard"
   },
   {
     "nom": "\"Digits\" Finger Stabilizer",
@@ -2807,12 +2537,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "digits_finger_stabilizer"
+    "slug": "digits_finger_stabilizer",
+    "type": "standard"
   },
   {
     "nom": "Gants Srivatsa",
@@ -2823,12 +2551,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_srivatsa"
+    "slug": "gants_srivatsa",
+    "type": "standard"
   },
   {
     "nom": "Gants Tassar",
@@ -2839,12 +2565,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_tassar"
+    "slug": "gants_tassar",
+    "type": "standard"
   },
   {
     "nom": "Protège-mains \"Lochy\"",
@@ -2855,12 +2579,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protege_mains_lochy"
+    "slug": "protege_mains_lochy",
+    "type": "standard"
   },
   {
     "nom": "Gants d'attaque Dusk",
@@ -2871,12 +2593,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_d_attaque_dusk"
+    "slug": "gants_d_attaque_dusk",
+    "type": "standard"
   },
   {
     "nom": "Gants plaqués",
@@ -2887,12 +2607,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_plaques"
+    "slug": "gants_plaques",
+    "type": "standard"
   },
   {
     "nom": "Gants Ayal",
@@ -2903,12 +2621,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_ayal"
+    "slug": "gants_ayal",
+    "type": "standard"
   },
   {
     "nom": "Gants de terrain Savanna",
@@ -2919,12 +2635,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_de_terrain_savanna"
+    "slug": "gants_de_terrain_savanna",
+    "type": "standard"
   },
   {
     "nom": "Ganst Vambrace",
@@ -2935,12 +2649,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "ganst_vambrace"
+    "slug": "ganst_vambrace",
+    "type": "standard"
   },
   {
     "nom": "Moufles en simili cuir",
@@ -2951,12 +2663,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "moufles_en_simili_cuir"
+    "slug": "moufles_en_simili_cuir",
+    "type": "standard"
   },
   {
     "nom": "Gants Theodora",
@@ -2967,12 +2677,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_theodora"
+    "slug": "gants_theodora",
+    "type": "standard"
   },
   {
     "nom": "Gants Caballeria",
@@ -2983,12 +2691,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_caballeria"
+    "slug": "gants_caballeria",
+    "type": "standard"
   },
   {
     "nom": "Gants HG",
@@ -2999,12 +2705,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_hg"
+    "slug": "gants_hg",
+    "type": "standard"
   },
   {
     "nom": "Gants Electrique",
@@ -3015,12 +2719,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_electrique"
+    "slug": "gants_electrique",
+    "type": "standard"
   },
   {
     "nom": "Gants Langmo",
@@ -3031,12 +2733,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_langmo"
+    "slug": "gants_langmo",
+    "type": "standard"
   },
   {
     "nom": "Gants Steelworks",
@@ -3047,12 +2747,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_steelworks"
+    "slug": "gants_steelworks",
+    "type": "standard"
   },
   {
     "nom": "Gants Zwiadowka Sp. z o.o.",
@@ -3063,12 +2761,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_zwiadowka_sp_z_o_o"
+    "slug": "gants_zwiadowka_sp_z_o_o",
+    "type": "standard"
   },
   {
     "nom": "Gants Legatus S.p.A.",
@@ -3079,12 +2775,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gants_legatus_s_p_a"
+    "slug": "gants_legatus_s_p_a",
+    "type": "standard"
   },
   {
     "nom": "Gilet balistique léger",
@@ -3095,12 +2789,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gilet_balistique_leger"
+    "slug": "gilet_balistique_leger",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Système de protection corporelle",
@@ -3111,12 +2804,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "systeme_de_protection_corporelle"
+    "slug": "systeme_de_protection_corporelle",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Protection corporelle Big Drum",
@@ -3127,12 +2819,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protection_corporelle_big_drum"
+    "slug": "protection_corporelle_big_drum",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Porte-plaques TacLite",
@@ -3143,12 +2834,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "porte_plaques_taclite"
+    "slug": "porte_plaques_taclite",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Brêlage de poitrine adapté",
@@ -3159,12 +2849,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "brelage_de_poitrine_adapte"
+    "slug": "brelage_de_poitrine_adapte",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Cage thoracique X-TREYME Pro",
@@ -3175,12 +2864,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "cage_thoracique_x_treyme_pro"
+    "slug": "cage_thoracique_x_treyme_pro",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Gilet Armadillo",
@@ -3191,12 +2879,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gilet_armadillo"
+    "slug": "gilet_armadillo",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Cuirasse Tatami",
@@ -3207,12 +2894,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "cuirasse_tatami"
+    "slug": "cuirasse_tatami",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Plaque de buste Förstärkt",
@@ -3223,12 +2909,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "plaque_de_buste_forstarkt"
+    "slug": "plaque_de_buste_forstarkt",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Gilet Ranier",
@@ -3239,12 +2924,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gilet_ranier"
+    "slug": "gilet_ranier",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Blindage ventral Keel",
@@ -3255,12 +2939,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "blindage_ventral_keel"
+    "slug": "blindage_ventral_keel",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Khetaka Thorax",
@@ -3271,12 +2954,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "khetaka_thorax"
+    "slug": "khetaka_thorax",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Veste Athena Missile",
@@ -3287,12 +2969,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "veste_athena_missile"
+    "slug": "veste_athena_missile",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "PS 282",
@@ -3303,12 +2984,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "ps_282"
+    "slug": "ps_282",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Strong Vest \"Bauson\"",
@@ -3319,12 +2999,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "strong_vest_bauson"
+    "slug": "strong_vest_bauson",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Système de poitrine \"Ericht\"",
@@ -3335,12 +3014,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "systeme_de_poitrine_ericht"
+    "slug": "systeme_de_poitrine_ericht",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Porte-plaque Umbra",
@@ -3351,12 +3029,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "porte_plaque_umbra"
+    "slug": "porte_plaque_umbra",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Gilet pare-éclats",
@@ -3367,12 +3044,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gilet_pare_eclats"
+    "slug": "gilet_pare_eclats",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Poitrine Chatzatz",
@@ -3383,12 +3059,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "poitrine_chatzatz"
+    "slug": "poitrine_chatzatz",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Gilet balistique",
@@ -3399,12 +3074,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "gilet_balistique"
+    "slug": "gilet_balistique",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Système de plastron Lancer",
@@ -3415,12 +3089,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "systeme_de_plastron_lancer"
+    "slug": "systeme_de_plastron_lancer",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Protecteur tendance",
@@ -3431,12 +3104,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protecteur_tendance"
+    "slug": "protecteur_tendance",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Protection Parascheva",
@@ -3447,12 +3119,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protection_parascheva"
+    "slug": "protection_parascheva",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Feugo Campea",
@@ -3463,12 +3134,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "feugo_campea"
+    "slug": "feugo_campea",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Veste HG",
@@ -3479,12 +3149,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "veste_hg"
+    "slug": "veste_hg",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Veste Electrique",
@@ -3495,12 +3164,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "veste_electrique"
+    "slug": "veste_electrique",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Veste Langmo Bomb",
@@ -3511,12 +3179,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "veste_langmo_bomb"
+    "slug": "veste_langmo_bomb",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Plastron Steelworks",
@@ -3527,12 +3194,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "plastron_steelworks"
+    "slug": "plastron_steelworks",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Plastron Zwiadowka Sp. z o.o.",
@@ -3543,12 +3209,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "plastron_zwiadowka_sp_z_o_o"
+    "slug": "plastron_zwiadowka_sp_z_o_o",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Veste Legatus S.p.A.",
@@ -3559,12 +3224,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "veste_legatus_s_p_a"
+    "slug": "veste_legatus_s_p_a",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos de police SW",
@@ -3575,12 +3239,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_de_police_sw"
+    "slug": "sac_a_dos_de_police_sw",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "AMP24",
@@ -3591,12 +3254,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "amp24"
+    "slug": "amp24",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac d'armes lourdes",
@@ -3607,12 +3269,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_d_armes_lourdes"
+    "slug": "sac_d_armes_lourdes",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac de survie Trapezius",
@@ -3623,12 +3284,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_de_survie_trapezius"
+    "slug": "sac_de_survie_trapezius",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac de rando en montagne",
@@ -3639,12 +3299,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_de_rando_en_montagne"
+    "slug": "sac_de_rando_en_montagne",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Transport ajusté Duban",
@@ -3655,12 +3314,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "transport_ajuste_duban"
+    "slug": "transport_ajuste_duban",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac Big Horn",
@@ -3671,12 +3329,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_big_horn"
+    "slug": "sac_big_horn",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos Sashimono",
@@ -3687,12 +3344,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_sashimono"
+    "slug": "sac_a_dos_sashimono",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac d'opérateur Apollo",
@@ -3703,12 +3359,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_d_operateur_apollo"
+    "slug": "sac_d_operateur_apollo",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac grande autonomie Sett",
@@ -3719,12 +3374,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_grande_autonomie_sett"
+    "slug": "sac_grande_autonomie_sett",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Pack de Sécurisation de point de ralliement",
@@ -3735,12 +3389,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "pack_de_securisation_de_point_de_ralliement"
+    "slug": "pack_de_securisation_de_point_de_ralliement",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Rail de Support \"Vert\"",
@@ -3751,12 +3404,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "rail_de_support_vert"
+    "slug": "rail_de_support_vert",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Stridssäck Combat Sack",
@@ -3767,12 +3419,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "stridssack_combat_sack"
+    "slug": "stridssack_combat_sack",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "KM 9",
@@ -3783,12 +3434,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "km_9"
+    "slug": "km_9",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos \"Maree\"",
@@ -3799,12 +3449,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_maree"
+    "slug": "sac_a_dos_maree",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac Crash",
@@ -3815,12 +3464,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_crash"
+    "slug": "sac_crash",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos de guérilla",
@@ -3831,12 +3479,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_de_guerilla"
+    "slug": "sac_a_dos_de_guerilla",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos Horizons",
@@ -3847,12 +3494,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_horizons"
+    "slug": "sac_a_dos_horizons",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos tactique Cavalry",
@@ -3863,12 +3509,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_tactique_cavalry"
+    "slug": "sac_a_dos_tactique_cavalry",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos stylé",
@@ -3879,12 +3524,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_style"
+    "slug": "sac_a_dos_style",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos Gavriil",
@@ -3895,12 +3539,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_gavriil"
+    "slug": "sac_a_dos_gavriil",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos Llave",
@@ -3911,12 +3554,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_llave"
+    "slug": "sac_a_dos_llave",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos HG",
@@ -3927,12 +3569,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_hg"
+    "slug": "sac_a_dos_hg",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos Electrique",
@@ -3943,12 +3584,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_electrique"
+    "slug": "sac_a_dos_electrique",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos Langmo",
@@ -3959,12 +3599,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_langmo"
+    "slug": "sac_a_dos_langmo",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos Steelworks",
@@ -3975,12 +3614,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_steelworks"
+    "slug": "sac_a_dos_steelworks",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos Zwiadowka Sp. z o.o.",
@@ -3991,12 +3629,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_zwiadowka_sp_z_o_o"
+    "slug": "sac_a_dos_zwiadowka_sp_z_o_o",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Sac à dos Legatus S.p.A.",
@@ -4007,12 +3644,11 @@
     "attributUnique": "",
     "talent": "TRUE",
     "mod": true,
-    "estNomme": true,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "sac_a_dos_legatus_s_p_a"
+    "slug": "sac_a_dos_legatus_s_p_a",
+    "type": "standard",
+    "estNomme": true
   },
   {
     "nom": "Masque de forces spéciales",
@@ -4023,12 +3659,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_forces_speciales"
+    "slug": "masque_de_forces_speciales",
+    "type": "standard"
   },
   {
     "nom": "Masque de protection de terrain",
@@ -4039,12 +3673,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_protection_de_terrain"
+    "slug": "masque_de_protection_de_terrain",
+    "type": "standard"
   },
   {
     "nom": "Respirateur moyen Lomond",
@@ -4055,12 +3687,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "respirateur_moyen_lomond"
+    "slug": "respirateur_moyen_lomond",
+    "type": "standard"
   },
   {
     "nom": "Respirateur Maxillam",
@@ -4071,12 +3701,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "respirateur_maxillam"
+    "slug": "respirateur_maxillam",
+    "type": "standard"
   },
   {
     "nom": "Respirateur lourd Svalinn",
@@ -4087,12 +3715,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "respirateur_lourd_svalinn"
+    "slug": "respirateur_lourd_svalinn",
+    "type": "standard"
   },
   {
     "nom": "Masque de Javelina",
@@ -4103,12 +3729,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_javelina"
+    "slug": "masque_de_javelina",
+    "type": "standard"
   },
   {
     "nom": "Protection faciale Mengu",
@@ -4119,12 +3743,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protection_faciale_mengu"
+    "slug": "protection_faciale_mengu",
+    "type": "standard"
   },
   {
     "nom": "MJ 54",
@@ -4135,12 +3757,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "mj_54"
+    "slug": "mj_54",
+    "type": "standard"
   },
   {
     "nom": "Masque Cascades",
@@ -4151,12 +3771,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_cascades"
+    "slug": "masque_cascades",
+    "type": "standard"
   },
   {
     "nom": "Masque de combat Cete",
@@ -4167,12 +3785,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_combat_cete"
+    "slug": "masque_de_combat_cete",
+    "type": "standard"
   },
   {
     "nom": "Masque de protection \"Deadstick\"",
@@ -4183,12 +3799,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_protection_deadstick"
+    "slug": "masque_de_protection_deadstick",
+    "type": "standard"
   },
   {
     "nom": "Protective Tactical Mask",
@@ -4199,12 +3813,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protective_tactical_mask"
+    "slug": "protective_tactical_mask",
+    "type": "standard"
   },
   {
     "nom": "Protège-visage Guardrail VI",
@@ -4215,12 +3827,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protege_visage_guardrail_vi"
+    "slug": "protege_visage_guardrail_vi",
+    "type": "standard"
   },
   {
     "nom": "Masque High Altitude O2",
@@ -4231,12 +3841,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_high_altitude_o2"
+    "slug": "masque_high_altitude_o2",
+    "type": "standard"
   },
   {
     "nom": "Masque de protection Luktskydd",
@@ -4247,12 +3855,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_protection_luktskydd"
+    "slug": "masque_de_protection_luktskydd",
+    "type": "standard"
   },
   {
     "nom": "Masque Aphrodite Glint",
@@ -4263,12 +3869,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_aphrodite_glint"
+    "slug": "masque_aphrodite_glint",
+    "type": "standard"
   },
   {
     "nom": "Masque Penumbra",
@@ -4279,12 +3883,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_penumbra"
+    "slug": "masque_penumbra",
+    "type": "standard"
   },
   {
     "nom": "Masque filtrant",
@@ -4295,12 +3897,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_filtrant"
+    "slug": "masque_filtrant",
+    "type": "standard"
   },
   {
     "nom": "Masque Emet",
@@ -4311,12 +3911,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_emet"
+    "slug": "masque_emet",
+    "type": "standard"
   },
   {
     "nom": "Masque de déploiement rapide",
@@ -4327,12 +3925,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_deploiement_rapide"
+    "slug": "masque_de_deploiement_rapide",
+    "type": "standard"
   },
   {
     "nom": "Masque de respiration facile",
@@ -4343,12 +3939,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_respiration_facile"
+    "slug": "masque_de_respiration_facile",
+    "type": "standard"
   },
   {
     "nom": "Protection Faciale Air Guard",
@@ -4359,12 +3953,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "protection_faciale_air_guard"
+    "slug": "protection_faciale_air_guard",
+    "type": "standard"
   },
   {
     "nom": "Respirateur \"New Face\"",
@@ -4375,12 +3967,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "respirateur_new_face"
+    "slug": "respirateur_new_face",
+    "type": "standard"
   },
   {
     "nom": "Filtre Ilarion",
@@ -4391,12 +3981,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "filtre_ilarion"
+    "slug": "filtre_ilarion",
+    "type": "standard"
   },
   {
     "nom": "Masque de Reyes",
@@ -4407,12 +3995,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_de_reyes"
+    "slug": "masque_de_reyes",
+    "type": "standard"
   },
   {
     "nom": "Masque HG",
@@ -4423,12 +4009,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_hg"
+    "slug": "masque_hg",
+    "type": "standard"
   },
   {
     "nom": "Masque Electrique",
@@ -4439,12 +4023,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_electrique"
+    "slug": "masque_electrique",
+    "type": "standard"
   },
   {
     "nom": "Masque Langmo",
@@ -4455,12 +4037,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_langmo"
+    "slug": "masque_langmo",
+    "type": "standard"
   },
   {
     "nom": "Masque Steelworks",
@@ -4471,12 +4051,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_steelworks"
+    "slug": "masque_steelworks",
+    "type": "standard"
   },
   {
     "nom": "Masque Zwiadowka Sp. z o.o.",
@@ -4487,12 +4065,10 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_zwiadowka_sp_z_o_o"
+    "slug": "masque_zwiadowka_sp_z_o_o",
+    "type": "standard"
   },
   {
     "nom": "Masque Legatus S.p.A.",
@@ -4503,251 +4079,209 @@
     "attributUnique": "",
     "talent": "",
     "mod": true,
-    "estNomme": false,
-    "source": "marque",
-    "estExotique": false,
     "obtention": "",
     "talents": [],
-    "slug": "masque_legatus_s_p_a"
+    "slug": "masque_legatus_s_p_a",
+    "type": "standard"
   },
   {
     "nom": "Holster du cow-boy de Dodge City",
-    "marque": "exotique",
     "emplacement": "holster",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'armes",
     "talents": [
       "gachette_facile"
     ],
-    "slug": "holster_du_cow_boy_de_dodge_city"
+    "slug": "holster_du_cow_boy_de_dodge_city",
+    "type": "exotique"
   },
   {
     "nom": "Gants Stratégiques BTSU",
-    "marque": "exotique",
     "emplacement": "gants",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Tier de compétence",
     "talents": [
       "optimisation_de_transfert"
     ],
-    "slug": "gants_strategiques_btsu"
+    "slug": "gants_strategiques_btsu",
+    "type": "exotique"
   },
   {
     "nom": "Genouillères de Sawyer",
-    "marque": "exotique",
     "emplacement": "genouilleres",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Protection",
     "talents": [
       "inflexibilite"
     ],
-    "slug": "genouilleres_de_sawyer"
+    "slug": "genouilleres_de_sawyer",
+    "type": "exotique"
   },
   {
     "nom": "Sac à dos de survie d'Acosta",
-    "marque": "exotique",
     "emplacement": "sac_a_dos",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Tier de compétence",
     "talents": [
       "un_tiens_vaut_mieux",
       "que_deux_tu_l_auras"
     ],
-    "slug": "sac_a_dos_de_survie_d_acosta"
+    "slug": "sac_a_dos_de_survie_d_acosta",
+    "type": "exotique"
   },
   {
     "nom": "Masque de Coyote",
-    "marque": "exotique",
     "emplacement": "masque",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'arme",
     "talents": [
       "instinct_de_meute"
     ],
-    "slug": "masque_de_coyote"
+    "slug": "masque_de_coyote",
+    "type": "exotique"
   },
   {
     "nom": "Système de protection Tardigrade",
-    "marque": "exotique",
     "emplacement": "torse",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Protection",
     "talents": [
       "nano_plaquage_ablatif"
     ],
-    "slug": "systeme_de_protection_tardigrade"
+    "slug": "systeme_de_protection_tardigrade",
+    "type": "exotique"
   },
   {
     "nom": "Dynastie Impériale",
-    "marque": "exotique",
     "emplacement": "holster",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Tier de compétence",
     "talents": [
       "eclat_du_dragon"
     ],
-    "slug": "dynastie_imperiale"
+    "slug": "dynastie_imperiale",
+    "type": "exotique"
   },
   {
     "nom": "Fourreau Centurion",
-    "marque": "exotique",
     "emplacement": "holster",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'armes",
     "talents": [
       "contre"
     ],
-    "slug": "fourreau_centurion"
+    "slug": "fourreau_centurion",
+    "type": "exotique"
   },
   {
     "nom": "Holster d'agilité",
-    "marque": "exotique",
     "emplacement": "holster",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'armes",
     "talents": [
       "esquive_reparatrice"
     ],
-    "slug": "holster_d_agilite"
+    "slug": "holster_d_agilite",
+    "type": "exotique"
   },
   {
     "nom": "Poing sanglant",
-    "marque": "exotique",
     "emplacement": "gants",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'arme",
     "talents": [
       "exuberant"
     ],
-    "slug": "poing_sanglant"
+    "slug": "poing_sanglant",
+    "type": "exotique"
   },
   {
     "nom": "Gants robustes",
-    "marque": "exotique",
     "emplacement": "gants",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'arme",
     "talents": [
       "poigne_de_fer"
     ],
-    "slug": "gants_robustes"
+    "slug": "gants_robustes",
+    "type": "exotique"
   },
   {
     "nom": "Gants Exodus",
-    "marque": "exotique",
     "emplacement": "gants",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'arme",
     "talents": [
       "ecran_de_fumee"
     ],
-    "slug": "gants_exodus"
+    "slug": "gants_exodus",
+    "type": "exotique"
   },
   {
     "nom": "Conquérants",
-    "marque": "exotique",
     "emplacement": "gants",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'arme",
     "talents": [
       "maillon_faible"
     ],
-    "slug": "conquerants"
+    "slug": "conquerants",
+    "type": "exotique"
   },
   {
     "nom": "Ninja Bike",
-    "marque": "exotique",
     "emplacement": "genouilleres",
     "attributEssentiel": [
       "offensif",
@@ -4758,36 +4292,30 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'armes",
     "talents": [
       "parkour"
     ],
-    "slug": "ninja_bike"
+    "slug": "ninja_bike",
+    "type": "exotique"
   },
   {
     "nom": "Blacklisters",
-    "marque": "exotique",
     "emplacement": "genouilleres",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'arme",
     "talents": [
       "ostracisation"
     ],
-    "slug": "blacklisters"
+    "slug": "blacklisters",
+    "type": "exotique"
   },
   {
     "nom": "Memento",
-    "marque": "exotique",
     "emplacement": "sac_a_dos",
     "attributEssentiel": [
       "offensif",
@@ -4798,211 +4326,176 @@
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'armes Protection Tier de compétence",
     "talents": [
       "elimination_confirmee"
     ],
-    "slug": "memento"
+    "slug": "memento",
+    "type": "exotique"
   },
   {
     "nom": "Sac Ninja Bike",
-    "marque": "exotique",
     "emplacement": "sac_a_dos",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'armes Protection Tier de compétence",
     "talents": [
       "debrouillardise"
     ],
-    "slug": "sac_ninja_bike"
+    "slug": "sac_ninja_bike",
+    "type": "exotique"
   },
   {
     "nom": "Pack de réparation d'urgence de Birdie",
-    "marque": "exotique",
     "emplacement": "sac_a_dos",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Tier de compétence",
     "talents": [
       "medecin_de_combat"
     ],
-    "slug": "pack_de_reparation_d_urgence_de_birdie"
+    "slug": "pack_de_reparation_d_urgence_de_birdie",
+    "type": "exotique"
   },
   {
     "nom": "Vilenie",
-    "marque": "exotique",
     "emplacement": "torse",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Tier de compétence",
     "talents": [
       "charge_toxique"
     ],
-    "slug": "vilenie"
+    "slug": "vilenie",
+    "type": "exotique"
   },
   {
     "nom": "Catharsis",
-    "marque": "exotique",
     "emplacement": "masque",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Protection",
     "talents": [
       "cercle_vicieux"
     ],
-    "slug": "catharsis"
+    "slug": "catharsis",
+    "type": "exotique"
   },
   {
     "nom": "Le Catalyseur",
-    "marque": "exotique",
     "emplacement": "masque",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'arme",
     "talents": [
       "agent_chimique"
     ],
-    "slug": "le_catalyseur"
+    "slug": "le_catalyseur",
+    "type": "exotique"
   },
   {
     "nom": "Bricoleur",
-    "marque": "exotique",
     "emplacement": "torse",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'arme",
     "talents": [
       "abrege"
     ],
-    "slug": "bricoleur"
+    "slug": "bricoleur",
+    "type": "exotique"
   },
   {
     "nom": "La fierté de Ridgeway",
-    "marque": "exotique",
     "emplacement": "torse",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'arme",
     "talents": [
       "avantage_sanglant"
     ],
-    "slug": "la_fierte_de_ridgeway"
+    "slug": "la_fierte_de_ridgeway",
+    "type": "exotique"
   },
   {
     "nom": "Collector",
-    "marque": "exotique",
     "emplacement": "sac_a_dos",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'arme",
     "talents": [
       "hoarder"
     ],
-    "slug": "collector"
+    "slug": "collector",
+    "type": "exotique"
   },
   {
     "nom": "Provocateur",
-    "marque": "exotique",
     "emplacement": "torse",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Protection",
     "talents": [
       "pretendant"
     ],
-    "slug": "provocateur"
+    "slug": "provocateur",
+    "type": "exotique"
   },
   {
     "nom": "Beacon",
-    "marque": "exotique",
     "emplacement": "torse",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Dégâts d'arme",
     "talents": [
       "lien"
     ],
-    "slug": "beacon"
+    "slug": "beacon",
+    "type": "exotique"
   },
   {
     "nom": "Genouillère d'Acosta",
-    "marque": "exotique",
     "emplacement": "genouilleres",
     "attributEssentiel": [],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
     "mod": false,
-    "estNomme": false,
-    "source": "exotic",
-    "estExotique": true,
     "obtention": "Protection",
     "talents": [
       "plan_de_fuite"
     ],
-    "slug": "genouillere_d_acosta"
+    "slug": "genouillere_d_acosta",
+    "type": "exotique"
   }
 ]

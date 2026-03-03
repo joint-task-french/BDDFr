@@ -148,6 +148,7 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
         <AttributePicker
           attributs={allAttributs}
           cible="arme"
+          essentiel={false}
           exclude={excluded}
           onSelect={(attr) => { onChangeAttribute(attr); setPickerOpen(false) }}
           onClose={() => setPickerOpen(false)}

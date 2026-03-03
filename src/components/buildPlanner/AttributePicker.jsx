@@ -12,16 +12,20 @@ const CAT_COLORS = {
  * @param {Array} attributs - Liste complète des attributs (data.attributs)
  * @param {string} cible - "arme" ou "equipement"
  * @param {string} [categorie] - Filtre optionnel : "offensif", "défensif", "utilitaire"
+ * @param {boolean} [essentiel] - Si true, affiche uniquement les attributs essentiels ; si false, uniquement les classiques
  * @param {string[]} [exclude] - Noms d'attributs déjà sélectionnés à exclure
  * @param {function} onSelect - Callback({nom, valeur, min, max, unite, categorie})
  * @param {function} onClose
  */
-export default function AttributePicker({ attributs, cible, categorie, exclude = [], onSelect, onClose }) {
+export default function AttributePicker({ attributs, cible, categorie, essentiel, exclude = [], onSelect, onClose }) {
   const [search, setSearch] = useState('')
 
   const filtered = useMemo(() => {
     if (!attributs) return []
     let list = attributs.filter(a => a.cible?.includes(cible))
+    // Séparer attributs essentiels et classiques
+    if (essentiel === true) list = list.filter(a => a.estEssentiel === true)
+    else if (essentiel === false) list = list.filter(a => !a.estEssentiel)
     if (categorie) list = list.filter(a => a.categorie === categorie)
     if (exclude.length > 0) {
       const excLow = exclude.map(n => n.toLowerCase())

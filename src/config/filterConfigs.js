@@ -109,7 +109,7 @@ export function getGearFilters(data) {
       key: 'attributEssentiel', type: 'select', label: 'Attribut essentiel',
       options: catAttrOptions,
     },
-    { key: 'estExotique', type: 'toggle', label: 'Exotique uniquement' },
+    { key: 'typeExotique', type: 'toggle', label: 'Exotique uniquement' },
     { key: 'estNomme', type: 'toggle', label: 'Nommé uniquement' },
   ]
 }
@@ -119,7 +119,7 @@ export function getGearDefaults() {
     emplacement: '',
     marque: '',
     attributEssentiel: '',
-    estExotique: false,
+    typeExotique: false,
     estNomme: false,
   }
 }
@@ -129,7 +129,7 @@ export function applyGearFilters(items, filters) {
     if (filters.emplacement && item.emplacement !== filters.emplacement) return false
     if (filters.marque && item.marque !== filters.marque) return false
     if (filters.attributEssentiel && !(Array.isArray(item.attributEssentiel) && item.attributEssentiel.includes(filters.attributEssentiel))) return false
-    if (filters.estExotique && !item.estExotique) return false
+    if (filters.typeExotique && item.type !== 'exotique') return false
     if (filters.estNomme && !item.estNomme) return false
     return true
   })

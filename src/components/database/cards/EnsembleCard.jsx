@@ -4,7 +4,7 @@ function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function EnsembleCard({ item }) {
+export default function EnsembleCard({ item, talentsEquipements }) {
   const isGearSet = item.type === 'gear_set'
   const nameColor = isGearSet ? 'text-emerald-400' : 'text-shd'
   const borderColor = isGearSet ? 'border-l-emerald-500' : 'border-l-shd/50'
@@ -74,18 +74,26 @@ export default function EnsembleCard({ item }) {
       {/* Talents torse/sac (gear sets uniquement) */}
       {(hasContent(item.talentTorse) || hasContent(item.talentSac)) && (
         <div className="px-4 py-2.5 border-t border-tactical-border/50 space-y-1.5">
-          {hasContent(item.talentTorse) && (
-            <div className="text-[11px] text-gray-400 leading-relaxed">
-              <span className="text-shd font-bold uppercase tracking-widest text-[10px]">Torse : </span>
-              {item.talentTorse}
-            </div>
-          )}
-          {hasContent(item.talentSac) && (
-            <div className="text-[11px] text-gray-400 leading-relaxed">
-              <span className="text-shd font-bold uppercase tracking-widest text-[10px]">Sac : </span>
-              {item.talentSac}
-            </div>
-          )}
+          {hasContent(item.talentTorse) && (() => {
+            const talent = talentsEquipements?.find(t => t.slug === item.talentTorse)
+            return (
+              <div className="text-[11px] text-gray-400 leading-relaxed">
+                <span className="text-shd font-bold uppercase tracking-widest text-[10px]">Torse : </span>
+                <span className="text-shd/80 font-semibold">{talent?.nom || item.talentTorse}</span>
+                {talent?.description && <> — {talent.description}</>}
+              </div>
+            )
+          })()}
+          {hasContent(item.talentSac) && (() => {
+            const talent = talentsEquipements?.find(t => t.slug === item.talentSac)
+            return (
+              <div className="text-[11px] text-gray-400 leading-relaxed">
+                <span className="text-shd font-bold uppercase tracking-widest text-[10px]">Sac : </span>
+                <span className="text-shd/80 font-semibold">{talent?.nom || item.talentSac}</span>
+                {talent?.description && <> — {talent.description}</>}
+              </div>
+            )
+          })()}
         </div>
       )}
     </div>

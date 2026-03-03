@@ -32,7 +32,8 @@ function resolveTalents(item, talentsArmes) {
 export default function WeaponCard({ item, talentsArmes, allAttributs }) {
   const isExotic = item.estExotique
   const isNamed = item.estNomme && !isExotic
-  const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : 'text-shd'
+  const isSpecific = item.type === 'arme_specifique'
+  const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isSpecific ? 'text-purple-400' : 'text-shd'
   const typeIcon = WEAPON_TYPE_ICONS[item.type]
   const attrIcon = resolveAttributeIcon(item.attributEssentiel)
 
@@ -45,8 +46,9 @@ export default function WeaponCard({ item, talentsArmes, allAttributs }) {
         <div className="flex items-center gap-2">
           {isExotic && <span className="text-[9px] font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
           {isNamed && <span className="text-[9px] font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
+          {isSpecific && <span className="text-[9px] font-bold text-purple-400 bg-purple-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Arme spécifique</span>}
         </div>
-        <div className={`font-bold text-base uppercase tracking-wide ${isExotic || isNamed ? 'mt-1' : ''} ${nameColor} flex items-center gap-2`}>
+        <div className={`font-bold text-base uppercase tracking-wide ${(isExotic || isNamed || isSpecific) ? 'mt-1' : ''} ${nameColor} flex items-center gap-2`}>
           {isExotic && <span className="mr-0.5">★</span>}
           {item.nom}
         </div>
@@ -55,6 +57,12 @@ export default function WeaponCard({ item, talentsArmes, allAttributs }) {
           <span>{WEAPON_TYPE_LABELS[item.type] || item.type}</span>
           <span>·</span>
           <span>{item.fabricant}</span>
+          {isSpecific && item.specialisation && (
+            <>
+              <span>·</span>
+              <span className="text-purple-400">🎖️ {item.specialisation}</span>
+            </>
+          )}
         </div>
       </div>
 

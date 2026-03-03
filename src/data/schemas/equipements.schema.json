@@ -87,19 +87,17 @@
         "description": "True si l'équipement accepte un mod"
       },
       "estNomme": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "True si l'équipement est un nommé"
       },
-      "estExotique": {
-        "type": "boolean"
-      },
-      "source": {
+      "type": {
         "type": "string",
         "enum": [
+          "standard",
           "gear_set",
-          "marque",
-          "exotic"
+          "exotique"
         ],
-        "description": "Provenance de la pièce"
+        "description": "Type de l'équipement : standard, gear_set ou exotique"
       },
       "obtention": {
         "type": "string",

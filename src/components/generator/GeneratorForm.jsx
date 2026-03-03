@@ -40,7 +40,7 @@ function FieldRenderer({ field, value, onChange, onSelect, suggestions }) {
     case 'objectArray': return <ObjectArrayInput field={field} value={value} onChange={onChange} suggestions={suggestions} />
     case 'checkboxMap': return <CheckboxMapInput field={field} value={value} onChange={onChange} />
     case 'radioGroup': return <RadioGroupInput field={field} value={value} onChange={onChange} />
-    case 'tagSelect': return <TagSelectInput field={field} value={value} onChange={onChange} />
+    case 'tagSelect': return <TagSelectInput field={field} value={value} onChange={onChange} suggestions={suggestions} />
     case 'autocomplete': return <AutocompleteInput field={field} value={value} onChange={onChange} onSelect={onSelect} suggestions={suggestions} />
     case 'autocomplete_array': return <AutocompleteArrayInput field={field} value={value} onChange={onChange} suggestions={suggestions} />
     default: return null
@@ -144,9 +144,18 @@ function RadioGroupInput({ field, value, onChange }) {
 }
 
 /** Tags cliquables — multi-select (array) ou single-select (string) */
-function TagSelectInput({ field, value, onChange }) {
+function TagSelectInput({ field, value, onChange, suggestions }) {
   const isSingle = field.singleSelect
   const selected = isSingle ? (value ? [value] : []) : (Array.isArray(value) ? value : [])
+
+  // Resolve options: static from field.options, or dynamic from suggestions
+  const options = useMemo(() => {
+    if (field.dynamicOptions && suggestions?.[field.dynamicOptions]) {
+      const raw = suggestions[field.dynamicOptions]
+      return raw.map(s => typeof s === 'string' ? { value: s, label: s, color: 'yellow' } : { ...s, color: s.color || 'yellow' })
+    }
+    return field.options || []
+  }, [field, suggestions])
 
   const toggle = (v) => {
     if (isSingle) {
@@ -170,7 +179,7 @@ function TagSelectInput({ field, value, onChange }) {
     <div>
       <FieldLabel field={field} />
       <div className="flex flex-wrap gap-2">
-        {field.options.map(opt => {
+        {options.map(opt => {
           const active = selected.includes(opt.value)
           const cs = colorStyles[opt.color] || colorStyles.yellow
           return (
@@ -200,11 +209,18 @@ function AutocompleteInput({ field, value, onChange, onSelect, suggestions }) {
     [rawList]
   )
 
+  // Résoudre la valeur affichée : si la valeur est un slug, afficher le label correspondant
+  const displayValue = useMemo(() => {
+    if (!value) return ''
+    const match = list.find(s => s.value === value)
+    return match ? match.label : value
+  }, [value, list])
+
   const filtered = useMemo(() => {
-    const q = (query || value || '').toLowerCase()
+    const q = (query || displayValue || '').toLowerCase()
     if (!q) return list.slice(0, 20)
     return list.filter(s => s.label.toLowerCase().includes(q) || s.value.toLowerCase().includes(q)).slice(0, 20)
-  }, [list, query, value])
+  }, [list, query, displayValue])
 
   useEffect(() => {
     const handleClick = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false) }
@@ -223,9 +239,9 @@ function AutocompleteInput({ field, value, onChange, onSelect, suggestions }) {
   return (
     <div ref={ref} className="relative">
       <FieldLabel field={field} />
-      <input type="text" value={value || ''} placeholder={field.placeholder || 'Rechercher...'}
+      <input type="text" value={query || (open ? '' : displayValue)} placeholder={field.placeholder || 'Rechercher...'}
         onChange={e => { onChange(e.target.value); setQuery(e.target.value); setOpen(true) }}
-        onFocus={() => setOpen(true)}
+        onFocus={() => { setQuery(displayValue); setOpen(true) }}
         className={inputClass} />
       {open && filtered.length > 0 && (
         <div className="absolute z-40 left-0 right-0 mt-1 bg-tactical-panel border border-tactical-border rounded shadow-lg max-h-48 overflow-y-auto">

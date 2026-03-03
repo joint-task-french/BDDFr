@@ -173,7 +173,7 @@ export function BuildProvider({ children, classSpe }) {
 
   // Contraintes exotiques — armes classiques + arme de poing
   const hasExoticWeapon = state.weapons.some(w => w?.estExotique) || state.sidearm?.estExotique
-  const hasExoticGear = Object.values(state.gear).some(g => g?.estExotique)
+  const hasExoticGear = Object.values(state.gear).some(g => g?.type === 'exotique')
 
   // Compétences déjà utilisées (par type)
   const usedSkillTypes = state.skills.filter(Boolean).map(s => s.competence)
@@ -190,7 +190,7 @@ export function BuildProvider({ children, classSpe }) {
 
   const canEquipExoticGear = useCallback((slot) => {
     if (!hasExoticGear) return true
-    return state.gear[slot]?.estExotique === true
+    return state.gear[slot]?.type === 'exotique'
   }, [hasExoticGear, state.gear])
 
   const canEquipSkill = useCallback((skill, slot) => {

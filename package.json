@@ -4,13 +4,18 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+
     "sync-data": "node scripts/sync-data.mjs",
-    "predev": "npm run sync-data",
+    "generate-statics": "node scripts/generate-static-pages.mjs",
+    "validate": "node scripts/validate-schemas.mjs",
+
     "dev": "vite",
     "prebuild": "npm run sync-data",
-    "build": "vite build",
-    "preview": "vite preview",
-    "validate": "node scripts/validate-schemas.mjs"
+    "predev": "npm run sync-data",
+
+    "build": "vite build && npm run generate-statics",
+    "preview": "vite preview"
+
   },
   "dependencies": {
     "jszip": "^3.10.1",

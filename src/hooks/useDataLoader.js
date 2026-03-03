@@ -6,6 +6,7 @@ const BASE = import.meta.env.BASE_URL
 const DATA_FILES = {
   armes: 'armes.jsonc',
   equipements: 'equipements.jsonc',
+  attributs: 'attributs.jsonc',
   talentsArmes: 'talents-armes.jsonc',
   talentsEquipements: 'talents-equipements.jsonc',
   ensembles: 'ensembles.jsonc',

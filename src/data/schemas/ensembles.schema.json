@@ -5,12 +5,21 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["nom", "type"],
+    "required": [
+      "nom",
+      "type",
+      "slug"
+    ],
     "properties": {
-      "nom": { "type": "string" },
+      "nom": {
+        "type": "string"
+      },
       "type": {
         "type": "string",
-        "enum": ["gear_set", "marque"],
+        "enum": [
+          "gear_set",
+          "marque"
+        ],
         "description": "Type d'ensemble"
       },
       "logo": {
@@ -19,16 +28,37 @@
       },
       "attributsEssentiels": {
         "type": "array",
-        "items": { "type": "string" },
+        "items": {
+          "type": "string"
+        },
         "description": "Attribut(s) essentiel(s) par défaut de l'ensemble (ex: ['Protection', 'Dégâts d\\'arme'])"
       },
-      "bonus1piece": { "type": "string" },
-      "bonus2pieces": { "type": "string" },
-      "bonus3pieces": { "type": "string" },
-      "bonus4pieces": { "type": "string", "description": "Talent de set à 4 pièces (gear sets uniquement)" },
-      "talentTorse": { "type": "string", "description": "Talent spécifique au torse du set (gear sets uniquement)" },
-      "talentSac": { "type": "string", "description": "Talent spécifique au sac à dos du set (gear sets uniquement)" }
+      "bonus1piece": {
+        "type": "string"
+      },
+      "bonus2pieces": {
+        "type": "string"
+      },
+      "bonus3pieces": {
+        "type": "string"
+      },
+      "bonus4pieces": {
+        "type": "string",
+        "description": "Talent de set à 4 pièces (gear sets uniquement)"
+      },
+      "talentTorse": {
+        "type": "string",
+        "description": "Talent spécifique au torse du set (gear sets uniquement)"
+      },
+      "talentSac": {
+        "type": "string",
+        "description": "Talent spécifique au sac à dos du set (gear sets uniquement)"
+      },
+      "slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
+      }
     }
   }
 }
-

@@ -18,37 +18,51 @@ export const CLASSIC_WEAPON_TYPES = [
   'pistolet_mitrailleur', 'fusil_mitrailleur', 'calibre_12'
 ]
 
-// Spécialisations et leurs armes spécifiques
-export const SPECIALISATIONS = {
-  demolisseur:    { label: 'Démolisseur',     arme: 'LANCE-GRENADES MULTIPLE M32A1', icon: '💥' },
-  survivaliste:   { label: 'Survivaliste',    arme: 'CARREAUX',                      icon: '🏹' },
-  tireur_elite:   { label: "Tireur d'élite",  arme: 'FUSIL TAC-50',                  icon: '🎯' },
-  artilleur:      { label: 'Artilleur',       arme: 'MINIGUN',                       icon: '⚙️' },
-  technicien:     { label: 'Technicien',      arme: 'LANCEUR P-017',                 icon: '🔧' },
-  incendiaire:    { label: 'Incendiaire',     arme: 'LANCE-FLAMMES K8-JETSTREAM',    icon: '🔥' },
+// Spécialisations — construites depuis class-spe.jsonc au runtime
+// Utiliser buildSpecialisations(data.classSpe) pour obtenir le mapping
+export function buildSpecialisations(classSpeData) {
+  if (!classSpeData || !Array.isArray(classSpeData)) return {}
+  const map = {}
+  for (const spec of classSpeData) {
+    map[spec.cle] = { label: spec.nom, arme: spec.arme?.nom || '', icon: spec.icone || '🎖️' }
+  }
+  return map
 }
 
-// Mapping arme spécifique → clé spécialisation
-export function getSpecFromWeapon(weaponName) {
+// Cache global mis à jour au premier chargement
+let _speCache = null
+export function getSpecialisations(classSpeData) {
+  if (classSpeData) _speCache = buildSpecialisations(classSpeData)
+  return _speCache || {}
+}
+
+// Mapping arme spécifique → clé spécialisation (utilise les données)
+export function getSpecFromWeapon(weaponName, classSpeData) {
   if (!weaponName) return null
   const name = weaponName.toUpperCase()
-  for (const [key, spec] of Object.entries(SPECIALISATIONS)) {
-    if (name.includes(spec.arme) || spec.arme.includes(name)) return key
+  const specs = classSpeData ? buildSpecialisations(classSpeData) : (_speCache || {})
+  for (const [key, spec] of Object.entries(specs)) {
+    if (name.includes(spec.arme.toUpperCase()) || spec.arme.toUpperCase().includes(name)) return key
   }
   return null
 }
 
 // Mapping variante de compétence → spécialisation requise
-// Les variantes contenant "(spécialisation xxx)" nécessitent cette spé
+// Préférer skill.prerequis directement depuis les données
 export function getSkillRequiredSpec(variante) {
   if (!variante) return null
   const v = variante.toLowerCase()
-  if (v.includes('artilleur'))       return 'artilleur'
-  if (v.includes('démolisseur') || v.includes('demolisseur')) return 'demolisseur'
-  if (v.includes('technicien') || v.includes('tacticien'))    return 'technicien'
-  if (v.includes('survivaliste'))    return 'survivaliste'
-  if (v.includes("tireur d'élite") || v.includes("tireur d'elite")) return 'tireur_elite'
-  if (v.includes('incendiaire'))     return 'incendiaire'
+  const mapping = {
+    'artilleur': 'artilleur',
+    'démolisseur': 'demolisseur', 'demolisseur': 'demolisseur',
+    'technicien': 'technicien', 'tacticien': 'technicien',
+    'survivaliste': 'survivaliste',
+    "tireur d'élite": 'tireur_elite', "tireur d'elite": 'tireur_elite',
+    'incendiaire': 'incendiaire',
+  }
+  for (const [keyword, key] of Object.entries(mapping)) {
+    if (v.includes(keyword)) return key
+  }
   return null
 }
 

@@ -35,7 +35,7 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
 
   const isExotic = piece?.estExotique
   const classicCount = getClassicSlotCount(piece)
-  const hasMod = piece?.mod === 'oui'
+  const hasMod = piece?.mod === true
 
   // Attributs essentiels de la pièce
   const essentialCategories = useMemo(() => {

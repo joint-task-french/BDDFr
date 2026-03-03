@@ -4,17 +4,43 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["nom"],
+    "required": [
+      "nom",
+      "slug"
+    ],
     "properties": {
-      "nom": { "type": "string", "description": "Nom de la modification" },
+      "nom": {
+        "type": "string",
+        "description": "Nom de la modification"
+      },
       "type": {
         "type": "string",
-        "enum": ["chargeur", "canon", "viseur", "accessoire", "autre"],
+        "enum": [
+          "chargeur",
+          "canon",
+          "viseur",
+          "accessoire",
+          "autre"
+        ],
         "description": "Type de modification"
       },
-      "bonus": { "type": "string", "description": "Bonus apporté" },
-      "malus": { "type": "string", "description": "Malus apporté" }
+      "bonus": {
+        "type": "string",
+        "description": "Bonus apporté"
+      },
+      "malus": {
+        "type": "string",
+        "description": "Malus apporté"
+      },
+      "estExotique": {
+        "type": "boolean",
+        "description": "True si mod exotique (lié à une arme exotique, non modifiable)"
+      },
+      "slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
+      }
     }
   }
 }
-

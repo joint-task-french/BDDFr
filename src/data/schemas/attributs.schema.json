@@ -5,12 +5,24 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["nom", "categorie", "cible"],
+    "required": [
+      "nom",
+      "categorie",
+      "cible",
+      "slug"
+    ],
     "properties": {
-      "nom": { "type": "string", "description": "Nom de l'attribut tel qu'affiché en jeu" },
+      "nom": {
+        "type": "string",
+        "description": "Nom de l'attribut tel qu'affiché en jeu"
+      },
       "categorie": {
         "type": "string",
-        "enum": ["offensif", "défensif", "utilitaire"],
+        "enum": [
+          "offensif",
+          "défensif",
+          "utilitaire"
+        ],
         "description": "Catégorie de l'attribut"
       },
       "cible": {
@@ -18,15 +30,34 @@
         "description": "Sur quel type d'objet cet attribut peut apparaître",
         "items": {
           "type": "string",
-          "enum": ["arme", "equipement"]
+          "enum": [
+            "arme",
+            "equipement"
+          ]
         },
         "minItems": 1
       },
-      "unite": { "type": "string", "description": "Unité d'affichage (%, pts, etc.)" },
-      "min": { "type": "number", "description": "Valeur minimum classique de l'attribut" },
-      "max": { "type": "number", "description": "Valeur maximum classique de l'attribut" },
-      "description": { "type": "string", "description": "Description courte de ce que fait l'attribut" }
+      "unite": {
+        "type": "string",
+        "description": "Unité d'affichage (%, pts, etc.)"
+      },
+      "min": {
+        "type": "number",
+        "description": "Valeur minimum classique de l'attribut"
+      },
+      "max": {
+        "type": "number",
+        "description": "Valeur maximum classique de l'attribut"
+      },
+      "description": {
+        "type": "string",
+        "description": "Description courte de ce que fait l'attribut"
+      },
+      "slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
+      }
     }
   }
 }
-

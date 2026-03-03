@@ -13,6 +13,10 @@
             "url": "./src/data/schemas/equipements.schema.json"
         },
         {
+            "fileMatch": ["/src/data/class-spe.jsonc"],
+            "url": "./src/data/schemas/class-spe.schema.json"
+        },
+        {
             "fileMatch": ["/src/data/talents-armes.jsonc"],
             "url": "./src/data/schemas/talents-armes.schema.json"
         },

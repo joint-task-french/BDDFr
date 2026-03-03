@@ -1,6 +1,5 @@
 import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
-import { SPECIALISATIONS } from '../../utils/formatters'
 
 /**
  * Normalise un nom de compétence pour la comparaison (sans accents, en majuscules).
@@ -10,17 +9,27 @@ function normalize(s) {
 }
 
 /**
- * Trouve le(s) mod(s) de compétence compatible(s) depuis mods-competences.jsonc.
- * Le champ `competence` dans les mods peut être "TOURELLE" ou "TOURELLE(DÉMOLISSEUR)".
- * On match d'abord la variante avec spécialisation, sinon la compétence de base.
+ * Trouve le(s) mod(s) de compétence compatible(s).
+ * Utilise les emplacementsMods directement depuis les données enrichies de la compétence.
+ * Filtre par spécialisation si nécessaire.
  */
-function findCompatibleMods(skill, modsCompetences, specialisation) {
-  if (!skill || !modsCompetences) return []
+function findCompatibleMods(skill, modsCompetences, specialisation, speMap) {
+  if (!skill) return []
+
+  // Utiliser emplacementsMods du skill (enrichi par flattenCompetences)
+  if (skill.emplacementsMods && skill.emplacementsMods.length > 0) {
+    // Filtrer : emplacements sans prerequis OU dont le prerequis match la spé active
+    return skill.emplacementsMods.filter(em =>
+      !em.prerequis || em.prerequis === specialisation
+    )
+  }
+
+  // Fallback : chercher dans modsCompetences (ancienne logique)
+  if (!modsCompetences) return []
   const compNorm = normalize(skill.competence)
 
-  // Chercher d'abord un mod spécifique à la spécialisation active
   if (specialisation) {
-    const specLabel = SPECIALISATIONS[specialisation]?.label || ''
+    const specLabel = speMap?.[specialisation]?.label || ''
     const specNorm = normalize(specLabel)
     const specMod = modsCompetences.find(m => {
       const mNorm = normalize(m.competence)
@@ -29,19 +38,17 @@ function findCompatibleMods(skill, modsCompetences, specialisation) {
     if (specMod) return [specMod]
   }
 
-  // Sinon, chercher le mod de base (sans parenthèse de spé)
   const baseMods = modsCompetences.filter(m => {
     const mNorm = normalize(m.competence)
     return mNorm === compNorm || (mNorm.startsWith(compNorm) && !mNorm.includes('('))
   })
   if (baseMods.length > 0) return baseMods
 
-  // Fallback: tout mod qui contient le nom de la compétence
   return modsCompetences.filter(m => normalize(m.competence).includes(compNorm))
 }
 
 export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences, modsEquipements, onSelect }) {
-  const { dispatch, skillNeedsSpec, specialisation } = useBuild()
+  const { dispatch, skillNeedsSpec, specialisation, SPECIALISATIONS } = useBuild()
   const [modPickerOpen, setModPickerOpen] = useState(false)
 
   const remove = (e) => {
@@ -50,12 +57,12 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
   }
 
   const missingSpec = skill ? skillNeedsSpec(skill) : null
-  const specLabel = missingSpec ? SPECIALISATIONS[missingSpec]?.label : null
+  const specLabel = missingSpec ? SPECIALISATIONS?.[missingSpec]?.label : null
 
   // Mods compatibles avec cette compétence
   const compatibleMods = useMemo(
-    () => findCompatibleMods(skill, modsCompetences, specialisation),
-    [skill, modsCompetences, specialisation]
+    () => findCompatibleMods(skill, modsCompetences, specialisation, SPECIALISATIONS),
+    [skill, modsCompetences, specialisation, SPECIALISATIONS]
   )
 
   const modInfo = compatibleMods.length > 0 ? compatibleMods[0] : null

@@ -22,10 +22,9 @@ function resolveTalents(item, talentsArmes) {
   }
 
   return item.talents.filter(t => hasContent(t)).map(slug => {
-    // Chercher par nom exact (insensible à la casse)
-    const found = talentsArmes.find(ta =>
-      ta.nom.toLowerCase() === slug.toLowerCase()
-    )
+    // Chercher par slug d'abord, puis par nom (rétrocompatibilité)
+    const found = talentsArmes.find(ta => ta.slug === slug) ||
+                  talentsArmes.find(ta => ta.nom.toLowerCase() === slug.toLowerCase())
     return found || slug // retourne l'objet talent ou le texte brut
   })
 }

@@ -22,9 +22,8 @@ function resolveTalents(item, talentsEquipements) {
     return item.talents.filter(t => hasContent(t))
   }
   return item.talents.filter(t => hasContent(t)).map(slug => {
-    const found = talentsEquipements.find(te =>
-      te.nom.toLowerCase() === slug.toLowerCase()
-    )
+    const found = talentsEquipements.find(te => te.slug === slug) ||
+                  talentsEquipements.find(te => te.nom.toLowerCase() === slug.toLowerCase())
     return found || slug
   })
 }
@@ -41,12 +40,12 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
   const attrsEssentiels = useMemo(() => {
     if (Array.isArray(item.attributEssentiel) && item.attributEssentiel.length > 0) return item.attributEssentiel
     if (!ensembles || !item.marque) return []
-    const ensemble = ensembles.find(e => e.nom.toLowerCase() === item.marque.toLowerCase())
+    const ensemble = ensembles.find(e => e.slug === item.marque || e.nom.toLowerCase() === item.marque.toLowerCase())
     return ensemble?.attributsEssentiels || []
   }, [item, ensembles])
 
   const BASE = import.meta.env.BASE_URL
-  const ensemble = ensembles?.find(e => e.nom.toLowerCase() === (item.marque || '').toLowerCase())
+  const ensemble = ensembles?.find(e => e.slug === (item.marque || '') || e.nom.toLowerCase() === (item.marque || '').toLowerCase())
 
   // Résoudre le talent gear set pour torse/sac depuis l'ensemble
   const gearSetTalent = useMemo(() => {
@@ -80,7 +79,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
               onError={(e) => { e.target.style.display = 'none' }}
             />
           )}
-          <span>{item.marque}</span>
+          <span>{ensemble?.nom || item.marque}</span>
           <span>·</span>
           <GameIcon src={GEAR_SLOT_ICONS_IMG[item.emplacement]} alt="" size="w-4 h-4" className="opacity-60" />
           <span>{GEAR_SLOT_LABELS[item.emplacement] || item.emplacement}</span>
@@ -115,10 +114,10 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
             <span className="text-gray-300">{item.attributUnique}</span>
           </div>
         )}
-        {hasContent(item.mod) && item.mod !== 'oui' && (
+        {item.mod !== undefined && typeof item.mod !== 'boolean' && hasContent(item.mod) && (
           <div className="flex items-start gap-2 text-xs">
             <span className="text-gray-500 font-bold shrink-0 uppercase tracking-widest text-[10px]">Mod</span>
-            <span className="text-gray-400">{item.mod}</span>
+            <span className="text-gray-400">{String(item.mod)}</span>
           </div>
         )}
       </div>

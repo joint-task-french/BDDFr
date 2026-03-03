@@ -5,56 +5,133 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["nom", "type"],
+    "required": [
+      "nom",
+      "type",
+      "slug"
+    ],
     "properties": {
-      "nom": { "type": "string", "description": "Nom de l'arme" },
-      "icone": { "type": "string", "description": "Slug du fichier icône du talent exotique/nommé dans game_assets/talents/arme/ (sans .png)" },
+      "nom": {
+        "type": "string",
+        "description": "Nom de l'arme"
+      },
+      "icone": {
+        "type": "string",
+        "description": "Slug du fichier icône du talent exotique/nommé dans game_assets/talents/arme/ (sans .png)"
+      },
       "type": {
         "type": "string",
-        "enum": ["fusil_assaut", "fusil", "fusil_precision", "pistolet_mitrailleur", "fusil_mitrailleur", "calibre_12", "pistolet", "arme_specifique"],
+        "enum": [
+          "fusil_assaut",
+          "fusil",
+          "fusil_precision",
+          "pistolet_mitrailleur",
+          "fusil_mitrailleur",
+          "calibre_12",
+          "pistolet"
+        ],
         "description": "Type/catégorie de l'arme"
       },
-      "fabricant": { "type": "string", "description": "Fabricant de l'arme" },
-      "portee": { "type": "number", "description": "Portée optimale en mètres" },
-      "rpm": { "type": "integer", "description": "Coups par minute" },
-      "chargeur": { "type": "integer", "description": "Taille du chargeur" },
-      "rechargement": { "type": "number", "description": "Temps de rechargement en secondes" },
-      "headshot": { "type": "string", "description": "Multiplicateur de headshot" },
-      "attributEssentiel": { "type": "string", "description": "Attribut essentiel spécifique (texte descriptif legacy)" },
+      "fabricant": {
+        "type": "string",
+        "description": "Fabricant de l'arme"
+      },
+      "portee": {
+        "type": "number",
+        "description": "Portée optimale en mètres"
+      },
+      "rpm": {
+        "type": "integer",
+        "description": "Coups par minute"
+      },
+      "chargeur": {
+        "type": "integer",
+        "description": "Taille du chargeur"
+      },
+      "rechargement": {
+        "type": "number",
+        "description": "Temps de rechargement en secondes"
+      },
+      "headshot": {
+        "type": "string",
+        "description": "Multiplicateur de headshot"
+      },
+      "attributEssentiel": {
+        "type": "string",
+        "description": "Attribut essentiel spécifique (texte descriptif legacy)"
+      },
       "attributs": {
         "type": "array",
         "description": "Attributs fixés par défaut sur cette arme, avec leur valeur spécifique. Le nom référence un attribut dans attributs.jsonc.",
         "items": {
           "type": "object",
-          "required": ["nom", "valeur"],
+          "required": [
+            "nom",
+            "valeur"
+          ],
           "properties": {
-            "nom": { "type": "string", "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)" },
-            "valeur": { "type": "number", "description": "Valeur de l'attribut sur cette arme" }
+            "nom": {
+              "type": "string",
+              "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)"
+            },
+            "valeur": {
+              "type": "number",
+              "description": "Valeur de l'attribut sur cette arme"
+            }
           }
         }
       },
-      "degatsBase": { "type": "integer", "description": "Dégâts de base" },
-      "degatsMax": { "type": "integer", "description": "Dégâts maximum" },
-      "estExotique": { "type": "boolean", "description": "True si arme exotique" },
-      "estNomme": { "type": "boolean", "description": "True si arme nommée (talent dédié fixe)" },
+      "degatsBase": {
+        "type": "integer",
+        "description": "Dégâts de base"
+      },
+      "degatsMax": {
+        "type": "integer",
+        "description": "Dégâts maximum"
+      },
+      "estExotique": {
+        "type": "boolean",
+        "description": "True si arme exotique"
+      },
+      "estNomme": {
+        "type": "boolean",
+        "description": "True si arme nommée (talent dédié fixe)"
+      },
       "talents": {
         "type": "array",
         "description": "Liste de slugs de talents (référencent les noms dans talents-armes.jsonc). Pour les exotiques, les talents dédiés sont directement dans cette liste.",
-        "items": { "type": "string" }
+        "items": {
+          "type": "string"
+        }
       },
-      "obtention": { "type": "string", "description": "Comment obtenir l'arme" },
+      "obtention": {
+        "type": "string",
+        "description": "Comment obtenir l'arme"
+      },
       "emplacementsMods": {
         "type": "array",
         "description": "Types de mods acceptés par l'arme (chargeur, canon, viseur, accessoire)",
         "items": {
           "type": "string",
-          "enum": ["chargeur", "canon", "viseur", "accessoire"]
+          "enum": [
+            "chargeur",
+            "canon",
+            "viseur",
+            "accessoire"
+          ]
         }
       },
       "modsPredefinis": {
         "type": "array",
         "description": "Mods pré-équipés (armes exotiques) — non modifiables. Chaque entrée est le nom du mod.",
-        "items": { "type": "string" }
+        "items": {
+          "type": "string"
+        }
+      },
+      "slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
       }
     }
   }

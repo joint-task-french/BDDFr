@@ -85,7 +85,9 @@ export function getGearFilters(data) {
 
   // Marques uniques depuis les données
   const marques = data?.ensembles
-    ? [...new Set(data.ensembles.map(e => e.nom))].sort().map(m => ({ value: m, label: m }))
+    ? [...new Map(data.ensembles.map(e => [e.slug || e.nom, e.nom])).entries()]
+        .sort((a, b) => a[1].localeCompare(b[1]))
+        .map(([slug, nom]) => ({ value: slug, label: nom }))
     : []
 
   const catAttrOptions = [

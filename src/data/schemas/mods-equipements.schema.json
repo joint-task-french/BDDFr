@@ -4,7 +4,10 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["statistique"],
+    "required": [
+      "statistique",
+      "slug"
+    ],
     "properties": {
       "categorie": {
         "type": "string",
@@ -21,8 +24,12 @@
       "valeurMax": {
         "type": "string",
         "description": "Valeur maximale du bonus"
+      },
+      "slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
       }
     }
   }
 }
-

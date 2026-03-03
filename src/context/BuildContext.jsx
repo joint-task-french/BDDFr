@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer, useCallback, useMemo } from 'react'
-import { getSpecFromWeapon, getSkillRequiredSpec } from '../utils/formatters'
+import { getSpecFromWeapon, getSkillRequiredSpec, getSpecialisations } from '../utils/formatters'
 
 const BuildContext = createContext(null)
 
@@ -159,13 +159,16 @@ function buildReducer(state, action) {
   }
 }
 
-export function BuildProvider({ children }) {
+export function BuildProvider({ children, classSpe }) {
   const [state, dispatch] = useReducer(buildReducer, INITIAL_STATE)
+
+  // Initialize specialisation cache from data
+  const SPECIALISATIONS = useMemo(() => getSpecialisations(classSpe), [classSpe])
 
   // Spécialisation déduite de l'arme spécifique
   const specialisation = useMemo(
-    () => getSpecFromWeapon(state.specialWeapon?.nom),
-    [state.specialWeapon]
+    () => getSpecFromWeapon(state.specialWeapon?.nom, classSpe),
+    [state.specialWeapon, classSpe]
   )
 
   // Contraintes exotiques — armes classiques + arme de poing
@@ -200,7 +203,8 @@ export function BuildProvider({ children }) {
 
   // Vérifie si une compétence nécessite une spécialisation spécifique
   const skillNeedsSpec = useCallback((skill) => {
-    const required = getSkillRequiredSpec(skill.variante)
+    // Utilise le champ prerequis directement depuis les données
+    const required = skill.prerequis || getSkillRequiredSpec(skill.variante)
     if (!required) return null // pas de spé requise
     if (required === specialisation) return null // spé correcte
     return required // retourne la spé manquante
@@ -210,6 +214,8 @@ export function BuildProvider({ children }) {
     ...state,
     dispatch,
     specialisation,
+    SPECIALISATIONS,
+    classSpe,
     hasExoticWeapon,
     hasExoticGear,
     canEquipExoticWeapon,

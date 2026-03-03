@@ -4,7 +4,11 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["competence", "emplacement"],
+    "required": [
+      "competence",
+      "emplacement",
+      "slug"
+    ],
     "properties": {
       "competence": {
         "type": "string",
@@ -16,10 +20,20 @@
       },
       "statistiques": {
         "type": "array",
-        "items": { "type": "string" },
+        "items": {
+          "type": "string"
+        },
         "description": "Liste des statistiques affectées par le mod"
+      },
+      "prerequis": {
+        "type": "string",
+        "description": "Clé de spécialisation requise pour utiliser ce mod (optionnel)"
+      },
+      "slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
       }
     }
   }
 }
-

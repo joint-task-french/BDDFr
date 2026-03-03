@@ -4,534 +4,623 @@
     "nom": "Charg. .45 ACP étendu",
     "type": "chargeur",
     "bonus": ".+ 15 Munitions",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_45_acp_etendu"
   },
   {
     "nom": "Charg. .45 ACP approv. précision",
     "type": "chargeur",
     "bonus": ".+ 30% Stabilité",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_45_acp_approv_precision"
   },
   {
     "nom": "Charg. .45 ACP approv. forcée",
     "type": "chargeur",
     "bonus": ".+ 5% cadence de tir",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_45_acp_approv_forcee"
   },
   {
     "nom": "Charg. .45 ACP ressort court",
     "type": "chargeur",
     "bonus": ".+ 20% Vitesse de rechargement",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_45_acp_ressort_court"
   },
   {
     "nom": "Charg. .45 ACP surdimensionné",
     "type": "chargeur",
     "bonus": ".+ 20 Munitions",
-    "malus": ".- 10% Vitesse de rechargement"
+    "malus": ".- 10% Vitesse de rechargement",
+    "slug": "charg_45_acp_surdimensionne"
   },
   {
     "nom": "Charg. étendu léger 5.56",
     "type": "chargeur",
     "bonus": ".+ 15 Munitions",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_etendu_leger_5_56"
   },
   {
     "nom": "Charg. 5.56 tactique",
     "type": "chargeur",
     "bonus": ".+ 10% Dégâts de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_5_56_tactique"
   },
   {
     "nom": "Charg. 5.56 ressort équilibré",
     "type": "chargeur",
     "bonus": ".+ 30% Stabilité",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_5_56_ressort_equilibre"
   },
   {
     "nom": "Charg. 5.56 infanterie",
     "type": "chargeur",
     "bonus": ".+ 70% Portée optimale",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_5_56_infanterie"
   },
   {
     "nom": "Charg. étendu solide 5.56",
     "type": "chargeur",
     "bonus": ".+ 20 Munitions",
-    "malus": ".- 10% Vitesse de rechargement"
+    "malus": ".- 10% Vitesse de rechargement",
+    "slug": "charg_etendu_solide_5_56"
   },
   {
     "nom": "Charg. précision condensé",
     "type": "chargeur",
     "bonus": ".+ 5 Munitions",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_precision_condense"
   },
   {
     "nom": "Charg. précision réparé",
     "type": "chargeur",
     "bonus": ".+ 20% Portée optimale",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_precision_repare"
   },
   {
     "nom": "Charg. précision léger",
     "type": "chargeur",
     "bonus": ".+ 20% Vitesse de rechargement",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_precision_leger"
   },
   {
     "nom": "Charg. précision robuste",
     "type": "chargeur",
     "bonus": ".+ 20% Stabilité",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_precision_robuste"
   },
   {
     "nom": "Charg. étendu léger 7.62",
     "type": "chargeur",
     "bonus": ".+ 15 Munitions",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_etendu_leger_7_62"
   },
   {
     "nom": "Charg. 7.62 pondéré",
     "type": "chargeur",
     "bonus": ".+ 20% Stabilité",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_7_62_pondere"
   },
   {
     "nom": "Charg. 7.62 mince",
     "type": "chargeur",
     "bonus": ".+ 20% Vitesse de rechargement",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_7_62_mince"
   },
   {
     "nom": "Charg. 7.62 précision",
     "type": "chargeur",
     "bonus": ".+ 10% Dégâts de headshot",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_7_62_precision"
   },
   {
     "nom": "Charg. 9mm segmenté",
     "type": "chargeur",
     "bonus": ".+ 20% Vitesse de rechargement",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_9mm_segmente"
   },
   {
     "nom": "Charg. 9mm ressort lourd",
     "type": "chargeur",
     "bonus": ".+ 10% Dégâts de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_9mm_ressort_lourd"
   },
   {
     "nom": "Charg. 9mm étendu",
     "type": "chargeur",
     "bonus": ".+ 20 Munitions",
-    "malus": ".- 10% Vitesse de rechargement"
+    "malus": ".- 10% Vitesse de rechargement",
+    "slug": "charg_9mm_etendu"
   },
   {
     "nom": "Charg. 9mm surdimensionné",
     "type": "chargeur",
     "bonus": ".+ 15 Munitions",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_9mm_surdimensionne"
   },
   {
     "nom": "Charg. pistolet étendu",
     "type": "chargeur",
     "bonus": ".+ 11 Munitions",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_pistolet_etendu"
   },
   {
     "nom": "Charg. pistolet de terrain",
     "type": "chargeur",
     "bonus": ".+ 30% Portée optimale",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_pistolet_de_terrain"
   },
   {
     "nom": "Charg. pistolet Police",
     "type": "chargeur",
     "bonus": ".+ 20% Vitesse de rechargement",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "charg_pistolet_police"
   },
   {
     "nom": "Ressort intégré compensé",
     "type": "chargeur",
     "bonus": ".+ 20% Vitesse de rechargement",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "ressort_integre_compense"
   },
   {
     "nom": "Ressort intégré sous-équilibré",
     "type": "chargeur",
     "bonus": ".+ 5% cadence de tir",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "ressort_integre_sous_equilibre"
   },
   {
     "nom": "Ressort intégré rapide",
     "type": "chargeur",
     "bonus": ".+ 5% Dégâts d'arme",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "ressort_integre_rapide"
   },
   {
     "nom": "Ressort tubulaire souple",
     "type": "chargeur",
     "bonus": ".+ 20% Vitesse de rechargement",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "ressort_tubulaire_souple"
   },
   {
     "nom": "Ressort tubulaire dur",
     "type": "chargeur",
     "bonus": ".+ 5% cadence de tir",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "ressort_tubulaire_dur"
   },
   {
     "nom": "Ressort tubulaire anti-horaire",
     "type": "chargeur",
     "bonus": ".+ 5% Dégâts aux headshot",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "ressort_tubulaire_anti_horaire"
   },
   {
     "nom": "Ressort intégré suréquilibré",
     "type": "chargeur",
     "bonus": ".+ 30% Stabilité",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "ressort_integre_surequilibre"
   },
   {
     "nom": "Barillet à chargement rapide",
     "type": "chargeur",
     "bonus": ".+ 20% Vitesse de rechargement",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "barillet_a_chargement_rapide"
   },
   {
     "nom": "Fixation de ceinture agile",
     "type": "chargeur",
     "bonus": ".+ 5% Cadence de tir",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "fixation_de_ceinture_agile"
   },
   {
     "nom": "Fixation sans perturbation",
     "type": "chargeur",
     "bonus": ".+ 10% Dégâts de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "fixation_sans_perturbation"
   },
   {
     "nom": "Fixation étalonnée",
     "type": "chargeur",
     "bonus": ".+ 30% Stabilité",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "fixation_etalonnee"
   },
   {
     "nom": "Petite sacoche tactique",
     "type": "chargeur",
     "bonus": ".+ 20% Vitesse de rechargement",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "petite_sacoche_tactique"
   },
   {
     "nom": "Grande sacoche",
     "type": "chargeur",
     "bonus": ".+ 50 Munitions",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "grande_sacoche"
   },
   {
     "nom": "Grande sacoche",
     "type": "chargeur",
     "bonus": ".+ 35 Munitions",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "grande_sacoche"
   },
   {
     "nom": "Petit silencieux .45",
     "type": "canon",
     "bonus": ".+ 30% Précision",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "petit_silencieux_45"
   },
   {
     "nom": "Silencieux Osprey .45",
     "type": "canon",
     "bonus": ".+ 10% Probabilité de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "silencieux_osprey_45"
   },
   {
     "nom": "Frein ventilé bruyant .45",
     "type": "canon",
     "bonus": ".+ 50% Portée optimale",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "frein_ventile_bruyant_45"
   },
   {
     "nom": "Frein de bouche .45",
     "type": "canon",
     "bonus": ".+ 10% aux dégâts de headshot",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "frein_de_bouche_45"
   },
   {
     "nom": "Compensateur .45",
     "type": "canon",
     "bonus": ".+ 30% Stabilité",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "compensateur_45"
   },
   {
     "nom": "Cache-flamme .45",
     "type": "canon",
     "bonus": ".+ 5% Dégâts de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "cache_flamme_45"
   },
   {
     "nom": "Grand silencieux 5.56",
     "type": "canon",
     "bonus": ".+ 30% Précision",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "grand_silencieux_5_56"
   },
   {
     "nom": "Compensateur 5.56",
     "type": "canon",
     "bonus": ".+ 30% Stabilité",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "compensateur_5_56"
   },
   {
     "nom": "Silencieux de fusil Omega 5.56",
     "type": "canon",
     "bonus": ".+ 40% Stabilité",
-    "malus": ".- 10% Portée optimale"
+    "malus": ".- 10% Portée optimale",
+    "slug": "silencieux_de_fusil_omega_5_56"
   },
   {
     "nom": "Frein de bouche 5.56",
     "type": "canon",
     "bonus": ".+ 5% Probabilité coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "frein_de_bouche_5_56"
   },
   {
     "nom": "Frein ventilé bruyant 5.56",
     "type": "canon",
     "bonus": ".+ 50% Portée optimale",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "frein_ventile_bruyant_5_56"
   },
   {
     "nom": "Cache-flamme 5.56",
     "type": "canon",
     "bonus": ".+ 10% Dégâts de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "cache_flamme_5_56"
   },
   {
     "nom": "Grand silencieux 7.62",
     "type": "canon",
     "bonus": ".+ 30% Précision",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "grand_silencieux_7_62"
   },
   {
     "nom": "Silencieux de fusil Omega 7.62",
     "type": "canon",
     "bonus": ".+ 40% Stabilité",
-    "malus": ".- 10% Portée optimale"
+    "malus": ".- 10% Portée optimale",
+    "slug": "silencieux_de_fusil_omega_7_62"
   },
   {
     "nom": "Cache-flamme 7.62",
     "type": "canon",
     "bonus": ".+ 10% Dégâts de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "cache_flamme_7_62"
   },
   {
     "nom": "Frein de bouche 7.62",
     "type": "canon",
     "bonus": ".+ 5% Probabilité coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "frein_de_bouche_7_62"
   },
   {
     "nom": "Compensateur 7.62",
     "type": "canon",
     "bonus": ".+ 30% Stabilité",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "compensateur_7_62"
   },
   {
     "nom": "Frein ventilé bruyant 7.62",
     "type": "canon",
     "bonus": ".+ 50% Portée optimale",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "frein_ventile_bruyant_7_62"
   },
   {
     "nom": "Petit silencieux 9mm",
     "type": "canon",
     "bonus": ".+ 30% Précision",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "petit_silencieux_9mm"
   },
   {
     "nom": "Silencieux Osprey 9mm",
     "type": "canon",
     "bonus": ".+ 5% Probabilité de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "silencieux_osprey_9mm"
   },
   {
     "nom": "Compensateur 9mm",
     "type": "canon",
     "bonus": ".+ 30% Stabilité",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "compensateur_9mm"
   },
   {
     "nom": "Cache-flamme 9mm",
     "type": "canon",
     "bonus": ".+ 10% Dégâts de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "cache_flamme_9mm"
   },
   {
     "nom": "Frein de bouche 9mm",
     "type": "canon",
     "bonus": ".+ 10% Dégâts aux headshot",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "frein_de_bouche_9mm"
   },
   {
     "nom": "Frein ventilé bruyant 9mm",
     "type": "canon",
     "bonus": ".+ 50% Portée optimale",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "frein_ventile_bruyant_9mm"
   },
   {
     "nom": "Petite lunette RDS",
     "type": "viseur",
     "bonus": ".+ 50% Stabilité",
-    "malus": ".- 20% Précision"
+    "malus": ".- 20% Précision",
+    "slug": "petite_lunette_rds"
   },
   {
     "nom": "Lunette ACOG (4x)",
     "type": "viseur",
     "bonus": ".+ 50% Portée optimale",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "lunette_acog_4x"
   },
   {
     "nom": "Lunette C79 (3,4x)",
     "type": "viseur",
     "bonus": ".+ 5% Probilité de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "lunette_c79_3_4x"
   },
   {
     "nom": "Lunette CCQBS (8x)",
     "type": "viseur",
     "bonus": ".+ 30% Dégâts headshot",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "lunette_ccqbs_8x"
   },
   {
     "nom": "Lunette VX1 (12x)",
     "type": "viseur",
     "bonus": ".+ 35% Dégâts headshot",
-    "malus": ".- 10% Vitesse de rechargement"
+    "malus": ".- 10% Vitesse de rechargement",
+    "slug": "lunette_vx1_12x"
   },
   {
     "nom": "Lunette numérique",
     "type": "viseur",
     "bonus": ".+ 45% Dégâts headshot",
-    "malus": ".- 5% Dégâts critique"
+    "malus": ".- 5% Dégâts critique",
+    "slug": "lunette_numerique"
   },
   {
     "nom": "Mire métallique ouverte",
     "type": "viseur",
     "bonus": ".+ 30% Précision",
-    "malus": ".- 10% Précision"
+    "malus": ".- 10% Précision",
+    "slug": "mire_metallique_ouverte"
   },
   {
     "nom": "Mire métallique pondérée",
     "type": "viseur",
     "bonus": ".+ 30% Stabilité",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "mire_metallique_ponderee"
   },
   {
     "nom": "Mire métallique épurée",
     "type": "viseur",
     "bonus": ".+ 14% Vitesse de rechargement",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "mire_metallique_epuree"
   },
   {
     "nom": "Visée holo 552",
     "type": "viseur",
     "bonus": ".+ 30% Précision",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "visee_holo_552"
   },
   {
     "nom": "Visée point rouge T2 Micro",
     "type": "viseur",
     "bonus": ".+ 30% Précision",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "visee_point_rouge_t2_micro"
   },
   {
     "nom": "Visée point rouge PRO",
     "type": "viseur",
     "bonus": ".+ 30% Stabilité",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "visee_point_rouge_pro"
   },
   {
     "nom": "Visée holo EXPS3",
     "type": "viseur",
     "bonus": ".+ 10% Dégâts de headshot",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "visee_holo_exps3"
   },
   {
     "nom": "Visée reflex",
     "type": "viseur",
     "bonus": ".+ 5% maniement d'arme",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "visee_reflex"
   },
   {
     "nom": "Visée reflex basse",
     "type": "viseur",
     "bonus": ".+ 15% Dégâts de headshot",
-    "malus": ".- 25% Portée optimale"
+    "malus": ".- 25% Portée optimale",
+    "slug": "visee_reflex_basse"
   },
   {
     "nom": "Visée point rouge russe",
     "type": "viseur",
     "bonus": ".+ 10% Dégâts de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "visee_point_rouge_russe"
   },
   {
     "nom": "Visée reflex mini rustique",
     "type": "viseur",
     "bonus": ".+ 5% Probabilité de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "visee_reflex_mini_rustique"
   },
   {
     "nom": "Poignée incliné",
     "type": "accessoire",
     "bonus": ".+ 30% Stabilité",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "poignee_incline"
   },
   {
     "nom": "Poignée verticale",
     "type": "accessoire",
     "bonus": ".+ 30% Précision",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "poignee_verticale"
   },
   {
     "nom": "Poignée courte",
     "type": "accessoire",
     "bonus": ".+ 5% Dégâts de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "poignee_courte"
   },
   {
     "nom": "Poignée courte tactique",
     "type": "accessoire",
     "bonus": ".+ 15% dégâts coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "poignee_courte_tactique"
   },
   {
     "nom": "Pointeur laser",
     "type": "accessoire",
     "bonus": ".+ 5% Probabilité de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "pointeur_laser"
   },
   {
     "nom": "Petit pointeur laser",
     "type": "accessoire",
     "bonus": ".+ 7% Probabilité de coup critique",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "petit_pointeur_laser"
   },
   {
     "nom": "Pointeur laser lié",
     "type": "accessoire",
     "bonus": "Applique une impulsion sur les cibles visées",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "pointeur_laser_lie"
   },
   {
     "nom": "Protège-rail",
     "type": "accessoire",
     "bonus": ".+ 14% Vitesse de rechargement",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "protege_rail"
   },
   {
     "nom": "Lampe torche",
     "type": "accessoire",
     "bonus": "Éclaire en face de vous",
-    "malus": "Pas d'effet négatif"
+    "malus": "Pas d'effet négatif",
+    "slug": "lampe_torche"
   }
 ]

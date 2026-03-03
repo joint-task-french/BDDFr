@@ -33,9 +33,10 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
   const fixedAttributes = useMemo(() => {
     if (!weapon?.attributs?.length || !allAttributs) return []
     return weapon.attributs.map(fixed => {
-      const ref = allAttributs.find(a => a.nom.toLowerCase() === fixed.nom.toLowerCase())
+      const ref = allAttributs.find(a => a.slug === fixed.nom || a.nom.toLowerCase() === fixed.nom.toLowerCase())
       return {
-        nom: fixed.nom,
+        nom: ref?.nom || fixed.nom,
+        slug: ref?.slug || fixed.nom,
         valeur: fixed.valeur,
         min: ref?.min ?? fixed.valeur,
         max: ref?.max ?? fixed.valeur,
@@ -97,7 +98,10 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
             // Exotiques : mods pré-remplis non modifiables
             if (isExotic) {
               const predefName = predefMods[i]
-              const predefMod = predefName ? modsArmes?.find(m => m.nom.toLowerCase() === predefName.toLowerCase()) : null
+              const predefMod = predefName ? (
+                modsArmes?.find(m => m.slug === predefName) ||
+                modsArmes?.find(m => m.nom.toLowerCase() === predefName.toLowerCase())
+              ) : null
               return (
                 <div key={i} className="flex items-center gap-1.5 py-0.5">
                   <span className="text-[9px] text-gray-600 uppercase w-16 shrink-0">{slotType}</span>

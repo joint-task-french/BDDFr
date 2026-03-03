@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { loadJsonc } from '../utils/dataLoader'
+import { flattenCompetences } from '../utils/competenceUtils'
+import { getSpecialisations } from '../utils/formatters'
+import { buildLookupMaps } from '../utils/lookupMaps'
 
 const BASE = import.meta.env.BASE_URL
 
@@ -11,6 +14,7 @@ const DATA_FILES = {
   talentsEquipements: 'talents-equipements.jsonc',
   ensembles: 'ensembles.jsonc',
   competences: 'competences.jsonc',
+  classSpe: 'class-spe.jsonc',
   modsArmes: 'mods-armes.jsonc',
   modsEquipements: 'mods-equipements.jsonc',
   modsCompetences: 'mods-competences.jsonc',
@@ -36,6 +40,17 @@ export function useDataLoader() {
           if (!cancelled) setProgress(Math.round(((i + 1) / entries.length) * 100))
         }
         if (!cancelled) {
+          // Post-process: flatten competences for consumers, keep grouped for generator
+          if (result.competences) {
+            result.competencesGrouped = result.competences
+            result.competences = flattenCompetences(result.competences)
+          }
+          // Initialize specialisations cache for components outside BuildProvider
+          if (result.classSpe) {
+            getSpecialisations(result.classSpe)
+          }
+          // Build slug → object lookup maps
+          result.lookups = buildLookupMaps(result)
           setData(result)
           setLoading(false)
         }

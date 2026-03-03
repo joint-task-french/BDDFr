@@ -18,12 +18,19 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
   const gearSetTalent = useMemo(() => {
     if (!piece || piece.source !== 'gear_set' || piece.estExotique) return null
     if (!ensembles || !piece.marque) return null
-    const ens = ensembles.find(e => e.nom.toLowerCase() === piece.marque.toLowerCase())
+    const ens = ensembles.find(e => e.slug === piece.marque || e.nom.toLowerCase() === piece.marque.toLowerCase())
     if (!ens) return null
     if (slotKey === 'torse' && hasContent(ens.talentTorse)) return ens.talentTorse
     if (slotKey === 'sac_a_dos' && hasContent(ens.talentSac)) return ens.talentSac
     return null
   }, [piece, ensembles, slotKey])
+
+  // Résoudre le nom de la marque (slug → nom)
+  const marqueLabel = useMemo(() => {
+    if (!piece?.marque || !ensembles) return piece?.marque || ''
+    const ens = ensembles.find(e => e.slug === piece.marque || e.nom.toLowerCase() === piece.marque.toLowerCase())
+    return ens?.nom || piece.marque
+  }, [piece, ensembles])
 
   const borderColor = piece?.estExotique
     ? 'border-l-shd'
@@ -48,7 +55,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
               {piece.source === 'gear_set' && <span className="text-emerald-400 text-[9px] font-bold">GEAR SET</span>}
             </div>
             <div className="font-bold text-white text-sm uppercase tracking-wide">{piece.nom}</div>
-            <div className="text-xs text-gray-500">{piece.marque}</div>
+            <div className="text-xs text-gray-500">{marqueLabel}</div>
             {piece.attributUnique && (
               <div className="text-[10px] text-purple-400 mt-1">✦ {piece.attributUnique}</div>
             )}

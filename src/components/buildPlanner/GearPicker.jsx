@@ -57,6 +57,18 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
     onSelectTalent(slotKey)
   }
 
+  // Résolution slug → nom pour les marques
+  const marqueNames = useMemo(() => {
+    const map = {}
+    for (const e of (data.ensembles || [])) {
+      if (e.slug) map[e.slug] = e.nom
+      map[e.nom.toLowerCase()] = e.nom
+    }
+    return map
+  }, [data.ensembles])
+
+  const resolveMarque = (slug) => marqueNames[slug] || marqueNames[slug?.toLowerCase()] || slug
+
   const filterButtons = (
     <>
       <button
@@ -75,7 +87,7 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
             brandFilter === b ? 'bg-shd/20 text-shd border-shd/40' : 'text-gray-500 border-tactical-border hover:text-gray-300'
           }`}
         >
-          {b}
+          {resolveMarque(b)}
         </button>
       ))}
     </>
@@ -109,7 +121,7 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
               <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-shd transition-colors mt-1">
                 {p.nom}
               </div>
-              <div className="text-xs text-gray-500">{p.marque}</div>
+              <div className="text-xs text-gray-500">{resolveMarque(p.marque)}</div>
               {Array.isArray(p.attributEssentiel) && p.attributEssentiel.length > 0 && <div className="text-[10px] text-blue-400 mt-1">{p.attributEssentiel.join(', ')}</div>}
               {p.talents && p.talents.length > 0 && (
                 <div className="text-[10px] text-shd/70 mt-1 line-clamp-2">🏅 {p.talents[0]}</div>

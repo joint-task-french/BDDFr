@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Classes de spécialisation — The Division 2",
+  "description": "Les 6 spécialisations du jeu avec leur arme spécifique",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "cle",
+      "nom",
+      "arme",
+      "slug"
+    ],
+    "properties": {
+      "cle": {
+        "type": "string",
+        "enum": [
+          "demolisseur",
+          "survivaliste",
+          "tireur_elite",
+          "artilleur",
+          "technicien",
+          "incendiaire"
+        ],
+        "description": "Identifiant unique de la spécialisation"
+      },
+      "nom": {
+        "type": "string",
+        "description": "Nom affiché de la spécialisation"
+      },
+      "icone": {
+        "type": "string",
+        "description": "Emoji/icône de la spécialisation"
+      },
+      "arme": {
+        "type": "object",
+        "required": [
+          "nom"
+        ],
+        "description": "Arme spécifique de la spécialisation",
+        "properties": {
+          "nom": {
+            "type": "string"
+          },
+          "portee": {
+            "type": "number"
+          },
+          "rpm": {
+            "type": "number"
+          },
+          "chargeur": {
+            "type": "number"
+          },
+          "rechargement": {
+            "type": "number"
+          },
+          "headshot": {
+            "type": "string"
+          },
+          "degatsBase": {
+            "type": "number"
+          }
+        }
+      },
+      "slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
+      }
+    }
+  }
+}

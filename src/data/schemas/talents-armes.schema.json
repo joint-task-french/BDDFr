@@ -4,33 +4,73 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["nom", "icone", "description"],
+    "required": [
+      "nom",
+      "icone",
+      "description",
+      "slug"
+    ],
     "properties": {
-      "nom": { "type": "string" },
-      "icone": { "type": "string", "description": "Slug du fichier icône dans game_assets/talents/arme/ (sans .png)" },
-      "description": { "type": "string" },
-      "prerequis": { "type": "string" },
-      "estExotique": { "type": "boolean", "description": "True si talent exotique (dédié à une arme exotique)." },
+      "nom": {
+        "type": "string"
+      },
+      "icone": {
+        "type": "string",
+        "description": "Slug du fichier icône dans game_assets/talents/arme/ (sans .png)"
+      },
+      "description": {
+        "type": "string"
+      },
+      "prerequis": {
+        "type": "string"
+      },
+      "estExotique": {
+        "type": "boolean",
+        "description": "True si talent exotique (dédié à une arme exotique)."
+      },
       "compatibilite": {
         "type": "object",
         "description": "Quels types d'armes peuvent utiliser ce talent",
         "properties": {
-          "fusil": { "type": "boolean" },
-          "calibre_12": { "type": "boolean" },
-          "fusil_assaut": { "type": "boolean" },
-          "fusil_mitrailleur": { "type": "boolean" },
-          "fusil_precision": { "type": "boolean" },
-          "pistolet": { "type": "boolean" },
-          "pistolet_mitrailleur": { "type": "boolean" }
+          "fusil": {
+            "type": "boolean"
+          },
+          "calibre_12": {
+            "type": "boolean"
+          },
+          "fusil_assaut": {
+            "type": "boolean"
+          },
+          "fusil_mitrailleur": {
+            "type": "boolean"
+          },
+          "fusil_precision": {
+            "type": "boolean"
+          },
+          "pistolet": {
+            "type": "boolean"
+          },
+          "pistolet_mitrailleur": {
+            "type": "boolean"
+          }
         }
       },
-      "perfectDescription": { "type": "string", "description": "Description de la version parfaite du talent" },
+      "perfectDescription": {
+        "type": "string",
+        "description": "Description de la version parfaite du talent"
+      },
       "armesParfaites": {
         "type": "array",
         "description": "Noms des armes nommées qui portent la version parfaite de ce talent",
-        "items": { "type": "string" }
+        "items": {
+          "type": "string"
+        }
+      },
+      "slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
       }
     }
   }
 }
-

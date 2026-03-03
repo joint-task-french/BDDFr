@@ -2,232 +2,296 @@
 // Référentiel de tous les attributs disponibles sur les armes et équipements.
 // Les valeurs min/max correspondent aux valeurs classiques (hors bonus exotique/nommé).
 [
-  // ================================================================
-  // ATTRIBUTS OFFENSIFS
-  // ================================================================
   {
     "nom": "Dégâts aux armes",
     "categorie": "offensif",
-    "cible": ["arme"],
+    "cible": [
+      "arme"
+    ],
     "unite": "%",
     "min": 1,
     "max": 15,
-    "description": "Augmente les dégâts infligés par les armes"
+    "description": "Augmente les dégâts infligés par les armes",
+    "slug": "degats_aux_armes"
   },
   {
     "nom": "Dégâts de coup critique",
     "categorie": "offensif",
-    "cible": ["arme", "equipement"],
+    "cible": [
+      "arme",
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 12,
-    "description": "Augmente les dégâts infligés lors d'un coup critique"
+    "description": "Augmente les dégâts infligés lors d'un coup critique",
+    "slug": "degats_de_coup_critique"
   },
   {
     "nom": "Chance de coup critique",
     "categorie": "offensif",
-    "cible": ["arme", "equipement"],
+    "cible": [
+      "arme",
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 6,
-    "description": "Augmente la probabilité de déclencher un coup critique"
+    "description": "Augmente la probabilité de déclencher un coup critique",
+    "slug": "chance_de_coup_critique"
   },
   {
     "nom": "Dégâts de headshot",
     "categorie": "offensif",
-    "cible": ["arme", "equipement"],
+    "cible": [
+      "arme",
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 10,
-    "description": "Augmente les dégâts infligés lors d'un tir à la tête"
+    "description": "Augmente les dégâts infligés lors d'un tir à la tête",
+    "slug": "degats_de_headshot"
   },
   {
     "nom": "Dégâts à la santé",
     "categorie": "offensif",
-    "cible": ["arme"],
+    "cible": [
+      "arme"
+    ],
     "unite": "%",
     "min": 1,
     "max": 21,
-    "description": "Augmente les dégâts infligés à la santé de l'ennemi"
+    "description": "Augmente les dégâts infligés à la santé de l'ennemi",
+    "slug": "degats_a_la_sante"
   },
   {
     "nom": "Dégâts sur cible non abritée",
     "categorie": "offensif",
-    "cible": ["arme", "equipement"],
+    "cible": [
+      "arme",
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 10,
-    "description": "Augmente les dégâts infligés aux cibles non abritées"
+    "description": "Augmente les dégâts infligés aux cibles non abritées",
+    "slug": "degats_sur_cible_non_abritee"
   },
   {
     "nom": "Dégâts Fusil d'assaut",
     "categorie": "offensif",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 12,
-    "description": "Augmente les dégâts infligés par les fusils d'assaut"
+    "description": "Augmente les dégâts infligés par les fusils d'assaut",
+    "slug": "degats_fusil_d_assaut"
   },
   {
     "nom": "Dégâts Fusil",
     "categorie": "offensif",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 12,
-    "description": "Augmente les dégâts infligés par les fusils"
+    "description": "Augmente les dégâts infligés par les fusils",
+    "slug": "degats_fusil"
   },
   {
     "nom": "Dégâts Fusil de précision",
     "categorie": "offensif",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 12,
-    "description": "Augmente les dégâts infligés par les fusils de précision"
+    "description": "Augmente les dégâts infligés par les fusils de précision",
+    "slug": "degats_fusil_de_precision"
   },
   {
     "nom": "Dégâts Pistolet-mitrailleur",
     "categorie": "offensif",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 12,
-    "description": "Augmente les dégâts infligés par les pistolets-mitrailleurs"
+    "description": "Augmente les dégâts infligés par les pistolets-mitrailleurs",
+    "slug": "degats_pistolet_mitrailleur"
   },
   {
     "nom": "Dégâts Fusil-mitrailleur",
     "categorie": "offensif",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 12,
-    "description": "Augmente les dégâts infligés par les fusils-mitrailleurs"
+    "description": "Augmente les dégâts infligés par les fusils-mitrailleurs",
+    "slug": "degats_fusil_mitrailleur"
   },
   {
     "nom": "Dégâts Calibre 12",
     "categorie": "offensif",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 12,
-    "description": "Augmente les dégâts infligés par les armes de calibre 12"
+    "description": "Augmente les dégâts infligés par les armes de calibre 12",
+    "slug": "degats_calibre_12"
   },
   {
     "nom": "Dégâts Pistolet",
     "categorie": "offensif",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 12,
-    "description": "Augmente les dégâts infligés par les pistolets"
+    "description": "Augmente les dégâts infligés par les pistolets",
+    "slug": "degats_pistolet"
   },
-
-  // ================================================================
-  // ATTRIBUTS DÉFENSIFS
-  // ================================================================
   {
     "nom": "Armure",
     "categorie": "défensif",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "pts",
     "min": 1,
     "max": 170000,
-    "description": "Augmente la valeur totale d'armure"
+    "description": "Augmente la valeur totale d'armure",
+    "slug": "armure"
   },
   {
     "nom": "Santé",
     "categorie": "défensif",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "pts",
     "min": 1,
     "max": 18935,
-    "description": "Augmente la valeur totale de santé"
+    "description": "Augmente la valeur totale de santé",
+    "slug": "sante"
   },
   {
     "nom": "Régénération d'armure",
     "categorie": "défensif",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "pts/s",
     "min": 1,
     "max": 4525,
-    "description": "Régénère l'armure au fil du temps"
+    "description": "Régénère l'armure au fil du temps",
+    "slug": "regeneration_d_armure"
   },
   {
     "nom": "Protection aux explosions",
     "categorie": "défensif",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 10,
-    "description": "Réduit les dégâts subis par les explosions"
+    "description": "Réduit les dégâts subis par les explosions",
+    "slug": "protection_aux_explosions"
   },
   {
     "nom": "Armure aux protections",
     "categorie": "défensif",
-    "cible": ["arme"],
+    "cible": [
+      "arme"
+    ],
     "unite": "%",
     "min": 1,
     "max": 12,
-    "description": "Augmente les protections conférées par l'armure"
+    "description": "Augmente les protections conférées par l'armure",
+    "slug": "armure_aux_protections"
   },
-
-  // ================================================================
-  // ATTRIBUTS UTILITAIRES
-  // ================================================================
   {
     "nom": "Hâte de compétence",
     "categorie": "utilitaire",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 12,
-    "description": "Réduit le temps de recharge des compétences"
+    "description": "Réduit le temps de recharge des compétences",
+    "slug": "hate_de_competence"
   },
   {
     "nom": "Dégâts de compétence",
     "categorie": "utilitaire",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 10,
-    "description": "Augmente les dégâts infligés par les compétences"
+    "description": "Augmente les dégâts infligés par les compétences",
+    "slug": "degats_de_competence"
   },
   {
     "nom": "Réparation de compétence",
     "categorie": "utilitaire",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 20,
-    "description": "Augmente les soins prodigués par les compétences"
+    "description": "Augmente les soins prodigués par les compétences",
+    "slug": "reparation_de_competence"
   },
   {
     "nom": "Durée de compétence",
     "categorie": "utilitaire",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 20,
-    "description": "Augmente la durée active des compétences"
+    "description": "Augmente la durée active des compétences",
+    "slug": "duree_de_competence"
   },
   {
     "nom": "Durée d'effet d'état",
     "categorie": "utilitaire",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 10,
-    "description": "Augmente la durée des effets d'état infligés"
+    "description": "Augmente la durée des effets d'état infligés",
+    "slug": "duree_d_effet_d_etat"
   },
   {
     "nom": "Résistance aux effets d'état",
     "categorie": "utilitaire",
-    "cible": ["equipement"],
+    "cible": [
+      "equipement"
+    ],
     "unite": "%",
     "min": 1,
     "max": 10,
-    "description": "Réduit la durée des effets d'état subis"
+    "description": "Réduit la durée des effets d'état subis",
+    "slug": "resistance_aux_effets_d_etat"
   }
 ]
-

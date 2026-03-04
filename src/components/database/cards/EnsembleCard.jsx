@@ -21,7 +21,8 @@ export default function EnsembleCard({ item, talentsEquipements }) {
           {/* Logo */}
           {item.logo ? (
             <img
-              src={`${BASE}img/marques/${item.logo}`}
+              {/* TODO : migré vers webp */}
+              src={`${BASE}img/marques/${item.logo}.png`}
               alt={item.nom}
               className="w-10 h-10 object-contain shrink-0 rounded"
               onError={(e) => { e.target.style.display = 'none' }}

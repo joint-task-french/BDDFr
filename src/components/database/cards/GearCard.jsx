@@ -90,7 +90,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
           </div>
 
           {/* Logo de l'équipement */}
-          <div className='flex flex-col text-xs text-gray-500 text-center items-center gap-1'>
+          <div className='flex flex-col text-xs text-gray-500 text-center items-center gap-1 ml-1'>
             <GameIcon src={GEAR_SLOT_ICONS_IMG[item.emplacement]} alt="" size="w-10 h-10" className="rounded" />
             <span>{GEAR_SLOT_LABELS[item.emplacement] || item.emplacement}</span>
           </div>

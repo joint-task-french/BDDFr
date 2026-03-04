@@ -13,8 +13,6 @@ export default function EnsembleCard({ item, talentsEquipements }) {
 
   const BASE = import.meta.env.BASE_URL
 
-
-    /* TODO : migré vers webp + au build envoyé logo vers public */
   return (
     <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`}>
       {/* Header : logo + nom + type + attributs essentiels */}
@@ -74,8 +72,8 @@ export default function EnsembleCard({ item, talentsEquipements }) {
           {hasContent(item.talentTorse) && (() => {
             const talent = talentsEquipements?.find(t => t.slug === item.talentTorse)
             return (
-              <div className="text-[11px] text-gray-400 leading-relaxed">
-                <span className="text-shd font-bold uppercase tracking-widest text-[10px]">Torse : </span>
+              <div className="text-xs text-gray-400 leading-relaxed whitespace-pre-line">
+                <span className="text-shd font-bold uppercase tracking-widest text-xs">Torse : </span>
                 <span className="text-shd/80 font-semibold">{talent?.nom || item.talentTorse}</span>
                 {talent?.description && <> — {talent.description}</>}
               </div>
@@ -84,8 +82,8 @@ export default function EnsembleCard({ item, talentsEquipements }) {
           {hasContent(item.talentSac) && (() => {
             const talent = talentsEquipements?.find(t => t.slug === item.talentSac)
             return (
-              <div className="text-[11px] text-gray-400 leading-relaxed">
-                <span className="text-shd font-bold uppercase tracking-widest text-[10px]">Sac : </span>
+              <div className="text-xs text-gray-400 leading-relaxed whitespace-pre-line">
+                <span className="text-shd font-bold uppercase tracking-widest text-xs">Sac : </span>
                 <span className="text-shd/80 font-semibold">{talent?.nom || item.talentSac}</span>
                 {talent?.description && <> — {talent.description}</>}
               </div>
@@ -100,7 +98,7 @@ export default function EnsembleCard({ item, talentsEquipements }) {
 function BonusRow({ level, bonus, color }) {
   return (
     <div className="flex items-start gap-2 text-xs">
-      <span className={`shrink-0 text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded ${color}`}>
+      <span className={`shrink-0 text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded whitespace-pre-line ${color}`}>
         {level}
       </span>
       <span className="text-gray-300">{bonus.replace(/^\.\+?/, '+')}</span>

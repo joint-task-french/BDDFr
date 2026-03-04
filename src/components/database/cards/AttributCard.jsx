@@ -20,6 +20,8 @@ const CIBLE_LABELS = {
 export default function AttributCard({ item }) {
   const catColor = CATEGORIE_COLORS[item.categorie] || 'text-gray-400 bg-gray-500/10 border-gray-500/30'
   const icon = resolveAttributeIcon(item.categorie)
+  const essentialColor = item.estEssentiel ? 'text-shd' : 'text-white'
+
 
   return (
     <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden">
@@ -27,7 +29,12 @@ export default function AttributCard({ item }) {
       <div className="px-4 py-3 border-b border-tactical-border/50">
         <div className="flex items-center gap-2">
           <GameIcon src={icon} alt="" size="w-5 h-5" />
-          <span className="font-bold text-sm text-white uppercase tracking-wide">{item.nom}</span>
+          <div className='flex justify-between w-full'>
+            <span className={ "font-bold text-sm uppercase tracking-wide " + essentialColor }>{item.nom}</span>
+            { item.estEssentiel && (
+                <span className={ "text-xs tracking-wide text-gray-500" }>Attribut essentiel</span>
+            ) }
+          </div>
         </div>
         <div className="flex items-center gap-2 mt-1.5">
           <span className={`text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border ${catColor}`}>
@@ -59,7 +66,7 @@ export default function AttributCard({ item }) {
 
       {/* Description */}
       {item.description && (
-        <div className="px-4 py-2.5 text-[11px] text-gray-400 leading-relaxed">
+        <div className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed whitespace-pre-line">
           {item.description}
         </div>
       )}

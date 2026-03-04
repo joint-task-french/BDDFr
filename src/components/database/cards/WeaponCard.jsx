@@ -1,4 +1,4 @@
-import { WEAPON_TYPE_LABELS } from '../../../utils/formatters'
+import { getWeaponTypeLabel, getWeaponEssentialAttributes } from '../../../utils/formatters'
 import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
 
@@ -29,13 +29,15 @@ function resolveTalents(item, talentsArmes) {
   })
 }
 
-export default function WeaponCard({ item, talentsArmes, allAttributs }) {
+export default function WeaponCard({ item, talentsArmes, allAttributs, armesType }) {
   const isExotic = item.estExotique
   const isNamed = item.estNomme && !isExotic
   const isSpecific = item.type === 'arme_specifique'
   const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isSpecific ? 'text-purple-400' : 'text-shd'
   const typeIcon = WEAPON_TYPE_ICONS[item.type]
-  const attrIcon = resolveAttributeIcon(item.attributEssentiel)
+
+  // Résoudre les attributs essentiels hérités du type d'arme
+  const essentialAttrs = getWeaponEssentialAttributes(armesType, item.type, allAttributs)
 
   const resolvedTalents = resolveTalents(item, talentsArmes)
 
@@ -54,7 +56,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs }) {
         </div>
         <div className="flex items-center gap-2 text-xs text-gray-500 mt-0.5">
           <GameIcon src={typeIcon} alt={item.type} size="w-4 h-4" className="opacity-60" />
-          <span>{WEAPON_TYPE_LABELS[item.type] || item.type}</span>
+          <span>{getWeaponTypeLabel(armesType, item.type)}</span>
           <span>·</span>
           <span>{item.fabricant}</span>
           {isSpecific && item.specialisation && (
@@ -74,9 +76,26 @@ export default function WeaponCard({ item, talentsArmes, allAttributs }) {
         <Stat label="Chargeur" value={item.chargeur || null} />
         <Stat label="Rechargement" value={item.rechargement ? `${item.rechargement}s` : null} />
         <Stat label="Dégâts max" value={fmt(item.degatsMax)} accent />
-        <Stat label="Headshot" value={item.headshot || null} span2 />
-        <StatWithIcon label="Attribut" value={item.attributEssentiel?.replace(/^\.\+?/, '') || null} icon={attrIcon} />
+        <Stat label="Headshot" value={item.headshot || null} span2={essentialAttrs.length === 0} />
       </div>
+
+      {/* Attributs essentiels (hérités du type d'arme) */}
+      {essentialAttrs.length > 0 && (
+        <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1">
+          <div className="text-[9px] text-gray-600 uppercase tracking-widest font-bold mb-1">Attributs essentiels</div>
+          {essentialAttrs.map((attr, i) => (
+            <div key={i} className="flex items-center justify-between text-xs">
+              <span className="flex items-center gap-1.5 text-gray-400">
+                <GameIcon src={resolveAttributeIcon(attr.categorie)} alt="" size="w-3 h-3" />
+                {attr.nom}
+              </span>
+              <span className="text-shd font-bold">
+                {attr.min}–{attr.max}{attr.unite || ''}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Attributs fixés */}
       {item.attributs?.length > 0 && (
@@ -132,15 +151,3 @@ function Stat({ label, value, accent, span2 }) {
   )
 }
 
-function StatWithIcon({ label, value, icon }) {
-  if (!value || value === '—' || value === '0') return <div className="bg-tactical-bg/50 p-2" />
-  return (
-    <div className="bg-tactical-bg/50 p-2">
-      <div className="text-[10px] text-gray-600 uppercase tracking-widest">{label}</div>
-      <div className="flex items-center gap-1 text-sm font-bold text-gray-200">
-        <GameIcon src={icon} alt="" size="w-3.5 h-3.5" />
-        <span>{value}</span>
-      </div>
-    </div>
-  )
-}

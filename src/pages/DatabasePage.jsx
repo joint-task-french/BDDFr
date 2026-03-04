@@ -33,8 +33,8 @@ function getFiltersConfig(category, data) {
   switch (category) {
     case 'armes':             return { filters: getWeaponFilters(data), defaults: getWeaponDefaults(data), apply: applyWeaponFilters }
     case 'equipements':       return { filters: getGearFilters(data), defaults: getGearDefaults(), apply: applyGearFilters }
-    case 'talentsArmes':      return { filters: getTalentArmeFilters(), defaults: getTalentArmeDefaults(), apply: applyTalentArmeFilters }
-    case 'talentsEquipements':return { filters: getTalentEquipFilters(), defaults: getTalentEquipDefaults(), apply: applyTalentEquipFilters }
+    case 'talentsArmes':      return { filters: getTalentArmeFilters(data), defaults: getTalentArmeDefaults(), apply: applyTalentArmeFilters }
+    case 'talentsEquipements':return { filters: getTalentEquipFilters(data), defaults: getTalentEquipDefaults(), apply: applyTalentEquipFilters }
     case 'modsArmes':         return { filters: getModArmeFilters(), defaults: getModArmeDefaults(), apply: applyModArmeFilters }
     default:                  return null
   }

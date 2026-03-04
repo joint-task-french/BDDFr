@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer, useCallback, useMemo } from 'react'
-import { getSpecFromWeapon, getSkillRequiredSpec, getSpecialisations } from '../utils/formatters'
+import { getSpecFromWeapon, getSpecialisations } from '../utils/formatters'
 
 const BuildContext = createContext(null)
 
@@ -203,8 +203,8 @@ export function BuildProvider({ children, classSpe }) {
 
   // Vérifie si une compétence nécessite une spécialisation spécifique
   const skillNeedsSpec = useCallback((skill) => {
-    // Utilise le champ prerequis directement depuis les données
-    const required = skill.prerequis || getSkillRequiredSpec(skill.variante)
+    // Utilise uniquement le champ prerequis depuis les données
+    const required = skill.prerequis
     if (!required) return null // pas de spé requise
     if (required === specialisation) return null // spé correcte
     return required // retourne la spé manquante

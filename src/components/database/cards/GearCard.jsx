@@ -1,13 +1,7 @@
 import { useMemo } from 'react'
-import { GEAR_SLOT_LABELS } from '../../../utils/formatters'
+import { getGearSlotLabel, getAttrCategoryLabel } from '../../../utils/formatters'
 import {GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, GameIcon, resolveIcon} from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
-
-const ATTR_LABELS = {
-  offensif: 'Offensif',
-  'défensif': 'Défensif',
-  utilitaire: 'Utilitaire',
-}
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-' && v !== 'FALSE' && v !== 'TRUE'
@@ -28,7 +22,7 @@ function resolveTalents(item, talentsEquipements) {
   })
 }
 
-export default function GearCard({ item, ensembles, talentsEquipements, allAttributs }) {
+export default function GearCard({ item, ensembles, talentsEquipements, allAttributs, equipementsType, attributsType }) {
   const isExotic = item.type === 'exotique'
   const isNamed = item.estNomme && !isExotic
   const isGearSet = item.type === 'gear_set'
@@ -92,7 +86,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
           {/* Logo de l'équipement */}
           <div className='flex flex-col text-xs text-gray-500 text-center items-center gap-1 ml-1'>
             <GameIcon src={GEAR_SLOT_ICONS_IMG[item.emplacement]} alt="" size="w-10 h-10" className="rounded" />
-            <span>{GEAR_SLOT_LABELS[item.emplacement] || item.emplacement}</span>
+            <span>{getGearSlotLabel(equipementsType, item.emplacement)}</span>
           </div>
 
 
@@ -109,22 +103,38 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
               {attrsEssentiels.map((attr, i) => (
                 <span key={i} className="text-blue-300 bg-blue-500/10 px-1.5 py-0.5 rounded text-xs flex items-center gap-1">
                   <GameIcon src={resolveAttributeIcon(attr)} alt="" size="w-3 h-3" />
-                  {ATTR_LABELS[attr] || attr}
+                  {getAttrCategoryLabel(attributsType, attr)}
                 </span>
               ))}
             </div>
-          </div>
-        )}
-        {hasContent(item.attribut1) && (
-          <div className="flex items-start gap-2 text-xs">
-            <span className="text-purple-400 font-bold shrink-0 uppercase tracking-widest text-xs">Attribut</span>
-            <span className="text-gray-300">{item.attribut1}</span>
           </div>
         )}
         {hasContent(item.attributUnique) && (
           <div className="flex items-start gap-2 text-xs">
             <span className="text-shd font-bold shrink-0 uppercase tracking-widest text-xs">Unique</span>
             <span className="text-gray-300">{item.attributUnique}</span>
+          </div>
+        )}
+        {/* Attributs fixés (référençant attributs.jsonc) */}
+        {item.attributs?.length > 0 && (
+          <div className="space-y-1 mt-1">
+            <span className="text-purple-400 font-bold uppercase tracking-widest text-[10px]">Attributs</span>
+            {item.attributs.map((attr, i) => {
+              const ref = allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
+              const isOverMax = ref && attr.valeur > ref.max
+              return (
+                <div key={i} className="flex items-center justify-between text-xs">
+                  <span className="flex items-center gap-1.5 text-gray-400">
+                    <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
+                    {ref?.nom || attr.nom}
+                  </span>
+                  <span className={`font-bold ${isOverMax ? 'text-yellow-400' : 'text-gray-200'}`}>
+                    {attr.valeur}{ref?.unite || ''}
+                    {isOverMax && <span className="ml-1 text-[8px] text-yellow-500">(max {ref.max}{ref.unite})</span>}
+                  </span>
+                </div>
+              )
+            })}
           </div>
         )}
         {item.mod !== undefined && typeof item.mod !== 'boolean' && hasContent(item.mod) && (
@@ -134,28 +144,6 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
           </div>
         )}
       </div>
-
-      {/* Attributs fixés */}
-      {item.attributs?.length > 0 && (
-        <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1">
-          {item.attributs.map((attr, i) => {
-            const ref = allAttributs?.find(a => a.nom.toLowerCase() === attr.nom.toLowerCase())
-            const isOverMax = ref && attr.valeur > ref.max
-            return (
-              <div key={i} className="flex items-center justify-between text-xs">
-                <span className="flex items-center gap-1.5 text-gray-400">
-                  <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
-                  {attr.nom}
-                </span>
-                <span className={`font-bold ${isOverMax ? 'text-yellow-400' : 'text-gray-200'}`}>
-                  {attr.valeur}{ref?.unite || ''}
-                  {isOverMax && <span className="ml-1 text-xs text-yellow-500">(max {ref.max}{ref.unite})</span>}
-                </span>
-              </div>
-            )
-          })}
-        </div>
-      )}
 
       {/* Talents résolus */}
       {hasResolvedTalents && (

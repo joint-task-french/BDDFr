@@ -1,14 +1,9 @@
 import { resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
-
-const CATEGORIE_LABELS = {
-  offensif: 'Offensif',
-  'défensif': 'Défensif',
-  utilitaire: 'Utilitaire',
-}
+import { getAttrCategoryLabel } from '../../../utils/formatters'
 
 const CATEGORIE_COLORS = {
   offensif: 'text-red-400 bg-red-500/10 border-red-500/30',
-  'défensif': 'text-blue-400 bg-blue-500/10 border-blue-500/30',
+  defensif: 'text-blue-400 bg-blue-500/10 border-blue-500/30',
   utilitaire: 'text-yellow-400 bg-yellow-500/10 border-yellow-500/30',
 }
 
@@ -17,7 +12,7 @@ const CIBLE_LABELS = {
   equipement: 'Équipements',
 }
 
-export default function AttributCard({ item }) {
+export default function AttributCard({ item, attributsType }) {
   const catColor = CATEGORIE_COLORS[item.categorie] || 'text-gray-400 bg-gray-500/10 border-gray-500/30'
   const icon = resolveAttributeIcon(item.categorie)
   const essentialColor = item.estEssentiel ? 'text-shd' : 'text-white'
@@ -38,7 +33,7 @@ export default function AttributCard({ item }) {
         </div>
         <div className="flex items-center gap-2 mt-1.5">
           <span className={`text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border ${catColor}`}>
-            {CATEGORIE_LABELS[item.categorie] || item.categorie}
+            {getAttrCategoryLabel(attributsType, item.categorie)}
           </span>
           {item.cible?.map(c => (
             <span key={c} className="text-xs font-bold uppercase tracking-widest bg-tactical-bg text-gray-500 px-1.5 py-0.5 rounded border border-tactical-border">

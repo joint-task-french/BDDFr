@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
-import { WEAPON_TYPE_LABELS, CLASSIC_WEAPON_TYPES } from '../../utils/formatters'
+import { getWeaponTypeLabel, getClassicWeaponTypes } from '../../utils/formatters'
 import SelectionModal from '../common/SelectionModal'
 import Badge from '../common/Badge'
 import StatChip from '../common/StatChip'
@@ -15,6 +15,8 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
   const { canEquipExoticWeapon, canEquipExoticSidearm } = useBuild()
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('all')
+
+  const classicTypes = useMemo(() => getClassicWeaponTypes(data.armes_type), [data.armes_type])
 
   const allWeapons = useMemo(() => {
     const armes = data.armes || []
@@ -38,7 +40,7 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
         return armes.filter(w => w.type === 'pistolet')
       case 'classic':
       default:
-        return armes.filter(w => CLASSIC_WEAPON_TYPES.includes(w.type))
+        return armes.filter(w => classicTypes.includes(w.type))
     }
   }, [data, mode])
 
@@ -55,7 +57,7 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
       list = list.filter(w =>
         w.nom.toLowerCase().includes(term) ||
         (w.fabricant || '').toLowerCase().includes(term) ||
-        (WEAPON_TYPE_LABELS[w.type] || '').toLowerCase().includes(term)
+        (getWeaponTypeLabel(data.armes_type, w.type)).toLowerCase().includes(term)
       )
     }
     return list
@@ -95,7 +97,7 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
             typeFilter === t ? 'bg-shd/20 text-shd border-shd/40' : 'text-gray-500 border-tactical-border hover:text-gray-300'
           }`}
         >
-          {WEAPON_TYPE_LABELS[t] || t}
+          {getWeaponTypeLabel(data.armes_type, t)}
         </button>
       ))}
     </>
@@ -138,7 +140,7 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
         Object.entries(grouped).map(([type, weapons]) => (
           <div key={type} className="mb-4">
             <h4 className="text-sm font-bold text-red-400 uppercase tracking-widest mb-2 px-2 sticky top-0 bg-tactical-panel/90 py-2 z-10 border-b border-red-500/20">
-              {WEAPON_TYPE_LABELS[type] || type} ({weapons.length})
+              {getWeaponTypeLabel(data.armes_type, type)} ({weapons.length})
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
               {weapons.map(w => {

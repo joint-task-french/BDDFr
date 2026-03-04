@@ -20,6 +20,7 @@ export default function WeaponSection({ data }) {
           label="Arme Spécifique"
           weapon={specialWeapon}
           headerColor="purple"
+          armesType={data.armes_type}
           onSelect={() => setPickerOpen('special')}
           onRemove={() => dispatch({ type: 'REMOVE_SPECIAL_WEAPON' })}
           badge={specLabel && (
@@ -38,6 +39,7 @@ export default function WeaponSection({ data }) {
           allAttributs={data.attributs}
           modsArmes={data.modsArmes}
           weaponMods={weaponMods[0]}
+          armesType={data.armes_type}
           onSelect={() => setPickerOpen('primary')}
           onRemove={() => dispatch({ type: 'REMOVE_WEAPON', slot: 0 })}
           onSelectTalent={() => setTalentPickerSlot(0)}
@@ -54,6 +56,7 @@ export default function WeaponSection({ data }) {
           allAttributs={data.attributs}
           modsArmes={data.modsArmes}
           weaponMods={weaponMods[1]}
+          armesType={data.armes_type}
           onSelect={() => setPickerOpen('secondary')}
           onRemove={() => dispatch({ type: 'REMOVE_WEAPON', slot: 1 })}
           onSelectTalent={() => setTalentPickerSlot(1)}
@@ -71,6 +74,7 @@ export default function WeaponSection({ data }) {
           modsArmes={data.modsArmes}
           weaponMods={sidearmMods}
           headerColor="gray"
+          armesType={data.armes_type}
           onSelect={() => setPickerOpen('sidearm')}
           onRemove={() => dispatch({ type: 'REMOVE_SIDEARM' })}
           onSelectTalent={() => setTalentPickerSlot('sidearm')}

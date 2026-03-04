@@ -1,4 +1,4 @@
-import { WEAPON_TYPE_LABELS, GEAR_SLOT_LABELS } from '../utils/formatters'
+import { getWeaponTypeEntries, getGearSlots, getGearSlotLabel, getAttrCategoryLabel } from '../utils/formatters'
 
 // ================================================================
 // Utilitaire : calcul des bornes min/max depuis un tableau de valeurs
@@ -8,7 +8,6 @@ function bounds(items, field, { step = 1, fallbackMin = 0, fallbackMax = 100 } =
   if (values.length === 0) return { min: fallbackMin, max: fallbackMax }
   const rawMin = Math.min(...values)
   const rawMax = Math.max(...values)
-  // Arrondir au step inférieur/supérieur pour avoir des bornes propres
   const min = Math.floor(rawMin / step) * step
   const max = Math.ceil(rawMax / step) * step
   return { min, max }
@@ -19,9 +18,10 @@ function bounds(items, field, { step = 1, fallbackMin = 0, fallbackMax = 100 } =
 // ================================================================
 export function getWeaponFilters(data) {
   const armes = data?.armes || []
-  const typeOptions = Object.entries(WEAPON_TYPE_LABELS)
+  const armesType = data?.armes_type || {}
+  const typeOptions = getWeaponTypeEntries(armesType)
     .filter(([k]) => k !== 'autre')
-    .map(([value, label]) => ({ value, label }))
+    .map(([value, obj]) => ({ value, label: obj.nom }))
 
   const portee = bounds(armes, 'portee', { step: 5 })
   const rpm = bounds(armes, 'rpm', { step: 50 })
@@ -81,7 +81,9 @@ export function applyWeaponFilters(items, filters) {
 // ÉQUIPEMENTS
 // ================================================================
 export function getGearFilters(data) {
-  const slotOptions = Object.entries(GEAR_SLOT_LABELS).map(([value, label]) => ({ value, label }))
+  const eqType = data?.equipements_type || {}
+  const attrType = data?.attributs_type || {}
+  const slotOptions = Object.entries(eqType).map(([value, obj]) => ({ value, label: obj.nom }))
 
   // Marques uniques depuis les données
   const marques = data?.ensembles
@@ -90,11 +92,7 @@ export function getGearFilters(data) {
         .map(([slug, nom]) => ({ value: slug, label: nom }))
     : []
 
-  const catAttrOptions = [
-    { value: 'offensif', label: 'Offensif' },
-    { value: 'défensif', label: 'Défensif' },
-    { value: 'utilitaire', label: 'Utilitaire' },
-  ]
+  const catAttrOptions = Object.entries(attrType).map(([value, obj]) => ({ value, label: obj.nom }))
 
   return [
     {
@@ -138,10 +136,11 @@ export function applyGearFilters(items, filters) {
 // ================================================================
 // TALENTS D'ARMES
 // ================================================================
-export function getTalentArmeFilters() {
-  const typeOptions = Object.entries(WEAPON_TYPE_LABELS)
-    .filter(([k]) => !['autre', 'arme_specifique'].includes(k))
-    .map(([value, label]) => ({ value, label }))
+export function getTalentArmeFilters(data) {
+  const armesType = data?.armes_type || {}
+  const typeOptions = Object.entries(armesType)
+    .filter(([k]) => !['arme_specifique'].includes(k))
+    .map(([value, obj]) => ({ value, label: obj.nom }))
 
   return [
     {
@@ -172,13 +171,16 @@ export function applyTalentArmeFilters(items, filters) {
 // ================================================================
 // TALENTS D'ÉQUIPEMENTS
 // ================================================================
-export function getTalentEquipFilters() {
+export function getTalentEquipFilters(data) {
+  const eqType = data?.equipements_type || {}
+  const torseLabel = eqType.torse?.nom || 'Torse'
+  const sacLabel = eqType.sac_a_dos?.nom || 'Sac à dos'
   return [
     {
       key: 'emplacement', type: 'select', label: 'Emplacement',
       options: [
-        { value: 'torse', label: 'Torse' },
-        { value: 'sac_a_dos', label: 'Sac à dos' },
+        { value: 'torse', label: torseLabel },
+        { value: 'sac_a_dos', label: sacLabel },
         { value: 'tous', label: 'Les deux' },
       ],
     },

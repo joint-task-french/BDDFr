@@ -1,25 +1,188 @@
 // Formatteurs et utilitaires d'affichage
+// Toutes les données de référence proviennent des fichiers JSONC type
+// (armes-type.jsonc, equipements-type.jsonc, attributs-type.jsonc)
 
-export const WEAPON_TYPE_LABELS = {
-  fusil_assaut: "Fusil d'assaut",
-  fusil: 'Fusil',
-  fusil_precision: 'Fusil de précision',
-  pistolet_mitrailleur: 'Pistolet mitrailleur',
-  fusil_mitrailleur: 'Fusil mitrailleur',
-  calibre_12: 'Calibre 12',
-  pistolet: 'Pistolet',
-  arme_specifique: 'Arme spécifique',
-  autre: 'Autre'
+// ================================================================
+// Fonctions dynamiques — utilisent les données type chargées
+// ================================================================
+
+/**
+ * Retourne le label d'un type d'arme depuis armes_type.
+ * @param {Object} armesType - Le contenu de armes-type.jsonc (clé slug → objet)
+ * @param {string} key - La clé du type (ex: 'fusil_assaut')
+ * @returns {string}
+ */
+export function getWeaponTypeLabel(armesType, key) {
+  return armesType?.[key]?.nom || key || ''
 }
 
-// Types d'armes classiques (exclut pistolet et arme_specifique)
-export const CLASSIC_WEAPON_TYPES = [
-  'fusil_assaut', 'fusil', 'fusil_precision',
-  'pistolet_mitrailleur', 'fusil_mitrailleur', 'calibre_12'
-]
+/**
+ * Retourne le label d'un emplacement d'équipement depuis equipements_type.
+ * @param {Object} eqType - Le contenu de equipements-type.jsonc (clé slug → objet)
+ * @param {string} key - La clé de l'emplacement (ex: 'sac_a_dos')
+ * @returns {string}
+ */
+export function getGearSlotLabel(eqType, key) {
+  return eqType?.[key]?.nom || key || ''
+}
 
-// Spécialisations — construites depuis class-spe.jsonc au runtime
-// Utiliser buildSpecialisations(data.classSpe) pour obtenir le mapping
+/**
+ * Retourne l'emoji d'un emplacement d'équipement depuis equipements_type.
+ * @param {Object} eqType - Le contenu de equipements-type.jsonc
+ * @param {string} key - La clé de l'emplacement
+ * @returns {string}
+ */
+export function getGearSlotEmoji(eqType, key) {
+  return eqType?.[key]?.emoji || ''
+}
+
+/**
+ * Retourne le label d'une catégorie d'attribut depuis attributs_type.
+ * Gère les variantes avec/sans accent (défensif → defensif).
+ * @param {Object} attrType - Le contenu de attributs-type.jsonc (clé slug → objet)
+ * @param {string} key - La clé de la catégorie (ex: 'offensif', 'défensif' ou 'defensif')
+ * @returns {string}
+ */
+export function getAttrCategoryLabel(attrType, key) {
+  if (!key) return ''
+  if (attrType?.[key]) return attrType[key].nom
+  // Fallback: normaliser la clé (retirer accents)
+  const normalized = key.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  if (attrType?.[normalized]) return attrType[normalized].nom
+  return key
+}
+
+/**
+ * Retourne la liste ordonnée des slugs des types d'armes (entries [slug, obj]).
+ * @param {Object} armesType
+ * @returns {Array<[string, Object]>}
+ */
+export function getWeaponTypeEntries(armesType) {
+  if (!armesType) return []
+  return Object.entries(armesType)
+}
+
+/**
+ * Construit les labels type d'arme sous forme { slug: nom }.
+ * @param {Object} armesType
+ * @returns {Object}
+ */
+export function buildWeaponTypeLabels(armesType) {
+  if (!armesType) return {}
+  const labels = {}
+  for (const [key, val] of Object.entries(armesType)) {
+    labels[key] = val.nom
+  }
+  return labels
+}
+
+/**
+ * Construit les labels emplacements d'équipement sous forme { slug: nom }.
+ * @param {Object} eqType
+ * @returns {Object}
+ */
+export function buildGearSlotLabels(eqType) {
+  if (!eqType) return {}
+  const labels = {}
+  for (const [key, val] of Object.entries(eqType)) {
+    labels[key] = val.nom
+  }
+  return labels
+}
+
+/**
+ * Construit les labels catégories d'attributs sous forme { slug: nom }.
+ * @param {Object} attrType
+ * @returns {Object}
+ */
+export function buildAttrCategoryLabels(attrType) {
+  if (!attrType) return {}
+  const labels = {}
+  for (const [key, val] of Object.entries(attrType)) {
+    labels[key] = val.nom
+  }
+  return labels
+}
+
+/**
+ * Retourne les slugs des types d'armes classiques (principale).
+ * Exclut pistolet (secondaire) et arme_specifique (specifique).
+ * @param {Object} armesType
+ * @returns {string[]}
+ */
+export function getClassicWeaponTypes(armesType) {
+  if (!armesType) return []
+  return Object.entries(armesType)
+    .filter(([, val]) => val.type === 'principale')
+    .map(([key]) => key)
+}
+
+/**
+ * Retourne la liste ordonnée des slugs d'emplacements d'équipement.
+ * @param {Object} eqType
+ * @returns {string[]}
+ */
+export function getGearSlots(eqType) {
+  if (!eqType) return []
+  return Object.keys(eqType)
+}
+
+/**
+ * Construit les emojis emplacements d'équipement sous forme { slug: emoji }.
+ * @param {Object} eqType
+ * @returns {Object}
+ */
+export function buildGearSlotEmojis(eqType) {
+  if (!eqType) return {}
+  const emojis = {}
+  for (const [key, val] of Object.entries(eqType)) {
+    emojis[key] = val.emoji || ''
+  }
+  return emojis
+}
+
+/**
+ * Retourne le nom de l'attribut principal d'un type d'arme.
+ * Le premier attribut essentiel du type est l'attribut principal non modifiable.
+ * @param {Object} armesType - Le contenu de armes-type.jsonc
+ * @param {string} typeKey - Le slug du type d'arme
+ * @param {Array} allAttributs - Le référentiel des attributs
+ * @returns {string|null} Nom de l'attribut principal ou null
+ */
+export function getWeaponMainAttributeName(armesType, typeKey, allAttributs) {
+  if (!armesType || !typeKey || !allAttributs) return null
+  const typeData = armesType[typeKey]
+  if (!typeData?.attributs_essentiels?.length) return null
+  const mainSlug = typeData.attributs_essentiels[0]
+  const attr = allAttributs.find(a => a.slug === mainSlug)
+  return attr?.nom || null
+}
+
+/**
+ * Retourne tous les attributs essentiels résolus d'un type d'arme.
+ * Chaque attribut est enrichi avec les données du référentiel (nom, min, max, unité, catégorie).
+ * @param {Object} armesType - Le contenu de armes-type.jsonc
+ * @param {string} typeKey - Le slug du type d'arme (ex: 'fusil_assaut')
+ * @param {Array} allAttributs - Le référentiel des attributs (tableau avec slug)
+ * @returns {Array<Object>} [{slug, nom, min, max, unite, categorie}, ...]
+ */
+export function getWeaponEssentialAttributes(armesType, typeKey, allAttributs) {
+  if (!armesType || !typeKey || !allAttributs) return []
+  const typeData = armesType[typeKey]
+  if (!typeData?.attributs_essentiels?.length) return []
+  return typeData.attributs_essentiels
+    .map(slug => {
+      const attr = allAttributs.find(a => a.slug === slug)
+      if (!attr) return null
+      return { slug, nom: attr.nom, min: attr.min, max: attr.max, unite: attr.unite, categorie: attr.categorie }
+    })
+    .filter(Boolean)
+}
+
+// ================================================================
+// Spécialisations — depuis class-spe.jsonc
+// ================================================================
+
 export function buildSpecialisations(classSpeData) {
   if (!classSpeData || !Array.isArray(classSpeData)) return {}
   const map = {}
@@ -29,14 +192,12 @@ export function buildSpecialisations(classSpeData) {
   return map
 }
 
-// Cache global mis à jour au premier chargement
 let _speCache = null
 export function getSpecialisations(classSpeData) {
   if (classSpeData) _speCache = buildSpecialisations(classSpeData)
   return _speCache || {}
 }
 
-// Mapping arme spécifique → clé spécialisation (utilise les données)
 export function getSpecFromWeapon(weaponName, classSpeData) {
   if (!weaponName) return null
   const name = weaponName.toUpperCase()
@@ -47,62 +208,9 @@ export function getSpecFromWeapon(weaponName, classSpeData) {
   return null
 }
 
-// Mapping variante de compétence → spécialisation requise
-// Préférer skill.prerequis directement depuis les données
-export function getSkillRequiredSpec(variante) {
-  if (!variante) return null
-  const v = variante.toLowerCase()
-  const mapping = {
-    'artilleur': 'artilleur',
-    'démolisseur': 'demolisseur', 'demolisseur': 'demolisseur',
-    'technicien': 'technicien', 'tacticien': 'technicien',
-    'survivaliste': 'survivaliste',
-    "tireur d'élite": 'tireur_elite', "tireur d'elite": 'tireur_elite',
-    'incendiaire': 'incendiaire',
-  }
-  for (const [keyword, key] of Object.entries(mapping)) {
-    if (v.includes(keyword)) return key
-  }
-  return null
-}
-
-// Mapping type d'arme → attribut principal (non modifiable)
-export const WEAPON_MAIN_ATTRIBUTE = {
-  fusil_assaut: "Dégâts Fusil d'assaut",
-  fusil: 'Dégâts Fusil',
-  fusil_precision: 'Dégâts Fusil de précision',
-  pistolet_mitrailleur: 'Dégâts Pistolet-mitrailleur',
-  fusil_mitrailleur: 'Dégâts Fusil-mitrailleur',
-  calibre_12: 'Dégâts Calibre 12',
-  pistolet: 'Dégâts Pistolet',
-}
-
-// Labels des catégories d'attributs essentiels
-export const ATTR_CATEGORY_LABELS = {
-  offensif: 'Offensif',
-  'défensif': 'Défensif',
-  utilitaire: 'Utilitaire',
-}
-
-export const GEAR_SLOT_LABELS = {
-  masque: 'Masque',
-  torse: 'Torse',
-  holster: 'Holster',
-  sac_a_dos: 'Sac à dos',
-  gants: 'Gants',
-  genouilleres: 'Genouillères'
-}
-
-export const GEAR_SLOT_ICONS = {
-  masque: '🎭',
-  torse: '🦺',
-  holster: '🔧',
-  sac_a_dos: '🎒',
-  gants: '🧤',
-  genouilleres: '🦿'
-}
-
-export const GEAR_SLOTS = ['masque', 'torse', 'holster', 'sac_a_dos', 'gants', 'genouilleres']
+// ================================================================
+// Formatage
+// ================================================================
 
 export function formatNumber(n) {
   if (!n) return '—'
@@ -111,7 +219,6 @@ export function formatNumber(n) {
 
 export function formatText(text) {
   if (!text || text === '-' || text === 'n/a') return null
-  // Ajoute des retours à la ligne après les points suivis de lettres
   return text.replace(/\.(?=[a-zA-Zà-ÿÀ-ß+])/g, '.\n')
 }
 

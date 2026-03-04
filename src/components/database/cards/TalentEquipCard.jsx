@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { GEAR_SLOT_LABELS } from '../../../utils/formatters'
+import { getGearSlotLabel } from '../../../utils/formatters'
 import { GEAR_SLOT_ICONS_IMG, resolveIcon, GameIcon } from '../../../utils/gameAssets'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function TalentEquipCard({ item, equipements }) {
+export default function TalentEquipCard({ item, equipements, equipementsType }) {
   const [showPerfect, setShowPerfect] = useState(false)
 
   const isExotic = item.estExotique
@@ -57,7 +57,7 @@ export default function TalentEquipCard({ item, equipements }) {
             ) : (
               <GameIcon src={slotIcon} alt="" size="w-3 h-3" className="opacity-70" />
             )}
-            {GEAR_SLOT_LABELS[item.emplacement] || item.emplacement}
+            {getGearSlotLabel(equipementsType, item.emplacement)}
           </span>
         </div>
         {hasContent(item.prerequis) && (
@@ -86,5 +86,4 @@ export default function TalentEquipCard({ item, equipements }) {
     </div>
   )
 }
-
 

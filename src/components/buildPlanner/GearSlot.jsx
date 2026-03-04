@@ -6,7 +6,7 @@ function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles, talentsEquipements, allAttributs, gearAttributes, onSetAttributes, modsEquipements, gearMod, onSetMod }) {
+export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles, talentsEquipements, allAttributs, gearAttributes, onSetAttributes, modsEquipements, gearMod, onSetMod, attributsType }) {
   const { dispatch } = useBuild()
 
   const remove = (e) => {
@@ -72,6 +72,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
               gearMod={gearMod}
               onChange={onSetAttributes}
               onChangeMod={onSetMod}
+              attributsType={attributsType}
             />
             {/* Talents exotiques/nommés (depuis talents[]) */}
             {piece.talents && piece.talents.length > 0 && (piece.type === 'exotique' || piece.estNomme) && (

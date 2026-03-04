@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
-import { GEAR_SLOT_LABELS } from '../../utils/formatters'
+import { getGearSlotLabel } from '../../utils/formatters'
 import SelectionModal from '../common/SelectionModal'
 import Badge from '../common/Badge'
 
@@ -96,7 +96,7 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
   return (
     <SelectionModal
       open={true}
-      title={`Sélection — ${GEAR_SLOT_LABELS[slotKey]}`}
+      title={`Sélection — ${getGearSlotLabel(data.equipements_type, slotKey)}`}
       onClose={onClose}
       searchValue={search}
       onSearch={setSearch}

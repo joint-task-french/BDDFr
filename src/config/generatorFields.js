@@ -73,15 +73,7 @@ export const FIELDS = {
     comment: '// Arme — The Division 2',
     fields: [
       { key: 'nom', label: 'Nom', type: 'autocomplete', required: true, suggestionsKey: 'nomsArmes', isIdentity: true },
-      { key: 'type', label: 'Type', type: 'tagSelect', required: true, options: [
-        { value: 'fusil_assaut', label: "Fusil d'assaut", color: 'red' },
-        { value: 'fusil', label: 'Fusil', color: 'yellow' },
-        { value: 'fusil_precision', label: 'Fusil précision', color: 'blue' },
-        { value: 'pistolet_mitrailleur', label: 'PMG', color: 'red' },
-        { value: 'fusil_mitrailleur', label: 'Fusil-mitrailleur', color: 'red' },
-        { value: 'calibre_12', label: 'Calibre 12', color: 'yellow' },
-        { value: 'pistolet', label: 'Pistolet', color: 'blue' },
-      ], singleSelect: true },
+      { key: 'type', label: 'Type', type: 'tagSelect', required: true, dynamicOptions: 'armesTypes', singleSelect: true },
       { key: 'fabricant', label: 'Fabricant', type: 'autocomplete', suggestionsKey: 'fabricants' },
       { key: 'portee', label: 'Portée (m)', type: 'number' },
       { key: 'rpm', label: 'CPM', type: 'number', step: 1 },
@@ -117,22 +109,11 @@ export const FIELDS = {
     fields: [
       { key: 'nom', label: 'Nom', type: 'autocomplete', required: true, suggestionsKey: 'nomsEquipements', isIdentity: true },
       { key: 'marque', label: 'Marque / Gear Set', type: 'autocomplete', suggestionsKey: 'marques' },
-      { key: 'emplacement', label: 'Emplacement', type: 'tagSelect', required: true, singleSelect: true, options: [
-        { value: 'masque', label: 'Masque', color: 'blue' },
-        { value: 'torse', label: 'Torse', color: 'red' },
-        { value: 'holster', label: 'Holster', color: 'yellow' },
-        { value: 'sac_a_dos', label: 'Sac à dos', color: 'red' },
-        { value: 'gants', label: 'Gants', color: 'blue' },
-        { value: 'genouilleres', label: 'Genouillères', color: 'yellow' },
-      ]},
-      { key: 'attributEssentiel', label: 'Attribut(s) essentiel(s)', type: 'tagSelect', options: [
-        { value: 'offensif', label: 'Offensif', color: 'red' },
-        { value: 'défensif', label: 'Défensif', color: 'blue' },
-        { value: 'utilitaire', label: 'Utilitaire', color: 'yellow' },
-      ]},
-      { key: 'attributs', label: 'Attributs fixés', type: 'objectArray', fields: [
-        { key: 'nom', label: 'Nom', type: 'autocomplete', suggestionsKey: 'attributs' },
-        { key: 'valeur', label: 'Valeur', type: 'number' },
+      { key: 'emplacement', label: 'Emplacement', type: 'tagSelect', required: true, singleSelect: true, dynamicOptions: 'equipementsTypes' },
+      { key: 'attributEssentiel', label: 'Attribut(s) essentiel(s)', type: 'tagSelect', dynamicOptions: 'attributsTypes' },
+      { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
+        { key: 'nom', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'attributs' },
+        { key: 'valeur', label: 'Valeur', type: 'number', step: 0.1 },
       ]},
       { key: 'talents', label: 'Talents', type: 'autocomplete_array', suggestionsKey: 'talentsEquipements', placeholder: 'Rechercher un talent...' },
       { key: 'mod', label: 'Emplacement de mod', type: 'boolean' },
@@ -155,15 +136,7 @@ export const FIELDS = {
       { key: 'description', label: 'Description', type: 'textarea', required: true },
       { key: 'prerequis', label: 'Prérequis', type: 'text' },
       { key: 'estExotique', label: 'Talent exotique', type: 'boolean' },
-      { key: 'compatibilite', label: 'Compatibilité', type: 'tagSelect', hiddenWhen: { key: 'estExotique', value: true }, options: [
-        { value: 'fusil', label: 'Fusil', color: 'yellow' },
-        { value: 'calibre_12', label: 'Calibre 12', color: 'yellow' },
-        { value: 'fusil_assaut', label: "Fusil d'assaut", color: 'red' },
-        { value: 'fusil_mitrailleur', label: 'Fusil-mitrailleur', color: 'red' },
-        { value: 'fusil_precision', label: 'Fusil précision', color: 'blue' },
-        { value: 'pistolet', label: 'Pistolet', color: 'blue' },
-        { value: 'pistolet_mitrailleur', label: 'PMG', color: 'red' },
-      ], outputAsObject: true },
+      { key: 'compatibilite', label: 'Compatibilité', type: 'tagSelect', hiddenWhen: { key: 'estExotique', value: true }, dynamicOptions: 'armesTypesCompat', outputAsObject: true },
       { key: 'perfectDescription', label: 'Description parfaite', type: 'textarea', hiddenWhen: { key: 'estExotique', value: true } },
       { key: 'armesParfaites', label: 'Armes parfaites', type: 'autocomplete_array', suggestionsKey: 'armesNommees', placeholder: "Rechercher une arme nommée...", hiddenWhen: { key: 'estExotique', value: true } },
     ],
@@ -177,11 +150,7 @@ export const FIELDS = {
       { key: 'description', label: 'Description', type: 'textarea' },
       { key: 'prerequis', label: 'Prérequis', type: 'text' },
       { key: 'estExotique', label: 'Talent exotique', type: 'boolean' },
-      { key: 'emplacement', label: 'Emplacement', type: 'tagSelect', required: true, singleSelect: true, options: [
-        { value: 'torse', label: 'Torse', color: 'red' },
-        { value: 'sac_a_dos', label: 'Sac à dos', color: 'blue' },
-        { value: 'tous', label: 'Tous', color: 'yellow' },
-      ]},
+      { key: 'emplacement', label: 'Emplacement', type: 'tagSelect', required: true, singleSelect: true, dynamicOptions: 'talentEquipEmplacements' },
       { key: 'perfectDescription', label: 'Description parfaite', type: 'textarea', hiddenWhen: { key: 'estExotique', value: true } },
       { key: 'equipementsParfaits', label: 'Équipements parfaits', type: 'autocomplete_array', suggestionsKey: 'equipementsNommes', placeholder: "Rechercher un équipement nommé...", hiddenWhen: { key: 'estExotique', value: true } },
     ],
@@ -197,11 +166,7 @@ export const FIELDS = {
         { value: 'marque', label: 'Marque', color: 'blue' },
       ]},
       { key: 'logo', label: 'Logo (fichier)', type: 'text', placeholder: 'nom-du-logo.png' },
-      { key: 'attributsEssentiels', label: 'Attributs essentiels', type: 'tagSelect', options: [
-        { value: 'Offensif', label: 'Offensif', color: 'red' },
-        { value: 'Défensif', label: 'Défensif', color: 'blue' },
-        { value: 'Utilitaire', label: 'Utilitaire', color: 'yellow' },
-      ]},
+      { key: 'attributsEssentiels', label: 'Attributs essentiels', type: 'tagSelect', dynamicOptions: 'attributsTypes' },
       { key: 'bonus1piece', label: 'Bonus 1 pièce', type: 'text', hiddenWhen: { key: 'type', value: 'gear_set' } },
       { key: 'bonus2pieces', label: 'Bonus 2 pièces', type: 'text' },
       { key: 'bonus3pieces', label: 'Bonus 3 pièces', type: 'text' },
@@ -235,11 +200,7 @@ export const FIELDS = {
     comment: '// Attribut — The Division 2',
     fields: [
       { key: 'nom', label: 'Nom', type: 'autocomplete', required: true, suggestionsKey: 'nomsAttributs', isIdentity: true },
-      { key: 'categorie', label: 'Catégorie', type: 'tagSelect', required: true, singleSelect: true, options: [
-        { value: 'offensif', label: 'Offensif', color: 'red' },
-        { value: 'défensif', label: 'Défensif', color: 'blue' },
-        { value: 'utilitaire', label: 'Utilitaire', color: 'yellow' },
-      ]},
+      { key: 'categorie', label: 'Catégorie', type: 'tagSelect', required: true, singleSelect: true, dynamicOptions: 'attributsTypes' },
       { key: 'cible', label: 'Cible', type: 'tagSelect', options: [
         { value: 'arme', label: 'Arme', color: 'red' },
         { value: 'equipement', label: 'Équipement', color: 'blue' },
@@ -248,6 +209,7 @@ export const FIELDS = {
       { key: 'min', label: 'Minimum', type: 'number', step: 0.1 },
       { key: 'max', label: 'Maximum', type: 'number', step: 0.1 },
       { key: 'description', label: 'Description', type: 'text' },
+      { key: 'estEssentiel', label: 'Attribut essentiel', type: 'boolean' },
     ],
   },
 
@@ -271,11 +233,7 @@ export const FIELDS = {
   modsEquipements: {
     comment: "// Mod d'équipement — The Division 2",
     fields: [
-      { key: 'categorie', label: 'Catégorie', type: 'tagSelect', singleSelect: true, options: [
-        { value: 'offensif', label: 'Offensif', color: 'red' },
-        { value: 'défensif', label: 'Défensif', color: 'blue' },
-        { value: 'utilitaire', label: 'Utilitaire', color: 'yellow' },
-      ]},
+      { key: 'categorie', label: 'Catégorie', type: 'tagSelect', singleSelect: true, dynamicOptions: 'attributsTypes' },
       { key: 'protocole', label: 'Protocole', type: 'text' },
       { key: 'statistique', label: 'Statistique', type: 'autocomplete', required: true, suggestionsKey: 'nomsModsEquipements', isIdentity: true },
       { key: 'valeurMax', label: 'Valeur max', type: 'text' },
@@ -433,6 +391,34 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   groupedComps.forEach(c => { if (c.competence) compSet.add(c.competence) })
   s.competences = Array.from(compSet).sort()
 
+  // --- Dynamic options from type data ---
+  const armesType = loadedData?.armes_type || {}
+  const eqType = loadedData?.equipements_type || {}
+  const attrType = loadedData?.attributs_type || {}
+
+  const colorCycle = ['red', 'yellow', 'blue', 'green']
+  // Weapon types (excluding arme_specifique for compat)
+  s.armesTypes = Object.entries(armesType)
+    .filter(([k]) => k !== 'arme_specifique')
+    .map(([value, obj], i) => ({ value, label: obj.nom, color: colorCycle[i % colorCycle.length] }))
+  s.armesTypesCompat = Object.entries(armesType)
+    .filter(([k]) => k !== 'arme_specifique')
+    .map(([value, obj], i) => ({ value, label: obj.nom, color: colorCycle[i % colorCycle.length] }))
+  // Equipment types
+  s.equipementsTypes = Object.entries(eqType)
+    .map(([value, obj], i) => ({ value, label: obj.nom, color: colorCycle[i % colorCycle.length] }))
+  // Attribute types
+  const attrColors = { offensif: 'red', defensif: 'blue', utilitaire: 'yellow' }
+  s.attributsTypes = Object.entries(attrType)
+    .map(([value, obj]) => ({ value, label: obj.nom, color: attrColors[value] || 'yellow' }))
+  // Talent equip emplacements
+  s.talentEquipEmplacements = [
+    ...Object.entries(eqType)
+      .filter(([k]) => k === 'torse' || k === 'sac_a_dos')
+      .map(([value, obj], i) => ({ value, label: obj.nom, color: colorCycle[i % colorCycle.length] })),
+    { value: 'tous', label: 'Tous', color: 'yellow' },
+  ]
+
   return s
 }
 
@@ -527,7 +513,7 @@ export function cleanOutput(data, categoryKey) {
 }
 
 /** Génère les 6 pièces d'équipement pré-remplies pour un ensemble. */
-export function generateEquipmentSet(ensembleData) {
+export function generateEquipmentSet(ensembleData, equipementsType) {
   const nom = ensembleData.nom || 'Nouvel Ensemble'
   const ensembleSlug = ensembleData.slug || slugify(nom)
   const type = ensembleData.type || 'marque'
@@ -537,20 +523,21 @@ export function generateEquipmentSet(ensembleData) {
     return n === 'offensif' ? 'offensif' : n === 'defensif' ? 'défensif' : 'utilitaire'
   })
 
-  const SLOTS = ['masque', 'torse', 'holster', 'sac_a_dos', 'gants', 'genouilleres']
-  const LABELS = { masque: 'Masque', torse: 'Torse', holster: 'Holster', sac_a_dos: 'Sac à dos', gants: 'Gants', genouilleres: 'Genouillères' }
-
+  const SLOTS = equipementsType ? Object.keys(equipementsType) : ['masque', 'torse', 'holster', 'sac_a_dos', 'gants', 'genouilleres']
   const SLOTS_WITH_MOD = ['torse', 'sac_a_dos']
 
-  return SLOTS.map(slot => ({
-    nom: `${LABELS[slot]} ${nom}`,
-    slug: slugify(`${LABELS[slot]} ${nom}`),
-    marque: ensembleSlug,
-    emplacement: slot,
-    attributEssentiel: attrEss.length > 0 ? [...attrEss] : ['offensif'],
-    mod: SLOTS_WITH_MOD.includes(slot),
-    type: type === 'gear_set' ? 'gear_set' : 'standard',
-  }))
+  return SLOTS.map(slot => {
+    const slotLabel = equipementsType?.[slot]?.nom || slot
+    return {
+      nom: `${slotLabel} ${nom}`,
+      slug: slugify(`${slotLabel} ${nom}`),
+      marque: ensembleSlug,
+      emplacement: slot,
+      attributEssentiel: attrEss.length > 0 ? [...attrEss] : ['offensif'],
+      mod: SLOTS_WITH_MOD.includes(slot),
+      type: type === 'gear_set' ? 'gear_set' : 'standard',
+    }
+  })
 }
 
 /**
@@ -653,51 +640,3 @@ export function itemToFormData(categoryKey, item) {
   }
   return data
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

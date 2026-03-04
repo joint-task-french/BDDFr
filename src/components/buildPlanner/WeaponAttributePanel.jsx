@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { WEAPON_MAIN_ATTRIBUTE } from '../../utils/formatters'
+import { getWeaponEssentialAttributes } from '../../utils/formatters'
 import { resolveAttributeIcon, GameIcon } from '../../utils/gameAssets'
 import AttributeSlider from './AttributeSlider'
 import AttributePicker from './AttributePicker'
@@ -8,26 +8,23 @@ import AttributePicker from './AttributePicker'
  * Panneau d'attributs + mods inline pour une arme dans le build planner.
  *
  * Règles :
- * - Attribut principal (lié au type d'arme) : lecture seule, toujours affiché
+ * - Attributs essentiels (hérités du type d'arme) : lecture seule, toujours affichés
  * - Si weapon.attributs[] existe : attributs fixés en lecture seule
  * - Sinon : 1 attribut personnalisable (sauf exotique)
  * - Mods : emplacementsMods[] = slots disponibles
  * - Armes exotiques : mods pré-insérés et NON modifiables
  */
-export default function WeaponAttributePanel({ weapon, attribute, allAttributs, modsArmes, weaponMods, onChangeAttribute, onChangeMods }) {
+export default function WeaponAttributePanel({ weapon, attribute, allAttributs, modsArmes, weaponMods, onChangeAttribute, onChangeMods, armesType }) {
   const [pickerOpen, setPickerOpen] = useState(false)
   const [modPickerSlot, setModPickerSlot] = useState(null)
 
   const isExotic = weapon?.estExotique
-  const mainAttrName = WEAPON_MAIN_ATTRIBUTE[weapon?.type]
 
-  // Attribut principal (type d'arme) depuis le référentiel
-  const mainAttr = useMemo(() => {
-    if (!mainAttrName || !allAttributs) return null
-    const ref = allAttributs.find(a => a.nom === mainAttrName)
-    if (!ref) return null
-    return { nom: ref.nom, valeur: ref.max, min: ref.min, max: ref.max, unite: ref.unite, categorie: ref.categorie }
-  }, [mainAttrName, allAttributs])
+  // Attributs essentiels hérités du type d'arme (tous)
+  const essentialAttrs = useMemo(() =>
+    getWeaponEssentialAttributes(armesType, weapon?.type, allAttributs),
+    [armesType, weapon?.type, allAttributs]
+  )
 
   // Attributs fixés depuis weapon.attributs[]
   const fixedAttributes = useMemo(() => {
@@ -51,11 +48,11 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
   // Noms déjà pris (pour le picker)
   const excluded = useMemo(() => {
     const ex = []
-    if (mainAttrName) ex.push(mainAttrName)
+    essentialAttrs.forEach(a => ex.push(a.nom))
     fixedAttributes.forEach(a => ex.push(a.nom))
     if (attribute?.nom) ex.push(attribute.nom)
     return ex
-  }, [mainAttrName, fixedAttributes, attribute])
+  }, [essentialAttrs, fixedAttributes, attribute])
 
   // Emplacements de mods
   const modSlots = weapon?.emplacementsMods || []
@@ -65,14 +62,14 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
 
   return (
     <div className="mt-2 pt-2 border-t border-tactical-border/30 space-y-0.5">
-      {/* Attribut principal (type d'arme) — toujours lecture seule */}
-      {mainAttr && (
-        <div className="flex items-center gap-1.5 py-0.5">
-          <GameIcon src={resolveAttributeIcon(mainAttr.categorie)} alt="" size="w-3 h-3" className="opacity-50" />
-          <span className="text-[10px] text-gray-500 truncate">{mainAttr.nom}</span>
-          <span className="text-[10px] text-gray-600 ml-auto">{mainAttr.max}{mainAttr.unite}</span>
+      {/* Attributs essentiels (hérités du type d'arme) — toujours lecture seule */}
+      {essentialAttrs.map((attr, i) => (
+        <div key={`ess-${i}`} className="flex items-center gap-1.5 py-0.5">
+          <GameIcon src={resolveAttributeIcon(attr.categorie)} alt="" size="w-3 h-3" className="opacity-50" />
+          <span className="text-[10px] text-gray-500 truncate">{attr.nom}</span>
+          <span className="text-[10px] text-gray-600 ml-auto">{attr.min}–{attr.max}{attr.unite || ''}</span>
         </div>
-      )}
+      ))}
 
       {/* Attributs fixés depuis les données (lecture seule) */}
       {fixedAttributes.map((attr, i) => (

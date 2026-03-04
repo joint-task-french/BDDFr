@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
-import { ATTR_CATEGORY_LABELS } from '../../utils/formatters'
+import { getAttrCategoryLabel } from '../../utils/formatters'
 import AttributeSlider from './AttributeSlider'
 import AttributePicker from './AttributePicker'
 
@@ -29,7 +29,7 @@ function findDefaultAttr(allAttributs, categorie) {
 /**
  * Panneau d'attributs + mod inline pour un équipement dans le build planner.
  */
-export default function GearAttributePanel({ piece, attributes, allAttributs, modsEquipements, gearMod, onChange, onChangeMod }) {
+export default function GearAttributePanel({ piece, attributes, allAttributs, modsEquipements, gearMod, onChange, onChangeMod, attributsType }) {
   const [pickerOpen, setPickerOpen] = useState(null)
   const [modPickerOpen, setModPickerOpen] = useState(false)
 
@@ -88,7 +88,7 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
       {/* Attributs essentiels */}
       {isExotic ? (
         essentialCategories.map((cat, i) => {
-          const catLabel = ATTR_CATEGORY_LABELS[cat] || cat
+          const catLabel = getAttrCategoryLabel(attributsType, cat)
           const existing = essentiels[i]
           return (
             <div key={i} className="flex items-center gap-1 py-0.5">
@@ -107,7 +107,7 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
           onChange={(attr) => setEssential(0, attr)}
           onPick={() => setPickerOpen('essential-0')}
           onRemove={() => setEssential(0, null)}
-          label={`Essentiel${essentialCategories[0] ? ` (${ATTR_CATEGORY_LABELS[essentialCategories[0]] || essentialCategories[0]})` : ''}`}
+          label={`Essentiel${essentialCategories[0] ? ` (${getAttrCategoryLabel(attributsType, essentialCategories[0])})` : ''}`}
         />
       )}
 
@@ -234,6 +234,4 @@ function GearModPicker({ mods, onSelect, onClose }) {
     </div>
   )
 }
-
-
 

@@ -78,6 +78,26 @@
             }
           }
         },
+        "attributs_essentiels": {
+          "type": "array",
+          "description": "Écrase les attributs essentiels fixés par défaut sur cette arme, avec leur valeur spécifique. Le nom référence un attribut dans attributs.jsonc.",
+          "items": {
+            "type": "object",
+            "required": [
+              "nom"
+            ],
+            "properties": {
+              "nom": {
+                "type": "string",
+                "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)"
+              },
+              "valeur": {
+                "type": "number",
+                "description": "Valeur de l'attribut sur cette arme"
+              }
+            }
+          }
+        },
         "degatsBase": {
           "type": "integer",
           "description": "Dégâts de base"

@@ -164,10 +164,19 @@ export function getWeaponMainAttributeName(armesType, typeKey, allAttributs) {
  * @param {Object} armesType - Le contenu de armes-type.jsonc
  * @param {string} typeKey - Le slug du type d'arme (ex: 'fusil_assaut')
  * @param {Array} allAttributs - Le référentiel des attributs (tableau avec slug)
+ * @param {Array} essentials - Attributs spéciaux de l'arme (écrase les attributs_essentiels du type)
  * @returns {Array<Object>} [{slug, nom, min, max, unite, categorie}, ...]
  */
-export function getWeaponEssentialAttributes(armesType, typeKey, allAttributs) {
+export function getWeaponEssentialAttributes(armesType, typeKey, allAttributs, essentials) {
   if (!armesType || !typeKey || !allAttributs) return []
+  if (essentials && essentials.length > 0) {
+    const weaponEssentialsAttributs = essentials.map(essential => {
+      const attr = allAttributs.find(a => a.slug === essential.nom)
+      if (!attr) return null
+      return { slug: essential.nom, nom: attr.nom, min: attr.min, max: attr.max, unite: attr.unite, categorie: attr.categorie, value: essential.valeur }
+    })
+    return weaponEssentialsAttributs
+  }
   const typeData = armesType[typeKey]
   if (!typeData?.attributs_essentiels?.length) return []
   return typeData.attributs_essentiels

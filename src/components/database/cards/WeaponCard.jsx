@@ -37,7 +37,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
   const typeIcon = WEAPON_TYPE_ICONS[item.type]
 
   // Résoudre les attributs essentiels hérités du type d'arme
-  const essentialAttrs = getWeaponEssentialAttributes(armesType, item.type, allAttributs)
+  const essentialAttrs = getWeaponEssentialAttributes(armesType, item.type, allAttributs, item.attributs_essentiels)
 
   const resolvedTalents = resolveTalents(item, talentsArmes)
 
@@ -90,7 +90,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                 {attr.nom}
               </span>
               <span className="text-shd font-bold">
-                {attr.min}–{attr.max}{attr.unite || ''}
+                {attr.value ? attr.value : `${attr.min}--${attr.max}`}{attr.unite || ''}
               </span>
             </div>
           ))}

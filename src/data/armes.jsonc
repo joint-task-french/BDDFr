@@ -3113,7 +3113,7 @@
     ]
   },
   "mort_blanche": {
-    "nom": "MORT BLANCHE",
+    "nom": "Mort Blanche",
     "type": "fusil_precision",
     "fabricant": "IZHMASH",
     "portee": 50,
@@ -3127,9 +3127,12 @@
     "obtention": "",
     "estNomme": true,
     "talents": [],
-    "attributs": [
+    "attributs_essentiels": [
       {
-        "nom": "Dégâts de headshot",
+        "nom": "degats_fusil_de_precision_es"
+      },
+      {
+        "nom": "degats_de_headshot_es",
         "valeur": 137
       }
     ],

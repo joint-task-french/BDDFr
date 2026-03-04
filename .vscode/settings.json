@@ -13,6 +13,10 @@
             "url": "./src/data/schemas/armes-type.schema.json"
         },
         {
+            "fileMatch": ["/src/data/attributs-type.jsonc"],
+            "url": "./src/data/schemas/attributs-type.schema.json"
+        },
+        {
             "fileMatch": ["/src/data/equipements.jsonc"],
             "url": "./src/data/schemas/equipements.schema.json"
         },

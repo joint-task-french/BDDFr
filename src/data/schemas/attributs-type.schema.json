@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Types Armes — The Division 2",
+  "description": "Type d'armes + attributs essentiels lié",
+  "type": "object",
+  "patternProperties": {
+    "^[a-z_]+$": {
+      "type": "object",
+      "properties": {
+        "nom": {
+          "type": "string",
+          "description": "Le nom d'affichage de la catégorie"
+        },
+        "icon": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "L'identifiant de l'icône associée"
+        },
+        "color": {
+          "type": "string",
+          "description": "Couleur associé a la catégorie"
+        }
+      },
+      "required": [
+        "nom",
+        "icon",
+        "color"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

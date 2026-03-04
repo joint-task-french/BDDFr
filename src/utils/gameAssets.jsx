@@ -54,8 +54,8 @@ export const GEAR_SLOT_ICONS_IMG = {
 // ICÔNES ATTRIBUTS (offensif / défensif / compétences)
 // ================================================================
 import attr_offensif from '../img/game_assets/equipements/attribute/offensif.png'
-import attr_defensif from '../img/game_assets/equipements/attribute/deffensif.png'
-import attr_competences from '../img/game_assets/equipements/attribute/competances.png'
+import attr_defensif from '../img/game_assets/equipements/attribute/defensif.png'
+import attr_competences from '../img/game_assets/equipements/attribute/utilitaire.png'
 
 export const ATTRIBUTE_ICONS = {
   offensif: attr_offensif,

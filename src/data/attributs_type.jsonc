@@ -1,0 +1,14 @@
+{
+    "offensif": {
+        "nom": "Offensif",
+        "icon": "offensif"
+    },
+    "defensif": {
+        "nom": "Défensif",
+        "icon": "defensif"
+    },
+    "utilitaire": {
+        "nom": "Utilitaire",
+        "icon": "utilitaire"
+    }
+}

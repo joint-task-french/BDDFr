@@ -13,6 +13,7 @@ export default function EnsembleCard({ item, talentsEquipements }) {
 
   const BASE = import.meta.env.BASE_URL
 
+    /* TODO : migré vers webp */
   return (
     <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`}>
       {/* Header : logo + nom + type + attributs essentiels */}
@@ -21,7 +22,6 @@ export default function EnsembleCard({ item, talentsEquipements }) {
           {/* Logo */}
           {item.logo ? (
             <img
-              {/* TODO : migré vers webp */}
               src={`${BASE}img/marques/${item.logo}.png`}
               alt={item.nom}
               className="w-10 h-10 object-contain shrink-0 rounded"

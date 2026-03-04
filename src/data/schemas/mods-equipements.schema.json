@@ -1,39 +1,33 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Mods d'équipements — The Division 2",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "required": [
-      "statistique",
-      "slug"
-    ],
-    "properties": {
-      "categorie": {
-        "type": "string",
-        "enum": [
-          "offensif",
-          "défensif",
-          "utilitaire"
-        ],
-        "description": "Catégorie du mod (offensif, défensif, utilitaire)"
-      },
-      "protocole": {
-        "type": "string",
-        "description": "Protocole associé"
-      },
-      "statistique": {
-        "type": "string",
-        "description": "Nom de la statistique affectée"
-      },
-      "valeurMax": {
-        "type": "string",
-        "description": "Valeur maximale du bonus"
-      },
-      "slug": {
-        "type": "string",
-        "pattern": "^[a-z0-9_]+$",
-        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
+  "description": "Clé = slug du mod.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[a-z0-9_]+$": {
+      "type": "object",
+      "required": [
+        "statistique"
+      ],
+      "properties": {
+        "categorie": {
+          "type": "string",
+          "enum": [
+            "offensif",
+            "défensif",
+            "utilitaire"
+          ]
+        },
+        "protocole": {
+          "type": "string"
+        },
+        "statistique": {
+          "type": "string"
+        },
+        "valeurMax": {
+          "type": "string"
+        }
       }
     }
   }

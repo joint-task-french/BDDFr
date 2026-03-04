@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { GEAR_SLOT_LABELS } from '../../../utils/formatters'
-import { GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
+import {GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, GameIcon, resolveIcon} from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
 
 const ATTR_LABELS = {
@@ -80,12 +80,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
         <div className="flex items-center gap-2 text-xs text-gray-500 mt-0.5">
           {/* Logo de la marque */}
           {ensemble?.logo && (
-            <img
-              src={`${BASE}img/ensembles/${ensemble.logo}`}
-              alt=""
-              className="w-4 h-4 object-contain"
-              onError={(e) => { e.target.style.display = 'none' }}
-            />
+              <GameIcon src={resolveIcon(ensemble.logo)} alt="" size="w-5 h-5" className="rounded" />
           )}
           <span>{ensemble?.nom || item.marque}</span>
           <span>·</span>

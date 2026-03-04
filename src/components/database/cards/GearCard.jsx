@@ -71,17 +71,23 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
     <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`}>
       {/* Header */}
       <div className="px-4 py-3 border-b border-tactical-border/50">
-        <div className="flex items-center gap-2">
-          {isExotic && <span className="text-[9px] font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
-          {isNamed && <span className="text-[9px] font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
-          {isGearSet && <span className="text-[9px] font-bold text-emerald-400 bg-emerald-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Gear Set</span>}
-        </div>
-        <div className={`font-bold text-base uppercase tracking-wide mt-1 ${nameColor}`}>{item.nom}</div>
-        <div className="flex items-center gap-2 text-xs text-gray-500 mt-0.5">
-          {/* Logo de la marque */}
-          {ensemble?.logo && (
-              <GameIcon src={resolveIcon(ensemble.logo)} alt="" size="w-5 h-5" className="rounded" />
+        <div className="flex items-start gap-1">
+          {resolveIcon(ensemble?.logo) && (
+              <GameIcon src={resolveIcon(ensemble.logo)} alt="" size="w-10 h-10" className="rounded" />
           )}
+          <div>
+            <div className="flex items-center gap-2">
+              {isExotic && <span className="text-[9px] font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
+              {isNamed && <span className="text-[9px] font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
+              {isGearSet && <span className="text-[9px] font-bold text-emerald-400 bg-emerald-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Gear Set</span>}
+            </div>
+            <div className={`font-bold text-base uppercase tracking-wide mt-1 ${nameColor}`}>{item.nom}</div>
+          </div>
+        </div>
+        {/* Logo de la marque */}
+
+
+        <div className="flex items-center gap-2 text-xs text-gray-500 mt-0.5">
           <span>{ensemble?.nom || item.marque}</span>
           <span>·</span>
           <GameIcon src={GEAR_SLOT_ICONS_IMG[item.emplacement]} alt="" size="w-4 h-4" className="opacity-60" />

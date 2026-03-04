@@ -1,5 +1,4 @@
-// Compétences et variantes — The Division 2
-// Structure: objet par type de compétence, avec variantes en sous-tableau
+// Compétence — The Division 2
 [
   {
     "competence": "Abri intelligent",
@@ -737,7 +736,7 @@
         "variante": "STRIKER",
         "prerequis": "incendiaire",
         "expertise": "+1% de régénération active",
-        "statistiques": "Bonus de dégâts (par ennemi) : 5  %Angle de Buff : 45 Portée de buff : 10 mRecharge : 18,2 sSanté : 1 327 245 PVRégénération active : 39 817 PV/sRégénération en étui : 66 362 PV/sModificateur de dégâts subis JcJ : 5",
+        "statistiques": "Bonus de dégâts (par ennemi) : 5 %\nAngle de Buff : 45 Portée de buff : 10m\nRecharge : 18,2s\nSanté : 1 327 245 PV\nRégénération active : 39 817PV/s\nRégénération en étui : 66 362 PV/s\nModificateur de dégâts subis JcJ : 5",
         "effetEtat": "N/A",
         "tier1": "+ 10% Régénération active + 40% Santé de bouclier + 5% Régénation en étui + 1% Buff de force",
         "tier2": "+ 20% Régénération active + 66% Santé de bouclier + 10% Régénation en étui + 1,2% Buff de force",
@@ -759,15 +758,5 @@
       }
     ],
     "slug": "bouclier"
-  },
-  {
-    "competence": "CHARGE ADHÉSIVE",
-    "variantes": [],
-    "emplacementsMods": [
-      {
-        "emplacement": "LANCEUR"
-      }
-    ],
-    "slug": "charge_adhesive"
   }
 ]

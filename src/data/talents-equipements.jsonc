@@ -876,7 +876,7 @@
     "description": "Double les bonus de dégâts d'arme de Symphonie.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "virtuose"
+    "gearSet": "virtuoso"
   },
   {
     "nom": "Accelerando",
@@ -884,7 +884,7 @@
     "description": "Diminue de 4 à 3 le nombre d'effets nécessaires pour déclencher le double bonus de Symphonie.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "virtuose"
+    "gearSet": "Virtuoso"
   },
   {
     "nom": "Intérêt accru",

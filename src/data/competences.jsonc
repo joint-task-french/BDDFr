@@ -14,7 +14,7 @@
         "tier5": "+50% Rayon\n+65% Maniement d'arme\n+21% Dégâts sur cibles non abritées\n+350% Santé",
         "tier6": "+60% Rayon\n+75% Maniement d'arme\n+27% Dégâts sur cibles non abritées\n+420% Santé",
         "surcharge": "+100% Rayon\n+100% Maniement d'arme\n+35% Dégâts sur cibles non abritées\n+420% Santé",
-        "slug": "precision"
+        "slug": "abri_intelligent_precision"
       },
       {
         "variante": "Fortifié",
@@ -27,7 +27,7 @@
         "tier5": "+50% Rayon\n+50% Protection bonus\n+35% Résistance - Explosions\n+35% Résistance - Impulsion\n+350% Santé",
         "tier6": "+60% Rayon\n+60% Protection bonus\n+40% Résistance - Explosions\n+45% Résistance - Impulsion\n+420% Santé",
         "surcharge": "+100% Rayon\n+100% Protection bonus\n+60% Résistance - Explosions\n+45% Résistance - Impulsion\n+420% Santé",
-        "slug": "fortifie"
+        "slug": "abri_intelligent_fortifie"
       }
     ],
     "emplacementsMods": [
@@ -51,7 +51,7 @@
         "tier5": "+ 50% dégâts de brûlure + 100% Durée de brülure + 75% Récup. de compétence",
         "tier6": "+ 60% dégâts de brûlure + 120% Durée de brülure + 90% Récup. de compétence",
         "surcharge": "+ 100% dégâts de brûlure + 200% Durée de brülure + 500% Récup. de compétence",
-        "slug": "brulure"
+        "slug": "bombe_adhesive_brulure"
       },
       {
         "variante": "EXPLOSIVE",
@@ -64,7 +64,7 @@
         "tier5": "+ 50% Dégâts + 60% Rayon de souffle + 75% Récup. de compétence",
         "tier6": "+ 60% Dégâts + 70% Rayon de souffle + 90% Récup. de compétence",
         "surcharge": "+ 80% Dégâts + 200% Rayon de souffle + 90% Récup. de compétence",
-        "slug": "explosive"
+        "slug": "bombe_adhesive_explosive"
       },
       {
         "variante": "IEM",
@@ -78,7 +78,7 @@
         "tier5": "+ 50% Rayon de souffle IEM + 50% Durée",
         "tier6": "+ 60% Rayon de souffle IEM + 60% Durée",
         "surcharge": "+ 150% Rayon de souffle IEM + 100% Durée",
-        "slug": "iem"
+        "slug": "bombe_adhesive_iem"
       }
     ]
   },
@@ -97,7 +97,7 @@
         "tier5": "+8 Piège + 50% Rayon d'électrocution + 50% Durée d'électrocution",
         "tier6": "+10 Piège + 60% Rayon d'électrocution + 60% Durée d'électrocution",
         "surcharge": "+12 Piège + 70% Rayon d'électrocution + 200% Durée d'électrocution",
-        "slug": "electrique"
+        "slug": "piege_electrique"
       },
       {
         "variante": "RÉPARATION",
@@ -110,7 +110,7 @@
         "tier5": "+5 Piège + 100% Réparation",
         "tier6": "+6 Piège + 120% Réparation",
         "surcharge": "+6 Piège + 140% RéparationSérum immunisant :Les pièges octroient également une immunité aux effets d'état pendant 10s.",
-        "slug": "reparation"
+        "slug": "piege_reparation"
       },
       {
         "variante": "SHRAPNEL",
@@ -123,7 +123,7 @@
         "tier5": "+5 Piège + 50% Dégâts",
         "tier6": "+6 Piège + 60% Dégâts",
         "surcharge": "+6 Piège + 100% Dégâts",
-        "slug": "shrapnel"
+        "slug": "piege_shrapnel"
       }
     ],
     "emplacementsMods": [
@@ -146,7 +146,7 @@
         "tier5": "+ 75% Durée + 250% Santé + 75% Menace",
         "tier6": "+ 90% Durée + 300% Santé + 90% Menace",
         "surcharge": "+ 90% Durée + 600% Santé + 200% Récup. de compétence + 90% Menace",
-        "slug": "diversion_holographique"
+        "slug": "leurre_diversion_holographique"
       }
     ],
     "emplacementsMods": [
@@ -169,7 +169,7 @@
         "tier5": "+ 75% Durée Effet",
         "tier6": "+ 90% Durée Effet",
         "surcharge": "+ 200% Durée EffetExploitation de faille :Vos dégâts et ceux de vos alliés sont accrus de 15% contre les cibles touchées par votre impulsion",
-        "slug": "scanner"
+        "slug": "impulsion_scanner"
       },
       {
         "variante": "CAPTEUR DISTANT",
@@ -182,7 +182,7 @@
         "tier5": "+ 75% Durée + 75% Rayon",
         "tier6": "+ 90% Durée + 90% Rayon",
         "surcharge": "+ 120% Durée + 120% RayonExploitation de faille :Vos dégâts et ceux de vos alliés sont accrus de 15% contre les cibles touchées par votre impulsion",
-        "slug": "capteur_distant"
+        "slug": "impulsion_capteur_distant"
       },
       {
         "variante": "BROUILLEUR",
@@ -196,7 +196,7 @@
         "tier5": "+ 50% Rayon + 50% Durée effet",
         "tier6": "+ 60% Rayon + 60% Durée effet",
         "surcharge": "+ 150% Rayon + 100% Durée effet + 100% Vitess de chargeExploitation de faille :Vos dégâts et ceux de vos alliés sont accrus de 15% contre les cibles touchées par votre impulsion",
-        "slug": "brouilleur"
+        "slug": "impulsion_brouilleur"
       },
       {
         "variante": "BANSHEE",
@@ -211,7 +211,7 @@
         "tier5": "+ 50% Taille du cône + 50% Durée de confusion",
         "tier6": "+ 60% Taille du cône + 60% Durée de confusion",
         "surcharge": "+ 150% Taille du cône + 100% Durée de confusion + 100% Vitess de charge",
-        "slug": "banshee"
+        "slug": "impulsion_banshee"
       },
       {
         "variante": "ACHILLES",
@@ -224,7 +224,7 @@
         "tier5": "+1 Zone(s) +50% Zone sensible +50% Durée +50% Récup. de compétence",
         "tier6": "+2 Zone(s) +60% Zone sensible +60% Durée +60% Récup. de compétence",
         "surcharge": "+5 Zone(s) +100% Zone sensible +100% Durée +100% Récup. de compétence",
-        "slug": "achilles"
+        "slug": "impulsion_achilles"
       }
     ],
     "emplacementsMods": [
@@ -251,7 +251,7 @@
         "tier5": "+ 100% Dégâts + 350% Santé",
         "tier6": "+ 120% Dégâts + 420% Santé",
         "surcharge": "+ 175% Dégâts + 560% Santé",
-        "slug": "assaut"
+        "slug": "tourelle_assaut"
       },
       {
         "variante": "INCINÉRATRICE",
@@ -265,7 +265,7 @@
         "tier5": "+ 50% Dégâts + 25% Angle de cône + 50% Intensité de brûlure + 50% Durée + 350% Santé",
         "tier6": "+ 60% Dégâts + 30% Angle de cône + 60% Intensité de brûlure + 60% Durée + 420% Santé",
         "surcharge": "+ 60% Dégâts + 200% Angle de cône + 60% Intensité de brûlure + 100% Durée + 560% Santé",
-        "slug": "incineratrice"
+        "slug": "tourelle_incineratrice"
       },
       {
         "variante": "SNIPER",
@@ -278,7 +278,7 @@
         "tier5": "+ 75% Dégâts + 10 munitions sniper + 350% Santé",
         "tier6": "+ 90% Dégâts + 12 munitions sniper + 420% Santé",
         "surcharge": "+ 90% Dégâts + 15 munitions sniper + 560% Santé + 100% Cadence de tir",
-        "slug": "sniper"
+        "slug": "tourelle_sniper"
       },
       {
         "variante": "ARTILLERIE",
@@ -293,7 +293,7 @@
         "tier5": "+ 75% Dégâts + 350% Santé + 40% Rayon de souffle du mortier + 5 munitions mortier",
         "tier6": "+ 90% Dégâts + 420% Santé + 50% Rayon de souffle du mortier + 6 munitions mortier",
         "surcharge": "+ 137,5% Dégâts + 560% Santé + 75% Rayon de souffle du mortier + 10 munitions mortier",
-        "slug": "artillerie"
+        "slug": "tourelle_artillerie"
       }
     ],
     "emplacementsMods": [
@@ -320,7 +320,7 @@
         "tier5": "+ 20 Charges de réparation + 100% Soins + 50% Portée + 50% Vitesse de drone + 350% Santé",
         "tier6": "+ 24 Charges de réparation + 120% Soins + 60% Portée + 60% Vitesse de drone + 420% Santé",
         "surcharge": "+ 24 Charges de réparation + 140% Soins + 200% Portée + 80% Vitesse de drone +420% Santé + 150% Récup de compétence",
-        "slug": "reconstituante"
+        "slug": "ruche_reconstituante"
       },
       {
         "variante": "AIGUILLON",
@@ -334,7 +334,7 @@
         "tier5": "+ 5 Charges d'aiguillon + 100% Dégâts + 25% Portée + 25% Vitesse de drone + 350% Santé",
         "tier6": "+ 6 Charges d'aiguillon + 120% Dégâts + 30% Portée + 30% Vitesse de drone + 420% Santé",
         "surcharge": "+ 6 Charges d'aiguillon + 200% Dégâts + 100% Portée + 80% Vitesse de drone +420% Santé + 300% Récup de compétence",
-        "slug": "aiguillon"
+        "slug": "ruche_aiguillon"
       },
       {
         "variante": "RÉANIMATION",
@@ -347,7 +347,7 @@
         "tier5": "+ 5 Charges réparation par ruche + 50% Réanimation + 25% Portée + 35% Vitesse de drone + 350% Santé",
         "tier6": "+ 6 Charges réparation par ruche + 60% Réanimation + 30% Portée + 30% Vitesse de drone + 420% Santé",
         "surcharge": "+ 6 Charges réparation par ruche + 200% Réanimation + 100% Portée + 80% Vitesse de drone +420% Santé + 300% Récup de compétence",
-        "slug": "reanimation"
+        "slug": "ruche_reanimation"
       },
       {
         "variante": "BOOSTER",
@@ -360,7 +360,7 @@
         "tier5": "+ 20 Charges de stimulant + 166% Efficacité stimulants + 25% Portée + 25% Vitesse de drone + 350% Santé",
         "tier6": "+ 24 Charges de stimulant + 200% Efficacité stimulants + 30% Portée + 30% Vitesse de drone + 420% Santé",
         "surcharge": "+ 4 Charges de stimulant + 400% Efficacité stimulants + 100% Portée + 80% Vitesse de drone + 420% Santé + 150% Récup de compétence",
-        "slug": "booster"
+        "slug": "ruche_booster"
       },
       {
         "variante": "ARTIFICIER",
@@ -374,7 +374,7 @@
         "tier5": "+ 20 Charges + 500% Efficacité de charge + 10s Rafraîssement de comp + 50% Portée + 50% Vitesse de drone + 350% Santé",
         "tier6": "+ 24 Charges + 600% Efficacité de charge + 12s Rafraîssement de comp + 60% Portée + 60% Vitesse de drone + 420% Santé",
         "surcharge": "+ 24 Charges  + 700% Efficacité de charge + 22s Rafraîchissement de comp + 200% Portée + 80% Vitesse de drone + 420% Santé + 150% Récup de compétence",
-        "slug": "artificier"
+        "slug": "ruche_artificier"
       }
     ],
     "emplacementsMods": [
@@ -401,7 +401,7 @@
         "tier5": "+ 5 munitions + 50% Rayon + 100% Soin",
         "tier6": "+ 6 munitions + 60% Rayon + 120% Soin",
         "surcharge": "+ 6 munitions + 150% Rayon + 100% Durée + 140% Soin",
-        "slug": "renforceur"
+        "slug": "lanceur_chimique_renforceur"
       },
       {
         "variante": "ALLUME-FEU",
@@ -415,7 +415,7 @@
         "tier5": "+ 5 munitions + 25% Rayon + 50% Durée de brûlure + 50% Dégâts de brûlure",
         "tier6": "+ 6 munitions + 30% Rayon + 60% Durée de brûlure + 60% Dégâts de brûlure",
         "surcharge": "+ 6 munitions + 135% Rayon + 100% Durée de brûlure + 60% Dégâts de brûlure",
-        "slug": "allume_feu"
+        "slug": "lanceur_chimique_allume_feu"
       },
       {
         "variante": "MOUSSE ANTI-ÉMEUTE",
@@ -429,7 +429,7 @@
         "tier5": "+ 5 munitions + 250% Résistance entrave + 50% Durée entrave + 25% Rayon",
         "tier6": "+ 6 munitions + 300% Résistance entrave + 60% Durée entrave + 30% Rayon",
         "surcharge": "+ 6 munitions + 500% Résistance entrave + 100% Durée entrave + 135% Rayon",
-        "slug": "mousse_anti_emeute"
+        "slug": "lanceur_chimique_mousse_anti_emeute"
       },
       {
         "variante": "OXYDATION",
@@ -442,7 +442,7 @@
         "tier5": "+ 5 munitions + 10% Rayon + 100% Durée + 50% Dégâts",
         "tier6": "+ 6 munitions + 12% Rayon + 120% Durée + 60% Dégâts",
         "surcharge": "+ 6 munitions + 10 % Rayon + 150% Durée + 80% Dégâts",
-        "slug": "oxydation"
+        "slug": "lanceur_chimique_oxydation"
       }
     ],
     "emplacementsMods": [
@@ -466,7 +466,7 @@
         "tier5": "+ 5 Cibles max + 175% Vitesse + 50% Duréée effet aveuglement",
         "tier6": "+ 6 Cibles max + 210% Vitesse + 60% Durée effet aveuglement",
         "surcharge": "+ 10 Cibles max + 250% Vitesse + 100% Durée effet aveuglement",
-        "slug": "aveuglante"
+        "slug": "luciole_aveuglante"
       },
       {
         "variante": "EXPLOSIVE",
@@ -479,7 +479,7 @@
         "tier5": "+ 5 Cibles max + 175% Vitesse + 75% Dégâts",
         "tier6": "+ 6 Cibles max + 210% Vitesse + 90% Dégâts",
         "surcharge": "+ 10 Cibles max + 250% Vitesse + 137,5% Dégâts",
-        "slug": "explosive"
+        "slug": "luciole_explosive"
       },
       {
         "variante": "DÉMOLISSEUSSE",
@@ -492,7 +492,7 @@
         "tier5": "+ 5 Cibles max + 175% Vitesse + 175% Dégâts",
         "tier6": "+ 6 Cibles max + 210% Vitesse + 210% Dégâts",
         "surcharge": "+ 10 Cibles max + 250% Vitesse + 300% Dégâts",
-        "slug": "demolisseusse"
+        "slug": "luciole_demolisseusse"
       }
     ],
     "emplacementsMods": [
@@ -516,7 +516,7 @@
         "tier5": "+ 50% Dégâts + 25% Rayon",
         "tier6": "+ 60% Dégâts + 30% Rayon",
         "surcharge": "+ 80% Dégâts + 200% Rayon",
-        "slug": "explosive"
+        "slug": "mine_teleguide_explosive"
       },
       {
         "variante": "EXPLOSION AÉRIENNE",
@@ -530,7 +530,7 @@
         "tier5": "+ 50% Dégâts + 50% Dégâts de brûlure + 250% Durée de brûlure",
         "tier6": "+ 60% Dégâts + 60% Dégâts de brûlure + 300% Durée de brûlure",
         "surcharge": "+ 100% Dégâts + 100% Dégâts de brûlure + 400% Durée de brûlure + 300% Récup de compétence",
-        "slug": "explosion_aerienne"
+        "slug": "mine_teleguide_explosion_aerienne"
       },
       {
         "variante": "SOUS-MUNITIONS",
@@ -543,7 +543,7 @@
         "tier5": "+ 50% Dégâts+ 5 Mines à sous-munitions",
         "tier6": "+ 60% Dégâts+ 6 Mines à sous-munitions",
         "surcharge": "+ 10% Dégâts+ 1 Mines à sous-munitions + 100% Rayon,",
-        "slug": "sous_munitions"
+        "slug": "mine_teleguide_sous_munitions"
       },
       {
         "variante": "RÉPARATRICE",
@@ -557,7 +557,7 @@
         "tier5": "+ 100% Soins + 25% Rayon",
         "tier6": "+ 120% Soins + 30% Rayon",
         "surcharge": "+ 160% Soins + 150% Rayon",
-        "slug": "reparatrice"
+        "slug": "mine_teleguide_reparatrice"
       }
     ],
     "emplacementsMods": [
@@ -584,7 +584,7 @@
         "tier5": "+ 100% Dégâts du frappeur + 350% Santé",
         "tier6": "+ 120% Dégâts du frappeur + 420% Santé",
         "surcharge": "+ 175% Dégâts du frappeur + 560% Santé",
-        "slug": "frappeur"
+        "slug": "drone_frappeur"
       },
       {
         "variante": "DÉFENSEUR",
@@ -597,7 +597,7 @@
         "tier5": "+ 350% Santé + 25% Réduction des dégâts",
         "tier6": "+ 420% Santé + 30% Réduction des dégâts",
         "surcharge": "+ 560% Santé + 60% Réduction des dégâts",
-        "slug": "defenseur"
+        "slug": "drone_defenseur"
       },
       {
         "variante": "BOMBARDIER",
@@ -610,7 +610,7 @@
         "tier5": "+ 50% Dégâts de souffle + 350% Santé + 5 Bombes supplémentaires",
         "tier6": "+ 60% Dégâts de souffle + 420% Santé + 6 Bombes supplémentaires",
         "surcharge": "+ 60% Dégâts de souffle + 420% Santé + 6 Bombes supplémentaires + 5 Rayon de souffle",
-        "slug": "bombardier"
+        "slug": "drone_bombardier"
       },
       {
         "variante": "RÉPARATEUR",
@@ -623,7 +623,7 @@
         "tier5": "+ 100% Réparation protection + 350% Santé",
         "tier6": "+ 120% Réparation protection + 420% Santé",
         "surcharge": "+ 175% Réparation protection + 500% Santé",
-        "slug": "reparateur"
+        "slug": "drone_reparateur"
       },
       {
         "variante": "TACTICIEN",
@@ -637,7 +637,7 @@
         "tier5": "+ 25 mètres + 350% Santé",
         "tier6": "+ 30 mètres + 420% Santé",
         "surcharge": "+ 40 mètres + 420% SantéExploitation de faille :Vos dégâts et ceux de vos alliés sont accrus de 15% contre les cibles touchées par votre impulsion",
-        "slug": "tacticien"
+        "slug": "drone_tacticien"
       }
     ],
     "emplacementsMods": [
@@ -664,7 +664,7 @@
         "tier5": "+ 100% Régénération active + 333% Santé de bouclier + 25% Régénation en étui",
         "tier6": "+ 120% Régénération active + 400% Santé de bouclier + 40% Régénation en étui",
         "surcharge": "+ 500% Régénération active + 400% Santé de bouclier + 40% Régénation en étuiMur défensif :Votre bouclier est invulnerable",
-        "slug": "rempart"
+        "slug": "bouclier_rempart"
       },
       {
         "variante": "CROISÉ",
@@ -677,7 +677,7 @@
         "tier5": "+ 50% Régénération active + 200% Santé de bouclier + 25% Régénation en étui",
         "tier6": "+ 60% Régénération active + 250% Santé de bouclier + 40% Régénation en étui",
         "surcharge": "+ 500% Régénération active + 250% Santé de bouclier + 40% Régénation en étuiMur défensif :Votre bouclier est invulnerable",
-        "slug": "croise"
+        "slug": "bouclier_croise"
       },
       {
         "variante": "DÉFLECTEUR",
@@ -690,7 +690,7 @@
         "tier5": "+ 50% Régénération active + 200% Santé de bouclier + 25% Régénation en étui + 50% Dégâts du déflecteur",
         "tier6": "+ 60% Régénération active + 250% Santé de bouclier + 40% Régénation en étui + 60% Dégâts du déflecteur",
         "surcharge": "+ 60% Régénération active + 250% Santé de bouclier + 40% Régénation en étui + 100% Dégâts du déflecteurMur défensif :Votre bouclier est invulnerable",
-        "slug": "deflecteur"
+        "slug": "bouclier_deflecteur"
       },
       {
         "variante": "STRIKER",
@@ -704,7 +704,7 @@
         "tier5": "+ 50% Régénération active + 200% Santé de bouclier + 25% Régénation en étui + 1,8% Buff de force",
         "tier6": "+ 60% Régénération active + 250% Santé de bouclier + 40% Régénation en étui + 2% Buff de force",
         "surcharge": "+ 500% Régénération active + 400% Santé de bouclier + 100% Régénation en étui + 2.5% Buff de forceMur défensif :Votre bouclier est invulnerable",
-        "slug": "striker"
+        "slug": "bouclier_striker"
       }
     ],
     "emplacementsMods": [

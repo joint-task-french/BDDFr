@@ -17,6 +17,10 @@
             "url": "./src/data/schemas/attributs-type.schema.json"
         },
         {
+            "fileMatch": ["/src/data/equipement-type.jsonc"],
+            "url": "./src/data/schemas/equipement-type.schema.json"
+        },
+        {
             "fileMatch": ["/src/data/equipements.jsonc"],
             "url": "./src/data/schemas/equipements.schema.json"
         },

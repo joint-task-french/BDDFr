@@ -11,21 +11,12 @@
         "nom": {
           "type": "string"
         },
-        "attributs_essentiels": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^[a-z0-9_]+$"
-          },
-          "minItems": 1
-        },
         "icon": {
           "type": "string",
           "pattern": "^[a-z0-9_]+$"
         }
       },
       "required": [
-        "attributs_essentiels",
         "icon",
         "nom"
       ],

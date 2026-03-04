@@ -301,7 +301,7 @@ export default function GeneratorPage() {
     <div className="min-h-screen bg-tactical-bg text-white fade-in">
       {/* Toast */}
       {toast && (
-        <div className={`fixed top-4 right-4 z-50 px-4 py-2 rounded-lg border shadow-lg text-sm font-bold uppercase tracking-widest ${TOAST_STYLES[toast.color] || TOAST_STYLES.green}`}>
+        <div className={`fixed bottom-10 right-4 z-50 px-4 py-2 rounded-lg border shadow-lg text-sm font-bold uppercase tracking-widest ${TOAST_STYLES[toast.color] || TOAST_STYLES.green}`}>
           {toast.msg}
         </div>
       )}

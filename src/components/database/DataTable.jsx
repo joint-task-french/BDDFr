@@ -5,7 +5,7 @@ const COLUMN_LABELS = {
   nom: 'Nom', type: 'Type', fabricant: 'Fabricant', portee: 'Portée', rpm: 'CPM',
   chargeur: 'Chargeur', rechargement: 'Rechargement', headshot: 'Headshot',
   attributEssentiel: 'Attribut Essentiel', degatsBase: 'Dégâts Base', degatsMax: 'Dégâts Max',
-  marque: 'Marque', emplacement: 'Emplacement', attribut1: 'Attribut 1',
+  marque: 'Marque', emplacement: 'Emplacement',
   attributUnique: 'Attribut Unique', talent: 'Talent', mod: 'Mod', estNomme: 'Nommé',
   source: 'Source', description: 'Description', prerequis: 'Prérequis',
   compatibilite: 'Compatibilité', bonus1piece: 'Bonus 1p', bonus2pieces: 'Bonus 2p',

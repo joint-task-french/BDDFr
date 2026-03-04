@@ -3,7 +3,7 @@
   {
     "nom": "Ongoing Directive",
     "type": "gear_set",
-    "logo": "gear_set/ongoing_directive",
+    "logo": "ongoing_directive",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% Effets d'état",
@@ -16,7 +16,7 @@
   {
     "nom": "True Patriot",
     "type": "gear_set",
-    "logo": "gear_set/true_patriot",
+    "logo": "true_patriot",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+30% Capacité Munitions",
@@ -29,7 +29,7 @@
   {
     "nom": "Hard Wired",
     "type": "gear_set",
-    "logo": "gear_set/hard_wired",
+    "logo": "hard_wired",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% Récupération de compétence",
@@ -42,7 +42,7 @@
   {
     "nom": "As et Huit",
     "type": "gear_set",
-    "logo": "gear_set/as_et_huit",
+    "logo": "as_et_huit",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% Dégâts - Fusil de précision +15% Dégâts - Fusil",
@@ -55,7 +55,7 @@
   {
     "nom": "Pointe de Lance",
     "type": "gear_set",
-    "logo": "gear_set/pointe_de_lance",
+    "logo": "pointe_de_lance",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+20% Dégâts d'arme spécifique",
@@ -68,7 +68,7 @@
   {
     "nom": "Dilemme du Négociateur",
     "type": "gear_set",
-    "logo": "gear_set/dilemme_du_negociateur",
+    "logo": "dilemme_du_negociateur",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% Probabilité coup critique",
@@ -81,7 +81,7 @@
   {
     "nom": "Strikers Battlegear",
     "type": "gear_set",
-    "logo": "gear_set/strikers_battlegear",
+    "logo": "strikers_battlegear",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% Maniement d'arme",
@@ -94,7 +94,7 @@
   {
     "nom": "Corruption Système",
     "type": "gear_set",
-    "logo": "gear_set/corruption_systeme",
+    "logo": "corruption_systeme",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% de protection pour élimination",
@@ -107,7 +107,7 @@
   {
     "nom": "Protocole Eclipse",
     "type": "gear_set",
-    "logo": "gear_set/protocole_eclipse",
+    "logo": "protocole_eclipse",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% Effets d'état",
@@ -120,7 +120,7 @@
   {
     "nom": "Foundry Bullwark",
     "type": "gear_set",
-    "logo": "gear_set/foundry_bullwark",
+    "logo": "foundry_bullwark",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+10% de protection totale",
@@ -133,7 +133,7 @@
   {
     "nom": "Future Initiative",
     "type": "gear_set",
-    "logo": "gear_set/future_initiative",
+    "logo": "future_initiative",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% Compétences de réparation",
@@ -146,7 +146,7 @@
   {
     "nom": "Fureur du chasseur",
     "type": "gear_set",
-    "logo": "gear_set/fureur_du_chasseur",
+    "logo": "fureur_du_chasseur",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% Dégâts - fusil de calibre 12 +15% Dégâts - PM",
@@ -159,7 +159,7 @@
   {
     "nom": "Rigger",
     "type": "gear_set",
-    "logo": "gear_set/rigger",
+    "logo": "rigger",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% Récupération de compétence",
@@ -172,7 +172,7 @@
   {
     "nom": "Heartbreaker",
     "type": "gear_set",
-    "logo": "gear_set/heartbreaker",
+    "logo": "heartbreaker",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% Dégâts - fusil d'assaut +15% Dégâts - Fusil-mitrailleur",
@@ -185,7 +185,7 @@
   {
     "nom": "Initiative Umbra",
     "type": "gear_set",
-    "logo": "gear_set/initiative_umbra",
+    "logo": "initiative_umbra",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% Probabilité coup critique",
@@ -198,7 +198,7 @@
   {
     "nom": "Hotshot",
     "type": "gear_set",
-    "logo": "gear_set/hotshot",
+    "logo": "hotshot",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+30% Dégâts - Fusil de précision +30% Maniement d'arme",
@@ -211,7 +211,7 @@
   {
     "nom": "Cavalier",
     "type": "gear_set",
-    "logo": "gear_set/cavalier",
+    "logo": "cavalier",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+30% Résistance aux altérations d'états",
@@ -224,7 +224,7 @@
   {
     "nom": "Ortiz: Exuro",
     "type": "gear_set",
-    "logo": "gear_set/ortiz_exuro",
+    "logo": "ortiz_exuro",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+20% Durée de brûlure augmentée +15% Santé de compétence",
@@ -237,7 +237,7 @@
   {
     "nom": "Aegis",
     "type": "gear_set",
-    "logo": "gear_set/aegis",
+    "logo": "aegis",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+70% Santé",
@@ -250,7 +250,7 @@
   {
     "nom": "Breaking Point",
     "type": "gear_set",
-    "logo": "gear_set/breaking_point",
+    "logo": "breaking_point",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+25% Dégâts - Fusil de précision +25% Dégâts - Fusil",
@@ -263,7 +263,7 @@
   {
     "nom": "Virtuoso",
     "type": "gear_set",
-    "logo": "gear_set/virtuoso",
+    "logo": "virtuoso",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% maniement d'arme +15% taille du chargeur",
@@ -289,7 +289,7 @@
   {
     "nom": "Measured Assembly",
     "type": "gear_set",
-    "logo": "gear_set/measured_assembly",
+    "logo": "measured_assembly",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+15% Récupération de compétence",
@@ -302,7 +302,7 @@
   {
     "nom": "Point de bascule",
     "type": "gear_set",
-    "logo": "gear_set/point_de_bascule",
+    "logo": "point_de_bascule",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+30% Taille du chargeur",
@@ -315,7 +315,7 @@
   {
     "nom": "Concentrated Company",
     "type": "gear_set",
-    "logo": "gear_set/concentrated_company",
+    "logo": "concentrated_company",
     "attributsEssentiels": [],
     "bonus1piece": "",
     "bonus2pieces": "+10% Dégats d'arme",
@@ -328,7 +328,7 @@
   {
     "nom": "Sokolov Concern",
     "type": "marque",
-    "logo": "marque_set/sokolov_concern",
+    "logo": "sokolov_concern",
     "attributsEssentiels": [],
     "bonus1piece": "+10% Dégâts de Pistolet mitrailleur",
     "bonus2pieces": "+13% Dégâts de coup critique",
@@ -341,7 +341,7 @@
   {
     "nom": "Providence Defense",
     "type": "marque",
-    "logo": "marque_set/providence_defense",
+    "logo": "providence_defense",
     "attributsEssentiels": [],
     "bonus1piece": "+13%Dégâts d'headshot",
     "bonus2pieces": "+8% Probabilité de coup critique",
@@ -354,7 +354,7 @@
   {
     "nom": "Overlord Armaments",
     "type": "marque",
-    "logo": "marque_set/overlord",
+    "logo": "overlord",
     "attributsEssentiels": [],
     "bonus1piece": "+10% Dégâts de fusil",
     "bonus2pieces": "+30% Précision",
@@ -367,7 +367,7 @@
   {
     "nom": "5.11 Tactical",
     "type": "marque",
-    "logo": "marque_set/5_11_tactical",
+    "logo": "5_11_tactical",
     "attributsEssentiels": [],
     "bonus1piece": "+30% Santé",
     "bonus2pieces": "+ 30% Réparations subies",
@@ -380,7 +380,7 @@
   {
     "nom": "Douglas & Harding",
     "type": "marque",
-    "logo": "marque_set/douglas_harding",
+    "logo": "douglas_harding",
     "attributsEssentiels": [],
     "bonus1piece": "+20% Dégâts de Pistolet",
     "bonus2pieces": "+30% Stabilité",
@@ -393,7 +393,7 @@
   {
     "nom": "Petrov Defense Group",
     "type": "marque",
-    "logo": "marque_set/petrov_defense",
+    "logo": "petrov_defense",
     "attributsEssentiels": [],
     "bonus1piece": "+10% Dégâts - Fusil mitrailleur",
     "bonus2pieces": "+15% Maniement d'arme",
@@ -406,7 +406,7 @@
   {
     "nom": "Wyvern Wear",
     "type": "marque",
-    "logo": "marque_set/wyvern_wear",
+    "logo": "wyvern_wear",
     "attributsEssentiels": [],
     "bonus1piece": "+8% Dégâts de compétences",
     "bonus2pieces": "+18% Effets d'état",
@@ -419,7 +419,7 @@
   {
     "nom": "Alps Summit Armement",
     "type": "marque",
-    "logo": "marque_set/alps_summit",
+    "logo": "alps_summit",
     "attributsEssentiels": [],
     "bonus1piece": "+18% Compétences de réparation",
     "bonus2pieces": "+30% Durée de compétence",
@@ -432,7 +432,7 @@
   {
     "nom": "Richter & Kaiser GmbH",
     "type": "marque",
-    "logo": "marque_set/richet_kaiser",
+    "logo": "richter_kaiser",
     "attributsEssentiels": [],
     "bonus1piece": "+15% Réparations subies",
     "bonus2pieces": "+25% Resistance aux explosions",
@@ -445,7 +445,7 @@
   {
     "nom": "Gila Guard",
     "type": "marque",
-    "logo": "marque_set/gila_guard",
+    "logo": "gila_guard",
     "attributsEssentiels": [],
     "bonus1piece": "+5% Protection totale",
     "bonus2pieces": "+60% Santé",
@@ -458,7 +458,7 @@
   {
     "nom": "Murakami Industries",
     "type": "marque",
-    "logo": "marque_set/murakami",
+    "logo": "murakami",
     "attributsEssentiels": [],
     "bonus1piece": "+15% Durée de compétence",
     "bonus2pieces": "+35% Compétences de réparation",
@@ -471,7 +471,7 @@
   {
     "nom": "Fenris Group AB",
     "type": "marque",
-    "logo": "marque_set/fenris_group",
+    "logo": "fenris_group",
     "attributsEssentiels": [],
     "bonus1piece": "+10% Dégâts de fusil d'assaut",
     "bonus2pieces": "+30% Vitesse de rechargement",
@@ -484,7 +484,7 @@
   {
     "nom": "Airaldi Holding",
     "type": "marque",
-    "logo": "marque_set/airaldi_holding",
+    "logo": "airaldi_holding",
     "attributsEssentiels": [],
     "bonus1piece": "+10% Dégâts - Fusil de précision",
     "bonus2pieces": "+13% Dégâts d'headshot",
@@ -497,7 +497,7 @@
   {
     "nom": "China Light Industries Corporation",
     "type": "marque",
-    "logo": "marque_set/china_light",
+    "logo": "china_light",
     "attributsEssentiels": [],
     "bonus1piece": "+15% Dégâts d'explosion",
     "bonus2pieces": "+20% Récupération de compétence",
@@ -510,7 +510,7 @@
   {
     "nom": "Yaahl Gear",
     "type": "marque",
-    "logo": "marque_set/yaahl_gear",
+    "logo": "yaahl_gear",
     "attributsEssentiels": [],
     "bonus1piece": "+10% Protection contre les altérations d'état",
     "bonus2pieces": "+10% Dégâts d'arme",
@@ -523,7 +523,7 @@
   {
     "nom": "Badger Tuff",
     "type": "marque",
-    "logo": "marque_set/badger_tuff",
+    "logo": "badger_tuff",
     "attributsEssentiels": [],
     "bonus1piece": "+10% Dégâts fusils calibre 12",
     "bonus2pieces": "+5% Protection totale",
@@ -536,7 +536,7 @@
   {
     "nom": "Grupo Sombra S.A",
     "type": "marque",
-    "logo": "marque_set/grupo_sombra",
+    "logo": "grupo_sombra",
     "attributsEssentiels": [],
     "bonus1piece": "+13% Dégâts de coup critique",
     "bonus2pieces": "+20% Dégâts d'explosion",
@@ -549,7 +549,7 @@
   {
     "nom": "Hana-U Corporation",
     "type": "marque",
-    "logo": "marque_set/hana_u",
+    "logo": "hana_u",
     "attributsEssentiels": [],
     "bonus1piece": "+10% Récupération de compétence",
     "bonus2pieces": "+10% Dégâts de compétences",
@@ -562,7 +562,7 @@
   {
     "nom": "Golan Gear Ltd",
     "type": "marque",
-    "logo": "marque_set/golan_gear",
+    "logo": "golan_gear",
     "attributsEssentiels": [],
     "bonus1piece": "+10% Effets d'état",
     "bonus2pieces": "+1,5% Régénération de protection",
@@ -575,7 +575,7 @@
   {
     "nom": "Česká Výroba s.r.o",
     "type": "marque",
-    "logo": "marque_set/ceska_vyroba",
+    "logo": "ceska_vyroba",
     "attributsEssentiels": [],
     "bonus1piece": "+8% Probabilité de coup critique",
     "bonus2pieces": "+20% Protection contre les altérations d'état",
@@ -588,7 +588,7 @@
   {
     "nom": "Walker, Harris & co",
     "type": "marque",
-    "logo": "marque_set/walker_harris",
+    "logo": "walker_harris",
     "attributsEssentiels": [],
     "bonus1piece": "+5% Dégâts d'arme",
     "bonus2pieces": "+5% Dégâts aux protections",

@@ -30,11 +30,11 @@ export default function AttributCard({ item }) {
           <span className="font-bold text-sm text-white uppercase tracking-wide">{item.nom}</span>
         </div>
         <div className="flex items-center gap-2 mt-1.5">
-          <span className={`text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border ${catColor}`}>
+          <span className={`text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border ${catColor}`}>
             {CATEGORIE_LABELS[item.categorie] || item.categorie}
           </span>
           {item.cible?.map(c => (
-            <span key={c} className="text-[9px] font-bold uppercase tracking-widest bg-tactical-bg text-gray-500 px-1.5 py-0.5 rounded border border-tactical-border">
+            <span key={c} className="text-xs font-bold uppercase tracking-widest bg-tactical-bg text-gray-500 px-1.5 py-0.5 rounded border border-tactical-border">
               {CIBLE_LABELS[c] || c}
             </span>
           ))}
@@ -44,13 +44,13 @@ export default function AttributCard({ item }) {
       {/* Valeurs min/max */}
       <div className="grid grid-cols-2 gap-px bg-tactical-border/30">
         <div className="bg-tactical-bg/50 p-3 text-center">
-          <div className="text-[10px] text-gray-600 uppercase tracking-widest">Min</div>
+          <div className="text-xs text-gray-600 uppercase tracking-widest">Min</div>
           <div className="text-sm font-bold text-gray-300">
             {item.min != null ? `${item.min}${item.unite || ''}` : '—'}
           </div>
         </div>
         <div className="bg-tactical-bg/50 p-3 text-center">
-          <div className="text-[10px] text-gray-600 uppercase tracking-widest">Max</div>
+          <div className="text-xs text-gray-600 uppercase tracking-widest">Max</div>
           <div className="text-sm font-bold text-shd">
             {item.max != null ? `${item.max}${item.unite || ''}` : '—'}
           </div>

@@ -31,7 +31,7 @@ export default function EnsembleCard({ item, talentsEquipements }) {
 
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className={`text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded ${badgeColor}`}>
+              <span className={`text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded ${badgeColor}`}>
                 {isGearSet ? 'Gear Set' : 'Marque'}
               </span>
             </div>
@@ -41,7 +41,7 @@ export default function EnsembleCard({ item, talentsEquipements }) {
             {item.attributsEssentiels && item.attributsEssentiels.length > 0 && (
               <div className="flex flex-wrap gap-1 mt-1.5">
                 {item.attributsEssentiels.map((attr, i) => (
-                  <span key={i} className="text-[9px] font-bold uppercase tracking-widest bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded flex items-center gap-1">
+                  <span key={i} className="text-xs font-bold uppercase tracking-widest bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded flex items-center gap-1">
                     <GameIcon src={resolveAttributeIcon(attr)} alt="" size="w-3 h-3" />
                     {attr}
                   </span>

@@ -27,7 +27,7 @@ export default function TalentEquipCard({ item, equipements }) {
             <GameIcon src={talentIcon} alt="" size="w-6 h-6" />
             <div className={`font-bold text-sm uppercase tracking-wide ${nameColor}`}>{item.nom}</div>
             {isExotic && (
-              <span className="text-[8px] font-bold text-red-400 bg-red-500/15 px-1 py-0.5 rounded uppercase tracking-widest">
+              <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1 py-0.5 rounded uppercase tracking-widest">
                 Exotique
               </span>
             )}
@@ -61,19 +61,27 @@ export default function TalentEquipCard({ item, equipements }) {
             </span>
             Parfait
           </button>
+          <span className="text-xs font-bold uppercase tracking-widest bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded flex items-center gap-1">
+            {item.emplacement === 'tous' ? (
+              <>
+                <GameIcon src={GEAR_SLOT_ICONS_IMG['torse']} alt="" size="w-3 h-3" className="opacity-70" />
+                <GameIcon src={GEAR_SLOT_ICONS_IMG['sac_a_dos']} alt="" size="w-3 h-3" className="opacity-70" />
+              </>
+            ) : (
+              <GameIcon src={slotIcon} alt="" size="w-3 h-3" className="opacity-70" />
+            )}
+            {GEAR_SLOT_LABELS[item.emplacement] || item.emplacement}
         )}
       </div>
 
       {description && (
-        <div className="px-4 py-2.5 text-[11px] text-gray-400 leading-relaxed">
-          {showPerfect && <span className="text-yellow-400 font-bold text-[9px] uppercase tracking-widest mr-1">★ Parfait :</span>}
+        <div className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed">
           {description}
         </div>
       )}
 
       {/* Équipement(s) nommé(s) portant la version parfaite */}
       {showPerfect && item.equipementsParfaits?.length > 0 && (
-        <div className="px-4 pb-2 text-[10px] text-yellow-500/70 flex items-center gap-1">
           <span className="text-yellow-400 font-bold uppercase tracking-widest">Équipement :</span>
           {item.equipementsParfaits.map(slug => {
             const eq = equipements?.find(e => e.slug === slug)

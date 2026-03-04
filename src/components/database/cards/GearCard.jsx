@@ -82,9 +82,9 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
 
           <div className='w-full'>
             <div className="flex items-center gap-2">
-              {isExotic && <span className="text-[9px] font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
-              {isNamed && <span className="text-[9px] font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
-              {isGearSet && <span className="text-[9px] font-bold text-emerald-400 bg-emerald-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Gear Set</span>}
+              {isExotic && <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
+              {isNamed && <span className="text-xs font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
+              {isGearSet && <span className="text-xs font-bold text-emerald-400 bg-emerald-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Gear Set</span>}
             </div>
             <div className={`font-bold text-base uppercase tracking-wide mt-1 ${nameColor}`}>{item.nom}</div>
           </div>
@@ -104,10 +104,10 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
         {/* Attributs essentiels (depuis l'ensemble ou la pièce) */}
         {attrsEssentiels.length > 0 && (
           <div className="flex items-start gap-2 text-xs">
-            <span className="text-blue-400 font-bold shrink-0 uppercase tracking-widest text-[10px]">Essentiel{attrsEssentiels.length > 1 ? 's' : ''}</span>
+            <span className="text-blue-400 font-bold shrink-0 uppercase tracking-widest text-xs">Essentiel{attrsEssentiels.length > 1 ? 's' : ''}</span>
             <div className="flex flex-wrap gap-1">
               {attrsEssentiels.map((attr, i) => (
-                <span key={i} className="text-blue-300 bg-blue-500/10 px-1.5 py-0.5 rounded text-[10px] flex items-center gap-1">
+                <span key={i} className="text-blue-300 bg-blue-500/10 px-1.5 py-0.5 rounded text-xs flex items-center gap-1">
                   <GameIcon src={resolveAttributeIcon(attr)} alt="" size="w-3 h-3" />
                   {ATTR_LABELS[attr] || attr}
                 </span>
@@ -117,19 +117,19 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
         )}
         {hasContent(item.attribut1) && (
           <div className="flex items-start gap-2 text-xs">
-            <span className="text-purple-400 font-bold shrink-0 uppercase tracking-widest text-[10px]">Attribut</span>
+            <span className="text-purple-400 font-bold shrink-0 uppercase tracking-widest text-xs">Attribut</span>
             <span className="text-gray-300">{item.attribut1}</span>
           </div>
         )}
         {hasContent(item.attributUnique) && (
           <div className="flex items-start gap-2 text-xs">
-            <span className="text-shd font-bold shrink-0 uppercase tracking-widest text-[10px]">Unique</span>
+            <span className="text-shd font-bold shrink-0 uppercase tracking-widest text-xs">Unique</span>
             <span className="text-gray-300">{item.attributUnique}</span>
           </div>
         )}
         {item.mod !== undefined && typeof item.mod !== 'boolean' && hasContent(item.mod) && (
           <div className="flex items-start gap-2 text-xs">
-            <span className="text-gray-500 font-bold shrink-0 uppercase tracking-widest text-[10px]">Mod</span>
+            <span className="text-gray-500 font-bold shrink-0 uppercase tracking-widest text-xs">Mod</span>
             <span className="text-gray-400">{String(item.mod)}</span>
           </div>
         )}
@@ -149,7 +149,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                 </span>
                 <span className={`font-bold ${isOverMax ? 'text-yellow-400' : 'text-gray-200'}`}>
                   {attr.valeur}{ref?.unite || ''}
-                  {isOverMax && <span className="ml-1 text-[8px] text-yellow-500">(max {ref.max}{ref.unite})</span>}
+                  {isOverMax && <span className="ml-1 text-xs text-yellow-500">(max {ref.max}{ref.unite})</span>}
                 </span>
               </div>
             )
@@ -169,8 +169,8 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
       {/* Talent gear set résolu depuis l'ensemble */}
       {hasGearSetTalent && (
         <div className="px-4 py-2.5 border-t border-tactical-border/50">
-          <div className="text-[11px] text-gray-400 leading-relaxed">
-            <span className="text-emerald-400 font-bold uppercase tracking-widest text-[10px]">{gearSetTalent.label} : </span>
+          <div className="text-xs text-gray-400 leading-relaxed">
+            <span className="text-emerald-400 font-bold uppercase tracking-widest text-xs">{gearSetTalent.label} : </span>
             {gearSetTalent.text}
           </div>
         </div>
@@ -179,8 +179,8 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
       {/* Obtention */}
       {hasContent(item.obtention) && (
         <div className="px-4 py-2 border-t border-tactical-border/50">
-          <div className="text-[11px] text-gray-500">
-            <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Obtention : </span>
+          <div className="text-xs text-gray-500">
+            <span className="text-gray-400 font-bold uppercase tracking-widest text-xs">Obtention : </span>
             {item.obtention}
           </div>
         </div>

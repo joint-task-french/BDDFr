@@ -2,13 +2,35 @@ import { useState, useMemo } from 'react'
 
 /**
  * Aperçu JSONC en direct avec bouton copier.
- * Affiche l'objet nettoyé avec un commentaire en première ligne.
+ * Affiche l'objet au format slug-keyed (clé = slug, valeur = données sans le slug).
+ * Si l'objet contient un champ "slug", il est extrait comme clé de l'objet englobant.
+ * Pour les arrays (ex: equipmentSet), chaque item est converti individuellement.
  */
 export default function JsoncPreview({ data, comment, label }) {
   const [copied, setCopied] = useState(false)
 
   const jsonc = useMemo(() => {
-    const json = JSON.stringify(data, null, 2)
+    let formatted
+
+    if (Array.isArray(data)) {
+      // Array d'objets → objet slug-keyed fusionné
+      const obj = {}
+      for (const item of data) {
+        if (item?.slug) {
+          const { slug, ...rest } = item
+          obj[slug] = rest
+        }
+      }
+      formatted = obj
+    } else if (data && typeof data === 'object' && data.slug) {
+      // Objet unique avec slug → { slug: { ...rest } }
+      const { slug, ...rest } = data
+      formatted = { [slug]: rest }
+    } else {
+      formatted = data
+    }
+
+    const json = JSON.stringify(formatted, null, 2)
     return comment ? `${comment}\n${json}` : json
   }, [data, comment])
 

@@ -8,18 +8,39 @@ const BASE = import.meta.env.BASE_URL
 
 const DATA_FILES = {
   armes: 'armes.jsonc',
-  equipements: 'equipements.jsonc',
+  armes_type: 'armes-type.jsonc',
   attributs: 'attributs.jsonc',
+  attributs_type: 'attributs-type.jsonc',
+  classSpe: 'class-spe.jsonc',
+  competences: 'competences.jsonc',
+  ensembles: 'ensembles.jsonc',
+  equipements: 'equipements.jsonc',
+  equipements_type: 'equipements-type.jsonc',
+  metadata: 'metadata.jsonc',
+  modsArmes: 'mods-armes.jsonc',
+  modsCompetences: 'mods-competences.jsonc',
+  modsEquipements: 'mods-equipements.jsonc',
   talentsArmes: 'talents-armes.jsonc',
   talentsEquipements: 'talents-equipements.jsonc',
-  ensembles: 'ensembles.jsonc',
-  competences: 'competences.jsonc',
-  classSpe: 'class-spe.jsonc',
-  modsArmes: 'mods-armes.jsonc',
-  modsEquipements: 'mods-equipements.jsonc',
-  modsCompetences: 'mods-competences.jsonc',
-  metadata: 'metadata.jsonc',
-  changelog: 'changelog.jsonc',
+}
+
+/**
+ * Fichiers de données qui sont des objets à clé slug.
+ * Ils seront convertis en arrays (avec le slug réinjecté) pour les consommateurs.
+ * Les fichiers de types (*_type) et metadata restent tels quels (déjà des objets simples).
+ */
+const SLUG_KEYED_FILES = new Set([
+  'armes', 'attributs', 'classSpe', 'competences', 'ensembles',
+  'equipements', 'modsArmes', 'modsCompetences', 'modsEquipements',
+  'talentsArmes', 'talentsEquipements',
+])
+
+/**
+ * Convertit un objet { slug: { ...props } } en array [{ slug, ...props }]
+ */
+function objectToArray(obj) {
+  if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return obj
+  return Object.entries(obj).map(([slug, value]) => ({ slug, ...value }))
 }
 
 export function useDataLoader() {
@@ -36,7 +57,15 @@ export function useDataLoader() {
         const result = {}
         for (let i = 0; i < entries.length; i++) {
           const [key, file] = entries[i]
-          result[key] = await loadJsonc(`${BASE}data/${file}`)
+          const raw = await loadJsonc(`${BASE}data/${file}`)
+
+          // Convertir les fichiers à clé slug en arrays
+          if (SLUG_KEYED_FILES.has(key) && raw && typeof raw === 'object' && !Array.isArray(raw)) {
+            result[key] = objectToArray(raw)
+          } else {
+            result[key] = raw
+          }
+
           if (!cancelled) setProgress(Math.round(((i + 1) / entries.length) * 100))
         }
         if (!cancelled) {
@@ -44,6 +73,12 @@ export function useDataLoader() {
           if (result.competences) {
             result.competencesGrouped = result.competences
             result.competences = flattenCompetences(result.competences)
+          }
+          // Extract changelog from metadata
+          if (result.metadata?.changelog) {
+            result.changelog = result.metadata.changelog
+          } else {
+            result.changelog = []
           }
           // Merge specific weapons from classSpe into armes for display
           if (result.classSpe && result.armes) {

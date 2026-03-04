@@ -161,7 +161,7 @@ export default function GeneratorPage() {
   const cleanedData = useMemo(() => cleanOutput(data, activeCategory), [data, activeCategory])
   const equipmentSet = useMemo(() => {
     if (activeCategory !== 'ensembles' || !data.nom) return null
-    return generateEquipmentSet(data)
+    return generateEquipmentSet(data, loadedData?.equipements_type)
   }, [activeCategory, data])
 
   // --- SAVE ---
@@ -205,30 +205,43 @@ export default function GeneratorPage() {
     if (!loadedData) return
     const zip = new JSZip()
 
+    /**
+     * Convertit un array [{ slug, ...props }] en objet { slug: { ...props } }
+     * pour l'export en format slug-keyed JSONC.
+     */
+    function arrayToSlugObject(arr) {
+      const obj = {}
+      for (const item of arr) {
+        if (!item.slug) continue
+        const { slug, ...rest } = item
+        obj[slug] = rest
+      }
+      return obj
+    }
+
     for (const cat of GENERATOR_CATEGORIES) {
       const dk = DATA_KEY[cat.key]
       const fileName = FILE_MAP[cat.key]
       const saved = savedItems[cat.key] || []
       const idKey = IDENTITY_KEY[cat.key]
 
-      // Competences: export in grouped format
+      // Competences: export in grouped format (slug-keyed object)
       if (cat.key === 'competences') {
         const grouped = JSON.parse(JSON.stringify(loadedData.competencesGrouped || []))
         for (const item of saved) {
-          // Find or create the competence group
           let group = grouped.find(g => g.competence.toLowerCase() === (item.competence || '').toLowerCase())
           if (!group) {
             group = { competence: item.competence, variantes: [], emplacementsMods: [] }
             grouped.push(group)
           }
-          // Find or update variante within the group
           const vIdx = group.variantes.findIndex(v => v.variante.toLowerCase() === (item.variante || '').toLowerCase())
           const { competence, emplacementsMods, ...varData } = item
           if (vIdx >= 0) group.variantes[vIdx] = { ...group.variantes[vIdx], ...varData }
           else group.variantes.push(varData)
         }
         const comment = FIELDS[cat.key]?.comment || ''
-        const content = comment + '\n' + JSON.stringify(grouped, null, 2)
+        const exported = arrayToSlugObject(grouped)
+        const content = comment + '\n' + JSON.stringify(exported, null, 2)
         zip.file(`data/${fileName}`, content)
         continue
       }
@@ -251,7 +264,8 @@ export default function GeneratorPage() {
       }
 
       const comment = FIELDS[cat.key]?.comment || ''
-      const content = comment + '\n' + JSON.stringify(merged, null, 2)
+      const exported = arrayToSlugObject(merged)
+      const content = comment + '\n' + JSON.stringify(exported, null, 2)
       zip.file(`data/${fileName}`, content)
     }
 

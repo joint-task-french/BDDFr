@@ -3,6 +3,7 @@
   "titre": "Base de données française — The Division 2",
   "version": "TU22 : Warlords Of New York",
   "derniereMiseAJour": "2026-03-02",
+  "maxExpertiseLevel": 20,
   "credits": [
     "Rav",
     "Major45-FR",

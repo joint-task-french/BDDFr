@@ -5,7 +5,7 @@
     "type": "gear_set",
     "logo": "ongoing_directive",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Effets d'état",
@@ -19,7 +19,7 @@
     "type": "gear_set",
     "logo": "true_patriot",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+30% Capacité Munitions",
@@ -33,7 +33,7 @@
     "type": "gear_set",
     "logo": "hard_wired",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Récupération de compétence",
@@ -47,7 +47,7 @@
     "type": "gear_set",
     "logo": "as_et_huit",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Dégâts - Fusil de précision +15% Dégâts - Fusil",
@@ -61,7 +61,7 @@
     "type": "gear_set",
     "logo": "pointe_de_lance",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+20% Dégâts d'arme spécifique",
@@ -75,7 +75,7 @@
     "type": "gear_set",
     "logo": "dilemme_du_negociateur",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Probabilité coup critique",
@@ -89,7 +89,7 @@
     "type": "gear_set",
     "logo": "strikers_battlegear",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Maniement d'arme",
@@ -103,7 +103,7 @@
     "type": "gear_set",
     "logo": "corruption_systeme",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% de protection pour élimination",
@@ -117,7 +117,7 @@
     "type": "gear_set",
     "logo": "protocole_eclipse",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Effets d'état",
@@ -131,7 +131,7 @@
     "type": "gear_set",
     "logo": "foundry_bullwark",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+10% de protection totale",
@@ -145,7 +145,7 @@
     "type": "gear_set",
     "logo": "future_initiative",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Compétences de réparation",
@@ -159,11 +159,11 @@
     "type": "gear_set",
     "logo": "fureur_du_chasseur",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Dégâts - fusil de calibre 12 +15% Dégâts - PM",
-    "bonus3pieces": "+20% Protection pour élimination +50% Santé pour élimination",
+    "bonus3pieces": "+20% protection pour élimination +50% Santé pour élimination",
     "bonus4pieces": "Prédateur ultime :Les ennemis situés à moins de 15m subissent un débuff qui augmente vos dégâts d'arme contre eux de 20%. Éliminer un ennemi effecté par un débuff avec votre arme désoriente les ennemis situés à moins de 5m et augmente les dégâts d'arme de 5% pendant 10s, cet effet étant cumulable jusqu'à 5 fois.",
     "talentTorse": "faim_insatiable",
     "talentSac": "force_ecrasante"
@@ -173,7 +173,7 @@
     "type": "gear_set",
     "logo": "rigger",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Récupération de compétence",
@@ -187,12 +187,12 @@
     "type": "gear_set",
     "logo": "heartbreaker",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Dégâts - fusil d'assaut +15% Dégâts - Fusil-mitrailleur",
     "bonus3pieces": "+15% Maniement d'arme",
-    "bonus4pieces": "Coup de coeur :Les Headshot appliquent impulsion pendant 5s. Les tirs sur des ennemis touchés par impulsion ajoutent et renouvellent une bonus de protection bonus de +1% et de dégâts d'armes de +1,1% contre les ennemis touchés par impulsion, jusqu'à un maximum de 50 effets. 2 effets sont perdus par seconde.",
+    "bonus4pieces": "Coup de coeur :Les Headshot appliquent impulsion pendant 5s. Les tirs sur des ennemis touchés par impulsion ajoutent et renouvellent une bonus de protection bonus de +1% et de degats_arme de +1,1% contre les ennemis touchés par impulsion, jusqu'à un maximum de 50 effets. 2 effets sont perdus par seconde.",
     "talentTorse": "max_bpm",
     "talentSac": "froid"
   },
@@ -201,7 +201,7 @@
     "type": "gear_set",
     "logo": "initiative_umbra",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Probabilité coup critique",
@@ -215,7 +215,7 @@
     "type": "gear_set",
     "logo": "hotshot",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+30% Dégâts - Fusil de précision +30% Maniement d'arme",
@@ -229,7 +229,7 @@
     "type": "gear_set",
     "logo": "cavalier",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+30% Résistance aux altérations d'états",
@@ -243,7 +243,7 @@
     "type": "gear_set",
     "logo": "ortiz_exuro",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+20% Durée de brûlure augmentée +15% Santé de compétence",
@@ -257,11 +257,11 @@
     "type": "gear_set",
     "logo": "aegis",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+70% Santé",
-    "bonus3pieces": "+15% Protection totale",
+    "bonus3pieces": "+15% protection totale",
     "bonus4pieces": "Stoïque : (ne fonctionne pas en pvp)Confère +4% de résistance aux dégâts pour chaque ennemi qui vous cible. Le bonus est multiplié par 1,x ou X est le nombre de d'agents dans votre groupe.",
     "talentTorse": "tromperie",
     "talentSac": "placage_en_polyethylene"
@@ -271,7 +271,7 @@
     "type": "gear_set",
     "logo": "breaking_point",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+25% Dégâts - Fusil de précision +25% Dégâts - Fusil",
@@ -285,7 +285,7 @@
     "type": "gear_set",
     "logo": "virtuoso",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% maniement d'arme +15% taille du chargeur",
@@ -299,7 +299,7 @@
     "type": "gear_set",
     "logo": "refactor",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Effets d'état",
@@ -313,12 +313,12 @@
     "type": "gear_set",
     "logo": "measured_assembly",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Récupération de compétence",
     "bonus3pieces": "+60% Compétences de réparation +40% Résistance - Explosions",
-    "bonus4pieces": "Pelotonnement :Recevez +1 Tier de compétence pour chaque agent allié se trouvant à portée de votre ruche ou abri intelligent. Au Tier de compétence 6, avoir au moins un agent allié à portée de votre ruche ou abri intelligent pendant 4s vous confère surcharge pendant 15s. Temps de recharge : 40s. Les mortiers et les compétences ennemies qui entrent à portée de votre ruche ou abri intelligent sont détruits. Temps de recharge : 10s. Le temps de recharge est 20% plus rapide pour chaque agent allié à portée de votre ruche ou abri intelligent.",
+    "bonus4pieces": "Pelotonnement :Recevez +1 tiers_de_competence pour chaque agent allié se trouvant à portée de votre ruche ou abri intelligent. Au tiers_de_competence 6, avoir au moins un agent allié à portée de votre ruche ou abri intelligent pendant 4s vous confère surcharge pendant 15s. Temps de recharge : 40s. Les mortiers et les compétences ennemies qui entrent à portée de votre ruche ou abri intelligent sont détruits. Temps de recharge : 10s. Le temps de recharge est 20% plus rapide pour chaque agent allié à portée de votre ruche ou abri intelligent.",
     "talentTorse": "esprit_de_ruche",
     "talentSac": "cooperation_intelligente"
   },
@@ -327,7 +327,7 @@
     "type": "gear_set",
     "logo": "point_de_bascule",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+30% Taille du chargeur",
@@ -341,7 +341,7 @@
     "type": "gear_set",
     "logo": "concentrated_company",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "",
     "bonus2pieces": "+10% Dégats d'arme",
@@ -355,7 +355,7 @@
     "type": "marque",
     "logo": "sokolov_concern",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+10% Dégâts de Pistolet mitrailleur",
     "bonus2pieces": "+13% Dégâts de coup critique",
@@ -369,7 +369,7 @@
     "type": "marque",
     "logo": "providence_defense",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+13%Dégâts d'headshot",
     "bonus2pieces": "+8% Probabilité de coup critique",
@@ -383,7 +383,7 @@
     "type": "marque",
     "logo": "overlord",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+10% Dégâts de fusil",
     "bonus2pieces": "+30% Précision",
@@ -397,11 +397,11 @@
     "type": "marque",
     "logo": "5_11_tactical",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
     "bonus1piece": "+30% Santé",
     "bonus2pieces": "+ 30% Réparations subies",
-    "bonus3pieces": "+30% Protection contre altérations d'état",
+    "bonus3pieces": "+30% protection contre altérations d'état",
     "bonus4pieces": "",
     "talentTorse": "",
     "talentSac": ""
@@ -411,7 +411,7 @@
     "type": "marque",
     "logo": "douglas_harding",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+20% Dégâts de Pistolet",
     "bonus2pieces": "+30% Stabilité",
@@ -425,7 +425,7 @@
     "type": "marque",
     "logo": "petrov_defense",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+10% Dégâts - Fusil mitrailleur",
     "bonus2pieces": "+15% Maniement d'arme",
@@ -439,7 +439,7 @@
     "type": "marque",
     "logo": "wyvern_wear",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "+8% Dégâts de compétences",
     "bonus2pieces": "+18% Effets d'état",
@@ -453,7 +453,7 @@
     "type": "marque",
     "logo": "alps_summit",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "+18% Compétences de réparation",
     "bonus2pieces": "+30% Durée de compétence",
@@ -467,7 +467,7 @@
     "type": "marque",
     "logo": "richter_kaiser",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "+15% Réparations subies",
     "bonus2pieces": "+25% Resistance aux explosions",
@@ -481,9 +481,9 @@
     "type": "marque",
     "logo": "gila_guard",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
-    "bonus1piece": "+5% Protection totale",
+    "bonus1piece": "+5% protection totale",
     "bonus2pieces": "+60% Santé",
     "bonus3pieces": "+2% Régénération de protection",
     "bonus4pieces": "",
@@ -495,7 +495,7 @@
     "type": "marque",
     "logo": "murakami",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "+15% Durée de compétence",
     "bonus2pieces": "+35% Compétences de réparation",
@@ -509,7 +509,7 @@
     "type": "marque",
     "logo": "fenris_group",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+10% Dégâts de fusil d'assaut",
     "bonus2pieces": "+30% Vitesse de rechargement",
@@ -523,7 +523,7 @@
     "type": "marque",
     "logo": "airaldi_holding",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+10% Dégâts - Fusil de précision",
     "bonus2pieces": "+13% Dégâts d'headshot",
@@ -537,7 +537,7 @@
     "type": "marque",
     "logo": "china_light",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "+15% Dégâts d'explosion",
     "bonus2pieces": "+20% Récupération de compétence",
@@ -551,9 +551,9 @@
     "type": "marque",
     "logo": "yaahl_gear",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
-    "bonus1piece": "+10% Protection contre les altérations d'état",
+    "bonus1piece": "+10% protection contre les altérations d'état",
     "bonus2pieces": "+10% Dégâts d'arme",
     "bonus3pieces": "+40% Résistance à l'impulsion",
     "bonus4pieces": "",
@@ -565,10 +565,10 @@
     "type": "marque",
     "logo": "badger_tuff",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
     "bonus1piece": "+10% Dégâts fusils calibre 12",
-    "bonus2pieces": "+5% Protection totale",
+    "bonus2pieces": "+5% protection totale",
     "bonus3pieces": "+15% Pourcentage de protection pour élimination",
     "bonus4pieces": "",
     "talentTorse": "",
@@ -579,7 +579,7 @@
     "type": "marque",
     "logo": "grupo_sombra",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+13% Dégâts de coup critique",
     "bonus2pieces": "+20% Dégâts d'explosion",
@@ -593,7 +593,7 @@
     "type": "marque",
     "logo": "hana_u",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "+10% Récupération de compétence",
     "bonus2pieces": "+10% Dégâts de compétences",
@@ -607,11 +607,11 @@
     "type": "marque",
     "logo": "golan_gear",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
     "bonus1piece": "+10% Effets d'état",
     "bonus2pieces": "+1,5% Régénération de protection",
-    "bonus3pieces": "+10% Protection totale",
+    "bonus3pieces": "+10% protection totale",
     "bonus4pieces": "",
     "talentTorse": "",
     "talentSac": ""
@@ -621,10 +621,10 @@
     "type": "marque",
     "logo": "ceska_vyroba",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+8% Probabilité de coup critique",
-    "bonus2pieces": "+20% Protection contre les altérations d'état",
+    "bonus2pieces": "+20% protection contre les altérations d'état",
     "bonus3pieces": "+90% Santé",
     "bonus4pieces": "",
     "talentTorse": "",
@@ -635,7 +635,7 @@
     "type": "marque",
     "logo": "walker_harris",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+5% Dégâts d'arme",
     "bonus2pieces": "+5% Dégâts aux protections",
@@ -649,10 +649,10 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
     "bonus1piece": "+1% Régénération de protection",
-    "bonus2pieces": "+10% Protection pour élimination",
+    "bonus2pieces": "+10% protection pour élimination",
     "bonus3pieces": "+45% Réparations subies",
     "bonus4pieces": "",
     "talentTorse": "",
@@ -663,7 +663,7 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "+10% Santé pour compétence",
     "bonus2pieces": "+10% Dégâts de compétences",
@@ -677,11 +677,11 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
-    "bonus1piece": "+5% Protection totale",
-    "bonus2pieces": "+10% Protection pour élimination",
-    "bonus3pieces": "+30% Protection contre les altérations d'état",
+    "bonus1piece": "+5% protection totale",
+    "bonus2pieces": "+10% protection pour élimination",
+    "bonus3pieces": "+30% protection contre les altérations d'état",
     "bonus4pieces": "",
     "talentTorse": "",
     "talentSac": ""
@@ -691,10 +691,10 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
     "bonus1piece": "+10% Récupération de compétence",
-    "bonus2pieces": "+1 Tier de compétence",
+    "bonus2pieces": "+1 tiers_de_competence",
     "bonus3pieces": "+50% Taille du chargeur",
     "bonus4pieces": "",
     "talentTorse": "",
@@ -705,7 +705,7 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
     "bonus1piece": "+13% Dégâts d'headshot",
     "bonus2pieces": "+20% Dégâts - Fusil de précision",
@@ -719,7 +719,7 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "+10% Effets d'état",
     "bonus2pieces": "+20% Resistance - Électrocutions",
@@ -733,11 +733,11 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
-    "bonus1piece": "+10% Protection pour élimination",
+    "bonus1piece": "+10% protection pour élimination",
     "bonus2pieces": "+60% Santé",
-    "bonus3pieces": "+1 Tier de compétence",
+    "bonus3pieces": "+1 tiers_de_competence",
     "bonus4pieces": "",
     "talentTorse": "",
     "talentSac": ""
@@ -747,7 +747,7 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+15% Taille du chargeur",
     "bonus2pieces": "+20% Dégâts de fusil",
@@ -761,7 +761,7 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+30% Vitesse de rechargement",
     "bonus2pieces": "+70% Portée optimale",
@@ -775,7 +775,7 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+5% Cadence de tir",
     "bonus2pieces": "+20% Dégâts - Fusil d'assaut",
@@ -789,7 +789,7 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+10% Précision",
     "bonus2pieces": "+30% Durée de compétence",
@@ -803,7 +803,7 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Dégâts d'armes"
+      "degats_arme"
     ],
     "bonus1piece": "+5% Dégâts d'arme",
     "bonus2pieces": "+100% Menace augmentée",
@@ -817,7 +817,7 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Tier de compétence"
+      "tiers_de_competence"
     ],
     "bonus1piece": "+15% Durée de compétence",
     "bonus2pieces": "+5% Efficacité de compétence",
@@ -831,7 +831,7 @@
     "type": "marque",
     "logo": "",
     "attributsEssentiels": [
-      "Protection"
+      "protection"
     ],
     "bonus1piece": "+20% Résistance - Explosions",
     "bonus2pieces": "+20% Santé pour compétence",

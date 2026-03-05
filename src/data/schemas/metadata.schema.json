@@ -16,6 +16,11 @@
       "items": { "type": "string" },
       "description": "Liste des contributeurs"
     },
+    "maxExpertiseLevel": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Niveau maximum d'expertise applicable sur le jeu"
+    },
     "changelog": {
       "type": "array",
       "description": "Historique des modifications de la base de données",

@@ -12,7 +12,7 @@ export default function Badge({ type }) {
     standard: 'Standard',
   }
   return (
-    <span className={`inline-block px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest border ${styles[type] || styles.standard}`}>
+    <span className={`inline-block px-1.5 py-0.5 rounded text-xs font-bold uppercase tracking-widest border ${styles[type] || styles.standard}`}>
       {labels[type] || type}
     </span>
   )

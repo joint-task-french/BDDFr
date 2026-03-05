@@ -1,63 +1,113 @@
-// Mods d'équipements — The Division 2
+// Mods d'equipements — The Division 2
 {
   "duree_de_competence": {
     "categorie": "utilitaire",
     "protocole": "PROTOCOLE UTILITAIRE : INTENSITÉ",
-    "statistique": "% Durée de compétence",
-    "valeurMax": "10%"
+    "nom": "% Durée de compétence",
+    "attributs": [
+      {
+        "attribut": "duree_de_competence_eqp_mod",
+        "valeur": 10
+      }
+    ]
   },
   "recup_de_competence": {
     "categorie": "utilitaire",
     "protocole": "PROTOCOLE UTILITAIRE : INTENSITÉ",
-    "statistique": "% Récup de compétence",
-    "valeurMax": "12%"
+    "nom": "% Récup de compétence",
+    "attributs": [
+      {
+        "attribut": "recup_de_competence_eqp",
+        "valeur": 12
+      }
+    ]
   },
   "competence_de_reparation": {
     "categorie": "utilitaire",
     "protocole": "PROTOCOLE UTILITAIRE : INTENSITÉ",
-    "statistique": "% Compétence de réparation",
-    "valeurMax": "20%"
+    "nom": "% Compétence de réparation",
+    "attributs": [
+      {
+        "attribut": "competences_de_reparation_eqp",
+        "valeur": 20
+      }
+    ]
   },
   "protection_contre_ennemi_d_elite": {
     "categorie": "défensif",
     "protocole": "PROTOCOLE DÉFENSIF : ENDURANCE",
-    "statistique": "% Protection contre ennemi d'élite",
-    "valeurMax": "13%"
+    "nom": "% Protection contre ennemi d'élite",
+    "attributs": [
+      {
+        "attribut": "protection_contre_ennemi_elite_mod",
+        "valeur": 13
+      }
+    ]
   },
   "protection_pour_elimination": {
     "categorie": "défensif",
     "protocole": "PROTOCOLE DÉFENSIF : ENDURANCE",
-    "statistique": "Protection pour élimination",
-    "valeurMax": "18935"
+    "nom": "Protection pour élimination",
+    "attributs": [
+      {
+        "attribut": "protection_pour_elimination_mod",
+        "valeur": 18935
+      }
+    ]
   },
   "reparation_subies": {
     "categorie": "défensif",
     "protocole": "PROTOCOLE DÉFENSIF : ENDURANCE",
-    "statistique": "% Réparation subies",
-    "valeurMax": "20%"
+    "nom": "% Réparation subies",
+    "attributs": [
+      {
+        "attribut": "reparation_subies_mod",
+        "valeur": 20
+      }
+    ]
   },
   "resistance_aux_effets_d_etat_saignements_electrocutions_brulures_aveug_assour_desactivation_desorientation_entrave_impulsion": {
     "categorie": "défensif",
     "protocole": "PROTOCOLE DÉFENSIF : ENDURANCE",
-    "statistique": "Résistance aux effets d'état(saignements, électrocutions, brûlures, aveug./Assour., désactivation, désorientation, entrave, impulsion)",
-    "valeurMax": "10%"
+    "nom": "Résistance aux effets d'état(saignements, électrocutions, brûlures, aveug./Assour., désactivation, désorientation, entrave, impulsion)",
+    "attributs": [
+      {
+        "attribut": "resistance_aux_effets_d_etat_saignements_electrocutions_brulures_aveug_assour_desactivation_desorientation_entrave_impulsion",
+        "valeur": 0
+      }
+    ]
   },
   "probabilite_de_coup_critique": {
     "categorie": "offensif",
     "protocole": "SYSTÈME OFFENSIF : ARME À FEU",
-    "statistique": "% Probabilité de coup critique",
-    "valeurMax": "6%"
+    "nom": "% Probabilité de coup critique",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_eqp",
+        "valeur": 6
+      }
+    ]
   },
   "degats_coup_critique": {
     "categorie": "offensif",
     "protocole": "SYSTÈME OFFENSIF : ARME À FEU",
-    "statistique": "% Dégâts coup critique",
-    "valeurMax": "12%"
+    "nom": "% Dégâts coup critique",
+    "attributs": [
+      {
+        "attribut": "degats_de_coup_critique_eqp",
+        "valeur": 12
+      }
+    ]
   },
   "degats_aux_headshot": {
     "categorie": "offensif",
     "protocole": "SYSTÈME OFFENSIF : ARME À FEU",
-    "statistique": "% Dégâts aux headshot",
-    "valeurMax": "10%"
+    "nom": "% Dégâts aux headshot",
+    "attributs": [
+      {
+        "attribut": "degats_de_headshot_eqp",
+        "valeur": 10
+      }
+    ]
   }
 }

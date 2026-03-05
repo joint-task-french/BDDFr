@@ -1,12 +1,13 @@
 import { useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
 import GearAttributePanel from './GearAttributePanel'
+import ExpertiseSlider from './ExpertiseSlider'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles, talentsEquipements, allAttributs, gearAttributes, onSetAttributes, modsEquipements, gearMod, onSetMod, attributsType }) {
+export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles, talentsEquipements, allAttributs, gearAttributes, onSetAttributes, modsEquipements, gearMod, onSetMod, attributsType, expertiseLevel, onExpertiseChange, maxExpertiseLevel }) {
   const { dispatch } = useBuild()
 
   const remove = (e) => {
@@ -32,9 +33,24 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
   // Résoudre le nom de la marque (slug → nom)
   const marqueLabel = useMemo(() => {
     if (!piece?.marque || !ensembles) return piece?.marque || ''
+    if (piece.marque === '*') return ''
     const ens = ensembles.find(e => e.slug === piece.marque || e.nom.toLowerCase() === piece.marque.toLowerCase())
     return ens?.nom || piece.marque
   }, [piece, ensembles])
+
+  // Talent pré-inscrit (nommé ou équipement avec talents[] non vide, hors exotique/gear set)
+  const hasPredefinedTalent = useMemo(() => {
+    if (!piece || piece.type === 'exotique' || piece.type === 'gear_set') return false
+    return Array.isArray(piece.talents) && piece.talents.length > 0 && piece.talents.some(t => t && t !== 'n/a' && t !== '')
+  }, [piece])
+
+  // Résoudre le talent pré-inscrit depuis le référentiel
+  const resolvedPredefinedTalent = useMemo(() => {
+    if (!hasPredefinedTalent || !talentsEquipements) return null
+    const slug = piece.talents.find(t => t && t !== 'n/a' && t !== '')
+    if (!slug) return null
+    return talentsEquipements.find(t => t.slug === slug) || { nom: slug, description: '' }
+  }, [hasPredefinedTalent, piece, talentsEquipements])
 
   const borderColor = piece?.type === 'exotique'
     ? 'border-l-shd'
@@ -50,18 +66,18 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
         <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">{icon} {label}</span>
         {piece && <button onClick={remove} className="text-red-400 hover:text-red-300 text-xs p-1">✕</button>}
       </div>
-      <div className="p-3 min-h-[100px]">
+      <div className="p-3 min-h-25">
         {piece ? (
           <div className={`border-l-2 ${borderColor} pl-3`}>
             <div className="flex items-center gap-2">
-              {piece.type === 'exotique' && <span className="text-shd text-[9px] font-bold">EXOTIQUE</span>}
-              {piece.estNomme && piece.type !== 'exotique' && <span className="text-yellow-500 text-[9px] font-bold">NOMMÉ</span>}
-              {piece.type === 'gear_set' && <span className="text-emerald-400 text-[9px] font-bold">GEAR SET</span>}
+              {piece.type === 'exotique' && <span className="text-shd text-xs font-bold">EXOTIQUE</span>}
+              {piece.estNomme && piece.type !== 'exotique' && <span className="text-yellow-500 text-xs font-bold">NOMMÉ</span>}
+              {piece.type === 'gear_set' && <span className="text-emerald-400 text-xs font-bold">GEAR SET</span>}
             </div>
             <div className="font-bold text-white text-sm uppercase tracking-wide">{piece.nom}</div>
             <div className="text-xs text-gray-500">{marqueLabel}</div>
             {piece.attributUnique && (
-              <div className="text-[10px] text-purple-400 mt-1">✦ {piece.attributUnique}</div>
+              <div className="text-xs text-purple-400 mt-1">✦ {piece.attributUnique}</div>
             )}
             {/* Panneau d'attributs */}
             <GearAttributePanel
@@ -73,36 +89,61 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
               onChange={onSetAttributes}
               onChangeMod={onSetMod}
               attributsType={attributsType}
+              ensembles={ensembles}
             />
-            {/* Talents exotiques/nommés (depuis talents[]) */}
-            {piece.talents && piece.talents.length > 0 && (piece.type === 'exotique' || piece.estNomme) && (
+            {/* Expertise */}
+            {onExpertiseChange && (
+              <ExpertiseSlider slot={slotKey} level={expertiseLevel || 0} onChange={onExpertiseChange} maxLevel={maxExpertiseLevel} />
+            )}
+            {/* Talents exotiques (depuis talents[]) — toujours affichés, non modifiables */}
+            {piece.type === 'exotique' && piece.talents && piece.talents.length > 0 && (
               <div className="mt-3 pt-3 border-t border-tactical-border">
-                <div className={`text-xs font-bold uppercase tracking-widest ${piece.type === 'exotique' ? 'text-shd' : 'text-yellow-400'}`}>
-                  {piece.type === 'exotique' ? 'Talent Exotique' : 'Talent Nommé'}
-                </div>
+                <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent Exotique</div>
                 {piece.talents.filter(t => t && t !== 'n/a').map((t, i) => (
-                  <div key={i} className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{t}</div>
+                  <div key={i} className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t}</div>
                 ))}
               </div>
             )}
-            {/* Talent gear set résolu depuis l'ensemble */}
+            {/* Talent gear set résolu depuis l'ensemble — non modifiable */}
             {gearSetTalent && piece.type !== 'exotique' && (
               <div className="mt-3 pt-3 border-t border-tactical-border">
                 <div className="text-xs text-emerald-400 font-bold uppercase tracking-widest">
                   {gearSetTalent.nom}
                 </div>
                 {gearSetTalent.description && (
-                  <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{gearSetTalent.description}</div>
+                  <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{gearSetTalent.description}</div>
                 )}
               </div>
             )}
-            {/* Talent libre (torse/sac hors gear set) */}
-            {hasTalentSlot && piece.type !== 'exotique' && !gearSetTalent && (
+            {/* Talent pré-inscrit (nommé avec talents[] non vide) — non modifiable */}
+            {piece.type !== 'exotique' && !gearSetTalent && hasPredefinedTalent && (
+              <div className="mt-3 pt-3 border-t border-tactical-border">
+                <div className="flex items-center gap-1">
+                  <div className="text-xs text-yellow-400 font-bold uppercase tracking-widest">
+                    Talent : {resolvedPredefinedTalent?.nom || piece.talents[0]}
+                  </div>
+                </div>
+                {resolvedPredefinedTalent?.description && (
+                  <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-2">{resolvedPredefinedTalent.description}</div>
+                )}
+              </div>
+            )}
+            {/* Talent libre (torse/sac hors gear set, sans talent pré-inscrit) */}
+            {hasTalentSlot && piece.type !== 'exotique' && !gearSetTalent && !hasPredefinedTalent && (
               talent ? (
                 <div className="mt-3 pt-3 border-t border-tactical-border">
-                  <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent : {talent.nom}</div>
+                  <div className="flex items-center justify-between">
+                    <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent : {talent.nom}</div>
+                    {onSelectTalent && (
+                      <button
+                        onClick={(e) => { e.stopPropagation(); onSelectTalent() }}
+                        className="text-xs text-gray-600 hover:text-shd transition-colors"
+                        title="Changer le talent"
+                      >✎</button>
+                    )}
+                  </div>
                   {talent.description && (
-                    <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-2">{talent.description}</div>
+                    <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-2">{talent.description}</div>
                   )}
                 </div>
               ) : (

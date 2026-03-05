@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from 'react'
 import { getAttrCategoryLabel } from '../../utils/formatters'
+import { formatModAttributs } from '../../utils/modCompatibility'
 import AttributeSlider from './AttributeSlider'
 import AttributePicker from './AttributePicker'
 
@@ -17,19 +18,80 @@ function getClassicSlotCount(piece) {
 }
 
 /**
- * Trouve le premier attribut essentiel d'une catégorie donnée dans le référentiel
+ * Trouve le premier attribut essentiel d'une catégorie donnée dans le référentiel.
+ * Pour les équipements, l'attribut essentiel est l'un des 3 core attributes (offensif/défensif/utilitaire).
  */
-function findDefaultAttr(allAttributs, categorie) {
+function findDefaultEssentialAttr(allAttributs, categorie) {
   if (!allAttributs || !categorie) return null
-  const ref = allAttributs.find(a => a.cible?.includes('equipement') && a.categorie === categorie && a.estEssentiel === true)
+  const ref = allAttributs.find(a =>
+    a.cible?.includes('equipement') &&
+    a.categorie === categorie &&
+    a.estEssentiel === true
+  )
   if (!ref) return null
-  return { nom: ref.nom, valeur: ref.max, min: ref.min, max: ref.max, unite: ref.unite, categorie: ref.categorie }
+  return {
+    nom: ref.nom,
+    slug: ref.slug,
+    valeur: ref.max,
+    min: ref.min,
+    max: ref.max,
+    unite: ref.unite,
+    categorie: ref.categorie,
+  }
+}
+
+/**
+ * Résout la catégorie essentielle initiale depuis l'ensemble lié.
+ * Retourne la catégorie par défaut pour le premier attribut essentiel.
+ */
+function resolveInitialEssentialCategory(piece, ensembles) {
+  if (!piece) return null
+  // Exotiques avec attributEssentiel: utiliser les catégories listées
+  if (Array.isArray(piece.attributEssentiel) && piece.attributEssentiel.length > 0) {
+    return piece.attributEssentiel
+  }
+  // Sinon chercher dans l'ensemble lié pour pré-remplir
+  if (piece.marque && piece.marque !== '*' && ensembles) {
+    const ens = ensembles.find(e => e.slug === piece.marque || e.nom === piece.marque)
+    if (ens?.attributsEssentiels && ens.attributsEssentiels.length > 0) {
+      return mapEssentialNames(ens.attributsEssentiels)
+    }
+  }
+  return null
+}
+
+/**
+ * Mappe les valeurs d'attributsEssentiels depuis les ensembles vers les catégories.
+ * Les ensembles utilisent des slugs (degats_arme, protection, tiers_de_competence)
+ * et parfois des noms textuels français.
+ */
+function mapEssentialNames(names) {
+  const map = {
+    // Slugs utilisés dans ensembles.jsonc
+    'degats_arme': 'offensif',
+    'protection': 'défensif',
+    'tiers_de_competence': 'utilitaire',
+    // Noms textuels (rétrocompatibilité)
+    "Dégâts d'armes": 'offensif',
+    "Dégâts d'arme": 'offensif',
+    'Protection': 'défensif',
+    'Tier de compétence': 'utilitaire',
+    'Tiers de compétence': 'utilitaire',
+  }
+  return names.map(n => map[n] || n).filter(Boolean)
 }
 
 /**
  * Panneau d'attributs + mod inline pour un équipement dans le build planner.
+ *
+ * L'attribut essentiel d'un équipement est l'un des 3 core attributes
+ * (Dégâts d'armes / Protection / Tier de compétence) et peut être changé
+ * entre les 3 sans restriction. Sa valeur est modifiable dans la range.
+ *
+ * Pour les exotiques avec attributEssentiel fixé par la pièce, l'attribut
+ * est pré-rempli et non remplaçable.
  */
-export default function GearAttributePanel({ piece, attributes, allAttributs, modsEquipements, gearMod, onChange, onChangeMod, attributsType }) {
+export default function GearAttributePanel({ piece, attributes, allAttributs, modsEquipements, gearMod, onChange, onChangeMod, attributsType, ensembles }) {
   const [pickerOpen, setPickerOpen] = useState(null)
   const [modPickerOpen, setModPickerOpen] = useState(false)
 
@@ -37,25 +99,50 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
   const classicCount = getClassicSlotCount(piece)
   const hasMod = piece?.mod === true
 
-  // Attributs essentiels de la pièce
-  const essentialCategories = useMemo(() => {
-    if (!piece) return []
-    return Array.isArray(piece.attributEssentiel) ? piece.attributEssentiel : []
+  // Est-ce que l'attribut essentiel est fixé par la pièce elle-même ?
+  // (exotiques avec attributEssentiel listé dans la donnée de la pièce)
+  const isEssentialFixedByPiece = useMemo(() => {
+    return Array.isArray(piece?.attributEssentiel) && piece.attributEssentiel.length > 0
   }, [piece])
+
+  // Catégories essentielles fixées par la pièce (exotiques uniquement)
+  const fixedEssentialCategories = useMemo(() => {
+    if (!isEssentialFixedByPiece) return []
+    return piece.attributEssentiel
+  }, [piece, isEssentialFixedByPiece])
+
+  // Catégorie par défaut initiale depuis l'ensemble (pour pré-remplissage)
+  const initialCategories = useMemo(() => {
+    return resolveInitialEssentialCategory(piece, ensembles)
+  }, [piece, ensembles])
 
   const essentiels = attributes?.essentiels || []
   const classiques = attributes?.classiques || []
 
-  // Pré-remplir l'attribut essentiel par défaut quand une pièce est sélectionnée
+  // Pré-remplir les attributs essentiels par défaut
   useEffect(() => {
-    if (!piece || isExotic || !allAttributs) return
-    if (essentiels[0]) return // déjà rempli
-    if (essentialCategories.length === 0) return
-    const defaultAttr = findDefaultAttr(allAttributs, essentialCategories[0])
-    if (defaultAttr) {
-      onChange({ essentiels: [defaultAttr], classiques })
+    if (!piece || !allAttributs || !allAttributs.length) return
+    if (essentiels.length > 0 && essentiels[0]) return
+
+    if (isEssentialFixedByPiece) {
+      // Exotiques : pré-remplir avec les catégories fixées
+      const newEss = fixedEssentialCategories
+        .map(cat => findDefaultEssentialAttr(allAttributs, cat))
+        .filter(Boolean)
+      if (newEss.length > 0) {
+        onChange({ essentiels: newEss, classiques })
+      }
+    } else {
+      // Résoudre la catégorie depuis l'ensemble
+      const cats = initialCategories
+      if (cats && cats.length > 0) {
+        const defaultAttr = findDefaultEssentialAttr(allAttributs, cats[0])
+        if (defaultAttr) {
+          onChange({ essentiels: [defaultAttr], classiques })
+        }
+      }
     }
-  }, [piece?.nom]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [piece?.nom, allAttributs?.length, ensembles?.length]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Noms déjà utilisés
   const usedNames = useMemo(() => {
@@ -86,28 +173,30 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
   return (
     <div className="mt-2 pt-2 border-t border-tactical-border/30 space-y-0.5">
       {/* Attributs essentiels */}
-      {isExotic ? (
-        essentialCategories.map((cat, i) => {
+      {isExotic && isEssentialFixedByPiece ? (
+        /* Exotiques avec attributs fixés : un slider par catégorie fixée, non remplaçable */
+        fixedEssentialCategories.map((cat, i) => {
           const catLabel = getAttrCategoryLabel(attributsType, cat)
           const existing = essentiels[i]
           return (
-            <div key={i} className="flex items-center gap-1 py-0.5">
-              <span className="text-[9px] text-gray-600 uppercase tracking-widest">Essentiel {catLabel}</span>
-              {existing ? (
-                <span className="text-[10px] text-gray-400 ml-auto">{existing.nom}: {existing.valeur}{existing.unite || ''}</span>
-              ) : (
-                <span className="text-[10px] text-gray-600 ml-auto">{catLabel}</span>
-              )}
-            </div>
+            <AttributeSlider
+              key={`ess-${i}`}
+              attribute={existing || null}
+              readOnly={false}
+              locked
+              onChange={(attr) => setEssential(i, attr)}
+              label={`Essentiel ${catLabel}`}
+            />
           )
         })
       ) : (
+        /* Équipement normal : 1 attribut essentiel, interchangeable entre les 3 core attributes */
         <AttributeSlider
           attribute={essentiels[0] || null}
           onChange={(attr) => setEssential(0, attr)}
           onPick={() => setPickerOpen('essential-0')}
           onRemove={() => setEssential(0, null)}
-          label={`Essentiel${essentialCategories[0] ? ` (${getAttrCategoryLabel(attributsType, essentialCategories[0])})` : ''}`}
+          label="Essentiel"
         />
       )}
 
@@ -126,27 +215,27 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
       {/* Mod d'équipement */}
       {hasMod && (
         <div className="pt-1">
-          <div className="text-[9px] text-gray-600 uppercase tracking-widest mb-0.5">Mod</div>
+          <div className="text-xs text-gray-600 uppercase tracking-widest mb-0.5">Mod</div>
           {gearMod ? (
             <div className="flex items-center gap-1.5 py-0.5">
-              <span className="text-[10px] text-gray-300 truncate relative group/gmod cursor-default">
-                {gearMod.statistique}
-                {gearMod.valeurMax && (
+              <span className="text-xs text-gray-300 truncate relative group/gmod cursor-default">
+                {gearMod.nom}
+                {(gearMod.attributs || gearMod.bonus) && (
                   <span className="absolute left-0 bottom-full mb-1 z-50 hidden group-hover/gmod:block bg-tactical-panel border border-tactical-border rounded px-2 py-1.5 shadow-lg whitespace-nowrap pointer-events-none">
-                    <span className="block text-[10px] text-green-400">{gearMod.valeurMax}</span>
-                    {gearMod.categorie && <span className="block text-[10px] text-gray-500">{gearMod.categorie}</span>}
+                    <span className="block text-xs text-green-400">{formatModAttributs(gearMod, allAttributs)}</span>
+                    {gearMod.categorie && <span className="block text-xs text-gray-500">{gearMod.categorie}</span>}
                   </span>
                 )}
               </span>
               <button
                 onClick={() => onChangeMod(null)}
-                className="text-gray-600 hover:text-red-400 text-[10px] ml-auto shrink-0"
+                className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
               >✕</button>
             </div>
           ) : (
             <button
               onClick={() => setModPickerOpen(true)}
-              className="text-[10px] text-shd/40 hover:text-shd transition-colors"
+              className="text-xs text-shd/40 hover:text-shd transition-colors"
             >
               + Mod
             </button>
@@ -154,26 +243,28 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
         </div>
       )}
 
-      {/* Picker attribut */}
-      {pickerOpen && (
+      {/* Picker attribut essentiel : pas de filtre catégorie, uniquement les essentiels d'équipement */}
+      {pickerOpen === 'essential-0' && (
         <AttributePicker
           attributs={allAttributs}
           cible="equipement"
-          essentiel={pickerOpen.startsWith('essential-') ? true : false}
-          categorie={
-            pickerOpen.startsWith('essential-') && essentialCategories[0] && !isExotic
-              ? essentialCategories[0]
-              : undefined
-          }
+          essentiel={true}
+          exclude={usedNames}
+          onSelect={(attr) => { setEssential(0, attr); setPickerOpen(null) }}
+          onClose={() => setPickerOpen(null)}
+        />
+      )}
+
+      {/* Picker attribut classique */}
+      {pickerOpen && pickerOpen.startsWith('classic-') && (
+        <AttributePicker
+          attributs={allAttributs}
+          cible="equipement"
+          essentiel={false}
           exclude={usedNames}
           onSelect={(attr) => {
-            if (pickerOpen.startsWith('essential-')) {
-              const idx = parseInt(pickerOpen.split('-')[1])
-              setEssential(idx, attr)
-            } else {
-              const idx = parseInt(pickerOpen.split('-')[1])
-              setClassic(idx, attr)
-            }
+            const idx = parseInt(pickerOpen.split('-')[1])
+            setClassic(idx, attr)
             setPickerOpen(null)
           }}
           onClose={() => setPickerOpen(null)}
@@ -184,6 +275,7 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
       {modPickerOpen && (
         <GearModPicker
           mods={modsEquipements}
+          allAttributs={allAttributs}
           onSelect={(mod) => { onChangeMod(mod); setModPickerOpen(false) }}
           onClose={() => setModPickerOpen(false)}
         />
@@ -193,14 +285,25 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
 }
 
 /** Mini-picker pour sélectionner un mod d'équipement */
-function GearModPicker({ mods, onSelect, onClose }) {
+function GearModPicker({ mods, allAttributs, onSelect, onClose }) {
   const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    const handleKey = (e) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [onClose])
+
   const filtered = useMemo(() => {
     if (!mods) return []
     if (!search) return mods
     const s = search.toLowerCase()
-    return mods.filter(m => m.statistique?.toLowerCase().includes(s) || m.categorie?.toLowerCase().includes(s))
-  }, [mods, search])
+    return mods.filter(m =>
+      (m.nom || '').toLowerCase().includes(s) ||
+      (m.categorie || '').toLowerCase().includes(s) ||
+      formatModAttributs(m, allAttributs).toLowerCase().includes(s)
+    )
+  }, [mods, allAttributs, search])
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" onClick={onClose}>
@@ -219,12 +322,12 @@ function GearModPicker({ mods, onSelect, onClose }) {
         <div className="overflow-y-auto p-2 flex-1">
           {filtered.length === 0 && <p className="text-center text-gray-600 text-sm py-4">Aucun mod</p>}
           {filtered.map((mod, i) => (
-            <button key={i} onClick={() => onSelect(mod)}
+            <button key={mod.slug || i} onClick={() => onSelect(mod)}
               className="w-full text-left px-3 py-2 rounded hover:bg-shd/10 transition-colors group"
             >
-              <div className="text-sm text-white group-hover:text-shd">{mod.statistique}</div>
-              <div className="flex gap-3 text-[10px]">
-                {mod.valeurMax && <span className="text-green-400">{mod.valeurMax}</span>}
+              <div className="text-sm text-white group-hover:text-shd">{mod.nom}</div>
+              <div className="flex gap-3 text-xs">
+                <span className="text-green-400">{formatModAttributs(mod, allAttributs)}</span>
                 {mod.categorie && <span className="text-gray-500">{mod.categorie}</span>}
               </div>
             </button>

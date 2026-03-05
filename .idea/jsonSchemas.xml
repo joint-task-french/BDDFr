@@ -275,6 +275,23 @@
             </SchemaInfo>
           </value>
         </entry>
+        <entry key="statistiques.schema">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="statistiques.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/statistiques.schema.json" />
+              <option name="schemaVersion" value="JSON Schema 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/data/statistiques.jsonc" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
       </map>
     </state>
   </component>

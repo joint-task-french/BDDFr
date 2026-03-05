@@ -1,55 +1,58 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useBuild } from '../../context/BuildContext'
+import { formatModAttributs } from '../../utils/modCompatibility'
 
 /**
- * Normalise un nom de compétence pour la comparaison (sans accents, en majuscules).
+ * Normalise un nom pour comparaison.
  */
 function normalize(s) {
+  if (!s) return ''
   return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().trim()
 }
 
 /**
- * Trouve le(s) mod(s) de compétence compatible(s).
- * Utilise les emplacementsMods directement depuis les données enrichies de la compétence.
- * Filtre par spécialisation si nécessaire.
+ * Trouve les emplacements de mods compatibles pour une compétence donnée.
+ * Se base sur les emplacementsMods du skill (enrichi par flattenCompetences depuis competences.jsonc).
  */
-function findCompatibleMods(skill, modsCompetences, specialisation, speMap) {
-  if (!skill) return []
-
-  // Utiliser emplacementsMods du skill (enrichi par flattenCompetences)
-  if (skill.emplacementsMods && skill.emplacementsMods.length > 0) {
-    // Filtrer : emplacements sans prerequis OU dont le prerequis match la spé active
-    return skill.emplacementsMods.filter(em =>
-      !em.prerequis || em.prerequis === specialisation
-    )
-  }
-
-  // Fallback : chercher dans modsCompetences (ancienne logique)
-  if (!modsCompetences) return []
-  const compNorm = normalize(skill.competence)
-
-  if (specialisation) {
-    const specLabel = speMap?.[specialisation]?.label || ''
-    const specNorm = normalize(specLabel)
-    const specMod = modsCompetences.find(m => {
-      const mNorm = normalize(m.competence)
-      return mNorm.includes(compNorm) && mNorm.includes(specNorm)
-    })
-    if (specMod) return [specMod]
-  }
-
-  const baseMods = modsCompetences.filter(m => {
-    const mNorm = normalize(m.competence)
-    return mNorm === compNorm || (mNorm.startsWith(compNorm) && !mNorm.includes('('))
-  })
-  if (baseMods.length > 0) return baseMods
-
-  return modsCompetences.filter(m => normalize(m.competence).includes(compNorm))
+function getSkillModSlots(skill) {
+  if (!skill?.emplacementsMods) return []
+  return skill.emplacementsMods
 }
 
-export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences, modsEquipements, onSelect }) {
+/**
+ * Filtre les mods de compétences (mods-competences.jsonc) compatibles avec un slot donné.
+ * @param {string} competenceSlug - slug de la compétence (ex: "tourelle")
+ * @param {string} emplacement - nom de l'emplacement (ex: "MÉCANISME DE TIR")
+ * @param {Array} modsCompetences - données de mods-competences.jsonc
+ * @param {string} specialisation - spécialisation active
+ */
+function getCompatibleSkillMods(competenceSlug, emplacement, modsCompetences, specialisation) {
+  if (!modsCompetences || !competenceSlug) return []
+  const compNorm = normalize(competenceSlug)
+  const empNorm = normalize(emplacement)
+
+  return modsCompetences.filter(m => {
+    // Vérifier la compatibilité avec la compétence
+    if (m.compatible && m.compatible.length > 0) {
+      const isCompat = m.compatible.some(c => normalize(c) === compNorm)
+      if (!isCompat) return false
+    } else if (m.competence) {
+      // Fallback sur le champ competence
+      if (normalize(m.competence) !== compNorm) return false
+    }
+    // Vérifier la compatibilité avec l'emplacement
+    if (emplacement && m.emplacement) {
+      if (normalize(m.emplacement) !== empNorm) return false
+    }
+    // Vérifier prerequis de spécialisation
+    if (m.prerequis && m.prerequis !== specialisation) return false
+    return true
+  })
+}
+
+export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences, allAttributs, statistiques, onSelect }) {
   const { dispatch, skillNeedsSpec, specialisation, SPECIALISATIONS } = useBuild()
-  const [modPickerOpen, setModPickerOpen] = useState(false)
+  const [modPickerOpen, setModPickerOpen] = useState(null) // emplacement index or null
 
   const remove = (e) => {
     e.stopPropagation()
@@ -59,13 +62,11 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
   const missingSpec = skill ? skillNeedsSpec(skill) : null
   const specLabel = missingSpec ? SPECIALISATIONS?.[missingSpec]?.label : null
 
-  // Mods compatibles avec cette compétence
-  const compatibleMods = useMemo(
-    () => findCompatibleMods(skill, modsCompetences, specialisation, SPECIALISATIONS),
-    [skill, modsCompetences, specialisation, SPECIALISATIONS]
-  )
-
-  const modInfo = compatibleMods.length > 0 ? compatibleMods[0] : null
+  // Emplacements de mods pour cette compétence (filtrés par spécialisation)
+  const modSlots = useMemo(() => {
+    const slots = getSkillModSlots(skill)
+    return slots.filter(s => !s.prerequis || s.prerequis === specialisation)
+  }, [skill, specialisation])
 
   return (
     <div className="build-slot group" onClick={skill ? undefined : onSelect}>
@@ -73,58 +74,65 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
         <span className="text-yellow-400 text-xs font-bold uppercase tracking-widest">⚡ Compétence {slotIndex + 1}</span>
         {skill && <button onClick={remove} className="text-red-400 hover:text-red-300 text-xs p-1">✕</button>}
       </div>
-      <div className="p-3 min-h-[100px]">
+      <div className="p-3 min-h-25">
         {skill ? (
           <div className="border-l-2 border-l-yellow-500 pl-3">
             <div className="font-bold text-white text-sm uppercase tracking-wide">{skill.variante}</div>
             <div className="text-xs text-yellow-400 font-bold">{skill.competence}</div>
             {missingSpec && (
-              <div className="text-[10px] text-yellow-500 mt-1 bg-yellow-500/10 px-2 py-1 rounded">
+              <div className="text-xs text-yellow-500 mt-1 bg-yellow-500/10 px-2 py-1 rounded">
                 ⚠ Nécessite la spé {specLabel}
               </div>
             )}
             {skill.statistiques && (
-              <div className="text-[10px] text-gray-400 mt-2 leading-relaxed whitespace-pre-line">
+              <div className="text-xs text-gray-400 mt-2 leading-relaxed whitespace-pre-line">
                 {skill.statistiques}
               </div>
             )}
             {skill.effetEtat && skill.effetEtat !== 'N/A' && (
-              <div className="text-[10px] text-purple-400 mt-1">⚡ {skill.effetEtat}</div>
+              <div className="text-xs text-purple-400 mt-1">⚡ {skill.effetEtat}</div>
             )}
             {skill.surcharge && (
-              <div className="text-[10px] text-shd mt-1">🔥 Surcharge : {skill.surcharge}</div>
+              <div className="text-xs text-shd mt-1">🔥 Surcharge : {skill.surcharge}</div>
             )}
 
-            {/* Mod de compétence */}
-            {modInfo && (
+            {/* Emplacements de mods de compétence */}
+            {modSlots.length > 0 && (
               <div className="mt-2 pt-2 border-t border-tactical-border/30">
-                <div className="text-[9px] text-gray-600 uppercase tracking-widest mb-0.5">
-                  Mod — {modInfo.emplacement}
-                </div>
-                {skillMod ? (
-                  <div className="flex items-center gap-1.5 py-0.5">
-                    <span className="text-[10px] text-gray-300 relative group/smod cursor-default truncate">
-                      {skillMod.statistique || skillMod.nom || skillMod.emplacement}
-                      {(skillMod.valeurMax || skillMod.categorie) && (
-                        <span className="absolute left-0 bottom-full mb-1 z-50 hidden group-hover/smod:block bg-tactical-panel border border-tactical-border rounded px-2 py-1.5 shadow-lg whitespace-nowrap pointer-events-none">
-                          {skillMod.valeurMax && <span className="block text-[10px] text-green-400">{skillMod.valeurMax}</span>}
-                          {skillMod.categorie && <span className="block text-[10px] text-gray-500">{skillMod.categorie}</span>}
-                        </span>
-                      )}
-                    </span>
-                    <button
-                      onClick={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, mod: null }) }}
-                      className="text-gray-600 hover:text-red-400 text-[10px] ml-auto shrink-0"
-                    >✕</button>
-                  </div>
-                ) : (
-                  <button
-                    onClick={(e) => { e.stopPropagation(); setModPickerOpen(true) }}
-                    className="text-[10px] text-shd/40 hover:text-shd transition-colors"
-                  >
-                    + Mod
-                  </button>
-                )}
+                <div className="text-xs text-gray-600 uppercase tracking-widest mb-0.5">Mods</div>
+                {modSlots.map((slot, i) => {
+                  const equipped = skillMod && i === 0 ? skillMod : null // un seul mod de compétence pour l'instant
+                  return (
+                    <div key={i} className="py-0.5">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-xs text-gray-600 uppercase shrink-0">{slot.emplacement}</span>
+                        {equipped ? (
+                          <div className="flex items-center gap-1 flex-1 min-w-0">
+                            <span className="text-xs text-gray-300 truncate relative group/smod cursor-default">
+                              {equipped.nom || equipped.slug}
+                              {equipped.attributs && (
+                                <span className="absolute left-0 bottom-full mb-1 z-50 hidden group-hover/smod:block bg-tactical-panel border border-tactical-border rounded px-2 py-1.5 shadow-lg whitespace-nowrap pointer-events-none">
+                                  <span className="block text-xs text-green-400">{formatModAttributs(equipped, allAttributs, statistiques)}</span>
+                                </span>
+                              )}
+                            </span>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, mod: null }) }}
+                              className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
+                            >✕</button>
+                          </div>
+                        ) : (
+                          <button
+                            onClick={(e) => { e.stopPropagation(); setModPickerOpen(i) }}
+                            className="text-xs text-shd/40 hover:text-shd transition-colors"
+                          >
+                            + Mod
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             )}
           </div>
@@ -138,16 +146,20 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
         )}
       </div>
 
-      {/* Picker mod de compétence */}
-      {modPickerOpen && modInfo && (
+      {/* Picker mod de compétence — filtré depuis mods-competences.jsonc */}
+      {modPickerOpen !== null && skill && modSlots[modPickerOpen] && (
         <SkillModPicker
-          modInfo={modInfo}
-          modsEquipements={modsEquipements}
+          competenceSlug={skill.competenceSlug}
+          emplacement={modSlots[modPickerOpen].emplacement}
+          modsCompetences={modsCompetences}
+          allAttributs={allAttributs}
+          statistiques={statistiques}
+          specialisation={specialisation}
           onSelect={(mod) => {
             dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, mod })
-            setModPickerOpen(false)
+            setModPickerOpen(null)
           }}
-          onClose={() => setModPickerOpen(false)}
+          onClose={() => setModPickerOpen(null)}
         />
       )}
     </div>
@@ -155,57 +167,63 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
 }
 
 /**
- * Picker de mod de compétence.
- * Dans Division 2, les mods de compétences sont les mêmes que les mods d'équipement
- * (protocoles offensif/défensif/utilitaire). On propose donc les mods d'équipements.
+ * Picker de mod de compétence — utilise mods-competences.jsonc.
+ * Filtre par compatibilité compétence + emplacement.
  */
-function SkillModPicker({ modInfo, modsEquipements, onSelect, onClose }) {
+function SkillModPicker({ competenceSlug, emplacement, modsCompetences, allAttributs, statistiques, specialisation, onSelect, onClose }) {
   const [search, setSearch] = useState('')
 
-  const allMods = useMemo(() => {
-    if (!modsEquipements) return []
-    return modsEquipements
-  }, [modsEquipements])
+  useEffect(() => {
+    const handleKey = (e) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [onClose])
+
+  const compatibleMods = useMemo(
+    () => getCompatibleSkillMods(competenceSlug, emplacement, modsCompetences, specialisation),
+    [competenceSlug, emplacement, modsCompetences, specialisation]
+  )
 
   const filtered = useMemo(() => {
-    if (!search) return allMods
+    if (!search) return compatibleMods
     const s = search.toLowerCase()
-    return allMods.filter(m =>
-      m.statistique?.toLowerCase().includes(s) ||
-      m.categorie?.toLowerCase().includes(s) ||
-      m.protocole?.toLowerCase().includes(s)
+    return compatibleMods.filter(m =>
+      (m.nom || m.slug || '').toLowerCase().includes(s) ||
+      (m.emplacement || '').toLowerCase().includes(s) ||
+      formatModAttributs(m, allAttributs, statistiques).toLowerCase().includes(s)
     )
-  }, [allMods, search])
-
-  const CAT_COLORS = { offensif: 'text-red-400', défensif: 'text-blue-400', utilitaire: 'text-yellow-400' }
+  }, [compatibleMods, allAttributs, statistiques, search])
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" onClick={onClose}>
       <div className="bg-tactical-panel border border-tactical-border rounded-lg w-full max-w-md max-h-[70vh] flex flex-col" onClick={e => e.stopPropagation()}>
         <div className="px-4 py-3 border-b border-tactical-border flex justify-between items-center">
-          <span className="text-sm text-white font-bold uppercase tracking-widest">Mod — {modInfo.emplacement}</span>
+          <span className="text-sm text-white font-bold uppercase tracking-widest">Mod — {emplacement}</span>
           <button onClick={onClose} className="text-gray-500 hover:text-white text-lg">✕</button>
         </div>
-        <div className="px-4 py-2 border-b border-tactical-border/50">
-          <input
-            type="text" placeholder="Rechercher..." value={search} onChange={e => setSearch(e.target.value)}
-            className="w-full bg-tactical-bg border border-tactical-border rounded px-3 py-1.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-shd/50"
-            autoFocus
-          />
-        </div>
+        {compatibleMods.length > 3 && (
+          <div className="px-4 py-2 border-b border-tactical-border/50">
+            <input
+              type="text" placeholder="Rechercher..." value={search} onChange={e => setSearch(e.target.value)}
+              className="w-full bg-tactical-bg border border-tactical-border rounded px-3 py-1.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-shd/50"
+              autoFocus
+            />
+          </div>
+        )}
         <div className="overflow-y-auto p-2 flex-1">
-          {filtered.length === 0 && <p className="text-center text-gray-600 text-sm py-4">Aucun mod</p>}
-          {filtered.map((mod, i) => (
-            <button key={i} onClick={() => onSelect(mod)}
-              className="w-full text-left px-3 py-2 rounded hover:bg-shd/10 transition-colors group"
-            >
-              <div className="text-sm text-white group-hover:text-shd">{mod.statistique}</div>
-              <div className="flex gap-3 text-[10px]">
-                {mod.valeurMax && <span className="text-green-400">{mod.valeurMax}</span>}
-                {mod.categorie && <span className={CAT_COLORS[mod.categorie] || 'text-gray-500'}>{mod.categorie}</span>}
-              </div>
-            </button>
-          ))}
+          {filtered.length === 0 && <p className="text-center text-gray-600 text-sm py-4">Aucun mod compatible</p>}
+          {filtered.map((mod, i) => {
+            const statsText = formatModAttributs(mod, allAttributs, statistiques)
+            return (
+              <button key={mod.slug || i} onClick={() => onSelect(mod)}
+                className="w-full text-left px-3 py-2 rounded hover:bg-shd/10 transition-colors group"
+              >
+                <div className="text-sm text-white group-hover:text-shd">{mod.nom || mod.slug}</div>
+                {statsText && <div className="text-xs text-green-400">{statsText}</div>}
+                {mod.bonus && <div className="text-xs text-gray-500">{mod.bonus}</div>}
+              </button>
+            )
+          })}
         </div>
       </div>
     </div>

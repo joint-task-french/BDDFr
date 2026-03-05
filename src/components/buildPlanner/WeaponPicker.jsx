@@ -1,7 +1,9 @@
 import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
 import { getWeaponTypeLabel, getClassicWeaponTypes } from '../../utils/formatters'
+import { getWeaponFilters, getWeaponDefaults, applyWeaponFilters } from '../../config/filterConfigs'
 import SelectionModal from '../common/SelectionModal'
+import FilterPanel from '../database/FilterPanel'
 import Badge from '../common/Badge'
 import StatChip from '../common/StatChip'
 
@@ -14,7 +16,13 @@ const MODE_TITLES = {
 export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect }) {
   const { canEquipExoticWeapon, canEquipExoticSidearm } = useBuild()
   const [search, setSearch] = useState('')
-  const [typeFilter, setTypeFilter] = useState('all')
+
+  // Database-style filters
+  const filterConfig = useMemo(() => mode !== 'special' ? getWeaponFilters(data) : [], [data, mode])
+  const defaultFilters = useMemo(() => mode !== 'special' ? getWeaponDefaults(data) : {}, [data, mode])
+  const [filters, setFilters] = useState(defaultFilters)
+  const handleFilterChange = (key, value) => setFilters(f => ({ ...f, [key]: value }))
+  const resetFilters = () => setFilters(defaultFilters)
 
   const classicTypes = useMemo(() => getClassicWeaponTypes(data.armes_type), [data.armes_type])
 
@@ -22,7 +30,6 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
     const armes = data.armes || []
     switch (mode) {
       case 'special':
-        // Armes spécifiques viennent de classSpe
         return (data.classSpe || []).map(spec => ({
           nom: spec.arme.nom,
           type: 'arme_specifique',
@@ -44,14 +51,14 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
     }
   }, [data, mode])
 
-  const types = useMemo(() =>
-    [...new Set(allWeapons.map(w => w.type))].filter(Boolean).sort(),
-    [allWeapons]
-  )
+  // Apply database-style filters
+  const afterFilters = useMemo(() => {
+    if (mode === 'special') return allWeapons
+    return applyWeaponFilters(allWeapons, filters)
+  }, [allWeapons, filters, mode])
 
   const filtered = useMemo(() => {
-    let list = allWeapons
-    if (typeFilter !== 'all') list = list.filter(w => w.type === typeFilter)
+    let list = afterFilters
     if (search) {
       const term = search.toLowerCase()
       list = list.filter(w =>
@@ -61,7 +68,7 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
       )
     }
     return list
-  }, [allWeapons, typeFilter, search])
+  }, [afterFilters, search, data.armes_type])
 
   const grouped = useMemo(() => {
     const g = {}
@@ -79,30 +86,6 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
       ? canEquipExoticWeapon(slotIndex)
       : true // armes spécifiques ne sont pas exotiques
 
-  const filterButtons = mode !== 'special' && mode !== 'sidearm' && (
-    <>
-      <button
-        onClick={() => setTypeFilter('all')}
-        className={`shrink-0 px-3 py-1.5 rounded text-[11px] font-bold uppercase tracking-widest border transition-all ${
-          typeFilter === 'all' ? 'bg-shd/20 text-shd border-shd/40' : 'text-gray-500 border-tactical-border hover:text-gray-300'
-        }`}
-      >
-        Tout
-      </button>
-      {types.map(t => (
-        <button
-          key={t}
-          onClick={() => setTypeFilter(t)}
-          className={`shrink-0 px-3 py-1.5 rounded text-[11px] font-bold uppercase tracking-widest border transition-all ${
-            typeFilter === t ? 'bg-shd/20 text-shd border-shd/40' : 'text-gray-500 border-tactical-border hover:text-gray-300'
-          }`}
-        >
-          {getWeaponTypeLabel(data.armes_type, t)}
-        </button>
-      ))}
-    </>
-  )
-
   return (
     <SelectionModal
       open={true}
@@ -110,33 +93,37 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
       onClose={onClose}
       searchValue={search}
       onSearch={setSearch}
-      filters={filterButtons}
     >
-      {mode === 'special' ? (
-        /* Armes spécifiques — affichage dédié par spécialisation */
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {filtered.map(w => {
-            const specLabel = w._specNom || ''
-            const specIcon = w._specIcone || '🎖️'
+      {/* Filtres avancés style base de données */}
+      {mode !== 'special' && (
+        <div className="mb-4">
+          <FilterPanel
+            filters={filterConfig}
+            values={filters}
+            onChange={handleFilterChange}
+            onReset={resetFilters}
+          />
+        </div>
+      )}
 
-            return (
-              <div
-                key={w.nom}
-                onClick={() => onSelect(w)}
-                className="modal-item group border-purple-500/30 bg-purple-500/5"
-              >
-                <div className="text-[9px] font-bold uppercase tracking-widest bg-purple-500/15 text-purple-400 px-1.5 py-0.5 rounded inline-block mb-1">
-                  {specIcon} {specLabel}
-                </div>
-                <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-purple-400 transition-colors">
-                  {w.nom}
-                </div>
+      {mode === 'special' ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {filtered.map(w => (
+            <div
+              key={w.nom}
+              onClick={() => onSelect(w)}
+              className="modal-item group border-purple-500/30 bg-purple-500/5"
+            >
+              <div className="text-xs font-bold uppercase tracking-widest bg-purple-500/15 text-purple-400 px-1.5 py-0.5 rounded inline-block mb-1">
+                {w._specIcone} {w._specNom}
               </div>
-            )
-          })}
+              <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-purple-400 transition-colors">
+                {w.nom}
+              </div>
+            </div>
+          ))}
         </div>
       ) : (
-        /* Armes classiques / pistolets */
         Object.entries(grouped).map(([type, weapons]) => (
           <div key={type} className="mb-4">
             <h4 className="text-sm font-bold text-red-400 uppercase tracking-widest mb-2 px-2 sticky top-0 bg-tactical-panel/90 py-2 z-10 border-b border-red-500/20">
@@ -153,7 +140,7 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
                   >
                     {w.estExotique && <Badge type="exotic" />}
                     {blocked && (
-                      <div className="text-[10px] text-red-400 mt-1">⚠ Exotique déjà équipée</div>
+                      <div className="text-xs text-red-400 mt-1">⚠ Exotique déjà équipée</div>
                     )}
                     <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-shd transition-colors mt-1">
                       {w.nom}

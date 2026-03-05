@@ -8,7 +8,7 @@
     "^[a-z0-9_]+$": {
       "type": "object",
       "required": [
-        "statistique"
+        "nom"
       ],
       "properties": {
         "categorie": {
@@ -22,11 +22,34 @@
         "protocole": {
           "type": "string"
         },
-        "statistique": {
-          "type": "string"
+        "nom": {
+          "type": "string",
+          "description": "Nom affiché du mod"
         },
-        "valeurMax": {
-          "type": "string"
+        "attributs": {
+          "type": "array",
+          "description": "Attributs modifiés par ce mod (slug + valeur)",
+          "items": {
+            "type": "object",
+            "required": [
+              "attribut",
+              "valeur"
+            ],
+            "properties": {
+              "attribut": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
+              },
+              "valeur": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "bonus": {
+          "type": "string",
+          "description": "Effet textuel non lié à un attribut (optionnel)"
         }
       }
     }

@@ -8,19 +8,18 @@ const CAT_COLORS = {
 
 /**
  * Affiche un attribut sélectionné avec slider min/max.
- * @param {{ nom, valeur, min, max, unite, categorie }} attribute
- * @param {function} onChange - (newAttribute) quand la valeur du slider change
- * @param {function} onPick - Ouvre le picker pour changer l'attribut
- * @param {function} [onRemove] - Retirer l'attribut
- * @param {boolean} [readOnly] - Slider désactivé
- * @param {string} [label] - Label au-dessus (ex: "Attribut Essentiel")
+ *
+ * Props:
+ * - readOnly: valeur ET attribut non modifiables (tout grisé)
+ * - locked: attribut non remplaçable/supprimable, mais la valeur reste ajustable dans la range
  */
-export default function AttributeSlider({ attribute, onChange, onPick, onRemove, readOnly = false, label }) {
+export default function AttributeSlider({ attribute, onChange, onPick, onRemove, readOnly = false, locked = false, label }) {
   if (!attribute) {
+    if (locked || readOnly) return null
     return (
       <button
         onClick={onPick}
-        className="w-full text-left text-[11px] text-shd/50 hover:text-shd uppercase tracking-widest py-1 transition-colors"
+        className="w-full text-left text-xs text-shd/50 hover:text-shd uppercase tracking-widest py-1 transition-colors"
       >
         + {label || 'Attribut'}
       </button>
@@ -30,36 +29,41 @@ export default function AttributeSlider({ attribute, onChange, onPick, onRemove,
   const icon = resolveAttributeIcon(attribute.categorie || attribute.nom)
   const color = CAT_COLORS[attribute.categorie] || 'text-gray-400'
 
+  // La valeur est ajustable sauf en readOnly
+  const canAdjustValue = !readOnly
+  // L'attribut peut être changé/retiré sauf en readOnly ou locked
+  const canChangeAttribute = !readOnly && !locked
+
   const handleSlider = (e) => {
-    if (readOnly) return
+    if (!canAdjustValue) return
     const v = parseFloat(e.target.value)
-    onChange({ ...attribute, valeur: v })
+    onChange?.({ ...attribute, valeur: v })
   }
 
   return (
     <div className="py-1">
-      {label && <div className="text-[9px] text-gray-600 uppercase tracking-widest mb-0.5">{label}</div>}
+      {label && <div className="text-xs text-gray-600 uppercase tracking-widest mb-0.5">{label}</div>}
       <div className="flex items-center gap-1.5">
         <GameIcon src={icon} alt="" size="w-3.5 h-3.5" className="opacity-60 shrink-0" />
         <button
-          onClick={readOnly ? undefined : onPick}
-          className={`text-[11px] ${color} font-medium truncate ${readOnly ? 'cursor-default' : 'hover:underline cursor-pointer'}`}
+          onClick={canChangeAttribute ? onPick : undefined}
+          className={`text-xs ${color} font-medium truncate ${canChangeAttribute ? 'hover:underline cursor-pointer' : 'cursor-default'}`}
           title={attribute.nom}
         >
           {attribute.nom}
         </button>
-        <span className={`text-[11px] font-bold ml-auto shrink-0 ${color}`}>
+        <span className={`text-xs font-bold ml-auto shrink-0 ${color}`}>
           {typeof attribute.valeur === 'number' ? (
             attribute.unite === 'pts' || attribute.unite === 'pts/s'
               ? attribute.valeur.toLocaleString('fr-FR')
               : attribute.valeur
           ) : '—'}{attribute.unite || ''}
         </span>
-        {!readOnly && onRemove && (
-          <button onClick={onRemove} className="text-gray-600 hover:text-red-400 text-[10px] ml-0.5" title="Retirer">✕</button>
+        {canChangeAttribute && onRemove && (
+          <button onClick={onRemove} className="text-gray-600 hover:text-red-400 text-xs ml-0.5" title="Retirer">✕</button>
         )}
       </div>
-      {attribute.min != null && attribute.max != null && attribute.min !== attribute.max && (
+      {!readOnly && attribute.min != null && attribute.max != null && attribute.min !== attribute.max && (
         <input
           type="range"
           min={attribute.min}
@@ -67,7 +71,6 @@ export default function AttributeSlider({ attribute, onChange, onPick, onRemove,
           step={attribute.unite === 'pts' || attribute.unite === 'pts/s' ? 1 : 0.1}
           value={attribute.valeur ?? attribute.max}
           onChange={handleSlider}
-          disabled={readOnly}
           className="attr-slider mt-1"
         />
       )}

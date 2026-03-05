@@ -3322,6 +3322,12 @@
   "sac_ninja_bike": {
     "nom": "Sac Ninja Bike",
     "emplacement": "sac_a_dos",
+    "marque": "*",
+    "attributEssentiel": [
+      "offensif",
+      "utilitaire",
+      "défensif"
+    ],
     "attributUnique": "",
     "talent": "",
     "mod": false,

@@ -9,24 +9,13 @@
       "type": "object",
       "required": [
         "nom",
-        "compatible",
         "type",
-        "bonus"
+        "compatible"
       ],
       "properties": {
         "nom": {
           "type": "string",
           "description": "Nom de la modification"
-        },
-        "compatible": {
-          "type": "array",
-          "description": "Types d'armes compatibles avec ce mod",
-          "items": {
-            "type": "string",
-            "pattern": "^[a-z0-9_]+$",
-            "description": "Slug type d'arme compatible",
-            "minItems": 1
-          }
         },
         "type": {
           "type": "string",
@@ -39,19 +28,49 @@
           ],
           "description": "Type de modification"
         },
+        "attributs": {
+          "type": "array",
+          "description": "Attributs modifiés par ce mod (slug + valeur, négatif = malus)",
+          "items": {
+            "type": "object",
+            "required": [
+              "attribut",
+              "valeur"
+            ],
+            "properties": {
+              "attribut": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
+              },
+              "valeur": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
         "bonus": {
           "type": "string",
-          "description": "Bonus apporté"
+          "description": "Effet textuel non lié à un attribut (optionnel)"
         },
-        "malus": {
-          "type": "string",
-          "description": "Malus apporté"
+        "compatible": {
+          "type": "array",
+          "description": "Types d'armes compatibles (tableau vide = universel)",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          }
         },
         "estExotique": {
           "type": "boolean",
-          "description": "True si mod exotique (lié à une arme exotique, non modifiable)"
+          "description": "True si mod exotique lié à une arme exotique"
+        },
+        "prerequis": {
+          "type": "string",
+          "description": "Slug de spécialisation requise (optionnel)"
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }

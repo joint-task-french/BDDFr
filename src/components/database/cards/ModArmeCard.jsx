@@ -1,6 +1,4 @@
-function hasContent(v) {
-  return v && v !== '' && v !== 'n/a' && v !== '-'
-}
+import { formatModAttributs } from '../../../utils/modCompatibility'
 
 const TYPE_LABELS = {
   chargeur: 'Chargeur',
@@ -10,10 +8,11 @@ const TYPE_LABELS = {
   autre: 'Autre',
 }
 
-export default function ModArmeCard({ item }) {
+export default function ModArmeCard({ item, allAttributs }) {
+  const statsText = formatModAttributs(item, allAttributs)
+
   return (
     <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden flex">
-      {/* Type badge */}
       <div className="w-1.5 shrink-0 bg-shd/30" />
       <div className="px-3 py-2.5 flex-1 min-w-0">
         <div className="flex items-center justify-between gap-2">
@@ -22,17 +21,17 @@ export default function ModArmeCard({ item }) {
             {TYPE_LABELS[item.type] || item.type}
           </span>
         </div>
-        <div className="flex gap-4 mt-1.5 text-xs">
-          {hasContent(item.bonus) && (
-            <span className="text-emerald-400">{item.bonus.replace(/^\.\+?\s*/, '+')}</span>
-          )}
-          {hasContent(item.malus) && item.malus !== "Pas d'effet négatif" && item.malus !== "Pas d'effet ngatif" && (
-            <span className="text-red-400">{item.malus.replace(/^\.?-?\s*/, '-')}</span>
-          )}
-        </div>
+        {statsText && (
+          <div className="mt-1.5 text-xs text-emerald-400">{statsText}</div>
+        )}
+        {item.compatible && item.compatible.length > 0 && (
+          <div className="flex flex-wrap gap-1 mt-1.5">
+            {item.compatible.map(c => (
+              <span key={c} className="text-xs text-gray-500 bg-tactical-bg px-1.5 py-0.5 rounded">{c}</span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )
 }
-
-

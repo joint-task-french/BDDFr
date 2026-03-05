@@ -382,8 +382,7 @@
         "emplacement": "DRONES"
       },
       {
-        "emplacement": "LANCEUR",
-        "prerequis": "technicien"
+        "emplacement": "LANCEUR"
       }
     ]
   },

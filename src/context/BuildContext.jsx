@@ -12,6 +12,8 @@ const INITIAL_STATE = {
   // Attributs armes : [{nom, valeur}] par slot (0=primaire, 1=secondaire, 'sidearm'=poing)
   weaponAttributes: [null, null],
   sidearmAttribute: null,
+  // Valeurs des attributs essentiels par slot : { weapon0: {slug: valeur}, weapon1: {slug: valeur}, sidearm: {slug: valeur} }
+  weaponEssentialValues: { weapon0: {}, weapon1: {}, sidearm: {} },
   // Mods d'armes : [array_de_mods] par slot
   weaponMods: [null, null],
   sidearmMods: null,
@@ -29,6 +31,11 @@ const INITIAL_STATE = {
   skills: [null, null],
   // Mods de compétences : [mod_object, mod_object]
   skillMods: [null, null],
+  // Expertise : niveaux 0-20 par slot
+  expertise: {
+    weapon0: 0, weapon1: 0, sidearm: 0,
+    masque: 0, torse: 0, holster: 0, sac_a_dos: 0, gants: 0, genouilleres: 0,
+  },
 }
 
 function buildReducer(state, action) {
@@ -48,7 +55,9 @@ function buildReducer(state, action) {
       weaponAttributes[action.slot] = null
       const weaponMods = [...state.weaponMods]
       weaponMods[action.slot] = null
-      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods }
+      const slotKey = `weapon${action.slot}`
+      const weaponEssentialValues = { ...state.weaponEssentialValues, [slotKey]: {} }
+      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods, weaponEssentialValues }
     }
     case 'REMOVE_WEAPON': {
       const weapons = [...state.weapons]
@@ -59,7 +68,9 @@ function buildReducer(state, action) {
       weaponAttributes[action.slot] = null
       const weaponMods = [...state.weaponMods]
       weaponMods[action.slot] = null
-      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods }
+      const slotKey2 = `weapon${action.slot}`
+      const weaponEssentialValues2 = { ...state.weaponEssentialValues, [slotKey2]: {} }
+      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods, weaponEssentialValues: weaponEssentialValues2 }
     }
     case 'SET_WEAPON_TALENT': {
       const weaponTalents = [...state.weaponTalents]
@@ -67,10 +78,12 @@ function buildReducer(state, action) {
       return { ...state, weaponTalents }
     }
     case 'SET_SIDEARM': {
-      return { ...state, sidearm: action.weapon, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null }
+      const wev = { ...state.weaponEssentialValues, sidearm: {} }
+      return { ...state, sidearm: action.weapon, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null, weaponEssentialValues: wev }
     }
     case 'REMOVE_SIDEARM': {
-      return { ...state, sidearm: null, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null }
+      const wev2 = { ...state.weaponEssentialValues, sidearm: {} }
+      return { ...state, sidearm: null, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null, weaponEssentialValues: wev2 }
     }
     case 'SET_SIDEARM_TALENT': {
       return { ...state, sidearmTalent: action.talent }
@@ -120,11 +133,21 @@ function buildReducer(state, action) {
     // ---- Attributs d'arme (1 personnalisable par arme) ----
     case 'SET_WEAPON_ATTRIBUTE': {
       const weaponAttributes = [...state.weaponAttributes]
-      weaponAttributes[action.slot] = action.attribute // {nom, valeur}
+      weaponAttributes[action.slot] = action.attribute // {nom, slug, valeur}
       return { ...state, weaponAttributes }
     }
     case 'SET_SIDEARM_ATTRIBUTE': {
       return { ...state, sidearmAttribute: action.attribute }
+    }
+    // ---- Valeurs des attributs essentiels d'arme ----
+    case 'SET_WEAPON_ESSENTIAL_VALUE': {
+      // action: { slotKey: 'weapon0'|'weapon1'|'sidearm', slug, valeur }
+      const weaponEssentialValues = { ...state.weaponEssentialValues }
+      weaponEssentialValues[action.slotKey] = {
+        ...(weaponEssentialValues[action.slotKey] || {}),
+        [action.slug]: action.valeur,
+      }
+      return { ...state, weaponEssentialValues }
     }
     // ---- Mods d'arme ----
     case 'SET_WEAPON_MODS': {
@@ -150,6 +173,10 @@ function buildReducer(state, action) {
       skillMods[action.slot] = action.mod
       return { ...state, skillMods }
     }
+    case 'SET_EXPERTISE_LEVEL': {
+      const expertise = { ...state.expertise, [action.slot]: Math.max(0, Math.min(20, action.level)) }
+      return { ...state, expertise }
+    }
     case 'LOAD_BUILD':
       return { ...INITIAL_STATE, ...action.build }
     case 'RESET':
@@ -159,8 +186,15 @@ function buildReducer(state, action) {
   }
 }
 
-export function BuildProvider({ children, classSpe }) {
-  const [state, dispatch] = useReducer(buildReducer, INITIAL_STATE)
+export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
+  const [state, dispatch] = useReducer((state, action) => {
+    // Wrap the reducer to inject maxExpertiseLevel
+    if (action.type === 'SET_EXPERTISE_LEVEL') {
+      const expertise = { ...state.expertise, [action.slot]: Math.max(0, Math.min(maxExpertiseLevel, action.level)) }
+      return { ...state, expertise }
+    }
+    return buildReducer(state, action)
+  }, INITIAL_STATE)
 
   // Initialize specialisation cache from data
   const SPECIALISATIONS = useMemo(() => getSpecialisations(classSpe), [classSpe])
@@ -216,6 +250,7 @@ export function BuildProvider({ children, classSpe }) {
     specialisation,
     SPECIALISATIONS,
     classSpe,
+    maxExpertiseLevel,
     hasExoticWeapon,
     hasExoticGear,
     canEquipExoticWeapon,

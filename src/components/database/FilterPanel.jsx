@@ -34,7 +34,7 @@ export default function FilterPanel({ filters, values, onChange, onReset }) {
         </svg>
         Filtres
         {activeCount > 0 && (
-          <span className="bg-shd text-black px-1.5 py-0.5 rounded-full text-[10px] font-black">{activeCount}</span>
+          <span className="bg-shd text-black px-1.5 py-0.5 rounded-full text-xs font-black">{activeCount}</span>
         )}
       </button>
 
@@ -46,7 +46,7 @@ export default function FilterPanel({ filters, values, onChange, onReset }) {
             <div className="flex gap-2">
               {activeCount > 0 && (
                 <button onClick={onReset}
-                  className="text-[10px] text-red-400 font-bold uppercase tracking-widest hover:text-red-300 transition-colors">
+                  className="text-xs text-red-400 font-bold uppercase tracking-widest hover:text-red-300 transition-colors">
                   Réinitialiser
                 </button>
               )}
@@ -71,7 +71,7 @@ function FilterField({ filter, value, onChange }) {
     case 'select':
       return (
         <div>
-          <label className="block text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">{filter.label}</label>
+          <label className="block text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">{filter.label}</label>
           <select
             value={value || ''}
             onChange={e => onChange(e.target.value)}
@@ -88,7 +88,7 @@ function FilterField({ filter, value, onChange }) {
     case 'checkboxes':
       return (
         <div className="sm:col-span-2 lg:col-span-3">
-          <label className="block text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1.5">{filter.label}</label>
+          <label className="block text-xs text-gray-500 font-bold uppercase tracking-widest mb-1.5">{filter.label}</label>
           <div className="flex flex-wrap gap-1.5">
             {filter.options.map(opt => {
               const checked = (value || []).includes(opt.value)
@@ -99,7 +99,7 @@ function FilterField({ filter, value, onChange }) {
                     const current = value || []
                     onChange(checked ? current.filter(v => v !== opt.value) : [...current, opt.value])
                   }}
-                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wide border transition-all ${
+                  className={`px-2 py-1 rounded text-xs font-bold uppercase tracking-wide border transition-all ${
                     checked
                       ? 'bg-shd/20 text-shd border-shd/40'
                       : 'bg-tactical-bg text-gray-500 border-tactical-border hover:border-gray-500'
@@ -125,7 +125,7 @@ function FilterField({ filter, value, onChange }) {
           >
             <span className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white transition-transform ${value ? 'translate-x-4' : ''}`} />
           </button>
-          <span className={`text-[10px] font-bold uppercase tracking-widest ${value ? 'text-shd' : 'text-gray-500'}`}>
+          <span className={`text-xs font-bold uppercase tracking-widest ${value ? 'text-shd' : 'text-gray-500'}`}>
             {filter.label}
           </span>
         </div>
@@ -163,7 +163,7 @@ function DualRangeSlider({ filter, value, onChange }) {
 
   return (
     <div>
-      <label className="block text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">
+      <label className="block text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">
         {filter.label}
         <span className="text-shd ml-1.5">{lo} — {hi}</span>
       </label>

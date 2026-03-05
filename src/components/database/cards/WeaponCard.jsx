@@ -48,9 +48,9 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
         <GameIcon src={typeIcon} alt={item.type} size="w-10 h-10" className="opacity-60" />
         <div>
           <div className="flex items-center gap-2">
-            {isExotic && <span className="text-[9px] font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
-            {isNamed && <span className="text-[9px] font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
-            {isSpecific && <span className="text-[9px] font-bold text-purple-400 bg-purple-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Arme spécifique</span>}
+            {isExotic && <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
+            {isNamed && <span className="text-xs font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
+            {isSpecific && <span className="text-xs font-bold text-purple-400 bg-purple-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Arme spécifique</span>}
           </div>
           <div className={`font-bold text-base uppercase tracking-wide ${(isExotic || isNamed || isSpecific) ? 'mt-1' : ''} ${nameColor} flex items-center gap-2`}>
             {isExotic && <span className="mr-0.5">★</span>}
@@ -84,7 +84,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
       {/* Attributs essentiels (hérités du type d'arme) */}
       {essentialAttrs.length > 0 && (
         <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1">
-          <div className="text-[9px] text-gray-600 uppercase tracking-widest font-bold mb-1">Attributs essentiels</div>
+          <div className="text-xs text-gray-600 uppercase tracking-widest font-bold mb-1">Attributs essentiels</div>
           {essentialAttrs.map((attr, i) => (
             <div key={i} className="flex items-center justify-between text-xs">
               <span className="flex items-center gap-1.5 text-gray-400">
@@ -133,8 +133,8 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
       {/* Obtention */}
       {hasContent(item.obtention) && (
         <div className="px-4 py-2 border-t border-tactical-border/50">
-          <div className="text-[11px] text-gray-500 leading-relaxed">
-            <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Obtention : </span>
+          <div className="text-xs text-gray-500 leading-relaxed">
+            <span className="text-gray-400 font-bold uppercase tracking-widest text-xs">Obtention : </span>
             {item.obtention}
           </div>
         </div>
@@ -147,7 +147,7 @@ function Stat({ label, value, accent, span2 }) {
   if (!value || value === '—' || value === '0') return <div className="bg-tactical-bg/50 p-2" />
   return (
     <div className={`bg-tactical-bg/50 p-2 ${span2 ? 'col-span-2' : ''}`}>
-      <div className="text-[10px] text-gray-600 uppercase tracking-widest">{label}</div>
+      <div className="text-xs text-gray-600 uppercase tracking-widest">{label}</div>
       <div className={`text-sm font-bold ${accent ? 'text-red-400' : 'text-gray-200'}`}>{value}</div>
     </div>
   )

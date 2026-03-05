@@ -115,10 +115,10 @@ export default function BuildActions() {
                     </div>
                   </div>
                   <div className="flex gap-1">
-                    <button onClick={() => loadBuild(name)} className="px-2 py-1 rounded text-[10px] font-bold text-shd bg-shd/10 border border-shd/30 hover:bg-shd/20">
+                    <button onClick={() => loadBuild(name)} className="px-2 py-1 rounded text-xs font-bold text-shd bg-shd/10 border border-shd/30 hover:bg-shd/20">
                       Charger
                     </button>
-                    <button onClick={() => deleteBuild(name)} className="px-2 py-1 rounded text-[10px] font-bold text-red-400 bg-red-900/10 border border-red-500/20 hover:bg-red-900/30">
+                    <button onClick={() => deleteBuild(name)} className="px-2 py-1 rounded text-xs font-bold text-red-400 bg-red-900/10 border border-red-500/20 hover:bg-red-900/30">
                       ✕
                     </button>
                   </div>

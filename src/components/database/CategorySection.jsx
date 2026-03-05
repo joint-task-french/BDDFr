@@ -42,8 +42,8 @@ function GenericCard({ item }) {
         const display = Array.isArray(val) ? val.join(', ') : typeof val === 'object' ? JSON.stringify(val) : String(val)
         if (typeof val === 'boolean') return null
         return (
-          <div key={key} className="flex items-start gap-2 text-[11px]">
-            <span className="text-gray-500 font-bold uppercase tracking-widest text-[10px] shrink-0">{key}</span>
+          <div key={key} className="flex items-start gap-2 text-xs">
+            <span className="text-gray-500 font-bold uppercase tracking-widest text-xs shrink-0">{key}</span>
             <span className="text-gray-300">{display}</span>
           </div>
         )
@@ -91,6 +91,9 @@ export default function CategorySection({ category, items, searchTerm, allData }
   }
   if (category?.key === 'ensembles') {
     if (allData?.talentsEquipements) extraProps.talentsEquipements = allData.talentsEquipements
+  }
+  if (category?.key === 'modsArmes') {
+    if (allData?.attributs) extraProps.allAttributs = allData.attributs
   }
 
   return (

@@ -1,0 +1,167 @@
+// Statistiques de jeu — The Division 2
+// Référentiel des noms de statistiques. Sert de lien entre les différents
+// attributs qui affectent une même statistique en jeu.
+// L'unité applicable est déterminée par chaque attribut individuellement.
+{
+  "degats_arme": {
+    "nom": "Dégâts d'arme",
+    "description": "Bonus global aux dégâts d'arme"
+  },
+  "degats_fusil_assaut": {
+    "nom": "Dégâts Fusil d'assaut",
+    "description": "Bonus aux dégâts des fusils d'assaut"
+  },
+  "degats_fusil": {
+    "nom": "Dégâts Fusil",
+    "description": "Bonus aux dégâts des fusils"
+  },
+  "degats_fusil_precision": {
+    "nom": "Dégâts Fusil de précision",
+    "description": "Bonus aux dégâts des fusils de précision"
+  },
+  "degats_fusil_mitrailleur": {
+    "nom": "Dégâts Fusil-mitrailleur",
+    "description": "Bonus aux dégâts des fusils-mitrailleurs"
+  },
+  "degats_pm": {
+    "nom": "Dégâts PM",
+    "description": "Bonus aux dégâts des pistolets-mitrailleurs"
+  },
+  "degats_pistolet": {
+    "nom": "Dégâts Pistolet",
+    "description": "Bonus aux dégâts des pistolets"
+  },
+  "degats_calibre_12": {
+    "nom": "Dégâts Calibre 12",
+    "description": "Bonus aux dégâts des armes de calibre 12"
+  },
+  "probabilite_coup_critique": {
+    "nom": "Probabilité de coup critique",
+    "description": "Chance de déclencher un coup critique"
+  },
+  "degats_coup_critique": {
+    "nom": "Dégâts de coup critique",
+    "description": "Bonus de dégâts lors d'un coup critique"
+  },
+  "degats_headshot": {
+    "nom": "Dégâts de headshot",
+    "description": "Bonus de dégâts lors d'un tir à la tête"
+  },
+  "degats_sante": {
+    "nom": "Dégâts à la santé",
+    "description": "Bonus de dégâts à la santé de l'ennemi"
+  },
+  "degats_protections": {
+    "nom": "Dégâts aux protections",
+    "description": "Bonus de dégâts aux protections de l'ennemi"
+  },
+  "degats_cible_non_abritee": {
+    "nom": "Dégâts sur cible non abritée",
+    "description": "Bonus de dégâts aux cibles non abritées"
+  },
+  "maniement_arme": {
+    "nom": "Maniement d'arme",
+    "description": "Améliore la maniabilité de l'arme"
+  },
+  "taille_chargeur": {
+    "nom": "Taille du chargeur",
+    "description": "Augmente la capacité du chargeur"
+  },
+  "munitions_supplementaires": {
+    "nom": "Munitions supplémentaires",
+    "description": "Nombre de munitions supplémentaires dans le chargeur"
+  },
+  "protection": {
+    "nom": "Protection",
+    "description": "Valeur totale d'armure"
+  },
+  "sante": {
+    "nom": "Santé",
+    "description": "Valeur totale de santé"
+  },
+  "regeneration_protection": {
+    "nom": "Régénération de protection",
+    "description": "Régénération d'armure par seconde"
+  },
+  "protection_alterations_etat": {
+    "nom": "Protection contre altérations d'état",
+    "description": "Réduit la durée des effets d'état subis"
+  },
+  "resistance_explosions": {
+    "nom": "Résistance aux explosions",
+    "description": "Réduit les dégâts subis par les explosions"
+  },
+  "protection_elite": {
+    "nom": "Protection contre ennemi d'élite",
+    "description": "Réduit les dégâts subis par les ennemis d'élite"
+  },
+  "protection_elimination": {
+    "nom": "Protection pour élimination",
+    "description": "Armure récupérée pour chaque élimination"
+  },
+  "reparation_subies": {
+    "nom": "Réparations subies",
+    "description": "Augmente les réparations d'armure reçues"
+  },
+  "resistance_effets_etat": {
+    "nom": "Résistance aux effets d'état",
+    "description": "Réduit la durée et les dégâts des effets d'état"
+  },
+  "tiers_competence": {
+    "nom": "Tiers de compétence",
+    "description": "Niveau de tier de compétence"
+  },
+  "degats_competence": {
+    "nom": "Dégâts de compétence",
+    "description": "Bonus aux dégâts des compétences"
+  },
+  "competence_reparation": {
+    "nom": "Compétence de réparation",
+    "description": "Bonus aux soins des compétences"
+  },
+  "recup_competence": {
+    "nom": "Récup de compétence",
+    "description": "Réduit le temps de recharge des compétences"
+  },
+  "duree_competence": {
+    "nom": "Durée de compétence",
+    "description": "Augmente la durée des compétences"
+  },
+  "sante_competence": {
+    "nom": "Santé de compétence",
+    "description": "Augmente la santé des objets de compétence"
+  },
+  "effets_etat": {
+    "nom": "Effets d'état",
+    "description": "Augmente la durée des effets d'état infligés"
+  },
+  "stabilite": {
+    "nom": "Stabilité",
+    "description": "Réduit le recul de l'arme"
+  },
+  "precision": {
+    "nom": "Précision",
+    "description": "Améliore la précision de l'arme (dispersion)"
+  },
+  "portee_optimale": {
+    "nom": "Portée optimale",
+    "description": "Augmente la portée optimale de l'arme"
+  },
+  "vitesse_rechargement": {
+    "nom": "Vitesse de rechargement",
+    "description": "Réduit le temps de rechargement"
+  },
+  "cadence_tir": {
+    "nom": "Cadence de tir",
+    "description": "Augmente la cadence de tir"
+  },
+  "vitesse_changement_arme": {
+    "nom": "Vitesse de changement d'arme",
+    "description": "Réduit le temps de changement d'arme"
+  },
+  "capacite_munitions": {
+    "nom": "Capacité munitions",
+    "description": "Augmente la capacité totale de munitions"
+  }
+}
+

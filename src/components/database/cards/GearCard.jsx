@@ -118,7 +118,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
         {/* Attributs fixés (référençant attributs.jsonc) */}
         {item.attributs?.length > 0 && (
           <div className="space-y-1 mt-1">
-            <span className="text-purple-400 font-bold uppercase tracking-widest text-[10px]">Attributs</span>
+            <span className="text-purple-400 font-bold uppercase tracking-widest text-xs">Attributs</span>
             {item.attributs.map((attr, i) => {
               const ref = allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
               const isOverMax = ref && attr.valeur > ref.max

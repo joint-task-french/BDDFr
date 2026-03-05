@@ -83,7 +83,7 @@ function ChangelogEntry({ entry, isFirst }) {
             📅 {entry.date}
           </span>
           {hasPatch && (
-            <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded uppercase tracking-widest">
+            <span className="text-xs font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded uppercase tracking-widest">
               {entry.patch}
             </span>
           )}

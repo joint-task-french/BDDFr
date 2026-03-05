@@ -175,7 +175,7 @@ export function getWeaponEssentialAttributes(armesType, typeKey, allAttributs, e
       if (!attr) return null
       return { slug: essential.nom, nom: attr.nom, min: attr.min, max: attr.max, unite: attr.unite, categorie: attr.categorie, value: essential.valeur }
     })
-    return weaponEssentialsAttributs
+    return weaponEssentialsAttributs.filter(Boolean)
   }
   const typeData = armesType[typeKey]
   if (!typeData?.attributs_essentiels?.length) return []

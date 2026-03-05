@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { resolveAttributeIcon, GameIcon } from '../../utils/gameAssets'
 
 const CAT_COLORS = {
@@ -19,6 +19,12 @@ const CAT_COLORS = {
  */
 export default function AttributePicker({ attributs, cible, categorie, essentiel, exclude = [], onSelect, onClose }) {
   const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    const handleKey = (e) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [onClose])
 
   const filtered = useMemo(() => {
     if (!attributs) return []
@@ -61,14 +67,14 @@ export default function AttributePicker({ attributs, cible, categorie, essentiel
           )}
           {filtered.map(attr => (
             <button
-              key={attr.nom}
-              onClick={() => onSelect({ nom: attr.nom, valeur: attr.max, min: attr.min, max: attr.max, unite: attr.unite, categorie: attr.categorie })}
+              key={attr.slug || attr.nom}
+              onClick={() => onSelect({ nom: attr.nom, slug: attr.slug, valeur: attr.max, min: attr.min, max: attr.max, unite: attr.unite, categorie: attr.categorie })}
               className="w-full text-left px-3 py-2.5 rounded hover:bg-shd/10 transition-colors flex items-center gap-3 group"
             >
               <GameIcon src={resolveAttributeIcon(attr.categorie)} alt="" size="w-4 h-4" className="opacity-60" />
               <div className="flex-1 min-w-0">
                 <div className="text-sm text-white group-hover:text-shd transition-colors">{attr.nom}</div>
-                <div className="text-[10px] text-gray-600">
+                <div className="text-xs text-gray-600">
                   <span className={CAT_COLORS[attr.categorie]}>{attr.categorie}</span>
                   {' · '}{attr.min}–{attr.max}{attr.unite}
                 </div>

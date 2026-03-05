@@ -20,6 +20,7 @@ const DATA_FILES = {
   modsArmes: 'mods-armes.jsonc',
   modsCompetences: 'mods-competences.jsonc',
   modsEquipements: 'mods-equipements.jsonc',
+  statistiques: 'statistiques.jsonc',
   talentsArmes: 'talents-armes.jsonc',
   talentsEquipements: 'talents-equipements.jsonc',
 }
@@ -32,7 +33,7 @@ const DATA_FILES = {
 const SLUG_KEYED_FILES = new Set([
   'armes', 'attributs', 'classSpe', 'competences', 'ensembles',
   'equipements', 'modsArmes', 'modsCompetences', 'modsEquipements',
-  'talentsArmes', 'talentsEquipements',
+  'statistiques', 'talentsArmes', 'talentsEquipements',
 ])
 
 /**

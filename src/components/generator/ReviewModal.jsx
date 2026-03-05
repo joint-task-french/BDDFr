@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useEffect } from 'react'
 
 /**
  * Modale de revue des modifications avant export.
@@ -6,6 +6,12 @@ import { useMemo } from 'react'
  */
 export default function ReviewModal({ loadedData, savedItems, categories, dataKey, identityKey, onConfirm, onCancel }) {
   const report = useMemo(() => buildReport(loadedData, savedItems, categories, dataKey, identityKey), [loadedData, savedItems, categories, dataKey, identityKey])
+
+  useEffect(() => {
+    const handleKey = (e) => { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [onCancel])
 
   const hasChanges = report.some(cat => cat.items.length > 0)
 
@@ -16,7 +22,7 @@ export default function ReviewModal({ loadedData, savedItems, categories, dataKe
         <div className="px-5 py-4 border-b border-tactical-border flex justify-between items-center shrink-0">
           <div>
             <h2 className="text-sm font-bold uppercase tracking-widest text-white">📋 Revue des modifications</h2>
-            <p className="text-[10px] text-gray-500 mt-0.5">
+            <p className="text-xs text-gray-500 mt-0.5">
               {hasChanges ? 'Vérifiez les changements avant de générer l\'archive' : 'Aucune modification enregistrée'}
             </p>
           </div>
@@ -49,11 +55,11 @@ export default function ReviewModal({ loadedData, savedItems, categories, dataKe
         {/* Footer */}
         <div className="px-5 py-3 border-t border-tactical-border flex justify-end gap-2 shrink-0">
           <button onClick={onCancel}
-            className="text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded border border-tactical-border text-gray-400 hover:text-white hover:border-gray-500 transition-colors">
+            className="text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded border border-tactical-border text-gray-400 hover:text-white hover:border-gray-500 transition-colors">
             Annuler
           </button>
           <button onClick={onConfirm} disabled={!hasChanges}
-            className={`text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded border transition-colors ${
+            className={`text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded border transition-colors ${
               hasChanges
                 ? 'border-blue-500/40 text-blue-400 hover:bg-blue-500/10'
                 : 'border-tactical-border text-gray-600 cursor-not-allowed'
@@ -75,7 +81,7 @@ function DiffCard({ item }) {
         : 'border-yellow-500/30 bg-yellow-500/5'
     }`}>
       <div className="flex items-center gap-2 mb-1.5">
-        <span className={`text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded ${
+        <span className={`text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded ${
           isNew
             ? 'bg-green-500/20 text-green-400'
             : 'bg-yellow-500/20 text-yellow-400'

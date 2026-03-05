@@ -1,58 +1,41 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { getWeaponEssentialAttributes } from '../../utils/formatters'
-import { resolveAttributeIcon, GameIcon } from '../../utils/gameAssets'
+import { isWeaponModCompatible, formatModAttributs } from '../../utils/modCompatibility'
 import AttributeSlider from './AttributeSlider'
 import AttributePicker from './AttributePicker'
 
 /**
  * Panneau d'attributs + mods inline pour une arme dans le build planner.
  *
- * Règles :
- * - Attributs essentiels (hérités du type d'arme) : lecture seule, toujours affichés
- * - Si weapon.attributs[] existe : attributs fixés en lecture seule
- * - Sinon : 1 attribut personnalisable (sauf exotique)
- * - Mods : emplacementsMods[] = slots disponibles
- * - Armes exotiques : mods pré-insérés et NON modifiables
+ * Règles des attributs :
+ * - Attributs essentiels (depuis le type d'arme ou weapon.attributs_essentiels) :
+ *   Non remplaçables (locked). Valeur modifiable dans la range (step 0.1).
+ *   Si une valeur est prédéfinie par l'arme, elle est fixée (readOnly si pas de range).
+ * - Attribut classique libre : remplaçable et modifiable (si l'arme n'est pas exotique
+ *   et n'a pas d'attributs prédéfinis qui occupent tous les slots).
  */
-export default function WeaponAttributePanel({ weapon, attribute, allAttributs, modsArmes, weaponMods, onChangeAttribute, onChangeMods, armesType }) {
+export default function WeaponAttributePanel({ weapon, attribute, allAttributs, modsArmes, weaponMods, onChangeAttribute, onChangeMods, armesType, essentialSlotKey, essentialValues, dispatch }) {
   const [pickerOpen, setPickerOpen] = useState(false)
   const [modPickerSlot, setModPickerSlot] = useState(null)
 
   const isExotic = weapon?.estExotique
 
-  // Attributs essentiels hérités du type d'arme (tous)
+  // Attributs essentiels hérités du type d'arme ou définis par l'arme
+  // getWeaponEssentialAttributes gère les deux cas :
+  // - weapon.attributs_essentiels présent → utilise ceux-ci (avec valeur prédéfinie si présente)
+  // - sinon → utilise ceux du type d'arme (armesType)
   const essentialAttrs = useMemo(() =>
-    getWeaponEssentialAttributes(armesType, weapon?.type, allAttributs),
-    [armesType, weapon?.type, allAttributs]
+    getWeaponEssentialAttributes(armesType, weapon?.type, allAttributs, weapon?.attributs_essentiels),
+    [armesType, weapon?.type, allAttributs, weapon?.attributs_essentiels]
   )
 
-  // Attributs fixés depuis weapon.attributs[]
-  const fixedAttributes = useMemo(() => {
-    if (!weapon?.attributs?.length || !allAttributs) return []
-    return weapon.attributs.map(fixed => {
-      const ref = allAttributs.find(a => a.slug === fixed.nom || a.nom.toLowerCase() === fixed.nom.toLowerCase())
-      return {
-        nom: ref?.nom || fixed.nom,
-        slug: ref?.slug || fixed.nom,
-        valeur: fixed.valeur,
-        min: ref?.min ?? fixed.valeur,
-        max: ref?.max ?? fixed.valeur,
-        unite: ref?.unite || '%',
-        categorie: ref?.categorie || 'offensif',
-      }
-    })
-  }, [weapon, allAttributs])
-
-  const hasFixedAttributes = fixedAttributes.length > 0
-
-  // Noms déjà pris (pour le picker)
+  // Noms déjà pris (essentiels + attribut libre)
   const excluded = useMemo(() => {
     const ex = []
-    essentialAttrs.forEach(a => ex.push(a.nom))
-    fixedAttributes.forEach(a => ex.push(a.nom))
+    essentialAttrs.forEach(a => { if (a?.nom) ex.push(a.nom) })
     if (attribute?.nom) ex.push(attribute.nom)
     return ex
-  }, [essentialAttrs, fixedAttributes, attribute])
+  }, [essentialAttrs, attribute])
 
   // Emplacements de mods
   const modSlots = weapon?.emplacementsMods || []
@@ -60,24 +43,47 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
 
   if (!weapon || weapon.type === 'arme_specifique') return null
 
+  // Valeurs personnalisées des essentiels (depuis le state du build)
+  const essVals = essentialValues || {}
+
   return (
     <div className="mt-2 pt-2 border-t border-tactical-border/30 space-y-0.5">
-      {/* Attributs essentiels (hérités du type d'arme) — toujours lecture seule */}
-      {essentialAttrs.map((attr, i) => (
-        <div key={`ess-${i}`} className="flex items-center gap-1.5 py-0.5">
-          <GameIcon src={resolveAttributeIcon(attr.categorie)} alt="" size="w-3 h-3" className="opacity-50" />
-          <span className="text-[10px] text-gray-500 truncate">{attr.nom}</span>
-          <span className="text-[10px] text-gray-600 ml-auto">{attr.min}–{attr.max}{attr.unite || ''}</span>
-        </div>
-      ))}
+      {/* Attributs essentiels — locked (non remplaçables), valeur ajustable dans la range
+           SAUF si une valeur est explicitement indiquée par l'arme (readOnly) */}
+      {essentialAttrs.map((attr, i) => {
+        if (!attr) return null
+        const hasPredefValue = attr.value != null
+        // Utiliser la valeur personnalisée du state, sinon la valeur prédéfinie, sinon max
+        const currentValue = essVals[attr.slug] != null ? essVals[attr.slug] : (hasPredefValue ? attr.value : attr.max)
+        const sliderAttr = {
+          nom: attr.nom,
+          slug: attr.slug,
+          valeur: currentValue,
+          min: attr.min,
+          max: attr.max,
+          unite: attr.unite || '%',
+          categorie: attr.categorie,
+        }
+        // readOnly uniquement si l'arme définit explicitement une valeur fixe
+        const isReadOnly = hasPredefValue
+        return (
+          <AttributeSlider
+            key={`ess-${i}`}
+            attribute={sliderAttr}
+            locked
+            readOnly={isReadOnly}
+            onChange={isReadOnly ? undefined : (updated) => {
+              if (dispatch && essentialSlotKey) {
+                dispatch({ type: 'SET_WEAPON_ESSENTIAL_VALUE', slotKey: essentialSlotKey, slug: attr.slug, valeur: updated.valeur })
+              }
+            }}
+            label={i === 0 ? 'Essentiel' : undefined}
+          />
+        )
+      })}
 
-      {/* Attributs fixés depuis les données (lecture seule) */}
-      {fixedAttributes.map((attr, i) => (
-        <AttributeSlider key={`fixed-${i}`} attribute={attr} readOnly label={i === 0 ? 'Attribut fixé' : undefined} />
-      ))}
-
-      {/* Attribut personnalisable (si pas d'attribut fixé et pas exotique) */}
-      {!hasFixedAttributes && !isExotic && (
+      {/* Attribut classique libre (si pas exotique et si l'arme le permet) */}
+      {!isExotic && (
         <AttributeSlider
           attribute={attribute}
           onChange={onChangeAttribute}
@@ -90,9 +96,8 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
       {/* Mods */}
       {modSlots.length > 0 && (
         <div className="pt-1">
-          <div className="text-[9px] text-gray-600 uppercase tracking-widest mb-0.5">Mods</div>
+          <div className="text-xs text-gray-600 uppercase tracking-widest mb-0.5">Mods</div>
           {modSlots.map((slotType, i) => {
-            // Exotiques : mods pré-remplis non modifiables
             if (isExotic) {
               const predefName = predefMods[i]
               const predefMod = predefName ? (
@@ -101,35 +106,34 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
               ) : null
               return (
                 <div key={i} className="flex items-center gap-1.5 py-0.5">
-                  <span className="text-[9px] text-gray-600 uppercase w-16 shrink-0">{slotType}</span>
+                  <span className="text-xs text-gray-600 uppercase w-16 shrink-0">{slotType}</span>
                   {predefMod ? (
-                    <ModName mod={predefMod} className="text-gray-500" />
+                    <ModName mod={predefMod} allAttributs={allAttributs} className="text-gray-500" />
                   ) : predefName ? (
-                    <ModName mod={{ nom: predefName }} className="text-gray-500" />
+                    <span className="text-xs text-gray-500 truncate">{predefName}</span>
                   ) : (
-                    <span className="text-[10px] text-gray-600 italic">—</span>
+                    <span className="text-xs text-gray-600 italic">—</span>
                   )}
                 </div>
               )
             }
 
-            // Non-exotiques : mods modifiables
             const equipped = weaponMods?.[i] || null
             return (
               <div key={i} className="flex items-center gap-1.5 py-0.5">
-                <span className="text-[9px] text-gray-600 uppercase w-16 shrink-0">{slotType}</span>
+                <span className="text-xs text-gray-600 uppercase w-16 shrink-0">{slotType}</span>
                 {equipped ? (
                   <div className="flex items-center gap-1 flex-1 min-w-0">
-                    <ModName mod={equipped} className="text-gray-300" />
+                    <ModName mod={equipped} allAttributs={allAttributs} className="text-gray-300" />
                     <button
                       onClick={() => { const m = [...(weaponMods || [])]; m[i] = null; onChangeMods(m) }}
-                      className="text-gray-600 hover:text-red-400 text-[10px] ml-auto shrink-0"
+                      className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
                     >✕</button>
                   </div>
                 ) : (
                   <button
                     onClick={() => setModPickerSlot({ idx: i, type: slotType })}
-                    className="text-[10px] text-shd/40 hover:text-shd transition-colors"
+                    className="text-xs text-shd/40 hover:text-shd transition-colors"
                   >
                     + Mod
                   </button>
@@ -140,7 +144,7 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
         </div>
       )}
 
-      {/* Picker attribut */}
+      {/* Picker attribut classique */}
       {pickerOpen && (
         <AttributePicker
           attributs={allAttributs}
@@ -152,12 +156,13 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
         />
       )}
 
-      {/* Picker mod — uniquement pour les non-exotiques */}
+      {/* Picker mod */}
       {modPickerSlot && !isExotic && (
         <ModPicker
           mods={modsArmes}
           type={modPickerSlot.type}
           weaponType={weapon?.type}
+          allAttributs={allAttributs}
           onSelect={(mod) => {
             const m = [...(weaponMods || Array(modSlots.length).fill(null))]
             m[modPickerSlot.idx] = mod
@@ -171,80 +176,43 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
   )
 }
 
-/**
- * Affiche le nom du mod avec un tooltip hover montrant bonus/malus
- */
-function ModName({ mod, className = '' }) {
+function ModName({ mod, allAttributs, className = '' }) {
+  const statsText = formatModAttributs(mod, allAttributs)
   return (
-    <span className={`text-[10px] truncate relative group/mod cursor-default ${className}`}>
+    <span className={`text-xs truncate relative group/mod cursor-default ${className}`}>
       {mod.nom}
-      {(mod.bonus || mod.malus) && (
+      {statsText && (
         <span className="absolute left-0 bottom-full mb-1 z-50 hidden group-hover/mod:block bg-tactical-panel border border-tactical-border rounded px-2 py-1.5 shadow-lg whitespace-nowrap pointer-events-none">
-          {mod.bonus && <span className="block text-[10px] text-green-400">{mod.bonus}</span>}
-          {mod.malus && mod.malus !== "Pas d'effet négatif" && (
-            <span className="block text-[10px] text-red-400">{mod.malus}</span>
-          )}
+          <span className="block text-xs text-green-400">{statsText}</span>
         </span>
       )}
     </span>
   )
 }
 
-/**
- * Mapping calibre dans le nom du mod → types d'arme compatibles.
- * Les mods sans calibre spécifique (viseurs, accessoires, certains canons) sont universels.
- */
-const CALIBER_WEAPON_MAP = [
-  { pattern: '.45 acp',   types: ['pistolet_mitrailleur', 'pistolet'] },
-  { pattern: '.45',       types: ['pistolet_mitrailleur', 'pistolet'] },
-  { pattern: '5.56',      types: ['fusil_assaut', 'fusil'] },
-  { pattern: '7.62',      types: ['fusil_assaut', 'fusil', 'fusil_precision', 'fusil_mitrailleur'] },
-  { pattern: '9mm',       types: ['pistolet_mitrailleur', 'pistolet'] },
-  { pattern: 'precision', types: ['fusil', 'fusil_precision'] },
-  { pattern: 'pistolet',  types: ['pistolet'] },
-  { pattern: 'tubulaire', types: ['calibre_12'] },
-  { pattern: 'barillet',  types: ['calibre_12', 'pistolet'] },
-  { pattern: 'ceinture',  types: ['fusil_mitrailleur'] },
-  { pattern: 'sacoche',   types: ['fusil_mitrailleur'] },
-]
-
-function normalize(s) {
-  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
-}
-
-function isModCompatible(mod, weaponType) {
-  if (!weaponType || !mod?.nom) return true
-
-  // Viseurs et accessoires sont universels
-  if (mod.type === 'viseur' || mod.type === 'accessoire') return true
-
-  const nomNorm = normalize(mod.nom)
-
-  // Chercher un pattern de calibre dans le nom du mod
-  for (const { pattern, types } of CALIBER_WEAPON_MAP) {
-    if (nomNorm.includes(pattern)) {
-      return types.includes(weaponType)
-    }
-  }
-
-  // Si aucun calibre identifié, le mod est compatible avec tout
-  return true
-}
-
-/** Mini-picker pour sélectionner un mod d'arme, filtré par type de slot ET type d'arme */
-function ModPicker({ mods, type, weaponType, onSelect, onClose }) {
+/** Picker de mod d'arme avec compatibilité structurée */
+function ModPicker({ mods, type, weaponType, allAttributs, onSelect, onClose }) {
   const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    const handleKey = (e) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [onClose])
+
   const filtered = useMemo(() => {
     if (!mods) return []
     let list = mods.filter(m => m.type === type)
-    // Filtrer par compatibilité avec le type d'arme
-    list = list.filter(m => isModCompatible(m, weaponType))
+    list = list.filter(m => isWeaponModCompatible(m, weaponType))
     if (search) {
       const s = search.toLowerCase()
-      list = list.filter(m => m.nom.toLowerCase().includes(s) || m.bonus?.toLowerCase().includes(s))
+      list = list.filter(m =>
+        m.nom.toLowerCase().includes(s) ||
+        formatModAttributs(m, allAttributs).toLowerCase().includes(s)
+      )
     }
     return list
-  }, [mods, type, weaponType, search])
+  }, [mods, type, weaponType, allAttributs, search])
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" onClick={onClose}>
@@ -263,14 +231,11 @@ function ModPicker({ mods, type, weaponType, onSelect, onClose }) {
         <div className="overflow-y-auto p-2 flex-1">
           {filtered.length === 0 && <p className="text-center text-gray-600 text-sm py-4">Aucun mod compatible</p>}
           {filtered.map(mod => (
-            <button key={mod.nom} onClick={() => onSelect(mod)}
+            <button key={mod.slug || mod.nom} onClick={() => onSelect(mod)}
               className="w-full text-left px-3 py-2 rounded hover:bg-shd/10 transition-colors group"
             >
               <div className="text-sm text-white group-hover:text-shd">{mod.nom}</div>
-              <div className="flex gap-3 text-[10px]">
-                {mod.bonus && <span className="text-green-400">{mod.bonus}</span>}
-                {mod.malus && mod.malus !== "Pas d'effet négatif" && <span className="text-red-400">{mod.malus}</span>}
-              </div>
+              <div className="text-xs text-green-400">{formatModAttributs(mod, allAttributs)}</div>
             </button>
           ))}
         </div>

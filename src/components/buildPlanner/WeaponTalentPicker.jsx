@@ -1,6 +1,8 @@
 import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
+import { getTalentArmeFilters, getTalentArmeDefaults, applyTalentArmeFilters } from '../../config/filterConfigs'
 import SelectionModal from '../common/SelectionModal'
+import FilterPanel from '../database/FilterPanel'
 
 export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClose }) {
   const { weapons, sidearm, dispatch } = useBuild()
@@ -8,6 +10,13 @@ export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClos
   const weapon = isSidearm ? sidearm : weapons[slotIndex]
   const wType = weaponType || weapon?.type
   const [search, setSearch] = useState('')
+
+  // Database-style filters
+  const filterConfig = useMemo(() => getTalentArmeFilters(data), [data])
+  const defaultFilters = useMemo(() => getTalentArmeDefaults(), [])
+  const [filters, setFilters] = useState(defaultFilters)
+  const handleFilterChange = (key, value) => setFilters(f => ({ ...f, [key]: value }))
+  const resetFilters = () => setFilters(defaultFilters)
 
   const compatibleTalents = useMemo(() => {
     if (!wType || !data.talentsArmes) return []
@@ -17,14 +26,16 @@ export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClos
     })
   }, [data.talentsArmes, wType])
 
+  const afterFilters = useMemo(() => applyTalentArmeFilters(compatibleTalents, filters), [compatibleTalents, filters])
+
   const filtered = useMemo(() => {
-    if (!search) return compatibleTalents
+    if (!search) return afterFilters
     const term = search.toLowerCase()
-    return compatibleTalents.filter(t =>
+    return afterFilters.filter(t =>
       t.nom.toLowerCase().includes(term) ||
       (t.description || '').toLowerCase().includes(term)
     )
-  }, [compatibleTalents, search])
+  }, [afterFilters, search])
 
   const select = (talent) => {
     if (isSidearm) {
@@ -45,6 +56,10 @@ export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClos
       searchValue={search}
       onSearch={setSearch}
     >
+      <div className="mb-4">
+        <FilterPanel filters={filterConfig} values={filters} onChange={handleFilterChange} onReset={resetFilters} />
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {filtered.map(t => (
           <div key={t.nom} className="modal-item group" onClick={() => select(t)}>
@@ -52,10 +67,10 @@ export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClos
               {t.nom}
             </div>
             {t.description && (
-              <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{t.description}</div>
+              <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t.description}</div>
             )}
             {t.prerequis && t.prerequis !== 'n/a' && (
-              <div className="text-[10px] text-yellow-500/60 mt-1">Requis : {t.prerequis}</div>
+              <div className="text-xs text-yellow-500/60 mt-1">Requis : {t.prerequis}</div>
             )}
           </div>
         ))}

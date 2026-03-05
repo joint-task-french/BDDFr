@@ -5,17 +5,19 @@ import WeaponPicker from './WeaponPicker'
 import WeaponTalentPicker from './WeaponTalentPicker'
 
 export default function WeaponSection({ data }) {
-  const { specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods, sidearm, sidearmTalent, sidearmAttribute, sidearmMods, specialisation, SPECIALISATIONS, dispatch } = useBuild()
-  const [pickerOpen, setPickerOpen] = useState(null) // 'special' | 'primary' | 'secondary' | 'sidearm' | null
+  const { specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods, sidearm, sidearmTalent, sidearmAttribute, sidearmMods, specialisation, SPECIALISATIONS, expertise, maxExpertiseLevel, weaponEssentialValues, dispatch } = useBuild()
+  const [pickerOpen, setPickerOpen] = useState(null)
   const [talentPickerSlot, setTalentPickerSlot] = useState(null)
+
+  const handleExpertise = (slot, level) => dispatch({ type: 'SET_EXPERTISE_LEVEL', slot, level })
 
   const specLabel = specialisation ? SPECIALISATIONS[specialisation]?.label : null
   const specIcon = specialisation ? SPECIALISATIONS[specialisation]?.icon : '🎖️'
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Arme spécifique */}
+      {/* Arme spécifique — pleine largeur */}
+      <div className="mb-4">
         <WeaponSlot
           label="Arme Spécifique"
           weapon={specialWeapon}
@@ -24,12 +26,14 @@ export default function WeaponSection({ data }) {
           onSelect={() => setPickerOpen('special')}
           onRemove={() => dispatch({ type: 'REMOVE_SPECIAL_WEAPON' })}
           badge={specLabel && (
-            <span className="text-[9px] font-bold uppercase tracking-widest bg-purple-500/15 text-purple-400 px-1.5 py-0.5 rounded">
+            <span className="text-xs font-bold uppercase tracking-widest bg-purple-500/15 text-purple-400 px-1.5 py-0.5 rounded">
               {specIcon} {specLabel}
             </span>
           )}
         />
+      </div>
 
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Arme primaire */}
         <WeaponSlot
           label="Arme Primaire"
@@ -45,6 +49,13 @@ export default function WeaponSection({ data }) {
           onSelectTalent={() => setTalentPickerSlot(0)}
           onSetAttribute={(attr) => dispatch({ type: 'SET_WEAPON_ATTRIBUTE', slot: 0, attribute: attr })}
           onSetMods={(mods) => dispatch({ type: 'SET_WEAPON_MODS', slot: 0, mods })}
+          expertiseSlot="weapon0"
+          expertiseLevel={expertise?.weapon0 || 0}
+          onExpertiseChange={handleExpertise}
+          maxExpertiseLevel={maxExpertiseLevel}
+          essentialSlotKey="weapon0"
+          essentialValues={weaponEssentialValues?.weapon0}
+          dispatch={dispatch}
         />
 
         {/* Arme secondaire */}
@@ -62,6 +73,13 @@ export default function WeaponSection({ data }) {
           onSelectTalent={() => setTalentPickerSlot(1)}
           onSetAttribute={(attr) => dispatch({ type: 'SET_WEAPON_ATTRIBUTE', slot: 1, attribute: attr })}
           onSetMods={(mods) => dispatch({ type: 'SET_WEAPON_MODS', slot: 1, mods })}
+          expertiseSlot="weapon1"
+          expertiseLevel={expertise?.weapon1 || 0}
+          onExpertiseChange={handleExpertise}
+          maxExpertiseLevel={maxExpertiseLevel}
+          essentialSlotKey="weapon1"
+          essentialValues={weaponEssentialValues?.weapon1}
+          dispatch={dispatch}
         />
 
         {/* Arme de poing */}
@@ -80,6 +98,13 @@ export default function WeaponSection({ data }) {
           onSelectTalent={() => setTalentPickerSlot('sidearm')}
           onSetAttribute={(attr) => dispatch({ type: 'SET_SIDEARM_ATTRIBUTE', attribute: attr })}
           onSetMods={(mods) => dispatch({ type: 'SET_SIDEARM_MODS', mods })}
+          expertiseSlot="sidearm"
+          expertiseLevel={expertise?.sidearm || 0}
+          onExpertiseChange={handleExpertise}
+          maxExpertiseLevel={maxExpertiseLevel}
+          essentialSlotKey="sidearm"
+          essentialValues={weaponEssentialValues?.sidearm}
+          dispatch={dispatch}
         />
       </div>
 
@@ -107,9 +132,6 @@ export default function WeaponSection({ data }) {
             const slot = pickerOpen === 'primary' ? 0 : 1
             dispatch({ type: 'SET_WEAPON', slot, weapon })
             setPickerOpen(null)
-            if (!weapon.estExotique) {
-              setTimeout(() => setTalentPickerSlot(slot), 200)
-            }
           }}
         />
       )}
@@ -123,9 +145,6 @@ export default function WeaponSection({ data }) {
           onSelect={(weapon) => {
             dispatch({ type: 'SET_SIDEARM', weapon })
             setPickerOpen(null)
-            if (!weapon.estExotique) {
-              setTimeout(() => setTalentPickerSlot('sidearm'), 200)
-            }
           }}
         />
       )}

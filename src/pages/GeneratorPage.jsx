@@ -320,15 +320,15 @@ export default function GeneratorPage() {
           <div className="flex gap-2 items-center shrink-0">
             {savedCount > 0 && (
               <>
-                <span className="text-[10px] text-gray-500 mr-1">{savedCount} enregistré{savedCount > 1 ? 's' : ''}</span>
+                <span className="text-xs text-gray-500 mr-1">{savedCount} enregistré{savedCount > 1 ? 's' : ''}</span>
                 <button onClick={handlePurgeAll}
-                  className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded border border-red-500/30 text-red-400 hover:bg-red-500/10 transition-colors">
+                  className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded border border-red-500/30 text-red-400 hover:bg-red-500/10 transition-colors">
                   🗑 Purger tout
                 </button>
               </>
             )}
             <button onClick={() => setShowReview(true)}
-              className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded border border-blue-500/30 text-blue-400 hover:bg-blue-500/10 transition-colors">
+              className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded border border-blue-500/30 text-blue-400 hover:bg-blue-500/10 transition-colors">
               📦 Exporter ZIP
             </button>
           </div>
@@ -365,14 +365,14 @@ export default function GeneratorPage() {
             <p className="text-xs text-yellow-400 font-bold uppercase tracking-widest">
               ⚠ Mode édition — « {editMode.label} »
             </p>
-            <p className="text-[10px] text-yellow-400/60 mt-0.5">
+            <p className="text-xs text-yellow-400/60 mt-0.5">
               {editMode.source === 'saved'
                 ? 'Cet élément a été modifié localement. Enregistrer écrasera la version locale.'
                 : 'Cet élément existe dans les données source. Enregistrer créera une modification locale.'}
             </p>
           </div>
           <button onClick={handleLoadExisting}
-            className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded border border-yellow-500/40 text-yellow-400 hover:bg-yellow-500/15 transition-colors shrink-0 whitespace-nowrap"
+            className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded border border-yellow-500/40 text-yellow-400 hover:bg-yellow-500/15 transition-colors shrink-0 whitespace-nowrap"
             title="Restaure les données originales du fichier source (avant modifications locales)">
             ↺ Restaurer l'original
           </button>
@@ -389,15 +389,15 @@ export default function GeneratorPage() {
                 {GENERATOR_CATEGORIES.find(c => c.key === activeCategory)?.icon}{' '}
                 {GENERATOR_CATEGORIES.find(c => c.key === activeCategory)?.label}
               </h2>
-              <p className="text-[10px] text-gray-600 mt-0.5">Les champs vides seront omis de la sortie</p>
+              <p className="text-xs text-gray-600 mt-0.5">Les champs vides seront omis de la sortie</p>
             </div>
             <div className="flex gap-1.5">
               <button onClick={handleSave}
-                className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border border-green-500/30 text-green-400 hover:bg-green-500/10 transition-colors">
+                className="text-xs font-bold uppercase tracking-widest px-2.5 py-1 rounded border border-green-500/30 text-green-400 hover:bg-green-500/10 transition-colors">
                 💾 Enregistrer
               </button>
               <button onClick={handleReset}
-                className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border border-red-500/30 text-red-400 hover:bg-red-500/10 transition-colors">
+                className="text-xs font-bold uppercase tracking-widest px-2.5 py-1 rounded border border-red-500/30 text-red-400 hover:bg-red-500/10 transition-colors">
                 ↺ Vider
               </button>
             </div>
@@ -405,9 +405,9 @@ export default function GeneratorPage() {
           <div className="p-4 max-h-[calc(100vh-300px)] overflow-y-auto">
             {data.slug && (
               <div className="flex items-center gap-2 mb-3 px-2 py-1.5 bg-tactical-bg/50 rounded border border-tactical-border/30">
-                <span className="text-[9px] text-gray-600 uppercase tracking-widest font-bold">Slug</span>
-                <code className="text-[11px] text-shd/70 font-mono">{data.slug}</code>
-                {editMode && <span className="text-[9px] text-yellow-500/60 ml-auto">🔒 Non modifiable</span>}
+                <span className="text-xs text-gray-600 uppercase tracking-widest font-bold">Slug</span>
+                <code className="text-xs text-shd/70 font-mono">{data.slug}</code>
+                {editMode && <span className="text-xs text-yellow-500/60 ml-auto">🔒 Non modifiable</span>}
               </div>
             )}
             {config && (
@@ -431,10 +431,10 @@ export default function GeneratorPage() {
               {equipmentSet && !editMode && (
                 <>
                   <div className="p-3 bg-tactical-panel border border-yellow-500/30 rounded-lg">
-                    <p className="text-[11px] text-yellow-400 font-bold uppercase tracking-widest">
+                    <p className="text-xs text-yellow-400 font-bold uppercase tracking-widest">
                       ⚡ 6 pièces d'équipement générées automatiquement
                     </p>
-                    <p className="text-[10px] text-gray-500 mt-0.5">
+                    <p className="text-xs text-gray-500 mt-0.5">
                       « Enregistrer » sauvegarde aussi les équipements. « Exporter ZIP » les inclut dans equipements.jsonc.
                     </p>
                   </div>
@@ -443,10 +443,10 @@ export default function GeneratorPage() {
               )}
               {equipmentSet && editMode && (
                 <div className="p-3 bg-tactical-panel border border-blue-500/30 rounded-lg">
-                  <p className="text-[11px] text-blue-400 font-bold uppercase tracking-widest">
+                  <p className="text-xs text-blue-400 font-bold uppercase tracking-widest">
                     ℹ Mode édition — équipements non régénérés
                   </p>
-                  <p className="text-[10px] text-gray-500 mt-0.5">
+                  <p className="text-xs text-gray-500 mt-0.5">
                     Les équipements existants ne seront pas modifiés. Éditez-les individuellement dans la catégorie Équipements.
                   </p>
                 </div>

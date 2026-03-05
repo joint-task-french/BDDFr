@@ -17,7 +17,8 @@ export default function SkillSection({ data }) {
             skill={skills[i]}
             skillMod={skillMods[i]}
             modsCompetences={data.modsCompetences}
-            modsEquipements={data.modsEquipements}
+            allAttributs={data.attributs}
+            statistiques={data.statistiques}
             onSelect={() => setPickerSlot(i)}
           />
         ))}

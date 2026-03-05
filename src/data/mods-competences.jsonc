@@ -1,93 +1,225 @@
 // Mods de compétences — The Division 2
 {
   "impulsion_bobine": {
+    "nom": "Bobine d'impulsion",
     "competence": "impulsion",
     "emplacement": "BOBINE",
-    "statistiques": []
+    "compatible": [
+      "impulsion"
+    ],
+    "attributs": [
+      { "attribut": "duree_competence", "valeur": 20 },
+      { "attribut": "recup_competence", "valeur": 10 }
+    ]
   },
   "impulsion_artilleur_bobine": {
+    "nom": "Bobine d'impulsion (Artilleur)",
     "competence": "impulsion",
     "emplacement": "BOBINE",
-    "statistiques": []
+    "compatible": [
+      "impulsion"
+    ],
+    "prerequis": "artilleur",
+    "attributs": [
+      { "attribut": "duree_competence", "valeur": 40 },
+      { "attribut": "recup_competence", "valeur": 20 }
+    ]
   },
   "tourelle_mecanisme_de_tir": {
+    "nom": "Mécanisme de tir de tourelle",
     "competence": "tourelle",
     "emplacement": "MÉCANISME DE TIR",
-    "statistiques": []
+    "compatible": [
+      "tourelle"
+    ],
+    "attributs": [
+      { "attribut": "degats_competence", "valeur": 20 },
+      { "attribut": "duree_competence", "valeur": 25 }
+    ]
   },
   "tourelle_demolisseur_mecanisme_de_tir": {
+    "nom": "Mécanisme de tir de tourelle (Démolisseur)",
     "competence": "tourelle",
     "emplacement": "MÉCANISME DE TIR",
-    "statistiques": []
+    "compatible": [
+      "tourelle"
+    ],
+    "prerequis": "demolisseur",
+    "attributs": [
+      { "attribut": "degats_competence", "valeur": 40 },
+      { "attribut": "duree_competence", "valeur": 50 }
+    ]
   },
   "ruche_drones": {
+    "nom": "Drones de ruche",
     "competence": "ruche",
     "emplacement": "DRONES",
-    "statistiques": []
+    "compatible": [
+      "ruche"
+    ],
+    "attributs": [
+      { "attribut": "competence_reparation", "valeur": 20 },
+      { "attribut": "recup_competence", "valeur": 10 }
+    ]
   },
   "ruche_technicien_lanceur": {
+    "nom": "Lanceur de ruche (Technicien)",
     "competence": "ruche",
     "emplacement": "LANCEUR",
-    "statistiques": []
+    "compatible": [
+      "ruche"
+    ],
+    "prerequis": "technicien",
+    "attributs": [
+      { "attribut": "competence_reparation", "valeur": 40 },
+      { "attribut": "recup_competence", "valeur": 20 }
+    ]
   },
   "lanceur_chimique_agitateur": {
+    "nom": "Agitateur de lanceur chimique",
     "competence": "lanceur_chimique",
     "emplacement": "AGITATEUR",
-    "statistiques": []
+    "compatible": [
+      "lanceur_chimique"
+    ],
+    "attributs": [
+      { "attribut": "duree_competence", "valeur": 20 },
+      { "attribut": "degats_competence", "valeur": 10 }
+    ]
   },
   "luciole_charge_utile": {
+    "nom": "Charge utile de luciole",
     "competence": "luciole",
     "emplacement": "CHARGE UTILE",
-    "statistiques": []
+    "compatible": [
+      "luciole"
+    ],
+    "attributs": [
+      { "attribut": "degats_competence", "valeur": 20 },
+      { "attribut": "duree_competence", "valeur": 20 }
+    ]
   },
   "mine_teleguidee_entrainement": {
+    "nom": "Entraînement de mine téléguidée",
     "competence": "mine_teleguide",
     "emplacement": "ENTRAÎNEMENT",
-    "statistiques": []
+    "compatible": [
+      "mine_teleguide"
+    ],
+    "attributs": [
+      { "attribut": "degats_competence", "valeur": 20 },
+      { "attribut": "recup_competence", "valeur": 10 }
+    ]
   },
   "mine_teleguidee_survivaliste_designation": {
+    "nom": "Désignation de mine (Survivaliste)",
     "competence": "mine_teleguide",
     "emplacement": "DÉSIGNATION",
-    "statistiques": []
+    "compatible": [
+      "mine_teleguide"
+    ],
+    "prerequis": "survivaliste",
+    "attributs": [
+      { "attribut": "degats_competence", "valeur": 40 },
+      { "attribut": "recup_competence", "valeur": 20 }
+    ]
   },
   "drone_batterie": {
+    "nom": "Batterie de drone",
     "competence": "drone",
     "emplacement": "BATTERIE",
-    "statistiques": []
+    "compatible": [
+      "drone"
+    ],
+    "attributs": [
+      { "attribut": "degats_competence", "valeur": 20 },
+      { "attribut": "duree_competence", "valeur": 20 }
+    ]
   },
   "drone_tireur_d_elite_batterie": {
+    "nom": "Batterie de drone (Tireur d'élite)",
     "competence": "drone",
     "emplacement": "BATTERIE",
-    "statistiques": []
+    "compatible": [
+      "drone"
+    ],
+    "prerequis": "tireur_d_elite",
+    "attributs": [
+      { "attribut": "degats_competence", "valeur": 40 },
+      { "attribut": "duree_competence", "valeur": 40 }
+    ]
   },
   "bouclier_circuit_imprime": {
+    "nom": "Circuit imprimé de bouclier",
     "competence": "bouclier",
     "emplacement": "CIRCUIT IMPRIMÉ",
-    "statistiques": []
+    "compatible": [
+      "bouclier"
+    ],
+    "attributs": [
+      { "attribut": "sante_competence", "valeur": 20 },
+      { "attribut": "duree_competence", "valeur": 20 }
+    ]
   },
   "bouclier_incendiaire_revetement_dur": {
+    "nom": "Revêtement dur de bouclier (Incendiaire)",
     "competence": "bouclier",
     "emplacement": "REVÊTEMENT DUR",
-    "statistiques": []
+    "compatible": [
+      "bouclier"
+    ],
+    "prerequis": "incendiaire",
+    "attributs": [
+      { "attribut": "sante_competence", "valeur": 40 },
+      { "attribut": "duree_competence", "valeur": 40 }
+    ]
   },
   "piege_electronique": {
+    "nom": "Électronique de piège",
     "competence": "piege",
     "emplacement": "ÉLECTRONIQUE",
-    "statistiques": []
+    "compatible": [
+      "piege"
+    ],
+    "attributs": [
+      { "attribut": "degats_competence", "valeur": 20 },
+      { "attribut": "recup_competence", "valeur": 10 }
+    ]
   },
-  "charge_adhesive_lanceur": {
-    "competence": "charge_adhesive",
+  "bombe_adhesive_lanceur": {
+    "nom": "Lanceur de bombe adhésive",
+    "competence": "bombe_adhesive",
     "emplacement": "LANCEUR",
-    "statistiques": []
+    "compatible": [
+      "bombe_adhesive"
+    ],
+    "attributs": [
+      { "attribut": "degats_competence", "valeur": 20 },
+      { "attribut": "recup_competence", "valeur": 10 }
+    ]
   },
   "leurre_logement": {
+    "nom": "Logement de leurre",
     "competence": "leurre",
     "emplacement": "LOGEMENT",
-    "statistiques": []
+    "compatible": [
+      "leurre"
+    ],
+    "attributs": [
+      { "attribut": "duree_competence", "valeur": 20 },
+      { "attribut": "recup_competence", "valeur": 10 }
+    ]
   },
   "abri_intelligent_lanceur_intelligent": {
+    "nom": "Lanceur d'abri intelligent",
     "competence": "abri_intelligent",
     "emplacement": "LANCEUR INTELLIGENT",
-    "statistiques": []
+    "compatible": [
+      "abri_intelligent"
+    ],
+    "attributs": [
+      { "attribut": "duree_competence", "valeur": 20 },
+      { "attribut": "competence_reparation", "valeur": 10 }
+    ]
   }
 }

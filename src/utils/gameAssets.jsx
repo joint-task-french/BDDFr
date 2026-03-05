@@ -118,7 +118,7 @@ const _talentsEquipGlob = import.meta.glob('../img/game_assets/talents/equipemen
 export const GEAR_TALENT_ICONS = buildIndex(_talentsEquipGlob)
 
 // Compétences
-const _competencesGlob = import.meta.glob('../img/game_assets/competances/**/*.png', { eager: true })
+const _competencesGlob = import.meta.glob('../img/game_assets/competences/**/*.png', { eager: true })
 export const SKILL_ICONS = buildIndex(_competencesGlob)
 
 // Marques / Ensembles

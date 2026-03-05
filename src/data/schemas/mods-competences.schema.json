@@ -8,28 +8,53 @@
     "^[a-z0-9_]+$": {
       "type": "object",
       "required": [
+        "nom",
         "competence",
-        "emplacement"
+        "emplacement",
+        "compatible",
+        "attributs"
       ],
       "properties": {
+        "nom": {
+          "type": "string",
+          "description": "Nom affiché du mod"
+        },
         "competence": {
           "type": "string",
-          "description": "Nom de la compétence associée"
+          "description": "Slug de la compétence associée"
         },
         "emplacement": {
           "type": "string",
           "description": "Emplacement du mod sur la compétence"
         },
-        "statistiques": {
+        "compatible": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "description": "Liste des statistiques affectées par le mod"
+          "description": "Slugs des compétences compatibles avec ce mod"
         },
         "prerequis": {
           "type": "string",
           "description": "Clé de spécialisation requise pour utiliser ce mod (optionnel)"
+        },
+        "attributs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["attribut", "valeur"],
+            "properties": {
+              "attribut": {
+                "type": "string",
+                "description": "Slug de la statistique affectée (depuis statistiques.jsonc)"
+              },
+              "valeur": {
+                "type": "number",
+                "description": "Valeur du bonus (en %)"
+              }
+            }
+          },
+          "description": "Attributs de la compétence modifiés par ce mod"
         }
       }
     }

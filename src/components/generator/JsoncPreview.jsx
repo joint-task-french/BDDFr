@@ -58,7 +58,7 @@ export default function JsoncPreview({ data, comment, label }) {
       <div className="px-4 py-2.5 border-b border-tactical-border flex justify-between items-center shrink-0">
         <div className="flex items-center gap-2">
           <span className="text-xs text-gray-500 uppercase tracking-widest font-bold">Aperçu JSONC</span>
-          {label && <span className="text-[9px] text-shd/50 font-mono">→ {label}</span>}
+          {label && <span className="text-xs text-shd/50 font-mono">→ {label}</span>}
         </div>
         <button onClick={copy}
           className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded border transition-all duration-200 ${

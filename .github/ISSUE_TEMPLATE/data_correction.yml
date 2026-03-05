@@ -1,0 +1,56 @@
+name: "📊 Correction / Ajout de données"
+description: "Signaler une donnée incorrecte ou proposer un ajout dans la base de données"
+title: "[Data]: "
+labels: ["data"]
+body:
+  - type: checkboxes
+    id: modification-type
+    attributes:
+      label: Type de modification
+      options:
+        - label: Correction de donnée existante
+        - label: Ajout de nouvelle donnée
+        - label: Donnée manquante
+    validations:
+      required: true
+  - type: checkboxes
+    id: category
+    attributes:
+      label: Catégorie concernée
+      options:
+        - label: Armes
+        - label: Équipements
+        - label: Talents d'armes
+        - label: Talents d'équipements
+        - label: Ensembles (Gear Sets / Marques)
+        - label: Compétences
+        - label: Mods (armes / équipements / compétences)
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: |
+        Décrivez précisément la correction ou l'ajout.
+        - Pour une correction : indiquez la valeur actuelle et la valeur attendue.
+        - Pour un ajout : indiquez toutes les informations disponibles.
+    validations:
+      required: true
+  - type: input
+    id: json-files
+    attributes:
+      label: Fichier(s) JSONC concerné(s)
+      placeholder: "ex: src/data/armes.jsonc, src/data/equipements.jsonc"
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: "D'où vient l'information ? (jeu en TU22, patch notes, wiki officiel, etc.)"
+    validations:
+      required: true
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Informations supplémentaires
+      description: Captures d'écran du jeu, liens vers les patch notes, etc.

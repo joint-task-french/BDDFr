@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Statistiques du jeu",
+  "description": "Référentiel des noms de statistiques de jeu The Division 2. Sert de lien entre les attributs affectant une même statistique.",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "required": ["nom"],
+    "properties": {
+      "nom": { "type": "string", "description": "Nom affiché de la statistique" },
+      "description": { "type": "string", "description": "Description courte de la statistique" }
+    },
+    "additionalProperties": false
+  }
+}

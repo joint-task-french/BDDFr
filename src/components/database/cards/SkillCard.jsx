@@ -20,18 +20,18 @@ export default function SkillCard({ item }) {
 
     return (
         <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden">
-            <div className='flex flex-col gap-2'>
-                {resolveIcon(item?.logo) && (
-                    <GameIcon src={resolveIcon(item?.logo)} alt="" size="w-10 h-10" className="rounded" />
+            <div className='flex flex-row gap-2 text-start items-center px-4 py-3 border-b border-tactical-border/50'>
+                {resolveIcon(item.icone) && (
+                    <GameIcon src={resolveIcon(item.icone)} alt="" size="w-10 h-10" className="rounded" />
                 )}
 
-                <div className="px-4 py-3 border-b border-tactical-border/50">
+                <div>
                     <div className="flex items-center gap-2">
                         <span className="font-bold text-yellow-400 text-sm uppercase tracking-wide">{item.variante}</span>
                         {specLabel && (
                             <span className="text-xs font-bold bg-blue-500/15 text-blue-400 px-1.5 py-0.5 rounded uppercase tracking-widest border border-blue-500/30">
-              {specLabel}
-            </span>
+                                {specLabel}
+                            </span>
                         )}
                     </div>
                     <div className="text-xs text-gray-500 mt-0.5">

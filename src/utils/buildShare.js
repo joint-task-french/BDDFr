@@ -70,8 +70,22 @@ export function serializeBuild(state) {
   if (Object.keys(gm).length > 0) b.gm = gm
 
   // Mods de compétences (slugs)
-  const sm = (state.skillMods || []).map(m => m ? (Array.isArray(m) ? m.map(mod => mod?.slug || mod?.statistique || null) : [m.slug || m.statistique]) : null)
+  const sm = (state.skillMods || []).map(m => m ? (m.slug || null) : null)
   if (sm.some(Boolean)) b.sm = sm
+
+  // Expertise (niveaux par slot — seulement si > 0)
+  const exp = {}
+  for (const [slot, level] of Object.entries(state.expertise || {})) {
+    if (level > 0) exp[slot] = level
+  }
+  if (Object.keys(exp).length > 0) b.exp = exp
+
+  // Valeurs des attributs essentiels d'arme (par slot — seulement si modifiées)
+  const wev = {}
+  for (const [slotKey, vals] of Object.entries(state.weaponEssentialValues || {})) {
+    if (vals && Object.keys(vals).length > 0) wev[slotKey] = vals
+  }
+  if (Object.keys(wev).length > 0) b.wev = wev
 
   return b
 }
@@ -231,13 +245,33 @@ export function resolveBuild(compact, data) {
   }
 
   // Mods de compétences
-  const findModComp = (id) => findBySlugOrName(data.modsCompetences || [], id, 'statistique')
-  build.skillMods = (compact.sm || [null, null]).map(mods => {
-    if (!mods) return null
-    if (Array.isArray(mods)) return mods.map(id => findModComp(id))
-    return [findModComp(mods)]
+  const findModComp = (id) => findBySlugOrName(data.modsCompetences || [], id)
+  build.skillMods = (compact.sm || [null, null]).map(id => {
+    if (!id) return null
+    // Ancien format: tableau → prendre le premier
+    if (Array.isArray(id)) return id[0] ? findModComp(id[0]) : null
+    return findModComp(id)
   })
   while (build.skillMods.length < 2) build.skillMods.push(null)
+
+  // Expertise (niveaux par slot)
+  build.expertise = {
+    weapon0: 0, weapon1: 0, sidearm: 0,
+    masque: 0, torse: 0, holster: 0, sac_a_dos: 0, gants: 0, genouilleres: 0,
+  }
+  if (compact.exp) {
+    for (const [slot, level] of Object.entries(compact.exp)) {
+      build.expertise[slot] = level
+    }
+  }
+
+  // Valeurs des attributs essentiels d'arme
+  build.weaponEssentialValues = { weapon0: {}, weapon1: {}, sidearm: {} }
+  if (compact.wev) {
+    for (const [slotKey, vals] of Object.entries(compact.wev)) {
+      build.weaponEssentialValues[slotKey] = vals || {}
+    }
+  }
 
   return build
 }

@@ -1,0 +1,75 @@
+name: "🐛 Rapport de bug"
+description: "Signaler un problème ou un comportement inattendu"
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de prendre le temps de signaler ce bug.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description du bug
+      description: Décrivez clairement le problème rencontré.
+      placeholder: Je rencontre un problème avec...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Étapes pour reproduire
+      description: Comment pouvons-nous reproduire ce bug ?
+      value: |
+        1. Aller sur ...
+        2. Cliquer sur ...
+        3. Observer ...
+    validations:
+      required: true
+  - type: input
+    id: expected
+    attributes:
+      label: Comportement attendu
+      placeholder: Ce qui devrait se passer normalement.
+  - type: input
+    id: actual
+    attributes:
+      label: Comportement actuel
+      placeholder: Ce qui se passe à la place.
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Captures d'écran
+      description: Si applicable, ajoutez des captures d'écran pour illustrer le problème.
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Navigateur
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Autre
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Appareil
+      options:
+        - PC
+        - Mobile
+        - Tablette
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Système d'exploitation (OS)
+      placeholder: ex. Windows 11, iOS 17, Android 14
+  - type: textarea
+    id: context
+    attributes:
+      label: Informations supplémentaires
+      description: Tout contexte additionnel utile.

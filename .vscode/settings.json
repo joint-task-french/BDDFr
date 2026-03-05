@@ -45,12 +45,24 @@
             "url": "./src/data/schemas/competences.schema.json"
         },
         {
-            "fileMatch": ["/src/data/mods-*.jsonc"],
-            "url": "./src/data/schemas/mods-*.schema.json"
+            "fileMatch": ["/src/data/mods-armes.jsonc"],
+            "url": "./src/data/schemas/mods-armes.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/mods-equipements.jsonc"],
+            "url": "./src/data/schemas/mods-equipements.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/mods-competences.jsonc"],
+            "url": "./src/data/schemas/mods-competences.schema.json"
         },
         {
             "fileMatch": ["/src/data/metadata.jsonc"],
             "url": "./src/data/schemas/metadata.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/statistiques.jsonc"],
+            "url": "./src/data/schemas/statistiques.schema.json"
         }
     ]
 }

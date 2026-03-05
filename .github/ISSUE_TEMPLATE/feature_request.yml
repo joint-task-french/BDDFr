@@ -1,0 +1,40 @@
+name: "✨ Demande de fonctionnalité"
+description: "Proposer une nouvelle fonctionnalité ou amélioration"
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Description de la fonctionnalité
+      description: Décrivez clairement la fonctionnalité souhaitée.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problème lié
+      description: Cette fonctionnalité résout-elle un problème ?
+      placeholder: "C'est frustrant de ne pas pouvoir filtrer par..."
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution proposée
+      description: Comment imaginez-vous cette fonctionnalité ?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives envisagées
+      description: Avez-vous considéré d'autres approches ?
+  - type: textarea
+    id: mockups
+    attributes:
+      label: Maquettes / Exemples
+      description: Si applicable, ajoutez des maquettes, schémas ou liens vers des exemples similaires.
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Informations supplémentaires
+      description: Tout contexte additionnel utile.

@@ -10,7 +10,10 @@
     "min": 1,
     "max": 15,
     "description": "Augmente les dégâts infligés par les fusils d'assaut",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "degats_fusil_assaut"
+    ]
   },
   "degats_a_la_sante_es": {
     "nom": "Dégâts à la santé",
@@ -22,19 +25,25 @@
     "min": 1,
     "max": 21,
     "description": "Augmente les dégâts infligés à la santé de l'ennemi",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "degats_sante"
+    ]
   },
   "degats_fusil_es": {
     "nom": "Dégâts Fusil",
     "categorie": "offensif",
     "cible": [
-      "equipement"
+      "arme"
     ],
     "unite": "%",
     "min": 1,
     "max": 15,
     "description": "Augmente les dégâts infligés par les fusils",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "degats_fusil"
+    ]
   },
   "degats_de_coup_critique_es": {
     "nom": "Dégâts de coup critique",
@@ -46,7 +55,10 @@
     "min": 1,
     "max": 17,
     "description": "Augmente les dégâts infligés lors d'un coup critique",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "degats_coup_critique"
+    ]
   },
   "degats_fusil_de_precision_es": {
     "nom": "Dégâts Fusil de précision",
@@ -58,7 +70,10 @@
     "min": 1,
     "max": 15,
     "description": "Augmente les dégâts infligés par les fusils de précision",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "degats_fusil_precision"
+    ]
   },
   "degats_de_headshot_es": {
     "nom": "Dégâts de headshot",
@@ -70,7 +85,10 @@
     "min": 1,
     "max": 111,
     "description": "Augmente les dégâts infligés lors d'un tir à la tête",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "degats_headshot"
+    ]
   },
   "degats_pm_es": {
     "nom": "Dégâts de PM",
@@ -82,7 +100,10 @@
     "min": 1,
     "max": 15,
     "description": "Augmente les dégâts infligés par les pistolets-mitrailleurs",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "degats_pm"
+    ]
   },
   "probabilite_de_coup_critique_es": {
     "nom": "Probabilité de coup critique",
@@ -94,7 +115,10 @@
     "min": 1,
     "max": 21,
     "description": "Augmente la probabilité de déclencher un coup critique",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "probabilite_coup_critique"
+    ]
   },
   "degats_fusil_mitrailleur_es": {
     "nom": "Dégâts Fusil-mitrailleur",
@@ -106,7 +130,10 @@
     "min": 1,
     "max": 15,
     "description": "Augmente les dégâts infligés par les fusils-mitrailleurs",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "degats_fusil_mitrailleur"
+    ]
   },
   "degats_sur_cible_non_abritee_es": {
     "nom": "Dégâts sur cible non abritée",
@@ -118,7 +145,10 @@
     "min": 1,
     "max": 12,
     "description": "Augmente les dégâts infligés aux cibles non abritées",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "degats_cible_non_abritee"
+    ]
   },
   "degats_fusil_calibre_12_es": {
     "nom": "Dégâts de fusil calibre 12",
@@ -130,7 +160,10 @@
     "min": 1,
     "max": 15,
     "description": "Augmente les dégâts infligés par les armes de calibre 12",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "degats_calibre_12"
+    ]
   },
   "degats_aux_protections_es": {
     "nom": "Dégâts aux protections",
@@ -142,7 +175,10 @@
     "min": 1,
     "max": 12,
     "description": "Augmente les dégâts infligés aux protections de l'ennemi",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "degats_protections"
+    ]
   },
   "degats_pistolet_es": {
     "nom": "Dégâts Pistolet",
@@ -154,7 +190,10 @@
     "min": 1,
     "max": 15,
     "description": "Augmente les dégâts infligés par les pistolets",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "degats_pistolet"
+    ]
   },
   "degats_aux_protections_arm": {
     "nom": "Dégâts aux protections",
@@ -166,7 +205,10 @@
     "min": 1,
     "max": 6,
     "description": "Augmente les dégâts infligés aux protections de l'ennemi",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "degats_protections"
+    ]
   },
   "degats_a_la_sante_arm": {
     "nom": "Dégâts à la santé",
@@ -178,7 +220,10 @@
     "min": 1,
     "max": 9.5,
     "description": "Augmente les dégâts infligés à la santé de l'ennemi",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "degats_sante"
+    ]
   },
   "probabilite_de_coup_critique_arm": {
     "nom": "Probabilité de coup critique",
@@ -190,7 +235,10 @@
     "min": 1,
     "max": 9.5,
     "description": "Augmente la probabilité de déclencher un coup critique",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "probabilite_coup_critique"
+    ]
   },
   "degats_sur_cible_non_abritee_arm": {
     "nom": "Dégâts sur cible non abritée",
@@ -202,7 +250,10 @@
     "min": 1,
     "max": 10,
     "description": "Augmente les dégâts infligés aux cibles non abritées",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "degats_cible_non_abritee"
+    ]
   },
   "degats_de_headshot_arm": {
     "nom": "Dégâts de headshot",
@@ -214,7 +265,10 @@
     "min": 1,
     "max": 10,
     "description": "Augmente les dégâts infligés lors d'un tir à la tête",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "degats_headshot"
+    ]
   },
   "degats_de_coup_critique_arm": {
     "nom": "Dégâts de coup critique",
@@ -226,7 +280,10 @@
     "min": 1,
     "max": 10,
     "description": "Augmente les dégâts infligés lors d'un coup critique",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "degats_coup_critique"
+    ]
   },
   "taille_du_chargeur_arm": {
     "nom": "Taille du chargeur",
@@ -238,7 +295,10 @@
     "min": 1,
     "max": 12.5,
     "description": "Augmente la capacité du chargeur de l'arme",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "taille_chargeur"
+    ]
   },
   "vitesse_de_changement_arm": {
     "nom": "Vitesse de changement",
@@ -250,7 +310,10 @@
     "min": 1,
     "max": 15,
     "description": "Réduit le temps de changement d'arme",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "vitesse_changement_arme"
+    ]
   },
   "vitesse_de_rechargement_arm": {
     "nom": "Vitesse de rechargement",
@@ -262,7 +325,10 @@
     "min": 1,
     "max": 12,
     "description": "Réduit le temps de rechargement de l'arme",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "vitesse_rechargement"
+    ]
   },
   "stabilite_arm": {
     "nom": "Stabilité",
@@ -274,7 +340,10 @@
     "min": 1,
     "max": 12,
     "description": "Augmente la stabilité de l'arme",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "stabilite"
+    ]
   },
   "precision_arm": {
     "nom": "Précision",
@@ -286,7 +355,10 @@
     "min": 1,
     "max": 12,
     "description": "Augmente la précision de l'arme",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "precision"
+    ]
   },
   "portee_optimale_arm": {
     "nom": "Portée optimale",
@@ -298,7 +370,10 @@
     "min": 1,
     "max": 24,
     "description": "Augmente la portée optimale de l'arme",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "portee_optimale"
+    ]
   },
   "cadence_de_tir_arm": {
     "nom": "Cadence de tir",
@@ -310,7 +385,10 @@
     "min": 1,
     "max": 5,
     "description": "Augmente la cadence de tir de l'arme",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "cadence_tir"
+    ]
   },
   "degats_armes": {
     "nom": "Dégâts d'armes",
@@ -322,7 +400,10 @@
     "min": 1,
     "max": 15,
     "description": "Augmente les dégâts infligés par les armes",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "degats_arme"
+    ]
   },
   "tiers_de_competence": {
     "nom": "Tiers de compétence",
@@ -334,7 +415,10 @@
     "min": 1,
     "max": 1,
     "description": "Augmente le tier de compétence de 1",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "tiers_competence"
+    ]
   },
   "protection": {
     "nom": "Protection",
@@ -346,7 +430,10 @@
     "min": 1,
     "max": 170001,
     "description": "Augmente la valeur totale d'armure",
-    "estEssentiel": true
+    "estEssentiel": true,
+    "statistiques": [
+      "protection"
+    ]
   },
   "maniement_d_arme_eqp": {
     "nom": "Maniement d'arme",
@@ -358,7 +445,10 @@
     "min": 1,
     "max": 8,
     "description": "Augmente la maniabilité de l'arme, réduisant le temps de visée et de changement d'arme",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "maniement_arme"
+    ]
   },
   "probabilite_de_coup_critique_eqp": {
     "nom": "Probabilité de coup critique",
@@ -370,7 +460,10 @@
     "min": 1,
     "max": 6,
     "description": "Augmente la probabilité de déclencher un coup critique",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "probabilite_coup_critique"
+    ]
   },
   "degats_de_coup_critique_eqp": {
     "nom": "Dégâts de coup critique",
@@ -382,7 +475,10 @@
     "min": 1,
     "max": 12,
     "description": "Augmente les dégâts infligés lors d'un coup critique",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "degats_coup_critique"
+    ]
   },
   "degats_de_headshot_eqp": {
     "nom": "Dégâts de headshot",
@@ -394,7 +490,10 @@
     "min": 1,
     "max": 10,
     "description": "Augmente les dégâts infligés lors d'un tir à la tête",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "degats_headshot"
+    ]
   },
   "regeneration_de_protection_eqp": {
     "nom": "Régénération de protection",
@@ -406,7 +505,10 @@
     "min": 1,
     "max": 4925,
     "description": "Régénère l'armure au fil du temps",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "regeneration_protection"
+    ]
   },
   "protection_contre_alterations_d_etat_eqp": {
     "nom": "Protection contre altérations d'état",
@@ -418,7 +520,10 @@
     "min": 1,
     "max": 10,
     "description": "Réduit la durée des effets d'état subis",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "protection_alterations_etat"
+    ]
   },
   "sante_eqp": {
     "nom": "Santé",
@@ -430,7 +535,10 @@
     "min": 1,
     "max": 18935,
     "description": "Augmente la valeur totale de santé",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "sante"
+    ]
   },
   "resistance_explosions_eqp": {
     "nom": "Résistance - Explosions",
@@ -442,7 +550,10 @@
     "min": 1,
     "max": 10,
     "description": "Réduit les dégâts subis par les explosions",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "resistance_explosions"
+    ]
   },
   "degats_de_competence_eqp": {
     "nom": "Dégâts de compétence",
@@ -454,7 +565,10 @@
     "min": 1,
     "max": 10,
     "description": "Augmente les dégâts infligés par les compétences",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "degats_competence"
+    ]
   },
   "competences_de_reparation_eqp": {
     "nom": "Compétences de réparation",
@@ -466,7 +580,10 @@
     "min": 1,
     "max": 20,
     "description": "Augmente les soins prodigués par les compétences",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "competence_reparation"
+    ]
   },
   "recup_de_competence_eqp": {
     "nom": "Récup de compétence",
@@ -478,7 +595,10 @@
     "min": 1,
     "max": 12,
     "description": "Réduit le temps de recharge des compétences",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "recup_competence"
+    ]
   },
   "effets_d_etat_eqp": {
     "nom": "Effets d'état",
@@ -490,6 +610,9 @@
     "min": 1,
     "max": 10,
     "description": "Augmente la durée des effets d'état infligés",
-    "estEssentiel": false
+    "estEssentiel": false,
+    "statistiques": [
+      "effets_etat"
+    ]
   }
 }

@@ -46,7 +46,7 @@ export default function SkillPicker({ data, slotIndex, onClose }) {
     <>
       <button
         onClick={() => setTypeFilter('all')}
-        className={`shrink-0 px-3 py-1.5 rounded text-[11px] font-bold uppercase tracking-widest border transition-all ${
+        className={`shrink-0 px-3 py-1.5 rounded text-xs font-bold uppercase tracking-widest border transition-all ${
           typeFilter === 'all' ? 'bg-shd/20 text-shd border-shd/40' : 'text-gray-500 border-tactical-border hover:text-gray-300'
         }`}
       >
@@ -56,7 +56,7 @@ export default function SkillPicker({ data, slotIndex, onClose }) {
         <button
           key={t}
           onClick={() => setTypeFilter(t)}
-          className={`shrink-0 px-3 py-1.5 rounded text-[11px] font-bold uppercase tracking-widest border transition-all whitespace-nowrap ${
+          className={`shrink-0 px-3 py-1.5 rounded text-xs font-bold uppercase tracking-widest border transition-all whitespace-nowrap ${
             typeFilter === t ? 'bg-shd/20 text-shd border-shd/40' : 'text-gray-500 border-tactical-border hover:text-gray-300'
           }`}
         >
@@ -91,21 +91,21 @@ export default function SkillPicker({ data, slotIndex, onClose }) {
                   onClick={() => !blocked && select(s)}
                   className={`modal-item group ${blocked ? 'disabled' : ''} ${missingSpec ? 'border-yellow-500/30' : ''}`}
                 >
-                  {blocked && <div className="text-[10px] text-red-400 mb-1">⚠ Même type déjà équipé</div>}
+                  {blocked && <div className="text-xs text-red-400 mb-1">⚠ Même type déjà équipé</div>}
                   {missingSpec && !blocked && (
-                    <div className="text-[10px] text-yellow-500 mb-1">⚠ Nécessite la spé {specLabel}</div>
+                    <div className="text-xs text-yellow-500 mb-1">⚠ Nécessite la spé {specLabel}</div>
                   )}
                   <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-shd transition-colors">
                     {s.variante}
                   </div>
                   <div className="text-xs text-gray-500">{s.competence}</div>
                   {s.statistiques && (
-                    <div className="text-[10px] text-gray-400 mt-1 leading-relaxed line-clamp-2">
+                    <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-2">
                       {s.statistiques}
                     </div>
                   )}
                   {s.effetEtat && s.effetEtat !== 'N/A' && (
-                    <div className="text-[10px] text-purple-400 mt-1">⚡ {s.effetEtat}</div>
+                    <div className="text-xs text-purple-400 mt-1">⚡ {s.effetEtat}</div>
                   )}
                 </div>
               )

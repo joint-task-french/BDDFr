@@ -13,6 +13,13 @@ export default function SelectionModal({ open, title, onClose, children, filters
     return () => document.body.classList.remove('overflow-hidden')
   }, [open])
 
+  useEffect(() => {
+    if (!open) return
+    const handleKey = (e) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [open, onClose])
+
   if (!open) return null
 
   return (

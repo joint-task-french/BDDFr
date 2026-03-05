@@ -1,6 +1,7 @@
 import { getWeaponTypeLabel } from '../../utils/formatters'
 import StatChip from '../common/StatChip'
 import WeaponAttributePanel from './WeaponAttributePanel'
+import ExpertiseSlider from './ExpertiseSlider'
 
 const HEADER_COLORS = {
   red:    { bg: 'bg-red-500/10',    border: 'border-red-500/30',    text: 'text-red-400',    hover: 'group-hover:text-red-500/50' },
@@ -8,7 +9,7 @@ const HEADER_COLORS = {
   gray:   { bg: 'bg-gray-500/10',   border: 'border-gray-500/30',   text: 'text-gray-400',   hover: 'group-hover:text-gray-500/50' },
 }
 
-export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType }) {
+export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch }) {
   const colors = HEADER_COLORS[headerColor] || HEADER_COLORS.red
   const isSpecific = weapon?.type === 'arme_specifique'
 
@@ -57,22 +58,45 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
               onChangeAttribute={onSetAttribute}
               onChangeMods={onSetMods}
               armesType={armesType}
+              essentialSlotKey={essentialSlotKey}
+              essentialValues={essentialValues}
+              dispatch={dispatch}
             />
-            {/* Talents exotiques/nommés (depuis talents[]) */}
-            {weapon.talents && weapon.talents.length > 0 && (weapon.estExotique || weapon.estNomme) ? (
+            {/* Expertise */}
+            {expertiseSlot && onExpertiseChange && (
+              <ExpertiseSlider slot={expertiseSlot} level={expertiseLevel || 0} onChange={onExpertiseChange} maxLevel={maxExpertiseLevel} />
+            )}
+            {/* Talents exotiques (depuis talents[]) — non modifiables */}
+            {weapon.talents && weapon.talents.length > 0 && weapon.estExotique ? (
               <div className="mt-3 pt-3 border-t border-tactical-border">
-                <div className={`text-xs font-bold uppercase tracking-widest ${weapon.estExotique ? 'text-shd' : 'text-yellow-400'}`}>
-                  {weapon.estExotique ? 'Talent Exotique' : 'Talent Nommé'}
-                </div>
+                <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent Exotique</div>
                 {weapon.talents.filter(t => t && t !== 'n/a').map((t, i) => (
-                  <div key={i} className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{t}</div>
+                  <div key={i} className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t}</div>
                 ))}
+              </div>
+            ) : weapon.estNomme && weapon.talents && weapon.talents.length > 0 && weapon.talents.some(t => t && t !== 'n/a' && t !== '') ? (
+              /* Arme nommée avec talent pré-inscrit — non modifiable */
+              <div className="mt-3 pt-3 border-t border-tactical-border">
+                <div className="flex items-center gap-1">
+                  <div className="text-xs text-yellow-400 font-bold uppercase tracking-widest">
+                    Talent : {weapon.talents.find(t => t && t !== 'n/a' && t !== '')}
+                  </div>
+                </div>
               </div>
             ) : talent ? (
               <div className="mt-3 pt-3 border-t border-tactical-border">
-                <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent : {talent.nom}</div>
+                <div className="flex items-center justify-between">
+                  <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent : {talent.nom}</div>
+                  {onSelectTalent && (
+                    <button
+                      onClick={(e) => { e.stopPropagation(); onSelectTalent() }}
+                      className="text-xs text-gray-600 hover:text-shd transition-colors"
+                      title="Changer le talent"
+                    >✎</button>
+                  )}
+                </div>
                 {talent.description && (
-                  <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{talent.description}</div>
+                  <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{talent.description}</div>
                 )}
               </div>
             ) : (!weapon.estExotique && !isSpecific && onSelectTalent) ? (

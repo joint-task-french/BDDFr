@@ -210,6 +210,7 @@ export const FIELDS = {
       { key: 'max', label: 'Maximum', type: 'number', step: 0.1 },
       { key: 'description', label: 'Description', type: 'text' },
       { key: 'estEssentiel', label: 'Attribut essentiel', type: 'boolean' },
+      { key: 'statistiques', label: 'Statistiques affectées', type: 'autocomplete_array', suggestionsKey: 'statistiques', placeholder: 'Rechercher une statistique...' },
     ],
   },
 
@@ -224,8 +225,11 @@ export const FIELDS = {
         { value: 'accessoire', label: 'Accessoire', color: 'yellow' },
         { value: 'autre', label: 'Autre', color: 'green' },
       ]},
-      { key: 'bonus', label: 'Bonus', type: 'text' },
-      { key: 'malus', label: 'Malus', type: 'text' },
+      { key: 'compatible', label: 'Compatible avec', type: 'tagSelect', dynamicOptions: 'armesTypesCompat' },
+      { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
+        { key: 'attribut', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'allAttributsSlugs' },
+        { key: 'valeur', label: 'Valeur', type: 'number', step: 0.1 },
+      ]},
       { key: 'estExotique', label: 'Mod exotique', type: 'boolean' },
     ],
   },
@@ -233,20 +237,29 @@ export const FIELDS = {
   modsEquipements: {
     comment: "// Mod d'équipement — The Division 2",
     fields: [
+      { key: 'nom', label: 'Nom', type: 'autocomplete', required: true, suggestionsKey: 'nomsModsEquipements', isIdentity: true },
       { key: 'categorie', label: 'Catégorie', type: 'tagSelect', singleSelect: true, dynamicOptions: 'attributsTypes' },
       { key: 'protocole', label: 'Protocole', type: 'text' },
-      { key: 'statistique', label: 'Statistique', type: 'autocomplete', required: true, suggestionsKey: 'nomsModsEquipements', isIdentity: true },
-      { key: 'valeurMax', label: 'Valeur max', type: 'text' },
+      { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
+        { key: 'attribut', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'allAttributsSlugs' },
+        { key: 'valeur', label: 'Valeur', type: 'number', step: 0.1 },
+      ]},
     ],
   },
 
   modsCompetences: {
     comment: '// Mod de compétence — The Division 2',
     fields: [
-      { key: 'competence', label: 'Compétence', type: 'autocomplete', suggestionsKey: 'competences', required: true, isIdentity: true },
+      { key: 'nom', label: 'Nom', type: 'text', required: true },
+      { key: 'competence', label: 'Compétence', type: 'autocomplete', suggestionsKey: 'competenceSlugs', required: true, isIdentity: true },
       { key: 'emplacement', label: 'Emplacement', type: 'autocomplete', suggestionsKey: 'emplacementsModsCompetences', required: true },
+      { key: 'compatible', label: 'Compatible avec', type: 'autocomplete_array', suggestionsKey: 'competenceSlugs', placeholder: 'Slug compétence...' },
       { key: 'prerequis', label: 'Spécialisation requise', type: 'tagSelect', singleSelect: true, dynamicOptions: 'specialisations' },
-      { key: 'statistiques', label: 'Statistiques', type: 'array', itemType: 'text', placeholder: 'Nom de la statistique...' },
+      { key: 'attributs', label: 'Attributs modifiés', type: 'objectArray', fields: [
+        { key: 'attribut', label: 'Statistique', type: 'autocomplete', suggestionsKey: 'statistiques' },
+        { key: 'valeur', label: 'Valeur', type: 'number', step: 1 },
+      ]},
+      { key: 'bonus', label: 'Bonus texte (optionnel)', type: 'text', placeholder: 'Effet non lié à une statistique...' },
     ],
   },
 }
@@ -283,7 +296,21 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   s.nomsEnsembles = [...new Set((merged.ensembles || []).map(e => e.nom).filter(Boolean))].sort()
   s.nomsAttributs = [...new Set((merged.attributs || []).map(a => a.nom).filter(Boolean))].sort()
   s.nomsModsArmes = [...new Set((merged.modsArmes || []).map(m => m.nom).filter(Boolean))].sort()
-  s.nomsModsEquipements = [...new Set((merged.modsEquipements || []).map(m => m.statistique).filter(Boolean))].sort()
+  s.nomsModsEquipements = [...new Set((merged.modsEquipements || []).map(m => m.nom).filter(Boolean))].sort()
+
+  // Statistiques (slug → nom) pour le champ statistiques des attributs et mods
+  s.statistiques = (merged.statistiques || []).filter(st => st.slug && st.nom).map(st => ({ value: st.slug, label: st.nom }))
+  s.statistiques.sort((a, b) => a.label.localeCompare(b.label))
+
+  // Tous les attributs par slug (pour les mods d'armes/équipements)
+  s.allAttributsSlugs = (merged.attributs || []).filter(a => a.slug && a.nom).map(a => ({ value: a.slug, label: a.nom }))
+  s.allAttributsSlugs.sort((a, b) => a.label.localeCompare(b.label))
+
+  // Slugs de compétences (pour compatible[] des mods de compétences)
+  const compSlugSet = new Set()
+  groupedComps.forEach(c => { if (c.slug) compSlugSet.add(c.slug) })
+  flatComps.forEach(c => { if (c.competenceSlug) compSlugSet.add(c.competenceSlug) })
+  s.competenceSlugs = Array.from(compSlugSet).sort().map(slug => ({ value: slug, label: slug }))
 
   // Compétences : flat array (from flattened) or grouped (from raw)
   const flatComps = merged.competences || []
@@ -368,6 +395,9 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   addLookup(merged.attributs)
   addLookup(merged.modsArmes)
   addLookup(merged.ensembles)
+  addLookup(merged.modsEquipements)
+  addLookup(merged.modsCompetences)
+  addLookup(merged.statistiques)
 
   const armesNom = new Map()
   merged.armes?.forEach(a => { if ((a.estNomme || a.estExotique) && a.slug) armesNom.set(a.slug, a.nom) })
@@ -500,9 +530,7 @@ export function cleanOutput(data, categoryKey) {
 
   // Auto-generate slug si absent ou si nouveau (pas en mode édition)
   if (!result.slug) {
-    if (categoryKey === 'modsEquipements') {
-      result.slug = slugify(result.statistique || '')
-    } else if (categoryKey === 'modsCompetences') {
+    if (categoryKey === 'modsCompetences') {
       result.slug = slugify((result.competence || '') + '_' + (result.emplacement || ''))
     } else {
       result.slug = slugify(result.nom || '')

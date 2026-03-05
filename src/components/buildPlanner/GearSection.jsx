@@ -6,9 +6,11 @@ import GearPicker from './GearPicker'
 import GearTalentPicker from './GearTalentPicker'
 
 export default function GearSection({ data }) {
-  const { gear, gearTalents, gearAttributes, gearMods, dispatch } = useBuild()
+  const { gear, gearTalents, gearAttributes, gearMods, expertise, maxExpertiseLevel, dispatch } = useBuild()
   const [pickerSlot, setPickerSlot] = useState(null)
   const [talentSlot, setTalentSlot] = useState(null)
+
+  const handleExpertise = (slot, level) => dispatch({ type: 'SET_EXPERTISE_LEVEL', slot, level })
 
   const gearSlots = useMemo(() => getGearSlots(data.equipements_type), [data.equipements_type])
 
@@ -35,6 +37,9 @@ export default function GearSection({ data }) {
             gearMod={gearMods[slot] || null}
             onSetMod={(mod) => dispatch({ type: 'SET_GEAR_MOD', slot, mod })}
             attributsType={data.attributs_type}
+            expertiseLevel={expertise?.[slot] || 0}
+            onExpertiseChange={handleExpertise}
+            maxExpertiseLevel={maxExpertiseLevel}
           />
         ))}
       </div>
@@ -44,12 +49,6 @@ export default function GearSection({ data }) {
           data={data}
           slotKey={pickerSlot}
           onClose={() => setPickerSlot(null)}
-          onSelectTalent={(s) => {
-            setPickerSlot(null)
-            if (s === 'torse' || s === 'sac_a_dos') {
-              setTimeout(() => setTalentSlot(s), 200)
-            }
-          }}
         />
       )}
 

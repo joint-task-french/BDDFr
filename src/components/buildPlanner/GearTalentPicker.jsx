@@ -1,11 +1,20 @@
 import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
 import { getGearSlotLabel } from '../../utils/formatters'
+import { getTalentEquipFilters, getTalentEquipDefaults, applyTalentEquipFilters } from '../../config/filterConfigs'
 import SelectionModal from '../common/SelectionModal'
+import FilterPanel from '../database/FilterPanel'
 
 export default function GearTalentPicker({ data, slotKey, onClose }) {
   const { dispatch } = useBuild()
   const [search, setSearch] = useState('')
+
+  // Database-style filters
+  const filterConfig = useMemo(() => getTalentEquipFilters(data), [data])
+  const defaultFilters = useMemo(() => getTalentEquipDefaults(), [])
+  const [filters, setFilters] = useState(defaultFilters)
+  const handleFilterChange = (key, value) => setFilters(f => ({ ...f, [key]: value }))
+  const resetFilters = () => setFilters(defaultFilters)
 
   const talents = useMemo(() => {
     if (!data.talentsEquipements) return []
@@ -14,14 +23,16 @@ export default function GearTalentPicker({ data, slotKey, onClose }) {
     )
   }, [data.talentsEquipements, slotKey])
 
+  const afterFilters = useMemo(() => applyTalentEquipFilters(talents, filters), [talents, filters])
+
   const filtered = useMemo(() => {
-    if (!search) return talents
+    if (!search) return afterFilters
     const term = search.toLowerCase()
-    return talents.filter(t =>
+    return afterFilters.filter(t =>
       t.nom.toLowerCase().includes(term) ||
       (t.description || '').toLowerCase().includes(term)
     )
-  }, [talents, search])
+  }, [afterFilters, search])
 
   const select = (talent) => {
     dispatch({ type: 'SET_GEAR_TALENT', slot: slotKey, talent })
@@ -36,6 +47,10 @@ export default function GearTalentPicker({ data, slotKey, onClose }) {
       searchValue={search}
       onSearch={setSearch}
     >
+      <div className="mb-4">
+        <FilterPanel filters={filterConfig} values={filters} onChange={handleFilterChange} onReset={resetFilters} />
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {filtered.map(t => (
           <div key={t.nom} className="modal-item group" onClick={() => select(t)}>
@@ -43,10 +58,10 @@ export default function GearTalentPicker({ data, slotKey, onClose }) {
               {t.nom}
             </div>
             {t.description && (
-              <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-3">{t.description}</div>
+              <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t.description}</div>
             )}
             {t.prerequis && t.prerequis !== 'n/a' && (
-              <div className="text-[10px] text-yellow-500/60 mt-1">Requis : {t.prerequis}</div>
+              <div className="text-xs text-yellow-500/60 mt-1">Requis : {t.prerequis}</div>
             )}
           </div>
         ))}

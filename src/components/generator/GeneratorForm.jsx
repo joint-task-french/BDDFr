@@ -49,7 +49,7 @@ function FieldRenderer({ field, value, onChange, onSelect, suggestions }) {
 
 function FieldLabel({ field }) {
   return (
-    <label className="block text-[11px] text-gray-500 uppercase tracking-widest mb-1">
+    <label className="block text-xs text-gray-500 uppercase tracking-widest mb-1">
       {field.label}
       {field.required && <span className="text-red-400 ml-1">*</span>}
     </label>
@@ -90,9 +90,21 @@ function NumberInput({ field, value, onChange }) {
 
 function BooleanInput({ field, value, onChange }) {
   return (
-    <label className="flex items-center gap-2 py-1 cursor-pointer group">
-      <input type="checkbox" checked={!!value} onChange={e => onChange(e.target.checked)}
-        className="w-4 h-4 rounded border-tactical-border bg-tactical-bg accent-shd cursor-pointer" />
+    <label className="flex items-center gap-2.5 py-1.5 cursor-pointer group">
+      <span
+        className={`relative inline-flex items-center justify-center w-5 h-5 rounded border-2 transition-all shrink-0 ${
+          value
+            ? 'bg-shd/20 border-shd text-shd'
+            : 'bg-tactical-bg border-tactical-border group-hover:border-gray-500'
+        }`}
+      >
+        {value && (
+          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        )}
+      </span>
+      <input type="checkbox" checked={!!value} onChange={e => onChange(e.target.checked)} className="sr-only" />
       <span className="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">{field.label}</span>
     </label>
   )
@@ -369,7 +381,7 @@ function ArrayInput({ field, value, onChange }) {
         ))}
       </div>
       <button type="button" onClick={add}
-        className="mt-1.5 text-[11px] text-shd/60 hover:text-shd uppercase tracking-widest transition-colors">
+        className="mt-1.5 text-xs text-shd/60 hover:text-shd uppercase tracking-widest transition-colors">
         + Ajouter
       </button>
     </div>
@@ -401,7 +413,7 @@ function ObjectArrayInput({ field, value, onChange, suggestions }) {
           <div key={i} className="flex gap-1.5 items-end bg-tactical-bg/50 rounded p-2 border border-tactical-border/30">
             {subFields.map(sf => (
               <div key={sf.key} className="flex-1 min-w-0">
-                <span className="text-[9px] text-gray-600 uppercase">{sf.label}</span>
+                <span className="text-xs text-gray-600 uppercase">{sf.label}</span>
                 {sf.type === 'autocomplete' ? (
                   <AutocompleteInput
                     field={sf}
@@ -428,7 +440,7 @@ function ObjectArrayInput({ field, value, onChange, suggestions }) {
         ))}
       </div>
       <button type="button" onClick={add}
-        className="mt-1.5 text-[11px] text-shd/60 hover:text-shd uppercase tracking-widest transition-colors">
+        className="mt-1.5 text-xs text-shd/60 hover:text-shd uppercase tracking-widest transition-colors">
         + Ajouter
       </button>
     </div>
@@ -442,12 +454,24 @@ function CheckboxMapInput({ field, value, onChange }) {
   return (
     <div>
       <FieldLabel field={field} />
-      <div className="flex flex-wrap gap-x-4 gap-y-1">
+      <div className="flex flex-wrap gap-x-4 gap-y-1.5">
         {field.keys.map(k => (
-          <label key={k.key} className="flex items-center gap-1.5 cursor-pointer group text-sm">
-            <input type="checkbox" checked={!!map[k.key]} onChange={() => toggle(k.key)}
-              className="w-3.5 h-3.5 rounded border-tactical-border bg-tactical-bg accent-shd cursor-pointer" />
-            <span className="text-gray-400 group-hover:text-gray-200 transition-colors text-[12px]">{k.label}</span>
+          <label key={k.key} className="flex items-center gap-2 cursor-pointer group">
+            <span
+              className={`relative inline-flex items-center justify-center w-4 h-4 rounded border-2 transition-all shrink-0 ${
+                map[k.key]
+                  ? 'bg-shd/20 border-shd text-shd'
+                  : 'bg-tactical-bg border-tactical-border group-hover:border-gray-500'
+              }`}
+            >
+              {map[k.key] && (
+                <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              )}
+            </span>
+            <input type="checkbox" checked={!!map[k.key]} onChange={() => toggle(k.key)} className="sr-only" />
+            <span className="text-gray-400 group-hover:text-gray-200 transition-colors text-xs">{k.label}</span>
           </label>
         ))}
       </div>

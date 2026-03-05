@@ -8,6 +8,7 @@ import WeaponSection from '../components/buildPlanner/WeaponSection'
 import GearSection from '../components/buildPlanner/GearSection'
 import SkillSection from '../components/buildPlanner/SkillSection'
 import BuildActions from '../components/buildPlanner/BuildActions'
+import BuildStatsPanel from '../components/buildPlanner/BuildStatsPanel'
 
 export default function BuildPlannerPage() {
   const { data, loading, error, progress } = useDataLoader()
@@ -21,7 +22,7 @@ export default function BuildPlannerPage() {
   )
 
   return (
-    <BuildProvider classSpe={data.classSpe}>
+    <BuildProvider classSpe={data.classSpe} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}>
       <BuildPlannerContent data={data} />
     </BuildProvider>
   )
@@ -47,7 +48,8 @@ function BuildPlannerContent({ data }) {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-screen-2xl mx-auto">
+      {/* Header */}
       <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
         <div>
           <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-widest mb-1">
@@ -58,32 +60,45 @@ function BuildPlannerContent({ data }) {
         <BuildActions />
       </div>
 
-      {/* Armes */}
-      <section className="mb-8" id="section-weapons">
-        <h3 className="text-sm font-bold text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-          <span>🔫</span> Armement
-          <span className="text-gray-600 text-xs font-normal">(1 spé + 2 armes + 1 arme de poing — 1 arme exotique max.)</span>
-        </h3>
-        <WeaponSection data={data} />
-      </section>
+      {/* Layout 2 colonnes : build editor + stats sidebar */}
+      <div className="flex flex-col xl:flex-row gap-6">
+        {/* Colonne principale — éditeur de build */}
+        <div className="flex-1 min-w-0">
+          {/* Armes */}
+          <section className="mb-8" id="section-weapons">
+            <h3 className="text-sm font-bold text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+              <span>🔫</span> Armement
+              <span className="text-gray-600 text-xs font-normal">(1 spé + 2 armes + 1 arme de poing — 1 arme exotique max.)</span>
+            </h3>
+            <WeaponSection data={data} />
+          </section>
 
-      {/* Équipements */}
-      <section className="mb-8" id="section-gear">
-        <h3 className="text-sm font-bold text-blue-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-          <span>🛡️</span> Équipements
-          <span className="text-gray-600 text-xs font-normal">(1 pièce exotique max.)</span>
-        </h3>
-        <GearSection data={data} />
-      </section>
+          {/* Équipements */}
+          <section className="mb-8" id="section-gear">
+            <h3 className="text-sm font-bold text-blue-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+              <span>🛡️</span> Équipements
+              <span className="text-gray-600 text-xs font-normal">(1 pièce exotique max.)</span>
+            </h3>
+            <GearSection data={data} />
+          </section>
 
-      {/* Compétences */}
-      <section className="mb-8" id="section-skills">
-        <h3 className="text-sm font-bold text-yellow-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-          <span>⚡</span> Compétences
-          <span className="text-gray-600 text-xs font-normal">(1 seule par type)</span>
-        </h3>
-        <SkillSection data={data} />
-      </section>
+          {/* Compétences */}
+          <section className="mb-8" id="section-skills">
+            <h3 className="text-sm font-bold text-yellow-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+              <span>⚡</span> Compétences
+              <span className="text-gray-600 text-xs font-normal">(1 seule par type)</span>
+            </h3>
+            <SkillSection data={data} />
+          </section>
+        </div>
+
+        {/* Sidebar — statistiques du build */}
+        <aside className="w-full xl:w-80 shrink-0">
+          <div className="xl:sticky xl:top-20">
+            <BuildStatsPanel data={data} />
+          </div>
+        </aside>
+      </div>
     </div>
   )
 }

@@ -14,6 +14,7 @@ export const GENERATOR_CATEGORIES = [
   { key: 'ensembles', label: 'Ensembles', icon: '🔗' },
   { key: 'competences', label: 'Compétences', icon: '⚡' },
   { key: 'attributs', label: 'Attributs', icon: '📊' },
+  { key: 'statistiques', label: 'Statistiques', icon: '📈' },
   { key: 'modsArmes', label: "Mods d'Armes", icon: '🔧' },
   { key: 'modsEquipements', label: "Mods d'Équipements", icon: '⚙️' },
   { key: 'modsCompetences', label: 'Mods de Compétences', icon: '💎' },
@@ -31,6 +32,7 @@ export const IDENTITY_KEY = {
   ensembles: 'slug',
   competences: ['competence', 'variante'],
   attributs: 'slug',
+  statistiques: 'slug',
   modsArmes: 'slug',
   modsEquipements: 'slug',
   modsCompetences: 'slug',
@@ -47,6 +49,7 @@ export const DATA_KEY = {
   ensembles: 'ensembles',
   competences: 'competences',
   attributs: 'attributs',
+  statistiques: 'statistiques',
   modsArmes: 'modsArmes',
   modsEquipements: 'modsEquipements',
   modsCompetences: 'modsCompetences',
@@ -63,6 +66,7 @@ export const FILE_MAP = {
   ensembles: 'ensembles.jsonc',
   competences: 'competences.jsonc',
   attributs: 'attributs.jsonc',
+  statistiques: 'statistiques.jsonc',
   modsArmes: 'mods-armes.jsonc',
   modsEquipements: 'mods-equipements.jsonc',
   modsCompetences: 'mods-competences.jsonc',
@@ -214,6 +218,14 @@ export const FIELDS = {
     ],
   },
 
+  statistiques: {
+    comment: '// Statistique — The Division 2',
+    fields: [
+      { key: 'nom', label: 'Nom', type: 'autocomplete', required: true, suggestionsKey: 'nomsStatistiques', isIdentity: true },
+      { key: 'description', label: 'Description', type: 'text' },
+    ],
+  },
+
   modsArmes: {
     comment: "// Mod d'arme — The Division 2",
     fields: [
@@ -297,6 +309,7 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   s.nomsAttributs = [...new Set((merged.attributs || []).map(a => a.nom).filter(Boolean))].sort()
   s.nomsModsArmes = [...new Set((merged.modsArmes || []).map(m => m.nom).filter(Boolean))].sort()
   s.nomsModsEquipements = [...new Set((merged.modsEquipements || []).map(m => m.nom).filter(Boolean))].sort()
+  s.nomsStatistiques = [...new Set((merged.statistiques || []).map(st => st.nom).filter(Boolean))].sort()
 
   // Statistiques (slug → nom) pour le champ statistiques des attributs et mods
   s.statistiques = (merged.statistiques || []).filter(st => st.slug && st.nom).map(st => ({ value: st.slug, label: st.nom }))

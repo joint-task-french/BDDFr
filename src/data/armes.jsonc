@@ -1,4 +1,3 @@
-// Armes — The Division 2
 {
   "1886": {
     "nom": "1886",
@@ -100,7 +99,7 @@
     "degatsMax": 112919,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -144,7 +143,7 @@
     "degatsMax": 131574,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -210,7 +209,7 @@
     "degatsMax": 148817,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -320,7 +319,7 @@
     "degatsMax": 104105,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -364,7 +363,7 @@
     "degatsMax": 120870,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -452,7 +451,7 @@
     "degatsMax": 107888,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -496,7 +495,7 @@
     "degatsMax": 114496,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -540,7 +539,7 @@
     "degatsMax": 117900,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -606,7 +605,7 @@
     "degatsMax": 108919,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -716,7 +715,7 @@
     "degatsMax": 103024,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -747,8 +746,8 @@
       "accessoire"
     ]
   },
-  "animal_mecanique": {
-    "nom": "ANIMAL MÉCANIQUE",
+  "mecanimal": {
+    "nom": "MÉCANIMAL",
     "type": "fusil_assaut",
     "fabricant": "SIG SAUER",
     "portee": 28,
@@ -760,7 +759,7 @@
     "degatsMax": 128621,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -804,7 +803,7 @@
     "degatsMax": 132494,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -835,8 +834,8 @@
       "accessoire"
     ]
   },
-  "tueur_de_roi": {
-    "nom": "TUEUR DE ROI",
+  "tueur_de_rois": {
+    "nom": "TUEUR DE ROIS",
     "type": "fusil_assaut",
     "fabricant": "KOROBOV",
     "portee": 27,
@@ -848,7 +847,7 @@
     "degatsMax": 146034,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -891,7 +890,7 @@
     "degatsMax": 124913,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -899,8 +898,8 @@
       "chargeur"
     ]
   },
-  "sleipner": {
-    "nom": "SLEIPNER",
+  "sleipnir": {
+    "nom": "SLEIPNIR",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -912,7 +911,7 @@
     "degatsMax": 124913,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -975,7 +974,7 @@
     "degatsMax": 143398,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1040,7 +1039,7 @@
     "degatsMax": 111065,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1061,7 +1060,7 @@
     "degatsMax": 111065,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1187,7 +1186,7 @@
     "degatsMax": 150006,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1271,7 +1270,7 @@
     "degatsMax": 164505,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1334,7 +1333,7 @@
     "degatsMax": 140493,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1376,7 +1375,7 @@
     "degatsMax": 132469,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1418,7 +1417,7 @@
     "degatsMax": 113779,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1439,7 +1438,7 @@
     "degatsMax": 113779,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1607,7 +1606,7 @@
     "degatsMax": 121820,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1649,7 +1648,7 @@
     "degatsMax": 427425,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1733,7 +1732,7 @@
     "degatsMax": 270041,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1796,7 +1795,7 @@
     "degatsMax": 216064,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1806,13 +1805,13 @@
   },
   "petite_abeille_ouvriere": {
     "nom": "Petite abeille ouvrière",
-    "type": "pistolet_mitrailleur",
+    "type": "pistolet",
     "fabricant": "Exotique",
     "portee": 0,
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": "",
+    "headshot": 0,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
@@ -1882,7 +1881,7 @@
     "degatsMax": 448063,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1924,7 +1923,7 @@
     "degatsMax": 536413,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1966,7 +1965,7 @@
     "degatsMax": 536413,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -1987,7 +1986,7 @@
     "degatsMax": 590054,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2029,7 +2028,7 @@
     "degatsMax": 258318,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2050,7 +2049,7 @@
     "degatsMax": 283370,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2113,7 +2112,7 @@
     "degatsMax": 415697,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2134,7 +2133,7 @@
     "degatsMax": 415697,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2218,7 +2217,7 @@
     "degatsMax": 804402,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2281,7 +2280,7 @@
     "degatsMax": 896690,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2323,7 +2322,7 @@
     "degatsMax": 869399,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2365,7 +2364,7 @@
     "degatsMax": 1436682,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2386,7 +2385,7 @@
     "degatsMax": 1468467,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2428,7 +2427,7 @@
     "degatsMax": 1559352,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2470,7 +2469,7 @@
     "degatsMax": 1560946,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2596,7 +2595,7 @@
     "degatsMax": 1618112,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2638,7 +2637,7 @@
     "degatsMax": 1646416,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2680,7 +2679,7 @@
     "degatsMax": 941779,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2722,7 +2721,7 @@
     "degatsMax": 474665,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2738,7 +2737,7 @@
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": "",
+    "headshot": 0,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
@@ -2787,7 +2786,7 @@
     "degatsMax": 335375,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2829,7 +2828,7 @@
     "degatsMax": 948548,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2892,7 +2891,7 @@
     "degatsMax": 1015360,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2955,7 +2954,7 @@
     "degatsMax": 360240,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -2965,13 +2964,13 @@
   },
   "effroyable_sentence": {
     "nom": "Effroyable Sentence",
-    "type": "calibre_12",
+    "type": "fusil_precision",
     "fabricant": "Exotique",
     "portee": 0,
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": "",
+    "headshot": 0,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
@@ -3041,7 +3040,7 @@
     "degatsMax": 941287,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3155,7 +3154,7 @@
     "degatsMax": 960452,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3197,7 +3196,7 @@
     "degatsMax": 941287,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3218,7 +3217,7 @@
     "degatsMax": 941287,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3260,7 +3259,7 @@
     "degatsMax": 928531,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3386,7 +3385,7 @@
     "degatsMax": 123954,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3449,7 +3448,7 @@
     "degatsMax": 146232,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3596,7 +3595,7 @@
     "degatsMax": 88079,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3638,7 +3637,7 @@
     "degatsMax": 106709,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3785,7 +3784,7 @@
     "degatsMax": 116417,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3806,7 +3805,7 @@
     "degatsMax": 175929,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3848,7 +3847,7 @@
     "degatsMax": 90733,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3890,7 +3889,7 @@
     "degatsMax": 117275,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3911,28 +3910,7 @@
     "degatsMax": 117275,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
-  },
-  "backfire": {
-    "nom": "BACKFIRE",
-    "type": "pistolet_mitrailleur",
-    "fabricant": "SIG-SAUER",
-    "portee": 22,
-    "rpm": 850,
-    "chargeur": 56,
-    "rechargement": 2.27,
-    "headshot": 50,
-    "degatsBase": 50989,
-    "degatsMax": 117275,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -3974,7 +3952,7 @@
     "degatsMax": 110027,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -4058,7 +4036,7 @@
     "degatsMax": 245980,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -4067,7 +4045,7 @@
     ]
   },
   "m1a_socom": {
-    "nom": "M1A SOCOM*",
+    "nom": "M1A SOCOM",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
@@ -4088,7 +4066,7 @@
     ]
   },
   "m1a_cqb": {
-    "nom": "M1A CQB*",
+    "nom": "M1A CQB",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
@@ -4108,20 +4086,20 @@
       "chargeur"
     ]
   },
-  "cooler": {
-    "nom": "COOLER*",
+  "rafraichisseur": {
+    "nom": "RAFRAÎCHISSEUR",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
-    "rpm": 320,
-    "chargeur": 10,
-    "rechargement": 2.32,
-    "headshot": 60,
+    "rpm": 384,
+    "chargeur": 100,
+    "rechargement": 2.40,
+    "headshot": -100,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -4137,7 +4115,7 @@
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": "",
+    "headshot": 0,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
@@ -4186,7 +4164,7 @@
     "degatsMax": 531967,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -4228,7 +4206,7 @@
     "degatsMax": 231357,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -4265,7 +4243,7 @@
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": "",
+    "headshot": 0,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
@@ -4336,7 +4314,7 @@
     "degatsMax": 335375,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -4399,7 +4377,7 @@
     "degatsMax": 278594,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -4441,7 +4419,7 @@
     "degatsMax": 889852,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -4483,7 +4461,7 @@
     "degatsMax": 278627,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -4499,7 +4477,7 @@
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": "",
+    "headshot": 0,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
@@ -4629,13 +4607,13 @@
   },
   "sherif": {
     "nom": "Shérif",
-    "type": "fusil_assaut",
+    "type": "calibre_12",
     "fabricant": "Exotique",
     "portee": 0,
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": "",
+    "headshot": 0,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
@@ -4722,13 +4700,13 @@
   },
   "bittersweet": {
     "nom": "Bittersweet",
-    "type": "pistolet_mitrailleur",
+    "type": "fusil",
     "fabricant": "Exotique",
     "portee": 0,
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": "",
+    "headshot": 0,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
@@ -4965,7 +4943,7 @@
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": "",
+    "headshot": 0,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
@@ -5034,7 +5012,7 @@
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": "",
+    "headshot": 0,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
@@ -5120,13 +5098,13 @@
   },
   "tempest": {
     "nom": "Tempest",
-    "type": "fusil",
+    "type": "pistolet",
     "fabricant": "Exotique",
     "portee": 0,
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": "",
+    "headshot": 0,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
@@ -5189,13 +5167,13 @@
   },
   "contre_feu": {
     "nom": "Contre-feu",
-    "type": "calibre_12",
+    "type": "pistolet_mitrailleur",
     "fabricant": "Exotique",
     "portee": 0,
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": "",
+    "headshot": 0,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
@@ -5235,13 +5213,13 @@
   },
   "oxpecker": {
     "nom": "Oxpecker",
-    "type": "pistolet",
+    "type": "pistolet_mitrailleur",
     "fabricant": "Exotique",
     "portee": 0,
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": "",
+    "headshot": 0,
     "degatsBase": 0,
     "degatsMax": 0,
     "estExotique": true,
@@ -5249,53 +5227,6 @@
     "estNomme": false,
     "talents": [
       "symbiose"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
-  },
-  "forme_d_onde": {
-    "nom": "Forme d'onde",
-    "type": "fusil_assaut",
-    "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": "",
-    "degatsBase": 0,
-    "degatsMax": 0,
-    "estExotique": true,
-    "obtention": "Tier de compétence",
-    "estNomme": false,
-    "talents": [
-      "courant_alternatif"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "accessoire"
-    ]
-  },
-  "electrochoc": {
-    "nom": "Électrochoc",
-    "type": "pistolet",
-    "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": "",
-    "degatsBase": 0,
-    "degatsMax": 0,
-    "estExotique": true,
-    "obtention": "Protection",
-    "estNomme": false,
-    "talents": [
-      "defibrillator"
     ],
     "emplacementsMods": [
       "viseur",

@@ -1,13 +1,13 @@
 // Métadonnées — The Division 2
 {
   "titre": "Base de données française — The Division 2",
-  "version": "TU22 : Warlords Of New York",
+  "version": "TU : Y7S3.3",
   "derniereMiseAJour": "2026-03-02",
-  "maxExpertiseLevel": 20,
+  "maxExpertiseLevel": 30,
   "credits": [
-    "Rav",
+    "Raven",
     "Major45-FR",
-    "Marco888",
+    "marco888",
     "Squal_fr",
     "Franck-FR",
     "Saiyanns",

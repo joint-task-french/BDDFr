@@ -14,7 +14,7 @@ const OBTENTION_METHODS = [
 function hasObtentionContent(obt) {
   if (!obt || typeof obt !== 'object') return false
   if (obt.description && obt.description.trim()) return true
-  if (obt.schemasRepresail) return true
+  if (obt.represail) return true
   return OBTENTION_METHODS.some(m => obt[m.key] !== undefined)
 }
 
@@ -66,10 +66,10 @@ export default function ObtentionDisplay({ obtention }) {
         </div>
       )}
 
-      {obtention.schemasRepresail && (
+      {obtention.represail && (
         <div className="flex items-center gap-1.5 mt-1.5">
           <span className="text-xs px-2 py-0.5 rounded border bg-orange-500/20 text-orange-400 border-orange-500/30">
-            Schémas représailles : {obtention.schemasRepresail}
+            Schémas représailles : {obtention.represail}
           </span>
         </div>
       )}

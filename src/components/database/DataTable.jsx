@@ -36,7 +36,7 @@ function formatValue(val, col) {
         else if (typeof v === 'string' && v.length > 0) parts.push(`⚠ ${label}: ${v}`)
         else parts.push(`✕ ${label}`)
       }
-      if (val.schemasRepresail) parts.push(`Représailles: ${val.schemasRepresail}`)
+      if (val.represail) parts.push(`Représailles: ${val.represail}`)
       if (val.description && val.description.trim()) parts.push(val.description)
       return parts.length > 0 ? parts.join(' | ') : '—'
     }

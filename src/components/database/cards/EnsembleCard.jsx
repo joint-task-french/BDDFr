@@ -4,7 +4,7 @@ function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function EnsembleCard({ item, talentsEquipements }) {
+export default function EnsembleCard({ item, talentsEquipements, statistiques }) {
   const isGearSet = item.type === 'gear_set'
   const nameColor = isGearSet ? 'text-emerald-400' : 'text-shd'
   const borderColor = isGearSet ? 'border-l-emerald-500' : 'border-l-shd/50'
@@ -12,6 +12,19 @@ export default function EnsembleCard({ item, talentsEquipements }) {
   const bonusColor = isGearSet ? 'bg-emerald-500/15 text-emerald-400' : 'bg-shd/15 text-shd'
 
   const BASE = import.meta.env.BASE_URL
+
+  // Résoudre les slugs d'attributs essentiels vers leurs noms
+  const resolveAttrName = (slug) => {
+    if (!slug) return slug
+    // Chercher correspondance exacte
+    const stat = statistiques?.find(s => s.slug === slug)
+    if (stat) return stat.nom
+    // Chercher correspondance approximative (ex: tiers_de_competence → tiers_competence)
+    const normalized = slug.replace(/_de_/g, '_')
+    const approx = statistiques?.find(s => s.slug === normalized)
+    if (approx) return approx.nom
+    return slug
+  }
 
   return (
     <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`}>
@@ -41,7 +54,7 @@ export default function EnsembleCard({ item, talentsEquipements }) {
                 {item.attributsEssentiels.map((attr, i) => (
                   <span key={i} className="text-xs font-bold uppercase tracking-widest bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded flex items-center gap-1">
                     <GameIcon src={resolveAttributeIcon(attr)} alt="" size="w-3 h-3" />
-                    {attr}
+                    {resolveAttrName(attr)}
                   </span>
                 ))}
               </div>

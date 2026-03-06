@@ -33,7 +33,11 @@
             "type": "string",
             "enum": [
               "arme",
-              "equipement"
+              "equipement",
+              "mod_arme",
+              "mod_equipement",
+              "competence",
+              "mod_competence"
             ]
           },
           "minItems": 1

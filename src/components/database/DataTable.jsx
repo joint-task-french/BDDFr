@@ -25,6 +25,21 @@ function formatValue(val, col) {
   if (typeof val === 'boolean') return val ? '✔' : '✕'
   if (typeof val === 'object') {
     if (Array.isArray(val)) return val.join(', ')
+    // obtention object
+    if (col === 'obtention') {
+      const parts = []
+      const methods = { butinCible: 'Butin ciblé', cachesExotiques: 'Caches exotiques', mission: 'Mission', raid: 'Raid', incursion: 'Incursion' }
+      for (const [k, label] of Object.entries(methods)) {
+        const v = val[k]
+        if (v === undefined) continue
+        if (v === true) parts.push(`✔ ${label}`)
+        else if (typeof v === 'string' && v.length > 0) parts.push(`⚠ ${label}: ${v}`)
+        else parts.push(`✕ ${label}`)
+      }
+      if (val.schemasRepresail) parts.push(`Représailles: ${val.schemasRepresail}`)
+      if (val.description && val.description.trim()) parts.push(val.description)
+      return parts.length > 0 ? parts.join(' | ') : '—'
+    }
     // compatibilite object
     return Object.entries(val)
       .filter(([, v]) => v)

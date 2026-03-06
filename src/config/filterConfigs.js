@@ -14,6 +14,102 @@ function bounds(items, field, { step = 1, fallbackMin = 0, fallbackMax = 100 } =
 }
 
 // ================================================================
+// Options de tri réutilisables
+// Chaque option inclut directement sa direction (asc/desc).
+// ================================================================
+export const WEAPON_SORT_OPTIONS = [
+  { value: 'rarity_asc', label: 'Rareté ↑' },
+  { value: 'rarity_desc', label: 'Rareté ↓' },
+  { value: 'alpha_asc', label: 'Alphabétique A→Z' },
+  { value: 'alpha_desc', label: 'Alphabétique Z→A' },
+]
+
+export const GEAR_SORT_OPTIONS = [
+  { value: 'rarity_asc', label: 'Rareté ↑' },
+  { value: 'rarity_desc', label: 'Rareté ↓' },
+  { value: 'alpha_asc', label: 'Alphabétique A→Z' },
+  { value: 'alpha_desc', label: 'Alphabétique Z→A' },
+  { value: 'marque_asc', label: 'Marque A→Z' },
+  { value: 'marque_desc', label: 'Marque Z→A' },
+  { value: 'emplacement_asc', label: 'Emplacement A→Z' },
+  { value: 'emplacement_desc', label: 'Emplacement Z→A' },
+]
+
+export const GENERIC_SORT_OPTIONS = [
+  { value: 'alpha_asc', label: 'Alphabétique A→Z' },
+  { value: 'alpha_desc', label: 'Alphabétique Z→A' },
+]
+
+// estExotique=true → 2, estNomme=true → 1, arme_specifique → 3
+function weaponRarity(item) {
+  if (item.type === 'arme_specifique') return 3
+  if (item.estExotique) return 2
+  if (item.estNomme) return 1
+  return 0
+}
+
+function gearRarity(item) {
+  if (item.type === 'exotique') return 3
+  if (item.estNomme) return 2
+  if (item.type === 'gear_set') return 1
+  return 0
+}
+
+/** Parse "alpha_desc" → { base: "alpha", desc: true } */
+function parseSort(sortKey) {
+  if (!sortKey) return { base: 'alpha', desc: false }
+  const desc = sortKey.endsWith('_desc')
+  const base = sortKey.replace(/_(?:asc|desc)$/, '')
+  return { base, desc }
+}
+
+export function applySortWeapons(items, sortKey) {
+  const { base, desc } = parseSort(sortKey)
+  let sorted
+  if (base === 'rarity') {
+    sorted = [...items].sort((a, b) => {
+      const ra = weaponRarity(a), rb = weaponRarity(b)
+      if (ra !== rb) return ra - rb
+      return (a.nom || '').localeCompare(b.nom || '', 'fr')
+    })
+  } else {
+    sorted = [...items].sort((a, b) => (a.nom || '').localeCompare(b.nom || '', 'fr'))
+  }
+  return desc ? sorted.reverse() : sorted
+}
+
+export function applySortGear(items, sortKey) {
+  const { base, desc } = parseSort(sortKey)
+  let sorted
+  if (base === 'rarity') {
+    sorted = [...items].sort((a, b) => {
+      const ra = gearRarity(a), rb = gearRarity(b)
+      if (ra !== rb) return ra - rb
+      return (a.nom || '').localeCompare(b.nom || '', 'fr')
+    })
+  } else if (base === 'marque') {
+    sorted = [...items].sort((a, b) => {
+      const cmp = (a.marque || '').localeCompare(b.marque || '', 'fr')
+      return cmp !== 0 ? cmp : (a.nom || '').localeCompare(b.nom || '', 'fr')
+    })
+  } else if (base === 'emplacement') {
+    sorted = [...items].sort((a, b) => {
+      const cmp = (a.emplacement || '').localeCompare(b.emplacement || '', 'fr')
+      return cmp !== 0 ? cmp : (a.nom || '').localeCompare(b.nom || '', 'fr')
+    })
+  } else {
+    sorted = [...items].sort((a, b) => (a.nom || '').localeCompare(b.nom || '', 'fr'))
+  }
+  return desc ? sorted.reverse() : sorted
+}
+
+export function applySortGeneric(items, sortKey) {
+  const { desc } = parseSort(sortKey)
+  const sorted = [...items].sort((a, b) => (a.nom || a.variante || '').localeCompare(b.nom || b.variante || '', 'fr'))
+  return desc ? sorted.reverse() : sorted
+}
+
+// ================================================================
 // ARMES
 // ================================================================
 export function getWeaponFilters(data) {
@@ -233,3 +329,145 @@ export function applyModArmeFilters(items, filters) {
   })
 }
 
+// ================================================================
+// ENSEMBLES
+// ================================================================
+export function getEnsembleFilters(data) {
+  // Extraire les attributsEssentiels uniques depuis les ensembles
+  const statsSet = new Map()
+  const ensembles = data?.ensembles || []
+  const statistiques = data?.statistiques || []
+  for (const ens of ensembles) {
+    if (ens.attributsEssentiels) {
+      for (const slug of ens.attributsEssentiels) {
+        if (!statsSet.has(slug)) {
+          const stat = statistiques.find(s => s.slug === slug)
+          statsSet.set(slug, stat?.nom || slug)
+        }
+      }
+    }
+  }
+  const attrOptions = [...statsSet.entries()]
+    .sort((a, b) => a[1].localeCompare(b[1], 'fr'))
+    .map(([value, label]) => ({ value, label }))
+
+  return [
+    {
+      key: 'type', type: 'select', label: 'Type',
+      options: [
+        { value: 'gear_set', label: 'Gear Set' },
+        { value: 'marque', label: 'Marque' },
+      ],
+    },
+    {
+      key: 'attributEssentiel', type: 'select', label: 'Attribut essentiel',
+      options: attrOptions,
+    },
+  ]
+}
+
+export function getEnsembleDefaults() {
+  return { type: '', attributEssentiel: '' }
+}
+
+export function applyEnsembleFilters(items, filters) {
+  return items.filter(item => {
+    if (filters.type && item.type !== filters.type) return false
+    if (filters.attributEssentiel && !(Array.isArray(item.attributsEssentiels) && item.attributsEssentiels.includes(filters.attributEssentiel))) return false
+    return true
+  })
+}
+
+// ================================================================
+// ATTRIBUTS
+// ================================================================
+const CIBLE_OPTIONS = [
+  { value: 'arme', label: 'Armes' },
+  { value: 'equipement', label: 'Équipements' },
+  { value: 'mod_arme', label: "Mods d'armes" },
+  { value: 'mod_equipement', label: "Mods d'équipements" },
+  { value: 'competence', label: 'Compétences' },
+  { value: 'mod_competence', label: 'Mods de compétences' },
+]
+
+export function getAttributFilters(data) {
+  const attrType = data?.attributs_type || {}
+  const typeOptions = Object.entries(attrType).map(([value, obj]) => ({ value, label: obj.nom }))
+
+  // Statistiques uniques référencées par les attributs
+  const statistiques = data?.statistiques || []
+  const statOptions = statistiques
+    .map(s => ({ value: s.slug, label: s.nom }))
+    .sort((a, b) => a.label.localeCompare(b.label, 'fr'))
+
+  return [
+    { key: 'estEssentiel', type: 'toggle', label: 'Essentiels uniquement' },
+    {
+      key: 'categorie', type: 'select', label: 'Type',
+      options: typeOptions,
+    },
+    {
+      key: 'cible', type: 'select', label: 'Cible',
+      options: CIBLE_OPTIONS,
+    },
+    {
+      key: 'statistique', type: 'select', label: 'Statistique affectée',
+      options: statOptions,
+    },
+  ]
+}
+
+export function getAttributDefaults() {
+  return { estEssentiel: false, categorie: '', cible: '', statistique: '' }
+}
+
+export function applyAttributFilters(items, filters) {
+  return items.filter(item => {
+    if (filters.estEssentiel && !item.estEssentiel) return false
+    if (filters.categorie && item.categorie !== filters.categorie) return false
+    if (filters.cible && !(Array.isArray(item.cible) && item.cible.includes(filters.cible))) return false
+    if (filters.statistique && !(Array.isArray(item.statistiques) && item.statistiques.includes(filters.statistique))) return false
+    return true
+  })
+}
+
+// ================================================================
+// COMPÉTENCES
+// ================================================================
+export function getCompetenceFilters(data) {
+  // Extraire les compétences parentes uniques
+  const comps = data?.competencesGrouped || data?.competences || []
+  let parentOptions = []
+  if (Array.isArray(comps) && comps.length > 0) {
+    // Si groupé (a .variantes), extraire les parents
+    if (comps[0]?.variantes) {
+      parentOptions = comps
+        .map(c => ({ value: c.competence, label: c.competence }))
+        .sort((a, b) => a.label.localeCompare(b.label, 'fr'))
+    } else {
+      // Si aplati, extraire les compétences uniques
+      const unique = [...new Set(comps.map(c => c.competence).filter(Boolean))]
+      parentOptions = unique
+        .sort((a, b) => a.localeCompare(b, 'fr'))
+        .map(c => ({ value: c, label: c }))
+    }
+  }
+
+  return [
+    {
+      key: 'competence', type: 'select', label: 'Compétence',
+      options: parentOptions,
+    },
+  ]
+}
+
+export function getCompetenceDefaults() {
+  return { competence: '' }
+}
+
+export function applyCompetenceFilters(items, filters) {
+  return items.filter(item => {
+    if (filters.competence && item.competence !== filters.competence) return false
+    return true
+  })
+}

@@ -35,9 +35,11 @@ function FieldRenderer({ field, value, onChange, onSelect, suggestions }) {
     case 'textarea': return <TextArea field={field} value={value} onChange={onChange} />
     case 'number': return <NumberInput field={field} value={value} onChange={onChange} />
     case 'boolean': return <BooleanInput field={field} value={value} onChange={onChange} />
+    case 'triState': return <TriStateInput field={field} value={value} onChange={onChange} />
     case 'enum': return <EnumInput field={field} value={value} onChange={onChange} />
     case 'array': return <ArrayInput field={field} value={value} onChange={onChange} />
     case 'objectArray': return <ObjectArrayInput field={field} value={value} onChange={onChange} suggestions={suggestions} />
+    case 'objectGroup': return <ObjectGroupInput field={field} value={value} onChange={onChange} suggestions={suggestions} />
     case 'checkboxMap': return <CheckboxMapInput field={field} value={value} onChange={onChange} />
     case 'radioGroup': return <RadioGroupInput field={field} value={value} onChange={onChange} />
     case 'tagSelect': return <TagSelectInput field={field} value={value} onChange={onChange} suggestions={suggestions} />
@@ -131,6 +133,66 @@ function BooleanInput({ field, value, onChange }) {
       <input type="checkbox" checked={!!value} onChange={e => onChange(e.target.checked)} className="sr-only" />
       <span className="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">{field.label}</span>
     </label>
+  )
+}
+
+/** Champ tri-état : false (indisponible) → true (disponible) → string (conditionnel). */
+function TriStateInput({ field, value, onChange }) {
+  const status = typeof value === 'string' && value.length > 0 ? 'conditional' : value === true ? 'available' : 'unavailable'
+
+  const cycle = () => {
+    if (status === 'unavailable') onChange(true)
+    else if (status === 'available') onChange('')  // passe en mode conditionnel (string vide = prêt à taper)
+    else onChange(false) // retour à indisponible
+  }
+
+  return (
+    <div className="space-y-1">
+      <div className="flex items-center gap-2.5">
+        <button type="button" onClick={cycle}
+          className={`relative inline-flex items-center justify-center w-5 h-5 rounded border-2 transition-all shrink-0 ${
+            status === 'available' ? 'bg-green-500/20 border-green-500 text-green-400' :
+            status === 'conditional' ? 'bg-amber-500/20 border-amber-500 text-amber-400' :
+            'bg-tactical-bg border-tactical-border hover:border-gray-500'
+          }`}
+        >
+          {status === 'available' && (
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          )}
+          {status === 'conditional' && (
+            <span className="text-xs font-bold leading-none">?</span>
+          )}
+          {status === 'unavailable' && (
+            <svg className="w-3 h-3 text-red-400/60" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          )}
+        </button>
+        <span className={`text-sm transition-colors ${
+          status === 'available' ? 'text-green-400' :
+          status === 'conditional' ? 'text-amber-400' :
+          'text-gray-500'
+        }`}>
+          {field.label}
+          <span className="ml-1.5 text-xs opacity-60">
+            {status === 'available' && '(disponible)'}
+            {status === 'unavailable' && '(indisponible)'}
+            {status === 'conditional' && '(conditionnel)'}
+          </span>
+        </span>
+      </div>
+      {status === 'conditional' && (
+        <input
+          type="text"
+          value={typeof value === 'string' ? value : ''}
+          onChange={e => onChange(e.target.value)}
+          placeholder="Décrivez les conditions..."
+          className={`${inputClass} ml-7`}
+        />
+      )}
+    </div>
   )
 }
 
@@ -412,75 +474,29 @@ function ArrayInput({ field, value, onChange }) {
   )
 }
 
-function ObjectArrayInput({ field, value, onChange, suggestions }) {
-  const items = Array.isArray(value) ? value : []
+/** Groupe de sous-champs formant un objet. Ex: obtention { description, butinCible, ... } */
+function ObjectGroupInput({ field, value, onChange, suggestions }) {
+  const obj = value && typeof value === 'object' ? value : {}
   const subFields = field.fields || []
 
-  const add = () => {
-    const empty = {}
-    subFields.forEach(f => { empty[f.key] = '' })
-    onChange([...items, empty])
-  }
-  const remove = (i) => onChange(items.filter((_, idx) => idx !== i))
-  const update = (i, key, v) => {
-    const arr = [...items]
-    const sf = subFields.find(f => f.key === key)
-    arr[i] = { ...arr[i], [key]: sf?.type === 'number' ? (v === '' ? '' : Number(v)) : v }
-    onChange(arr)
+  const updateField = (key, val) => {
+    onChange({ ...obj, [key]: val })
   }
 
   return (
     <div>
       <FieldLabel field={field} />
-      <div className="space-y-2">
-        {items.map((item, i) => (
-          <div key={i} className="flex gap-1.5 items-end bg-tactical-bg/50 rounded p-2 border border-tactical-border/30">
-            {subFields.map(sf => (
-              <div key={sf.key} className="flex-1 min-w-0">
-                <span className="text-xs text-gray-600 uppercase">{sf.label}</span>
-                {sf.type === 'autocomplete' ? (
-                  <AutocompleteInput
-                    field={sf}
-                    value={item[sf.key] || ''}
-                    onChange={v => update(i, sf.key, v)}
-                    suggestions={suggestions}
-                  />
-                ) : (
-                  <input
-                    type={sf.type === 'number' ? 'number' : 'text'}
-                    value={item[sf.key] ?? ''}
-                    onChange={e => {
-                      if (sf.type === 'number') {
-                        const raw = e.target.value.replace(',', '.')
-                        if (raw === '' || raw === '-' || raw === '.' || /^-?\d*\.?\d*$/.test(raw)) update(i, sf.key, raw)
-                      } else {
-                        update(i, sf.key, e.target.value)
-                      }
-                    }}
-                    onKeyDown={sf.type === 'number' ? (e) => {
-                      const allowed = ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End']
-                      if (allowed.includes(e.key)) return
-                      if ((e.ctrlKey || e.metaKey) && ['a', 'c', 'v', 'x', 'z'].includes(e.key.toLowerCase())) return
-                      if (/^[0-9.\-,]$/.test(e.key)) return
-                      e.preventDefault()
-                    } : undefined}
-                    step={sf.type === 'number' ? (sf.step || 'any') : undefined}
-                    className={`${inputClass} text-xs py-1`}
-                  />
-                )}
-              </div>
-            ))}
-            <button type="button" onClick={() => remove(i)}
-              className="text-red-400 hover:text-red-300 text-xs px-1.5 py-1 border border-red-500/30 rounded hover:bg-red-500/10 transition-colors shrink-0">
-              ✕
-            </button>
-          </div>
+      <div className="bg-tactical-bg/50 rounded border border-tactical-border/30 p-3 space-y-2.5">
+        {subFields.map(sf => (
+          <FieldRenderer
+            key={sf.key}
+            field={sf}
+            value={obj[sf.key]}
+            onChange={v => updateField(sf.key, v)}
+            suggestions={suggestions}
+          />
         ))}
       </div>
-      <button type="button" onClick={add}
-        className="mt-1.5 text-xs text-shd/60 hover:text-shd uppercase tracking-widest transition-colors">
-        + Ajouter
-      </button>
     </div>
   )
 }
@@ -516,11 +532,5 @@ function CheckboxMapInput({ field, value, onChange }) {
     </div>
   )
 }
-
-
-
-
-
-
 
 

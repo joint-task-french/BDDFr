@@ -10,6 +10,10 @@ const CATEGORIE_COLORS = {
 const CIBLE_LABELS = {
   arme: 'Armes',
   equipement: 'Équipements',
+  mod_arme: "Mods d'armes",
+  mod_equipement: "Mods d'équipements",
+  competence: 'Compétences',
+  mod_competence: 'Mods de compétences',
 }
 
 export default function AttributCard({ item, attributsType }) {

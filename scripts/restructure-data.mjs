@@ -24,7 +24,7 @@ function writeJsonc(name, obj, comment = '') {
 
 // ========== ARMES : fusionner classiques + exotiques ==========
 console.log('\n=== Fusion armes + armes exotiques ===');
-const armes = readJsonc('armes.jsonc').map(a => ({ ...a, estExotique: false, talent1: '', talent2: '', obtention: '' }));
+const armes = readJsonc('armes.jsonc').map(a => ({ ...a, estExotique: false, talent1: '', talent2: '', obtention: { description: '', butinCible: false, cachesExotiques: false, mission: false, raid: false, incursion: false } }));
 const armesExo = readJsonc('armes-exotiques.jsonc');
 
 // Mapping typeArme texte libre → enum normalisé
@@ -58,7 +58,7 @@ const armesExoFormatted = armesExo
     estExotique: true,
     talent1: e.talent1 || '',
     talent2: e.talent2 || '',
-    obtention: e.obtention || '',
+    obtention: e.obtention ? { description: e.obtention, butinCible: false, cachesExotiques: false, mission: false, raid: false, incursion: false } : { description: '', butinCible: false, cachesExotiques: false, mission: false, raid: false, incursion: false },
   }));
 
 const allArmes = [...armes, ...armesExoFormatted];
@@ -71,7 +71,7 @@ const equips = readJsonc('equipements.jsonc').map(e => ({
   estExotique: false,
   talent1: '',
   talent2: '',
-  obtention: '',
+  obtention: { description: '', butinCible: false, cachesExotiques: false, mission: false, raid: false, incursion: false },
 }));
 const equipsExo = readJsonc('equipements-exotiques.jsonc');
 
@@ -91,7 +91,7 @@ const equipsExoFormatted = equipsExo
     estExotique: true,
     talent1: e.talent1 || '',
     talent2: e.talent2 || '',
-    obtention: e.obtention || '',
+    obtention: e.obtention ? { description: e.obtention, butinCible: false, cachesExotiques: false, mission: false, raid: false, incursion: false } : { description: '', butinCible: false, cachesExotiques: false, mission: false, raid: false, incursion: false },
   }));
 
 const allEquips = [...equips, ...equipsExoFormatted];

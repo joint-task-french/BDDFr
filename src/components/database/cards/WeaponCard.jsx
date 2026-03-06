@@ -1,6 +1,7 @@
 import { getWeaponTypeLabel, getWeaponEssentialAttributes } from '../../../utils/formatters'
 import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
+import ObtentionDisplay from './ObtentionDisplay'
 
 function fmt(n) {
   if (!n) return '—'
@@ -131,14 +132,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
       )}
 
       {/* Obtention */}
-      {hasContent(item.obtention) && (
-        <div className="px-4 py-2 border-t border-tactical-border/50">
-          <div className="text-xs text-gray-500 leading-relaxed">
-            <span className="text-gray-400 font-bold uppercase tracking-widest text-xs">Obtention : </span>
-            {item.obtention}
-          </div>
-        </div>
-      )}
+      <ObtentionDisplay obtention={item.obtention} />
     </div>
   )
 }

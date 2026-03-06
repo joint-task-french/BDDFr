@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { getGearSlotLabel, getAttrCategoryLabel } from '../../../utils/formatters'
 import {GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, GameIcon, resolveIcon} from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
+import ObtentionDisplay from './ObtentionDisplay'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-' && v !== 'FALSE' && v !== 'TRUE'
@@ -165,14 +166,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
       )}
 
       {/* Obtention */}
-      {hasContent(item.obtention) && (
-        <div className="px-4 py-2 border-t border-tactical-border/50">
-          <div className="text-xs text-gray-500">
-            <span className="text-gray-400 font-bold uppercase tracking-widest text-xs">Obtention : </span>
-            {item.obtention}
-          </div>
-        </div>
-      )}
+      <ObtentionDisplay obtention={item.obtention} />
     </div>
   )
 }

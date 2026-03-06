@@ -103,7 +103,15 @@ export const FIELDS = {
         { value: 'accessoire', label: 'Accessoire', color: 'yellow' },
       ]},
       { key: 'modsPredefinis', label: 'Mods prédéfinis (exotiques)', type: 'autocomplete_array', suggestionsKey: 'modsArmes', placeholder: 'Rechercher un mod...', visibleWhen: { key: '_rarity', value: 'exo' } },
-      { key: 'obtention', label: 'Obtention', type: 'text' },
+      { key: 'obtention', label: 'Obtention', type: 'objectGroup', fields: [
+        { key: 'description', label: 'Description', type: 'textarea' },
+        { key: 'butinCible', label: 'Butin ciblé', type: 'triState' },
+        { key: 'cachesExotiques', label: 'Caches exotiques', type: 'boolean' },
+        { key: 'mission', label: 'Mission', type: 'triState' },
+        { key: 'raid', label: 'Raid', type: 'triState' },
+        { key: 'incursion', label: 'Incursion', type: 'triState' },
+        { key: 'schemasRepresail', label: 'Schémas représailles (faction)', type: 'text', placeholder: 'Nom de la faction (optionnel)' },
+      ]},
       { key: 'icone', label: 'Icône (slug)', type: 'text', placeholder: 'nom_fichier_sans_extension' },
     ],
   },
@@ -127,7 +135,15 @@ export const FIELDS = {
         { value: 'gear_set', label: 'Gear Set', color: 'green' },
       ]},
       { key: 'estNomme', label: 'Nommé', type: 'boolean', hiddenWhen: { key: 'type', value: 'exotique' } },
-      { key: 'obtention', label: 'Obtention', type: 'text' },
+      { key: 'obtention', label: 'Obtention', type: 'objectGroup', fields: [
+        { key: 'description', label: 'Description', type: 'textarea' },
+        { key: 'butinCible', label: 'Butin ciblé', type: 'triState' },
+        { key: 'cachesExotiques', label: 'Caches exotiques', type: 'boolean' },
+        { key: 'mission', label: 'Mission', type: 'triState' },
+        { key: 'raid', label: 'Raid', type: 'triState' },
+        { key: 'incursion', label: 'Incursion', type: 'triState' },
+        { key: 'schemasRepresail', label: 'Schémas représailles (faction)', type: 'text', placeholder: 'Nom de la faction (optionnel)' },
+      ]},
       { key: 'attributUnique', label: 'Attribut unique', type: 'text' },
     ],
   },
@@ -482,6 +498,19 @@ export function getDefaults(categoryKey) {
         defaults[field.key] = {}
         field.keys?.forEach(k => { defaults[field.key][k.key] = false })
         break
+      case 'objectGroup':
+        defaults[field.key] = {}
+        if (field.fields) {
+          for (const sf of field.fields) {
+            switch (sf.type) {
+              case 'boolean':
+              case 'triState': defaults[field.key][sf.key] = false; break
+              case 'number': defaults[field.key][sf.key] = ''; break
+              default: defaults[field.key][sf.key] = ''; break
+            }
+          }
+        }
+        break
       case 'radioGroup': defaults[field.key] = ''; break
       default: defaults[field.key] = ''; break
     }
@@ -531,6 +560,41 @@ export function cleanOutput(data, categoryKey) {
       const any = Object.values(val || {}).some(Boolean)
       if (!any) continue
       result[field.key] = val
+      continue
+    }
+    if (field.type === 'objectGroup') {
+      if (val && typeof val === 'object') {
+        const cleaned = {}
+        for (const sf of (field.fields || [])) {
+          const sv = val[sf.key]
+          if (sf.type === 'number' && sv !== '' && sv !== undefined) {
+            cleaned[sf.key] = Number(sv)
+          } else if (sf.type === 'boolean') {
+            // boolean: n'inclure que si true
+            if (sv === true) cleaned[sf.key] = true
+          } else if (sf.type === 'triState') {
+            // triState: n'inclure que si true ou string non vide (false = absent)
+            if (typeof sv === 'string' && sv.trim().length > 0) {
+              cleaned[sf.key] = sv.trim()
+            } else if (sv === true) {
+              cleaned[sf.key] = true
+            }
+          } else if (sf.type === 'textarea') {
+            // textarea: n'inclure que si non vide
+            if (sv && String(sv).trim()) cleaned[sf.key] = String(sv).trim()
+          } else {
+            if (sv) cleaned[sf.key] = sv
+          }
+        }
+        // Remove optional string fields that are empty
+        for (const sf of (field.fields || [])) {
+          if (sf.type === 'text' && !cleaned[sf.key]) delete cleaned[sf.key]
+        }
+        // N'inclure le groupe que s'il contient au moins un sous-champ
+        if (Object.keys(cleaned).length > 0) {
+          result[field.key] = cleaned
+        }
+      }
       continue
     }
     if (field.type === 'number' && val !== '') {

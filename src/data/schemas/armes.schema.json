@@ -122,8 +122,50 @@
           }
         },
         "obtention": {
-          "type": "string",
-          "description": "Comment obtenir l'arme"
+          "type": "object",
+          "description": "Comment obtenir l'arme",
+          "properties": {
+            "description": {
+              "type": "string",
+              "description": "Description de comment obtenir l'objet (peut être vide)"
+            },
+            "butinCible": {
+              "oneOf": [
+                { "type": "boolean" },
+                { "type": "string", "minLength": 1 }
+              ],
+              "description": "Disponible via butin ciblé — true/false ou string décrivant les conditions"
+            },
+            "cachesExotiques": {
+              "type": "boolean",
+              "description": "Disponible via caches exotiques"
+            },
+            "mission": {
+              "oneOf": [
+                { "type": "boolean" },
+                { "type": "string", "minLength": 1 }
+              ],
+              "description": "Disponible via une mission — true/false ou string décrivant les conditions"
+            },
+            "raid": {
+              "oneOf": [
+                { "type": "boolean" },
+                { "type": "string", "minLength": 1 }
+              ],
+              "description": "Disponible via un raid — true/false ou string décrivant les conditions"
+            },
+            "incursion": {
+              "oneOf": [
+                { "type": "boolean" },
+                { "type": "string", "minLength": 1 }
+              ],
+              "description": "Disponible via une incursion — true/false ou string décrivant les conditions"
+            },
+            "schemasRepresail": {
+              "type": "string",
+              "description": "Nom de la faction pour schémas représailles (optionnel)"
+            }
+          }
         },
         "emplacementsMods": {
           "type": "array",

@@ -112,7 +112,7 @@ f7.data.forEach(r => {
       emplacement,
       talent1: (r['Colonne_4'] || '').trim(),
       talent2: (r['Colonne_5'] || '').trim(),
-      obtention: (r['Colonne_6'] || '').trim()
+      obtention: { description: (r['Colonne_6'] || '').trim(), butinCible: false, cachesExotiques: false, mission: false, raid: false, incursion: false }
     });
   } else {
     armesExotiques.push({
@@ -120,7 +120,7 @@ f7.data.forEach(r => {
       typeArme: typeCol,
       talent1: (r['Colonne_4'] || '').trim(),
       talent2: (r['Colonne_5'] || '').trim(),
-      obtention: (r['Colonne_6'] || '').trim()
+      obtention: { description: (r['Colonne_6'] || '').trim(), butinCible: false, cachesExotiques: false, mission: false, raid: false, incursion: false }
     });
   }
 });

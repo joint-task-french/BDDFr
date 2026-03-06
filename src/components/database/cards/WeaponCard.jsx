@@ -47,15 +47,18 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
       {/* Header : Nom + Type + Fabricant */}
       <div className="px-4 py-3 border-b border-tactical-border/50 flex flex-row gap-2">
         <GameIcon src={typeIcon} alt={item.type} size="w-10 h-10" className="opacity-60" />
-        <div>
-          <div className="flex items-center gap-2">
-            {isExotic && <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
-            {isNamed && <span className="text-xs font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
-            {isSpecific && <span className="text-xs font-bold text-purple-400 bg-purple-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Arme spécifique</span>}
-          </div>
-          <div className={`font-bold text-base uppercase tracking-wide ${(isExotic || isNamed || isSpecific) ? 'mt-1' : ''} ${nameColor} flex items-center gap-2`}>
-            {isExotic && <span className="mr-0.5">★</span>}
-            {item.nom}
+        <div className="w-full">
+          <div className={`font-bold text-base uppercase tracking-wide ${nameColor} flex items-center gap-2 justify-between`}>
+            <span>
+              {isExotic && <span className="mr-0.5">★</span>}
+              {item.nom}
+            </span>
+
+            <div className="flex items-center gap-2">
+              {isExotic && <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
+              {isNamed && <span className="text-xs font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
+              {isSpecific && <span className="text-xs font-bold text-purple-400 bg-purple-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Arme spécifique</span>}
+            </div>
           </div>
           <div className="flex items-center gap-2 text-xs text-gray-500 mt-0.5">
             <span>{getWeaponTypeLabel(armesType, item.type)}</span>

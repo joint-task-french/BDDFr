@@ -28,7 +28,12 @@
         "attributsEssentiels": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "offensif",
+              "défensif",
+              "utilitaire"
+            ]
           }
         },
         "bonus1piece": {

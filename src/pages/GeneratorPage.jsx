@@ -336,8 +336,8 @@ export default function GeneratorPage() {
       </div>
 
       {/* Category tabs */}
-      <div className="px-2 sm:px-4 py-3 border-b border-tactical-border bg-tactical-panel/30 overflow-x-auto">
-        <div className="flex gap-1.5 min-w-max">
+      <div className="px-2 sm:px-4 py-3 border-b border-tactical-border bg-tactical-panel/30">
+        <div className="flex flex-wrap gap-1.5">
           {GENERATOR_CATEGORIES.map(cat => {
             const catSaved = savedItems[cat.key]?.length || 0
             return (

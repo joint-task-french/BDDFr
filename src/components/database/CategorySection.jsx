@@ -9,16 +9,16 @@ import AttributCard from './cards/AttributCard'
 
 // Layout grids par catégorie
 const GRID_CONFIG = {
-  armes:             'grid-cols-1 lg:grid-cols-2',
-  equipements:       'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
-  attributs:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
-  talentsArmes:      'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
-  talentsEquipements:'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
-  ensembles:         'grid-cols-1 sm:grid-cols-2',
-  competences:       'grid-cols-1 sm:grid-cols-2',
-  modsArmes:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
-  modsEquipements:   'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
-  modsCompetences:   'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
+  armes:             'grid-cols-1 lg:grid-cols-2 3xl:grid-cols-3',
+  equipements:       'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
+  attributs:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
+  talentsArmes:      'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
+  talentsEquipements:'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
+  ensembles:         'grid-cols-1 sm:grid-cols-2 3xl:grid-cols-3',
+  competences:       'grid-cols-1 sm:grid-cols-2 3xl:grid-cols-3',
+  modsArmes:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
+  modsEquipements:   'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
+  modsCompetences:   'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
 }
 
 // Quel composant card pour chaque catégorie

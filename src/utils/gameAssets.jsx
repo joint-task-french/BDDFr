@@ -147,6 +147,8 @@ export function GameIcon({ src, alt = '', size = 'w-5 h-5', className = '' }) {
     <img
       src={src}
       alt={alt}
+      loading="lazy"
+      decoding="async"
       className={`${size} object-contain shrink-0 ${className}`}
       onError={(e) => { e.target.style.display = 'none' }}
     />

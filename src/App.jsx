@@ -1,18 +1,25 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
-import DatabasePage from './pages/DatabasePage'
-import BuildPlannerPage from './pages/BuildPlannerPage'
-import ChangelogPage from './pages/ChangelogPage'
-import GeneratorPage from './pages/GeneratorPage'
+import Loader from './components/common/Loader'
+
+const DatabasePage = lazy(() => import('./pages/DatabasePage'))
+const BuildPlannerPage = lazy(() => import('./pages/BuildPlannerPage'))
+const ChangelogPage = lazy(() => import('./pages/ChangelogPage'))
+const GeneratorPage = lazy(() => import('./pages/GeneratorPage'))
+
+function SuspensePage({ children }) {
+  return <Suspense fallback={<Loader />}>{children}</Suspense>
+}
 
 export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route index element={<DatabasePage />} />
-        <Route path="build" element={<BuildPlannerPage />} />
-        <Route path="changelog" element={<ChangelogPage />} />
-        <Route path="generator" element={<GeneratorPage />} />
+        <Route index element={<SuspensePage><DatabasePage /></SuspensePage>} />
+        <Route path="build" element={<SuspensePage><BuildPlannerPage /></SuspensePage>} />
+        <Route path="changelog" element={<SuspensePage><ChangelogPage /></SuspensePage>} />
+        <Route path="generator" element={<SuspensePage><GeneratorPage /></SuspensePage>} />
       </Route>
     </Routes>
   )

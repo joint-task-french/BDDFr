@@ -474,6 +474,59 @@ function ArrayInput({ field, value, onChange }) {
   )
 }
 
+/** Tableau d'objets avec sous-champs. Ex: attributs [{ nom, valeur }, ...] */
+function ObjectArrayInput({ field, value, onChange, suggestions }) {
+  const items = Array.isArray(value) ? value : []
+  const subFields = field.fields || []
+
+  const add = () => {
+    const empty = {}
+    for (const sf of subFields) {
+      empty[sf.key] = sf.type === 'number' ? '' : ''
+    }
+    onChange([...items, empty])
+  }
+
+  const remove = (i) => onChange(items.filter((_, idx) => idx !== i))
+
+  const update = (i, key, val) => {
+    const arr = [...items]
+    arr[i] = { ...arr[i], [key]: val }
+    onChange(arr)
+  }
+
+  return (
+    <div>
+      <FieldLabel field={field} />
+      <div className="space-y-2">
+        {items.map((item, i) => (
+          <div key={i} className="flex items-start gap-1.5 bg-tactical-bg/50 rounded border border-tactical-border/30 p-2">
+            <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {subFields.map(sf => (
+                <FieldRenderer
+                  key={sf.key}
+                  field={sf}
+                  value={item[sf.key]}
+                  onChange={v => update(i, sf.key, v)}
+                  suggestions={suggestions}
+                />
+              ))}
+            </div>
+            <button type="button" onClick={() => remove(i)}
+              className="text-red-400 hover:text-red-300 text-xs px-2 py-1 border border-red-500/30 rounded hover:bg-red-500/10 transition-colors shrink-0 mt-5">
+              ✕
+            </button>
+          </div>
+        ))}
+      </div>
+      <button type="button" onClick={add}
+        className="mt-1.5 text-xs text-shd/60 hover:text-shd uppercase tracking-widest transition-colors">
+        + Ajouter
+      </button>
+    </div>
+  )
+}
+
 /** Groupe de sous-champs formant un objet. Ex: obtention { description, butinCible, ... } */
 function ObjectGroupInput({ field, value, onChange, suggestions }) {
   const obj = value && typeof value === 'object' ? value : {}
@@ -532,5 +585,6 @@ function CheckboxMapInput({ field, value, onChange }) {
     </div>
   )
 }
+
 
 

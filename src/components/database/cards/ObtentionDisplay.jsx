@@ -15,7 +15,7 @@ function hasObtentionContent(obt) {
   if (!obt || typeof obt !== 'object') return false
   if (obt.description && obt.description.trim()) return true
   if (obt.represailles) return true
-  return OBTENTION_METHODS.some(m => obt[m.key] !== undefined)
+  return OBTENTION_METHODS.some(m => obt[m.key] !== undefined && obt[m.key] !== null)
 }
 
 function getMethodStatus(value) {
@@ -27,7 +27,7 @@ function getMethodStatus(value) {
 export default function ObtentionDisplay({ obtention }) {
   if (!hasObtentionContent(obtention)) return null
 
-  const presentMethods = OBTENTION_METHODS.filter(m => obtention[m.key] !== undefined)
+  const presentMethods = OBTENTION_METHODS.filter(m => obtention[m.key] !== undefined && obtention[m.key] !== null)
 
   return (
     <div className="px-4 py-2 border-t border-tactical-border/50">

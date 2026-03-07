@@ -136,14 +136,25 @@ function BooleanInput({ field, value, onChange }) {
   )
 }
 
-/** Champ tri-état : false (indisponible) → true (disponible) → string (conditionnel). */
+/**
+ * Champ tri-état étendu :
+ *   null/undefined → non défini (absent du JSON)
+ *   true           → vrai (booléen)
+ *   false          → faux (booléen, explicitement présent dans le JSON)
+ *   string         → texte personnalisé
+ * Cycle bouton : null → true → false → string → null
+ */
 function TriStateInput({ field, value, onChange }) {
-  const status = typeof value === 'string' && value.length > 0 ? 'conditional' : value === true ? 'available' : 'unavailable'
+  const status = typeof value === 'string' ? 'string'
+    : value === true ? 'true'
+    : value === false ? 'false'
+    : 'null'
 
   const cycle = () => {
-    if (status === 'unavailable') onChange(true)
-    else if (status === 'available') onChange('')  // passe en mode conditionnel (string vide = prêt à taper)
-    else onChange(false) // retour à indisponible
+    if (status === 'null') onChange(true)
+    else if (status === 'true') onChange(false)
+    else if (status === 'false') onChange('')   // → mode texte (string vide)
+    else onChange(null)                         // string → retour à null
   }
 
   return (
@@ -151,45 +162,52 @@ function TriStateInput({ field, value, onChange }) {
       <div className="flex items-center gap-2.5">
         <button type="button" onClick={cycle}
           className={`relative inline-flex items-center justify-center w-5 h-5 rounded border-2 transition-all shrink-0 ${
-            status === 'available' ? 'bg-green-500/20 border-green-500 text-green-400' :
-            status === 'conditional' ? 'bg-amber-500/20 border-amber-500 text-amber-400' :
+            status === 'true' ? 'bg-green-500/20 border-green-500 text-green-400' :
+            status === 'false' ? 'bg-red-500/20 border-red-500 text-red-400' :
+            status === 'string' ? 'bg-amber-500/20 border-amber-500 text-amber-400' :
             'bg-tactical-bg border-tactical-border hover:border-gray-500'
           }`}
         >
-          {status === 'available' && (
+          {status === 'true' && (
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
             </svg>
           )}
-          {status === 'conditional' && (
-            <span className="text-xs font-bold leading-none">?</span>
-          )}
-          {status === 'unavailable' && (
-            <svg className="w-3 h-3 text-red-400/60" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+          {status === 'false' && (
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           )}
+          {status === 'string' && (
+            <span className="text-xs font-bold leading-none">T</span>
+          )}
+          {status === 'null' && (
+            <span className="w-2 h-0.5 bg-gray-600 rounded-full" />
+          )}
         </button>
         <span className={`text-sm transition-colors ${
-          status === 'available' ? 'text-green-400' :
-          status === 'conditional' ? 'text-amber-400' :
+          status === 'true' ? 'text-green-400' :
+          status === 'false' ? 'text-red-400' :
+          status === 'string' ? 'text-amber-400' :
           'text-gray-500'
         }`}>
           {field.label}
           <span className="ml-1.5 text-xs opacity-60">
-            {status === 'available' && '(disponible)'}
-            {status === 'unavailable' && '(indisponible)'}
-            {status === 'conditional' && '(conditionnel)'}
+            {status === 'true' && '(vrai)'}
+            {status === 'false' && '(faux)'}
+            {status === 'string' && '(texte)'}
+            {status === 'null' && '(non défini)'}
           </span>
         </span>
       </div>
-      {status === 'conditional' && (
+      {status === 'string' && (
         <input
           type="text"
-          value={typeof value === 'string' ? value : ''}
+          value={value}
           onChange={e => onChange(e.target.value)}
           placeholder="Décrivez les conditions..."
           className={`${inputClass} ml-7`}
+          autoFocus
         />
       )}
     </div>

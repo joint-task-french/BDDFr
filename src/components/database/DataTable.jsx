@@ -31,10 +31,10 @@ function formatValue(val, col) {
       const methods = { butinCible: 'Butin ciblé', cachesExotiques: 'Caches exotiques', mission: 'Mission', raid: 'Raid', incursion: 'Incursion' }
       for (const [k, label] of Object.entries(methods)) {
         const v = val[k]
-        if (v === undefined) continue
+        if (v === undefined || v === null) continue
         if (v === true) parts.push(`✔ ${label}`)
         else if (typeof v === 'string' && v.length > 0) parts.push(`⚠ ${label}: ${v}`)
-        else parts.push(`✕ ${label}`)
+        else if (v === false) parts.push(`✕ ${label}`)
       }
       if (val.represailles) parts.push(`Faction pour schemas Représailles: ${val.represailles}`)
       if (val.description && val.description.trim()) parts.push(val.description)

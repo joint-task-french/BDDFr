@@ -105,7 +105,7 @@ export const FIELDS = {
       { key: 'obtention', label: 'Obtention', type: 'objectGroup', fields: [
         { key: 'description', label: 'Description', type: 'textarea' },
         { key: 'butinCible', label: 'Butin ciblé', type: 'triState' },
-        { key: 'cachesExotiques', label: 'Caches exotiques', type: 'boolean' },
+        { key: 'cachesExotiques', label: 'Caches exotiques', type: 'triState' },
         { key: 'mission', label: 'Mission', type: 'triState' },
         { key: 'raid', label: 'Raid', type: 'triState' },
         { key: 'incursion', label: 'Incursion', type: 'triState' },
@@ -137,7 +137,7 @@ export const FIELDS = {
       { key: 'obtention', label: 'Obtention', type: 'objectGroup', fields: [
         { key: 'description', label: 'Description', type: 'textarea' },
         { key: 'butinCible', label: 'Butin ciblé', type: 'triState' },
-        { key: 'cachesExotiques', label: 'Caches exotiques', type: 'boolean' },
+        { key: 'cachesExotiques', label: 'Caches exotiques', type: 'triState' },
         { key: 'mission', label: 'Mission', type: 'triState' },
         { key: 'raid', label: 'Raid', type: 'triState' },
         { key: 'incursion', label: 'Incursion', type: 'triState' },
@@ -503,7 +503,8 @@ export function getDefaults(categoryKey) {
           for (const sf of field.fields) {
             switch (sf.type) {
               case 'boolean':
-              case 'triState': defaults[field.key][sf.key] = false; break
+                defaults[field.key][sf.key] = false; break
+              case 'triState': defaults[field.key][sf.key] = null; break
               case 'number': defaults[field.key][sf.key] = ''; break
               default: defaults[field.key][sf.key] = ''; break
             }
@@ -572,12 +573,15 @@ export function cleanOutput(data, categoryKey) {
             // boolean: n'inclure que si true
             if (sv === true) cleaned[sf.key] = true
           } else if (sf.type === 'triState') {
-            // triState: n'inclure que si true ou string non vide (false = absent)
+            // triState 4 états : null = absent, true = vrai, false = faux, string = texte
             if (typeof sv === 'string' && sv.trim().length > 0) {
               cleaned[sf.key] = sv.trim()
             } else if (sv === true) {
               cleaned[sf.key] = true
+            } else if (sv === false) {
+              cleaned[sf.key] = false
             }
+            // null/undefined → omis
           } else if (sf.type === 'textarea') {
             // textarea: n'inclure que si non vide
             if (sv && String(sv).trim()) cleaned[sf.key] = String(sv).trim()

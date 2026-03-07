@@ -99,7 +99,7 @@ export const FIELDS = {
         { value: 'chargeur', label: 'Chargeur', color: 'yellow' },
         { value: 'canon', label: 'Canon', color: 'red' },
         { value: 'viseur', label: 'Viseur', color: 'blue' },
-        { value: 'accessoire', label: 'Accessoire', color: 'yellow' },
+        { value: 'bouche', label: 'bouche', color: 'yellow' },
       ]},
       { key: 'modsPredefinis', label: 'Mods prédéfinis (exotiques)', type: 'autocomplete_array', suggestionsKey: 'modsArmes', placeholder: 'Rechercher un mod...', visibleWhen: { key: '_rarity', value: 'exo' } },
       { key: 'obtention', label: 'Obtention', type: 'objectGroup', fields: [
@@ -249,7 +249,7 @@ export const FIELDS = {
         { value: 'chargeur', label: 'Chargeur', color: 'yellow' },
         { value: 'canon', label: 'Canon', color: 'red' },
         { value: 'viseur', label: 'Viseur', color: 'blue' },
-        { value: 'accessoire', label: 'Accessoire', color: 'yellow' },
+        { value: 'bouche', label: 'bouche', color: 'yellow' },
         { value: 'autre', label: 'Autre', color: 'green' },
       ]},
       { key: 'compatible', label: 'Compatible avec', type: 'tagSelect', dynamicOptions: 'armesTypesCompat' },

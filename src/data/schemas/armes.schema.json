@@ -172,7 +172,7 @@
         },
         "emplacementsMods": {
           "type": "array",
-          "description": "Types de mods acceptés par l'arme (chargeur, canon, viseur, accessoire)",
+          "description": "Types de mods acceptés par l'arme (chargeur, canon, viseur, bouche)",
           "items": {
             "type": "string",
             "enum": [

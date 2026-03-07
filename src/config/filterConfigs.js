@@ -312,7 +312,7 @@ export function getModArmeFilters() {
         { value: 'chargeur', label: 'Chargeur' },
         { value: 'canon', label: 'Canon' },
         { value: 'viseur', label: 'Viseur' },
-        { value: 'accessoire', label: 'Accessoire' },
+        { value: 'bouche', label: 'bouche' },
       ],
     },
   ]

@@ -4,7 +4,7 @@ const TYPE_LABELS = {
   chargeur: 'Chargeur',
   canon: 'Canon',
   viseur: 'Viseur',
-  accessoire: 'Accessoire',
+  bouche: 'bouche',
   autre: 'Autre',
 }
 

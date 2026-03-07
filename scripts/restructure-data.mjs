@@ -171,7 +171,7 @@ function detectModType(nom) {
   if (n.includes('charg.') || n.includes('chargeur') || n.includes('tambour')) return 'chargeur';
   if (n.includes('canon') || n.includes('compensat') || n.includes('silenc') || n.includes('frein') || n.includes('flash') || n.includes('prolongé')) return 'canon';
   if (n.includes('viseur') || n.includes('lunette') || n.includes('optique') || n.includes('holographique') || n.includes('scope') || n.includes('reflex') || n.includes('acog') || n.includes('cqbss') || n.includes('mire') || n.includes('numériqu') || n.includes('t2 micro') || n.includes('vx1') || n.includes('c79') || n.includes('PRO Red Dot') || n.includes('russian') || n.includes('exps3') || n.includes('552 holo')) return 'viseur';
-  if (n.includes('laser') || n.includes('poignée') || n.includes('rail') || n.includes('grip') || n.includes('bipied') || n.includes('petit pointeur')) return 'accessoire';
+  if (n.includes('laser') || n.includes('poignée') || n.includes('rail') || n.includes('grip') || n.includes('bipied') || n.includes('petit pointeur')) return 'bouche';
   return 'autre';
 }
 

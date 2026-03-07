@@ -991,7 +991,7 @@
   },
   "poignee_incline": {
     "nom": "Poignée incliné",
-    "type": "accessoire",
+    "type": "bouche",
     "compatible": [],
     "attributs": [
       {
@@ -1002,7 +1002,7 @@
   },
   "poignee_verticale": {
     "nom": "Poignée verticale",
-    "type": "accessoire",
+    "type": "bouche",
     "compatible": [],
     "attributs": [
       {
@@ -1013,7 +1013,7 @@
   },
   "poignee_courte": {
     "nom": "Poignée courte",
-    "type": "accessoire",
+    "type": "bouche",
     "compatible": [],
     "attributs": [
       {
@@ -1024,7 +1024,7 @@
   },
   "poignee_courte_tactique": {
     "nom": "Poignée courte tactique",
-    "type": "accessoire",
+    "type": "bouche",
     "compatible": [],
     "attributs": [
       {
@@ -1035,7 +1035,7 @@
   },
   "pointeur_laser": {
     "nom": "Pointeur laser",
-    "type": "accessoire",
+    "type": "bouche",
     "compatible": [],
     "attributs": [
       {
@@ -1046,7 +1046,7 @@
   },
   "petit_pointeur_laser": {
     "nom": "Petit pointeur laser",
-    "type": "accessoire",
+    "type": "bouche",
     "compatible": [],
     "attributs": [
       {
@@ -1057,13 +1057,13 @@
   },
   "pointeur_laser_lie": {
     "nom": "Pointeur laser lié",
-    "type": "accessoire",
+    "type": "bouche",
     "bonus": "Applique une impulsion sur les cibles visées",
     "compatible": []
   },
   "protege_rail": {
     "nom": "Protège-rail",
-    "type": "accessoire",
+    "type": "bouche",
     "compatible": [],
     "attributs": [
       {
@@ -1074,7 +1074,7 @@
   },
   "lampe_torche": {
     "nom": "Lampe torche",
-    "type": "accessoire",
+    "type": "bouche",
     "bonus": "Éclaire en face de vous",
     "compatible": [
       "pistolet"

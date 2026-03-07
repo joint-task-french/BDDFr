@@ -4316,7 +4316,14 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
+    ],
+    "modsPredefinis": [
+      "viseur_a_point_de_diamondback",
+      "levier_de_diamondback",
+      "poignee_de_diamondback",
+      "decoration_de_crotale"
     ]
   },
   "bittersweet": {

@@ -1,1083 +1,1131 @@
 // Mods d'armes — The Division 2
 {
-  "charg_45_acp_etendu": {
-    "nom": "Charg. .45 ACP étendu",
-    "type": "chargeur",
-    "compatible": [
-      "fusil"
-    ],
-    "attributs": [
-      {
-        "attribut": "munitions",
-        "valeur": 15
-      }
-    ]
-  },
-  "charg_45_acp_approv_precision": {
-    "nom": "Charg. .45 ACP approv. précision",
-    "type": "chargeur",
-    "compatible": [
-      "fusil"
-    ],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "charg_45_acp_approv_forcee": {
-    "nom": "Charg. .45 ACP approv. forcée",
-    "type": "chargeur",
-    "compatible": [
-      "fusil"
-    ],
-    "attributs": [
-      {
-        "attribut": "cadence_de_tir_arm",
-        "valeur": 5
-      }
-    ]
-  },
-  "charg_45_acp_ressort_court": {
-    "nom": "Charg. .45 ACP ressort court",
-    "type": "chargeur",
-    "compatible": [
-      "fusil"
-    ],
-    "attributs": [
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": 20
-      }
-    ]
-  },
-  "charg_45_acp_surdimensionne": {
-    "nom": "Charg. .45 ACP surdimensionné",
-    "type": "chargeur",
-    "compatible": [
-      "fusil"
-    ],
-    "attributs": [
-      {
-        "attribut": "munitions",
-        "valeur": 20
-      },
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": -10
-      }
-    ]
-  },
-  "charg_etendu_leger_5_56": {
-    "nom": "Charg. étendu léger 5.56",
-    "type": "chargeur",
-    "compatible": [
-      "fusil_assaut"
-    ],
-    "attributs": [
-      {
-        "attribut": "munitions",
-        "valeur": 15
-      }
-    ]
-  },
-  "charg_5_56_tactique": {
-    "nom": "Charg. 5.56 tactique",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "degats_de_coup_critique_arm",
-        "valeur": 10
-      }
-    ]
-  },
-  "charg_5_56_ressort_equilibre": {
-    "nom": "Charg. 5.56 ressort équilibré",
-    "type": "chargeur",
-    "compatible": [
-      "fusil_assaut"
-    ],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "charg_5_56_infanterie": {
-    "nom": "Charg. 5.56 infanterie",
-    "type": "chargeur",
-    "compatible": [
-      "fusil_assaut"
-    ],
-    "attributs": [
-      {
-        "attribut": "portee_optimale_arm",
-        "valeur": 70
-      }
-    ]
-  },
-  "charg_etendu_solide_5_56": {
-    "nom": "Charg. étendu solide 5.56",
-    "type": "chargeur",
-    "compatible": [
-      "fusil_assaut"
-    ],
-    "attributs": [
-      {
-        "attribut": "munitions",
-        "valeur": 20
-      },
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": -10
-      }
-    ]
-  },
-  "charg_precision_condense": {
-    "nom": "Charg. précision condensé",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "munitions",
-        "valeur": 5
-      }
-    ]
-  },
-  "charg_precision_repare": {
-    "nom": "Charg. précision réparé",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "portee_optimale_arm",
-        "valeur": 20
-      }
-    ]
-  },
-  "charg_precision_leger": {
-    "nom": "Charg. précision léger",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": 20
-      }
-    ]
-  },
-  "charg_precision_robuste": {
-    "nom": "Charg. précision robuste",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 20
-      }
-    ]
-  },
-  "charg_etendu_leger_7_62": {
-    "nom": "Charg. étendu léger 7.62",
-    "type": "chargeur",
-    "compatible": [
-      "fusil_precision"
-    ],
-    "attributs": [
-      {
-        "attribut": "munitions",
-        "valeur": 15
-      }
-    ]
-  },
-  "charg_7_62_pondere": {
-    "nom": "Charg. 7.62 pondéré",
-    "type": "chargeur",
-    "compatible": [
-      "fusil_precision"
-    ],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 20
-      }
-    ]
-  },
-  "charg_7_62_mince": {
-    "nom": "Charg. 7.62 mince",
-    "type": "chargeur",
-    "compatible": [
-      "fusil_precision"
-    ],
-    "attributs": [
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": 20
-      }
-    ]
-  },
-  "charg_7_62_precision": {
-    "nom": "Charg. 7.62 précision",
-    "type": "chargeur",
-    "compatible": [
-      "fusil_precision"
-    ],
-    "attributs": [
-      {
-        "attribut": "degats_de_headshot_arm",
-        "valeur": 10
-      }
-    ]
-  },
-  "charg_9mm_segmente": {
-    "nom": "Charg. 9mm segmenté",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": 20
-      }
-    ]
-  },
-  "charg_9mm_ressort_lourd": {
-    "nom": "Charg. 9mm ressort lourd",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "degats_de_coup_critique_arm",
-        "valeur": 10
-      }
-    ]
-  },
-  "charg_9mm_etendu": {
-    "nom": "Charg. 9mm étendu",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "munitions",
-        "valeur": 20
-      },
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": -10
-      }
-    ]
-  },
-  "charg_9mm_surdimensionne": {
-    "nom": "Charg. 9mm surdimensionné",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "munitions",
-        "valeur": 15
-      }
-    ]
-  },
-  "charg_pistolet_etendu": {
-    "nom": "Charg. pistolet étendu",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "munitions",
-        "valeur": 11
-      }
-    ]
-  },
-  "charg_pistolet_de_terrain": {
-    "nom": "Charg. pistolet de terrain",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "portee_optimale_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "charg_pistolet_police": {
-    "nom": "Charg. pistolet Police",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": 20
-      }
-    ]
-  },
-  "ressort_integre_compense": {
-    "nom": "Ressort intégré compensé",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": 20
-      }
-    ]
-  },
-  "ressort_integre_sous_equilibre": {
-    "nom": "Ressort intégré sous-équilibré",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "cadence_de_tir_arm",
-        "valeur": 5
-      }
-    ]
-  },
-  "ressort_integre_rapide": {
-    "nom": "Ressort intégré rapide",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "degats_armes",
-        "valeur": 5
-      }
-    ]
-  },
-  "ressort_tubulaire_souple": {
-    "nom": "Ressort tubulaire souple",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": 20
-      }
-    ]
-  },
-  "ressort_tubulaire_dur": {
-    "nom": "Ressort tubulaire dur",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "cadence_de_tir_arm",
-        "valeur": 5
-      }
-    ]
-  },
-  "ressort_tubulaire_anti_horaire": {
-    "nom": "Ressort tubulaire anti-horaire",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "degats_de_headshot_arm",
-        "valeur": 5
-      }
-    ]
-  },
-  "ressort_integre_surequilibre": {
-    "nom": "Ressort intégré suréquilibré",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "barillet_a_chargement_rapide": {
-    "nom": "Barillet à chargement rapide",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": 20
-      }
-    ]
-  },
-  "fixation_de_ceinture_agile": {
-    "nom": "Fixation de ceinture agile",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "cadence_de_tir_arm",
-        "valeur": 5
-      }
-    ]
-  },
-  "fixation_sans_perturbation": {
-    "nom": "Fixation sans perturbation",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "degats_de_coup_critique_arm",
-        "valeur": 10
-      }
-    ]
-  },
-  "fixation_etalonnee": {
-    "nom": "Fixation étalonnée",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "petite_sacoche_tactique": {
-    "nom": "Petite sacoche tactique",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": 20
-      }
-    ]
-  },
-  "grande_sacoche": {
-    "nom": "Grande sacoche",
-    "type": "chargeur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "munitions",
-        "valeur": 50
-      }
-    ]
-  },
-  "petit_silencieux_45": {
-    "nom": "Petit silencieux .45",
-    "type": "canon",
-    "compatible": [
-      "fusil"
-    ],
-    "attributs": [
-      {
-        "attribut": "precision_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "silencieux_osprey_45": {
-    "nom": "Silencieux Osprey .45",
-    "type": "canon",
-    "compatible": [
-      "fusil"
-    ],
-    "attributs": [
-      {
-        "attribut": "probabilite_de_coup_critique_arm",
-        "valeur": 10
-      }
-    ]
-  },
-  "frein_ventile_bruyant_45": {
-    "nom": "Frein ventilé bruyant .45",
-    "type": "canon",
-    "compatible": [
-      "fusil"
-    ],
-    "attributs": [
-      {
-        "attribut": "portee_optimale_arm",
-        "valeur": 50
-      }
-    ]
-  },
-  "frein_de_bouche_45": {
-    "nom": "Frein de bouche .45",
-    "type": "canon",
-    "compatible": [
-      "fusil"
-    ],
-    "attributs": [
-      {
-        "attribut": "degats_de_headshot_arm",
-        "valeur": 10
-      }
-    ]
-  },
-  "compensateur_45": {
-    "nom": "Compensateur .45",
-    "type": "canon",
-    "compatible": [
-      "fusil"
-    ],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "cache_flamme_45": {
-    "nom": "Cache-flamme .45",
-    "type": "canon",
-    "compatible": [
-      "fusil"
-    ],
-    "attributs": [
-      {
-        "attribut": "degats_de_coup_critique_arm",
-        "valeur": 5
-      }
-    ]
-  },
-  "grand_silencieux_5_56": {
-    "nom": "Grand silencieux 5.56",
-    "type": "canon",
-    "compatible": [
-      "fusil_assaut"
-    ],
-    "attributs": [
-      {
-        "attribut": "precision_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "compensateur_5_56": {
-    "nom": "Compensateur 5.56",
-    "type": "canon",
-    "compatible": [
-      "fusil_assaut"
-    ],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "silencieux_de_fusil_omega_5_56": {
-    "nom": "Silencieux de fusil Omega 5.56",
-    "type": "canon",
-    "compatible": [
-      "fusil_assaut"
-    ],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 40
-      },
-      {
-        "attribut": "portee_optimale_arm",
-        "valeur": -10
-      }
-    ]
-  },
-  "frein_de_bouche_5_56": {
-    "nom": "Frein de bouche 5.56",
-    "type": "canon",
-    "compatible": [
-      "fusil_assaut"
-    ],
-    "attributs": [
-      {
-        "attribut": "probabilite_de_coup_critique_arm",
-        "valeur": 5
-      }
-    ]
-  },
-  "frein_ventile_bruyant_5_56": {
-    "nom": "Frein ventilé bruyant 5.56",
-    "type": "canon",
-    "compatible": [
-      "fusil_assaut"
-    ],
-    "attributs": [
-      {
-        "attribut": "portee_optimale_arm",
-        "valeur": 50
-      }
-    ]
-  },
-  "cache_flamme_5_56": {
-    "nom": "Cache-flamme 5.56",
-    "type": "canon",
-    "compatible": [
-      "fusil_assaut"
-    ],
-    "attributs": [
-      {
-        "attribut": "degats_de_coup_critique_arm",
-        "valeur": 10
-      }
-    ]
-  },
-  "grand_silencieux_7_62": {
-    "nom": "Grand silencieux 7.62",
-    "type": "canon",
-    "compatible": [
-      "fusil_precision"
-    ],
-    "attributs": [
-      {
-        "attribut": "precision_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "silencieux_de_fusil_omega_7_62": {
-    "nom": "Silencieux de fusil Omega 7.62",
-    "type": "canon",
-    "compatible": [
-      "fusil_precision"
-    ],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 40
-      },
-      {
-        "attribut": "portee_optimale_arm",
-        "valeur": -10
-      }
-    ]
-  },
-  "cache_flamme_7_62": {
-    "nom": "Cache-flamme 7.62",
-    "type": "canon",
-    "compatible": [
-      "fusil_precision"
-    ],
-    "attributs": [
-      {
-        "attribut": "degats_de_coup_critique_arm",
-        "valeur": 10
-      }
-    ]
-  },
-  "frein_de_bouche_7_62": {
-    "nom": "Frein de bouche 7.62",
-    "type": "canon",
-    "compatible": [
-      "fusil_precision"
-    ],
-    "attributs": [
-      {
-        "attribut": "probabilite_de_coup_critique_arm",
-        "valeur": 5
-      }
-    ]
-  },
-  "compensateur_7_62": {
-    "nom": "Compensateur 7.62",
-    "type": "canon",
-    "compatible": [
-      "fusil_precision"
-    ],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "frein_ventile_bruyant_7_62": {
-    "nom": "Frein ventilé bruyant 7.62",
-    "type": "canon",
-    "compatible": [
-      "fusil_precision"
-    ],
-    "attributs": [
-      {
-        "attribut": "portee_optimale_arm",
-        "valeur": 50
-      }
-    ]
-  },
-  "petit_silencieux_9mm": {
-    "nom": "Petit silencieux 9mm",
-    "type": "canon",
-    "compatible": [
-      "pistolet",
-      "pistolet_mitrailleur"
-    ],
-    "attributs": [
-      {
-        "attribut": "precision_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "silencieux_osprey_9mm": {
-    "nom": "Silencieux Osprey 9mm",
-    "type": "canon",
-    "compatible": [
-      "pistolet",
-      "pistolet_mitrailleur"
-    ],
-    "attributs": [
-      {
-        "attribut": "probabilite_de_coup_critique_arm",
-        "valeur": 5
-      }
-    ]
-  },
-  "compensateur_9mm": {
-    "nom": "Compensateur 9mm",
-    "type": "canon",
-    "compatible": [
-      "pistolet",
-      "pistolet_mitrailleur"
-    ],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "cache_flamme_9mm": {
-    "nom": "Cache-flamme 9mm",
-    "type": "canon",
-    "compatible": [
-      "pistolet",
-      "pistolet_mitrailleur"
-    ],
-    "attributs": [
-      {
-        "attribut": "degats_de_coup_critique_arm",
-        "valeur": 10
-      }
-    ]
-  },
-  "frein_de_bouche_9mm": {
-    "nom": "Frein de bouche 9mm",
-    "type": "canon",
-    "compatible": [
-      "pistolet",
-      "pistolet_mitrailleur"
-    ],
-    "attributs": [
-      {
-        "attribut": "degats_de_headshot_arm",
-        "valeur": 10
-      }
-    ]
-  },
-  "frein_ventile_bruyant_9mm": {
-    "nom": "Frein ventilé bruyant 9mm",
-    "type": "canon",
-    "compatible": [
-      "pistolet",
-      "pistolet_mitrailleur"
-    ],
-    "attributs": [
-      {
-        "attribut": "portee_optimale_arm",
-        "valeur": 50
-      }
-    ]
-  },
-  "petite_lunette_rds": {
-    "nom": "Petite lunette RDS",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 50
-      },
-      {
-        "attribut": "precision_arm",
-        "valeur": -20
-      }
-    ]
-  },
-  "lunette_acog_4x": {
-    "nom": "Lunette ACOG (4x)",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "portee_optimale_arm",
-        "valeur": 50
-      }
-    ]
-  },
-  "lunette_c79_3_4x": {
-    "nom": "Lunette C79 (3,4x)",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "probabilite_de_coup_critique_arm",
-        "valeur": 5
-      }
-    ]
-  },
-  "lunette_ccqbs_8x": {
-    "nom": "Lunette CCQBS (8x)",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "degats_de_headshot_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "lunette_vx1_12x": {
-    "nom": "Lunette VX1 (12x)",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "degats_de_headshot_arm",
-        "valeur": 35
-      },
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": -10
-      }
-    ]
-  },
-  "lunette_numerique": {
-    "nom": "Lunette numérique",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "degats_de_headshot_arm",
-        "valeur": 45
-      },
-      {
-        "attribut": "degats_de_coup_critique_arm",
-        "valeur": -5
-      }
-    ]
-  },
-  "mire_metallique_ouverte": {
-    "nom": "Mire métallique ouverte",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "precision_arm",
-        "valeur": 30
-      },
-      {
-        "attribut": "precision_arm",
-        "valeur": -10
-      }
-    ]
-  },
-  "mire_metallique_ponderee": {
-    "nom": "Mire métallique pondérée",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "mire_metallique_epuree": {
-    "nom": "Mire métallique épurée",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": 14
-      }
-    ]
-  },
-  "visee_holo_552": {
-    "nom": "Visée holo 552",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "precision_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "visee_point_rouge_t2_micro": {
-    "nom": "Visée point rouge T2 Micro",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "precision_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "visee_point_rouge_pro": {
-    "nom": "Visée point rouge PRO",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "visee_holo_exps3": {
-    "nom": "Visée holo EXPS3",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "degats_de_headshot_arm",
-        "valeur": 10
-      }
-    ]
-  },
-  "visee_reflex": {
-    "nom": "Visée reflex",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "maniement_d_arme_eqp",
-        "valeur": 5
-      }
-    ]
-  },
-  "visee_reflex_basse": {
-    "nom": "Visée reflex basse",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "degats_de_headshot_arm",
-        "valeur": 15
-      },
-      {
-        "attribut": "portee_optimale_arm",
-        "valeur": -25
-      }
-    ]
-  },
-  "visee_point_rouge_russe": {
-    "nom": "Visée point rouge russe",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "degats_de_coup_critique_arm",
-        "valeur": 10
-      }
-    ]
-  },
-  "visee_reflex_mini_rustique": {
-    "nom": "Visée reflex mini rustique",
-    "type": "viseur",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "probabilite_de_coup_critique_arm",
-        "valeur": 5
-      }
-    ]
-  },
-  "poignee_incline": {
-    "nom": "Poignée incliné",
-    "type": "bouche",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "stabilite_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "poignee_verticale": {
-    "nom": "Poignée verticale",
-    "type": "bouche",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "precision_arm",
-        "valeur": 30
-      }
-    ]
-  },
-  "poignee_courte": {
-    "nom": "Poignée courte",
-    "type": "bouche",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "degats_de_coup_critique_arm",
-        "valeur": 5
-      }
-    ]
-  },
-  "poignee_courte_tactique": {
-    "nom": "Poignée courte tactique",
-    "type": "bouche",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "degats_de_coup_critique_arm",
-        "valeur": 15
-      }
-    ]
-  },
-  "pointeur_laser": {
-    "nom": "Pointeur laser",
-    "type": "bouche",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "probabilite_de_coup_critique_arm",
-        "valeur": 5
-      }
-    ]
-  },
-  "petit_pointeur_laser": {
-    "nom": "Petit pointeur laser",
-    "type": "bouche",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "probabilite_de_coup_critique_arm",
-        "valeur": 7
-      }
-    ]
-  },
-  "pointeur_laser_lie": {
-    "nom": "Pointeur laser lié",
-    "type": "bouche",
-    "bonus": "Applique une impulsion sur les cibles visées",
-    "compatible": []
-  },
-  "protege_rail": {
-    "nom": "Protège-rail",
-    "type": "bouche",
-    "compatible": [],
-    "attributs": [
-      {
-        "attribut": "vitesse_de_rechargement_arm",
-        "valeur": 14
-      }
-    ]
-  },
-  "lampe_torche": {
-    "nom": "Lampe torche",
-    "type": "bouche",
-    "bonus": "Éclaire en face de vous",
-    "compatible": [
-      "pistolet"
-    ]
-  }
+    "charg_45_acp_etendu": {
+        "nom": "Charg. .45 ACP étendu",
+        "type": "chargeur",
+        "compatible": [
+            "fusil"
+        ],
+        "attributs": [
+            {
+                "attribut": "munitions",
+                "valeur": 15
+            }
+        ]
+    },
+    "charg_45_acp_approv_precision": {
+        "nom": "Charg. .45 ACP approv. précision",
+        "type": "chargeur",
+        "compatible": [
+            "fusil"
+        ],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "charg_45_acp_approv_forcee": {
+        "nom": "Charg. .45 ACP approv. forcée",
+        "type": "chargeur",
+        "compatible": [
+            "fusil"
+        ],
+        "attributs": [
+            {
+                "attribut": "cadence_de_tir_arm",
+                "valeur": 5
+            }
+        ]
+    },
+    "charg_45_acp_ressort_court": {
+        "nom": "Charg. .45 ACP ressort court",
+        "type": "chargeur",
+        "compatible": [
+            "fusil"
+        ],
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 20
+            }
+        ]
+    },
+    "charg_45_acp_surdimensionne": {
+        "nom": "Charg. .45 ACP surdimensionné",
+        "type": "chargeur",
+        "compatible": [
+            "fusil"
+        ],
+        "attributs": [
+            {
+                "attribut": "munitions",
+                "valeur": 20
+            },
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": -10
+            }
+        ]
+    },
+    "charg_etendu_leger_5_56": {
+        "nom": "Charg. étendu léger 5.56",
+        "type": "chargeur",
+        "compatible": [
+            "fusil_assaut"
+        ],
+        "attributs": [
+            {
+                "attribut": "munitions",
+                "valeur": 15
+            }
+        ]
+    },
+    "charg_5_56_tactique": {
+        "nom": "Charg. 5.56 tactique",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 10
+            }
+        ]
+    },
+    "charg_5_56_ressort_equilibre": {
+        "nom": "Charg. 5.56 ressort équilibré",
+        "type": "chargeur",
+        "compatible": [
+            "fusil_assaut"
+        ],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "charg_5_56_infanterie": {
+        "nom": "Charg. 5.56 infanterie",
+        "type": "chargeur",
+        "compatible": [
+            "fusil_assaut"
+        ],
+        "attributs": [
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": 70
+            }
+        ]
+    },
+    "charg_etendu_solide_5_56": {
+        "nom": "Charg. étendu solide 5.56",
+        "type": "chargeur",
+        "compatible": [
+            "fusil_assaut"
+        ],
+        "attributs": [
+            {
+                "attribut": "munitions",
+                "valeur": 20
+            },
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": -10
+            }
+        ]
+    },
+    "charg_precision_condense": {
+        "nom": "Charg. précision condensé",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "munitions",
+                "valeur": 5
+            }
+        ]
+    },
+    "charg_precision_repare": {
+        "nom": "Charg. précision réparé",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": 20
+            }
+        ]
+    },
+    "charg_precision_leger": {
+        "nom": "Charg. précision léger",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 20
+            }
+        ]
+    },
+    "charg_precision_robuste": {
+        "nom": "Charg. précision robuste",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 20
+            }
+        ]
+    },
+    "charg_etendu_leger_7_62": {
+        "nom": "Charg. étendu léger 7.62",
+        "type": "chargeur",
+        "compatible": [
+            "fusil_precision"
+        ],
+        "attributs": [
+            {
+                "attribut": "munitions",
+                "valeur": 15
+            }
+        ]
+    },
+    "charg_7_62_pondere": {
+        "nom": "Charg. 7.62 pondéré",
+        "type": "chargeur",
+        "compatible": [
+            "fusil_precision"
+        ],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 20
+            }
+        ]
+    },
+    "charg_7_62_mince": {
+        "nom": "Charg. 7.62 mince",
+        "type": "chargeur",
+        "compatible": [
+            "fusil_precision"
+        ],
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 20
+            }
+        ]
+    },
+    "charg_7_62_precision": {
+        "nom": "Charg. 7.62 précision",
+        "type": "chargeur",
+        "compatible": [
+            "fusil_precision"
+        ],
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 10
+            }
+        ]
+    },
+    "charg_9mm_segmente": {
+        "nom": "Charg. 9mm segmenté",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 20
+            }
+        ]
+    },
+    "charg_9mm_ressort_lourd": {
+        "nom": "Charg. 9mm ressort lourd",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 10
+            }
+        ]
+    },
+    "charg_9mm_etendu": {
+        "nom": "Charg. 9mm étendu",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "munitions",
+                "valeur": 20
+            },
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": -10
+            }
+        ]
+    },
+    "charg_9mm_surdimensionne": {
+        "nom": "Charg. 9mm surdimensionné",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "munitions",
+                "valeur": 15
+            }
+        ]
+    },
+    "charg_pistolet_etendu": {
+        "nom": "Charg. pistolet étendu",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "munitions",
+                "valeur": 11
+            }
+        ]
+    },
+    "charg_pistolet_de_terrain": {
+        "nom": "Charg. pistolet de terrain",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "charg_pistolet_police": {
+        "nom": "Charg. pistolet Police",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 20
+            }
+        ]
+    },
+    "ressort_integre_compense": {
+        "nom": "Ressort intégré compensé",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 20
+            }
+        ]
+    },
+    "ressort_integre_sous_equilibre": {
+        "nom": "Ressort intégré sous-équilibré",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "cadence_de_tir_arm",
+                "valeur": 5
+            }
+        ]
+    },
+    "ressort_integre_rapide": {
+        "nom": "Ressort intégré rapide",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "degats_armes",
+                "valeur": 5
+            }
+        ]
+    },
+    "ressort_tubulaire_souple": {
+        "nom": "Ressort tubulaire souple",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 20
+            }
+        ]
+    },
+    "ressort_tubulaire_dur": {
+        "nom": "Ressort tubulaire dur",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "cadence_de_tir_arm",
+                "valeur": 5
+            }
+        ]
+    },
+    "ressort_tubulaire_anti_horaire": {
+        "nom": "Ressort tubulaire anti-horaire",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 5
+            }
+        ]
+    },
+    "ressort_integre_surequilibre": {
+        "nom": "Ressort intégré suréquilibré",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "barillet_a_chargement_rapide": {
+        "nom": "Barillet à chargement rapide",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 20
+            }
+        ]
+    },
+    "fixation_de_ceinture_agile": {
+        "nom": "Fixation de ceinture agile",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "cadence_de_tir_arm",
+                "valeur": 5
+            }
+        ]
+    },
+    "fixation_sans_perturbation": {
+        "nom": "Fixation sans perturbation",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 10
+            }
+        ]
+    },
+    "fixation_etalonnee": {
+        "nom": "Fixation étalonnée",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "petite_sacoche_tactique": {
+        "nom": "Petite sacoche tactique",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 20
+            }
+        ]
+    },
+    "grande_sacoche": {
+        "nom": "Grande sacoche",
+        "type": "chargeur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "munitions",
+                "valeur": 50
+            }
+        ]
+    },
+    "petit_silencieux_45": {
+        "nom": "Petit silencieux .45",
+        "type": "canon",
+        "compatible": [
+            "fusil"
+        ],
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "silencieux_osprey_45": {
+        "nom": "Silencieux Osprey .45",
+        "type": "canon",
+        "compatible": [
+            "fusil"
+        ],
+        "attributs": [
+            {
+                "attribut": "probabilite_de_coup_critique_arm",
+                "valeur": 10
+            }
+        ]
+    },
+    "frein_ventile_bruyant_45": {
+        "nom": "Frein ventilé bruyant .45",
+        "type": "canon",
+        "compatible": [
+            "fusil"
+        ],
+        "attributs": [
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": 50
+            }
+        ]
+    },
+    "frein_de_bouche_45": {
+        "nom": "Frein de bouche .45",
+        "type": "canon",
+        "compatible": [
+            "fusil"
+        ],
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 10
+            }
+        ]
+    },
+    "compensateur_45": {
+        "nom": "Compensateur .45",
+        "type": "canon",
+        "compatible": [
+            "fusil"
+        ],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "cache_flamme_45": {
+        "nom": "Cache-flamme .45",
+        "type": "canon",
+        "compatible": [
+            "fusil"
+        ],
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 5
+            }
+        ]
+    },
+    "grand_silencieux_5_56": {
+        "nom": "Grand silencieux 5.56",
+        "type": "canon",
+        "compatible": [
+            "fusil_assaut"
+        ],
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "compensateur_5_56": {
+        "nom": "Compensateur 5.56",
+        "type": "canon",
+        "compatible": [
+            "fusil_assaut"
+        ],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "silencieux_de_fusil_omega_5_56": {
+        "nom": "Silencieux de fusil Omega 5.56",
+        "type": "canon",
+        "compatible": [
+            "fusil_assaut"
+        ],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 40
+            },
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": -10
+            }
+        ]
+    },
+    "frein_de_bouche_5_56": {
+        "nom": "Frein de bouche 5.56",
+        "type": "canon",
+        "compatible": [
+            "fusil_assaut"
+        ],
+        "attributs": [
+            {
+                "attribut": "probabilite_de_coup_critique_arm",
+                "valeur": 5
+            }
+        ]
+    },
+    "frein_ventile_bruyant_5_56": {
+        "nom": "Frein ventilé bruyant 5.56",
+        "type": "canon",
+        "compatible": [
+            "fusil_assaut"
+        ],
+        "attributs": [
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": 50
+            }
+        ]
+    },
+    "cache_flamme_5_56": {
+        "nom": "Cache-flamme 5.56",
+        "type": "canon",
+        "compatible": [
+            "fusil_assaut"
+        ],
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 10
+            }
+        ]
+    },
+    "grand_silencieux_7_62": {
+        "nom": "Grand silencieux 7.62",
+        "type": "canon",
+        "compatible": [
+            "fusil_precision"
+        ],
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "silencieux_de_fusil_omega_7_62": {
+        "nom": "Silencieux de fusil Omega 7.62",
+        "type": "canon",
+        "compatible": [
+            "fusil_precision"
+        ],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 40
+            },
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": -10
+            }
+        ]
+    },
+    "cache_flamme_7_62": {
+        "nom": "Cache-flamme 7.62",
+        "type": "canon",
+        "compatible": [
+            "fusil_precision"
+        ],
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 10
+            }
+        ]
+    },
+    "frein_de_bouche_7_62": {
+        "nom": "Frein de bouche 7.62",
+        "type": "canon",
+        "compatible": [
+            "fusil_precision"
+        ],
+        "attributs": [
+            {
+                "attribut": "probabilite_de_coup_critique_arm",
+                "valeur": 5
+            }
+        ]
+    },
+    "compensateur_7_62": {
+        "nom": "Compensateur 7.62",
+        "type": "canon",
+        "compatible": [
+            "fusil_precision"
+        ],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "frein_ventile_bruyant_7_62": {
+        "nom": "Frein ventilé bruyant 7.62",
+        "type": "canon",
+        "compatible": [
+            "fusil_precision"
+        ],
+        "attributs": [
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": 50
+            }
+        ]
+    },
+    "petit_silencieux_9mm": {
+        "nom": "Petit silencieux 9mm",
+        "type": "canon",
+        "compatible": [
+            "pistolet",
+            "pistolet_mitrailleur"
+        ],
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "silencieux_osprey_9mm": {
+        "nom": "Silencieux Osprey 9mm",
+        "type": "canon",
+        "compatible": [
+            "pistolet",
+            "pistolet_mitrailleur"
+        ],
+        "attributs": [
+            {
+                "attribut": "probabilite_de_coup_critique_arm",
+                "valeur": 5
+            }
+        ]
+    },
+    "compensateur_9mm": {
+        "nom": "Compensateur 9mm",
+        "type": "canon",
+        "compatible": [
+            "pistolet",
+            "pistolet_mitrailleur"
+        ],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "cache_flamme_9mm": {
+        "nom": "Cache-flamme 9mm",
+        "type": "canon",
+        "compatible": [
+            "pistolet",
+            "pistolet_mitrailleur"
+        ],
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 10
+            }
+        ]
+    },
+    "frein_de_bouche_9mm": {
+        "nom": "Frein de bouche 9mm",
+        "type": "canon",
+        "compatible": [
+            "pistolet",
+            "pistolet_mitrailleur"
+        ],
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 10
+            }
+        ]
+    },
+    "frein_ventile_bruyant_9mm": {
+        "nom": "Frein ventilé bruyant 9mm",
+        "type": "canon",
+        "compatible": [
+            "pistolet",
+            "pistolet_mitrailleur"
+        ],
+        "attributs": [
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": 50
+            }
+        ]
+    },
+    "petite_lunette_rds": {
+        "nom": "Petite lunette RDS",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 50
+            },
+            {
+                "attribut": "precision_arm",
+                "valeur": -20
+            }
+        ]
+    },
+    "lunette_acog_4x": {
+        "nom": "Lunette ACOG (4x)",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": 50
+            }
+        ]
+    },
+    "lunette_c79_3_4x": {
+        "nom": "Lunette C79 (3,4x)",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "probabilite_de_coup_critique_arm",
+                "valeur": 5
+            }
+        ]
+    },
+    "lunette_ccqbs_8x": {
+        "nom": "Lunette CCQBS (8x)",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "lunette_vx1_12x": {
+        "nom": "Lunette VX1 (12x)",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 35
+            },
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": -10
+            }
+        ]
+    },
+    "lunette_numerique": {
+        "nom": "Lunette numérique",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 45
+            },
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": -5
+            }
+        ]
+    },
+    "mire_metallique_ouverte": {
+        "nom": "Mire métallique ouverte",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 30
+            },
+            {
+                "attribut": "precision_arm",
+                "valeur": -10
+            }
+        ]
+    },
+    "mire_metallique_ponderee": {
+        "nom": "Mire métallique pondérée",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "mire_metallique_epuree": {
+        "nom": "Mire métallique épurée",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 14
+            }
+        ]
+    },
+    "visee_holo_552": {
+        "nom": "Visée holo 552",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "visee_point_rouge_t2_micro": {
+        "nom": "Visée point rouge T2 Micro",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "visee_point_rouge_pro": {
+        "nom": "Visée point rouge PRO",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "visee_holo_exps3": {
+        "nom": "Visée holo EXPS3",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 10
+            }
+        ]
+    },
+    "visee_reflex": {
+        "nom": "Visée reflex",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "maniement_d_arme_eqp",
+                "valeur": 5
+            }
+        ]
+    },
+    "visee_reflex_basse": {
+        "nom": "Visée reflex basse",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 15
+            },
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": -25
+            }
+        ]
+    },
+    "visee_point_rouge_russe": {
+        "nom": "Visée point rouge russe",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 10
+            }
+        ]
+    },
+    "visee_reflex_mini_rustique": {
+        "nom": "Visée reflex mini rustique",
+        "type": "viseur",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "probabilite_de_coup_critique_arm",
+                "valeur": 5
+            }
+        ]
+    },
+    "poignee_incline": {
+        "nom": "Poignée incliné",
+        "type": "bouche",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "poignee_verticale": {
+        "nom": "Poignée verticale",
+        "type": "bouche",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 30
+            }
+        ]
+    },
+    "poignee_courte": {
+        "nom": "Poignée courte",
+        "type": "bouche",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 5
+            }
+        ]
+    },
+    "poignee_courte_tactique": {
+        "nom": "Poignée courte tactique",
+        "type": "bouche",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 15
+            }
+        ]
+    },
+    "pointeur_laser": {
+        "nom": "Pointeur laser",
+        "type": "bouche",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "probabilite_de_coup_critique_arm",
+                "valeur": 5
+            }
+        ]
+    },
+    "petit_pointeur_laser": {
+        "nom": "Petit pointeur laser",
+        "type": "bouche",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "probabilite_de_coup_critique_arm",
+                "valeur": 7
+            }
+        ]
+    },
+    "pointeur_laser_lie": {
+        "nom": "Pointeur laser lié",
+        "type": "bouche",
+        "bonus": "Applique une impulsion sur les cibles visées",
+        "compatible": []
+    },
+    "protege_rail": {
+        "nom": "Protège-rail",
+        "type": "bouche",
+        "compatible": [],
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 14
+            }
+        ]
+    },
+    "lampe_torche": {
+        "nom": "Lampe torche",
+        "type": "bouche",
+        "bonus": "Éclaire en face de vous",
+        "compatible": [
+            "pistolet"
+        ]
+    },
+    "viseur_a_point_de_diamondback": {
+        "nom": "Viseur a point de Diamondback",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "levier_de_diamondback": {
+        "nom": "Levier de Diamondback",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+      "compatible": []
+    },
+    "poignee_de_diamondback": {
+        "nom": "Poignée de Diamondback",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+      "compatible": []
+    },
+    "decoration_de_crotale": {
+        "nom": "Décoration de crotale",
+        "type": "bouche",
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_eqp",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    }
 }

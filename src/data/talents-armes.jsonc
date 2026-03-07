@@ -771,7 +771,7 @@
   "morsure_fatale": {
     "nom": "Morsure Fatale",
     "icone": "morsure_fatale",
-    "description": "(PVE)La Diamondback marque un ennemi désigné aléatoirement dans un rayon de 20 m. S'il n'y a pas aucun ennemi dans les 20 m, l'ennemi le plus proche est marqué.Toucher cet ennemi supprime la marque et assure un coup critique aux dégâts accrus de +20%. Après avoir touché une marque, tous les tirs assurent des coups critiques pendant 5s.Un nouvel ennemi est marqué aléatoirement par la suite et à chaque fois que vous rechargez.",
+    "description": "La Diamondback marque un ennemi désigné aléatoirement dans un rayon de 20m. S'il n'y a aucun ennemi dans les 20m, l'ennemi le plus proche de vous est marqué.\nToucher cet ennemi supprime la marque et assure un coup critique aux dégâts accrus de 20%.\nAprès avoir touché une marque, tous les tirs assurent des coups critiques pendant 5s.\nUn nouvel ennemi est marqué aléatoirement par la suite et à chaque fois que vous rechargez.",
     "estExotique": true
   },
   "geri_et_freki": {

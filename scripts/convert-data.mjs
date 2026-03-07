@@ -68,8 +68,7 @@ for (let i = 2; i < weaponStats.length; i++) {
     rechargement: parseFloat((r['Colonne_10'] || '0').replace(',', '.')) || 0,
     headshot: col11,
     attributEssentiel: col12,
-    degatsBase: parseInt(r['Colonne_13'] || '0') || 0,
-    degatsMax: parseInt(r['Colonne_15'] || '0') || 0
+    degatsBase: parseInt(r['Colonne_13'] || '0') || 0
   });
 }
 

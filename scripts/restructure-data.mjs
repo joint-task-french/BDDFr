@@ -54,7 +54,6 @@ const armesExoFormatted = armesExo
     headshot: '',
     attributEssentiel: '',
     degatsBase: 0,
-    degatsMax: 0,
     estExotique: true,
     talent1: e.talent1 || '',
     talent2: e.talent2 || '',

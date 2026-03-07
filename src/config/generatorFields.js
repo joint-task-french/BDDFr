@@ -85,7 +85,6 @@ export const FIELDS = {
       { key: 'rechargement', label: 'Rechargement (s)', type: 'number', step: 0.1, min: 0 },
       { key: 'headshot', label: 'Headshot (%)', type: 'number', step: 1, min: 0 },
       { key: 'degatsBase', label: 'Dégâts base', type: 'number', step: 1, min: 0 },
-      { key: 'degatsMax', label: 'Dégâts max', type: 'number', step: 1, min: 0 },
       { key: '_rarity', label: 'Rareté', type: 'radioGroup', target: { exo: 'estExotique', nom: 'estNomme' }, options: [
         { value: '', label: 'Standard' },
         { value: 'exo', label: 'Exotique' },

@@ -223,7 +223,6 @@ npm run validate
   "headshot": "55%",
   "attributEssentiel": ".+21% de dégâts à la santé",
   "degatsBase": 50000,
-  "degatsMax": 115000,
   "estExotique": false,
   "estNomme": false,
   "talentNomme": "",

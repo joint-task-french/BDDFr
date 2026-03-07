@@ -102,10 +102,6 @@
           "type": "integer",
           "description": "Dégâts de base"
         },
-        "degatsMax": {
-          "type": "integer",
-          "description": "Dégâts maximum"
-        },
         "estExotique": {
           "type": "boolean",
           "description": "True si arme exotique"

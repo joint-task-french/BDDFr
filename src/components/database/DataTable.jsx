@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react'
 const COLUMN_LABELS = {
   nom: 'Nom', type: 'Type', fabricant: 'Fabricant', portee: 'Portée', rpm: 'CPM',
   chargeur: 'Chargeur', rechargement: 'Rechargement', headshot: 'Headshot',
-  attributEssentiel: 'Attribut Essentiel', degatsBase: 'Dégâts Base', degatsMax: 'Dégâts Max',
+  attributEssentiel: 'Attribut Essentiel', degatsBase: 'Dégâts Base',
   marque: 'Marque', emplacement: 'Emplacement',
   attributUnique: 'Attribut Unique', talent: 'Talent', mod: 'Mod', estNomme: 'Nommé',
   source: 'Source', description: 'Description', prerequis: 'Prérequis',

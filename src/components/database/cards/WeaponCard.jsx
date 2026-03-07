@@ -3,7 +3,7 @@ import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon } from '../../../util
 import { formatModAttributs } from '../../../utils/modCompatibility'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
-import {InfoToolTip} from "./InfoToolTip.jsx";
+import {InfoToolTip} from "../../common/InfoToolTip.jsx";
 
 function fmt(n) {
   if (!n) return '—'

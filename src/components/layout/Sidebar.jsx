@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import JTFrLogo from '../common/JTFrLogo.jsx'
+import {InfoToolTip} from "../common/InfoToolTip.jsx";
 
 export default function Sidebar({ open, onClose }) {
   const linkClass = ({ isActive }) =>
@@ -60,7 +61,10 @@ export default function Sidebar({ open, onClose }) {
 
       {/* Outils — en bas de la sidebar */}
       <div className="px-3 pb-2">
-        <div className="text-xs text-gray-600 uppercase tracking-widest px-3 mb-1.5">Outils</div>
+        <div className="text-xs text-gray-500 uppercase tracking-widest px-3 mb-1.5 flex flex-row">
+          Outils de contribution
+          <InfoToolTip text={"Outils utiles aux contributeurs de la Base de données"} />
+        </div>
         <NavLink to="/generator" className={linkClass} onClick={onClose}>
           <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}

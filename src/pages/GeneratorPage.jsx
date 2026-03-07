@@ -280,6 +280,11 @@ export default function GeneratorPage() {
 
       const baseData = [...(loadedData[dk] || [])]
       let merged = [...baseData]
+
+      // Exclure les armes spécifiques (proviennent de class-spe.jsonc, pas de armes.jsonc)
+      if (cat.key === 'armes') {
+        merged = merged.filter(item => item.type !== 'arme_specifique')
+      }
       for (const item of saved) {
         if (idKey) {
           let idx

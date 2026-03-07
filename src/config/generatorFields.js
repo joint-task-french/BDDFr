@@ -99,7 +99,7 @@ export const FIELDS = {
         { value: 'chargeur', label: 'Chargeur', color: 'yellow' },
         { value: 'canon', label: 'Canon', color: 'red' },
         { value: 'viseur', label: 'Viseur', color: 'blue' },
-        { value: 'bouche', label: 'bouche', color: 'yellow' },
+        { value: 'bouche', label: 'Bouche', color: 'yellow' },
       ]},
       { key: 'modsPredefinis', label: 'Mods prédéfinis (exotiques)', type: 'autocomplete_array', suggestionsKey: 'modsArmes', placeholder: 'Rechercher un mod...', visibleWhen: { key: '_rarity', value: 'exo' } },
       { key: 'obtention', label: 'Obtention', type: 'objectGroup', fields: [
@@ -249,7 +249,7 @@ export const FIELDS = {
         { value: 'chargeur', label: 'Chargeur', color: 'yellow' },
         { value: 'canon', label: 'Canon', color: 'red' },
         { value: 'viseur', label: 'Viseur', color: 'blue' },
-        { value: 'bouche', label: 'bouche', color: 'yellow' },
+        { value: 'bouche', label: 'Bouche', color: 'yellow' },
         { value: 'autre', label: 'Autre', color: 'green' },
       ]},
       { key: 'compatible', label: 'Compatible avec', type: 'tagSelect', dynamicOptions: 'armesTypesCompat' },
@@ -258,6 +258,7 @@ export const FIELDS = {
         { key: 'valeur', label: 'Valeur', type: 'number', step: 0.1 },
       ]},
       { key: 'estExotique', label: 'Mod exotique', type: 'boolean' },
+      { key: 'bonus', label: 'Bonus texte (optionnel)', type: 'text', placeholder: 'Effet non lié à un attribut...' },
     ],
   },
 
@@ -549,7 +550,8 @@ export function cleanOutput(data, categoryKey) {
       if (field.singleSelect) {
         if (val) result[field.key] = val
       } else {
-        if (Array.isArray(val) && val.length > 0) result[field.key] = val
+        // Toujours inclure les arrays (même vides) pour les champs multi-select
+        if (Array.isArray(val)) result[field.key] = val
       }
       continue
     }

@@ -1,5 +1,6 @@
 import { getWeaponTypeLabel, getWeaponEssentialAttributes } from '../../../utils/formatters'
 import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
+import { formatModAttributs } from '../../../utils/modCompatibility'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
 import {InfoToolTip} from "./InfoToolTip.jsx";
@@ -44,7 +45,7 @@ function resolveTalents(item, talentsArmes) {
   })
 }
 
-export default function WeaponCard({ item, talentsArmes, allAttributs, armesType }) {
+export default function WeaponCard({ item, talentsArmes, allAttributs, armesType, modsArmes }) {
   const isExotic = item.estExotique
   const isNamed = item.estNomme && !isExotic
   const isSpecific = item.type === 'arme_specifique'
@@ -145,6 +146,26 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
           {resolvedTalents.map((talent, i) => (
             <TalentInline key={i} talent={talent} isExotic={isExotic} isNamed={isNamed} />
           ))}
+        </div>
+      )}
+
+      {/* Mods prédéfinis (armes exotiques) */}
+      {item.modsPredefinis?.length > 0 && modsArmes && (
+        <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1.5">
+          <div className="text-xs text-gray-600 uppercase tracking-widest font-bold">Mods prédéfinis</div>
+          {item.modsPredefinis.map((slug, i) => {
+            const mod = modsArmes.find(m => m.slug === slug)
+            if (!mod) return (
+              <div key={i} className="text-xs text-gray-500 italic">{slug}</div>
+            )
+            const stats = formatModAttributs(mod, allAttributs)
+            return (
+              <div key={i} className="flex items-start gap-2 text-xs">
+                <span className="text-shd font-bold shrink-0">{mod.nom}</span>
+                {stats && <span className="text-emerald-400/80">{stats}</span>}
+              </div>
+            )
+          })}
         </div>
       )}
 

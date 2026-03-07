@@ -67,7 +67,7 @@ export default function TalentInline({ talent, isExotic = false, allArmes, allEq
 
       {/* Description */}
       {description && (
-        <div className="text-xs text-gray-400 leading-relaxed">
+        <div className="text-xs text-gray-400 leading-relaxed whitespace-pre-line">
           {description}
         </div>
       )}

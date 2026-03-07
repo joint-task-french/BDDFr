@@ -742,7 +742,19 @@ export function itemToFormData(categoryKey, item) {
       data[field.key] = Object.entries(item[field.key]).filter(([, v]) => v).map(([k]) => k)
       continue
     }
-    if (item[field.key] !== undefined && item[field.key] !== null) {
+    if (field.type === 'objectGroup' && typeof item[field.key] === 'object' && !Array.isArray(item[field.key])) {
+      // Fusionner les sous-champs au lieu de remplacer l'objet entier
+      const src = item[field.key]
+      const merged = { ...data[field.key] } // commence par les defaults
+      for (const sf of (field.fields || [])) {
+        if (sf.key in src && src[sf.key] !== undefined) {
+          // null dans la source → garder le default (null pour triState = non défini)
+          if (src[sf.key] === null) continue
+          merged[sf.key] = sf.type === 'number' ? String(src[sf.key]) : src[sf.key]
+        }
+      }
+      data[field.key] = merged
+    } else if (item[field.key] !== undefined && item[field.key] !== null) {
       data[field.key] = field.type === 'number' ? String(item[field.key]) : item[field.key]
     }
   }

@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
+import { useState, useMemo, useCallback, useRef } from 'react'
 import JSZip from 'jszip'
 import { useDataLoader } from '../hooks/useDataLoader'
 import {
@@ -41,53 +41,70 @@ export default function GeneratorPage() {
   const config = FIELDS[activeCategory]
   const data = allData[activeCategory] || {}
 
-  // Detect existing item when identity fields change
+  // Identity courante (utilisée par le bouton "Restaurer l'original")
   const currentIdentity = useMemo(
     () => getIdentityValue(activeCategory, data),
     [activeCategory, data]
   )
 
-  useEffect(() => {
-    if (!currentIdentity || !loadedData || editLoadedRef.current) return
-    const existing = findExisting(activeCategory, currentIdentity, loadedData, savedItems)
-    if (existing) {
-      setEditMode({ source: existing._source, label: getIdentityLabel(activeCategory, currentIdentity, data) })
-    } else {
-      setEditMode(null)
-    }
-  }, [currentIdentity, activeCategory, loadedData, savedItems])
-
   // Auto-load existing data when user picks from autocomplete suggestion list
   const handleIdentitySelect = useCallback((fieldKey, value) => {
-    // Build a temporary identity using the selected value
-    let tempData = { ...data, [fieldKey]: value }
+    if (!value || !loadedData) return
+    const dk = DATA_KEY[activeCategory]
+    const idKey = IDENTITY_KEY[activeCategory]
+    const loaded = loadedData?.[dk] || []
+    const saved = savedItems?.[activeCategory] || []
+    const all = [...saved, ...loaded]
 
-    // For competences: if variante is selected without competence, find the parent competence
-    if (activeCategory === 'competences' && fieldKey === 'variante' && !tempData.competence) {
-      const flatComps = loadedData?.competences || []
-      const match = flatComps.find(c => c.variante.toLowerCase() === value.toLowerCase())
-      if (match) {
-        tempData = { ...tempData, competence: match.competence }
+    // Pour les compétences (clé composite), logique spéciale
+    if (activeCategory === 'competences') {
+      let tempData = { ...data, [fieldKey]: value }
+      // Si variante est sélectionnée sans compétence, trouver la compétence parente
+      if (fieldKey === 'variante' && !tempData.competence) {
+        const match = all.find(c => c.variante?.toLowerCase() === value.toLowerCase())
+        if (match) tempData = { ...tempData, competence: match.competence }
       }
-    }
-
-    const identity = getIdentityValue(activeCategory, tempData)
-    if (!identity) return
-    const existing = findExisting(activeCategory, identity, loadedData, savedItems)
-    if (!existing) {
-      // Even if no exact match, still apply the auto-filled competence
-      if (activeCategory === 'competences' && tempData.competence !== data.competence) {
+      const identity = getIdentityValue(activeCategory, tempData)
+      if (!identity) {
+        // Pas d'identité complète mais on applique quand même les données partielles
+        if (tempData.competence !== data.competence) {
+          editLoadedRef.current = true
+          setAllData(prev => ({ ...prev, [activeCategory]: { ...prev[activeCategory], ...tempData } }))
+          setTimeout(() => { editLoadedRef.current = false }, 200)
+        }
+        return
+      }
+      const existing = findExisting(activeCategory, identity, loadedData, savedItems)
+      if (!existing) return
+      const formData = itemToFormData(activeCategory, existing)
+      if (formData) {
         editLoadedRef.current = true
-        setAllData(prev => ({ ...prev, [activeCategory]: { ...prev[activeCategory], ...tempData } }))
+        setAllData(prev => ({ ...prev, [activeCategory]: formData }))
+        setEditMode({ source: existing._source, label: getIdentityLabel(activeCategory, identity, formData) })
         setTimeout(() => { editLoadedRef.current = false }, 200)
       }
       return
     }
+
+    // Pour les autres catégories : chercher par le champ sélectionné (nom, etc.)
+    // directement dans les données, pas par slug
+    const valueLower = value.toLowerCase()
+
+    // Chercher d'abord dans saved, puis dans loaded
+    let existing = saved.find(item => (item[fieldKey] || '').toLowerCase() === valueLower)
+    let source = 'saved'
+    if (!existing) {
+      existing = loaded.find(item => (item[fieldKey] || '').toLowerCase() === valueLower)
+      source = 'loaded'
+    }
+
+    if (!existing) return
+
     const formData = itemToFormData(activeCategory, existing)
     if (formData) {
       editLoadedRef.current = true
       setAllData(prev => ({ ...prev, [activeCategory]: formData }))
-      setEditMode({ source: existing._source, label: getIdentityLabel(activeCategory, identity, formData) })
+      setEditMode({ source, label: existing.nom || existing[idKey] || value })
       setTimeout(() => { editLoadedRef.current = false }, 200)
     }
   }, [activeCategory, data, loadedData, savedItems])
@@ -159,6 +176,20 @@ export default function GeneratorPage() {
   }, [])
 
   const cleanedData = useMemo(() => cleanOutput(data, activeCategory), [data, activeCategory])
+
+  // Détecte si le slug auto-généré entre en conflit avec un élément existant (hors mode édition)
+  const slugConflict = useMemo(() => {
+    if (editMode || !data.slug) return null
+    const dk = DATA_KEY[activeCategory]
+    const slugLower = data.slug.toLowerCase()
+    const loaded = loadedData?.[dk] || []
+    const saved = savedItems?.[activeCategory] || []
+    const inSaved = saved.find(item => (item.slug || '').toLowerCase() === slugLower)
+    if (inSaved) return { source: 'saved', nom: inSaved.nom || inSaved.slug }
+    const inLoaded = loaded.find(item => (item.slug || '').toLowerCase() === slugLower)
+    if (inLoaded) return { source: 'loaded', nom: inLoaded.nom || inLoaded.slug }
+    return null
+  }, [data.slug, editMode, activeCategory, loadedData, savedItems])
   const equipmentSet = useMemo(() => {
     if (activeCategory !== 'ensembles' || !data.nom) return null
     return generateEquipmentSet(data, loadedData?.equipements_type)
@@ -405,10 +436,20 @@ export default function GeneratorPage() {
           </div>
           <div className="p-4 max-h-[calc(100vh-300px)] overflow-y-auto">
             {data.slug && (
-              <div className="flex items-center gap-2 mb-3 px-2 py-1.5 bg-tactical-bg/50 rounded border border-tactical-border/30">
-                <span className="text-xs text-gray-600 uppercase tracking-widest font-bold">Slug</span>
-                <code className="text-xs text-shd/70 font-mono">{data.slug}</code>
-                {editMode && <span className="text-xs text-yellow-500/60 ml-auto">🔒 Non modifiable</span>}
+              <div className="mb-3">
+                <div className="flex items-center gap-2 px-2 py-1.5 bg-tactical-bg/50 rounded border border-tactical-border/30">
+                  <span className="text-xs text-gray-600 uppercase tracking-widest font-bold">Slug</span>
+                  <code className="text-xs text-shd/70 font-mono">{data.slug}</code>
+                  {editMode && <span className="text-xs text-yellow-500/60 ml-auto">🔒 Non modifiable</span>}
+                </div>
+                {slugConflict && (
+                  <div className="mt-1.5 px-2.5 py-1.5 bg-yellow-500/10 border border-yellow-500/30 rounded text-xs text-yellow-400">
+                    <span className="font-bold">⚠ Conflit :</span> le slug <code className="font-mono bg-yellow-500/10 px-1 rounded">{data.slug}</code> correspond
+                    à « <span className="font-bold">{slugConflict.nom}</span> »
+                    {slugConflict.source === 'saved' ? ' (modifié localement)' : ' (données source)'}.
+                    Enregistrer écrasera cet élément.
+                  </div>
+                )}
               </div>
             )}
             {config && (

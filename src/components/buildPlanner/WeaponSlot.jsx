@@ -9,7 +9,7 @@ const HEADER_COLORS = {
   gray:   { bg: 'bg-gray-500/10',   border: 'border-gray-500/30',   text: 'text-gray-400',   hover: 'group-hover:text-gray-500/50' },
 }
 
-export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch }) {
+export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch, data }) {
   const colors = HEADER_COLORS[headerColor] || HEADER_COLORS.red
   const isSpecific = weapon?.type === 'arme_specifique'
 
@@ -76,17 +76,43 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
               </div>
             ) : weapon.estNomme && weapon.talents && weapon.talents.length > 0 && weapon.talents.some(t => t && t !== 'n/a' && t !== '') ? (
               /* Arme nommée avec talent pré-inscrit — non modifiable */
-              <div className="mt-3 pt-3 border-t border-tactical-border">
-                <div className="flex items-center gap-1">
-                  <div className="text-xs text-yellow-400 font-bold uppercase tracking-widest">
-                    Talent : {weapon.talents.find(t => t && t !== 'n/a' && t !== '')}
+              (() => {
+                const slug = weapon.talents.find(t => t && t !== 'n/a' && t !== '')
+                const resolved = data?.talentsArmes?.find(t => t.slug === slug || t.nom === slug)
+                const isPerfect = weapon.estNomme && resolved?.perfectDescription
+                return (
+                  <div className="mt-3 pt-3 border-t border-tactical-border">
+                    <div className="flex items-center gap-2">
+                      <div className="text-xs text-yellow-400 font-bold uppercase tracking-widest">
+                        Talent : {resolved?.nom || slug}
+                      </div>
+                      {isPerfect && (
+                        <span className="text-[10px] font-bold text-shd-dark bg-shd/20 px-1 py-0.5 rounded uppercase tracking-widest leading-none">
+                          ★ Parfait
+                        </span>
+                      )}
+                    </div>
+                    {(isPerfect ? resolved.perfectDescription : resolved?.description) && (
+                      <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">
+                        {isPerfect ? resolved.perfectDescription : resolved.description}
+                      </div>
+                    )}
                   </div>
-                </div>
-              </div>
+                )
+              })()
             ) : talent ? (
               <div className="mt-3 pt-3 border-t border-tactical-border">
-                <div className="flex items-center justify-between">
-                  <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent : {talent.nom}</div>
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <div className="text-xs text-shd font-bold uppercase tracking-widest">
+                      Talent : {talent.nom}
+                    </div>
+                    {weapon.estNomme && talent.perfectDescription && (
+                      <span className="text-[10px] font-bold text-shd-dark bg-shd/20 px-1 py-0.5 rounded uppercase tracking-widest leading-none">
+                        ★ Parfait
+                      </span>
+                    )}
+                  </div>
                   {onSelectTalent && (
                     <button
                       onClick={(e) => { e.stopPropagation(); onSelectTalent() }}
@@ -95,9 +121,11 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                     >✎</button>
                   )}
                 </div>
-                {talent.description && (
+                {(weapon.estNomme && talent.perfectDescription) ? (
+                  <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{talent.perfectDescription}</div>
+                ) : talent.description ? (
                   <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{talent.description}</div>
-                )}
+                ) : null}
               </div>
             ) : (!weapon.estExotique && !isSpecific && onSelectTalent) ? (
               <div className="mt-3 pt-3 border-t border-tactical-border">

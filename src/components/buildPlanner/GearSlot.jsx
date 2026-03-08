@@ -44,13 +44,33 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
     return Array.isArray(piece.talents) && piece.talents.length > 0 && piece.talents.some(t => t && t !== 'n/a' && t !== '')
   }, [piece])
 
-  // Résoudre le talent pré-inscrit depuis le référentiel
   const resolvedPredefinedTalent = useMemo(() => {
     if (!hasPredefinedTalent || !talentsEquipements) return null
     const slug = piece.talents.find(t => t && t !== 'n/a' && t !== '')
     if (!slug) return null
-    return talentsEquipements.find(t => t.slug === slug) || { nom: slug, description: '' }
+    const base = talentsEquipements.find(t => t.slug === slug || t.nom === slug)
+    if (!base) return { nom: slug, description: '' }
+    if (piece.estNomme && base.perfectDescription) {
+      return {
+        ...base,
+        description: base.perfectDescription,
+        isPerfect: true
+      }
+    }
+    return base
   }, [hasPredefinedTalent, piece, talentsEquipements])
+
+  const gearTalentToDisplay = useMemo(() => {
+    if (!talent) return null
+    if (piece?.estNomme && talent.perfectDescription) {
+      return {
+        ...talent,
+        description: talent.perfectDescription,
+        isPerfect: true
+      }
+    }
+    return talent
+  }, [talent, piece])
 
   const borderColor = piece?.type === 'exotique'
     ? 'border-l-shd'
@@ -118,10 +138,15 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
             {/* Talent pré-inscrit (nommé avec talents[] non vide) — non modifiable */}
             {piece.type !== 'exotique' && !gearSetTalent && hasPredefinedTalent && (
               <div className="mt-3 pt-3 border-t border-tactical-border">
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-2">
                   <div className="text-xs text-yellow-400 font-bold uppercase tracking-widest">
                     Talent : {resolvedPredefinedTalent?.nom || piece.talents[0]}
                   </div>
+                  {resolvedPredefinedTalent?.isPerfect && (
+                    <span className="text-[10px] font-bold text-shd-dark bg-shd/20 px-1 py-0.5 rounded uppercase tracking-widest leading-none">
+                      ★ Parfait
+                    </span>
+                  )}
                 </div>
                 {resolvedPredefinedTalent?.description && (
                   <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-2">{resolvedPredefinedTalent.description}</div>
@@ -130,10 +155,17 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
             )}
             {/* Talent libre (torse/sac hors gear set, sans talent pré-inscrit) */}
             {hasTalentSlot && piece.type !== 'exotique' && !gearSetTalent && !hasPredefinedTalent && (
-              talent ? (
+              gearTalentToDisplay ? (
                 <div className="mt-3 pt-3 border-t border-tactical-border">
-                  <div className="flex items-center justify-between">
-                    <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent : {talent.nom}</div>
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent : {gearTalentToDisplay.nom}</div>
+                      {gearTalentToDisplay.isPerfect && (
+                        <span className="text-[10px] font-bold text-shd-dark bg-shd/20 px-1 py-0.5 rounded uppercase tracking-widest leading-none">
+                          ★ Parfait
+                        </span>
+                      )}
+                    </div>
                     {onSelectTalent && (
                       <button
                         onClick={(e) => { e.stopPropagation(); onSelectTalent() }}
@@ -142,8 +174,8 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                       >✎</button>
                     )}
                   </div>
-                  {talent.description && (
-                    <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-2">{talent.description}</div>
+                  {gearTalentToDisplay.description && (
+                    <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-2">{gearTalentToDisplay.description}</div>
                   )}
                 </div>
               ) : (

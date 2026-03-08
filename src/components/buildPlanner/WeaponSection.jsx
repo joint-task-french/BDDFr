@@ -44,6 +44,7 @@ export default function WeaponSection({ data }) {
           modsArmes={data.modsArmes}
           weaponMods={weaponMods[0]}
           armesType={data.armes_type}
+          data={data}
           onSelect={() => setPickerOpen('primary')}
           onRemove={() => dispatch({ type: 'REMOVE_WEAPON', slot: 0 })}
           onSelectTalent={() => setTalentPickerSlot(0)}
@@ -68,6 +69,7 @@ export default function WeaponSection({ data }) {
           modsArmes={data.modsArmes}
           weaponMods={weaponMods[1]}
           armesType={data.armes_type}
+          data={data}
           onSelect={() => setPickerOpen('secondary')}
           onRemove={() => dispatch({ type: 'REMOVE_WEAPON', slot: 1 })}
           onSelectTalent={() => setTalentPickerSlot(1)}
@@ -93,6 +95,7 @@ export default function WeaponSection({ data }) {
           weaponMods={sidearmMods}
           headerColor="gray"
           armesType={data.armes_type}
+          data={data}
           onSelect={() => setPickerOpen('sidearm')}
           onRemove={() => dispatch({ type: 'REMOVE_SIDEARM' })}
           onSelectTalent={() => setTalentPickerSlot('sidearm')}

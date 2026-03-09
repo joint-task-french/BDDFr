@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="https://join-task-french.github.io/BDDFr/">🌐 Accéder au site</a>
+  <a href="https://joint-task-french.github.io/BDDFr/">🌐 Accéder au site</a>
 </p>
 
 ---
@@ -159,7 +159,7 @@ Les données du jeu sont stockées en **JSONC** (JSON avec commentaires) pour fa
 ### Installation
 
 ```bash
-git clone https://github.com/join-task-french/BDDFr.git
+git clone https://github.com/joint-task-french/BDDFr.git
 cd BDDFr
 npm install
 ```
@@ -290,6 +290,6 @@ Ce projet est un outil communautaire non officiel. *Tom Clancy's The Division 2*
 ---
 
 <p align="center">
-  <sub>Fait avec 🟠 par le clan <strong>Join Task French</strong></sub>
+  <sub>Fait avec 🟠 par le clan <strong>Joint Task French</strong></sub>
 </p>
 

@@ -59,8 +59,8 @@ const categoryFormatters = {
         return {
             title: `${rarete}${item.nom}${speSuffix} (${typeInfo.nom}) — BDDFr`,
             description: item.description ||
-                `Degats : ${item.degatsBase || 0} | Portee : ${item.portee || 0}m | CPM : ${item.rpm || 0}\n` +
-                `Chargeur : ${item.chargeur || 0} | Rechargement : ${item.rechargement || 0}s | Headshot : +${item.headshot}%`
+                `Dégâts : ${item.degatsBase || 0}\nPortée : ${item.portee || 0}m\nCPM : ${item.rpm || 0}\n` +
+                `Chargeur : ${item.chargeur || 0}\nRechargement : ${item.rechargement || 0}s\nHeadshot : +${item.headshot}%`
         };
     },
     'equipements': (item) => {
@@ -81,56 +81,36 @@ const categoryFormatters = {
         }
         return {
             title: `Ensemble : ${item.nom} — BDDFr`,
-            description: `${item.description || ''}\n\nBonus d'ensemble :\n${bonuses.join('\n')}`
+            description: (item.description || '') + "\n\nBonus d'ensemble :\n" + bonuses.join('\n')
         };
     },
     'competences': (item) => {
-        let stats = `Statistiques de base :\n${item.statistiques || 'N/A'}\n\n`;
+        let desc = `Statistiques de base :\n${item.statistiques || 'N/A'}\n\n`;
         const tiers = [];
         for (let i = 1; i <= 6; i++) {
             if (item[`tier${i}`]) tiers.push(`Tier ${i} :\n${item[`tier${i}`]}`);
         }
-        if (tiers.length > 0) stats += `Progression par Tier :\n${tiers.join('\n\n')}\n\n`;
-        if (item.surcharge) stats += `Surcharge :\n${item.surcharge}`;
+        if (tiers.length > 0) desc += `Progression par Tier :\n${tiers.join('\n\n')}\n\n`;
+        if (item.surcharge) desc += `Surcharge :\n${item.surcharge}`;
         return {
-            title: `Competence : ${item.competence} (${item.variante}) — BDDFr`,
-            description: stats
+            title: `Compétence : ${item.competence} (${item.variante}) — BDDFr`,
+            description: desc
         };
     },
     'attributs': (item) => ({
         title: `Attribut : ${item.nom} — BDDFr`,
         description: item.description || `Valeurs : ${item.min}-${item.max}${item.unite}.`
     }),
-    'talentsArmes': (item) => ({
-        title: `Talent d'arme : ${item.nom} — BDDFr`,
-        description: item.description || item.perfectDescription || "Effets du talent."
-    }),
-    'talentsEquipements': (item) => ({
-        title: `Talent d'equipement : ${item.nom} — BDDFr`,
-        description: item.description || item.perfectDescription || "Effets du talent."
-    }),
-    'modsArmes': (item) => ({
-        title: `Mod d'arme : ${item.nom} — BDDFr`,
-        description: `Type : ${item.type}.`
-    }),
-    'modsEquipements': (item) => ({
-        title: `Mod d'equipement : ${item.nom} — BDDFr`,
-        description: `Categorie : ${item.categorie}.`
-    }),
-    'modsCompetences': (item) => ({
-        title: `Mod de competence : ${item.nom} — BDDFr`,
-        description: `Emplacement : ${item.emplacement}.`
-    }),
     'default': (item) => ({
-        title: `${item.nom || item.competence || 'Element'} — BDDFr`,
-        description: item.description || "Details et statistiques."
+        title: `${item.nom || item.competence || 'Élément'} — BDDFr`,
+        description: item.description || "Détails et statistiques."
     })
 };
 
 const pages_fixes = [
-    { path: 'build', title: 'Build Planner — BDDFr', description: 'Creez et partagez vos configurations d\'equipement.' },
-    { path: 'changelog', title: 'Mises a jour — BDDFr', description: 'Historique des changements.' },
-    { path: 'generator', title: 'Generateur — BDDFr', description: 'Outil de contribution.' }
+    { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez et partagez vos configurations d\'équipement.' },
+    { path: 'changelog', title: 'Mises à jour — BDDFr', description: 'Historique des changements.' },
+    { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' }
 ];
 
 const categoryMap = {
@@ -149,7 +129,7 @@ const categoryMap = {
 const stubTemplate = (title, description, imagePath, pagePath) => {
     const fullUrl = `${BASE_URL}/${pagePath}`;
     const mainImageUrl = `${BASE_URL}/${imagePath}`;
-    const safeDesc = (description || '').replace(/"/g, '&quot;').replace(/\n/g, '&#10;');
+    const safeDesc = (description || '').replace(/"/g, '&quot;');
     return `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -204,13 +184,13 @@ async function generate() {
             items = Array.isArray(rawData) ? [...rawData] : Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
             if (classSpe) {
                 Object.values(classSpe).forEach(spe => {
-                    if (spe.arme) {
+                    if (spe.arme && spe.arme.nom) {
                         items.push({
                             ...spe.arme,
                             slug: slugify(spe.arme.nom),
                             isSignature: true,
                             speNom: spe.nom,
-                            type: 'arme_specifique'
+                            type: 'Arme de spécialisation'
                         });
                     }
                 });
@@ -256,7 +236,7 @@ async function generate() {
     const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapEntries.map(url => `  <url><loc>${url}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>${url.includes('/db/') ? '0.6' : '0.8'}</priority></url>`).join('\n')}</urlset>`;
     fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemapContent);
     fs.writeFileSync(path.join(DIST_DIR, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${BASE_URL}/sitemap.xml`);
-    console.log(`✅ Termine : ${sitemapEntries.length} pages.`);
+    console.log(`✅ Terminé : ${sitemapEntries.length} pages.`);
 }
 
 generate().catch(console.error);

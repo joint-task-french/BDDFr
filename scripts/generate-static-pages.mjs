@@ -159,7 +159,7 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${safeDesc}">
     <meta name="twitter:image" content="${mainImageUrl}">
-    <script>window.location.replace("${BASE_URL}/${pagePath}");</script>
+    <script>window.location.replace("${BASE_URL}/#/${pagePath}" + window.location.search + window.location.hash);</script>
 </head>
 <body>
     <p>Redirection vers <a href="${BASE_URL}/${pagePath}">${title}</a>...</p>

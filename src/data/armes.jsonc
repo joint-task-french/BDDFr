@@ -4752,7 +4752,7 @@
     "degatsBase": 282072,
     "estExotique": true,
     "obtention": {
-      "description": "Terminer le raid 2 \"Cheval de fer\", une première fois pour obtenir 2 projets à réaliser. Compléter les différents projets pour obtenir celui permettant l'obtention du blue print du Régulus. Une fois le dernier projet débloquer, vous pourrez terminer une deuxième fois le raid pour obtenir : \nle chassis sur le Lieutenant Gray \nla poignée incurvée sur le Capitaine Fieser \nle barrilet gravé sur le Major Williams \nla bouche gravée sur la Colonel Morozova \nle lingot d'or dans le coffre de butin à la fin du raid."
+      "description": "Terminer le raid 2 « Cheval de fer » une première fois pour obtenir deux projets à réaliser.\nCompléter les différents projets pour obtenir celui permettant l'obtention du schéma (blueprint) du Régulus. Une fois le dernier projet débloqué, vous pourrez terminer une deuxième fois le raid pour obtenir :\n\n- le châssis sur le lieutenant Gray\n- la poignée incurvée sur le capitaine Fieser\n- le barillet gravé sur le major Williams\n- la bouche gravée sur la colonelle Morozova\n- le lingot d'or dans le coffre de butin à la fin du raid.\n\nUne fois les composants obtenus, vous pourrez fabriquer le Régulus sur l'établi."
     },
     "estNomme": false,
     "talents": [

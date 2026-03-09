@@ -80,6 +80,10 @@
     "description": "Tuer une cible située dans un rayon de 7 mètres augmente les dégâts d'arme de +30% pendant 10 secondes.",
     "prerequis": "n/a",
     "icone": "corps_a_corps",
+    "perfectDescription": "Tuer une cible située dans un rayon de 7 mètres augmente les dégâts d'arme de +38% pendant 10 secondes.",
+    "armesParfaites": [
+      "carcajou_furieux"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -517,9 +521,13 @@
   },
   "frenesie": {
     "nom": "Frénésie",
-    "description": "Quand vous rechargez à vide, pour chaque tranche de 10 balles de capacité du chargeur, vous gagnez +3% de cadence de tir et +3% de dégâts d'arme pendant 5s.",
+    "description": "Quand vous rechargez à vide, pour chaque tranche de 10 balles de capacité du chargeur, vous gagnez +3% de cadence de tir et +3% de dégâts d'arme pendant 9s.",
     "prerequis": "n/a",
     "icone": "frenesie",
+    "perfectDescription": "Quand vous rechargez à vide, pour chaque tranche de 8 balles de capacité du chargeur, vous gagnez +3% de cadence de tir et +3% de dégâts d'arme pendant 9s.",
+    "armesParfaites": [
+      "huntsman"
+    ],
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -627,9 +635,13 @@
   },
   "stablilisation": {
     "nom": "Stablilisation",
-    "description": "Tirer confère un bonus +1% de précision d'arme et +1% de stabilité d'arme par tir, jusqu'à un maximum de 60%.Arrêter de tirer déclenche un délai de 2s, au terme duquel les bonus se réinitialisent.",
+    "description": "Tirer augmente la précision d'arme +1% et la stabilité d'arme +1% par tir, jusqu'à 60%. Si vous arrêtez de tirer, les bonus se réinitialisent au bout de 4s.",
     "prerequis": "n/a",
     "icone": "stabilisation",
+    "perfectDescription": "Tirer augmente la précision d'arme +1% et la stabilité d'arme +1% par tir, jusqu'à 75%. Si vous arrêtez de tirer, les bonus se réinitialisent au bout de 6s.",
+    "armesParfaites": [
+      "l_inne"
+    ],
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -679,6 +691,10 @@
     "description": "Tuer des ennemis situés à plus de 20m cumule des effets. Le maximum d'effets est de 3.Toucher un ennemi situé à moins de 20m consomme tous les effets pour conférer +20% de dégâts contre les ennemis situés à moins de 20m pendant 5s.",
     "prerequis": "n/a",
     "icone": "frappe_de_precision",
+    "perfectDescription": "Tuer des ennemis situés à plus de 20m cumule des effets. Le maximum d'effets est de 2.Toucher un ennemi situé à moins de 20m consomme tous les effets pour conférer +35% de dégâts contre les ennemis situés à moins de 20m pendant 5s.",
+    "armesParfaites": [
+      "la_foreuse"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": false,
@@ -694,6 +710,10 @@
     "description": "Dégâts d'arme accrus de 15% contre les ennemis affectés par des effets d'état.",
     "prerequis": "n/a",
     "icone": "point_de_pression",
+    "perfectDescription": "Dégâts d'arme accrus de 20% contre les ennemis affectés par des effets d'état.",
+    "armesParfaites": [
+      "goalie"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -990,5 +1010,25 @@
       "rafraichissement"
     ],
     "estExotique": false
+  },
+  "precis": {
+    "nom": "Précis",
+    "description": "Version parfaite uniquement",
+    "prerequis": "n/a",
+    "perfectDescription": "+80% à la précision",
+    "armesParfaites": [
+      "le_fendoir"
+    ],
+    "icone": "precis",
+    "compatibilite": {
+      "fusil": false,
+      "calibre_12": false,
+      "fusil_assaut": false,
+      "fusil_mitrailleur": false,
+      "fusil_precision": false,
+      "pistolet": false,
+      "pistolet_mitrailleur": false
+    }
   }
 }
+

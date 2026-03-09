@@ -17,7 +17,7 @@
     ]
   },
   "acr": {
-    "nom": "ACR", // TODO
+    "nom": "ACR", //TODO
     "type": "fusil_assaut",
     "fabricant": "REMINGTON",
     "portee": 31,
@@ -37,7 +37,7 @@
     ]
   },
   "acr_e": {
-    "nom": "ACR-E",
+    "nom": "ACR-E", //TODO
     "type": "fusil_assaut",
     "fabricant": "REMINGTON",
     "portee": 31,
@@ -57,7 +57,7 @@
     ]
   },
   "f2000": {
-    "nom": "F2000",
+    "nom": "F2000",//TODO
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 31,
@@ -97,7 +97,7 @@
     ]
   },
   "aug_a3_cqc": {
-    "nom": "AUG A3-CQC",
+    "nom": "AUG A3-CQC",//TODO
     "type": "fusil_assaut",
     "fabricant": "STEYR",
     "portee": 26,
@@ -137,7 +137,7 @@
     ]
   },
   "ak_m": {
-    "nom": "AK-M",
+    "nom": "AK-M", //TODO
     "type": "fusil_assaut",
     "fabricant": "AKM",
     "portee": 27,
@@ -163,9 +163,9 @@
     "portee": 27,
     "rpm": 600,
     "chargeur": 30,
-    "rechargement": 2.5,
+    "rechargement": 2.09,
     "headshot": 55,
-    "degatsBase": 64703,
+    "degatsBase": 64700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -197,7 +197,7 @@
     ]
   },
   "fal": {
-    "nom": "FAL",
+    "nom": "FAL",//TODO
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -217,7 +217,7 @@
     ]
   },
   "fal_sa_58": {
-    "nom": "FAL SA-58",
+    "nom": "FAL SA-58",//TODO
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -236,8 +236,8 @@
       "bouche"
     ]
   },
-  "fal_tactique_sa_58": {
-    "nom": "FAL TACTIQUE SA-58",
+  "fal_sa_58_para": {
+    "nom": "FAL SA-58 Para",//TODO
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -276,8 +276,8 @@
       "bouche"
     ]
   },
-  "burnout": {
-    "nom": "BURNOUT",
+  "burn_out": {
+    "nom": "Burn Out",//TODO
     "type": "fusil_assaut",
     "fabricant": "GIAT INDUSTRIES",
     "portee": 26,
@@ -297,7 +297,7 @@
     ]
   },
   "g36_militaire": {
-    "nom": "G36 MILITAIRE",
+    "nom": "G36 militaire",
     "type": "fusil_assaut",
     "fabricant": "HECKLER&KOCH",
     "portee": 35,
@@ -317,7 +317,7 @@
     ]
   },
   "l_inne": {
-    "nom": "L'INNÉ",
+    "nom": "L'inné",//TODO
     "type": "fusil_assaut",
     "fabricant": "HECKLER&KOCH",
     "portee": 35,
@@ -328,7 +328,9 @@
     "degatsBase": 52552,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "stabilisation"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -357,7 +359,7 @@
     ]
   },
   "g36_ameliore": {
-    "nom": "G36 AMÉLIORÉ",
+    "nom": "G36 amélioré",//TODO
     "type": "fusil_assaut",
     "fabricant": "HECKLER&KOCH",
     "portee": 35,
@@ -417,7 +419,7 @@
     ]
   },
   "carbine_7": {
-    "nom": "CARBINE 7",
+    "nom": "CARBINE 7",//TODO
     "type": "fusil_assaut",
     "fabricant": "BRACE BUILT",
     "portee": 28,
@@ -437,7 +439,7 @@
     ]
   },
   "la_foreuse": {
-    "nom": "LA FOREUSE",
+    "nom": "La Foreuse",//TODO
     "type": "fusil_assaut",
     "fabricant": "BRACE BUILT",
     "portee": 28,
@@ -448,7 +450,9 @@
     "degatsBase": 49781,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "frappe_de_precision"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -457,7 +461,7 @@
     ]
   },
   "honey_badger": {
-    "nom": "HONEY BADGER",
+    "nom": "HONEY BADGER",//TODO
     "type": "fusil_assaut",
     "fabricant": "AAC",
     "portee": 28,
@@ -477,7 +481,7 @@
     ]
   },
   "carcajou_furieux": {
-    "nom": "CARCAJOU FURIEUX",
+    "nom": "Carjou furieux",//TODO
     "type": "fusil_assaut",
     "fabricant": "AAC",
     "portee": 28,
@@ -488,7 +492,9 @@
     "degatsBase": 51261,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "corps_a_corps"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -617,7 +623,7 @@
     ]
   },
   "ctar_21": {
-    "nom": "CTAR-21",
+    "nom": "CTAR-21",//TODO
     "type": "fusil_assaut",
     "fabricant": "IMI TAVOR",
     "portee": 32,
@@ -637,7 +643,7 @@
     ]
   },
   "le_fendoir": {
-    "nom": "LE FENDOIR",
+    "nom": "Le Fendoir",//TODO
     "type": "fusil_assaut",
     "fabricant": "IMI TAVOR",
     "portee": 32,
@@ -648,7 +654,9 @@
     "degatsBase": 44793,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "precis"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -3881,7 +3889,6 @@
     "degatsBase": 103000,
     "estExotique": true,
     "obtention": {
-      "mission": true,
       "description": "Boutique du mode Descent\nCoût : 350 crédits NSA"
     },
     "estNomme": false,
@@ -4116,9 +4123,12 @@
     "degatsBase": 134400,
     "estExotique": true,
     "obtention": {
-      "raid": true,
+      "raid": "raid 2 : Cheval de fer",
       "darkZone": true,
-      "description": "Récompense coffre fin de raid 2 : Cheval de fer"
+      "butinCible": false,
+      "mission": false,
+      "cachesExotiques": false,
+      "description": "1% en tuant un boss du raid et 10% coffre final"
     },
     "estNomme": false,
     "talents": [
@@ -4383,7 +4393,7 @@
     ]
   },
   "eagle_bearer": {
-    "nom": "Eagle Bearer",
+    "nom": "Eagle Bearer",//TODO
     "type": "fusil_assaut",
     "fabricant": "PATRIOT ORDNANCE FACTORY",
     "portee": 26,
@@ -4394,7 +4404,12 @@
     "degatsBase": 47356,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil d'assautDégâts à la santé"
+      "raid": "raid 1 : Opération Heures Sombres",
+      "darkZone": true,
+      "cachesExotiques": false,
+      "mission": false,
+      "butinCible": false,
+      "description": "1% en tuant un boss du raid et 10% coffre final"
     },
     "estNomme": false,
     "talents": [
@@ -4409,7 +4424,7 @@
     ]
   },
   "cameleon": {
-    "nom": "Caméléon",
+    "nom": "Caméléon",//TODO
     "type": "fusil_assaut",
     "fabricant": "TDI",
     "portee": 20,
@@ -4433,8 +4448,8 @@
       "bouche"
     ]
   },
-  "big_horn": {
-    "nom": "Big Horn",
+  "bighorn": {
+    "nom": "Bighorn",//TODO
     "type": "fusil_assaut",
     "fabricant": "STEYR",
     "portee": 27,
@@ -4459,7 +4474,7 @@
     ]
   },
   "capacitor": {
-    "nom": "Capacitor",
+    "nom": "Capacitor",//TODO
     "type": "fusil_assaut",
     "fabricant": "MAGPUL",
     "portee": 31,
@@ -4484,7 +4499,7 @@
     ]
   },
   "feu_de_saint_elme": {
-    "nom": "Feu de Saint-Elme",
+    "nom": "Feu de Saint-Elme",//TODO
     "type": "fusil_assaut",
     "fabricant": "COLT",
     "portee": 31,
@@ -4737,7 +4752,7 @@
     "degatsBase": 282072,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de pistolet"
+      "description": "Terminer le raid 2 \"Cheval de fer\", une première fois pour obtenir 2 projets à réaliser. Compléter les différents projets pour obtenir celui permettant l'obtention du blue print du Régulus. Une fois le dernier projet débloquer, vous pourrez terminer une deuxième fois le raid pour obtenir : \nle chassis sur le Lieutenant Gray \nla poignée incurvée sur le Capitaine Fieser \nle barrilet gravé sur le Major Williams \nla bouche gravée sur la Colonel Morozova \nle lingot d'or dans le coffre de butin à la fin du raid."
     },
     "estNomme": false,
     "talents": [
@@ -4958,6 +4973,126 @@
       "canon",
       "chargeur",
       "bouche"
+    ]
+  },
+  "ak_m_militaire": {
+    "nom": "AK-M militaire",//TODO
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
+    ]
+  },
+  "g36_c": {
+    "nom": "G36 C",//TODO
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
+    ]
+  },
+  "goalie": {
+    "nom": "Goalie",//TODO
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "point_de_pression"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
+    ]
+  },
+  "huntsman": {
+    "nom": "Huntsman",
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "frenesie"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
+    ]
+  },
+  "lexington": {
+    "nom": "Lexington",//TODO : ajout fabricant
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 31,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.04,
+    "headshot": 55,
+    "degatsBase": 48700,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
+    ],
+    "attributs_essentiels": [
+      {
+        "nom": "degats_fusil_d_assaut_es",
+        "valeur": 15
+      },
+      {
+        "nom": "degats_a_la_sante_es",
+        "valeur": 21
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "degats_sur_cible_non_abritee_arm",
+        "valeur": 10
+      }
     ]
   }
 }

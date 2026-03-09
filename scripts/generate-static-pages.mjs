@@ -142,13 +142,14 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="${BASE_URL}/favicon.png">
+    <link rel="shortcut icon" href="${BASE_URL}/favicon.ico">
     <title>${title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="canonical" href="${fullUrl}" />
-    <link rel="icon" type="image/x-icon" href="${BASE_URL}/favicon.ico" />
     <meta name="theme-color" content="${DIVISION_ORANGE}">
     <meta name="description" content="${safeDesc}">
-    <meta property="og:site_name" content="BDDFr — The Division 2">
+    <meta property="og:site_name" content="JTFr — BDDFr">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${fullUrl}">
     <meta property="og:title" content="${title}">
@@ -170,6 +171,8 @@ const error404Template = () => `<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="${BASE_URL}/favicon.png">
+    <link rel="shortcut icon" href="${BASE_URL}/favicon.ico">
     <title>JTFr — BDDFr</title>
     <meta name="theme-color" content="${DIVISION_ORANGE}">
     <script type="text/javascript">

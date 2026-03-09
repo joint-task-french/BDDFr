@@ -49,14 +49,7 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
             )}
           </div>
           <span className="text-xs font-bold uppercase tracking-widest bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded flex items-center gap-1">
-            {item.emplacement === 'tous' ? (
-              <>
-                <GameIcon src={GEAR_SLOT_ICONS_IMG['torse']} alt="" size="w-3 h-3" className="opacity-70" />
-                <GameIcon src={GEAR_SLOT_ICONS_IMG['sac_a_dos']} alt="" size="w-3 h-3" className="opacity-70" />
-              </>
-            ) : (
-              <GameIcon src={slotIcon} alt="" size="w-3 h-3" className="opacity-70" />
-            )}
+            <GameIcon src={slotIcon} alt="" size="w-3 h-3" className="opacity-70" />
             {getGearSlotLabel(equipementsType, item.emplacement)}
           </span>
         </div>

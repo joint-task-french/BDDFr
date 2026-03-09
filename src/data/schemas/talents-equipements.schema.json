@@ -34,7 +34,10 @@
           "enum": [
             "torse",
             "sac_a_dos",
-            "tous"
+            "masque",
+            "holster",
+            "gants",
+            "genouilleres"
           ],
           "description": "Sur quel emplacement le talent peut être utilisé"
         },

@@ -292,7 +292,7 @@ for (let i = 1; i < f8.data.length; i++) {
     nom,
     description: desc || '',
     prerequis: prereq,
-    emplacement: currentSlot || 'tous'
+    emplacement: currentSlot || 'inconnu'
   });
 }
 

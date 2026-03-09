@@ -287,16 +287,15 @@ export function applyTalentArmeFilters(items, filters) {
 // ================================================================
 export function getTalentEquipFilters(data) {
   const eqType = data?.equipements_type || {}
-  const torseLabel = eqType.torse?.nom || 'Torse'
-  const sacLabel = eqType.sac_a_dos?.nom || 'Sac à dos'
+  const options = Object.entries(eqType).map(([key, value]) => ({
+    value: key,
+    label: value.nom || key
+  }))
+
   return [
     {
       key: 'emplacement', type: 'select', label: 'Emplacement',
-      options: [
-        { value: 'torse', label: torseLabel },
-        { value: 'sac_a_dos', label: sacLabel },
-        { value: 'tous', label: 'Les deux' },
-      ],
+      options: options,
     },
     { key: 'estExotique', type: 'tri-state', label: 'Exotique' },
     { key: 'aParfait', type: 'toggle', label: 'Avec version parfaite' },
@@ -310,8 +309,7 @@ export function getTalentEquipDefaults() {
 export function applyTalentEquipFilters(items, filters) {
   return items.filter(item => {
     if (filters.emplacement) {
-      const match = filters.emplacement === 'tous' ? item.emplacement === 'tous' : (item.emplacement === filters.emplacement || item.emplacement === 'tous')
-      if (!match) return false
+      if (item.emplacement !== filters.emplacement) return false
     }
     if (filters.estExotique !== null && filters.estExotique !== undefined && !!item.estExotique !== filters.estExotique) return false
     if (filters.aParfait && !item.perfectDescription) return false

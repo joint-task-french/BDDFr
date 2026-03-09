@@ -71,57 +71,56 @@ function parseSort(sortKey) {
 
 export function applySortWeapons(items, sortKey) {
   const { base, desc } = parseSort(sortKey)
-  let sorted
-  if (base === 'rarity') {
-    sorted = [...items].sort((a, b) => {
+
+  return [...items].sort((a, b) => {
+    if (base === 'rarity') {
       const ra = weaponRarity(a), rb = weaponRarity(b)
-      if (ra !== rb) return ra - rb
-      return (a.nom || '').localeCompare(b.nom || '', 'fr')
-    })
-  } else {
-    sorted = [...items].sort((a, b) => (a.nom || '').localeCompare(b.nom || '', 'fr'))
-  }
-  return desc ? sorted.reverse() : sorted
+      if (ra !== rb) return desc ? rb - ra : ra - rb
+    }
+
+    const nomA = a.nom || ''
+    const nomB = b.nom || ''
+    const cmpAlpha = nomA.localeCompare(nomB, 'fr')
+    return (base === 'alpha' && desc) ? -cmpAlpha : cmpAlpha
+  })
 }
 
 export function applySortGear(items, sortKey) {
   const { base, desc } = parseSort(sortKey)
-  let sorted
-  if (base === 'rarity') {
-    sorted = [...items].sort((a, b) => {
+
+  return [...items].sort((a, b) => {
+    if (base === 'rarity') {
       const ra = gearRarity(a), rb = gearRarity(b)
-      if (ra !== rb) return ra - rb
-      return (a.nom || '').localeCompare(b.nom || '', 'fr')
-    })
-  } else if (base === 'marque') {
-    sorted = [...items].sort((a, b) => {
+      if (ra !== rb) return desc ? rb - ra : ra - rb
+    } else if (base === 'marque') {
       const cmp = (a.marque || '').localeCompare(b.marque || '', 'fr')
-      return cmp !== 0 ? cmp : (a.nom || '').localeCompare(b.nom || '', 'fr')
-    })
-  } else if (base === 'emplacement') {
-    sorted = [...items].sort((a, b) => {
+      if (cmp !== 0) return desc ? -cmp : cmp
+    } else if (base === 'emplacement') {
       const cmp = (a.emplacement || '').localeCompare(b.emplacement || '', 'fr')
-      return cmp !== 0 ? cmp : (a.nom || '').localeCompare(b.nom || '', 'fr')
-    })
-  } else {
-    sorted = [...items].sort((a, b) => (a.nom || '').localeCompare(b.nom || '', 'fr'))
-  }
-  return desc ? sorted.reverse() : sorted
+      if (cmp !== 0) return desc ? -cmp : cmp
+    }
+
+    const nomA = a.nom || ''
+    const nomB = b.nom || ''
+    const cmpAlpha = nomA.localeCompare(nomB, 'fr')
+    return (base === 'alpha' && desc) ? -cmpAlpha : cmpAlpha
+  })
 }
 
 export function applySortGeneric(items, sortKey) {
   const { base, desc } = parseSort(sortKey)
-  let sorted
-  if (base === 'rarity') {
-    sorted = [...items].sort((a, b) => {
+
+  return [...items].sort((a, b) => {
+    if (base === 'rarity') {
       const ra = genericRarity(a), rb = genericRarity(b)
-      if (ra !== rb) return ra - rb
-      return (a.nom || a.variante || '').localeCompare(b.nom || b.variante || '', 'fr')
-    })
-  } else {
-    sorted = [...items].sort((a, b) => (a.nom || a.variante || '').localeCompare(b.nom || b.variante || '', 'fr'))
-  }
-  return desc ? sorted.reverse() : sorted
+      if (ra !== rb) return desc ? rb - ra : ra - rb
+    }
+
+    const nomA = a.nom || a.variante || ''
+    const nomB = b.nom || b.variante || ''
+    const cmpAlpha = nomA.localeCompare(nomB, 'fr')
+    return (base === 'alpha' && desc) ? -cmpAlpha : cmpAlpha
+  })
 }
 
 // ================================================================

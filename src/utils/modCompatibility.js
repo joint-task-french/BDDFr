@@ -81,7 +81,7 @@ export function formatModAttributs(mod, allAttributs, statistiques) {
   if (mod.bonus && typeof mod.bonus === 'string') {
     parts.push(mod.bonus)
   }
-  return parts.join(', ')
+  return parts.join('\n')
 }
 
 /**

@@ -15,7 +15,7 @@ const COMPAT_LABELS = {
   pistolet_mitrailleur: 'PM',
 }
 
-export default function TalentArmeCard({ item }) {
+export default function TalentArmeCard({ item, armes }) {
 
   const isExotic = item.estExotique
   const compatTypes = item.compatibilite
@@ -87,6 +87,16 @@ export default function TalentArmeCard({ item }) {
               {COMPAT_LABELS[t] || t}
             </span>
           ))}
+        </div>
+      )}
+
+      {/* Notes */}
+      {hasContent(item.notes) && (
+        <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
+          <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
+          <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+            {item.notes}
+          </div>
         </div>
       )}
     </div>

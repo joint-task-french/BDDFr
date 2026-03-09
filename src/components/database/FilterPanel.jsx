@@ -24,6 +24,7 @@ export function useFilterPanel({ filters, values, onChange, onReset }) {
     if (f.type === 'select' || f.type === 'multiselect') return val !== '' && val !== 'all'
     if (f.type === 'toggle') return val === true
     if (f.type === 'checkboxes') return val && val.length > 0
+    if (f.type === 'tri-state') return val === true || val === false
     return false
   }).length
 
@@ -64,9 +65,21 @@ export function useFilterPanel({ filters, values, onChange, onReset }) {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3">
-        {filters.map(filter => (
-          <FilterField key={filter.key} filter={filter} value={values[filter.key]} onChange={v => onChange(filter.key, v)} />
-        ))}
+        {[...filters]
+          .sort((a, b) => {
+            const getOrder = (f) => {
+              if (f.type === 'select' || f.type === 'multiselect') return 1
+              if (f.type === 'range') return 2
+              if (f.type === 'checkboxes') return 3
+              if (f.type === 'tri-state') return 4
+              if (f.type === 'toggle') return 5
+              return 6
+            }
+            return getOrder(a) - getOrder(b)
+          })
+          .map(filter => (
+            <FilterField key={filter.key} filter={filter} value={values[filter.key]} onChange={v => onChange(filter.key, v)} />
+          ))}
       </div>
     </div>
   ) : null
@@ -137,16 +150,81 @@ function FilterField({ filter, value, onChange }) {
 
     case 'toggle':
       return (
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => onChange(!value)}
-            className={`relative w-9 h-5 rounded-full transition-colors ${value ? 'bg-shd' : 'bg-tactical-border'}`}
-          >
-            <span className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white transition-transform ${value ? 'translate-x-4' : ''}`} />
-          </button>
-          <span className={`text-xs font-bold uppercase tracking-widest ${value ? 'text-shd' : 'text-gray-500'}`}>
-            {filter.label}
-          </span>
+        <div className="flex flex-col gap-1 py-1">
+          <label className="block text-xs font-bold uppercase tracking-widest invisible">Invisible Label</label>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => onChange(!value)}
+              className={`relative w-9 h-5 rounded-full transition-colors ${value ? 'bg-shd' : 'bg-tactical-border'}`}
+            >
+              <span className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white transition-transform ${value ? 'translate-x-4' : ''}`} />
+            </button>
+            <span className={`text-xs font-bold uppercase tracking-widest ${value ? 'text-shd' : 'text-gray-500'}`}>
+              {filter.label}
+            </span>
+          </div>
+        </div>
+      )
+
+    case 'tri-state':
+      const status = value === true ? 'true' : value === false ? 'false' : 'null'
+      const cycle = () => {
+        if (status === 'null') onChange(true)
+        else if (status === 'true') onChange(false)
+        else onChange(null)
+      }
+
+      const isGst = !!filter.isGearSetType
+      return (
+        <div className="flex flex-col gap-1 py-1">
+          <label className="block text-xs font-bold uppercase tracking-widest invisible">Invisible Label</label>
+          <div className="flex items-center gap-2.5">
+            <button type="button" onClick={cycle}
+              className={`relative inline-flex items-center justify-center w-5 h-5 rounded border-2 transition-all shrink-0 ${
+                status === 'true' ? (isGst ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400' : 'bg-shd/20 border-shd text-shd') :
+                status === 'false' ? (isGst ? 'bg-orange-500/20 border-orange-500 text-orange-400' : 'bg-red-500/20 border-red-500 text-red-400') :
+                'bg-tactical-bg border-tactical-border hover:border-gray-500'
+              }`}
+            >
+              {status === 'true' && (
+                isGst ? (
+                  <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" />
+                  </svg>
+                ) : (
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                )
+              )}
+              {status === 'false' && (
+                isGst ? (
+                  <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                  </svg>
+                ) : (
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                )
+              )}
+              {status === 'null' && (
+                <span className="w-2 h-0.5 bg-gray-600 rounded-full" />
+              )}
+            </button>
+            <span className={`text-xs font-bold uppercase tracking-widest transition-colors ${
+              status === 'true' ? (isGst ? 'text-emerald-400' : 'text-shd') :
+              status === 'false' ? (isGst ? 'text-orange-400' : 'text-red-400') :
+              'text-gray-500'
+            }`}>
+              {filter.label}
+              <span className="ml-1.5 text-[10px] opacity-60 font-normal normal-case tracking-normal">
+                {status === 'true' && `(${filter.trueLabel || 'oui'})`}
+                {status === 'false' && `(${filter.falseLabel || 'non'})`}
+                {status === 'null' && '(tous)'}
+              </span>
+            </span>
+          </div>
         </div>
       )
 

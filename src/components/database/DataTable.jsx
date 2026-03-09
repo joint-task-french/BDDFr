@@ -15,6 +15,7 @@ const COLUMN_LABELS = {
   surcharge: 'Surcharge', bonus: 'Bonus', malus: 'Malus', effet: 'Effet',
   statistique: 'Statistique', valeurMax: 'Valeur Max', typeArme: 'Type',
   talent1: 'Talent 1', talent2: 'Talent 2', obtention: 'Obtention',
+  notes: 'Notes',
 }
 
 // Columns to skip in display

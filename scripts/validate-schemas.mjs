@@ -16,8 +16,13 @@ const DATA_DIR = join(__dirname, '..', 'src', 'data')
 const SCHEMA_DIR = join(__dirname, '..', 'src', 'data', 'schemas')
 
 function stripComments(text) {
-  return text.replace(/^\uFEFF/, '').replace(/^\s*\/\/.*$/gm, '')
+  text = text.replace(/^\uFEFF/, '');
+  return text.replace(/("(?:\\.|[^\\"])*")|(\/\*[\s\S]*?\*\/)|(\/\/(?:.*)$)/gm, (match, string) => {
+    if (string) return string;
+    return '';
+  });
 }
+
 
 // Mapping fichier JSONC → fichier schema
 const VALIDATIONS = [

@@ -15,7 +15,7 @@ import {
   getEnsembleFilters, getEnsembleDefaults, applyEnsembleFilters,
   getAttributFilters, getAttributDefaults, applyAttributFilters,
   getCompetenceFilters, getCompetenceDefaults, applyCompetenceFilters,
-  WEAPON_SORT_OPTIONS, GEAR_SORT_OPTIONS, GENERIC_SORT_OPTIONS,
+  RAR_ALPHA_SORT_OPTION, GEAR_SORT_OPTIONS, GENERIC_SORT_OPTIONS,
   applySortWeapons, applySortGear, applySortGeneric,
 } from '../config/filterConfigs'
 
@@ -37,14 +37,14 @@ const FILTER_CATEGORIES = new Set(['armes', 'equipements', 'talentsArmes', 'tale
 
 // Catégories avec options de tri
 const SORT_CATEGORIES = {
-  armes:              { options: WEAPON_SORT_OPTIONS, apply: applySortWeapons },
+  armes:              { options: RAR_ALPHA_SORT_OPTION, apply: applySortWeapons },
   equipements:        { options: GEAR_SORT_OPTIONS, apply: applySortGear },
   attributs:          { options: GENERIC_SORT_OPTIONS, apply: applySortGeneric },
-  talentsArmes:       { options: GENERIC_SORT_OPTIONS, apply: applySortGeneric },
-  talentsEquipements: { options: GENERIC_SORT_OPTIONS, apply: applySortGeneric },
+  talentsArmes:       { options: RAR_ALPHA_SORT_OPTION, apply: applySortGeneric },
+  talentsEquipements: { options: RAR_ALPHA_SORT_OPTION, apply: applySortGeneric },
   ensembles:          { options: GENERIC_SORT_OPTIONS, apply: applySortGeneric },
   competences:        { options: GENERIC_SORT_OPTIONS, apply: applySortGeneric },
-  modsArmes:          { options: GENERIC_SORT_OPTIONS, apply: applySortGeneric },
+  modsArmes:          { options: RAR_ALPHA_SORT_OPTION, apply: applySortGeneric },
   modsEquipements:    { options: GENERIC_SORT_OPTIONS, apply: applySortGeneric },
   modsCompetences:    { options: GENERIC_SORT_OPTIONS, apply: applySortGeneric },
 }

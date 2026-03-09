@@ -17,7 +17,7 @@ function bounds(items, field, { step = 1, fallbackMin = 0, fallbackMax = 100 } =
 // Options de tri réutilisables
 // Chaque option inclut directement sa direction (asc/desc).
 // ================================================================
-export const WEAPON_SORT_OPTIONS = [
+export const RAR_ALPHA_SORT_OPTION = [
   { value: 'rarity_asc', label: 'Rareté ↑' },
   { value: 'rarity_desc', label: 'Rareté ↓' },
   { value: 'alpha_asc', label: 'Alphabétique A→Z' },
@@ -45,6 +45,12 @@ function weaponRarity(item) {
   if (item.type === 'arme_specifique') return 3
   if (item.estExotique) return 2
   if (item.estNomme) return 1
+  return 0
+}
+
+function genericRarity(item) {
+  if (item.estExotique) return 2
+  if (item.estNomme || item.perfectDescription) return 1
   return 0
 }
 
@@ -104,8 +110,17 @@ export function applySortGear(items, sortKey) {
 }
 
 export function applySortGeneric(items, sortKey) {
-  const { desc } = parseSort(sortKey)
-  const sorted = [...items].sort((a, b) => (a.nom || a.variante || '').localeCompare(b.nom || b.variante || '', 'fr'))
+  const { base, desc } = parseSort(sortKey)
+  let sorted
+  if (base === 'rarity') {
+    sorted = [...items].sort((a, b) => {
+      const ra = genericRarity(a), rb = genericRarity(b)
+      if (ra !== rb) return ra - rb
+      return (a.nom || a.variante || '').localeCompare(b.nom || b.variante || '', 'fr')
+    })
+  } else {
+    sorted = [...items].sort((a, b) => (a.nom || a.variante || '').localeCompare(b.nom || b.variante || '', 'fr'))
+  }
   return desc ? sorted.reverse() : sorted
 }
 
@@ -133,8 +148,8 @@ export function getWeaponFilters(data) {
     { key: 'rpm', type: 'range', label: 'CPM (coups/min)', ...rpm, step: 50 },
     { key: 'chargeur', type: 'range', label: 'Chargeur', ...chargeur, step: 5 },
     { key: 'rechargement', type: 'range', label: 'Rechargement (s)', ...rechargement, step: 0.5 },
-    { key: 'estExotique', type: 'toggle', label: 'Exotique uniquement' },
-    { key: 'estNomme', type: 'toggle', label: 'Nommé uniquement' },
+    { key: 'estExotique', type: 'tri-state', label: 'Exotique' },
+    { key: 'estNomme', type: 'tri-state', label: 'Nommé' },
   ]
 }
 
@@ -151,8 +166,8 @@ export function getWeaponDefaults(data) {
     rpm: [rpm.min, rpm.max],
     chargeur: [chargeur.min, chargeur.max],
     rechargement: [rechargement.min, rechargement.max],
-    estExotique: false,
-    estNomme: false,
+    estExotique: null,
+    estNomme: null,
   }
 }
 
@@ -167,8 +182,8 @@ export function applyWeaponFilters(items, filters) {
     if (charg > 0 && (charg < filters.chargeur[0] || charg > filters.chargeur[1])) return false
     const rech = item.rechargement || 0
     if (rech > 0 && (rech < filters.rechargement[0] || rech > filters.rechargement[1])) return false
-    if (filters.estExotique && !item.estExotique) return false
-    if (filters.estNomme && !item.estNomme) return false
+    if (filters.estExotique !== null && filters.estExotique !== undefined && !!item.estExotique !== filters.estExotique) return false
+    if (filters.estNomme !== null && filters.estNomme !== undefined && !!item.estNomme !== filters.estNomme) return false
     return true
   })
 }
@@ -203,8 +218,8 @@ export function getGearFilters(data) {
       key: 'attributEssentiel', type: 'select', label: 'Attribut essentiel',
       options: catAttrOptions,
     },
-    { key: 'typeExotique', type: 'toggle', label: 'Exotique uniquement' },
-    { key: 'estNomme', type: 'toggle', label: 'Nommé uniquement' },
+    { key: 'estExotique', type: 'tri-state', label: 'Exotique' },
+    { key: 'estNomme', type: 'tri-state', label: 'Nommé' },
   ]
 }
 
@@ -213,8 +228,8 @@ export function getGearDefaults() {
     emplacement: '',
     marque: '',
     attributEssentiel: '',
-    typeExotique: false,
-    estNomme: false,
+    estExotique: null,
+    estNomme: null,
   }
 }
 
@@ -223,8 +238,11 @@ export function applyGearFilters(items, filters) {
     if (filters.emplacement && item.emplacement !== filters.emplacement) return false
     if (filters.marque && item.marque !== filters.marque) return false
     if (filters.attributEssentiel && !(Array.isArray(item.attributEssentiel) && item.attributEssentiel.includes(filters.attributEssentiel))) return false
-    if (filters.typeExotique && item.type !== 'exotique') return false
-    if (filters.estNomme && !item.estNomme) return false
+    if (filters.estExotique !== null && filters.estExotique !== undefined) {
+      const isExo = item.type === 'exotique' || !!item.estExotique
+      if (isExo !== filters.estExotique) return false
+    }
+    if (filters.estNomme !== null && filters.estNomme !== undefined && !!item.estNomme !== filters.estNomme) return false
     return true
   })
 }
@@ -243,22 +261,22 @@ export function getTalentArmeFilters(data) {
       key: 'compatibilite', type: 'checkboxes', label: 'Compatible avec',
       options: typeOptions,
     },
-    { key: 'estExotique', type: 'toggle', label: 'Exotique uniquement' },
+    { key: 'estExotique', type: 'tri-state', label: 'Exotique' },
     { key: 'aParfait', type: 'toggle', label: 'Avec version parfaite' },
   ]
 }
 
 export function getTalentArmeDefaults() {
-  return { compatibilite: [], estExotique: false, aParfait: false }
+  return { compatibilite: [], estExotique: null, aParfait: false }
 }
 
 export function applyTalentArmeFilters(items, filters) {
   return items.filter(item => {
     if (filters.compatibilite.length > 0) {
       const compat = item.compatibilite || {}
-      return filters.compatibilite.every(type => compat[type] === true)
+      if (!filters.compatibilite.every(type => compat[type] === true)) return false
     }
-    if (filters.estExotique && !item.estExotique) return false
+    if (filters.estExotique !== null && filters.estExotique !== undefined && !!item.estExotique !== filters.estExotique) return false
     if (filters.aParfait && !item.perfectDescription) return false
     return true
   })
@@ -269,33 +287,31 @@ export function applyTalentArmeFilters(items, filters) {
 // ================================================================
 export function getTalentEquipFilters(data) {
   const eqType = data?.equipements_type || {}
-  const torseLabel = eqType.torse?.nom || 'Torse'
-  const sacLabel = eqType.sac_a_dos?.nom || 'Sac à dos'
+  const options = Object.entries(eqType).map(([key, value]) => ({
+    value: key,
+    label: value.nom || key
+  }))
+
   return [
     {
       key: 'emplacement', type: 'select', label: 'Emplacement',
-      options: [
-        { value: 'torse', label: torseLabel },
-        { value: 'sac_a_dos', label: sacLabel },
-        { value: 'tous', label: 'Les deux' },
-      ],
+      options: options,
     },
-    { key: 'estExotique', type: 'toggle', label: 'Exotique uniquement' },
+    { key: 'estExotique', type: 'tri-state', label: 'Exotique' },
     { key: 'aParfait', type: 'toggle', label: 'Avec version parfaite' },
   ]
 }
 
 export function getTalentEquipDefaults() {
-  return { emplacement: '', estExotique: false, aParfait: false }
+  return { emplacement: '', estExotique: null, aParfait: false }
 }
 
 export function applyTalentEquipFilters(items, filters) {
   return items.filter(item => {
     if (filters.emplacement) {
-      if (filters.emplacement === 'tous') return item.emplacement === 'tous'
-      return item.emplacement === filters.emplacement || item.emplacement === 'tous'
+      if (item.emplacement !== filters.emplacement) return false
     }
-    if (filters.estExotique && !item.estExotique) return false
+    if (filters.estExotique !== null && filters.estExotique !== undefined && !!item.estExotique !== filters.estExotique) return false
     if (filters.aParfait && !item.perfectDescription) return false
     return true
   })
@@ -315,16 +331,18 @@ export function getModArmeFilters() {
         { value: 'bouche', label: 'bouche' },
       ],
     },
+    { key: 'estExotique', type: 'tri-state', label: 'Exotique' },
   ]
 }
 
 export function getModArmeDefaults() {
-  return { type: [] }
+  return { type: [], estExotique: null }
 }
 
 export function applyModArmeFilters(items, filters) {
   return items.filter(item => {
     if (filters.type.length > 0 && !filters.type.includes(item.type)) return false
+    if (filters.estExotique !== null && filters.estExotique !== undefined && !!item.estExotique !== filters.estExotique) return false
     return true
   })
 }
@@ -352,13 +370,7 @@ export function getEnsembleFilters(data) {
     .map(([value, label]) => ({ value, label }))
 
   return [
-    {
-      key: 'type', type: 'select', label: 'Type',
-      options: [
-        { value: 'gear_set', label: 'Gear Set' },
-        { value: 'marque', label: 'Marque' },
-      ],
-    },
+    { key: 'isGearSet', type: 'tri-state', label: 'Type', trueLabel: 'set', falseLabel: 'marque', isGearSetType: true },
     {
       key: 'attributEssentiel', type: 'select', label: 'Attribut essentiel',
       options: attrOptions,
@@ -367,12 +379,15 @@ export function getEnsembleFilters(data) {
 }
 
 export function getEnsembleDefaults() {
-  return { type: '', attributEssentiel: '' }
+  return { isGearSet: null, attributEssentiel: '' }
 }
 
 export function applyEnsembleFilters(items, filters) {
   return items.filter(item => {
-    if (filters.type && item.type !== filters.type) return false
+    if (filters.isGearSet !== null && filters.isGearSet !== undefined) {
+      const isGS = item.type === 'gear_set'
+      if (isGS !== filters.isGearSet) return false
+    }
     if (filters.attributEssentiel && !(Array.isArray(item.attributsEssentiels) && item.attributsEssentiels.includes(filters.attributEssentiel))) return false
     return true
   })
@@ -401,7 +416,7 @@ export function getAttributFilters(data) {
     .sort((a, b) => a.label.localeCompare(b.label, 'fr'))
 
   return [
-    { key: 'estEssentiel', type: 'toggle', label: 'Essentiels uniquement' },
+    { key: 'estEssentiel', type: 'tri-state', label: 'Essentiel' },
     {
       key: 'categorie', type: 'select', label: 'Type',
       options: typeOptions,
@@ -418,12 +433,12 @@ export function getAttributFilters(data) {
 }
 
 export function getAttributDefaults() {
-  return { estEssentiel: false, categorie: '', cible: '', statistique: '' }
+  return { estEssentiel: null, categorie: '', cible: '', statistique: '' }
 }
 
 export function applyAttributFilters(items, filters) {
   return items.filter(item => {
-    if (filters.estEssentiel && !item.estEssentiel) return false
+    if (filters.estEssentiel !== null && filters.estEssentiel !== undefined && !!item.estEssentiel !== filters.estEssentiel) return false
     if (filters.categorie && item.categorie !== filters.categorie) return false
     if (filters.cible && !(Array.isArray(item.cible) && item.cible.includes(filters.cible))) return false
     if (filters.statistique && !(Array.isArray(item.statistiques) && item.statistiques.includes(filters.statistique))) return false

@@ -55,6 +55,10 @@
             }
           },
           "description": "Attributs de la compétence modifiés par ce mod"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur le mod"
         }
       }
     }

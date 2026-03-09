@@ -109,7 +109,7 @@ export default function CategorySection({ category, items, searchTerm, allData }
       </div>
       <div className={`grid ${gridClass} gap-3`}>
         {items.map((item, i) => (
-          <CardComponent key={item.nom || item.variante || item.statistique || i} item={item} {...extraProps} />
+          <CardComponent key={item.slug || item.nom || item.variante || item.statistique || i} item={item} {...extraProps} />
         ))}
       </div>
     </div>

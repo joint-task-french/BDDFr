@@ -7,6 +7,7 @@ const OBTENTION_METHODS = [
   { key: 'butinCible', label: 'Butin ciblé' },
   { key: 'cachesExotiques', label: 'Caches exotiques' },
   { key: 'mission', label: 'Mission' },
+  { key: 'darkZone', label: 'Dark Zone' },
   { key: 'raid', label: 'Raid' },
   { key: 'incursion', label: 'Incursion' },
 ]

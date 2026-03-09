@@ -7,6 +7,7 @@ import SkillCard from './cards/SkillCard'
 import ModArmeCard from './cards/ModArmeCard'
 import AttributCard from './cards/AttributCard'
 import ModCompetencesCard from "./cards/ModCompetencesCard.jsx";
+import ModEquipementCard from "./cards/ModEquipementCard.jsx";
 
 // Layout grids par catégorie
 const GRID_CONFIG = {
@@ -33,6 +34,7 @@ const CARD_COMPONENTS = {
   competences: SkillCard,
   modsArmes: ModArmeCard,
   modsCompetences: ModCompetencesCard,
+  modsEquipements: ModEquipementCard,
 }
 
 // Fallback card générique pour mods équipement / compétences

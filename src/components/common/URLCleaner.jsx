@@ -1,19 +1,27 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const URLCleaner = () => {
+export default function URLCleaner() {
     const location = useLocation();
-
+    const navigate = useNavigate();
+    const rawBase = import.meta.env.BASE_URL || '/';
+    const base = rawBase.endsWith('/') ? rawBase.slice(0, -1) : rawBase;
     useEffect(() => {
-        const base = import.meta.env.BASE_URL;
-        const normalizedBase = base === '/' ? '' : (base.endsWith('/') ? base.slice(0, -1) : base);
-        const cleanURL = `${normalizedBase}${location.pathname}${location.search}${location.hash}`;
-        if (window.location.hash.includes('#/')) {
-            window.history.replaceState(null, '', cleanURL);
+        const path = window.location.pathname;
+        if (path.length > base.length && path.startsWith(base) && !window.location.hash) {
+            const routeToRestore = path.slice(base.length);
+            const currentSearch = window.location.search;
+            setTimeout(() => {
+                navigate(routeToRestore + currentSearch, { replace: true });
+            }, 0);
         }
-    }, [location]);
+    }, [navigate, base]);
+    useEffect(() => {
+        let internalPath = location.pathname;
+        if (!internalPath.startsWith('/')) internalPath = '/' + internalPath;
+        const cleanUrl = base + internalPath + location.search;
+        window.history.replaceState(null, '', cleanUrl);
+    }, [location, base]);
 
     return null;
-};
-
-export default URLCleaner;
+}

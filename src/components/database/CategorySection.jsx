@@ -8,6 +8,7 @@ import ModArmeCard from './cards/ModArmeCard'
 import AttributCard from './cards/AttributCard'
 import ModCompetencesCard from "./cards/ModCompetencesCard.jsx";
 import ModEquipementCard from "./cards/ModEquipementCard.jsx";
+import {useLocation, useNavigate} from "react-router-dom";
 
 // Layout grids par catégorie
 const GRID_CONFIG = {
@@ -105,6 +106,16 @@ export default function CategorySection({ category, items, searchTerm, allData }
     if (allData?.competencesGrouped) extraProps.competencesGrouped = allData.competencesGrouped
   }
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleItemClick = (item) => {
+    const itemSlug = item.slug || item.nom;
+    const newUrl = `/db/${category.key}/${itemSlug}${location.search}`;
+    navigate(newUrl, { replace: true });
+  };
+
+
   return (
     <div className="fade-in">
       <div className="flex items-center justify-between mb-4">
@@ -116,7 +127,15 @@ export default function CategorySection({ category, items, searchTerm, allData }
       </div>
       <div className={`grid ${gridClass} gap-3`}>
         {items.map((item, i) => (
-          <CardComponent key={item.slug || item.nom || item.variante || item.statistique || i} item={item} {...extraProps} />
+          <div
+              key={item.slug || item.nom}
+              id={`item-${item.slug || item.nom}`}
+              className="h-full grid cursor-pointer transition-all hover:ring-2 hover:ring-shd/50 rounded-lg"
+              onClick={() => handleItemClick(item)}
+          >
+            <CardComponent item={item} {...extraProps} />
+          </div>
+
         ))}
       </div>
     </div>

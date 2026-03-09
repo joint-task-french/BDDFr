@@ -77,7 +77,7 @@ const categoryFormatters = {
         if (item.bonus4pieces) bonuses.push(`4p : ${item.bonus4pieces}`);
         return {
             title: `Ensemble : ${item.nom} — BDDFr`,
-            description: `${item.description || ''}\n\n**Bonus d'ensemble :**\n${bonuses.join('\n')}`
+            description: `${item.description || ''}\n\nBonus d'ensemble :\n${bonuses.join('\n')}`
         };
     },
     'competences': (item) => {

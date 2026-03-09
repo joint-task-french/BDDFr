@@ -17,7 +17,7 @@ function bounds(items, field, { step = 1, fallbackMin = 0, fallbackMax = 100 } =
 // Options de tri réutilisables
 // Chaque option inclut directement sa direction (asc/desc).
 // ================================================================
-export const WEAPON_SORT_OPTIONS = [
+export const RAR_ALPHA_SORT_OPTION = [
   { value: 'rarity_asc', label: 'Rareté ↑' },
   { value: 'rarity_desc', label: 'Rareté ↓' },
   { value: 'alpha_asc', label: 'Alphabétique A→Z' },
@@ -36,8 +36,6 @@ export const GEAR_SORT_OPTIONS = [
 ]
 
 export const GENERIC_SORT_OPTIONS = [
-  { value: 'rarity_asc', label: 'Rareté ↑' },
-  { value: 'rarity_desc', label: 'Rareté ↓' },
   { value: 'alpha_asc', label: 'Alphabétique A→Z' },
   { value: 'alpha_desc', label: 'Alphabétique Z→A' },
 ]

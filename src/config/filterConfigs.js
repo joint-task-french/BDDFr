@@ -486,3 +486,86 @@ export function applyCompetenceFilters(items, filters) {
     return true
   })
 }
+
+// ================================================================
+// MODS D'ÉQUIPEMENTS
+// ================================================================
+export function getModEquipementFilters(data) {
+  // 1. On utilise camelCase pour cibler la bonne clé
+  const rawData = data?.modsEquipements || {}
+
+  // 2. On s'assure de transformer l'objet JSON en tableau pour pouvoir utiliser .map()
+  const mods = Array.isArray(rawData) ? rawData : Object.values(rawData)
+
+  // Extraire les catégories uniques (offensif, defensif, utilitaire)
+  const categories = [...new Set(mods.map(m => m.categorie).filter(Boolean))]
+      .sort()
+      .map(c => ({
+        value: c,
+        label: c.charAt(0).toUpperCase() + c.slice(1) // Majuscule
+      }))
+
+  return [
+    {
+      key: 'categorie', type: 'select', label: 'Catégorie',
+      options: categories,
+    }
+  ]
+}
+
+export function getModEquipementDefaults() {
+  return { categorie: '' }
+}
+
+export function applyModEquipementFilters(items, filters) {
+  return items.filter(item => {
+    if (filters.categorie && item.categorie !== filters.categorie) return false
+    return true
+  })
+}
+
+// ================================================================
+// MODS DE COMPÉTENCES
+// ================================================================
+export function getModCompetenceFilters(data, values = {}) {
+  const rawData = data?.modsCompetences || {}
+  const mods = Array.isArray(rawData) ? rawData : Object.values(rawData)
+
+  const competences = [...new Set(mods.map(m => m.competence).filter(Boolean))].sort()
+  const compOptions = competences.map(c => ({
+    value: c,
+    label: c.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase())
+  }))
+
+  const filters = [
+    {
+      key: 'competence', type: 'select', label: 'Compétence ciblée',
+      options: compOptions,
+    }
+  ]
+
+  if (values.competence) {
+    const modsFiltres = mods.filter(m => m.competence === values.competence)
+    const emplacements = [...new Set(modsFiltres.map(m => m.emplacement).filter(Boolean))].sort()
+    const empOptions = emplacements.map(e => ({ value: e, label: e }))
+
+    filters.push({
+      key: 'emplacement', type: 'select', label: 'Emplacement',
+      options: empOptions,
+    })
+  }
+
+  return filters
+}
+
+export function getModCompetenceDefaults() {
+  return { competence: '', emplacement: '' }
+}
+
+export function applyModCompetenceFilters(items, filters) {
+  return items.filter(item => {
+    if (filters.competence && item.competence !== filters.competence) return false
+    if (filters.emplacement && item.emplacement !== filters.emplacement) return false
+    return true
+  })
+}

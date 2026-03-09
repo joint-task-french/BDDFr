@@ -17,6 +17,8 @@ import {
   getCompetenceFilters, getCompetenceDefaults, applyCompetenceFilters,
   RAR_ALPHA_SORT_OPTION, GEAR_SORT_OPTIONS, GENERIC_SORT_OPTIONS,
   applySortWeapons, applySortGear, applySortGeneric,
+  getModEquipementFilters, getModEquipementDefaults, applyModEquipementFilters,
+  getModCompetenceFilters, getModCompetenceDefaults, applyModCompetenceFilters,
 } from '../config/filterConfigs'
 
 const CATEGORIES = [
@@ -33,7 +35,11 @@ const CATEGORIES = [
 ]
 
 // Catégories qui ont des filtres avancés
-const FILTER_CATEGORIES = new Set(['armes', 'equipements', 'talentsArmes', 'talentsEquipements', 'modsArmes', 'ensembles', 'attributs', 'competences'])
+const FILTER_CATEGORIES = new Set([
+  'armes', 'equipements', 'talentsArmes', 'talentsEquipements',
+  'modsArmes', 'ensembles', 'attributs', 'competences',
+  'modsEquipements', 'modsCompetences'
+])
 
 // Catégories avec options de tri
 const SORT_CATEGORIES = {
@@ -49,7 +55,7 @@ const SORT_CATEGORIES = {
   modsCompetences:    { options: GENERIC_SORT_OPTIONS, apply: applySortGeneric },
 }
 
-function getFiltersConfig(category, data) {
+function getFiltersConfig(category, data, values) {
   switch (category) {
     case 'armes':             return { filters: getWeaponFilters(data), defaults: getWeaponDefaults(data), apply: applyWeaponFilters }
     case 'equipements':       return { filters: getGearFilters(data), defaults: getGearDefaults(), apply: applyGearFilters }
@@ -59,6 +65,8 @@ function getFiltersConfig(category, data) {
     case 'ensembles':         return { filters: getEnsembleFilters(data), defaults: getEnsembleDefaults(), apply: applyEnsembleFilters }
     case 'attributs':         return { filters: getAttributFilters(data), defaults: getAttributDefaults(), apply: applyAttributFilters }
     case 'competences':       return { filters: getCompetenceFilters(data), defaults: getCompetenceDefaults(), apply: applyCompetenceFilters }
+    case 'modsEquipements':   return { filters: getModEquipementFilters(data), defaults: getModEquipementDefaults(), apply: applyModEquipementFilters }
+    case 'modsCompetences':   return { filters: getModCompetenceFilters(data, values), defaults: getModCompetenceDefaults(values), apply: applyModCompetenceFilters }
     default:                  return null
   }
 }
@@ -70,7 +78,8 @@ export default function DatabasePage() {
   const [filterValues, setFilterValues] = useState({})
   const [sortValues, setSortValues] = useState({}) // { categoryKey: 'alpha_asc' }
 
-  const filterConfig = useMemo(() => getFiltersConfig(activeCategory, data), [activeCategory, data])
+  const activeValues = filterValues[activeCategory] || {}
+  const filterConfig = useMemo(() => getFiltersConfig(activeCategory, data, activeValues), [activeCategory, data, activeValues])
   const sortConfig = SORT_CATEGORIES[activeCategory] || null
   const currentSort = sortValues[activeCategory] || sortConfig?.options?.[0]?.value || 'alpha_asc'
 
@@ -81,10 +90,14 @@ export default function DatabasePage() {
   }, [filterConfig, filterValues, activeCategory])
 
   const handleFilterChange = useCallback((key, value) => {
-    setFilterValues(prev => ({
-      ...prev,
-      [activeCategory]: { ...(prev[activeCategory] || {}), [key]: value }
-    }))
+    setFilterValues(prev => {
+      const catValues = { ...(prev[activeCategory] || {}) }
+      catValues[key] = value
+      if (activeCategory === 'modsCompetences' && key === 'competence') {
+        catValues.emplacement = ''
+      }
+      return { ...prev, [activeCategory]: catValues }
+    })
   }, [activeCategory])
 
   const handleFilterReset = useCallback(() => {

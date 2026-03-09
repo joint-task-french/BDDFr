@@ -75,7 +75,7 @@ export default function ObtentionDisplay({ obtention }) {
       )}
 
       {obtention.description && obtention.description.trim() && (
-        <div className="text-xs text-gray-500 leading-relaxed mt-1.5">
+        <div className="text-xs text-gray-500 leading-relaxed mt-1.5 whitespace-pre-line">
           {obtention.description}
         </div>
       )}

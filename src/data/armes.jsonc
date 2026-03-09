@@ -17,7 +17,7 @@
     ]
   },
   "acr": {
-    "nom": "ACR",
+    "nom": "ACR", // TODO
     "type": "fusil_assaut",
     "fabricant": "REMINGTON",
     "portee": 31,
@@ -2899,19 +2899,20 @@
     "nom": "ADRESTIA",
     "type": "fusil_precision",
     "fabricant": "DSR-PRECISION",
-    "portee": 60,
+    "portee": 50,
     "rpm": 60,
     "chargeur": 5,
-    "rechargement": 3.15,
+    "rechargement": 2.86,
     "headshot": 111,
-    "degatsBase": 409255,
+    "degatsBase": 409400,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "tueur_attitre": {
@@ -3599,41 +3600,43 @@
     ]
   },
   "uic15_mod2": {
-    "nom": "UIC15 MOD2", // TODO check stats
+    "nom": "UIC15 MOD2",
     "type": "fusil",
     "fabricant": "AMERICAN DEFENSE MANUFACTURING",
     "portee": 60,
     "rpm": 240,
     "chargeur": 30,
-    "rechargement": 2.01,
+    "rechargement": 1.57,
     "headshot": 60,
-    "degatsBase": 144500,
+    "degatsBase": 150300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "acr_ss": {
-    "nom": "ACR SS", // TODO check stats
+    "nom": "ACR SS",
     "type": "fusil",
     "fabricant": "AMERICAN DEFENSE MANUFACTURING",
     "portee": 45,
     "rpm": 420,
     "chargeur": 30,
-    "rechargement": 2.97,
+    "rechargement": 2.39,
     "headshot": 60,
-    "degatsBase": 92344,
+    "degatsBase": 92400,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "m16a2": {
@@ -3786,15 +3789,15 @@
     ]
   },
   "secret_du_chef": {
-    "nom": "SECRET DU CHEF",// TODO check stats
+    "nom": "SECRET DU CHEF",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
     "rpm": 180,
-    "chargeur": 10,
-    "rechargement": 2.86,
+    "chargeur": 13,
+    "rechargement": 2.60,
     "headshot": 60,
-    "degatsBase": 231290,
+    "degatsBase": 231300,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
@@ -3831,16 +3834,19 @@
     "portee": 55,
     "rpm": 380,
     "chargeur": 30,
-    "rechargement": 2.52,
+    "rechargement": 1.89,
     "headshot": 60,
-    "degatsBase": 100590,
+    "degatsBase": 100600,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "pointe"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "mdr_urbain": {
@@ -3896,22 +3902,23 @@
     ]
   },
   "mk17_militaire": {
-    "nom": "Mk17 MILITAIRE", // TODO check stats
+    "nom": "Mk17 MILITAIRE",
     "type": "fusil",
     "fabricant": "FN HERSTAL",
     "portee": 55,
     "rpm": 275,
     "chargeur": 10,
-    "rechargement": 2.47,
+    "rechargement": 2.23,
     "headshot": 60,
-    "degatsBase": 145815,
+    "degatsBase": 145900,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "mk17_police": {
@@ -3935,15 +3942,15 @@
     ]
   },
   "regard_eternel": {
-    "nom": "REGARD ÉTERNEL",// TODO check stats
+    "nom": "REGARD ÉTERNEL",
     "type": "fusil",
     "fabricant": "FN HERSTAL",
     "portee": 55,
     "rpm": 275,
     "chargeur": 10,
-    "rechargement": 2.47,
+    "rechargement": 2.23,
     "headshot": 60,
-    "degatsBase": 145815,
+    "degatsBase": 145900,
     "estExotique": false,
     "estNomme": true,
     "talents": [
@@ -3952,19 +3959,20 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "sig_716_cqb": {
-    "nom": "SIG 716 CQB",// TODO check stats
+    "nom": "SIG 716 CQB",
     "type": "fusil",
     "fabricant": "SIG-SAUER",
     "portee": 45,
     "rpm": 320,
     "chargeur": 20,
-    "rechargement": 2.92,
+    "rechargement": 2.39,
     "headshot": 60,
-    "degatsBase": 125834,
+    "degatsBase": 125900,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -4124,22 +4132,23 @@
     ]
   },
   "m4_allege": {
-    "nom": "M4 ALLÉGÉ",// TODO check stats
+    "nom": "M4 ALLÉGÉ",
     "type": "fusil",
     "fabricant": "COLT",
     "portee": 55,
     "rpm": 360,
     "chargeur": 30,
-    "rechargement": 2.03,
+    "rechargement": 1.85,
     "headshot": 60,
-    "degatsBase": 103747,
+    "degatsBase": 107300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "bonne_nuit": {
@@ -4911,7 +4920,7 @@
   "achille": {
     "nom": "Achille",
     "type": "fusil",
-    "fabricant": "", // Todo : ajouter les fabricants
+    "fabricant": "KECKLER&KOCH",
     "portee": 55,
     "rpm": 420,
     "chargeur": 20,
@@ -4932,7 +4941,7 @@
   "scene_gauche": {
     "nom": "Scène gauche",
     "type": "fusil",
-    "fabricant": "", // Todo : ajouter les fabricants
+    "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
     "rpm": 320,
     "chargeur": 10,

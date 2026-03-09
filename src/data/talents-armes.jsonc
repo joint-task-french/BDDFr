@@ -170,6 +170,10 @@
     "description": "Les headshots confèrent +20% de dégâts de compétence pendant 15s.",
     "prerequis": "n/a",
     "icone": "pointe",
+    "perfectDescription": "Les headshots confèrent +25% de dégâts de compétence pendant 15s.",
+    "armesParfaites": [
+      "surge"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,

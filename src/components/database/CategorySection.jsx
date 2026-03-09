@@ -6,6 +6,8 @@ import EnsembleCard from './cards/EnsembleCard'
 import SkillCard from './cards/SkillCard'
 import ModArmeCard from './cards/ModArmeCard'
 import AttributCard from './cards/AttributCard'
+import ModCompetencesCard from "./cards/ModCompetencesCard.jsx";
+import ModEquipementCard from "./cards/ModEquipementCard.jsx";
 
 // Layout grids par catégorie
 const GRID_CONFIG = {
@@ -31,6 +33,8 @@ const CARD_COMPONENTS = {
   ensembles: EnsembleCard,
   competences: SkillCard,
   modsArmes: ModArmeCard,
+  modsCompetences: ModCompetencesCard,
+  modsEquipements: ModEquipementCard,
 }
 
 // Fallback card générique pour mods équipement / compétences
@@ -97,6 +101,9 @@ export default function CategorySection({ category, items, searchTerm, allData }
   if (category?.key === 'modsArmes') {
     if (allData?.attributs) extraProps.allAttributs = allData.attributs
   }
+  if (category?.key === 'modsCompetences') {
+    if (allData?.competencesGrouped) extraProps.competencesGrouped = allData.competencesGrouped
+  }
 
   return (
     <div className="fade-in">
@@ -109,7 +116,7 @@ export default function CategorySection({ category, items, searchTerm, allData }
       </div>
       <div className={`grid ${gridClass} gap-3`}>
         {items.map((item, i) => (
-          <CardComponent key={item.nom || item.variante || item.statistique || i} item={item} {...extraProps} />
+          <CardComponent key={item.slug || item.nom || item.variante || item.statistique || i} item={item} {...extraProps} />
         ))}
       </div>
     </div>

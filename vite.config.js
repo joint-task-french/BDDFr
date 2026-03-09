@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: '/BDDFr/',
   assetsInclude: ['**/*.jsonc'],
+  build: {
+    assetsInlineLimit: 10240,
+  }
 })
 

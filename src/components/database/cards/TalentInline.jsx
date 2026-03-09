@@ -111,6 +111,16 @@ export default function TalentInline({ talent, isExotic = false, allArmes, allEq
       {talent.prerequis && talent.prerequis !== 'n/a' && (
         <div className="text-xs text-yellow-500/70">Requis : {talent.prerequis}</div>
       )}
+
+      {/* Notes */}
+      {talent.notes && talent.notes !== 'n/a' && talent.notes !== '-' && (
+        <div className="mt-1 pt-1 border-t border-tactical-border/30">
+          <div className="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Notes</div>
+          <div className="text-[11px] text-gray-400 italic leading-relaxed whitespace-pre-line">
+            {talent.notes}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

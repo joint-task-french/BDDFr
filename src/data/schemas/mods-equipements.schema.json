@@ -8,19 +8,17 @@
     "^[a-z0-9_]+$": {
       "type": "object",
       "required": [
-        "nom"
+        "nom",
+        "categorie"
       ],
       "properties": {
         "categorie": {
           "type": "string",
           "enum": [
             "offensif",
-            "défensif",
+            "defensif",
             "utilitaire"
           ]
-        },
-        "protocole": {
-          "type": "string"
         },
         "nom": {
           "type": "string",
@@ -50,6 +48,10 @@
         "bonus": {
           "type": "string",
           "description": "Effet textuel non lié à un attribut (optionnel)"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur le mod"
         }
       }
     }

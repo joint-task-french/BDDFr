@@ -11,7 +11,6 @@
         "nom",
         "competence",
         "emplacement",
-        "compatible",
         "attributs"
       ],
       "properties": {
@@ -26,13 +25,6 @@
         "emplacement": {
           "type": "string",
           "description": "Emplacement du mod sur la compétence"
-        },
-        "compatible": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Slugs des compétences compatibles avec ce mod"
         },
         "prerequis": {
           "type": "string",
@@ -55,6 +47,10 @@
             }
           },
           "description": "Attributs de la compétence modifiés par ce mod"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur le mod"
         }
       }
     }

@@ -4,9 +4,6 @@
     "nom": "Bobine d'impulsion",
     "competence": "impulsion",
     "emplacement": "BOBINE",
-    "compatible": [
-      "impulsion"
-    ],
     "attributs": [
       { "attribut": "duree_competence", "valeur": 20 },
       { "attribut": "recup_competence", "valeur": 10 }
@@ -16,9 +13,6 @@
     "nom": "Bobine d'impulsion (Artilleur)",
     "competence": "impulsion",
     "emplacement": "BOBINE",
-    "compatible": [
-      "impulsion"
-    ],
     "prerequis": "artilleur",
     "attributs": [
       { "attribut": "duree_competence", "valeur": 40 },
@@ -29,9 +23,6 @@
     "nom": "Mécanisme de tir de tourelle",
     "competence": "tourelle",
     "emplacement": "MÉCANISME DE TIR",
-    "compatible": [
-      "tourelle"
-    ],
     "attributs": [
       { "attribut": "degats_competence", "valeur": 20 },
       { "attribut": "duree_competence", "valeur": 25 }
@@ -41,9 +32,6 @@
     "nom": "Mécanisme de tir de tourelle (Démolisseur)",
     "competence": "tourelle",
     "emplacement": "MÉCANISME DE TIR",
-    "compatible": [
-      "tourelle"
-    ],
     "prerequis": "demolisseur",
     "attributs": [
       { "attribut": "degats_competence", "valeur": 40 },
@@ -54,9 +42,6 @@
     "nom": "Drones de ruche",
     "competence": "ruche",
     "emplacement": "DRONES",
-    "compatible": [
-      "ruche"
-    ],
     "attributs": [
       { "attribut": "competence_reparation", "valeur": 20 },
       { "attribut": "recup_competence", "valeur": 10 }
@@ -66,9 +51,6 @@
     "nom": "Lanceur de ruche (Technicien)",
     "competence": "ruche",
     "emplacement": "LANCEUR",
-    "compatible": [
-      "ruche"
-    ],
     "prerequis": "technicien",
     "attributs": [
       { "attribut": "competence_reparation", "valeur": 40 },
@@ -79,9 +61,6 @@
     "nom": "Agitateur de lanceur chimique",
     "competence": "lanceur_chimique",
     "emplacement": "AGITATEUR",
-    "compatible": [
-      "lanceur_chimique"
-    ],
     "attributs": [
       { "attribut": "duree_competence", "valeur": 20 },
       { "attribut": "degats_competence", "valeur": 10 }
@@ -91,9 +70,6 @@
     "nom": "Charge utile de luciole",
     "competence": "luciole",
     "emplacement": "CHARGE UTILE",
-    "compatible": [
-      "luciole"
-    ],
     "attributs": [
       { "attribut": "degats_competence", "valeur": 20 },
       { "attribut": "duree_competence", "valeur": 20 }
@@ -103,9 +79,6 @@
     "nom": "Entraînement de mine téléguidée",
     "competence": "mine_teleguide",
     "emplacement": "ENTRAÎNEMENT",
-    "compatible": [
-      "mine_teleguide"
-    ],
     "attributs": [
       { "attribut": "degats_competence", "valeur": 20 },
       { "attribut": "recup_competence", "valeur": 10 }
@@ -115,9 +88,6 @@
     "nom": "Désignation de mine (Survivaliste)",
     "competence": "mine_teleguide",
     "emplacement": "DÉSIGNATION",
-    "compatible": [
-      "mine_teleguide"
-    ],
     "prerequis": "survivaliste",
     "attributs": [
       { "attribut": "degats_competence", "valeur": 40 },
@@ -128,9 +98,6 @@
     "nom": "Batterie de drone",
     "competence": "drone",
     "emplacement": "BATTERIE",
-    "compatible": [
-      "drone"
-    ],
     "attributs": [
       { "attribut": "degats_competence", "valeur": 20 },
       { "attribut": "duree_competence", "valeur": 20 }
@@ -140,9 +107,6 @@
     "nom": "Batterie de drone (Tireur d'élite)",
     "competence": "drone",
     "emplacement": "BATTERIE",
-    "compatible": [
-      "drone"
-    ],
     "prerequis": "tireur_d_elite",
     "attributs": [
       { "attribut": "degats_competence", "valeur": 40 },
@@ -153,9 +117,6 @@
     "nom": "Circuit imprimé de bouclier",
     "competence": "bouclier",
     "emplacement": "CIRCUIT IMPRIMÉ",
-    "compatible": [
-      "bouclier"
-    ],
     "attributs": [
       { "attribut": "sante_competence", "valeur": 20 },
       { "attribut": "duree_competence", "valeur": 20 }
@@ -165,9 +126,6 @@
     "nom": "Revêtement dur de bouclier (Incendiaire)",
     "competence": "bouclier",
     "emplacement": "REVÊTEMENT DUR",
-    "compatible": [
-      "bouclier"
-    ],
     "prerequis": "incendiaire",
     "attributs": [
       { "attribut": "sante_competence", "valeur": 40 },
@@ -178,9 +136,6 @@
     "nom": "Électronique de piège",
     "competence": "piege",
     "emplacement": "ÉLECTRONIQUE",
-    "compatible": [
-      "piege"
-    ],
     "attributs": [
       { "attribut": "degats_competence", "valeur": 20 },
       { "attribut": "recup_competence", "valeur": 10 }
@@ -190,9 +145,6 @@
     "nom": "Lanceur de bombe adhésive",
     "competence": "bombe_adhesive",
     "emplacement": "LANCEUR",
-    "compatible": [
-      "bombe_adhesive"
-    ],
     "attributs": [
       { "attribut": "degats_competence", "valeur": 20 },
       { "attribut": "recup_competence", "valeur": 10 }
@@ -202,9 +154,6 @@
     "nom": "Logement de leurre",
     "competence": "leurre",
     "emplacement": "LOGEMENT",
-    "compatible": [
-      "leurre"
-    ],
     "attributs": [
       { "attribut": "duree_competence", "valeur": 20 },
       { "attribut": "recup_competence", "valeur": 10 }
@@ -214,9 +163,6 @@
     "nom": "Lanceur d'abri intelligent",
     "competence": "abri_intelligent",
     "emplacement": "LANCEUR INTELLIGENT",
-    "compatible": [
-      "abri_intelligent"
-    ],
     "attributs": [
       { "attribut": "duree_competence", "valeur": 20 },
       { "attribut": "competence_reparation", "valeur": 10 }

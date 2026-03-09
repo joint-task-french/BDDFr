@@ -2,8 +2,7 @@
 {
   "duree_de_competence": {
     "categorie": "utilitaire",
-    "protocole": "PROTOCOLE UTILITAIRE : INTENSITÉ",
-    "nom": "% Durée de compétence",
+    "nom": "PROTOCOLE UTILITAIRE : INTENSITÉ",
     "attributs": [
       {
         "attribut": "duree_de_competence_eqp_mod",
@@ -13,8 +12,7 @@
   },
   "recup_de_competence": {
     "categorie": "utilitaire",
-    "protocole": "PROTOCOLE UTILITAIRE : INTENSITÉ",
-    "nom": "% Récup de compétence",
+    "nom": "PROTOCOLE UTILITAIRE : INTENSITÉ",
     "attributs": [
       {
         "attribut": "recup_de_competence_eqp",
@@ -24,8 +22,7 @@
   },
   "competence_de_reparation": {
     "categorie": "utilitaire",
-    "protocole": "PROTOCOLE UTILITAIRE : INTENSITÉ",
-    "nom": "% Compétence de réparation",
+    "nom": "PROTOCOLE UTILITAIRE : INTENSITÉ",
     "attributs": [
       {
         "attribut": "competences_de_reparation_eqp",
@@ -34,9 +31,8 @@
     ]
   },
   "protection_contre_ennemi_d_elite": {
-    "categorie": "défensif",
-    "protocole": "PROTOCOLE DÉFENSIF : ENDURANCE",
-    "nom": "% Protection contre ennemi d'élite",
+    "categorie": "defensif",
+    "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
     "attributs": [
       {
         "attribut": "protection_contre_ennemi_elite_mod",
@@ -45,9 +41,8 @@
     ]
   },
   "protection_pour_elimination": {
-    "categorie": "défensif",
-    "protocole": "PROTOCOLE DÉFENSIF : ENDURANCE",
-    "nom": "Protection pour élimination",
+    "categorie": "defensif",
+    "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
     "attributs": [
       {
         "attribut": "protection_pour_elimination_mod",
@@ -56,9 +51,8 @@
     ]
   },
   "reparation_subies": {
-    "categorie": "défensif",
-    "protocole": "PROTOCOLE DÉFENSIF : ENDURANCE",
-    "nom": "% Réparation subies",
+    "categorie": "defensif",
+    "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
     "attributs": [
       {
         "attribut": "reparation_subies_mod",
@@ -67,9 +61,8 @@
     ]
   },
   "resistance_aux_effets_d_etat_saignements_electrocutions_brulures_aveug_assour_desactivation_desorientation_entrave_impulsion": {
-    "categorie": "défensif",
-    "protocole": "PROTOCOLE DÉFENSIF : ENDURANCE",
-    "nom": "Résistance aux effets d'état(saignements, électrocutions, brûlures, aveug./Assour., désactivation, désorientation, entrave, impulsion)",
+    "categorie": "defensif",
+    "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
     "attributs": [
       {
         "attribut": "resistance_aux_effets_d_etat_saignements_electrocutions_brulures_aveug_assour_desactivation_desorientation_entrave_impulsion",
@@ -79,8 +72,7 @@
   },
   "probabilite_de_coup_critique": {
     "categorie": "offensif",
-    "protocole": "SYSTÈME OFFENSIF : ARME À FEU",
-    "nom": "% Probabilité de coup critique",
+    "nom": "SYSTÈME OFFENSIF : ARME À FEU",
     "attributs": [
       {
         "attribut": "probabilite_de_coup_critique_eqp",
@@ -90,8 +82,7 @@
   },
   "degats_coup_critique": {
     "categorie": "offensif",
-    "protocole": "SYSTÈME OFFENSIF : ARME À FEU",
-    "nom": "% Dégâts coup critique",
+    "nom": "SYSTÈME OFFENSIF : ARME À FEU",
     "attributs": [
       {
         "attribut": "degats_de_coup_critique_eqp",
@@ -101,8 +92,7 @@
   },
   "degats_aux_headshot": {
     "categorie": "offensif",
-    "protocole": "SYSTÈME OFFENSIF : ARME À FEU",
-    "nom": "% Dégâts aux headshot",
+    "nom": "SYSTÈME OFFENSIF : ARME À FEU",
     "attributs": [
       {
         "attribut": "degats_de_headshot_eqp",

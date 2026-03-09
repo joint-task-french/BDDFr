@@ -49,9 +49,9 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
       if (!slug || !hasContent(slug)) return null
       const found = talentsEquipements?.find(t => t.slug === slug) ||
                     talentsEquipements?.find(t => t.nom.toLowerCase() === slug.toLowerCase())
-      if (found) return { label: found.nom, text: found.description || '' }
+      if (found) return { label: found.nom, text: found.description || '', notes: found.notes }
       // Fallback: afficher le slug/texte tel quel
-      return { label: slug, text: '' }
+      return { label: slug, text: '', notes: '' }
     }
     if (item.emplacement === 'torse' && hasContent(ensemble.talentTorse)) return findTalent(ensemble.talentTorse)
     if (item.emplacement === 'sac_a_dos' && hasContent(ensemble.talentSac)) return findTalent(ensemble.talentSac)
@@ -162,11 +162,29 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
             <span className="text-emerald-400 font-bold uppercase tracking-widest text-xs">{gearSetTalent.label} : </span>
             {gearSetTalent.text}
           </div>
+          {hasContent(gearSetTalent.notes) && (
+            <div className="mt-1 pt-1 border-t border-tactical-border/30">
+              <div className="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Notes</div>
+              <div className="text-[11px] text-gray-400 italic leading-relaxed whitespace-pre-line">
+                {gearSetTalent.notes}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
       {/* Obtention */}
       <ObtentionDisplay obtention={item.obtention} />
+
+      {/* Notes */}
+      {hasContent(item.notes) && (
+        <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
+          <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
+          <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+            {item.notes}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

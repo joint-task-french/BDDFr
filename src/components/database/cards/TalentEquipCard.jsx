@@ -49,14 +49,7 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
             )}
           </div>
           <span className="text-xs font-bold uppercase tracking-widest bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded flex items-center gap-1">
-            {item.emplacement === 'tous' ? (
-              <>
-                <GameIcon src={GEAR_SLOT_ICONS_IMG['torse']} alt="" size="w-3 h-3" className="opacity-70" />
-                <GameIcon src={GEAR_SLOT_ICONS_IMG['sac_a_dos']} alt="" size="w-3 h-3" className="opacity-70" />
-              </>
-            ) : (
-              <GameIcon src={slotIcon} alt="" size="w-3 h-3" className="opacity-70" />
-            )}
+            <GameIcon src={slotIcon} alt="" size="w-3 h-3" className="opacity-70" />
             {getGearSlotLabel(equipementsType, item.emplacement)}
           </span>
         </div>
@@ -81,6 +74,16 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
               return eq?.nom || slug
             }).join('\n- ')}
           </span>
+        </div>
+      )}
+
+      {/* Notes */}
+      {hasContent(item.notes) && (
+        <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
+          <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
+          <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+            {item.notes}
+          </div>
         </div>
       )}
     </div>

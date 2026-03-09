@@ -947,7 +947,7 @@
         "compatible": [],
         "attributs": [
             {
-                "attribut": "maniement_d_arme_eqp",
+                "attribut": "maniement_d_arme_arm",
                 "valeur": 5
             }
         ]
@@ -1121,8 +1121,104 @@
         "type": "bouche",
         "attributs": [
             {
-                "attribut": "degats_de_coup_critique_eqp",
+                "attribut": "degats_de_coup_critique_arm",
                 "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "vision_du_medecin": {
+        "nom": "Vision du medecin",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "chargeur_de_famille": {
+        "nom": "Chargeur de famille",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "poigne_du_medecin": {
+        "nom": "Poigne du médecin",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "maniement_d_arme_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "perseverance_du_medecin": {
+        "nom": "Persévérance du médecin",
+        "type": "bouche",
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "lunette_ra": {
+        "nom": "Lunette RA",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "chargeur_de_simulation": {
+        "nom": "Chargeur de simulation",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "munitions",
+                "valeur": 5
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "poignee_loop": {
+        "nom": "Poignée Loop",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "amplificateur_de_velocite": {
+        "nom": "Amplificateur de vélocité",
+        "type": "bouche",
+        "attributs": [
+            {
+                "attribut": "portee_optimale",
+                "valeur": 10
             }
         ],
         "estExotique": true,

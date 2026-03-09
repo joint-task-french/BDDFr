@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import {lazy, Suspense, useEffect} from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import Loader from './components/common/Loader'
@@ -13,6 +13,21 @@ function SuspensePage({ children }) {
 }
 
 export default function App() {
+    useEffect(() => {
+        const preloadPages = () => {
+            import('./pages/DatabasePage');
+            import('./pages/BuildPlannerPage');
+            import('./pages/ChangelogPage');
+            import('./pages/GeneratorPage');
+        };
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(preloadPages);
+        } else {
+            setTimeout(preloadPages, 2000);
+        }
+    }, []);
+
+
   return (
     <Routes>
       <Route element={<Layout />}>

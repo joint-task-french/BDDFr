@@ -20,6 +20,7 @@ export function flattenCompetences(grouped) {
         ...v,
         competence: comp.competence,
         competenceSlug: comp.slug,
+        notesType: comp.notes,
         emplacementsMods: comp.emplacementsMods || [],
       })
     }

@@ -11,7 +11,7 @@
     "prebuild": "npm run sync-data",
     "predev": "npm run sync-data",
     "build": "vite build && npm run generate-statics",
-    "preview": "vite preview"
+    "preview": "npm run build && vite preview"
   },
   "dependencies": {
     "framer-motion": "^12.35.0",

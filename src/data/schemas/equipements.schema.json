@@ -137,6 +137,10 @@
               "description": "Nom de la faction pour schémas représailles (optionnel)"
             }
           }
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur l'équipement"
         }
       }
     }

@@ -53,6 +53,10 @@
         },
         "talentSac": {
           "type": "string"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur l'ensemble"
         }
       }
     }

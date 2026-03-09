@@ -94,9 +94,17 @@
               "slug": {
                 "type": "string",
                 "pattern": "^[a-z0-9_]+$"
+              },
+              "notes": {
+                "type": "string",
+                "description": "Notes libres sur la variante de compétence"
               }
             }
           }
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur le type de compétence"
         }
       }
     }

@@ -51,6 +51,10 @@
           "items": {
             "type": "string"
           }
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur le talent"
         }
       }
     }

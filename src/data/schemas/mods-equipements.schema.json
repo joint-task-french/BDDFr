@@ -50,6 +50,10 @@
         "bonus": {
           "type": "string",
           "description": "Effet textuel non lié à un attribut (optionnel)"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur le mod"
         }
       }
     }

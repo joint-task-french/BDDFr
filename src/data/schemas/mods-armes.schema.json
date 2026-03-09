@@ -67,6 +67,10 @@
         "prerequis": {
           "type": "string",
           "description": "Slug de spécialisation requise (optionnel)"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur le mod"
         }
       },
       "additionalProperties": false

@@ -160,9 +160,16 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
             )
             const stats = formatModAttributs(mod, allAttributs)
             return (
-              <div key={i} className="flex items-start gap-2 text-xs">
-                <span className="text-shd font-bold shrink-0">{mod.nom}</span>
-                {stats && <span className="text-emerald-400/80">{stats}</span>}
+              <div key={i} className="flex flex-col text-xs">
+                <div className="flex items-start gap-2">
+                  <span className="text-shd font-bold shrink-0">{mod.nom}</span>
+                  {stats && <span className="text-emerald-400/80">{stats}</span>}
+                </div>
+                {hasContent(mod.notes) && (
+                  <div className="mt-0.5 text-[10px] text-gray-500 italic leading-relaxed whitespace-pre-line border-l border-tactical-border/30 pl-2 ml-1">
+                    {mod.notes}
+                  </div>
+                )}
               </div>
             )
           })}
@@ -171,6 +178,16 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
 
       {/* Obtention */}
       <ObtentionDisplay obtention={item.obtention} />
+
+      {/* Notes */}
+      {hasContent(item.notes) && (
+        <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
+          <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
+          <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+            {item.notes}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

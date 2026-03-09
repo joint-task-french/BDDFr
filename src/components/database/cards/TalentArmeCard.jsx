@@ -15,7 +15,7 @@ const COMPAT_LABELS = {
   pistolet_mitrailleur: 'PM',
 }
 
-export default function TalentArmeCard({ item }) {
+export default function TalentArmeCard({ item, armes }) {
 
   const isExotic = item.estExotique
   const compatTypes = item.compatibilite

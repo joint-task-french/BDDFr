@@ -55,9 +55,8 @@ const categoryFormatters = {
     'armes': (item) => {
         const typeInfo = getWpnType(item.type);
         const rarete = item.estExotique ? '🔴 ' : (item.estNomme ? '🟡 ' : (item.isSignature ? '🟠 ' : ''));
-        const speSuffix = item.speNom ? ` (${item.speNom})` : '';
         return {
-            title: `${rarete}${item.nom}${speSuffix} (${typeInfo.nom}) — BDDFr`,
+            title: `${rarete}${item.nom} (${typeInfo.nom}) — BDDFr`,
             description: item.description ||
                 `Dégâts : ${item.degatsBase || 0}\nPortée : ${item.portee || 0}m\nCPM : ${item.rpm || 0}\n` +
                 `Chargeur : ${item.chargeur || 0}\nRechargement : ${item.rechargement || 0}s\nHeadshot : +${item.headshot}%`
@@ -189,8 +188,7 @@ async function generate() {
                             ...spe.arme,
                             slug: slugify(spe.arme.nom),
                             isSignature: true,
-                            speNom: spe.nom,
-                            type: 'Arme de spécialisation'
+                            type: spe.nom
                         });
                     }
                 });

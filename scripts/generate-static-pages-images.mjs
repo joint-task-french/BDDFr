@@ -83,6 +83,7 @@ const categoryFormatters = {
 };
 
 const pages_fixes = [
+    { path: 'db', title: 'Base de données — BDDFr', description: 'Base de données française pour The Division 2.' },
     { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez et partagez vos configurations d\'équipement.' },
     { path: 'changelog', title: 'Mises à jour — BDDFr', description: 'Historique des changements.' },
     { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' }
@@ -105,6 +106,8 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
     const fullUrl = `${BASE_URL}/${pagePath}`;
     const mainImageUrl = `${BASE_URL}/${imagePath}`;
     const safeDesc = (description || '').replace(/"/g, '&quot;');
+    const cardType = imagePath === 'favicon.png' ? 'summary' : 'summary_large_image';
+
     return `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -121,7 +124,7 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${safeDesc}">
     <meta property="og:image" content="${mainImageUrl}">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="${cardType}">
     
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/BDDFr/sitemap.xml" />
     <meta name="google-site-verification" content="7RVJ1PYMFGr6I8QTccLetMBScdq_leHW6-8ql-wvRcw" />
@@ -172,6 +175,13 @@ async function generate() {
         let imageHashes = {};
         if (fs.existsSync(hashFilePath)) {
             try { imageHashes = JSON.parse(fs.readFileSync(hashFilePath, 'utf-8')); } catch (e) {}
+        }
+
+        for (const p of pages_fixes) {
+            const targetDir = path.join(DIST_DIR, p.path);
+            if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+            fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(p.title, p.description, 'favicon.png', p.path));
+            sitemapEntries.push(`${BASE_URL}/${p.path}`);
         }
 
         console.log("📸 Début des captures d'écran...");
@@ -273,6 +283,22 @@ async function generate() {
         fs.writeFileSync(hashFilePath, JSON.stringify(imageHashes, null, 2));
 
         console.log("\n🔗 Génération des fichiers HTML et du Sitemap...");
+
+        for (const [categoryKey, titleObj] of Object.entries(categoryTitles)) {
+            const pagePath = `db/${categoryKey}`;
+            const targetDir = path.join(DIST_DIR, pagePath);
+            if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+
+            const title = `${titleObj} — BDDFr`;
+            const description = `Parcourez la base de données : ${titleObj}`;
+
+            fs.writeFileSync(
+                path.join(targetDir, 'index.html'),
+                stubTemplate(title, description, 'favicon.png', pagePath)
+            );
+            sitemapEntries.push(`${BASE_URL}/${pagePath}`);
+        }
+
         for (const [categoryKey, fileName] of Object.entries(categoryMap)) {
             const filePath = path.join(DATA_DIR, fileName);
             if (!fs.existsSync(filePath)) continue;

@@ -164,7 +164,13 @@ async function generate() {
         console.log("🚀 Lancement de Puppeteer...");
         browser = await puppeteer.launch({
             headless: "new",
-            args: ['--no-sandbox', '--disable-setuid-sandbox']
+            protocolTimeout: 120000,
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-gpu'
+            ]
         });
 
         const sitemapEntries = [`${BASE_URL}/`];
@@ -207,7 +213,7 @@ async function generate() {
 
             try {
                 console.log(`⏳ [${categoryKey}] Chargement de l'onglet...`);
-                await page.goto(categoryUrl, { waitUntil: 'networkidle0', timeout: 30000 });
+                await page.goto(categoryUrl, { waitUntil: 'networkidle0', timeout: 60000 });
 
                 await new Promise(resolve => setTimeout(resolve, 5000));
 
@@ -230,19 +236,32 @@ async function generate() {
                         continue;
                     }
 
-                    try {
-                        await page.evaluate(el => el.scrollIntoView(), card);
-                        await new Promise(resolve => setTimeout(resolve, 100));
+                    let attempts = 3;
+                    let success = false;
 
-                        await card.screenshot({
-                            path: imageOutputPath,
-                            type: 'jpeg',
-                            quality: 85
-                        });
-                        console.log(`📸 [${categoryKey}] Image générée : ${imageName}`);
-                        imageHashes[hashKey] = currentHash;
-                    } catch (err) {
-                        console.error(`❌ [${categoryKey}] Échec capture pour ${imageName}:`, err.message);
+                    while (attempts > 0 && !success) {
+                        try {
+                            await page.evaluate(el => el.scrollIntoView(), card);
+                            await new Promise(resolve => setTimeout(resolve, 750));
+
+                            await card.screenshot({
+                                path: imageOutputPath,
+                                type: 'jpeg',
+                                quality: 85
+                            });
+                            console.log(`📸 [${categoryKey}] Image générée : ${imageName}`);
+
+                            imageHashes[hashKey] = currentHash;
+                            success = true;
+                        } catch (err) {
+                            attempts--;
+                            if (attempts > 0) {
+                                console.warn(`⚠️ [${categoryKey}] Surcharge pour ${imageName} (${attempts} essais restants). Attente 2s...`);
+                                await new Promise(resolve => setTimeout(resolve, 2000));
+                            } else {
+                                console.error(`❌ [${categoryKey}] Échec définitif capture pour ${imageName}:`, err.message);
+                            }
+                        }
                     }
                 }
             } catch (err) {

@@ -1,0 +1,70 @@
+name: Build & Deploy avec Images (Manuel)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy-with-images:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout du code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📦 Installation des dépendances
+        run: npm ci
+
+      - name: 🌐 Installation des dépendances Chrome/Puppeteer
+        run: npx puppeteer browsers install chrome
+
+      - name: 🗄️ Cache Puppeteer (Chrome)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/puppeteer
+          key: puppeteer-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            puppeteer-${{ runner.os }}-
+
+      - name: 🏗️ Build Vite App
+        run: npm run build
+
+      - name: 🖼️ Restauration du cache des images
+        uses: actions/cache@v4
+        with:
+          path: dist/og-images
+          key: og-images-${{ github.run_id }}
+          restore-keys: |
+            og-images-
+
+      - name: 📸 Génération des pages statiques et images
+        run: npm run generate-statics-images
+
+      - name: 🔧 Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: 📤 Upload de l'artefact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: 🚀 Déploiement sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

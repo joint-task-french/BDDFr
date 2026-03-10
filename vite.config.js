@@ -11,6 +11,12 @@ export default defineConfig({
   },
   define: {
     __APP_VERSION__: JSON.stringify(Date.now().toString()),
+  },
+  server: {
+    allowedHosts: true,
+  },
+  preview: {
+    allowedHosts: true,
   }
 })
 

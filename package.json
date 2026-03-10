@@ -6,17 +6,21 @@
   "scripts": {
     "sync-data": "node scripts/sync-data.mjs",
     "generate-statics": "node scripts/generate-static-pages.mjs",
+    "generate-statics-images": "node scripts/generate-static-pages-images.mjs",
     "validate": "node scripts/validate-schemas.mjs",
     "dev": "vite",
     "prebuild": "npm run sync-data",
     "predev": "npm run sync-data",
     "build": "vite build && npm run generate-statics",
-    "preview": "npm run build && vite preview"
+    "buildWithImages": "vite build && npm run generate-statics-images",
+    "preview": "npm run build && vite preview",
+    "previewUnbuild": "vite preview"
   },
   "dependencies": {
     "framer-motion": "^12.35.0",
     "jszip": "^3.10.1",
     "lucide-react": "^0.577.0",
+    "puppeteer": "^24.38.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.13.1"

@@ -4221,7 +4221,10 @@
     "degatsBase": 409469,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil calibre 12 Dégâts aux protections"
+      "represailles": "Hyènes",
+      "butinCible": true,
+      "mission": true,
+      "cachesExotiques": true
     },
     "estNomme": false,
     "talents": [

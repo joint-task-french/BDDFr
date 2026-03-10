@@ -9,17 +9,24 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const DIST_DIR = './dist';
 const DATA_DIR = './src/data';
-const ASSETS_DIR = './src/img/game_assets';
 
+// Configuration du serveur de dev pour Puppeteer
 const DEV_SERVER_URL = 'http://localhost:5173/BDDFr';
 
 const repoFullName = process.env.GITHUB_REPOSITORY || 'localhost/BDDFr';
 const [owner, repo] = repoFullName.split('/');
 
+// URLs pour les balises Meta et la navigation
 const BASE_URL = process.env.PUBLIC_URL || (process.env.GITHUB_ACTIONS ? `https://${owner}.github.io/${repo}` : 'http://localhost:5173/BDDFr');
 const BASE_PATH = process.env.PUBLIC_PATH || (process.env.GITHUB_ACTIONS ? `/${repo}` : '/BDDFr');
 const DIVISION_ORANGE = "#ff8000";
 
+// --- CONFIGURATION DU FILIGRANE ---
+const WATERMARK_URL = `${BASE_PATH}/favicon.png`;
+const WATERMARK_OPACITY = 0.15;
+const WATERMARK_SIZE = '60px';
+
+// Chargement des données pour les formatters
 const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes-type.jsonc')) || {};
 const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements-type.jsonc')) || {};
 const ensembles = parseJsonc(path.join(DATA_DIR, 'ensembles.jsonc')) || {};
@@ -133,21 +140,13 @@ function startDevServer() {
     console.log("🔄 Démarrage du serveur de développement local...");
     return new Promise((resolve, reject) => {
         const serverProcess = spawn('npx', ['vite', '--port', '5173'], { shell: true });
-
         const onData = (data) => {
             const output = data.toString();
-            if (output.includes('http://localhost:5173') || output.includes('ready in')) {
-                resolve(serverProcess);
-            }
+            if (output.includes('http://localhost:5173') || output.includes('ready in')) resolve(serverProcess);
         };
-
         serverProcess.stdout.on('data', onData);
         serverProcess.stderr.on('data', onData);
-
-        serverProcess.on('error', (err) => {
-            console.error("❌ Erreur au lancement de Vite", err);
-            reject(err);
-        });
+        serverProcess.on('error', (err) => reject(err));
     });
 }
 
@@ -159,23 +158,25 @@ async function generate() {
 
     try {
         devServerProcess = await startDevServer();
-        console.log("✅ Serveur démarré et prêt !");
-
-        console.log("🚀 Lancement de Puppeteer...");
         browser = await puppeteer.launch({
             headless: "new",
             protocolTimeout: 120000,
-            args: [
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-                '--disable-dev-shm-usage',
-                '--disable-gpu'
-            ]
+            args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
         });
 
         const sitemapEntries = [`${BASE_URL}/`];
         const today = new Date().toISOString().split('T')[0];
+        const exportOgImagesDir = path.join(DIST_DIR, 'og-images');
+        if (!fs.existsSync(exportOgImagesDir)) fs.mkdirSync(exportOgImagesDir, { recursive: true });
 
+        // Gestion du cache des images via hashes
+        const hashFilePath = path.join(exportOgImagesDir, 'hashes.json');
+        let imageHashes = {};
+        if (fs.existsSync(hashFilePath)) {
+            try { imageHashes = JSON.parse(fs.readFileSync(hashFilePath, 'utf-8')); } catch (e) {}
+        }
+
+        // 1. Pages fixes
         for (const p of pages_fixes) {
             const targetDir = path.join(DIST_DIR, p.path);
             if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
@@ -183,22 +184,8 @@ async function generate() {
             sitemapEntries.push(`${BASE_URL}/${p.path}`);
         }
 
-        const exportOgImagesDir = path.join(DIST_DIR, 'og-images');
-        if (!fs.existsSync(exportOgImagesDir)) fs.mkdirSync(exportOgImagesDir, { recursive: true });
-
-        const hashFilePath = path.join(exportOgImagesDir, 'hashes.json');
-        let imageHashes = {};
-        if (fs.existsSync(hashFilePath)) {
-            try {
-                imageHashes = JSON.parse(fs.readFileSync(hashFilePath, 'utf-8'));
-                console.log(`🗄️ Cache d'empreintes chargé (${Object.keys(imageHashes).length} éléments connus).`);
-            } catch (e) {
-                console.error("⚠️ Fichier hashes.json corrompu, on repart de zéro.");
-            }
-        }
-
-        console.log("📸 Lancement des captures d'écran en parallèle...");
-
+        // 2. Captures d'écran en parallèle
+        console.log("📸 Début des captures d'écran...");
         const capturePromises = Object.entries(categoryMap).map(async ([categoryKey, fileName]) => {
             const filePath = path.join(DATA_DIR, fileName);
             if (!fs.existsSync(filePath)) return;
@@ -206,85 +193,77 @@ async function generate() {
             const categoryOgDir = path.join(exportOgImagesDir, categoryKey);
             if (!fs.existsSync(categoryOgDir)) fs.mkdirSync(categoryOgDir, { recursive: true });
 
-            const categoryUrl = `${DEV_SERVER_URL}/#/db/${categoryKey}`;
-
             const page = await browser.newPage();
             await page.setViewport({ width: 1920, height: 1080 });
 
             try {
-                console.log(`⏳ [${categoryKey}] Chargement de l'onglet...`);
-                await page.goto(categoryUrl, { waitUntil: 'networkidle0', timeout: 60000 });
-
-                await new Promise(resolve => setTimeout(resolve, 5000));
+                await page.goto(`${DEV_SERVER_URL}/#/db/${categoryKey}`, { waitUntil: 'networkidle0', timeout: 60000 });
+                await page.addStyleTag({
+                    content: `
+                        header, nav, footer, .navbar { display: none !important; }
+                        .puppeteer-teleport { 
+                            position: fixed !important; top: 50px !important; left: 50px !important; z-index: 999999 !important;
+                            margin: 0 !important; transform: none !important; transition: none !important;
+                            height: auto !important; background-color: #0d0d0d !important;
+                        }
+                        .watermark-overlay {
+                            position: absolute !important; bottom: 15px !important; right: 15px !important;
+                            width: ${WATERMARK_SIZE} !important; opacity: ${WATERMARK_OPACITY} !important;
+                            z-index: 1000000 !important; pointer-events: none !important;
+                        }
+                    `
+                });
+                await new Promise(r => setTimeout(r, 5000));
 
                 const cards = await page.$$('.og-target-card');
-                console.log(`✅ [${categoryKey}] Prêt ! ${cards.length} cartes trouvées.`);
-
                 for (const card of cards) {
                     const slug = await page.evaluate(el => el.getAttribute('data-slug'), card);
                     if (!slug) continue;
 
                     const cardHtml = await page.evaluate(el => el.innerHTML, card);
                     const currentHash = crypto.createHash('md5').update(cardHtml).digest('hex');
-
                     const hashKey = `${categoryKey}_${slug}`;
-                    const imageName = `${slug}.jpg`;
-                    const imageOutputPath = path.join(categoryOgDir, imageName);
+                    const imageOutputPath = path.join(categoryOgDir, `${slug}.jpg`);
 
-                    if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) {
-                        console.log(`⏩ [${categoryKey}] Ignoré (aucun changement) : ${imageName}`);
-                        continue;
-                    }
+                    if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) continue;
 
-                    let attempts = 3;
-                    let success = false;
+                    try {
+                        await page.evaluate((el, logo) => {
+                            const rect = el.getBoundingClientRect();
+                            el.style.setProperty('width', rect.width + 'px', 'important');
+                            el.classList.add('puppeteer-teleport');
+                            const img = document.createElement('img');
+                            img.src = logo; img.className = 'watermark-overlay';
+                            el.appendChild(img);
+                        }, card, WATERMARK_URL);
 
-                    while (attempts > 0 && !success) {
-                        try {
-                            await page.evaluate(el => el.scrollIntoView(), card);
-                            await new Promise(resolve => setTimeout(resolve, 750));
+                        await new Promise(r => setTimeout(r, 200));
+                        await card.screenshot({ path: imageOutputPath, type: 'jpeg', quality: 85 });
 
-                            await card.screenshot({
-                                path: imageOutputPath,
-                                type: 'jpeg',
-                                quality: 85
-                            });
-                            console.log(`📸 [${categoryKey}] Image générée : ${imageName}`);
+                        await page.evaluate(el => {
+                            el.style.removeProperty('width');
+                            el.classList.remove('puppeteer-teleport');
+                            const wm = el.querySelector('.watermark-overlay');
+                            if (wm) wm.remove();
+                        }, card);
 
-                            imageHashes[hashKey] = currentHash;
-                            success = true;
-                        } catch (err) {
-                            attempts--;
-                            if (attempts > 0) {
-                                console.warn(`⚠️ [${categoryKey}] Surcharge pour ${imageName} (${attempts} essais restants). Attente 2s...`);
-                                await new Promise(resolve => setTimeout(resolve, 2000));
-                            } else {
-                                console.error(`❌ [${categoryKey}] Échec définitif capture pour ${imageName}:`, err.message);
-                            }
-                        }
-                    }
+                        console.log(`📸 [${categoryKey}] Généré : ${slug}.jpg`);
+                        imageHashes[hashKey] = currentHash;
+                    } catch (e) { console.error(`❌ Erreur ${slug}:`, e.message); }
                 }
-            } catch (err) {
-                console.error(`❌ [${categoryKey}] Erreur sur la page de catégorie:`, err.message);
-            } finally {
-                await page.close();
-            }
+            } finally { await page.close(); }
         });
 
         await Promise.all(capturePromises);
-        console.log("📸 Toutes les captures d'écran sont terminées !");
-
         fs.writeFileSync(hashFilePath, JSON.stringify(imageHashes, null, 2));
-        console.log("💾 Fichier des empreintes (hashes.json) sauvegardé.");
 
-        console.log("\nGénération des fichiers HTML...");
+        // 3. Génération des fichiers HTML finaux
+        console.log("\n🔗 Génération des fichiers HTML et du Sitemap...");
         for (const [categoryKey, fileName] of Object.entries(categoryMap)) {
             const filePath = path.join(DATA_DIR, fileName);
             if (!fs.existsSync(filePath)) continue;
             const rawData = parseJsonc(filePath);
             if (!rawData) continue;
-
-            const categoryOgDir = path.join(exportOgImagesDir, categoryKey);
 
             let items = [];
             if (categoryKey === 'competences') {
@@ -296,68 +275,40 @@ async function generate() {
                 if (classSpe) {
                     Object.values(classSpe).forEach(spe => {
                         if (spe.arme && spe.arme.nom) {
-                            items.push({
-                                ...spe.arme,
-                                slug: slugify(spe.arme.nom),
-                                isSignature: true,
-                                speNom: spe.nom,
-                                type: 'Arme de spécialisation'
-                            });
+                            items.push({ ...spe.arme, slug: slugify(spe.arme.nom), isSignature: true, speNom: spe.nom, type: 'Arme de spécialisation' });
                         }
                     });
                 }
             } else if (!Array.isArray(rawData)) {
                 items = Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
-            } else {
-                items = rawData;
-            }
+            } else { items = rawData; }
 
             for (const item of items) {
                 const itemSlug = item.slug || slugify(item.nom || item.variante || 'Element');
-                if (!itemSlug) continue;
-
                 const pagePath = `db/${categoryKey}/${itemSlug}`;
                 const formatter = categoryFormatters[categoryKey] || categoryFormatters['default'];
-                const formatterRes = formatter(item);
-
-                let publicImageUrl = 'favicon.png';
-                const imageName = `${itemSlug}.jpg`;
-                const imageOutputPath = path.join(categoryOgDir, imageName);
-
-                if (fs.existsSync(imageOutputPath)) {
-                    publicImageUrl = `og-images/${categoryKey}/${imageName}`;
-                }
+                const res = formatter(item);
+                const imagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}.jpg`)) ? `og-images/${categoryKey}/${itemSlug}.jpg` : 'favicon.png';
 
                 const targetDir = path.join(DIST_DIR, pagePath);
                 if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-                fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(formatterRes.title, formatterRes.description, publicImageUrl, pagePath));
+                fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(res.title, res.description, imagePath, pagePath));
                 sitemapEntries.push(`${BASE_URL}/${pagePath}`);
             }
         }
 
-        fs.writeFileSync(path.join(DIST_DIR, '404.html'), `<!DOCTYPE html><html><head><meta charset="utf-8"><script>var path=window.location.pathname;window.location.replace(window.location.origin + "${BASE_PATH}/?redirect="+encodeURIComponent(path+window.location.search+window.location.hash));</script></head><body><p>Redirection...</p></body></html>`);
-        const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapEntries.map(url => `  <url><loc>${url}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>${url.includes('/db/') ? '0.6' : '0.8'}</priority></url>`).join('\n')}</urlset>`;
-        fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemapContent);
+        // Fichiers finaux
+        fs.writeFileSync(path.join(DIST_DIR, '404.html'), `<!DOCTYPE html><html><head><meta charset="utf-8"><script>window.location.replace(window.location.origin + "${BASE_PATH}/?redirect="+encodeURIComponent(window.location.pathname+window.location.search+window.location.hash));</script></head><body>Redirection...</body></html>`);
+        const sitemap = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapEntries.map(url => `  <url><loc>${url}</loc><lastmod>${today}</lastmod></url>`).join('\n')}</urlset>`;
+        fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap);
         fs.writeFileSync(path.join(DIST_DIR, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${BASE_URL}/sitemap.xml`);
-        console.log(`✅ Terminé : ${sitemapEntries.length} pages traitées au total.`);
+        console.log(`✅ Terminé ! ${sitemapEntries.length} pages traitées.`);
 
-    } catch (error) {
-        console.error("❌ Une erreur globale est survenue durant la génération :", error);
     } finally {
-        if (browser) {
-            await browser.close();
-            console.log("✅ Puppeteer fermé.");
-        }
-        if (devServerProcess) {
-            devServerProcess.kill('SIGINT');
-            console.log("🛑 Serveur de développement arrêté.");
-        }
-
+        if (browser) await browser.close();
+        if (devServerProcess) devServerProcess.kill('SIGINT');
         process.exit(0);
     }
 }
 
-generate().catch((err) => {
-    console.error(err);
-    process.exit(1);
-});
+generate().catch(err => { console.error(err); process.exit(1); });

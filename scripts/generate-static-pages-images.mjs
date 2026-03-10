@@ -10,23 +10,19 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = './dist';
 const DATA_DIR = './src/data';
 
-// Configuration du serveur de dev pour Puppeteer
 const DEV_SERVER_URL = 'http://localhost:5173/BDDFr';
 
 const repoFullName = process.env.GITHUB_REPOSITORY || 'localhost/BDDFr';
 const [owner, repo] = repoFullName.split('/');
 
-// URLs pour les balises Meta et la navigation
 const BASE_URL = process.env.PUBLIC_URL || (process.env.GITHUB_ACTIONS ? `https://${owner}.github.io/${repo}` : 'http://localhost:5173/BDDFr');
 const BASE_PATH = process.env.PUBLIC_PATH || (process.env.GITHUB_ACTIONS ? `/${repo}` : '/BDDFr');
 const DIVISION_ORANGE = "#ff8000";
 
-// --- CONFIGURATION DU FILIGRANE ---
 const WATERMARK_URL = `${BASE_PATH}/favicon.png`;
 const WATERMARK_OPACITY = 0.15;
 const WATERMARK_SIZE = '60px';
 
-// Chargement des données pour les formatters
 const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes-type.jsonc')) || {};
 const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements-type.jsonc')) || {};
 const ensembles = parseJsonc(path.join(DATA_DIR, 'ensembles.jsonc')) || {};
@@ -160,7 +156,7 @@ async function generate() {
         devServerProcess = await startDevServer();
         browser = await puppeteer.launch({
             headless: "new",
-            protocolTimeout: 120000,
+            protocolTimeout: 240000, // Augmenté à 4 minutes
             args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
         });
 
@@ -169,22 +165,12 @@ async function generate() {
         const exportOgImagesDir = path.join(DIST_DIR, 'og-images');
         if (!fs.existsSync(exportOgImagesDir)) fs.mkdirSync(exportOgImagesDir, { recursive: true });
 
-        // Gestion du cache des images via hashes
         const hashFilePath = path.join(exportOgImagesDir, 'hashes.json');
         let imageHashes = {};
         if (fs.existsSync(hashFilePath)) {
             try { imageHashes = JSON.parse(fs.readFileSync(hashFilePath, 'utf-8')); } catch (e) {}
         }
 
-        // 1. Pages fixes
-        for (const p of pages_fixes) {
-            const targetDir = path.join(DIST_DIR, p.path);
-            if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-            fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(p.title, p.description, 'favicon.png', p.path));
-            sitemapEntries.push(`${BASE_URL}/${p.path}`);
-        }
-
-        // 2. Captures d'écran en parallèle
         console.log("📸 Début des captures d'écran...");
         const capturePromises = Object.entries(categoryMap).map(async ([categoryKey, fileName]) => {
             const filePath = path.join(DATA_DIR, fileName);
@@ -227,29 +213,55 @@ async function generate() {
 
                     if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) continue;
 
-                    try {
-                        await page.evaluate((el, logo) => {
-                            const rect = el.getBoundingClientRect();
-                            el.style.setProperty('width', rect.width + 'px', 'important');
-                            el.classList.add('puppeteer-teleport');
-                            const img = document.createElement('img');
-                            img.src = logo; img.className = 'watermark-overlay';
-                            el.appendChild(img);
-                        }, card, WATERMARK_URL);
+                    // --- PROTECTION & RETRY LOOP ---
+                    let attempts = 3;
+                    let success = false;
 
-                        await new Promise(r => setTimeout(r, 200));
-                        await card.screenshot({ path: imageOutputPath, type: 'jpeg', quality: 85 });
+                    while (attempts > 0 && !success) {
+                        try {
+                            await page.evaluate((el, logo) => {
+                                const rect = el.getBoundingClientRect();
+                                el.style.setProperty('width', rect.width + 'px', 'important');
+                                el.classList.add('puppeteer-teleport');
+                                if (!el.querySelector('.watermark-overlay')) {
+                                    const img = document.createElement('img');
+                                    img.src = logo; img.className = 'watermark-overlay';
+                                    el.appendChild(img);
+                                }
+                            }, card, WATERMARK_URL);
 
-                        await page.evaluate(el => {
-                            el.style.removeProperty('width');
-                            el.classList.remove('puppeteer-teleport');
-                            const wm = el.querySelector('.watermark-overlay');
-                            if (wm) wm.remove();
-                        }, card);
+                            await new Promise(r => setTimeout(r, 300));
+                            await card.screenshot({ path: imageOutputPath, type: 'jpeg', quality: 85 });
 
-                        console.log(`📸 [${categoryKey}] Généré : ${slug}.jpg`);
-                        imageHashes[hashKey] = currentHash;
-                    } catch (e) { console.error(`❌ Erreur ${slug}:`, e.message); }
+                            // Nettoyage après succès
+                            await page.evaluate(el => {
+                                el.style.removeProperty('width');
+                                el.classList.remove('puppeteer-teleport');
+                                const wm = el.querySelector('.watermark-overlay');
+                                if (wm) wm.remove();
+                            }, card);
+
+                            console.log(`📸 [${categoryKey}] Généré : ${slug}.jpg`);
+                            imageHashes[hashKey] = currentHash;
+                            success = true;
+                        } catch (e) {
+                            attempts--;
+                            // Nettoyage impératif avant le prochain essai
+                            await page.evaluate(el => {
+                                el.style.removeProperty('width');
+                                el.classList.remove('puppeteer-teleport');
+                                const wm = el.querySelector('.watermark-overlay');
+                                if (wm) wm.remove();
+                            }, card).catch(() => {});
+
+                            if (attempts > 0) {
+                                console.warn(`⚠️ [${categoryKey}] Timeout pour ${slug}, tentative restante: ${attempts}...`);
+                                await new Promise(r => setTimeout(r, 2000));
+                            } else {
+                                console.error(`❌ [${categoryKey}] Échec définitif pour ${slug}:`, e.message);
+                            }
+                        }
+                    }
                 }
             } finally { await page.close(); }
         });
@@ -257,7 +269,6 @@ async function generate() {
         await Promise.all(capturePromises);
         fs.writeFileSync(hashFilePath, JSON.stringify(imageHashes, null, 2));
 
-        // 3. Génération des fichiers HTML finaux
         console.log("\n🔗 Génération des fichiers HTML et du Sitemap...");
         for (const [categoryKey, fileName] of Object.entries(categoryMap)) {
             const filePath = path.join(DATA_DIR, fileName);
@@ -297,7 +308,6 @@ async function generate() {
             }
         }
 
-        // Fichiers finaux
         fs.writeFileSync(path.join(DIST_DIR, '404.html'), `<!DOCTYPE html><html><head><meta charset="utf-8"><script>window.location.replace(window.location.origin + "${BASE_PATH}/?redirect="+encodeURIComponent(window.location.pathname+window.location.search+window.location.hash));</script></head><body>Redirection...</body></html>`);
         const sitemap = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapEntries.map(url => `  <url><loc>${url}</loc><lastmod>${today}</lastmod></url>`).join('\n')}</urlset>`;
         fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap);

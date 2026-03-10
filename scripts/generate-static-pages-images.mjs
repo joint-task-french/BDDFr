@@ -122,6 +122,9 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
     <meta property="og:description" content="${safeDesc}">
     <meta property="og:image" content="${mainImageUrl}">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/BDDFr/sitemap.xml" />
+    <meta name="google-site-verification" content="7RVJ1PYMFGr6I8QTccLetMBScdq_leHW6-8ql-wvRcw" />
     <script>
         var origin = window.location.origin;
         var target = origin + "${BASE_PATH}/#/${pagePath}" + window.location.search + window.location.hash;

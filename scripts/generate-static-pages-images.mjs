@@ -82,6 +82,19 @@ const categoryFormatters = {
     })
 };
 
+const categoryTitles = {
+    'armes': 'Armes',
+    'equipements': 'Équipements',
+    'ensembles': 'Ensembles',
+    'competences': 'Compétences',
+    'attributs': 'Attributs',
+    'talentsArmes': 'Talents d\'armes',
+    'talentsEquipements': 'Talents d\'équipements',
+    'modsArmes': 'Mods d\'armes',
+    'modsEquipements': 'Mods d\'équipements',
+    'modsCompetences': 'Mods de compétences'
+};
+
 const pages_fixes = [
     { path: 'db', title: 'Base de données — BDDFr', description: 'Base de données française pour The Division 2.' },
     { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez et partagez vos configurations d\'équipement.' },
@@ -106,6 +119,7 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
     const fullUrl = `${BASE_URL}/${pagePath}`;
     const mainImageUrl = `${BASE_URL}/${imagePath}`;
     const safeDesc = (description || '').replace(/"/g, '&quot;');
+
     const cardType = imagePath === 'favicon.png' ? 'summary' : 'summary_large_image';
 
     return `<!DOCTYPE html>
@@ -124,9 +138,10 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${safeDesc}">
     <meta property="og:image" content="${mainImageUrl}">
+    
     <meta name="twitter:card" content="${cardType}">
     
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/BDDFr/sitemap.xml" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="${BASE_URL}/sitemap.xml" />
     <meta name="google-site-verification" content="7RVJ1PYMFGr6I8QTccLetMBScdq_leHW6-8ql-wvRcw" />
     <script>
         var origin = window.location.origin;
@@ -162,7 +177,7 @@ async function generate() {
         devServerProcess = await startDevServer();
         browser = await puppeteer.launch({
             headless: "new",
-            protocolTimeout: 240000, // Augmenté à 4 minutes
+            protocolTimeout: 240000,
             args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
         });
 
@@ -226,7 +241,6 @@ async function generate() {
 
                     if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) continue;
 
-                    // --- PROTECTION & RETRY LOOP ---
                     let attempts = 3;
                     let success = false;
 
@@ -246,7 +260,6 @@ async function generate() {
                             await new Promise(r => setTimeout(r, 300));
                             await card.screenshot({ path: imageOutputPath, type: 'jpeg', quality: 85 });
 
-                            // Nettoyage après succès
                             await page.evaluate(el => {
                                 el.style.removeProperty('width');
                                 el.classList.remove('puppeteer-teleport');
@@ -259,7 +272,6 @@ async function generate() {
                             success = true;
                         } catch (e) {
                             attempts--;
-                            // Nettoyage impératif avant le prochain essai
                             await page.evaluate(el => {
                                 el.style.removeProperty('width');
                                 el.classList.remove('puppeteer-teleport');
@@ -337,7 +349,7 @@ async function generate() {
             }
         }
 
-        fs.writeFileSync(path.join(DIST_DIR, '404.html'), `<!DOCTYPE html><html><head><meta charset="utf-8"><script>window.location.replace(window.location.origin + "${BASE_PATH}/?redirect="+encodeURIComponent(window.location.pathname+window.location.search+window.location.hash));</script></head><body>Redirection...</body></html>`);
+        fs.writeFileSync(path.join(DIST_DIR, '404.html'), `<!DOCTYPE html><html><head><meta charset="utf-8"><script>window.location.replace(window.location.origin + "${BASE_PATH}/?redirect="+encodeURIComponent(window.location.pathname+window.location.search+window.location.hash));</script></head><body><p>Redirection...</p></body></html>`);
         const sitemap = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapEntries.map(url => `  <url><loc>${url}</loc><lastmod>${today}</lastmod></url>`).join('\n')}</urlset>`;
         fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap);
         fs.writeFileSync(path.join(DIST_DIR, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${BASE_URL}/sitemap.xml`);

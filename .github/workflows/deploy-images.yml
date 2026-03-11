@@ -1,6 +1,8 @@
 name: Build & Deploy avec Images (Manuel)
 
 on:
+  push:
+    branches: [master, main]
   workflow_dispatch:
 
 permissions:

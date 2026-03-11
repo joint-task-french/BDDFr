@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { GameIcon, WEAPON_TYPE_ICONS, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveIcon } from '../../utils/gameAssets'
-import { getWeaponTypeLabel, getGearSlotLabel, getAttrCategoryLabel, formatNumber, calculateMaxDamage } from '../../utils/formatters'
+import {getWeaponTypeLabel, getGearSlotLabel, getAttrCategoryLabel, formatNumber, calculateMaxDamage, buildGearSlotLabels} from '../../utils/formatters'
 import { slugify } from "../../utils/slugify.js"
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
 
@@ -144,6 +144,7 @@ function GearRow({ item, ensembles, equipementsType, attributsType }) {
   const isNamed = item.estNomme && !isExotic
   const isGearSet = item.type === 'gear_set'
   const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isGearSet ? 'text-emerald-400' : 'text-shd'
+  const ensemble = ensembles?.find(e => e.slug === item.marque )
 
   const attrsEssentiels = React.useMemo(() => {
     if (Array.isArray(item.attributEssentiel) && item.attributEssentiel.length > 0) return item.attributEssentiel
@@ -159,7 +160,7 @@ function GearRow({ item, ensembles, equipementsType, attributsType }) {
       </div>
       <div className="flex flex-col min-w-0 w-48 md:w-80 flex-shrink-0">
         <div className={`font-bold text-sm uppercase truncate ${nameColor}`}>{item.nom}</div>
-        <div className="text-xs text-gray-500 uppercase truncate">{getGearSlotLabel(equipementsType, item.emplacement)}</div>
+        <div className="text-xs text-gray-500 uppercase truncate">{getGearSlotLabel(equipementsType, item.emplacement)} - { ensemble?.nom }</div>
       </div>
       <div className="flex gap-1 flex-1 overflow-hidden">
         {attrsEssentiels.map((attr, i) => (

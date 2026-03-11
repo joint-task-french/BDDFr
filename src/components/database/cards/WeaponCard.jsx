@@ -73,13 +73,13 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
 
       {/* Stats grid */}
       <div className="grid grid-cols-3 gap-px bg-tactical-border/30">
-        <Stat label="Portée" value={item.portee ? `${item.portee}m` : null} />
-        <Stat label="CPM" value={item.rpm || null} />
+        <Stat label="Portée" value={item.portee ? `${item.portee}m` : '0m'} />
+        <Stat label="CPM" value={item.rpm || '0\u200B'} />
         <Stat label="Dégâts base" value={formatNumber(item.degatsBase) + "\u200B"} accent />
-        <Stat label="Chargeur" value={item.chargeur || null} />
-        <Stat label="Rechargement" value={item.rechargement ? `${item.rechargement}s` : null} />
+        <Stat label="Chargeur" value={item.chargeur || '0\u200B'} />
+        <Stat label="Rechargement" value={item.rechargement ? `${item.rechargement}s` : '0s'} />
         <Stat label="Dégâts max" value={formatNumber(calculateMaxDamage(item.degatsBase)) + "\u200B"} accent info="Calcul des Dégâts Max (+160%)\n\n• Équipement : +90%\n• Expertise : +30%\n• Type d'arme : +15%\n• Spécialisation : +15%\n• Montre SHD : +10%\n\nLe total est calculé par l'addition de ces bonus." />
-        <Stat label="Headshot" value={item.headshot != null ? `${item.headshot}%` : null} span2={essentialAttrs.length === 0} />
+        <Stat label="Headshot" value={item.headshot != null ? `${item.headshot}%` : '0%%'} span2={essentialAttrs.length === 0} />
       </div>
 
       {/* Attributs essentiels (hérités du type d'arme) */}

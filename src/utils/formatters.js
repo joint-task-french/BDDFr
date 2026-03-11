@@ -192,7 +192,7 @@ export function getWeaponEssentialAttributes(armesType, typeKey, allAttributs, e
  * Formate un nombre en français (séparateur de milliers).
  */
 export function formatNumber(n) {
-  if (!n) return '—'
+  if (!n) return 0
   return Number(n).toLocaleString('fr-FR')
 }
 
@@ -200,6 +200,7 @@ export function formatNumber(n) {
  * Calcule les dégâts maximum d'une arme en appliquant les bonus.
  */
 export function calculateMaxDamage(n) {
+  if (!n || n === 0) return 0
   // TODO : récupérer ces valeurs depuis la base de données si possible
   const gearWeaponMaxPercent = 90
   const shdWeaponMaxPercent = 10

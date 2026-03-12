@@ -1,5 +1,5 @@
 import { getWeaponTypeLabel, getWeaponEssentialAttributes, formatNumber, calculateMaxDamage } from '../../../utils/formatters'
-import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
+import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon, resolveIcon } from '../../../utils/gameAssets'
 import { formatModAttributs } from '../../../utils/modCompatibility'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
@@ -32,7 +32,10 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
   const isNamed = item.estNomme && !isExotic
   const isSpecific = item.type === 'arme_specifique'
   const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isSpecific ? 'text-purple-400' : 'text-shd'
-  const typeIcon = WEAPON_TYPE_ICONS[item.type]
+
+  // Priorité : icône personnalisée de l'arme > icône par défaut du type d'arme
+  const customIcon = resolveIcon(item.icone)
+  const typeIcon = customIcon || WEAPON_TYPE_ICONS[item.type]
 
   // Résoudre les attributs essentiels hérités du type d'arme
   const essentialAttrs = getWeaponEssentialAttributes(armesType, item.type, allAttributs, item.attributs_essentiels)
@@ -43,7 +46,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
     <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden hover:border-tactical-border/80 transition-colors">
       {/* Header : Nom + Type + Fabricant */}
       <div className="px-4 py-3 border-b border-tactical-border/50 flex flex-row gap-2">
-        <GameIcon src={typeIcon} alt={item.type} size="w-10 h-10" className="opacity-60" />
+        <GameIcon src={typeIcon} alt={item.type} size="w-10 h-10" className={ isSpecific ? '' : 'opacity-60' } />
         <div className="w-full">
           <div className={`font-bold text-base uppercase tracking-wide ${nameColor} flex items-center gap-2 justify-between`}>
             <span>

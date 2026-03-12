@@ -17,7 +17,7 @@
     ]
   },
   "acr": {
-    "nom": "ACR", //TODO
+    "nom": "ACR", //TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "REMINGTON",
     "portee": 31,
@@ -37,7 +37,7 @@
     ]
   },
   "acr_e": {
-    "nom": "ACR-E", //TODO
+    "nom": "ACR-E", //TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "REMINGTON",
     "portee": 31,
@@ -57,47 +57,47 @@
     ]
   },
   "f2000": {
-    "nom": "F2000",//TODO
+    "nom": "F2000",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 31,
     "rpm": 850,
     "chargeur": 30,
-    "rechargement": 2.49,
+    "rechargement": 2.18,
     "headshot": 55,
-    "degatsBase": 49095,
+    "degatsBase": 49100,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
-      "canon",
       "chargeur",
       "bouche"
     ]
   },
   "shield_splinterer": {
-    "nom": "SHIELD SPLINTERER",
+    "nom": "Shield Splinterer",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 31,
     "rpm": 850,
     "chargeur": 30,
-    "rechargement": 2.49,
+    "rechargement": 2.18,
     "headshot": 55,
-    "degatsBase": 49095,
+    "degatsBase": 49100,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "optimiste"
+    ],
     "emplacementsMods": [
       "viseur",
-      "canon",
       "chargeur",
       "bouche"
     ]
   },
   "aug_a3_cqc": {
-    "nom": "AUG A3-CQC",//TODO
+    "nom": "AUG A3-CQC",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "STEYR",
     "portee": 26,
@@ -117,7 +117,7 @@
     ]
   },
   "main_invisible": {
-    "nom": "MAIN INVISIBLE",
+    "nom": "Main Invisible",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "STEYR",
     "portee": 26,
@@ -137,7 +137,7 @@
     ]
   },
   "ak_m": {
-    "nom": "AK-M", //TODO
+    "nom": "AK-M", //TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "AKM",
     "portee": 27,
@@ -177,7 +177,7 @@
     ]
   },
   "maniaque": {
-    "nom": "MANIAQUE",
+    "nom": "Maniaque",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "AKM",
     "portee": 27,
@@ -197,7 +197,7 @@
     ]
   },
   "fal": {
-    "nom": "FAL",//TODO
+    "nom": "FAL",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -217,15 +217,15 @@
     ]
   },
   "fal_sa_58": {
-    "nom": "FAL SA-58",//TODO
+    "nom": "FAL SA-58",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 35,
     "rpm": 700,
     "chargeur": 20,
-    "rechargement": 2.3,
+    "rechargement": 1.95,
     "headshot": 55,
-    "degatsBase": 57634,
+    "degatsBase": 57600,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -237,7 +237,7 @@
     ]
   },
   "fal_sa_58_para": {
-    "nom": "FAL SA-58 Para",//TODO
+    "nom": "FAL SA-58 Para",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -277,7 +277,7 @@
     ]
   },
   "burn_out": {
-    "nom": "Burn Out",//TODO
+    "nom": "Burn Out",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "GIAT INDUSTRIES",
     "portee": 26,
@@ -317,7 +317,7 @@
     ]
   },
   "l_inne": {
-    "nom": "L'inné",//TODO
+    "nom": "L'inné",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "HECKLER&KOCH",
     "portee": 35,
@@ -359,15 +359,15 @@
     ]
   },
   "g36_ameliore": {
-    "nom": "G36 amélioré",//TODO
+    "nom": "G36 amélioré",
     "type": "fusil_assaut",
     "fabricant": "HECKLER&KOCH",
     "portee": 35,
     "rpm": 750,
     "chargeur": 30,
-    "rechargement": 2.44,
+    "rechargement": 2.13,
     "headshot": 55,
-    "degatsBase": 52552,
+    "degatsBase": 52600,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -379,15 +379,15 @@
     ]
   },
   "m4_police": {
-    "nom": "M4 POLICE",
+    "nom": "M4 Police",
     "type": "fusil_assaut",
     "fabricant": "COLT",
     "portee": 31,
     "rpm": 850,
     "chargeur": 30,
-    "rechargement": 2.3,
+    "rechargement": 2.04,
     "headshot": 55,
-    "degatsBase": 46908,
+    "degatsBase": 46900,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -399,18 +399,20 @@
     ]
   },
   "pyromane": {
-    "nom": "PYROMANE",
+    "nom": "Pyromane",
     "type": "fusil_assaut",
     "fabricant": "COLT",
     "portee": 31,
     "rpm": 850,
     "chargeur": 30,
-    "rechargement": 2.3,
+    "rechargement": 2.04,
     "headshot": 55,
-    "degatsBase": 46908,
+    "degatsBase": 46900,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "inflammabilite"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -419,15 +421,15 @@
     ]
   },
   "carbine_7": {
-    "nom": "CARBINE 7",//TODO
+    "nom": "CARBINE 7",
     "type": "fusil_assaut",
     "fabricant": "BRACE BUILT",
     "portee": 28,
     "rpm": 790,
     "chargeur": 30,
-    "rechargement": 2.14,
+    "rechargement": 1.84,
     "headshot": 55,
-    "degatsBase": 49781,
+    "degatsBase": 49800,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -439,15 +441,15 @@
     ]
   },
   "la_foreuse": {
-    "nom": "La Foreuse",//TODO
+    "nom": "La Foreuse",
     "type": "fusil_assaut",
     "fabricant": "BRACE BUILT",
     "portee": 28,
     "rpm": 790,
     "chargeur": 30,
-    "rechargement": 2.14,
+    "rechargement": 1.84,
     "headshot": 55,
-    "degatsBase": 49781,
+    "degatsBase": 49800,
     "estExotique": false,
     "estNomme": true,
     "talents": [
@@ -461,35 +463,34 @@
     ]
   },
   "honey_badger": {
-    "nom": "HONEY BADGER",//TODO
+    "nom": "Honey Badger",
     "type": "fusil_assaut",
     "fabricant": "AAC",
     "portee": 28,
     "rpm": 800,
     "chargeur": 30,
-    "rechargement": 2.47,
+    "rechargement": 1.87,
     "headshot": 55,
-    "degatsBase": 51261,
+    "degatsBase": 51300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur",
-      "bouche"
+      "chargeur"
     ]
   },
   "carcajou_furieux": {
-    "nom": "Carjou furieux",//TODO
+    "nom": "Carjou furieux",
     "type": "fusil_assaut",
     "fabricant": "AAC",
     "portee": 28,
     "rpm": 800,
     "chargeur": 30,
-    "rechargement": 2.47,
+    "rechargement": 1.87,
     "headshot": 55,
-    "degatsBase": 51261,
+    "degatsBase": 51300,
     "estExotique": false,
     "estNomme": true,
     "talents": [
@@ -498,12 +499,11 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur",
-      "bouche"
+      "chargeur"
     ]
   },
   "p416_militaire": {
-    "nom": "P416 MILITAIRE",
+    "nom": "P416 militaire",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "PATRIOT ORDNANCE FACTORY",
     "portee": 26,
@@ -523,15 +523,15 @@
     ]
   },
   "p416_g3_personnalise": {
-    "nom": "P416 G3 PERSONNALISÉ",
+    "nom": "P416 G3 Personnalisé",
     "type": "fusil_assaut",
     "fabricant": "PATRIOT ORDNANCE FACTORY",
     "portee": 26,
     "rpm": 850,
     "chargeur": 30,
-    "rechargement": 2.39,
+    "rechargement": 2.13,
     "headshot": 55,
-    "degatsBase": 47356,
+    "degatsBase": 47400,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -543,15 +543,16 @@
     ]
   },
   "vision_glorieuse": {
-    "nom": "VISION GLORIEUSE",
+    "nom": "Vision glorieuse",
     "type": "fusil_assaut",
     "fabricant": "PATRIOT ORDNANCE FACTORY",
-    "portee": 26,
+    "portee": 17,
+    "notes": "talent inclut dans les statistiques de l'arme",
     "rpm": 850,
     "chargeur": 30,
-    "rechargement": 2.39,
+    "rechargement": 2.13,
     "headshot": 55,
-    "degatsBase": 47356,
+    "degatsBase": 47400,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
@@ -563,7 +564,7 @@
     ]
   },
   "mk16": {
-    "nom": "MK16",
+    "nom": "Mk16",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 31,
@@ -583,7 +584,7 @@
     ]
   },
   "mk16_socom": {
-    "nom": "MK16 SOCOM",
+    "nom": "Mk16 SOCOM",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 31,
@@ -602,16 +603,16 @@
       "bouche"
     ]
   },
-  "mk16_tactique": {
-    "nom": "MK16 TACTIQUE",
+  "mk_16_tactique": {
+    "nom": "Mk 16 tactique",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 31,
     "rpm": 650,
     "chargeur": 30,
-    "rechargement": 2.21,
+    "rechargement": 1.84,
     "headshot": 55,
-    "degatsBase": 59210,
+    "degatsBase": 59200,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -623,15 +624,15 @@
     ]
   },
   "ctar_21": {
-    "nom": "CTAR-21",//TODO
+    "nom": "CTAR-21",
     "type": "fusil_assaut",
     "fabricant": "IMI TAVOR",
     "portee": 32,
     "rpm": 900,
     "chargeur": 30,
-    "rechargement": 2.41,
+    "rechargement": 2.17,
     "headshot": 55,
-    "degatsBase": 44793,
+    "degatsBase": 44800,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -643,15 +644,15 @@
     ]
   },
   "le_fendoir": {
-    "nom": "Le Fendoir",//TODO
+    "nom": "Le Fendoir",
     "type": "fusil_assaut",
     "fabricant": "IMI TAVOR",
     "portee": 32,
     "rpm": 900,
     "chargeur": 30,
-    "rechargement": 2.41,
+    "rechargement": 2.17,
     "headshot": 55,
-    "degatsBase": 44793,
+    "degatsBase": 44800,
     "estExotique": false,
     "estNomme": true,
     "talents": [
@@ -664,16 +665,16 @@
       "bouche"
     ]
   },
-  "sig556": {
-    "nom": "SIG556",
+  "sig_556": {
+    "nom": "SIG 556",
     "type": "fusil_assaut",
     "fabricant": "SIG SAUER",
     "portee": 28,
     "rpm": 700,
     "chargeur": 30,
-    "rechargement": 2.32,
+    "rechargement": 1.97,
     "headshot": 55,
-    "degatsBase": 55922,
+    "degatsBase": 55900,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -685,18 +686,20 @@
     ]
   },
   "mecanimal": {
-    "nom": "MÉCANIMAL",
+    "nom": "Mécanimal",
     "type": "fusil_assaut",
     "fabricant": "SIG SAUER",
     "portee": 28,
     "rpm": 700,
     "chargeur": 30,
-    "rechargement": 2.32,
+    "rechargement": 1.97,
     "headshot": 55,
-    "degatsBase": 55922,
+    "degatsBase": 55900,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "futur_parfait"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -711,35 +714,33 @@
     "portee": 31,
     "rpm": 700,
     "chargeur": 30,
-    "rechargement": 2.23,
+    "rechargement": 1.85,
     "headshot": 55,
-    "degatsBase": 57606,
+    "degatsBase": 57600,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
-      "canon",
       "chargeur",
       "bouche"
     ]
   },
   "sujet_de_test": {
-    "nom": "SUJET DE TEST",
+    "nom": "Sujet de test",
     "type": "fusil_assaut",
     "fabricant": "MAGPUL",
     "portee": 31,
     "rpm": 700,
     "chargeur": 30,
-    "rechargement": 2.23,
+    "rechargement": 1.85,
     "headshot": 55,
-    "degatsBase": 57606,
+    "degatsBase": 57600,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
-      "canon",
       "chargeur",
       "bouche"
     ]
@@ -751,9 +752,9 @@
     "portee": 27,
     "rpm": 600,
     "chargeur": 30,
-    "rechargement": 2.11,
+    "rechargement": 1.70,
     "headshot": 55,
-    "degatsBase": 63493,
+    "degatsBase": 63500,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -765,18 +766,20 @@
     ]
   },
   "tueur_de_rois": {
-    "nom": "TUEUR DE ROIS",
+    "nom": "Tueur de rois",
     "type": "fusil_assaut",
     "fabricant": "KOROBOV",
     "portee": 27,
     "rpm": 600,
     "chargeur": 30,
-    "rechargement": 2.11,
+    "rechargement": 1.70,
     "headshot": 55,
-    "degatsBase": 63493,
+    "degatsBase": 63500,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -4399,15 +4402,15 @@
     ]
   },
   "eagle_bearer": {
-    "nom": "Eagle Bearer",//TODO
+    "nom": "Eagle Bearer",
     "type": "fusil_assaut",
     "fabricant": "PATRIOT ORDNANCE FACTORY",
     "portee": 26,
     "rpm": 850,
     "chargeur": 60,
-    "rechargement": 2.39,
+    "rechargement": 1.95,
     "headshot": 55,
-    "degatsBase": 47356,
+    "degatsBase": 47400,
     "estExotique": true,
     "obtention": {
       "raid": "raid 1 : Opération Heures Sombres",
@@ -4427,6 +4430,12 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "modsPredefinis": [
+      "visee_oeil_d_aigle",
+      "aire_balistique",
+      "poignee_serres_d_aigle",
+      "bec_dentele"
     ]
   },
   "cameleon": {
@@ -4530,7 +4539,7 @@
     ]
   },
   "strega": {
-    "nom": "Strega",
+    "nom": "Strega",//TODO
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -5099,6 +5108,66 @@
         "nom": "degats_sur_cible_non_abritee_arm",
         "valeur": 10
       }
+    ]
+  },
+  "lud": {
+    "nom": "Lud", //TODO
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
+    ]
+  },
+  "premiere_vue": {
+    "nom": "Première vue",//TODO
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
+    ]
+  },
+  "protecteur": {
+    "nom": "Protecteur",//TODO
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
     ]
   }
 }

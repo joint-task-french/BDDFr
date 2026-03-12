@@ -444,7 +444,7 @@
     "unite": "%",
     "min": 1,
     "max": 8,
-    "description": "Augmente la maniabilité de l'arme, réduisant le temps de visée et de changement d'arme",
+    "description": "Améliore la vitesse de rechargement, la vitesse de changement, la précision et la stabilité des armes.",
     "estEssentiel": false,
     "statistiques": [
       "maniement_arme"
@@ -609,10 +609,56 @@
     "unite": "%",
     "min": 1,
     "max": 10,
-    "description": "Augmente la durée des effets d'état infligés",
+    "description": "Augmente la durée des effets d'état infligés.",
     "estEssentiel": false,
     "statistiques": [
       "effets_etat"
     ]
+  },
+  "munitions_mod": {
+    "nom": "munitions",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_arme"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 30,
+    "description": "Augmente le nombre de munitions dans le chargeur.",
+    "estEssentiel": false,
+    "statistiques": [
+      "taille_chargeur"
+    ]
+  },
+  "maniement_d_arme_mod": {
+    "nom": "Maniement d'arme",
+    "categorie": "offensif",
+    "cible": [
+      "mod_arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Améliore la vitesse de rechargement, la vitesse de changement, la précision et la stabilité des armes.",
+    "estEssentiel": false,
+    "statistiques": [
+      "maniement_arme"
+    ]
+  },
+  "maniement_d_arme_arm": {
+    "nom": "Maniement d'arme",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
+    "description": "Améliore la vitesse de rechargement, la vitesse de changement, la précision et la stabilité des armes.",
+    "estEssentiel": false,
+    "statistiques": [
+      "maniement_arme"
+    ]
   }
+
 }

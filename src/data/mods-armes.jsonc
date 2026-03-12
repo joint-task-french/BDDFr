@@ -8,7 +8,7 @@
         ],
         "attributs": [
             {
-                "attribut": "munitions",
+                "attribut": "munitions_mod",
                 "valeur": 15
             }
         ]
@@ -60,7 +60,7 @@
         ],
         "attributs": [
             {
-                "attribut": "munitions",
+                "attribut": "munitions_mod",
                 "valeur": 20
             },
             {
@@ -77,7 +77,7 @@
         ],
         "attributs": [
             {
-                "attribut": "munitions",
+                "attribut": "munitions_mod",
                 "valeur": 15
             }
         ]
@@ -127,7 +127,7 @@
         ],
         "attributs": [
             {
-                "attribut": "munitions",
+                "attribut": "munitions_mod",
                 "valeur": 20
             },
             {
@@ -142,7 +142,7 @@
         "compatible": [],
         "attributs": [
             {
-                "attribut": "munitions",
+                "attribut": "munitions_mod",
                 "valeur": 5
             }
         ]
@@ -188,7 +188,7 @@
         ],
         "attributs": [
             {
-                "attribut": "munitions",
+                "attribut": "munitions_mod",
                 "valeur": 15
             }
         ]
@@ -260,7 +260,7 @@
         "compatible": [],
         "attributs": [
             {
-                "attribut": "munitions",
+                "attribut": "munitions_mod",
                 "valeur": 20
             },
             {
@@ -275,7 +275,7 @@
         "compatible": [],
         "attributs": [
             {
-                "attribut": "munitions",
+                "attribut": "munitions_mod",
                 "valeur": 15
             }
         ]
@@ -286,7 +286,7 @@
         "compatible": [],
         "attributs": [
             {
-                "attribut": "munitions",
+                "attribut": "munitions_mod",
                 "valeur": 11
             }
         ]
@@ -451,7 +451,7 @@
         "compatible": [],
         "attributs": [
             {
-                "attribut": "munitions",
+                "attribut": "munitions_mod",
                 "valeur": 50
             }
         ]
@@ -1193,7 +1193,7 @@
         "type": "chargeur",
         "attributs": [
             {
-                "attribut": "munitions",
+                "attribut": "munitions_mod",
                 "valeur": 5
             }
         ],
@@ -1223,5 +1223,56 @@
         ],
         "estExotique": true,
         "compatible": []
+    },
+    "visee_oeil_d_aigle": {
+        "nom": "Visée oeil d'aigle",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "probabilite_de_coup_critique_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "aire_balistique": {
+        "nom": "Aire balistique",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "munitions_mod",
+                "valeur": 30
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "poignee_serres_d_aigle": {
+        "nom": "poignées serres d'aigle",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "maniement_d_arme_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "bec_dentele": {
+        "nom": "Bec dentelé",
+        "type": "bouche",
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
     }
+
+
+
 }

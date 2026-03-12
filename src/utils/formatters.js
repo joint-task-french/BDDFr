@@ -210,7 +210,7 @@ export function calculateMaxDamage(n) {
 
   const maxPercent = gearWeaponMaxPercent + shdWeaponMaxPercent + expWeaponMaxPercent + weaponTypeMaxPercent + specialisationMaxPercent
   const max = Math.round(n * (maxPercent / 100))
-  return max > 0 ? max : 1
+  return (max > 0 ? max : 0) + n
 }
 
 // ================================================================

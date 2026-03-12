@@ -50,6 +50,10 @@
     "description": "Les dégâts d'arme augmentent de +3,5% pour chaque tranche de 10% de munitions manquantes dans le chargeur.",
     "prerequis": "n/a",
     "icone": "optimiste",
+    "perfectDescription": "Les dégâts d'arme augmentent de +4,5% pour chaque tranche de 10% de munitions manquantes dans le chargeur.",
+    "armesParfaites": [
+      "shield_splinterer"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -205,9 +209,13 @@
   },
   "inflammabilite": {
     "nom": "Inflammabilité",
-    "description": "Dégâts d'arme accrus de 25% contre les ennemis affectés par une brûlureAu bout de 4 éliminations, inflige une brûlure au prochain ennemi touché.",
+    "description": "Dégâts d'arme accrus de 25% contre les ennemis affectés par une brûlure.\nAu bout de 4 éliminations, inflige un effet de brûlure au prochain ennemi touché.",
     "prerequis": "n/a",
     "icone": "inflammabilite",
+    "perfectDescription": "Dégâts d'arme accrus de 30% contre les ennemis affectés par une brûlure.\nAu bout de 3 éliminations, inflige un effet de brûlure au prochain ennemi touché.",
+    "armesParfaites": [
+      "pyromane"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -253,10 +261,14 @@
     }
   },
   "futur_parfait": {
-    "nom": "Futur Parfait",
-    "description": "Les élimintations par arme confèrent +1 Tier de compétence pendant 15s. Cet effet peut se cumuler jusqu'à 3 fois.Les éliminations par arme au Tier de compétence 6 confèrent surcharge pendant 15s.Temps de recharge de la surcharge : 90s.",
+    "nom": "Futur parfait",
+    "description": "Les élimintations par arme confèrent +1 Tier de compétence pendant 15s. Cet effet peut se cumuler jusqu'à 3 fois.\nLes éliminations par arme au Tier de compétence 6 confèrent surcharge pendant 15s.\nTemps de recharge de la surcharge : 90s.",
     "prerequis": "n/a",
     "icone": "futur_parfait",
+    "perfectDescription": "Les élimintations par arme confèrent +1 Tier de compétence pendant 19s. Cet effet peut se cumuler jusqu'à 4 fois.\nLes éliminations par arme au Tier de compétence 6 confèrent surcharge pendant 15s.\nTemps de recharge de la surcharge : 90s.",
+    "armesParfaites": [
+      "mecanimal"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -288,9 +300,13 @@
   },
   "ligne_plate": {
     "nom": "Ligne plate",
-    "description": "Dégâts d'arme accrus de 15% contre les ennemis touchés par impulsion. Après 3 éliminations, génère une impulsion au prochain ennemi touché.",
+    "description": "Dégâts d'arme accrus de 15% contre les ennemis touchés par impulsion.\nAprès 4 éliminations, génère une impulsion sur le prochain ennemi touché.",
     "prerequis": "n/a",
     "icone": "ligne_plate",
+    "perfectDescription": "Dégâts d'arme accrus de 20% contre les ennemis touchés par impulsion.\nAprès 3 éliminations, génère une impulsion sur le prochain ennemi touché.",
+    "armesParfaites": [
+      "tueur_de_rois"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -842,13 +858,14 @@
   "frappe_de_l_aigle": {
     "nom": "Frappe de l'aigle",
     "icone": "frappe_de_l_aigle",
-    "description": "La précision de vos tirs augmentent lorsque vous tirez encontinu, jusqu'à 30% (100%)Les éliminations par headshot confèrent confère le buff ténacité pendant 15s (10s)La puissance de Ténacité est augmenté de 1% pour les dégâts corporels et de 5% pour les headshots.",
+    "description": "La précision de vos tirs augmentent lorsque vous tirez en continu, jusqu'à +30%.\nLes éliminations par headshot confèrent le buff Ténacité pendant 15s.\nLa puissance de Ténacité est augmenté de 1% pour les dégâts corporels et de 5% pour les headshots.",
+    "notes": "PVP : précision jusqu'à +100%, Ténacité pendant 10s",
     "estExotique": true
   },
   "tenacite": {
     "nom": "Ténacité",
     "icone": "tenacite",
-    "description": "40-80% des dégâts subis sont retardés jusqu'à l'expiration du buff.L'intégralité du total de dégâts retardés est réduite pour chaque ennemi éliminé pendant que le buff était actif, jusqu'à 100% avec 3 éliminations.",
+    "description": "40-80% des dégâts subis sont retardés jusqu'à l'expiration du buff.\nL'intégralité du total de dégâts retardés est réduite pour chaque ennemi éliminé pendant que le buff était actif, jusqu'à 100% avec 3 éliminations.",
     "estExotique": true
   },
   "instinct_d_adaptation": {

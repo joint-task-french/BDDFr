@@ -69,7 +69,7 @@ export function formatModAttributs(mod, allAttributs, statistiques) {
       const attrDef = allAttributs?.find(a => a.slug === entry.attribut)
       const statDef = !attrDef && statistiques ? statistiques.find(s => s.slug === entry.attribut) : null
       const name = attrDef?.nom || statDef?.nom || resolveModAttrName(entry.attribut, allAttributs, statistiques)
-      const unite = attrDef?.unite || '%'
+      const unite = attrDef?.unite || ''
       const sign = entry.valeur >= 0 ? '+' : ''
       if (unite === 'pts' || unite === 'pts/s') {
         parts.push(`${sign}${entry.valeur} ${name}`)

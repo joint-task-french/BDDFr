@@ -125,13 +125,18 @@ export const SKILL_ICONS = buildIndex(_competencesGlob)
 const _marquesGlob = import.meta.glob('../img/game_assets/marques/**/*.png', { eager: true })
 export const BRAND_ICONS = buildIndex(_marquesGlob)
 
+// Icônes d'armes spécifiques (exotiques, spé, etc.)
+const _armesGlob = import.meta.glob('../img/game_assets/armes/**/*.png', { eager: true })
+export const WEAPON_ICONS = buildIndex(_armesGlob)
+
 /**
- * Résout l'icône d'un talent/compétence/marque par son slug.
+ * Résout l'icône d'un talent/compétence/marque/arme par son slug.
  * Cherche dans tous les index disponibles.
  */
 export function resolveIcon(slug) {
   if (!slug) return null
-  return WEAPON_TALENT_ICONS[slug]
+  return WEAPON_ICONS[slug]
+    || WEAPON_TALENT_ICONS[slug]
     || GEAR_TALENT_ICONS[slug]
     || SKILL_ICONS[slug]
     || BRAND_ICONS[slug]

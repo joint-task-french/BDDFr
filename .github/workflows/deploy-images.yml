@@ -9,6 +9,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: write
 
 concurrency:
   group: "pages"
@@ -58,6 +59,19 @@ jobs:
 
       - name: 📸 Génération des pages statiques et images
         run: npm run generate-statics-images
+
+      - name: 🧹 Nettoyage des anciens caches d'images
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Recherche des anciens caches 'og-images-'..."
+          
+          for cacheKey in $(gh cache list -R $GITHUB_REPOSITORY -L 100 | grep "og-images-" | awk '{print $1}'); do
+              echo "🗑️ Suppression du cache : $cacheKey"
+              gh cache delete "$cacheKey" -R $GITHUB_REPOSITORY
+          done
+          
+          echo "✅ Nettoyage terminé. Le nouveau cache sera généré et sauvegardé à la fin du job."
 
       - name: 🔧 Setup Pages
         uses: actions/configure-pages@v5

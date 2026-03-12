@@ -6,6 +6,7 @@
     "icone": "💥",
     "arme": {
       "nom": "LANCE-GRENADES MULTIPLE M32A1",
+      "icone": "m32a1",
       "portee": 60,
       "rpm": 98,
       "chargeur": 6,
@@ -20,6 +21,7 @@
     "icone": "🏹",
     "arme": {
       "nom": "CARREAUX",
+      "icone": "carreaux",
       "portee": 30,
       "rpm": 98,
       "chargeur": 1,
@@ -34,6 +36,7 @@
     "icone": "🎯",
     "arme": {
       "nom": "FUSIL TAC-50",
+      "icone": "tac50",
       "portee": 70,
       "rpm": 41,
       "chargeur": 6,
@@ -48,6 +51,7 @@
     "icone": "⚙️",
     "arme": {
       "nom": "MINIGUN",
+      "icone": "minigun",
       "portee": 35,
       "rpm": 100,
       "chargeur": 150,
@@ -62,6 +66,7 @@
     "icone": "🔧",
     "arme": {
       "nom": "LANCEUR P-017",
+      "icone": "p017",
       "portee": 60,
       "rpm": 98,
       "chargeur": 6,
@@ -76,6 +81,7 @@
     "icone": "🔥",
     "arme": {
       "nom": "LANCE-FLAMMES K8-JETSTREAM",
+      "icone": "k8_jetstream",
       "portee": 35,
       "rpm": 500,
       "chargeur": 50,

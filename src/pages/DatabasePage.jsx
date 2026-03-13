@@ -1,5 +1,6 @@
 import { useMemo, useCallback, useEffect, useState } from 'react'
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
+import { useGame } from '../context/GameContext'
 import { useDataLoader } from '../hooks/useDataLoader'
 import Loader from '../components/common/Loader'
 import CategoryNav from '../components/database/CategoryNav'
@@ -77,6 +78,7 @@ export default function DatabasePage() {
   const { category, slug } = useParams()
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
+  const { currentGame } = useGame()
   const [isCompactMode, setIsCompactMode] = useState(() => {
     return localStorage.getItem('db_compact_mode') === 'true'
   })
@@ -254,7 +256,7 @@ export default function DatabasePage() {
           <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-widest mb-1">
             Base de <span className='text-shd'>Données</span>
           </h2>
-          <p className="text-sm text-gray-500">The Division 2 — Données en français</p>
+          <p className="text-sm text-gray-500">{currentGame === 'td1' ? 'The Division 1' : 'The Division 2'} — Données en français</p>
         </div>
 
         <SearchBar value={searchTerm} onChange={handleSearchTermChange} />

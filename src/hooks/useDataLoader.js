@@ -45,21 +45,28 @@ function objectToArray(obj) {
   return Object.entries(obj).map(([slug, value]) => ({ slug, ...value }))
 }
 
+import { useGame } from '../context/GameContext.jsx'
+
 export function useDataLoader() {
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [progress, setProgress] = useState(0)
+  const { currentGame } = useGame()
 
   useEffect(() => {
     let cancelled = false
     async function loadAll() {
+      setLoading(true)
+      setProgress(0)
       try {
         const entries = Object.entries(DATA_FILES)
         const result = {}
         for (let i = 0; i < entries.length; i++) {
           const [key, file] = entries[i]
-          const raw = await loadJsonc(`${BASE}data/${file}`)
+          const raw = key === 'metadata'
+            ? await loadJsonc(`${BASE}data/${file}`)
+            : await loadJsonc(`${BASE}data/${currentGame}/${file}`)
 
           // Convertir les fichiers à clé slug en arrays
           if (SLUG_KEYED_FILES.has(key) && raw && typeof raw === 'object' && !Array.isArray(raw)) {
@@ -121,8 +128,7 @@ export function useDataLoader() {
     }
     loadAll()
     return () => { cancelled = true }
-  }, [])
+  }, [currentGame])
 
   return { data, loading, error, progress }
 }
-

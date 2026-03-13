@@ -1,8 +1,10 @@
 import { NavLink } from 'react-router-dom'
 import JTFrLogo from '../common/JTFrLogo.jsx'
 import {InfoToolTip} from "../common/InfoToolTip.jsx";
+import { useGame } from '../../context/GameContext'
 
 export default function Sidebar({ open, onClose }) {
+  const { currentGame, setCurrentGame } = useGame()
   const linkClass = ({ isActive }) =>
     `flex items-center gap-3 px-3 py-2.5 rounded text-sm font-bold uppercase tracking-widest transition-all duration-200 border ${
       isActive
@@ -17,7 +19,7 @@ export default function Sidebar({ open, onClose }) {
         ${open ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}
     >
       {/* Logo */}
-      <div className="p-4 sm:p-6 border-b border-tactical-border flex justify-between items-center shrink-0">
+      <div className="p-4 sm:p-6 flex justify-between items-center shrink-0">
         <div className="flex items-center gap-2">
           <JTFrLogo className="w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12" />
           <h1 className="text-xl sm:text-2xl font-bold text-white tracking-widest uppercase">
@@ -30,6 +32,18 @@ export default function Sidebar({ open, onClose }) {
           </svg>
         </button>
       </div>
+
+      <div className="px-4 pb-2 border-b border-tactical-border">
+        <select
+          value={currentGame}
+          onChange={(e) => setCurrentGame(e.target.value)}
+          className="w-full bg-tactical-panel border border-tactical-border text-white text-sm rounded focus:ring-shd focus:border-shd p-2 uppercase tracking-widest"
+        >
+          <option value="td1">The Division 1</option>
+          <option value="td2">The Division 2</option>
+        </select>
+      </div>
+
 
       {/* Navigation */}
       <nav className="px-3 py-4 space-y-2">
@@ -90,4 +104,3 @@ export default function Sidebar({ open, onClose }) {
     </aside>
   )
 }
-

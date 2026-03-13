@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Compétences — The Division 2",
+  "description": "Structure groupée par type de compétence. Clé = slug de la compétence.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[a-z0-9_]+$": {
+      "type": "object",
+      "required": [
+        "competence",
+        "variantes"
+      ],
+      "properties": {
+        "competence": {
+          "type": "string",
+          "description": "Nom du type de compétence (ex: TOURELLE, DRONE)"
+        },
+        "icone": {
+          "type": "string"
+        },
+        "emplacementsMods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "emplacement"
+            ],
+            "properties": {
+              "emplacement": {
+                "type": "string"
+              },
+              "prerequis": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "variantes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "variante",
+              "tier1",
+              "tier2",
+              "tier3",
+              "tier4",
+              "tier5",
+              "tier6",
+              "surcharge",
+              "slug"
+            ],
+            "properties": {
+              "variante": {
+                "type": "string"
+              },
+              "prerequis": {
+                "type": "string"
+              },
+              "icone": {
+                "type": "string"
+              },
+              "expertise": {
+                "type": "string"
+              },
+              "statistiques": {
+                "type": "string"
+              },
+              "effetEtat": {
+                "type": "string"
+              },
+              "tier1": {
+                "type": "string"
+              },
+              "tier2": {
+                "type": "string"
+              },
+              "tier3": {
+                "type": "string"
+              },
+              "tier4": {
+                "type": "string"
+              },
+              "tier5": {
+                "type": "string"
+              },
+              "tier6": {
+                "type": "string"
+              },
+              "surcharge": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
+              },
+              "notes": {
+                "type": "string",
+                "description": "Notes libres sur la variante de compétence"
+              }
+            }
+          }
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur le type de compétence"
+        }
+      }
+    }
+  }
+}

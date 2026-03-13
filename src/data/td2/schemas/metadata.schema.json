@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Métadonnées — The Division 2",
+  "type": "object",
+  "required": ["titre", "version", "derniereMiseAJour"],
+  "properties": {
+    "titre": { "type": "string" },
+    "version": { "type": "string", "description": "Version du jeu / mise à jour" },
+    "derniereMiseAJour": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Date au format YYYY-MM-DD"
+    },
+    "credits": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Liste des contributeurs"
+    },
+    "maxExpertiseLevel": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Niveau maximum d'expertise applicable sur le jeu"
+    },
+    "changelog": {
+      "type": "array",
+      "description": "Historique des modifications de la base de données",
+      "items": {
+        "type": "object",
+        "required": ["date"],
+        "properties": {
+          "date": { "type": "string", "description": "Date de la mise à jour (ex: Le 25/02/2026)" },
+          "patch": { "type": "string", "description": "Nom du patch associé (ex: TU22)" },
+          "changements": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Liste des changements effectués"
+          }
+        }
+      }
+    }
+  }
+}

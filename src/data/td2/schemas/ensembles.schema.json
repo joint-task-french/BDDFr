@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Ensembles (Gear Sets + Marques) — The Division 2",
+  "description": "Clé = slug de l'ensemble.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[a-z0-9_]+$": {
+      "type": "object",
+      "required": [
+        "nom",
+        "type"
+      ],
+      "properties": {
+        "nom": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "gear_set",
+            "marque"
+          ]
+        },
+        "logo": {
+          "type": "string"
+        },
+        "attributsEssentiels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "offensif",
+              "défensif",
+              "utilitaire"
+            ]
+          }
+        },
+        "bonus1piece": {
+          "type": "string"
+        },
+        "bonus2pieces": {
+          "type": "string"
+        },
+        "bonus3pieces": {
+          "type": "string"
+        },
+        "bonus4pieces": {
+          "type": "string"
+        },
+        "talentTorse": {
+          "type": "string"
+        },
+        "talentSac": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur l'ensemble"
+        }
+      }
+    }
+  }
+}

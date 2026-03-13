@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDataLoader } from '../hooks/useDataLoader'
 import { BuildProvider, useBuild } from '../context/BuildContext'
+import { useGame } from '../context/GameContext'
 import { decodeBuild, resolveBuild } from '../utils/buildShare'
 import Loader from '../components/common/Loader'
 import WeaponSection from '../components/buildPlanner/WeaponSection'
@@ -9,6 +10,28 @@ import GearSection from '../components/buildPlanner/GearSection'
 import SkillSection from '../components/buildPlanner/SkillSection'
 import BuildActions from '../components/buildPlanner/BuildActions'
 import BuildStatsPanel from '../components/buildPlanner/BuildStatsPanel'
+
+
+function TD1BuildPlannerContent({ data }) {
+  return (
+    <div className="p-4 sm:p-6 lg:p-8 max-w-screen-2xl mx-auto text-center">
+      <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-widest mb-4">
+        Build <span className="text-shd">Planner</span> - The Division 1
+      </h2>
+      <p className="text-gray-400">
+        Le Build Planner pour The Division 1 est en cours de construction.
+      </p>
+    </div>
+  )
+}
+
+function BuildPlannerContent({ data }) {
+  const { currentGame } = useGame()
+  if (currentGame === 'td1') {
+    return <TD1BuildPlannerContent data={data} />
+  }
+  return <TD2BuildPlannerContent data={data} />
+}
 
 export default function BuildPlannerPage() {
   const { data, loading, error, progress } = useDataLoader()
@@ -28,10 +51,9 @@ export default function BuildPlannerPage() {
   )
 }
 
-function BuildPlannerContent({ data }) {
+function TD2BuildPlannerContent({ data }) {
   const { dispatch } = useBuild()
   const location = useLocation()
-
   // Charger un build depuis l'URL au montage
   useEffect(() => {
     const params = new URLSearchParams(location.search)

@@ -12,8 +12,8 @@ import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const DATA_DIR = join(__dirname, '..', 'src', 'data')
-const SCHEMA_DIR = join(__dirname, '..', 'src', 'data', 'schemas')
+const DATA_DIR = join(__dirname, '..', 'src', 'data', 'td2')
+const SCHEMA_DIR = join(__dirname, '..', 'src', 'data', 'td2', 'schemas')
 
 function stripComments(text) {
   text = text.replace(/^\uFEFF/, '');
@@ -54,7 +54,7 @@ console.log('🔍 Validation des données JSONC contre les schémas JSON...\n')
 
 for (const { data: dataFile, schema: schemaFile } of VALIDATIONS) {
   totalFiles++
-  const dataPath = join(DATA_DIR, dataFile)
+  const dataPath = dataFile === 'metadata.jsonc' ? join(DATA_DIR, '..', dataFile) : join(DATA_DIR, dataFile)
   const schemaPath = join(SCHEMA_DIR, schemaFile)
 
   // Vérifier que les fichiers existent
@@ -137,5 +137,3 @@ if (hasErrors) {
   console.log('✅ Toutes les données sont valides !\n')
   process.exit(0)
 }
-
-

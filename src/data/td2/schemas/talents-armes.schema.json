@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Talents d'armes — The Division 2",
+  "description": "Clé = slug du talent.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[a-z0-9_]+$": {
+      "type": "object",
+      "required": [
+        "nom",
+        "icone",
+        "description"
+      ],
+      "properties": {
+        "nom": {
+          "type": "string"
+        },
+        "icone": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "prerequis": {
+          "type": "string"
+        },
+        "estExotique": {
+          "type": "boolean"
+        },
+        "compatibilite": {
+          "type": "object",
+          "properties": {
+            "fusil": {
+              "type": "boolean"
+            },
+            "calibre_12": {
+              "type": "boolean"
+            },
+            "fusil_assaut": {
+              "type": "boolean"
+            },
+            "fusil_mitrailleur": {
+              "type": "boolean"
+            },
+            "fusil_precision": {
+              "type": "boolean"
+            },
+            "pistolet": {
+              "type": "boolean"
+            },
+            "pistolet_mitrailleur": {
+              "type": "boolean"
+            }
+          }
+        },
+        "perfectDescription": {
+          "type": "string"
+        },
+        "armesParfaites": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur le talent"
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback, useRef } from 'react'
 import JSZip from 'jszip'
 import { useDataLoader } from '../hooks/useDataLoader'
+import { useGame } from '../context/GameContext'
 import {
   GENERATOR_CATEGORIES, FIELDS, DATA_KEY, FILE_MAP, IDENTITY_KEY,
   getDefaults, cleanOutput, buildSuggestions, generateEquipmentSet,
@@ -520,33 +521,3 @@ export default function GeneratorPage() {
     </div>
   )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

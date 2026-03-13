@@ -8,7 +8,7 @@ import crypto from 'crypto';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const DIST_DIR = './dist';
-const DATA_DIR = './src/data';
+const DATA_DIR = './src/data/td2';
 
 const DEV_SERVER_URL = 'http://localhost:5173/BDDFr';
 
@@ -138,9 +138,9 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${safeDesc}">
     <meta property="og:image" content="${mainImageUrl}">
-    
+
     <meta name="twitter:card" content="${cardType}">
-    
+
     <link rel="sitemap" type="application/xml" title="Sitemap" href="${BASE_URL}/sitemap.xml" />
     <meta name="google-site-verification" content="7RVJ1PYMFGr6I8QTccLetMBScdq_leHW6-8ql-wvRcw" />
     <script>
@@ -215,7 +215,7 @@ async function generate() {
                 await page.addStyleTag({
                     content: `
                         header, nav, footer, .navbar { display: none !important; }
-                        .puppeteer-teleport { 
+                        .puppeteer-teleport {
                             position: fixed !important; top: 50px !important; left: 50px !important; z-index: 999999 !important;
                             margin: 0 !important; transform: none !important; transition: none !important;
                             height: auto !important; background-color: #0d0d0d !important;

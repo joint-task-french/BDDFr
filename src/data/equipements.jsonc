@@ -3082,5 +3082,23 @@
       "courant_alternatif"
     ],
     "type": "exotique"
+  },
+  "gants_de_mercenaire": {
+    "nom": "Gants de mercenaire",
+    "description": "\"Personne ne m'a jamais résisté. Si on appuie assez fort au bon endroit, rien ne résiste.\"",
+    "emplacement": "gants",
+    "marque": "petrov_defense_group",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_aux_protections_eqp",
+        "valeur": 8
+      }
+    ],
+    "type": "standard"
   }
 }

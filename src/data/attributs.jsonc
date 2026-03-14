@@ -659,6 +659,20 @@
     "statistiques": [
       "maniement_arme"
     ]
+  },
+  "degats_aux_protections_eqp": {
+    "nom": "Dégâts aux protections",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente les dégâts infligés aux protections de l'ennemi",
+    "estEssentiel": false,
+    "statistiques": [
+      "degats_protections"
+    ]
   }
-
 }

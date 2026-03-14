@@ -2847,6 +2847,7 @@
   "mort_blanche": {
     "nom": "Mort Blanche",
     "type": "fusil_precision",
+    "description": "\"La neige me manque.\" - S.H.",
     "fabricant": "IZHMASH",
     "portee": 50,
     "rpm": 55,
@@ -4269,6 +4270,7 @@
   },
   "sherif": {
     "nom": "Shérif",
+    "description": "Là, c'est du sérieux.",
     "type": "calibre_12",
     "fabricant": "Exotique",
     "portee": 0,

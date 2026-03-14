@@ -16,6 +16,10 @@
           "type": "string",
           "description": "Nom de l'arme"
         },
+        "description" : {
+          "type": "string",
+          "description": "texte de lore lié a l'arme"
+        },
         "icone": {
           "type": "string",
           "description": "Slug du fichier icône du talent exotique/nommé dans game_assets/talents/arme/ (sans .png)"

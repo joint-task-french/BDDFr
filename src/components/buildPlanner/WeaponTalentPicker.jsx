@@ -32,8 +32,8 @@ export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClos
     if (!search) return afterFilters
     const term = search.toLowerCase()
     return afterFilters.filter(t =>
-      t.nom.toLowerCase().includes(term) ||
-      (t.description || '').toLowerCase().includes(term)
+        t.nom.toLowerCase().includes(term) ||
+        (t.description || '').toLowerCase().includes(term)
     )
   }, [afterFilters, search])
 
@@ -49,45 +49,31 @@ export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClos
   if (!weapon) return null
 
   return (
-    <SelectionModal
-      open={true}
-      title={`Talent — ${weapon.nom}`}
-      onClose={onClose}
-      searchValue={search}
-      onSearch={setSearch}
-    >
-      <div className="mb-4">
-        <FilterPanel filters={filterConfig} values={filters} onChange={handleFilterChange} onReset={resetFilters} />
-      </div>
+      <SelectionModal
+          open={true}
+          title={`Talent — ${weapon.nom}`}
+          onClose={onClose}
+          searchValue={search}
+          onSearch={setSearch}
+      >
+        <div className="mb-4">
+          <FilterPanel filters={filterConfig} values={filters} onChange={handleFilterChange} onReset={resetFilters} />
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-        {filtered.map(t => (
-          <div key={t.nom} className="modal-item group" onClick={() => select(t)}>
-            <div className="flex items-center gap-2">
-              <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-shd transition-colors">
-                {t.nom}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {filtered.map(t => (
+              <div key={t.nom} className="modal-item group" onClick={() => select(t)}>
+                <div className="flex items-center gap-2">
+                  <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-shd transition-colors">
+                    {t.nom}
+                  </div>
+                </div>
+                {t.description ? (<div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t.description}</div>) : null}
+                {t.prerequis && t.prerequis !== 'n/a' && (<div className="text-xs text-yellow-500/60 mt-1">Requis : {t.prerequis}</div>)}
               </div>
-              {weapon.estNomme && t.perfectDescription && (
-                <span className="text-[10px] font-bold text-shd-dark bg-shd/20 px-1 py-0.5 rounded uppercase tracking-widest leading-none">
-                  ★ Parfait
-                </span>
-              )}
-            </div>
-            {weapon.estNomme && t.perfectDescription ? (
-              <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t.perfectDescription}</div>
-            ) : t.description ? (
-              <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t.description}</div>
-            ) : null}
-            {t.prerequis && t.prerequis !== 'n/a' && (
-              <div className="text-xs text-yellow-500/60 mt-1">Requis : {t.prerequis}</div>
-            )}
-          </div>
-        ))}
-      </div>
-      {filtered.length === 0 && (
-        <div className="text-center text-gray-500 py-12 uppercase tracking-widest">Aucun talent compatible</div>
-      )}
-    </SelectionModal>
+          ))}
+        </div>
+        {filtered.length === 0 && (<div className="text-center text-gray-500 py-12 uppercase tracking-widest">Aucun talent compatible</div>)}
+      </SelectionModal>
   )
 }
-

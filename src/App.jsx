@@ -2,6 +2,7 @@ import {lazy, Suspense, useEffect} from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import Loader from './components/common/Loader'
+import { GameProvider } from './context/GameContext'
 
 const DatabasePage = lazy(() => import('./pages/DatabasePage'))
 const BuildPlannerPage = lazy(() => import('./pages/BuildPlannerPage'))
@@ -29,7 +30,8 @@ export default function App() {
 
 
   return (
-    <Routes>
+    <GameProvider>
+      <Routes>
         <Route element={<Layout />}>
             <Route index element={<SuspensePage><DatabasePage /></SuspensePage>} />
             <Route path="db/:category/:slug?" element={<SuspensePage><DatabasePage /></SuspensePage>} />
@@ -37,7 +39,7 @@ export default function App() {
             <Route path="changelog" element={<SuspensePage><ChangelogPage /></SuspensePage>} />
             <Route path="generator" element={<SuspensePage><GeneratorPage /></SuspensePage>} />
         </Route>
-    </Routes>
+      </Routes>
+    </GameProvider>
   )
 }
-

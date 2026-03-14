@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Attributs — The Division 2",
+  "description": "Référentiel de tous les attributs. Clé = slug de l'attribut.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[a-z0-9_]+$": {
+      "type": "object",
+      "required": [
+        "nom",
+        "categorie",
+        "cible"
+      ],
+      "properties": {
+        "nom": {
+          "type": "string",
+          "description": "Nom de l'attribut tel qu'affiché en jeu"
+        },
+        "categorie": {
+          "type": "string",
+          "enum": [
+            "offensif",
+            "défensif",
+            "utilitaire"
+          ],
+          "description": "Catégorie de l'attribut"
+        },
+        "cible": {
+          "type": "array",
+          "description": "Sur quel type d'objet cet attribut peut apparaître",
+          "items": {
+            "type": "string",
+            "enum": [
+              "arme",
+              "equipement",
+              "mod_arme",
+              "mod_equipement",
+              "competence",
+              "mod_competence"
+            ]
+          },
+          "minItems": 1
+        },
+        "unite": {
+          "type": "string",
+          "description": "Unité d'affichage (%, pts, etc.)"
+        },
+        "min": {
+          "type": "number",
+          "description": "Valeur minimum classique de l'attribut"
+        },
+        "max": {
+          "type": "number",
+          "description": "Valeur maximum classique de l'attribut"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description courte de ce que fait l'attribut"
+        },
+        "estEssentiel": {
+          "type": "boolean",
+          "description": "True si cet attribut est un attribut essentiel (core attribute). Les attributs essentiels et classiques forment deux pools séparés."
+        },
+        "statistiques": {
+          "type": "array",
+          "description": "Slugs des statistiques de jeu que cet attribut modifie (référence statistiques.jsonc)",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Types Équipements — The Division 2",
+  "description": "Types d'emplacements d'équipement",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[a-z0-9_]+$": {
+      "type": "object",
+      "properties": {
+        "nom": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "emoji": {
+          "type": "string",
+          "description": "Emoji représentant le type d'équipement"
+        }
+      },
+      "required": [
+        "icon",
+        "nom"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

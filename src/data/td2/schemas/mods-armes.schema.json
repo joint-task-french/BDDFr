@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Mods d'armes — The Division 2",
+  "description": "Clé = slug du mod.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[a-z0-9_]+$": {
+      "type": "object",
+      "required": [
+        "nom",
+        "type",
+        "compatible"
+      ],
+      "properties": {
+        "nom": {
+          "type": "string",
+          "description": "Nom de la modification"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "chargeur",
+            "canon",
+            "viseur",
+            "bouche"
+          ],
+          "description": "Type de modification"
+        },
+        "attributs": {
+          "type": "array",
+          "description": "Attributs modifiés par ce mod (slug + valeur, négatif = malus)",
+          "items": {
+            "type": "object",
+            "required": [
+              "attribut",
+              "valeur"
+            ],
+            "properties": {
+              "attribut": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
+              },
+              "valeur": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "bonus": {
+          "type": "string",
+          "description": "Effet textuel non lié à un attribut (optionnel)"
+        },
+        "compatible": {
+          "type": "array",
+          "description": "Types d'armes compatibles (tableau vide = universel)",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          }
+        },
+        "estExotique": {
+          "type": "boolean",
+          "description": "True si mod exotique lié à une arme exotique"
+        },
+        "prerequis": {
+          "type": "string",
+          "description": "Slug de spécialisation requise (optionnel)"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur le mod"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

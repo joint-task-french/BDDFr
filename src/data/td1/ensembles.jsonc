@@ -1,0 +1,18 @@
+{
+  "alpha_bridge": {
+    "nom": "AlphaBridge",
+    "description": "Ensemble d'équipement axé sur l'utilisation d'armes de la même catégorie.",
+    "bonus2piece": "+100% Régénération de santé",
+    "bonus3piece": "+5% Dégâts d'armes",
+    "bonus4piece": "Si votre arme principale et votre arme secondaire sont de la même catégorie, elles partagent toutes les deux le talent gratuit de l'autre.",
+    "logo": "alpha_bridge"
+  },
+  "striker": {
+    "nom": "Cogneur (Striker's Battlegear)",
+    "description": "Ensemble d'équipement pour le combat continu.",
+    "bonus2piece": "+20% Stabilité",
+    "bonus3piece": "+10% Dégâts d'armure",
+    "bonus4piece": "Chaque tir au but augmente les dégâts de 1%. Jusqu'à 100%. Diminue de 2% par tir manqué. Baisse de 1% chaque seconde.",
+    "logo": "strikers_battlegear"
+  }
+}

@@ -1,4 +1,7 @@
-import { readFileSync, readdirSync, statSync } from 'fs'
+with open("scripts/validate-schemas.mjs", "r") as f:
+    content = f.read()
+
+new_content = """import { readFileSync, readdirSync, statSync } from 'fs'
 import { join, dirname, basename } from 'path'
 import { fileURLToPath } from 'url'
 import Ajv from 'ajv'
@@ -8,8 +11,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const DATA_DIR = join(__dirname, '..', 'src', 'data')
 
 function stripComments(text) {
-  text = text.replace(/^\uFEFF/, '');
-  return text.replace(/("(?:\\.|[^\\"])*")|(\/\*[\s\S]*?\*\/)|(\/\/(?:.*)$)/gm, (match, string) => {
+  text = text.replace(/^\\uFEFF/, '');
+  return text.replace(/("(?:\\\\.|[^\\\\"])*")|(\\/\\*[\\s\\S]*?\\*\\/)|(\\//(?:.*)$)/gm, (match, string) => {
     if (string) return string;
     return '';
   });
@@ -40,7 +43,7 @@ let hasErrors = false
 let totalFiles = 0
 let passedFiles = 0
 
-console.log('🔍 Validation des données JSONC contre les schémas JSON...\n')
+console.log('🔍 Validation des données JSONC contre les schémas JSON...\\n')
 
 const games = readdirSync(DATA_DIR).filter(d => statSync(join(DATA_DIR, d)).isDirectory() && d !== 'schemas')
 
@@ -140,13 +143,17 @@ try {
 }
 
 
-console.log(`\n${'─'.repeat(50)}`)
+console.log(`\\n${'─'.repeat(50)}`)
 console.log(`📊 Résultat : ${passedFiles}/${totalFiles} fichiers validés`)
 
 if (hasErrors) {
-  console.log('❌ La validation a échoué.\n')
+  console.log('❌ La validation a échoué.\\n')
   process.exit(1)
 } else {
-  console.log('✅ Toutes les données sont valides !\n')
+  console.log('✅ Toutes les données sont valides !\\n')
   process.exit(0)
 }
+"""
+
+with open("scripts/validate-schemas.mjs", "w") as f:
+    f.write(new_content)

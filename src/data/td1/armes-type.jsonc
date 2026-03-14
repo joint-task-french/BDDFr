@@ -1,0 +1,30 @@
+{
+  "fusil_assaut": {
+    "nom": "Fusil d'Assaut",
+    "icone": "arme_fusil_assaut"
+  },
+  "pistolet_mitrailleur": {
+    "nom": "Pistolet Mitrailleur",
+    "icone": "arme_pistolet_mitrailleur"
+  },
+  "fusil_mitrailleur": {
+    "nom": "Fusil Mitrailleur",
+    "icone": "arme_lmg"
+  },
+  "fusil": {
+    "nom": "Fusil",
+    "icone": "arme_fusil"
+  },
+  "fusil_precision": {
+    "nom": "Fusil de Précision",
+    "icone": "arme_sniper"
+  },
+  "calibre_12": {
+    "nom": "Calibre 12",
+    "icone": "arme_calibre12"
+  },
+  "pistolet": {
+    "nom": "Pistolet",
+    "icone": "arme_pistolet"
+  }
+}

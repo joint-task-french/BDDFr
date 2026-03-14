@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 const DIST_DIR = './dist';
-const DATA_DIR = './src/data';
+const DATA_DIR = './src/data/td2';
 const ASSETS_DIR = './src/img/game_assets';
 
 const repoFullName = process.env.GITHUB_REPOSITORY || 'localhost/BDDFr';

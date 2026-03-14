@@ -1,8 +1,10 @@
 import { useDataLoader } from '../hooks/useDataLoader'
+import { useGame } from '../context/GameContext'
 import Loader from '../components/common/Loader'
 
 export default function ChangelogPage() {
   const { data, loading, error, progress } = useDataLoader()
+  const { currentGame } = useGame()
 
   if (loading) return <Loader progress={progress} />
   if (error) return (
@@ -104,4 +106,3 @@ function ChangelogEntry({ entry, isFirst }) {
     </div>
   )
 }
-

@@ -1,0 +1,10 @@
+{
+  "Liberator_Talent": {
+    "nom": "République libre",
+    "description": "Tirer avec le Liberator octroie un buff au Centurion."
+  },
+  "Card_Counter": {
+    "nom": "Card Counter",
+    "description": "Une moitié du chargeur inflige 20% de dégâts supplémentaires. La moitié qui reçoit le bonus change après 15 secondes ou lorsque le chargeur est vide."
+  }
+}

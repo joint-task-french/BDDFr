@@ -1,0 +1,20 @@
+{
+  "masque": {
+    "nom": "Masque"
+  },
+  "sac_a_dos": {
+    "nom": "Sac à dos"
+  },
+  "torse": {
+    "nom": "Gilet"
+  },
+  "gants": {
+    "nom": "Gants"
+  },
+  "holster": {
+    "nom": "Holster"
+  },
+  "genouilleres": {
+    "nom": "Genouillères"
+  }
+}

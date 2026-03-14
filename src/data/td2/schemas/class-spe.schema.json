@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Classes de spécialisation — The Division 2",
+  "description": "Les 6 spécialisations du jeu. Clé = slug de la spécialisation.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[a-z0-9_]+$": {
+      "type": "object",
+      "required": [
+        "cle",
+        "nom",
+        "arme"
+      ],
+      "properties": {
+        "cle": {
+          "type": "string",
+          "enum": [
+            "demolisseur",
+            "survivaliste",
+            "tireur_elite",
+            "artilleur",
+            "technicien",
+            "incendiaire"
+          ]
+        },
+        "nom": {
+          "type": "string"
+        },
+        "icone": {
+          "type": "string"
+        },
+        "arme": {
+          "type": "object",
+          "required": [
+            "nom"
+          ],
+          "properties": {
+            "nom": {
+              "type": "string"
+            },
+            "portee": {
+              "type": "number"
+            },
+            "rpm": {
+              "type": "number"
+            },
+            "chargeur": {
+              "type": "number"
+            },
+            "rechargement": {
+              "type": "number"
+            },
+            "headshot": {
+              "type": "number",
+              "description": "Multiplicateur de headshot en pourcentage"
+            },
+            "degatsBase": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  }
+}

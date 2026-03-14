@@ -1,0 +1,30 @@
+{
+  "liberator": {
+    "nom": "Liberator",
+    "type": "fusil_assaut",
+    "description": "Une variante du M4 Léger avec une cadence de tir très élevée.",
+    "degatsBase": 8500,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.4,
+    "headshot": 75,
+    "estExotique": true,
+    "estNomme": false,
+    "icone": "liberator",
+    "talents": ["Liberator_Talent"]
+  },
+  "the_house": {
+    "nom": "The House",
+    "type": "pistolet_mitrailleur",
+    "description": "Un pistolet mitrailleur exotique infligeant de lourds dégâts.",
+    "degatsBase": 10500,
+    "rpm": 850,
+    "chargeur": 32,
+    "rechargement": 2.0,
+    "headshot": 50,
+    "estExotique": true,
+    "estNomme": false,
+    "icone": "the_house",
+    "talents": ["Card_Counter"]
+  }
+}

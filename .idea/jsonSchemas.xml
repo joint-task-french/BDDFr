@@ -3,6 +3,23 @@
   <component name="JsonSchemaMappingsProjectConfiguration">
     <state>
       <map>
+        <entry key="armes-type.schema">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="armes-type.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/armes-type.schema.json" />
+              <option name="schemaVersion" value="JSON Schema 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/data/armes-type.jsonc" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
         <entry key="armes.schema">
           <value>
             <SchemaInfo>
@@ -15,39 +32,8 @@
                   <Item>
                     <option name="path" value="src/data/armes.jsonc" />
                   </Item>
-                </list>
-              </option>
-            </SchemaInfo>
-          </value>
-        </entry>
-        <entry key="class-spe.schema">
-          <value>
-            <SchemaInfo>
-              <option name="generatedName" value="New Schema" />
-              <option name="name" value="class-spe.schema" />
-              <option name="relativePathToSchema" value="src/data/schemas/class-spe.schema.json" />
-              <option name="schemaVersion" value="JSON Schema 7" />
-              <option name="patterns">
-                <list>
                   <Item>
-                    <option name="path" value="src/data/class-spe.jsonc" />
-                  </Item>
-                </list>
-              </option>
-            </SchemaInfo>
-          </value>
-        </entry>
-        <entry key="equipements-type.schema">
-          <value>
-            <SchemaInfo>
-              <option name="generatedName" value="New Schema" />
-              <option name="name" value="equipements-type.schema" />
-              <option name="relativePathToSchema" value="src/data/schemas/equipements-type.schema.json" />
-              <option name="schemaVersion" value="JSON Schema 7" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="path" value="src/data/equipements-type.jsonc" />
+                    <option name="path" value="public/data/armes.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -71,17 +57,17 @@
             </SchemaInfo>
           </value>
         </entry>
-        <entry key="armes-type.schema">
+        <entry key="attributs.schema">
           <value>
             <SchemaInfo>
               <option name="generatedName" value="New Schema" />
-              <option name="name" value="armes-type.schema" />
-              <option name="relativePathToSchema" value="src/data/schemas/armes-type.schema.json" />
+              <option name="name" value="attributs.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/attributs.schema.json" />
               <option name="schemaVersion" value="JSON Schema 7" />
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/armes-type.jsonc" />
+                    <option name="path" value="src/data/attributs.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -99,6 +85,23 @@
                 <list>
                   <Item>
                     <option name="path" value="src/data/changelog.jsonc" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="class-spe.schema">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="class-spe.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/class-spe.schema.json" />
+              <option name="schemaVersion" value="JSON Schema 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/data/class-spe.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -139,17 +142,17 @@
             </SchemaInfo>
           </value>
         </entry>
-        <entry key="attributs.schema">
+        <entry key="equipements-type.schema">
           <value>
             <SchemaInfo>
               <option name="generatedName" value="New Schema" />
-              <option name="name" value="attributs.schema" />
-              <option name="relativePathToSchema" value="src/data/schemas/attributs.schema.json" />
+              <option name="name" value="equipements-type.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/equipements-type.schema.json" />
               <option name="schemaVersion" value="JSON Schema 7" />
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/attributs.jsonc" />
+                    <option name="path" value="src/data/equipements-type.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -241,6 +244,23 @@
             </SchemaInfo>
           </value>
         </entry>
+        <entry key="statistiques.schema">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="statistiques.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/statistiques.schema.json" />
+              <option name="schemaVersion" value="JSON Schema 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/data/statistiques.jsonc" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
         <entry key="talents-armes.schema">
           <value>
             <SchemaInfo>
@@ -269,23 +289,6 @@
                 <list>
                   <Item>
                     <option name="path" value="src/data/talents-equipements.jsonc" />
-                  </Item>
-                </list>
-              </option>
-            </SchemaInfo>
-          </value>
-        </entry>
-        <entry key="statistiques.schema">
-          <value>
-            <SchemaInfo>
-              <option name="generatedName" value="New Schema" />
-              <option name="name" value="statistiques.schema" />
-              <option name="relativePathToSchema" value="src/data/schemas/statistiques.schema.json" />
-              <option name="schemaVersion" value="JSON Schema 7" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="path" value="src/data/statistiques.jsonc" />
                   </Item>
                 </list>
               </option>

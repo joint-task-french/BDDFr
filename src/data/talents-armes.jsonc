@@ -871,31 +871,32 @@
   "instinct_d_adaptation": {
     "nom": "Instinct d'adaptation",
     "icone": "instinct_d_adaptation",
-    "description": "Placer 30 headshots confère +20% de probalitité de coup critique et 50% aux dégâts de coup critique pendant 45 s.Placer 65 tirs au corps confère +90% aux dégâts d'arme pendant 45 s.Placer 20 tirs aux jambes confère +150% à la vitesse de rechargement pendant 45 s.Les buffs se réinitilialisent hors combat.",
+    "description": "Placer 30 headshots confère +20% à la probalitité de coup critique et 50% aux dégâts de coup critique pendant 45 s.\nPlacer 65 tirs au corps confère +90% aux dégâts d'arme pendant 45 s.\nPlacer 20 tirs aux jambes confère +150% à la vitesse de rechargement pendant 45 s.\nLes buffs se réinitilialisent hors combat.",
     "estExotique": true
   },
   "chasseur_de_gros_gibier": {
     "nom": "Chasseur de gros gibier",
     "icone": "chasseur_de_gros_gibier",
-    "description": "Quand vous zoomez, l'arme passe en mode semi-automatique et les tirs infligent 450% de dégâts d'armes à chaque tir.Les headshots confèrent +6% de dégâts headshot. Cet effet est cumulable 25 fois. Une fois le cumul maximum atteint, 10 effets se dissipent toutes les 4 secondes jusqu'à disparition de tous les effets. Les headshots ralentissent la disparition des effets.",
+    "description": "Quand vous zoomez, l'arme passe en mode semi-automatique et inflige 450% de dégâts d'armes à chaque tir.\nLes headshots confèrent +6% de dégâts headshot. Cet effet est cumulable 25 fois. Une fois le cumul maximum atteint, 10 effets se dissipent toutes les 4 secondes jusqu'à disparition de tous les effets. Les headshots ralentissent la disparition des effets.",
     "estExotique": true
   },
   "capacite": {
     "nom": "Capacité",
     "icone": "capacite",
-    "description": "Tirer sur des ennemis cumule des effets jusqu'à un maximum de 40.Chaque effet confère 1.5% de dégâts de compétences. Au bout de 5 secondes, les effets cumulés diminuent de 1 par seconde.Pour chaque tier de compétence, confère 7.5% de dégâts d'arme.",
+    "description": "Tirer sur des ennemis cumule des effets jusqu'à un maximum de 40. Chaque effet confère 1.5% de dégâts de compétences. Au bout de 5 secondes, les effets cumulés diminuent de 1 par seconde.\nPour chaque Tier de compétence, confère 7.5% de dégâts d'arme.",
     "estExotique": true
   },
   "actum_est": {
     "nom": "Actum Est",
     "icone": "actum_est",
-    "description": "Tirer sur un ennemi avec cette arme confère 1 effet cumulable. Au bout de 100, votre prochain chargeur contiendra des munitions électriques. (50% du chargeur en pvp)",
+    "description": "Tirer sur un ennemi avec cette arme confère 1 effet cumulable.\nAu bout de 100, votre prochain chargeur contiendra des munitions électriques.",
+    "notes": "50% du chargeur en pvp",
     "estExotique": true
   },
   "pertubation": {
     "nom": "Pertubation",
     "icone": "pertubation",
-    "description": "Abattre un ennemi applique une marque à tous les ennemis situés à moins de 20m. Il est possible d'appliquer plusieurs marques au même ennemi. Inflige aux ennemis marqués des dégâts amplifiés de 15% par marque.",
+    "description": "Abattre un ennemi applique une marque à tous les ennemis situés à moins de 20m de lui. Il est possible d'appliquer plusieurs marques au même ennemi.\nLe nombre maximun de marques applicables est de 5. Toutes les marques sur un ennemi disparaissent 10s après la dernière d'entre elles a été appliquée.\nVous infligez +15% de dégâts par marque aux ennemis marqués.",
     "estExotique": true
   },
   "peste_des_parias": {

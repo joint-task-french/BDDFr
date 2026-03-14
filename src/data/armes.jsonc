@@ -400,6 +400,7 @@
   },
   "pyromane": {
     "nom": "Pyromane",
+    "description": "Parfois le monde ne brûle pas assez vite.",
     "type": "fusil_assaut",
     "fabricant": "COLT",
     "portee": 31,
@@ -1712,6 +1713,7 @@
   },
   "diceros_special": {
     "nom": "DICEROS SPÉCIAL",
+    "description": "Un revolver .357 Magnum très puissant. Le canon inhabituellement bas tirant depuis la partie inférieure du cylindre lui confère un équilibre rare pour une arme de cette catégorie.",
     "type": "pistolet",
     "fabricant": "CHIAPPA FIREARMS",
     "portee": 18,
@@ -1748,8 +1750,9 @@
       "chargeur"
     ]
   },
-  "orbit": {
-    "nom": "ORBIT",
+  "orbite": {
+    "nom": "Orbite",
+    "description": "Une fois en mouvement, la balle poursuit sa trajectoire jusqu'à sa cible, puis tout mouvement cesse brusquement.",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
@@ -1807,6 +1810,7 @@
   },
   "le_moissonneur": {
     "nom": "LE MOISSONNEUR",
+    "description": "\"Rien ne vaut la récompense a la fin de la récolte.\"",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
@@ -1921,6 +1925,7 @@
   },
   "rock_n_roll": {
     "nom": "ROCK'N'ROLL",
+    "description": "\"Y'a plein de gens qui aiment la guitare mais moi, c'est la batterie que je kiffe... BAN, BAM, BAM ! Ça me fait trop tripper.\"\n- Membre des Hyènes jouant dans un groupe",
     "type": "calibre_12",
     "fabricant": "ATCHISSON",
     "portee": 16,
@@ -2150,6 +2155,7 @@
   },
   "allume_feu": {
     "nom": "ALLUME-FEU",
+    "description": "Les cartouches contiennent une fine poudre augmentant l'inflammibilité des cibles touchées par le fusil",
     "type": "calibre_12",
     "fabricant": "L.C SMITH",
     "portee": 7,
@@ -2247,6 +2253,7 @@
   },
   "l_inhumateur": {
     "nom": "L'INHUMATEUR",
+    "description": "Quand vous quittez ce monde, tout ce que vous entendez c'est un bruit blanc.",
     "type": "calibre_12",
     "fabricant": "KEL-TEC",
     "portee": 16,
@@ -2494,6 +2501,7 @@
   },
   "sacrum_imperium": {
     "nom": "Sacrum Imperium",
+    "description": "\"Par la lumière sacrée, donnez-moi la force d'exécuter la volonté divine.\" Le prêtre",
     "type": "fusil_precision",
     "fabricant": "Exotique",
     "portee": 0,
@@ -2708,6 +2716,7 @@
   },
   "effroyable_sentence": {
     "nom": "Effroyable Sentence",
+    "description": "\"Quand viendra ta sentence, tu ne sauras pas combien de mots ont été prononcés, mais tu sauras quel est le dernier d'entre eux.\"",
     "type": "fusil_precision",
     "fabricant": "Exotique",
     "portee": 0,
@@ -2847,6 +2856,7 @@
   "mort_blanche": {
     "nom": "Mort Blanche",
     "type": "fusil_precision",
+    "description": "\"La neige me manque.\" - S.H.",
     "fabricant": "IZHMASH",
     "portee": 50,
     "rpm": 55,
@@ -3445,6 +3455,7 @@
   },
   "l_acquis": {
     "nom": "L'ACQUIS",
+    "description": "Les armes ne sont pas sublimes par essence, elles de deviennent.",
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
     "portee": 19,
@@ -3736,6 +3747,7 @@
   },
   "rafraichisseur": {
     "nom": "RAFRAÎCHISSEUR",
+    "description": "N'oubliez pas de vous hydrater.",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
@@ -3805,6 +3817,7 @@
   },
   "secret_du_chef": {
     "nom": "SECRET DU CHEF",
+    "description": "\"En cuisine, mon secret c'est la générosité: j'en met toujours un peu plus.\"\n- Sergent Rolland T. Baker",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
@@ -3844,6 +3857,7 @@
   },
   "surge": {
     "nom": "SURGE",
+    "description": "\"La machine apprend. Pas nous.\"\n- Réflexion transhumaniste sur l'obsolescence programmée",
     "type": "fusil",
     "fabricant": "WAR SPORT",
     "portee": 55,
@@ -3957,6 +3971,7 @@
   },
   "regard_eternel": {
     "nom": "REGARD ÉTERNEL",
+    "description": "\"Regarde toujours la récompense, mon gars. Attention... Vas-y !\"\n- Instructeur du NYCP",
     "type": "fusil",
     "fabricant": "FN HERSTAL",
     "portee": 55,
@@ -4120,6 +4135,7 @@
   },
   "la_vorace": {
     "nom": "La Vorace",
+    "description": "Avides de cadavres, Geri et Freki, les loups d'Odin, rôdent sur le champ de bataille. Chasse pour eux, guerrier d'Odin. Donne-leur de quoi assouvir leur faim.",
     "type": "fusil",
     "fabricant": "Exotique",
     "portee": 50,
@@ -4218,6 +4234,7 @@
   },
   "scorpio": {
     "nom": "Scorpio",
+    "description": "Cette arme tire des munitions empoisonnées débilitantes inspirées du scorpion (de l'espèce Hottentotta, précisément). Développée en collaboration avec la DARPA, elle n'a pas reçu d'autorisation de commercialisation car elle n'est pas conforme aux termes de la Convention de La Haye de 1899.",
     "type": "calibre_12",
     "fabricant": "CRYE PRECISION",
     "portee": 14,
@@ -4269,6 +4286,7 @@
   },
   "sherif": {
     "nom": "Shérif",
+    "description": "Là, c'est du sérieux.",
     "type": "calibre_12",
     "fabricant": "Exotique",
     "portee": 0,
@@ -4377,6 +4395,7 @@
   },
   "bittersweet": {
     "nom": "Bittersweet",
+    "description": "L'arme bigoût.",
     "type": "fusil",
     "fabricant": "Exotique",
     "portee": 60,
@@ -4404,6 +4423,7 @@
   },
   "eagle_bearer": {
     "nom": "Eagle Bearer",
+    "description": "L'inscription indique : \n\"Un présent offert à Odessa Sawyer pour le dévouement sans faille dans la tragédie nationale que nous traversons tous. Puisse-t-elle trouver la force de relever les défis qui l'attendent.\"\n- La communauté du refuge du Théâtre",
     "type": "fusil_assaut",
     "fabricant": "PATRIOT ORDNANCE FACTORY",
     "portee": 26,
@@ -4440,18 +4460,22 @@
     ]
   },
   "cameleon": {
-    "nom": "Caméléon",//TODO
+    "nom": "Caméléon",
+    "description": "Le caméléon dispose d'une technologie de revêtement réfringent conçu par l'équipe de recherche de la DARPA.",
     "type": "fusil_assaut",
     "fabricant": "TDI",
     "portee": 20,
     "rpm": 900,
-    "chargeur": 50,
-    "rechargement": 2.4,
-    "headshot": 55,
-    "degatsBase": 44660,
+    "chargeur": 30,
+    "rechargement": 2.18,
+    "headshot": 50,
+    "degatsBase": 44700,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil d'assaut Dégâts à la santé"
+      "mission": true,
+      "butinCible": true,
+      "represailles": "Hyènes",
+      "description": "Récompense de prime 1/3/5/7% normal/difficile/défi/héroïque"
     },
     "estNomme": false,
     "talents": [
@@ -4462,21 +4486,29 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "modsPredefinis": [
+      "optique_de_cameleon",
+      "processeur_activcamo_de_cameleon",
+      "suppresseur_de_cameleon",
+      "poignee_de_cameleon"
     ]
   },
   "bighorn": {
-    "nom": "Bighorn",//TODO
+    "nom": "Bighorn",
+    "description": "\"Vise. Inspire. Bloque ton souffle. Concentre-toi. Expire. Apuuie.\"",
     "type": "fusil_assaut",
     "fabricant": "STEYR",
-    "portee": 27,
+    "portee": 40,
     "rpm": 800,
     "chargeur": 42,
-    "rechargement": 2.49,
+    "rechargement": 1.66,
     "headshot": 55,
-    "degatsBase": 57206,
+    "degatsBase": 57200,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil d'assaut Dégâts à la santé"
+      "darkZone": true,
+      "description": "Uniquement en difficulté légendaire 5%, boss nommé en forteresse ou summit"
     },
     "estNomme": false,
     "talents": [
@@ -4487,21 +4519,30 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "modsPredefinis": [
+      "lunette_de_selection_de_tir",
+      "chargeur_a_ressort_ajuste",
+      "bouche_en_acier_au_carbone",
+      "poignee_de_corne_bighorn"
     ]
   },
   "capacitor": {
-    "nom": "Capacitor",//TODO
+    "nom": "Capacitor",
+    "description": "\"Moi ce que je préfère, c'est les câbles dénudés qui se touchent et les incendies électriques. Heureusement, ces deux trucs vont bien ensemble. Une étincelle et on met le feu !\"\n- Ancien technicien des Black Tusks",
     "type": "fusil_assaut",
     "fabricant": "MAGPUL",
     "portee": 31,
     "rpm": 700,
     "chargeur": 30,
-    "rechargement": 2.33,
+    "rechargement": 1.70,
     "headshot": 55,
-    "degatsBase": 57606,
+    "degatsBase": 57600,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil d'assaut Dégâts aux protections"
+      "butinCible": true,
+      "mission": true,
+      "description": "Finir 5 défis de Summit en une ascension."
     },
     "estNomme": false,
     "talents": [
@@ -4512,21 +4553,31 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "modsPredefinis": [
+      "visee_condutrice",
+      "generateur_de_tension",
+      "electrode_de_decharge",
+      "poignee_securisee_dielectrique"
     ]
   },
   "feu_de_saint_elme": {
-    "nom": "Feu de Saint-Elme",//TODO
+    "nom": "Feu de Saint-Elme",
     "type": "fusil_assaut",
+    "description": "\"Parfois, les phénomènes les plus beaux et les plus menaçants sont purement naturels.\" Anonyme",
     "fabricant": "COLT",
     "portee": 31,
     "rpm": 850,
-    "chargeur": 70,
-    "rechargement": 2.3,
+    "chargeur": 40,
+    "rechargement": 1.87,
     "headshot": 55,
-    "degatsBase": 46908,
+    "degatsBase": 46900,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil d'assaut Dégâts à la santé"
+      "mission": true,
+      "butinCible": true,
+      "represailles": "True sons, Escouade d'extermination",
+      "description": ""
     },
     "estNomme": false,
     "talents": [
@@ -4537,21 +4588,31 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "modsPredefinis": [
+      "rail_conducteur",
+      "chargeur_isolee",
+      "poignee_isolee",
+      "bouche_surchargee"
     ]
   },
   "strega": {
-    "nom": "Strega",//TODO
+    "nom": "Strega",
+    "description": "\"On ne peut plus faire de prévention. On limite les dégâts.\"\n- Colonel Antwon Ridgeway",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 35,
     "rpm": 700,
-    "chargeur": 40,
-    "rechargement": 2.3,
+    "chargeur": 20,
+    "rechargement": 1.78,
     "headshot": 55,
-    "degatsBase": 57634,
+    "degatsBase": 57600,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil d'assaut Dégâts à la santé"
+      "butinCible": true,
+      "represailles": "Hyène, Escouade d'extermination",
+      "mission": true,
+      "description": ""
     },
     "estNomme": false,
     "talents": [
@@ -4562,6 +4623,12 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "modsPredefinis": [
+      "optique_strega",
+      "chargeur_strega",
+      "poignee_strega",
+      "bouche_strega"
     ]
   },
   "pestilence": {
@@ -4662,6 +4729,7 @@
   },
   "nemesis": {
     "nom": "Nemesis",
+    "description": "\"Je guette les guetteurs.\"\n- Phaedra \"Puck\" Lao, sniper des Black Tusks",
     "type": "fusil_precision",
     "fabricant": "ACCURACY INTERNATIONAL",
     "portee": 60,
@@ -4686,6 +4754,7 @@
   },
   "mantis": {
     "nom": "Mantis",
+    "description": "\"Le camouflage ne consiste pas seulement à se fondre dans l'environement. Vous conmaissez le terme \"mométisme agressif\" ? Tout le monde peut se cacher et attendre le bon moment pour frapper, mais pourquoi attendre quand on peut séduire ?\"\n- Sid \"Maneater\" Madison",
     "type": "fusil_precision",
     "fabricant": "DESERT TACTICAL ARMS",
     "portee": 60,
@@ -4758,6 +4827,7 @@
   },
   "regulus": {
     "nom": "Regulus",
+    "description": "\"Vous pouvez poignarder les puissants dans le dos mais au jugement dernier les rats rongeront vos os.\"\n- Javier Kajika",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
@@ -4768,7 +4838,7 @@
     "degatsBase": 282072,
     "estExotique": true,
     "obtention": {
-      "description": "Terminer le raid 2 « Cheval de fer » une première fois pour obtenir deux projets à réaliser.\nCompléter les différents projets pour obtenir celui permettant l'obtention du schéma (blueprint) du Régulus. Une fois le dernier projet débloqué, vous pourrez terminer une deuxième fois le raid pour obtenir :\n\n- le châssis sur le lieutenant Gray\n- la poignée incurvée sur le capitaine Fieser\n- le barillet gravé sur le major Williams\n- la bouche gravée sur la colonelle Morozova\n- le lingot d'or dans le coffre de butin à la fin du raid.\n\nUne fois les composants obtenus, vous pourrez fabriquer le Régulus sur l'établi."
+      "description": "Terminer le raid 2 « Cheval de fer » une première fois pour obtenir deux projets à réaliser.\nCompléter les différents projets pour obtenir celui permettant l'obtention du schéma (blueprint) du Regulus. Une fois le dernier projet débloqué, vous pourrez terminer une deuxième fois le raid pour obtenir :\n\n- le châssis sur le lieutenant Gray\n- la poignée incurvée sur le capitaine Fieser\n- le barillet gravé sur le major Williams\n- la bouche gravée sur la colonelle Morozova\n- le lingot d'or dans le coffre de butin à la fin du raid.\n\nUne fois les composants obtenus, vous pourrez fabriquer le Regulus sur l'établi."
     },
     "estNomme": false,
     "talents": [
@@ -4830,6 +4900,8 @@
   },
   "flux_continu": {
     "nom": "Flux continu",
+    "description": "\"On dit que je ne sais pas quand il faut la fermer, mais c'est juste l'Épice qui parle.\"\n- Dime, membre de la Commission des Hyènes",
+
     "type": "pistolet_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 21,
@@ -4854,6 +4926,7 @@
   },
   "lady_death": {
     "nom": "Lady death",
+    "description": "\"La liberté, inaliénable ? C'est des conneries. On pourra toujours te prendre ta liberté. La seule chose qui te sépare de la tyrannie, c'est le canon de ton flingue.\"\n- Fan du Deuxième Amendement",
     "type": "pistolet_mitrailleur",
     "fabricant": "CMMG",
     "portee": 21,
@@ -4878,6 +4951,7 @@
   },
   "contre_feu": {
     "nom": "Contre-feu",
+    "description": "\"Car seuls ceux qui ont souffert peuvent ordonner la souffrance des autres !\"\n- Credo des Parias",
     "type": "pistolet_mitrailleur",
     "fabricant": "Exotique",
     "portee": 0,
@@ -4971,6 +5045,7 @@
   },
   "scene_gauche": {
     "nom": "Scène gauche",
+    "description": "\"Si vous voulez faire une entrée, utilisez Scène gauche.\" 13",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
@@ -4992,7 +5067,7 @@
     ]
   },
   "ak_m_militaire": {
-    "nom": "AK-M militaire",//TODO
+    "nom": "AK-M militaire",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "",
     "portee": 0,
@@ -5012,7 +5087,7 @@
     ]
   },
   "g36_c": {
-    "nom": "G36 C",//TODO
+    "nom": "G36 C",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "",
     "portee": 0,
@@ -5032,7 +5107,7 @@
     ]
   },
   "goalie": {
-    "nom": "Goalie",//TODO
+    "nom": "Goalie",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "",
     "portee": 0,
@@ -5055,14 +5130,15 @@
   },
   "huntsman": {
     "nom": "Huntsman",
+    "description": "Le chasseur devient la proie.",
     "type": "fusil_assaut",
-    "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "fabricant": "GIAT INDUSTRIES",
+    "portee": 26,
+    "rpm": 900,
+    "chargeur": 30,
+    "rechargement": 2.26,
+    "headshot": 55,
+    "degatsBase": 45300,
     "estExotique": false,
     "estNomme": true,
     "talents": [
@@ -5076,9 +5152,10 @@
     ]
   },
   "lexington": {
-    "nom": "Lexington",//TODO : ajout fabricant
+    "nom": "Lexington",
+    "description": "\"Négatif, Ramos.\" - Faye Lau",
     "type": "fusil_assaut",
-    "fabricant": "",
+    "fabricant": "COLT",
     "portee": 31,
     "rpm": 850,
     "chargeur": 30,
@@ -5112,7 +5189,7 @@
     ]
   },
   "lud": {
-    "nom": "Lud", //TODO
+    "nom": "Lud", //TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "",
     "portee": 0,
@@ -5132,35 +5209,35 @@
     ]
   },
   "premiere_vue": {
-    "nom": "Première vue",//TODO
+    "nom": "Première vue",
     "type": "fusil_assaut",
     "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "portee": 27,
+    "rpm": 600,
+    "chargeur": 30,
+    "rechargement": 2.55,
+    "headshot": 85,
+    "notes": "+20% particularité du nommé",
+    "degatsBase": 67200,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur",
-      "bouche"
+      "chargeur"
     ]
   },
   "protecteur": {
     "nom": "Protecteur",//TODO
     "type": "fusil_assaut",
-    "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "fabricant": "HECKLER&KOCH",
+    "portee": 35,
+    "rpm": 750,
+    "chargeur": 30,
+    "rechargement": 2.13,
+    "headshot": 55,
+    "degatsBase": 52600,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
@@ -5169,6 +5246,15 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "attributs_essentiels": [
+      {
+        "nom": "degats_fusil_de_precision_es"
+      },
+      {
+        "nom": "degats_de_headshot_es",
+        "valeur": 137
+      }
     ]
   }
 }

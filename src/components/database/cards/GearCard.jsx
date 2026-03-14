@@ -67,21 +67,21 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
       {/* Header */}
       <div className="px-4 py-3 border-b border-tactical-border/50">
         <div className="flex items-start gap-2">
-          <div className='flex flex-col text-xs text-gray-500 text-center items-center gap-1'>
-            {/* Logo de la marque */}
-            {resolveIcon(ensemble?.logo) && (
-                <GameIcon src={resolveIcon(ensemble.logo)} alt="" size="w-10 h-10" className="rounded" />
-            )}
-            <span>{ensemble?.nom || item.marque}</span>
-          </div>
+          {/* Logo de la marque */}
+          {resolveIcon(ensemble?.logo) && (
+              <GameIcon src={resolveIcon(ensemble.logo)} alt="" size="w-10 h-10" className="rounded" />
+          )}
 
           <div className='w-full'>
-            <div className="flex items-center gap-2">
-              {isExotic && <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
-              {isNamed && <span className="text-xs font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
-              {isGearSet && <span className="text-xs font-bold text-emerald-400 bg-emerald-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Gear Set</span>}
+            <div className="flex flex-col">
+              <div className="flex flex-row items-center gap-2">
+                {isExotic && <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
+                {isNamed && <span className="text-xs font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
+                {isGearSet && <span className="text-xs font-bold text-emerald-400 bg-emerald-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Gear Set</span>}
+              </div>
+              <div className={`font-bold text-base uppercase tracking-wide mt-1 ${nameColor}`}>{item.nom}</div>
             </div>
-            <div className={`font-bold text-base uppercase tracking-wide mt-1 ${nameColor}`}>{item.nom}</div>
+            <span className="text-xs text-gray-500 ">{ensemble?.nom || item.marque}</span>
           </div>
 
           {/* Logo de l'équipement */}
@@ -92,6 +92,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
 
 
         </div>
+        { item.description && <span className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">{item.description}</span> }
       </div>
 
       {/* Attributs */}

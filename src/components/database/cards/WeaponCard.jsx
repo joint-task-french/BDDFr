@@ -45,33 +45,36 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
   return (
     <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden hover:border-tactical-border/80 transition-colors">
       {/* Header : Nom + Type + Fabricant */}
-      <div className="px-4 py-3 border-b border-tactical-border/50 flex flex-row gap-2">
-        <GameIcon src={typeIcon} alt={item.type} size="w-10 h-10" className={ isSpecific ? '' : 'opacity-60' } />
-        <div className="w-full">
-          <div className={`font-bold text-base uppercase tracking-wide ${nameColor} flex items-center gap-2 justify-between`}>
+      <div className="px-4 py-3 border-b border-tactical-border/50 flex flex-col gap-1">
+        <div className="flex flex-row gap-2">
+          <GameIcon src={typeIcon} alt={item.type} size="w-10 h-10" className={ isSpecific ? '' : 'opacity-60' } />
+          <div className="w-full">
+            <div className={`font-bold text-base uppercase tracking-wide ${nameColor} flex items-center gap-2 justify-between`}>
             <span>
               {isExotic && <span className="mr-0.5">★</span>}
               {item.nom}
             </span>
 
-            <div className="flex items-center gap-2">
-              {isExotic && <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
-              {isNamed && <span className="text-xs font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
-              {isSpecific && <span className="text-xs font-bold text-purple-400 bg-purple-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Arme spécifique</span>}
+              <div className="flex items-center gap-2">
+                {isExotic && <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
+                {isNamed && <span className="text-xs font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
+                {isSpecific && <span className="text-xs font-bold text-purple-400 bg-purple-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Arme spécifique</span>}
+              </div>
+            </div>
+            <div className="flex items-center gap-2 text-xs text-gray-500 mt-0.5">
+              <span>{getWeaponTypeLabel(armesType, item.type)}</span>
+              <span>·</span>
+              <span>{item.fabricant}</span>
+              {isSpecific && item.specialisation && (
+                  <>
+                    <span>·</span>
+                    <span className="text-purple-400">🎖️ {item.specialisation}</span>
+                  </>
+              )}
             </div>
           </div>
-          <div className="flex items-center gap-2 text-xs text-gray-500 mt-0.5">
-            <span>{getWeaponTypeLabel(armesType, item.type)}</span>
-            <span>·</span>
-            <span>{item.fabricant}</span>
-            {isSpecific && item.specialisation && (
-                <>
-                  <span>·</span>
-                  <span className="text-purple-400">🎖️ {item.specialisation}</span>
-                </>
-            )}
-          </div>
         </div>
+        { item.description && <span className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">{item.description}</span> }
       </div>
 
       {/* Stats grid */}

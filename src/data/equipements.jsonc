@@ -1012,7 +1012,6 @@
     "nom": "Genouillères d'agilité",
     "marque": "sokolov_concern",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1021,7 +1020,6 @@
     "nom": "Genouillères de combat urbain",
     "marque": "providence_defense",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1030,7 +1028,6 @@
     "nom": "Protections Dingson",
     "marque": "overlord_armaments",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1039,7 +1036,6 @@
     "nom": "Protections Tay",
     "marque": "douglas_harding",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1048,7 +1044,6 @@
     "nom": "Genouillères Patella",
     "marque": "wyvern_wear",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1057,7 +1052,6 @@
     "nom": "Genouillères Sidewinder",
     "marque": "gila_guard",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1066,7 +1060,6 @@
     "nom": "Genouillères Suneata",
     "marque": "murakami_industries",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1075,7 +1068,6 @@
     "nom": "Genouillères Knäskydd",
     "marque": "fenris_group_ab",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1084,7 +1076,6 @@
     "nom": "HX 02",
     "marque": "china_light_industries_corporation",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1093,7 +1084,6 @@
     "nom": "Genouillères Exo.K1",
     "marque": "5_11_tactical",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1102,7 +1092,6 @@
     "nom": "Renforts d'articulation Hulian",
     "marque": "richter_kaiser_gmbh",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1111,7 +1100,6 @@
     "nom": "Protections de genoux",
     "marque": "petrov_defense_group",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1120,7 +1108,6 @@
     "nom": "Protections Dionysus",
     "marque": "airaldi_holding",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1129,7 +1116,6 @@
     "nom": "Clutch XO-Skin Sport Pads",
     "marque": "alps_summit_armement",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1138,7 +1124,6 @@
     "nom": "Renforts de genoux Jonti",
     "marque": "badger_tuff",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1147,7 +1132,6 @@
     "nom": "Yukon Kneepads",
     "marque": "yaahl_gear",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1156,7 +1140,6 @@
     "nom": "Genouillères Sundown",
     "marque": "grupo_sombra_s_a",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1165,7 +1148,6 @@
     "nom": "Genouillères Nahar",
     "marque": "golan_gear_ltd",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1174,7 +1156,6 @@
     "nom": "Genouillères de logistique",
     "marque": "ceska_vyroba_s_r_o",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1183,7 +1164,6 @@
     "nom": "Genouilllères Mesa",
     "marque": "walker_harris_co",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1192,7 +1172,6 @@
     "nom": "Genouillères Poleyn",
     "marque": "belstone_armory",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1201,7 +1180,6 @@
     "nom": "Protection passe-partout",
     "marque": "empress_international",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1210,7 +1188,6 @@
     "nom": "Genouillères Dosoftei",
     "marque": "uzina_getica",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1219,7 +1196,6 @@
     "nom": "Genouillères Cerinola",
     "marque": "brazos_de_arcabuz",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1228,7 +1204,6 @@
     "nom": "Genouillères HG",
     "marque": "habsburg_guard",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1237,7 +1212,6 @@
     "nom": "Genouillères Electrique",
     "marque": "electrique",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1246,7 +1220,6 @@
     "nom": "Genouillères Lengmo",
     "marque": "langmo",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1255,7 +1228,6 @@
     "nom": "Genouillères Steelworks",
     "marque": "palisade_steelworks",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1264,7 +1236,6 @@
     "nom": "Genouillères Zwiadowka Sp. z o.o.",
     "marque": "zwiadowka_sp_z_o_o",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1273,7 +1244,6 @@
     "nom": "Genouillères Legatus S.p.A.",
     "marque": "legatus_s_p_a",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1282,7 +1252,6 @@
     "nom": "Holster modulaire",
     "marque": "providence_defense",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1291,7 +1260,6 @@
     "nom": "Système de holster Morar",
     "marque": "douglas_harding",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1300,7 +1268,6 @@
     "nom": "Holster de Jambe",
     "marque": "petrov_defense_group",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1309,7 +1276,6 @@
     "nom": "Holster Didactyl",
     "marque": "wyvern_wear",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1318,7 +1284,6 @@
     "nom": "Brêlage de cuisse Jaivardhan",
     "marque": "richter_kaiser_gmbh",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1327,7 +1292,6 @@
     "nom": "Holster Jackrabbit",
     "marque": "gila_guard",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1336,7 +1300,6 @@
     "nom": "Holster de cuisse Haidate",
     "marque": "murakami_industries",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1345,7 +1308,6 @@
     "nom": "Holster Fodral",
     "marque": "fenris_group_ab",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1354,7 +1316,6 @@
     "nom": "Holster rapide Artemis",
     "marque": "airaldi_holding",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1363,7 +1324,6 @@
     "nom": "Holster Vertical Y",
     "marque": "sokolov_concern",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1372,7 +1332,6 @@
     "nom": "\"Graffham\" Thigh Combo",
     "marque": "overlord_armaments",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1381,7 +1340,6 @@
     "nom": "Holster Compact LBE",
     "marque": "5_11_tactical",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1390,7 +1348,6 @@
     "nom": "Saccoche de jambe",
     "marque": "alps_summit_armement",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1399,7 +1356,6 @@
     "nom": "FK 918",
     "marque": "china_light_industries_corporation",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1408,7 +1364,6 @@
     "nom": "Holster Snoqualmie",
     "marque": "yaahl_gear",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1417,7 +1372,6 @@
     "nom": "Holster \"Huffle\"",
     "marque": "badger_tuff",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1426,7 +1380,6 @@
     "nom": "Holster Duel",
     "marque": "hana_u_corporation",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1435,7 +1388,6 @@
     "nom": "Holster Shomer",
     "marque": "golan_gear_ltd",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1444,7 +1396,6 @@
     "nom": "Holster de reconnaissance",
     "marque": "ceska_vyroba_s_r_o",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1453,7 +1404,6 @@
     "nom": "Holster de portée tactique",
     "marque": "walker_harris_co",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1462,7 +1412,6 @@
     "nom": "Holster Fauld & Tasset",
     "marque": "belstone_armory",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1471,7 +1420,6 @@
     "nom": "Étui robuste",
     "marque": "empress_international",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1480,7 +1428,6 @@
     "nom": "Fourreau Constantin",
     "marque": "uzina_getica",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1489,7 +1436,6 @@
     "nom": "Holster Guerra",
     "marque": "brazos_de_arcabuz",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1498,7 +1444,6 @@
     "nom": "Holster HG",
     "marque": "habsburg_guard",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1507,7 +1452,6 @@
     "nom": "Holster Electrique",
     "marque": "electrique",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1516,7 +1460,6 @@
     "nom": "Holster Langmo",
     "marque": "langmo",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1525,7 +1468,6 @@
     "nom": "Holster Steelworks",
     "marque": "palisade_steelworks",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1534,7 +1476,6 @@
     "nom": "Holster Zwiadowka Sp. z o.o.",
     "marque": "zwiadowka_sp_z_o_o",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1543,7 +1484,6 @@
     "nom": "Hoslter Legatus S.p.A.",
     "marque": "legatus_s_p_a",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1552,7 +1492,6 @@
     "nom": "Gants tactiques d'assaut",
     "marque": "providence_defense",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1561,7 +1500,6 @@
     "nom": "Gants de protection Neptune",
     "marque": "overlord_armaments",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1570,7 +1508,6 @@
     "nom": "Gants Station Grip",
     "marque": "5_11_tactical",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1579,7 +1516,6 @@
     "nom": "Gants d'escalade",
     "marque": "alps_summit_armement",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1588,7 +1524,6 @@
     "nom": "Gants Diamondback",
     "marque": "gila_guard",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1597,7 +1532,6 @@
     "nom": "Protection de mains Kote",
     "marque": "murakami_industries",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1606,7 +1540,6 @@
     "nom": "Gants de précision Persephone",
     "marque": "airaldi_holding",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1615,7 +1548,6 @@
     "nom": "ST 520",
     "marque": "china_light_industries_corporation",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1624,7 +1556,6 @@
     "nom": "Gants Shasta",
     "marque": "yaahl_gear",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1633,7 +1564,6 @@
     "nom": "Gants de longue durée Meles",
     "marque": "badger_tuff",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1642,7 +1572,6 @@
     "nom": "Gants à micro-plaques",
     "marque": "sokolov_concern",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1651,7 +1580,6 @@
     "nom": "Gants de combat",
     "marque": "petrov_defense_group",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1660,7 +1588,6 @@
     "nom": "\"Digits\" Finger Stabilizer",
     "marque": "wyvern_wear",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1669,7 +1596,6 @@
     "nom": "Gants Srivatsa",
     "marque": "richter_kaiser_gmbh",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1678,7 +1604,6 @@
     "nom": "Gants Tassar",
     "marque": "fenris_group_ab",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1687,7 +1612,6 @@
     "nom": "Protège-mains \"Lochy\"",
     "marque": "douglas_harding",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1696,7 +1620,6 @@
     "nom": "Gants d'attaque Dusk",
     "marque": "grupo_sombra_s_a",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1705,7 +1628,6 @@
     "nom": "Gants plaqués",
     "marque": "hana_u_corporation",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1714,7 +1636,6 @@
     "nom": "Gants Ayal",
     "marque": "golan_gear_ltd",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1723,7 +1644,6 @@
     "nom": "Gants de terrain Savanna",
     "marque": "walker_harris_co",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1732,7 +1652,6 @@
     "nom": "Ganst Vambrace",
     "marque": "belstone_armory",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1741,7 +1660,6 @@
     "nom": "Moufles en simili cuir",
     "marque": "empress_international",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1750,7 +1668,6 @@
     "nom": "Gants Theodora",
     "marque": "uzina_getica",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1759,7 +1676,6 @@
     "nom": "Gants Caballeria",
     "marque": "brazos_de_arcabuz",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1768,7 +1684,6 @@
     "nom": "Gants HG",
     "marque": "habsburg_guard",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1777,7 +1692,6 @@
     "nom": "Gants Electrique",
     "marque": "electrique",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1786,7 +1700,6 @@
     "nom": "Gants Langmo",
     "marque": "langmo",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1795,7 +1708,6 @@
     "nom": "Gants Steelworks",
     "marque": "palisade_steelworks",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1804,7 +1716,6 @@
     "nom": "Gants Zwiadowka Sp. z o.o.",
     "marque": "zwiadowka_sp_z_o_o",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1813,7 +1724,6 @@
     "nom": "Gants Legatus S.p.A.",
     "marque": "legatus_s_p_a",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "talents": [],
     "type": "standard"
@@ -1822,7 +1732,6 @@
     "nom": "Gilet balistique léger",
     "marque": "sokolov_concern",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1832,7 +1741,6 @@
     "nom": "Système de protection corporelle",
     "marque": "providence_defense",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1842,7 +1750,6 @@
     "nom": "Sacrifice",
     "marque": "providence_defense",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [
       "canon_de_verre"
@@ -1854,7 +1761,6 @@
     "nom": "Protection corporelle Big Drum",
     "marque": "overlord_armaments",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1864,7 +1770,6 @@
     "nom": "Porte-plaques TacLite",
     "marque": "5_11_tactical",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1874,7 +1779,6 @@
     "nom": "Brêlage de poitrine adapté",
     "marque": "petrov_defense_group",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1884,7 +1788,6 @@
     "nom": "Cage thoracique X-TREYME Pro",
     "marque": "alps_summit_armement",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1894,7 +1797,6 @@
     "nom": "Gilet Armadillo",
     "marque": "gila_guard",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1904,7 +1806,6 @@
     "nom": "Cuirasse Tatami",
     "marque": "murakami_industries",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1914,7 +1815,6 @@
     "nom": "Plaque de buste Förstärkt",
     "marque": "fenris_group_ab",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1924,7 +1824,6 @@
     "nom": "Gilet Ranier",
     "marque": "yaahl_gear",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1934,7 +1833,6 @@
     "nom": "Blindage ventral Keel",
     "marque": "wyvern_wear",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1944,7 +1842,6 @@
     "nom": "Khetaka Thorax",
     "marque": "richter_kaiser_gmbh",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1954,7 +1851,6 @@
     "nom": "Veste Athena Missile",
     "marque": "airaldi_holding",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1964,7 +1860,6 @@
     "nom": "PS 282",
     "marque": "china_light_industries_corporation",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1974,7 +1869,6 @@
     "nom": "Strong Vest \"Bauson\"",
     "marque": "badger_tuff",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1984,7 +1878,6 @@
     "nom": "Système de poitrine \"Ericht\"",
     "marque": "douglas_harding",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -1994,7 +1887,6 @@
     "nom": "Porte-plaque Umbra",
     "marque": "grupo_sombra_s_a",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2004,7 +1896,6 @@
     "nom": "Gilet pare-éclats",
     "marque": "hana_u_corporation",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2014,7 +1905,6 @@
     "nom": "Poitrine Chatzatz",
     "marque": "golan_gear_ltd",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2024,7 +1914,6 @@
     "nom": "Gilet balistique",
     "marque": "walker_harris_co",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2034,7 +1923,6 @@
     "nom": "Système de plastron Lancer",
     "marque": "belstone_armory",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2044,7 +1932,6 @@
     "nom": "Protecteur tendance",
     "marque": "empress_international",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2054,7 +1941,6 @@
     "nom": "Protection Parascheva",
     "marque": "uzina_getica",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2064,7 +1950,6 @@
     "nom": "Feugo Campea",
     "marque": "brazos_de_arcabuz",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2074,7 +1959,6 @@
     "nom": "Veste HG",
     "marque": "habsburg_guard",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2084,7 +1968,6 @@
     "nom": "Veste Electrique",
     "marque": "electrique",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2094,7 +1977,6 @@
     "nom": "Veste Langmo Bomb",
     "marque": "langmo",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2104,7 +1986,6 @@
     "nom": "Plastron Steelworks",
     "marque": "palisade_steelworks",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2114,7 +1995,6 @@
     "nom": "Plastron Zwiadowka Sp. z o.o.",
     "marque": "zwiadowka_sp_z_o_o",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2124,7 +2004,6 @@
     "nom": "Veste Legatus S.p.A.",
     "marque": "legatus_s_p_a",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2134,7 +2013,6 @@
     "nom": "Sac à dos de police SW",
     "marque": "providence_defense",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2144,7 +2022,6 @@
     "nom": "AMP24",
     "marque": "5_11_tactical",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2154,7 +2031,6 @@
     "nom": "Sac d'armes lourdes",
     "marque": "petrov_defense_group",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2164,7 +2040,6 @@
     "nom": "Sac de survie Trapezius",
     "marque": "wyvern_wear",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2174,7 +2049,6 @@
     "nom": "Sac de rando en montagne",
     "marque": "alps_summit_armement",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2184,7 +2058,6 @@
     "nom": "Transport ajusté Duban",
     "marque": "richter_kaiser_gmbh",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2194,7 +2067,6 @@
     "nom": "Sac Big Horn",
     "marque": "gila_guard",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2204,7 +2076,6 @@
     "nom": "Sac à dos Sashimono",
     "marque": "murakami_industries",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2214,7 +2085,6 @@
     "nom": "Sac d'opérateur Apollo",
     "marque": "airaldi_holding",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2224,7 +2094,6 @@
     "nom": "Sac grande autonomie Sett",
     "marque": "badger_tuff",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2234,7 +2103,6 @@
     "nom": "Pack de Sécurisation de point de ralliement",
     "marque": "sokolov_concern",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2244,7 +2112,6 @@
     "nom": "Rail de Support \"Vert\"",
     "marque": "overlord_armaments",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2254,7 +2121,6 @@
     "nom": "Stridssäck Combat Sack",
     "marque": "fenris_group_ab",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2264,7 +2130,6 @@
     "nom": "KM 9",
     "marque": "china_light_industries_corporation",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2274,7 +2139,6 @@
     "nom": "Sac à dos \"Maree\"",
     "marque": "douglas_harding",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2284,7 +2148,6 @@
     "nom": "Sac Crash",
     "marque": "hana_u_corporation",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2294,7 +2157,6 @@
     "nom": "Sac à dos de guérilla",
     "marque": "ceska_vyroba_s_r_o",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2304,7 +2166,6 @@
     "nom": "Sac à dos Horizons",
     "marque": "walker_harris_co",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2314,7 +2175,6 @@
     "nom": "Sac à dos tactique Cavalry",
     "marque": "belstone_armory",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2324,7 +2184,6 @@
     "nom": "Sac à dos stylé",
     "marque": "empress_international",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2334,7 +2193,6 @@
     "nom": "Sac à dos Gavriil",
     "marque": "uzina_getica",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2344,7 +2202,6 @@
     "nom": "Sac à dos Llave",
     "marque": "brazos_de_arcabuz",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2354,7 +2211,6 @@
     "nom": "Sac à dos HG",
     "marque": "habsburg_guard",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2364,7 +2220,6 @@
     "nom": "Sac à dos Electrique",
     "marque": "electrique",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2374,7 +2229,6 @@
     "nom": "Sac à dos Langmo",
     "marque": "langmo",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2384,7 +2238,6 @@
     "nom": "Sac à dos Steelworks",
     "marque": "palisade_steelworks",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2394,7 +2247,6 @@
     "nom": "Sac à dos Zwiadowka Sp. z o.o.",
     "marque": "zwiadowka_sp_z_o_o",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2404,7 +2256,6 @@
     "nom": "Sac à dos Legatus S.p.A.",
     "marque": "legatus_s_p_a",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard",
@@ -2414,7 +2265,6 @@
     "nom": "Masque de forces spéciales",
     "marque": "sokolov_concern",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2423,7 +2273,6 @@
     "nom": "Masque de protection de terrain",
     "marque": "providence_defense",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2432,7 +2281,6 @@
     "nom": "Respirateur moyen Lomond",
     "marque": "douglas_harding",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2441,7 +2289,6 @@
     "nom": "Respirateur Maxillam",
     "marque": "wyvern_wear",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2450,7 +2297,6 @@
     "nom": "Respirateur lourd Svalinn",
     "marque": "richter_kaiser_gmbh",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2459,7 +2305,6 @@
     "nom": "Masque de Javelina",
     "marque": "gila_guard",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2468,7 +2313,6 @@
     "nom": "Protection faciale Mengu",
     "marque": "murakami_industries",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2477,7 +2321,6 @@
     "nom": "MJ 54",
     "marque": "china_light_industries_corporation",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2486,7 +2329,6 @@
     "nom": "Masque Cascades",
     "marque": "yaahl_gear",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2495,7 +2337,6 @@
     "nom": "Masque de combat Cete",
     "marque": "badger_tuff",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2504,7 +2345,6 @@
     "nom": "Masque de protection \"Deadstick\"",
     "marque": "overlord_armaments",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2513,7 +2353,6 @@
     "nom": "Protective Tactical Mask",
     "marque": "5_11_tactical",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2522,7 +2361,6 @@
     "nom": "Protège-visage Guardrail VI",
     "marque": "petrov_defense_group",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2531,7 +2369,6 @@
     "nom": "Masque High Altitude O2",
     "marque": "alps_summit_armement",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2540,7 +2377,6 @@
     "nom": "Masque de protection Luktskydd",
     "marque": "fenris_group_ab",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2549,7 +2385,6 @@
     "nom": "Masque Aphrodite Glint",
     "marque": "airaldi_holding",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2558,7 +2393,6 @@
     "nom": "Masque Penumbra",
     "marque": "grupo_sombra_s_a",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2567,7 +2401,6 @@
     "nom": "Masque filtrant",
     "marque": "hana_u_corporation",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2576,7 +2409,6 @@
     "nom": "Masque Emet",
     "marque": "golan_gear_ltd",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2585,7 +2417,6 @@
     "nom": "Masque de déploiement rapide",
     "marque": "ceska_vyroba_s_r_o",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2594,7 +2425,6 @@
     "nom": "Masque de respiration facile",
     "marque": "walker_harris_co",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2603,7 +2433,6 @@
     "nom": "Protection Faciale Air Guard",
     "marque": "belstone_armory",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2612,7 +2441,6 @@
     "nom": "Respirateur \"New Face\"",
     "marque": "empress_international",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2621,7 +2449,6 @@
     "nom": "Filtre Ilarion",
     "marque": "uzina_getica",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2630,7 +2457,6 @@
     "nom": "Masque de Reyes",
     "marque": "brazos_de_arcabuz",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2639,7 +2465,6 @@
     "nom": "Masque HG",
     "marque": "habsburg_guard",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2648,7 +2473,6 @@
     "nom": "Masque Electrique",
     "marque": "electrique",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2657,7 +2481,6 @@
     "nom": "Masque Langmo",
     "marque": "langmo",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2666,7 +2489,6 @@
     "nom": "Masque Steelworks",
     "marque": "palisade_steelworks",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2675,7 +2497,6 @@
     "nom": "Masque Zwiadowka Sp. z o.o.",
     "marque": "zwiadowka_sp_z_o_o",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2684,7 +2505,6 @@
     "nom": "Masque Legatus S.p.A.",
     "marque": "legatus_s_p_a",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -2692,7 +2512,6 @@
   "holster_du_cow_boy_de_dodge_city": {
     "nom": "Holster du cow-boy de Dodge City",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'armes"
@@ -2705,7 +2524,6 @@
   "gants_strategiques_btsu": {
     "nom": "Gants Stratégiques BTSU",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Tier de compétence"
@@ -2718,7 +2536,6 @@
   "genouilleres_de_sawyer": {
     "nom": "Genouillères de Sawyer",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Protection"
@@ -2731,7 +2548,6 @@
   "sac_a_dos_de_survie_d_acosta": {
     "nom": "Sac à dos de survie d'Acosta",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Tier de compétence"
@@ -2745,7 +2561,6 @@
   "masque_de_coyote": {
     "nom": "Masque de Coyote",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'arme"
@@ -2758,7 +2573,6 @@
   "systeme_de_protection_tardigrade": {
     "nom": "Système de protection Tardigrade",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Protection"
@@ -2771,7 +2585,6 @@
   "dynastie_imperiale": {
     "nom": "Dynastie Impériale",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Tier de compétence"
@@ -2784,7 +2597,6 @@
   "fourreau_centurion": {
     "nom": "Fourreau Centurion",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'armes"
@@ -2797,7 +2609,6 @@
   "holster_d_agilite": {
     "nom": "Holster d'agilité",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'armes"
@@ -2810,7 +2621,6 @@
   "poing_sanglant": {
     "nom": "Poing sanglant",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'arme"
@@ -2823,7 +2633,6 @@
   "gants_robustes": {
     "nom": "Gants robustes",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'arme"
@@ -2836,7 +2645,6 @@
   "gants_exodus": {
     "nom": "Gants Exodus",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'arme"
@@ -2849,7 +2657,6 @@
   "conquerants": {
     "nom": "Conquérants",
     "emplacement": "gants",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'arme"
@@ -2867,7 +2674,6 @@
       "défensif",
       "utilitaire"
     ],
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'armes"
@@ -2880,7 +2686,6 @@
   "blacklisters": {
     "nom": "Blacklisters",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'arme"
@@ -2892,13 +2697,13 @@
   },
   "memento": {
     "nom": "Memento",
+    "description": "\"J'ai pris la relève de ceux qui épiaient, chaissaient et récupéraient jusqu'à ce qu'il ne soient plus que des ombres.\nMa mission est maintenant terminée et la tienne peut commencer.\"\n- Inscription d'un auteur inconnu",
     "emplacement": "sac_a_dos",
     "attributEssentiel": [
       "offensif",
       "utilitaire",
       "défensif"
     ],
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'armes Protection Tier de compétence"
@@ -2917,7 +2722,6 @@
       "utilitaire",
       "défensif"
     ],
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'armes Protection Tier de compétence"
@@ -2930,7 +2734,6 @@
   "pack_de_reparation_d_urgence_de_birdie": {
     "nom": "Pack de réparation d'urgence de Birdie",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Tier de compétence"
@@ -2943,7 +2746,6 @@
   "vilenie": {
     "nom": "Vilenie",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Tier de compétence"
@@ -2956,7 +2758,6 @@
   "catharsis": {
     "nom": "Catharsis",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Protection"
@@ -2969,7 +2770,6 @@
   "le_catalyseur": {
     "nom": "Le Catalyseur",
     "emplacement": "masque",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'arme"
@@ -2982,7 +2782,6 @@
   "bricoleur": {
     "nom": "Bricoleur",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'arme"
@@ -2995,7 +2794,6 @@
   "la_fierte_de_ridgeway": {
     "nom": "La fierté de Ridgeway",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'arme"
@@ -3008,7 +2806,6 @@
   "collector": {
     "nom": "Collector",
     "emplacement": "sac_a_dos",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'arme"
@@ -3021,7 +2818,6 @@
   "provocateur": {
     "nom": "Provocateur",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Protection"
@@ -3034,7 +2830,6 @@
   "beacon": {
     "nom": "Beacon",
     "emplacement": "torse",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Dégâts d'arme"
@@ -3047,7 +2842,6 @@
   "genouillere_d_acosta": {
     "nom": "Genouillère d'Acosta",
     "emplacement": "genouilleres",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Protection"
@@ -3060,7 +2854,6 @@
   "electrochoc": {
     "nom": "Éléctrochoc",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Protection"
@@ -3073,7 +2866,6 @@
   "forme_d_onde": {
     "nom": "Forme d'onde",
     "emplacement": "holster",
-    "attributUnique": "",
     "mod": false,
     "obtention": {
       "description": "Protection"
@@ -3082,5 +2874,23 @@
       "courant_alternatif"
     ],
     "type": "exotique"
+  },
+  "gants_de_mercenaire": {
+    "nom": "Gants de mercenaire",
+    "description": "\"Personne ne m'a jamais résisté. Si on appuie assez fort au bon endroit, rien ne résiste.\"",
+    "emplacement": "gants",
+    "marque": "petrov_defense_group",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_aux_protections_eqp",
+        "valeur": 8
+      }
+    ],
+    "type": "standard"
   }
 }

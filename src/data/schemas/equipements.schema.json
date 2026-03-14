@@ -15,6 +15,10 @@
         "nom": {
           "type": "string"
         },
+        "description" : {
+          "type": "string",
+          "description": "texte de lore lié a l'équipement"
+        },
         "marque": {
           "type": "string",
           "description": "Slug de la marque/gear set, ou 'Exotique'"
@@ -41,9 +45,6 @@
             ]
           }
         },
-        "attributUnique": {
-          "type": "string"
-        },
         "attributs": {
           "type": "array",
           "items": {
@@ -61,9 +62,6 @@
               }
             }
           }
-        },
-        "talent": {
-          "type": "string"
         },
         "talents": {
           "type": "array",

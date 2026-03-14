@@ -123,6 +123,28 @@ export function applySortGeneric(items, sortKey) {
   })
 }
 
+export function applySortSkills(items, sortKey) {
+  const { base, desc } = parseSort(sortKey)
+
+  return [...items].sort((a, b) => {
+    // Tri primaire : par compétence parente
+    const compA = a.competence || ''
+    const compB = b.competence || ''
+    const cmpComp = compA.localeCompare(compB, 'fr')
+
+    if (cmpComp !== 0) {
+      return (base === 'alpha' && desc) ? -cmpComp : cmpComp
+    }
+
+    // Tri secondaire : par variante (ou nom si la variante n'existe pas)
+    const nomA = a.variante || a.nom || ''
+    const nomB = b.variante || b.nom || ''
+    const cmpAlpha = nomA.localeCompare(nomB, 'fr')
+
+    return (base === 'alpha' && desc) ? -cmpAlpha : cmpAlpha
+  })
+}
+
 // ================================================================
 // ARMES
 // ================================================================
@@ -130,8 +152,8 @@ export function getWeaponFilters(data) {
   const armes = data?.armes || []
   const armesType = data?.armes_type || {}
   const typeOptions = getWeaponTypeEntries(armesType)
-    .filter(([k]) => k !== 'autre')
-    .map(([value, obj]) => ({ value, label: obj.nom }))
+      .filter(([k]) => k !== 'autre')
+      .map(([value, obj]) => ({ value, label: obj.nom }))
 
   const portee = bounds(armes, 'portee', { step: 5 })
   const rpm = bounds(armes, 'rpm', { step: 50 })
@@ -197,10 +219,10 @@ export function getGearFilters(data) {
 
   // Marques uniques depuis les données
   const marques = data?.ensembles
-    ? [...new Map(data.ensembles.map(e => [e.slug || e.nom, e.nom])).entries()]
-        .sort((a, b) => a[1].localeCompare(b[1]))
-        .map(([slug, nom]) => ({ value: slug, label: nom }))
-    : []
+      ? [...new Map(data.ensembles.map(e => [e.slug || e.nom, e.nom])).entries()]
+          .sort((a, b) => a[1].localeCompare(b[1]))
+          .map(([slug, nom]) => ({ value: slug, label: nom }))
+      : []
 
   const catAttrOptions = Object.entries(attrType).map(([value, obj]) => ({ value, label: obj.nom }))
 
@@ -252,8 +274,8 @@ export function applyGearFilters(items, filters) {
 export function getTalentArmeFilters(data) {
   const armesType = data?.armes_type || {}
   const typeOptions = Object.entries(armesType)
-    .filter(([k]) => !['arme_specifique'].includes(k))
-    .map(([value, obj]) => ({ value, label: obj.nom }))
+      .filter(([k]) => !['arme_specifique'].includes(k))
+      .map(([value, obj]) => ({ value, label: obj.nom }))
 
   return [
     {
@@ -365,8 +387,8 @@ export function getEnsembleFilters(data) {
     }
   }
   const attrOptions = [...statsSet.entries()]
-    .sort((a, b) => a[1].localeCompare(b[1], 'fr'))
-    .map(([value, label]) => ({ value, label }))
+      .sort((a, b) => a[1].localeCompare(b[1], 'fr'))
+      .map(([value, label]) => ({ value, label }))
 
   return [
     { key: 'isGearSet', type: 'tri-state', label: 'Type', trueLabel: 'set', falseLabel: 'marque', isGearSetType: true },
@@ -411,8 +433,8 @@ export function getAttributFilters(data) {
   // Statistiques uniques référencées par les attributs
   const statistiques = data?.statistiques || []
   const statOptions = statistiques
-    .map(s => ({ value: s.slug, label: s.nom }))
-    .sort((a, b) => a.label.localeCompare(b.label, 'fr'))
+      .map(s => ({ value: s.slug, label: s.nom }))
+      .sort((a, b) => a.label.localeCompare(b.label, 'fr'))
 
   return [
     { key: 'estEssentiel', type: 'tri-state', label: 'Essentiel' },
@@ -456,14 +478,14 @@ export function getCompetenceFilters(data) {
     // Si groupé (a .variantes), extraire les parents
     if (comps[0]?.variantes) {
       parentOptions = comps
-        .map(c => ({ value: c.competence, label: c.competence }))
-        .sort((a, b) => a.label.localeCompare(b.label, 'fr'))
+          .map(c => ({ value: c.competence, label: c.competence }))
+          .sort((a, b) => a.label.localeCompare(b.label, 'fr'))
     } else {
       // Si aplati, extraire les compétences uniques
       const unique = [...new Set(comps.map(c => c.competence).filter(Boolean))]
       parentOptions = unique
-        .sort((a, b) => a.localeCompare(b, 'fr'))
-        .map(c => ({ value: c, label: c }))
+          .sort((a, b) => a.localeCompare(b, 'fr'))
+          .map(c => ({ value: c, label: c }))
     }
   }
 

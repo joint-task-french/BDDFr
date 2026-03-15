@@ -48,9 +48,9 @@
     "talents": [],
     "type": "gear_set"
   },
-  "masque_cogneur": {
-    "nom": "Masque Cogneur",
-    "marque": "cogneur",
+  "masque_strikers_battlegear": {
+    "nom": "Masque strikers_battlegear",
+    "marque": "strikers_battlegear",
     "emplacement": "masque",
     "mod": true,
     "talents": [],
@@ -218,7 +218,7 @@
   },
   "harnais_striker": {
     "nom": "Harnais Striker",
-    "marque": "cogneur",
+    "marque": "strikers_battlegear",
     "emplacement": "torse",
     "mod": true,
     "talents": [],
@@ -386,7 +386,7 @@
   },
   "holster_striker": {
     "nom": "Holster Striker",
-    "marque": "cogneur",
+    "marque": "strikers_battlegear",
     "emplacement": "holster",
     "mod": false,
     "talents": [],
@@ -554,7 +554,7 @@
   },
   "sac_a_dos_striker": {
     "nom": "Sac à dos Striker",
-    "marque": "cogneur",
+    "marque": "strikers_battlegear",
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
@@ -722,7 +722,7 @@
   },
   "gants_striker": {
     "nom": "Gants Striker",
-    "marque": "cogneur",
+    "marque": "strikers_battlegear",
     "emplacement": "gants",
     "mod": false,
     "talents": [],
@@ -890,7 +890,7 @@
   },
   "genoullieres_striker": {
     "nom": "Genoullières Striker",
-    "marque": "cogneur",
+    "marque": "strikers_battlegear",
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],

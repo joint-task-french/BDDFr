@@ -390,6 +390,10 @@
     "description": "Recharger une arme vide améliore son maniement de +60% pendant 10s.",
     "prerequis": "n/a",
     "icone": "a_vide",
+    "perfectDescription": "Recharger une arme vide améliore son maniement de +80% pendant 10s.",
+    "armesParfaites": [
+      "burn_out"
+    ],
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -420,6 +424,10 @@
     "description": "Au bout de 3 rechargements réalisés à vide, la capacité de base de votre chargeur est augmentée de 100%",
     "prerequis": "n/a",
     "icone": "surcapacite",
+    "perfectDescription": "Au bout de 2 rechargements réalisés à vide, la capacité de base de votre chargeur est augmentée de 100%",
+    "armesParfaites": [
+      "maniaque"
+    ],
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -742,9 +750,14 @@
   },
   "rationalisation": {
     "nom": "Rationalisation",
-    "description": "Augmente les dégâts d'arme de 42% (32%) quand il n'y a aucune compétence déployé ou en recharge.",
+    "description": "Augmente les dégâts d'arme de 42% quand il n'y a aucune compétence déployé ou en recharge.",
+    "notes": "32% (normal)/37% (parfaite) en pvp",
     "prerequis": "n/a",
     "icone": "rationalisation",
+    "perfectDescription": "Augmente les dégâts d'arme de 47% quand il n'y a aucune compétence déployé ou en recharge.",
+    "armesParfaites": [
+      "lud"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -1047,6 +1060,18 @@
       "pistolet": false,
       "pistolet_mitrailleur": false
     }
+  },
+  "allegro": {
+    "nom": "Allegro",
+    "icone": "allegro",
+    "description": "Version parfaite uniquement",
+    "prerequis": "n/a",
+    "perfectDescription": "+15% de cadence de tir",
+    "armesParfaites": [
+      "main_invisible"
+    ],
+    "estExotique": false
   }
+
 }
 

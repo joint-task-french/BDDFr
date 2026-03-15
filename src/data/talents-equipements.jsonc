@@ -277,7 +277,7 @@
   "gachette_facile": {
     "nom": "Gâchette facile",
     "icone": "gachette_facile",
-    "description": "Quand votre pistolet est dans son étui, confère un buff cumulable jusqu'à 100 fois toutes les 0.3s.Quand vous le dégainez, votre premier tir consomme le buff et inflige +10 % (+0,1%) de dégâts par buff cumulé. Cela inflige des dégâts de headshot, quel que soit l'endroit touché.ExigencePistolet équipé",
+    "description": "Quand votre pistolet est dans son étui, confère un buff cumulable jusqu'à 100 fois toutes les 0.3s.Quand vous le dégainez, votre premier tir consomme le buff et inflige +10 % (+0,1%) de dégâts par buff cumulé. Cela inflige des dégâts de headshot, quel que soit l'endroit touché.\nExigence : Pistolet équipé",
     "emplacement": "holster",
     "estExotique": true
   },
@@ -472,210 +472,211 @@
   },
   "munitions_parabellum": {
     "nom": "Munitions Parabellum",
-    "description": "Augmente l'amplification des dégâts d'arme pour les munitions à pointe creuse à 50%. (+35%)Ce bonus ne s'applique pas aux membres du groupe. EXIGENCE :Règles d'engagement",
+    "description": "Augmente l'amplification des dégâts d'arme pour les munitions à pointe creuse à 50%.\nCe bonus ne s'applique pas aux membres du groupe.",
+    "notes": "+35% en pvp",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "ongoing_directive"
   },
   "specialiste_des_traumatismes": {
     "nom": "Spécialiste des traumatismes",
-    "description": "Augmente la durée de vos effets d'état de saignement de 50% et tous les dégâts de saignement infligés de 100%EXIGENCE :Règles d'engagement",
+    "description": "Augmente la durée de vos effets d'état de saignement de 50% et tous les dégâts de saignement infligés de 100%",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "ongoing_directive"
   },
   "drapeau_brandi": {
     "nom": "Drapeau brandi",
-    "description": "Augmente la vitesse de rotation de \"Rouge Blanc Bleu\" de 1,5s. EXIGENCE :Rouge, blanc, bleu",
+    "description": "Augmente la vitesse de rotation de \"Rouge Blanc Bleu\" de 1,5s.",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "true_patriot"
   },
   "elan_patriotique": {
     "nom": "Élan patriotique",
-    "description": "Augmente l'efficacité du debuff de \"Rouge Blanc Bleu\" Rouge : de 8% à 12%Blanc : de 2% à 3%Bleu : de 8% à 12%EXIGENCE :Rouge, blanc, bleu",
+    "description": "Augmente l'efficacité du debuff de \"Rouge Blanc Bleu\" Rouge : de 8% à 12% Blanc : de 2% à 3% Bleu : de 8% à 12%",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "true_patriot"
   },
   "renforcement_positif": {
     "nom": "Renforcement positif",
-    "description": "Augmente le bonus de compétence de réparation de la Boucle de rétroaction de +10% à +25%. EXIGENCE :Boucle de rétroaction",
+    "description": "Augmente le bonus de compétence de réparation de la Boucle de rétroaction de +10% à +25%.",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "hard_wired"
   },
   "cour_circuit": {
     "nom": "Cour-circuit",
-    "description": "Diminue le temps de recharge de la Boucle de rétroaction de 10s à 5s. EXIGENCE :Boucle de rétroaction",
+    "description": "Diminue le temps de recharge de la Boucle de rétroaction de 10s à 5s.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "hard_wired"
   },
   "sans_limite": {
     "nom": "Sans Limite",
-    "description": "Augmente le bonus de dégâts de La main du mort de 30% à 50%. EXIGENCE :La main du mort",
+    "description": "Augmente le bonus de dégâts de La main du mort de 30% à 50%.",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "as_et_huit"
   },
   "as_dans_la_manche": {
     "nom": "As dans la manche",
-    "description": "Améliore 1 tir supplémentaire quand vous révélez votre main. EXIGENCE :La main du mort",
+    "description": "Améliore 1 tir supplémentaire quand vous révélez votre main.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "as_et_huit"
   },
   "destruction_specialisee": {
     "nom": "Destruction Spécialisée",
-    "description": "Augmente le bonus de dégâts d'arme spécifique de la Reconnaissance agressive de 15% à 30%. Effectuer 3 éliminations à l'arme spécifique génère des munitions d'arme spécifique. EXIGENCE :Reconnaissance agressive",
+    "description": "Augmente le bonus de dégâts d'arme spécifique de la Reconnaissance agressive de 15% à 30%. Effectuer 3 éliminations à l'arme spécifique génère des munitions d'arme spécifique.",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "pointe_de_lance"
   },
   "mouvement_specifique": {
     "nom": "Mouvement spécifique",
-    "description": "+50% dégâts d'arme pendant 15s après avoir complétement épuisé les munitions de l'arme spécifiqueDouble la quantité de munitions générée par Reconnaissance Agressive. EXIGENCE :Reconnaissance agressive",
+    "description": "+50% dégâts d'arme pendant 15s après avoir complétement épuisé les munitions de l'arme spécifiqueDouble la quantité de munitions générée par Reconnaissance Agressive.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "pointe_de_lance"
   },
   "controle_de_masse": {
     "nom": "Contrôle de masse",
-    "description": "Le nombre de marque de Négociations hostiles passe de 3 à 5EXIGENCE :Négociations hostiles",
+    "description": "Le nombre de marque de Négociations hostiles passe de 3 à 5",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "dilemme_du_negociateur"
   },
   "mesures_critiques": {
     "nom": "Mesures critiques",
-    "description": "Augmente les dégâts de Négociations hostiles aux ennemis marqués supplémentaires de 60% à 112%. EXIGENCE :Négociations hostiles",
+    "description": "Augmente les dégâts de Négociations hostiles aux ennemis marqués supplémentaires de 60% à 112%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "dilemme_du_negociateur"
   },
   "avantage_accru": {
     "nom": "Avantage accru",
-    "description": "Augmente le nombre maximum de bonus cumulables de l'Amplification Striker de 100 à 200. 3 cumuls par secondes entre 100 et 200 cumuls. EXIGENCE :Amplification Striker",
+    "description": "Augmente le nombre maximum de bonus cumulables de l'Amplification Striker de 100 à 200. 3 cumuls par secondes entre 100 et 200 cumuls.",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "cogneur"
   },
   "gestion_du_risque": {
     "nom": "Gestion du risque",
-    "description": "Augmente le bonus aux dégâts d'arme obtenu par les stacks de 0,65% à 0,90%. EXIGENCE :Amplification Striker",
+    "description": "Augmente le bonus aux dégâts d'arme obtenu par les stacks de 0,65% à 0,90%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "cogneur"
   },
   "optimisation_de_compilation": {
     "nom": "Optimisation de compilation",
-    "description": "Diminue le temps de recharge du Protocole Hackstep de 20s à 15s. EXIGENCE :Protocole Hackstep",
+    "description": "Diminue le temps de recharge du Protocole Hackstep de 20s à 15s.",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "systeme_corrompu"
   },
   "execution_multithereading": {
     "nom": "Execution Multithereading",
-    "description": "Augmente la protection bonus du protocole Hackstep de 50% à 100%. EXIGENCE :Protocole Hackstep",
+    "description": "Augmente la protection bonus du protocole Hackstep de 50% à 100%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "systeme_corrompu"
   },
   "proliferation": {
     "nom": "Prolifération",
-    "description": "Augmente la portée et la durée de Transmission Indirecte de 10m (5m) à 15m (7m) et de 50% à 75%. EXIGENCE :Transmission Indirecte",
+    "description": "Augmente la portée et la durée de Transmission Indirecte de 10m (5m) à 15m (7m) et de 50% à 75%.",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "protocole_eclipse"
   },
   "amplificateur_de_symptome": {
     "nom": "Amplificateur de Symptôme",
-    "description": "Augmente tous les dégâts que vous infligez aux cibles affectés par un  effet d'état de 30%. EXIGENCE :Transmission Indirecte",
+    "description": "Augmente tous les dégâts que vous infligez aux cibles affectés par un  effet d'état de 30%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "protocole_eclipse"
   },
   "materiaux_ameliores": {
     "nom": "Matériaux Améliorés",
-    "description": "Augmente la vitesse de Réparation de Fortune de 10s à 5s. EXIGENCE :Réparation de fortune",
+    "description": "Augmente la vitesse de Réparation de Fortune de 10s à 5s.",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "rempart_de_la_founderie"
   },
   "processus_de_raffinerie": {
     "nom": "Processus de Raffinerie",
-    "description": "Augmente les réparations de Répération de Fortune de 25% à 35%. EXIGENCE :Réparation de fortune",
+    "description": "Augmente les réparations de Répération de Fortune de 25% à 35%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "rempart_de_la_founderie"
   },
   "superiorite_tactique": {
     "nom": "Supériorité Tactique",
-    "description": "Augmente le bonus aux dégâts de Contrôle du Terrain de 15% à 25%. EXIGENCE :Contrôle efficace",
+    "description": "Augmente le bonus aux dégâts de Contrôle du Terrain de 15% à 25%.",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "future_initiative"
   },
   "tactiques_de_combat_ameliorees": {
     "nom": "Tactiques de Combat Améliorées",
-    "description": "Augmente la réparation de proximité de Contrôle du Terrain de 60% à 120%. EXIGENCE :Contrôle efficace",
+    "description": "Augmente la réparation de proximité de Contrôle du Terrain de 60% à 120%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "future_initiative"
   },
   "faim_insatiable": {
     "nom": "Faim insatiable",
-    "description": "Augmente de 10s à 30s la durée des effets cumulés de Prédateur ultime. EXIGENCE :Prédateur Ultime",
+    "description": "Augmente de 10s à 30s la durée des effets cumulés de Prédateur ultime.",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "fureur_du_chasseur"
   },
   "force_ecrasante": {
     "nom": "Force écrasante",
-    "description": "Augmente de 5m à 10m le rayon d'effet de la désorientation d'une élimination par Prédateur ultime. EXIGENCE :Prédateur Ultime",
+    "description": "Augmente de 5m à 10m le rayon d'effet de la désorientation d'une élimination par Prédateur ultime.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "fureur_du_chasseur"
   },
   "meilleurs_potes": {
     "nom": "Meilleurs potes",
-    "description": "Augmente le buff de dégâts de 25% à 50%. EXIGENCE :Entretien efficace",
+    "description": "Augmente le buff de dégâts de 25% à 50%.",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "rigger"
   },
   "disponibilite_totale": {
     "nom": "Disponibilité totale",
-    "description": "Annuler vos compétences réinitialise leur temps de rechargeEXIGENCE :Entretien efficace",
+    "description": "Annuler vos compétences réinitialise leur temps de recharge",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "rigger"
   },
   "max_bpm": {
     "nom": "Max BPM",
-    "description": "Augmente le nombre maximum de bonus cumulables de Coup de coeur de 50 à 100. EXIGENCE :Coeup de coeur",
+    "description": "Augmente le nombre maximum de bonus cumulables de Coup de coeur de 50 à 100.",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "heartbreaker"
   },
   "froid": {
     "nom": "Froid",
-    "description": "Augmente le total de protection bonus gagnée par effet cumulé de Coup de coeur de 1% à  2%. EXIGENCE :Coeup de coeur",
+    "description": "Augmente le total de protection bonus gagnée par effet cumulé de Coup de coeur de 1% à  2%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "heartbreaker"
   },
   "depuis_les_ombres": {
     "nom": "Depuis les ombres",
-    "description": "Augmente les cumuls max de \"Depuis les ombres\" de 50 à 100, et le gain de cumuls de 10 à 20. EXIGENCE :Depuis l'ombre à la lumière",
+    "description": "Augmente les cumuls max de \"Depuis les ombres\" de 50 à 100, et le gain de cumuls de 10 à 20.",
     "emplacement": "torse",
     "estExotique": false,
     "gearSet": "initiative_umbra"
   },
   "a_la_lumiere": {
     "nom": "À la lumière",
-    "description": "Augmente les cumuls max de \"À la lumière\" de 50 à 100, et le gain de cumuls de 10 à 20, et la consommation des cumuls de 10 à 20. EXIGENCE :Depuis l'ombre à la lumière",
+    "description": "Augmente les cumuls max de \"À la lumière\" de 50 à 100, et le gain de cumuls de 10 à 20, et la consommation des cumuls de 10 à 20.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "initiative_umbra"

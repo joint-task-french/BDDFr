@@ -148,6 +148,10 @@
     "description": "Augmente les dégâts d'arme de 2% pour chaque tranche de 4m entre vous et votre cible.",
     "prerequis": "n/a",
     "icone": "ranger",
+    "perfectDescription": "Augmente les dégâts d'arme de 2% pour chaque tranche de 3m entre vous et votre cible.",
+    "armesParfaites": [
+      "grand_baton_d_ekim"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -194,9 +198,13 @@
   },
   "realisme": {
     "nom": "Réalisme",
-    "description": "Dégâts d'arme accrus de 30% contre les ennemis aveuglés.Au bout de 4 éliminations, inflige aveuglement au prochain ennemi touché.",
+    "description": "Dégâts d'arme accrus de 30% contre les ennemis aveuglés.\nAu bout de 4 éliminations, inflige aveuglement au prochain ennemi touché.",
     "prerequis": "n/a",
     "icone": "realisme",
+    "perfectDescription": "Dégâts d'arme accrus de 35% contre les ennemis aveuglés.\nAu bout de 3 éliminations, inflige aveuglement au prochain ennemi touché.",
+    "armesParfaites": [
+      "les_tenebres"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -250,6 +258,10 @@
     "description": "Les headshots confèrent +60% à la réparation de compétence pendant 15s.",
     "prerequis": "n/a",
     "icone": "reformation",
+    "perfectDescription": "Les headshots confèrent +80% à la réparation de compétence pendant 15s.",
+    "armesParfaites": [
+      "tueur_attitre"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -267,7 +279,8 @@
     "icone": "futur_parfait",
     "perfectDescription": "Les élimintations par arme confèrent +1 Tier de compétence pendant 19s. Cet effet peut se cumuler jusqu'à 4 fois.\nLes éliminations par arme au Tier de compétence 6 confèrent surcharge pendant 15s.\nTemps de recharge de la surcharge : 90s.",
     "armesParfaites": [
-      "mecanimal"
+      "mecanimal",
+      "scalpel"
     ],
     "compatibilite": {
       "fusil": true,
@@ -375,6 +388,10 @@
     "description": "Stabilité accrue de +80% au prix de -35% de portée optimale.",
     "prerequis": "n/a",
     "icone": "myope",
+    "perfectDescription": "Stabilité accrue de +100% au prix de -35% de portée optimale.",
+    "armesParfaites": [
+      "vision_glorieuse"
+    ],
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -443,6 +460,10 @@
     "description": "Toucher un ennemi sans protection confère +50% aux dégâts de headshot pendant 5s.",
     "prerequis": "n/a",
     "icone": "realisme",
+    "perfectDescription": "Toucher un ennemi sans protection confère +50% aux dégâts de headshot pendant 8s.",
+    "armesParfaites": [
+      "commando"
+    ],
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -458,6 +479,10 @@
     "description": "En zoom, la première munition tirée hors combat ou après avoir complètement rechargé le chargeur vide inflige des dégâts de headshot quelle que soit la partie du corps touchée.",
     "prerequis": "Nécessite une lunette à grossissement 8x minimum",
     "icone": "premier_sang",
+    "perfectDescription": "En zoom, les 2 première munitions tirée hors combat ou après avoir complètement rechargé le chargeur vide inflige des dégâts de headshot quelle que soit la partie du corps touchée.",
+    "armesParfaites": [
+      "epingle"
+    ],
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -629,9 +654,13 @@
   },
   "resolu": {
     "nom": "Résolu",
-    "description": "Après avoir tué un ennemi avec un headshot, le tir suivant qui touche un ennemi inflige un headshot garanti. Même si le talent est actif, le fait de tuer un ennemi ne déclenchera pas à nouveau le talent.",
+    "description": "Après avoir tué un ennemi avec un headshot, le tir suivant qui touche un ennemi est un headshot garanti.",
     "prerequis": "n/a",
     "icone": "resolu",
+    "perfectDescription": "Après avoir tué un ennemi avec un headshot, le tir suivant qui touche un ennemi est un headshot critique garanti. Même si le talent est actif, le fait de tuer un ennemi ne déclenchera pas à nouveau le talent.",
+    "armesParfaites": [
+      "relique"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": false,
@@ -683,7 +712,8 @@
     "icone": "derriere_toi",
     "perfectDescription": "Inflige +25% de dégâts d'armes aux ennemis qui ne vous ciblent pas.",
     "armesParfaites": [
-      "murmure"
+      "murmure",
+      "brutus"
     ],
     "compatibilite": {
       "fusil": true,
@@ -775,7 +805,8 @@
     "icone": "petit_faible",
     "perfectDescription": "Détruire un point faible confère +32% de dégâts d'arme pendant 15s.",
     "armesParfaites": [
-      "achille"
+      "achille",
+      "instigateur"
     ],
     "compatibilite": {
       "fusil": true,
@@ -829,7 +860,7 @@
   "autentico": {
     "nom": "Autentico",
     "icone": "autentico",
-    "description": "Dégâts d'arme +35%Précision +100%Pas de diminution des dégâts.Ces bonus sont intégrés aux statistiques de base de l'arme.",
+    "description": "Dégâts d'arme +35%\nPrécision +100%\nPas de diminution des dégâts.\nCes bonus sont intégrés aux statistiques de base de l'arme.",
     "estExotique": true
   },
   "detente_binaire": {
@@ -936,16 +967,16 @@
     "description": "Chaque élimination avec cette arme augmente de +75% la capacité de base de votre chargeur pour le prochain chargeur, jusqu'à un maximun de 4 effets.",
     "estExotique": true
   },
-  "accelarateur_electromagnetique": {
-    "nom": "Accélarateur électromagnétique",
-    "icone": "accelarateur_electromagnetique",
+  "accelerateur_electromagnetique": {
+    "nom": "Accélérateur électromagnétique",
+    "icone": "accelerateur_electromagnetique",
     "description": "Les tirs infligent 0-100% de dégâts en fonction du temps de pression avant de relâcher la détente.",
     "estExotique": true
   },
   "visee_analytique": {
     "nom": "Visée analytique",
     "icone": "visee_analytique",
-    "description": "Votre vue zoomée affiche des informations supplémentaires sur les ennemis qui ne vous ciblent pas.Les dégâts de headshot et de point faible contre les ennemis qui ne vous ciblent pas sont augmentés de 50%.Les éliminations par headshot réinitialisent le temps de recharge de la compétence leurre. Si le leurre est actif, cet effet s'applique quand le leurre passe en recharge.",
+    "description": "Votre vue zoomée affiche des informations supplémentaires sur les ennemis qui ne vous ciblent pas.\nLes dégâts de headshot et de point faible contre les ennemis qui ne vous ciblent pas sont augmentés de 50%.\nLes éliminations par headshot réinitialisent le temps de recharge de la compétence de leurre. Si le leurre est actif, cet effet s'applique quand le leurre passe en recharge.",
     "estExotique": true
   },
   "point_final": {
@@ -957,13 +988,13 @@
   "le_piege": {
     "nom": "Le piège",
     "icone": "le_piege",
-    "description": "Marque les ennemis dans le champ de visée (10 maximum). Si l'agent tue une cible marquée avec un headshot, toutes les autres cibles subissent un malus de déplacement de 50% (20% en pvp) et Brûlure pendant 10s.Temps de recharge : 30sTuer un ennemi par headshot diminue le temps de recharge de 10s.Les cibles sont marquées au bout de 1s dans le champ de visée.",
+    "description": "Marque les ennemis dans le champ de visée (10 maximum). Si l'agent tue une cible marquée avec un headshot, toutes les autres cibles subissent un malus de déplacement de 50% (20% en pvp) et Brûlure pendant 10s.\nTemps de recharge : 30s.\nTuer un autre ennemi par headshot diminue le temps de recharge de 10s.\nLes cibles sont marquées au bout de 1s en ligne de mire.",
     "estExotique": true
   },
   "cible_de_priorite_elevee": {
     "nom": "Cible de priorité élevée",
     "icone": "cible_de_priorite_elevee",
-    "description": "Dégâts d'arme accrus de 125% contre les ennemi des rangs les plus élevés actuellement en combat, selon la hiérarchie des Tiers.Tier 1 : chasseur, renégat, chef, tank, bouclier, armes lourdes, lance-roquettes, médecin, contrôleur, chien de guerre, maraudeurTier 2 : support, ingénieur, garde du corps, immobilisateir, poseur de bombe, mini-char, opérateur de droneTier 3 : tout autre ennemi ou proxy de compétence",
+    "description": "Dégâts d'arme accrus de 125% contre les ennemi des rangs les plus élevés actuellement en combat, selon la hiérarchie des Tiers.\nTier 1 : chasseur, renégat, chef, tank, bouclier, armes lourdes, lance-roquettes, médecin, contrôleur, chien de guerre, maraudeur\nTier 2 : support, ingénieur, garde du corps, immobilisateur, poseur de bombe, mini-char, opérateur de drone\nTier 3 : tout autre ennemi ou proxy de compétence",
     "estExotique": true
   },
   "la_liberte_ou_la_mort": {
@@ -1029,7 +1060,7 @@
   "defibrillator": {
     "nom": "Defibrillator",
     "icone": "defibrillator",
-    "description": "Lorsqu' \"Électrochoc\" est équipé, l'étourdissement de l'agent dû à l'effet d'électrocution est réduit de 50%.L'utilisation d'un bouclier permet d'augmenter les dégâts à corps à corps de 100%.En utilisant le Feu de Saint-Elme avec le Holster, vous infligerez 100% de dégâts au corps à corps supplémentaires et votre prochaine attaque au corps à corps électrocutera votre cible.En utilisant les trois objets, vous bénéficierez de tous les bonus mentionnés ci-dessus et l'électrocution provoquée par l'attaque au corps à corps portera sur un rayon de 5 m à partir de la première cible. 15 secondes de recharge.",
+    "description": "Lorsqu' \"Électrochoc\" est équipé, l'étourdissement de l'agent dû à l'effet d'électrocution est réduit de 50%. L'utilisation d'un bouclier permet d'augmenter les dégâts à corps à corps de 100%. En utilisant le Feu de Saint-Elme avec le Holster, vous infligerez 100% de dégâts au corps à corps supplémentaires et votre prochaine attaque au corps à corps électrocutera votre cible. En utilisant les trois objets, vous bénéficierez de tous les bonus mentionnés ci-dessus et l'électrocution provoquée par l'attaque au corps à corps portera sur un rayon de 5 m à partir de la première cible. 15 secondes de recharge.",
     "estExotique": true
   },
   "rafraichissement": {
@@ -1071,7 +1102,17 @@
       "main_invisible"
     ],
     "estExotique": false
+  },
+  "lumieres_scintillantes": {
+    "nom": "Lumières scintillantes",
+    "icone": "lumieres_scintillantes",
+    "description": "Version parfaite uniquement",
+    "prerequis": "n/a",
+    "perfectDescription": "Seules la nuit et ses lumières scintillantes, emplissent les têtes d'une joie débordante",
+    "armesParfaites": [
+      "oh_noel"
+    ],
+    "estExotique": false
   }
-
 }
 

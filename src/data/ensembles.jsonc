@@ -262,7 +262,8 @@
     "bonus1piece": "",
     "bonus2pieces": "+70% Santé",
     "bonus3pieces": "+15% défensif totale",
-    "bonus4pieces": "Stoïque : (ne fonctionne pas en pvp)Confère +4% de résistance aux dégâts pour chaque ennemi qui vous cible. Le bonus est multiplié par 1,x ou X est le nombre de d'agents dans votre groupe.",
+    "bonus4pieces": "Stoïque : Confère +4% de résistance aux dégâts pour chaque ennemi qui vous cible. Le bonus est multiplié par 1,x ou X est le nombre de d'agents dans votre groupe.",
+    "notes": "Le talent ne fonctionne pas en pvp",
     "talentTorse": "tromperie",
     "talentSac": "placage_en_polyethylene"
   },

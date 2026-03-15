@@ -17,13 +17,13 @@
     ]
   },
   "acr": {
-    "nom": "ACR", //TODO temps de recharge
+    "nom": "ACR",
     "type": "fusil_assaut",
     "fabricant": "REMINGTON",
     "portee": 31,
     "rpm": 650,
     "chargeur": 30,
-    "rechargement": 0,
+    "rechargement": 1.74,
     "headshot": 55,
     "degatsBase": 58900,
     "estExotique": false,
@@ -37,13 +37,13 @@
     ]
   },
   "acr_e": {
-    "nom": "ACR-E", //TODO temps de recharge
+    "nom": "ACR-E",
     "type": "fusil_assaut",
     "fabricant": "REMINGTON",
     "portee": 31,
     "rpm": 650,
     "chargeur": 30,
-    "rechargement": 0,
+    "rechargement": 1.74,
     "headshot": 55,
     "degatsBase": 58900,
     "estExotique": false,
@@ -97,13 +97,13 @@
     ]
   },
   "aug_a3_cqc": {
-    "nom": "AUG A3-CQC",//TODO temps de recharge
+    "nom": "AUG A3-CQC",
     "type": "fusil_assaut",
     "fabricant": "STEYR",
     "portee": 26,
     "rpm": 680,
     "chargeur": 42,
-    "rechargement": 0,
+    "rechargement": 1.96,
     "headshot": 55,
     "degatsBase": 57200,
     "estExotique": false,
@@ -117,14 +117,14 @@
     ]
   },
   "main_invisible": {
-    "nom": "Main Invisible",//TODO temps de recharge
+    "nom": "Main Invisible",
     "type": "fusil_assaut",
     "fabricant": "STEYR",
     "portee": 26,
     "rpm": 782,
-    "notes": "talent inclut dans les statistiques de l'arme",
+    "notes": "Le talent est inclus dans les statistiques de l'arme",
     "chargeur": 42,
-    "rechargement": 0,
+    "rechargement": 1.96,
     "headshot": 55,
     "degatsBase": 57200,
     "estExotique": false,
@@ -554,7 +554,7 @@
     "type": "fusil_assaut",
     "fabricant": "PATRIOT ORDNANCE FACTORY",
     "portee": 17,
-    "notes": "talent inclut dans les statistiques de l'arme",
+    "notes": "Le talent est inclus dans les statistiques de l'arme",
     "rpm": 850,
     "chargeur": 30,
     "rechargement": 2.13,
@@ -562,7 +562,9 @@
     "degatsBase": 47400,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "myope"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -2474,35 +2476,39 @@
     "portee": 50,
     "rpm": 180,
     "chargeur": 20,
-    "rechargement": 3.6,
-    "headshot": 111,
-    "degatsBase": 206376,
+    "rechargement": 3.27,
+    "headshot": 0,
+    "degatsBase": 206400,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "relique": {
-    "nom": "RELIQUE",
+    "nom": "Relique",
     "type": "fusil_precision",
     "fabricant": "HECKLER&KOCK",
     "portee": 50,
     "rpm": 180,
     "chargeur": 20,
-    "rechargement": 3.6,
-    "headshot": 111,
-    "degatsBase": 206376,
+    "rechargement": 3.27,
+    "headshot": 0,
+    "degatsBase": 206400,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "resolu"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "sacrum_imperium": {
@@ -2510,15 +2516,18 @@
     "description": "\"Par la lumière sacrée, donnez-moi la force d'exécuter la volonté divine.\" Le prêtre",
     "type": "fusil_precision",
     "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
+    "portee": 50,
+    "rpm": 180,
+    "chargeur": 10,
+    "rechargement": 3.27,
     "headshot": 0,
-    "degatsBase": 0,
+    "degatsBase": 206400,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil de précision Dégâts de headshot"
+      "mission": true,
+      "butinCible": true,
+      "represailles": "Hyène, ",
+      "description": ""
     },
     "estNomme": false,
     "talents": [
@@ -2527,201 +2536,222 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
+    ],
+    "modsPredefinis": [
+      "visee_du_medecin",
+      "chargeur_home",
+      "poigne_du_medecin",
+      "perseverance_du_medecin"
     ]
   },
-  "socom_mk20_ssr": {
-    "nom": "SOCOM MK20 SSR",
+  "mk20_ssr_soccom": {
+    "nom": "Mk20 SSR SOCCOM",
     "type": "fusil_precision",
     "fabricant": "FN HERSTAL",
     "portee": 55,
     "rpm": 275,
     "chargeur": 20,
-    "rechargement": 4.99,
-    "headshot": 111,
-    "degatsBase": 145815,
+    "rechargement": 4.54,
+    "headshot": 0,
+    "degatsBase": 145900,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "les_tenebres": {
-    "nom": "LES TÉNÈBRES",
+    "nom": "Les ténèbres",
     "type": "fusil_precision",
     "fabricant": "FN HERSTAL",
     "portee": 55,
     "rpm": 275,
     "chargeur": 20,
-    "rechargement": 4.99,
-    "headshot": 111,
-    "degatsBase": 145815,
+    "rechargement": 4.54,
+    "headshot": 0,
+    "degatsBase": 145900,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "m700_carbon": {
-    "nom": "M700 CARBON",
+    "nom": "M700 Carbon",
     "type": "fusil_precision",
     "fabricant": "REMINGTON",
     "portee": 50,
     "rpm": 55,
     "chargeur": 7,
-    "rechargement": 3.98,
-    "headshot": 111,
-    "degatsBase": 412412,
+    "rechargement": 3.60,//TODO Check temps de recharge sur arme non crafter
+    "headshot": 0,
+    "degatsBase": 412500,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "brutus": {
-    "nom": "BRUTUS",
+    "nom": "Brutus",
     "type": "fusil_precision",
     "fabricant": "REMINGTON",
     "portee": 50,
     "rpm": 55,
     "chargeur": 7,
-    "rechargement": 3.98,
-    "headshot": 111,
-    "degatsBase": 412412,
+    "rechargement": 3.62,
+    "headshot": 0,
+    "degatsBase": 412500,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "derriere_toi"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "m700_tactique": {
-    "nom": "M700 TACTIQUE",
+    "nom": "M700 tactique",
     "type": "fusil_precision",
     "fabricant": "REMINGTON",
     "portee": 50,
     "rpm": 55,
     "chargeur": 7,
-    "rechargement": 3.98,
-    "headshot": 111,
-    "degatsBase": 412412,
+    "rechargement": 3.62,
+    "headshot": 0,
+    "degatsBase": 412500,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "model_700": {
-    "nom": "MODEL 700",
+    "nom": "Model 700",
     "type": "fusil_precision",
     "fabricant": "REMINGTON",
     "portee": 50,
     "rpm": 55,
     "chargeur": 7,
-    "rechargement": 7.05,
-    "headshot": 111,
-    "degatsBase": 441461,
+    "rechargement": 6.41,
+    "headshot": 0,
+    "degatsBase": 441600,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
-      "canon",
+      "bouche",
       "chargeur"
     ]
   },
   "grand_baton_d_ekim": {
-    "nom": "GRAND BATON D'EKIM",
+    "nom": "Grand bâton d'Ekim",
     "type": "fusil_precision",
     "fabricant": "REMINGTON",
     "portee": 50,
     "rpm": 55,
     "chargeur": 7,
-    "rechargement": 7.05,
-    "headshot": 111,
-    "degatsBase": 441461,
+    "rechargement": 6.41,
+    "headshot": 0,
+    "degatsBase": 441600,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "ranger"
+    ],
     "emplacementsMods": [
       "viseur",
-      "canon",
+      "bouche",
       "chargeur"
     ]
   },
-  "svd_de_surplus": {
-    "nom": "SVD DE SURPLUS",
+  "svd_surplus": {
+    "nom": "SVD surplus",
     "type": "fusil_precision",
     "fabricant": "KALASHNIKOV CONCERN",
     "portee": 50,
     "rpm": 260,
     "chargeur": 10,
-    "rechargement": 2.85,
-    "headshot": 111,
-    "degatsBase": 156626,
+    "rechargement": 2.59,
+    "headshot": 0,
+    "degatsBase": 156700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
-  "svd_de_parachutiste": {
-    "nom": "SVD DE PARACHUTISTE",
+  "svd_parachutiste": {
+    "nom": "SVD para",
     "type": "fusil_precision",
     "fabricant": "KALASHNIKOV CONCERN",
     "portee": 50,
     "rpm": 260,
     "chargeur": 10,
-    "rechargement": 2.85,
+    "rechargement": 2.59,
     "headshot": 111,
-    "degatsBase": 156626,
+    "degatsBase": 156700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "commando": {
-    "nom": "COMMANDO",
+    "nom": "Commando",
     "type": "fusil_precision",
     "fabricant": "KALASHNIKOV CONCERN",
     "portee": 50,
     "rpm": 260,
     "chargeur": 10,
-    "rechargement": 2.85,
+    "rechargement": 2.59,
     "headshot": 111,
-    "degatsBase": 156626,
+    "degatsBase": 156700,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "nudite"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "effroyable_sentence": {
-    "nom": "Effroyable Sentence",
+    "nom": "Effroyable sentence",
     "description": "\"Quand viendra ta sentence, tu ne sauras pas combien de mots ont été prononcés, mais tu sauras quel est le dernier d'entre eux.\"",
     "type": "fusil_precision",
     "fabricant": "Exotique",
@@ -2746,22 +2776,23 @@
     ]
   },
   "srs_furtif": {
-    "nom": "SRS FURTIF",
+    "nom": "SRS furtif",
     "type": "fusil_precision",
     "fabricant": "DESERT TACTICAL ARMS",
     "portee": 60,
     "rpm": 60,
     "chargeur": 7,
-    "rechargement": 4.29,
-    "headshot": 111,
-    "degatsBase": 409255,
+    "rechargement": 3.90,
+    "headshot": 0,
+    "degatsBase": 409400,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "srs_a1": {
@@ -2771,47 +2802,71 @@
     "portee": 60,
     "rpm": 60,
     "chargeur": 7,
-    "rechargement": 4.29,
-    "headshot": 111,
-    "degatsBase": 409255,
+    "rechargement": 3.90,
+    "headshot": 0,
+    "degatsBase": 409400,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "epingle": {
-    "nom": "ÉPINGLE",
+    "nom": "Épingle",
     "type": "fusil_precision",
     "fabricant": "DESERT TACTICAL ARMS",
     "portee": 60,
     "rpm": 60,
     "chargeur": 7,
-    "rechargement": 4.29,
-    "headshot": 111,
-    "degatsBase": 409255,
+    "rechargement": 3.90,
+    "headshot": 0,
+    "degatsBase": 409400,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "premier_sang"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "m44_personnalise": {
-    "nom": "M44 PERSONNALISÉ",
+    "nom": "M44 personnalisé",
     "type": "fusil_precision",
     "fabricant": "IZHMASH",
     "portee": 50,
     "rpm": 55,
     "chargeur": 5,
-    "rechargement": 4.29,
-    "headshot": 111,
-    "degatsBase": 433456,
+    "rechargement": 3.90,
+    "headshot": 0,
+    "degatsBase": 417700,
+    "estExotique": false,
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
+    ]
+  },
+  "m44_carabine_classique": {
+    "nom": "M44 Carabine classique",
+    "type": "fusil_precision",
+    "fabricant": "IZHMASH",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 5,
+    "rechargement": 3.90,
+    "headshot": 0,
+    "degatsBase": 433600,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -2821,62 +2876,41 @@
       "chargeur"
     ]
   },
-  "m44_classique": {
-    "nom": "M44 CLASSIQUE",
+  "m44_chasse": {
+    "nom": "M44 chasse",
     "type": "fusil_precision",
     "fabricant": "IZHMASH",
     "portee": 50,
     "rpm": 55,
     "chargeur": 5,
-    "rechargement": 4.29,
-    "headshot": 111,
-    "degatsBase": 417588,
+    "rechargement": 3.90,
+    "headshot": 0,
+    "degatsBase": 428700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
-    ]
-  },
-  "m44_de_chasse": {
-    "nom": "M44 DE CHASSE",
-    "type": "fusil_precision",
-    "fabricant": "IZHMASH",
-    "portee": 50,
-    "rpm": 55,
-    "chargeur": 5,
-    "rechargement": 4.29,
-    "headshot": 111,
-    "degatsBase": 417588,
-    "estExotique": false,
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "mort_blanche": {
-    "nom": "Mort Blanche",
+    "nom": "Mort blanche",
     "type": "fusil_precision",
     "description": "\"La neige me manque.\" - S.H.",
     "fabricant": "IZHMASH",
     "portee": 50,
     "rpm": 55,
     "chargeur": 5,
-    "rechargement": 4.29,
-    "headshot": 137,
-    "degatsBase": 417588,
+    "rechargement": 3.90,
+    "headshot": 0,
+    "degatsBase": 433600,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
     "attributs_essentiels": [
-      {
-        "nom": "degats_fusil_de_precision_es"
-      },
       {
         "nom": "degats_de_headshot_es",
         "valeur": 137
@@ -2889,41 +2923,52 @@
     ]
   },
   "oh_noel": {
-    "nom": "OH, NOEL",
+    "nom": "Oh, Noël",
     "type": "fusil_precision",
     "fabricant": "IZHMASH",
     "portee": 50,
     "rpm": 55,
     "chargeur": 5,
     "rechargement": 4.29,
-    "headshot": 137,
-    "degatsBase": 417588,
+    "notes": "Le mods est inclus dans le temps de rechargement",
+    "headshot": 0,
+    "degatsBase": 433600,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "lumieres_scintillantes"
+    ],
     "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
+      "viseur"
+    ],
+    "modsPredefinis": [
+      "lunette_vx1_12x"
+    ],
+    "attributs_essentiels": [
+      {
+        "nom": "degats_de_headshot_es",
+        "valeur": 137
+      }
     ]
   },
   "sr_1": {
     "nom": "SR-1",
     "type": "fusil_precision",
     "fabricant": "DSR-PRECISION",
-    "portee": 60,
+    "portee": 50,
     "rpm": 60,
     "chargeur": 5,
-    "rechargement": 3.15,
-    "headshot": 111,
-    "degatsBase": 409255,
+    "rechargement": 2.86,
+    "headshot": 0,
+    "degatsBase": 409400,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "adrestia": {
@@ -2934,7 +2979,7 @@
     "rpm": 60,
     "chargeur": 5,
     "rechargement": 2.86,
-    "headshot": 111,
+    "headshot": 0,
     "degatsBase": 409400,
     "estExotique": false,
     "estNomme": true,
@@ -2947,60 +2992,65 @@
     ]
   },
   "tueur_attitre": {
-    "nom": "TUEUR ATTITRÉ",
+    "nom": "Tueur attitré",
     "type": "fusil_precision",
     "fabricant": "DSR-PRECISION",
-    "portee": 60,
+    "portee": 50,
     "rpm": 60,
     "chargeur": 5,
-    "rechargement": 3.15,
-    "headshot": 111,
-    "degatsBase": 409255,
+    "rechargement": 2.86,
+    "headshot": 0,
+    "degatsBase": 409400,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "tactical_308": {
-    "nom": "TACTICAL .308",
+    "nom": "Tacticol .308",
     "type": "fusil_precision",
     "fabricant": "CADEX DEFENSE",
     "portee": 50,
     "rpm": 70,
     "chargeur": 7,
-    "rechargement": 3.04,
-    "headshot": 111,
-    "degatsBase": 403709,
+    "rechargement": 2.76,
+    "headshot": 0,
+    "degatsBase": 403800,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "scalpel": {
-    "nom": "SCALPEL",
+    "nom": "Scalpel",
     "type": "fusil_precision",
     "fabricant": "CADEX DEFENSE",
     "portee": 50,
     "rpm": 70,
     "chargeur": 7,
-    "rechargement": 3.04,
-    "headshot": 111,
-    "degatsBase": 403709,
+    "rechargement": 2.76,
+    "headshot": 0,
+    "degatsBase": 403800,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "futur_parfait"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "smg_9_converti": {
@@ -4038,7 +4088,7 @@
     ]
   },
   "outil_d_artiste": {
-    "nom": "OUTIL D'ARTISTE",
+    "nom": "Outil d'Artiste",
     "type": "fusil",
     "fabricant": "SIG-SAUER",
     "portee": 45,
@@ -4413,9 +4463,7 @@
     "estExotique": true,
     "obtention": {
       "butinCible": true,
-      "cachesExotiques": true,
-      "mission": false,
-      "schemasRepresail": false
+      "cachesExotiques": true
     },
     "estNomme": false,
     "talents": [
@@ -4741,21 +4789,32 @@
     "portee": 60,
     "rpm": 50,
     "chargeur": 5,
-    "rechargement": 3.2,
-    "headshot": 111,
-    "degatsBase": 940240,
+    "rechargement": 2.56,
+    "notes": "Les mods sont inclus dans le temps de rechargement",
+    "headshot": 0,
+    "degatsBase": 940200,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil de précision Dégâts de headshot"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": "Obtention : \nIl faut réunir plusieurs parties (dont son schéma) de l'arme puis se rendre à l'établi de fabrication.\n1ère partie : Peut être obtenu dans le coffre de Tidal Bassin derrière la porte sécurisé (une fois sur l'aéroglisseur). La porte peut être ouverte grâce à la clef obtenu au niveau des baraquements après avoir hacké l'ordinateur. Détruire le SR1 nommé Adrestia pour récupérer la première pièce.\n2ème partie : Peut être obtenu en tuant le dernier boss de la forteresse Capitole en mode invasion (peu importe la difficulté)\n3ème partie : Peut être obtenu en tuant le dernier boss de la forteresse Roosevelt Island en mode invasion (peu importe la difficulté)\n4ème partie : Peut être obtenu en tuant le dernier boss de la forteresse District Union Arena en mode invasion (peu importe la difficulté)\n5ème partie : (schéma) Peut être obtenu en tuant le boss Phaedra \"Puck\" de la mission Grand Washington Hotel en mode invasion (peu importe la difficulté)."
     },
     "estNomme": false,
     "talents": [
-      "accelarateur_electromagnetique"
+      "accelerateur_electromagnetique"
     ],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
+    ],
+    "modsPredefinis": [
+      "lunette_numerique_nemesis",
+      "culasse_nemesis",
+      "bipied_nemesis",
+      "canon_nemesis"
+
     ]
   },
   "mantis": {
@@ -4766,12 +4825,17 @@
     "portee": 60,
     "rpm": 60,
     "chargeur": 7,
-    "rechargement": 4.29,
-    "headshot": 111,
-    "degatsBase": 409255,
+    "rechargement": 3.58,
+    "notes": "Le mod est inclus dans le temps de rechargement.",
+    "headshot": 0,
+    "degatsBase": 409400,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil de précision Dégâts de headshot"
+      "cachesExotiques": true,
+      "butinCible": true,
+      "mission": true,
+      "represailles": "Hyène, ",
+      "description": ""
     },
     "estNomme": false,
     "talents": [
@@ -4780,22 +4844,33 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
+    ],
+    "modsPredefinis": [
+      "visee_a_revetement_antireflet",
+      "machine_bien_huilee",
+      "accessoire_de_camouflage",
+      "silencieux_enveloppe"
     ]
   },
   "linceul": {
     "nom": "Linceul",
     "type": "fusil_precision",
     "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 7,
+    "rechargement": 3.06,
+    "notes": "Le mod est inclus dans le temps de rechargement.",
     "headshot": 0,
-    "degatsBase": 0,
+    "degatsBase": 412500,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil de précision Dégâts de headshot"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, ",
+      "description": ""
     },
     "estNomme": false,
     "talents": [
@@ -4804,7 +4879,14 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
+    ],
+    "modsPredefinis": [
+      "lunette_de_linceul",
+      "chargeur_de_linceul",
+      "accessoire_sous_canon_de_linceul",
+      "bouche_de_linceul"
     ]
   },
   "liberte": {
@@ -5270,6 +5352,49 @@
       "nom": "degats_sur_cible_non_abritee",
         "valeur": 10
       }
+    ]
+  },
+  "instigateur": {
+    "nom": "Instigateur",
+    "type": "fusil_precision",
+    "fabricant": "IZHMASH",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 5,
+    "rechargement": 3.90,
+    "headshot": 0,
+    "degatsBase": 417700,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "petit_faible"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
+    ]
+  },
+  "panier": {
+    "nom": "Panier",
+    "type": "fusil_precision",
+    "fabricant": "KALASHNIKOV CONCERN",
+    "portee": 50,
+    "rpm": 60,
+    "chargeur": 10,
+    "rechargement": 2.86,
+    "headshot": 0,
+    "degatsBase": 387000,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [],
+    "notes": "+320300 dégats de base, -200 de cpm",
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
     ]
   }
 }

@@ -1511,5 +1511,197 @@
         ],
         "estExotique": true,
         "compatible": []
+    },
+    "visee_du_medecin": {
+        "nom": "Visée du médecin",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 20
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "chargeur_home": {
+        "nom": "Chargeur Home",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "poigne_du_medecin": {
+        "nom": "Poigne du médecin",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 20
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "perseverance_du_medecin": {
+        "nom": "Persévérance du médecin",
+        "type": "bouche",
+        "attributs": [
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": 20
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "lunette_numerique_nemesis": {
+        "nom": "Lunette numérique Nemesis",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 45
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "culasse_nemesis": {
+        "nom": "Culasse Nemesis",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "bipied_nemesis": {
+        "nom": "Bipied Nemesis",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "maniement_d_arme_arm",
+                "valeur": 5
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "canon_nemesis": {
+        "nom": "Canon Nemesis",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 5
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "visee_a_revetement_antireflet": {
+        "nom": "Visée à revêtement antireflet",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 40
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "machine_bien_huilee": {
+        "nom": "Machine bien huilée",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "accessoire_de_camouflage": {
+        "nom": "Accesoire de camouflage",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "silencieux_enveloppe": {
+        "nom": "Silencieux enveloppé",
+        "type": "bouche",
+        "attributs": [
+            {
+                "attribut": "probabilite_de_coup_critique_arm",
+                "valeur": 5
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "lunette_de_linceul": {
+        "nom": "Lunette de Linceul",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 25
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "chargeur_de_linceul": {
+        "nom": "Chargeur de Linceul",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 20
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "accessoire_sous_canon_de_linceul": {
+        "nom": "Accessiure sous canon de Linceul",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 5
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "bouche_de_linceul": {
+        "nom": "Bouche de Linceul",
+        "type": "bouche",
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 20
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
     }
 }

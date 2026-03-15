@@ -63,7 +63,7 @@ export default function TalentArmeCard({ item, armes }) {
       </div>
 
       {description && (
-        <div className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed">
+        <div className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed whitespace-pre-line">
           {description}
         </div>
       )}

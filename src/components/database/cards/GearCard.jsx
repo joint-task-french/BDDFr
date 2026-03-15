@@ -81,7 +81,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
               </div>
               <div className={`font-bold text-base uppercase tracking-wide mt-1 ${nameColor}`}>{item.nom}</div>
             </div>
-            <span className="text-xs text-gray-500 ">{ensemble?.nom || item.marque}</span>
+            { ensemble?.nom && <span className="text-xs text-gray-500 ">{ensemble?.nom}</span> }
           </div>
 
           {/* Logo de l'équipement */}

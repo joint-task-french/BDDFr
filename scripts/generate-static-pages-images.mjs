@@ -211,83 +211,105 @@ async function generate() {
             await page.setViewport({ width: 1920, height: 1080 });
 
             try {
-                await page.goto(`${DEV_SERVER_URL}/#/db/${categoryKey}`, { waitUntil: 'networkidle0', timeout: 60000 });
-                await page.addStyleTag({
-                    content: `
-                        header, nav, footer, .navbar { display: none !important; }
-                        .puppeteer-teleport { 
-                            position: fixed !important; top: 50px !important; left: 50px !important; z-index: 999999 !important;
-                            margin: 0 !important; transform: none !important; transition: none !important;
-                            height: auto !important; background-color: #0d0d0d !important;
-                        }
-                        .watermark-overlay {
-                            position: absolute !important; bottom: 15px !important; right: 15px !important;
-                            width: ${WATERMARK_SIZE} !important; opacity: ${WATERMARK_OPACITY} !important;
-                            z-index: 1000000 !important; pointer-events: none !important;
-                        }
-                    `
-                });
-                await new Promise(r => setTimeout(r, 5000));
+                const processCards = async (isPerfect) => {
+                    const suffix = isPerfect ? '-parfait' : '';
+                    const suffixLog = isPerfect ? ' (Parfait)' : '';
+                    const targetUrl = `${DEV_SERVER_URL}/#/db/${categoryKey}${isPerfect ? '?parfait=true' : ''}`;
 
-                const cards = await page.$$('.og-target-card');
-                for (const card of cards) {
-                    const slug = await page.evaluate(el => el.getAttribute('data-slug'), card);
-                    if (!slug) continue;
+                    await page.goto(targetUrl, { waitUntil: 'networkidle0', timeout: 60000 });
+                    await page.addStyleTag({
+                        content: `
+                            header, nav, footer, .navbar { display: none !important; }
+                            .puppeteer-teleport { 
+                                position: fixed !important; top: 50px !important; left: 50px !important; z-index: 999999 !important;
+                                margin: 0 !important; transform: none !important; transition: none !important;
+                                height: auto !important; background-color: #0d0d0d !important;
+                            }
+                            .watermark-overlay {
+                                position: absolute !important; bottom: 15px !important; right: 15px !important;
+                                width: ${WATERMARK_SIZE} !important; opacity: ${WATERMARK_OPACITY} !important;
+                                z-index: 1000000 !important; pointer-events: none !important;
+                            }
+                        `
+                    });
+                    await new Promise(r => setTimeout(r, 5000));
 
-                    const cardHtml = await page.evaluate(el => el.innerHTML, card);
-                    const currentHash = crypto.createHash('md5').update(cardHtml).digest('hex');
-                    const hashKey = `${categoryKey}_${slug}`;
-                    const imageOutputPath = path.join(categoryOgDir, `${slug}.jpg`);
+                    const cards = await page.$$('.og-target-card');
+                    for (const card of cards) {
+                        const slug = await page.evaluate(el => el.getAttribute('data-slug'), card);
+                        if (!slug) continue;
 
-                    if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) continue;
-
-                    let attempts = 3;
-                    let success = false;
-
-                    while (attempts > 0 && !success) {
-                        try {
-                            await page.evaluate((el, logo) => {
-                                const rect = el.getBoundingClientRect();
-                                el.style.setProperty('width', rect.width + 'px', 'important');
-                                el.classList.add('puppeteer-teleport');
-                                if (!el.querySelector('.watermark-overlay')) {
-                                    const img = document.createElement('img');
-                                    img.src = logo; img.className = 'watermark-overlay';
-                                    el.appendChild(img);
-                                }
-                            }, card, WATERMARK_URL);
-
-                            await new Promise(r => setTimeout(r, 300));
-                            await card.screenshot({ path: imageOutputPath, type: 'jpeg', quality: 85 });
-
-                            await page.evaluate(el => {
-                                el.style.removeProperty('width');
-                                el.classList.remove('puppeteer-teleport');
-                                const wm = el.querySelector('.watermark-overlay');
-                                if (wm) wm.remove();
+                        if (isPerfect) {
+                            const hasPerfectBtn = await page.evaluate(el => {
+                                return Array.from(el.querySelectorAll('button')).some(b => b.textContent.includes('Parfait'));
                             }, card);
+                            if (!hasPerfectBtn) continue;
+                        }
 
-                            console.log(`📸 [${categoryKey}] Généré : ${slug}.jpg`);
-                            imageHashes[hashKey] = currentHash;
-                            success = true;
-                        } catch (e) {
-                            attempts--;
-                            await page.evaluate(el => {
-                                el.style.removeProperty('width');
-                                el.classList.remove('puppeteer-teleport');
-                                const wm = el.querySelector('.watermark-overlay');
-                                if (wm) wm.remove();
-                            }, card).catch(() => {});
+                        const cardHtml = await page.evaluate(el => el.innerHTML, card);
+                        const currentHash = crypto.createHash('md5').update(cardHtml).digest('hex');
+                        const hashKey = `${categoryKey}_${slug}${suffix}`;
+                        const imageOutputPath = path.join(categoryOgDir, `${slug}${suffix}.jpg`);
 
-                            if (attempts > 0) {
-                                console.warn(`⚠️ [${categoryKey}] Timeout pour ${slug}, tentative restante: ${attempts}...`);
-                                await new Promise(r => setTimeout(r, 2000));
-                            } else {
-                                console.error(`❌ [${categoryKey}] Échec définitif pour ${slug}:`, e.message);
+                        if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) continue;
+
+                        let attempts = 3;
+                        let success = false;
+
+                        while (attempts > 0 && !success) {
+                            try {
+                                await page.evaluate((el, logo) => {
+                                    const rect = el.getBoundingClientRect();
+                                    el.style.setProperty('width', rect.width + 'px', 'important');
+                                    el.classList.add('puppeteer-teleport');
+                                    if (!el.querySelector('.watermark-overlay')) {
+                                        const img = document.createElement('img');
+                                        img.src = logo; img.className = 'watermark-overlay';
+                                        el.appendChild(img);
+                                    }
+                                }, card, WATERMARK_URL);
+
+                                await new Promise(r => setTimeout(r, 300));
+                                await card.screenshot({ path: imageOutputPath, type: 'jpeg', quality: 85 });
+
+                                await page.evaluate(el => {
+                                    el.style.removeProperty('width');
+                                    el.classList.remove('puppeteer-teleport');
+                                    const wm = el.querySelector('.watermark-overlay');
+                                    if (wm) wm.remove();
+                                }, card);
+
+                                console.log(`📸 [${categoryKey}] Généré : ${slug}${suffix}.jpg`);
+                                imageHashes[hashKey] = currentHash;
+                                success = true;
+                            } catch (e) {
+                                attempts--;
+                                await page.evaluate(el => {
+                                    el.style.removeProperty('width');
+                                    el.classList.remove('puppeteer-teleport');
+                                    const wm = el.querySelector('.watermark-overlay');
+                                    if (wm) wm.remove();
+                                }, card).catch(() => {});
+
+                                if (attempts > 0) {
+                                    console.warn(`⚠️ [${categoryKey}] Timeout pour ${slug}${suffixLog}, tentative restante: ${attempts}...`);
+                                    await new Promise(r => setTimeout(r, 2000));
+                                } else {
+                                    console.error(`❌ [${categoryKey}] Échec définitif pour ${slug}${suffixLog}:`, e.message);
+                                }
                             }
                         }
                     }
+                };
+
+                // Normal pass
+                await processCards(false);
+
+                // Perfect pass if applicable
+                if (categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') {
+                    await processCards(true);
                 }
+
             } finally { await page.close(); }
         });
 
@@ -346,6 +368,23 @@ async function generate() {
                 if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
                 fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(res.title, res.description, imagePath, pagePath));
                 sitemapEntries.push(`${BASE_URL}/${pagePath}`);
+
+                // Nouvelle page HTML statique pour la version parfaite
+                if ((categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') && !item.estExotique && item.perfectDescription) {
+                    const parfaitPath = `db/${categoryKey}/${itemSlug}/parfait`;
+                    const parfaitImagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}-parfait.jpg`))
+                        ? `og-images/${categoryKey}/${itemSlug}-parfait.jpg`
+                        : 'favicon.png';
+
+                    const targetDirParfait = path.join(DIST_DIR, parfaitPath);
+                    if (!fs.existsSync(targetDirParfait)) fs.mkdirSync(targetDirParfait, { recursive: true });
+
+                    // Modifie le titre pour inclure "(Parfait)" proprement
+                    const parfaitTitle = res.title.replace(' —', ' (Parfait) —');
+
+                    fs.writeFileSync(path.join(targetDirParfait, 'index.html'), stubTemplate(parfaitTitle, res.description, parfaitImagePath, parfaitPath));
+                    sitemapEntries.push(`${BASE_URL}/${parfaitPath}`);
+                }
             }
         }
 

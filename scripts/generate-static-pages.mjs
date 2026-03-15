@@ -227,6 +227,17 @@ async function generate() {
             if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
             fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(title, description, publicImageUrl, pagePath));
             sitemapEntries.push(`${BASE_URL}/${pagePath}`);
+
+            // Nouvelle page HTML statique pour la version parfaite
+            if ((categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') && !item.estExotique && item.perfectDescription) {
+                const parfaitPath = `db/${categoryKey}/${itemSlug}/parfait`;
+                const targetDirParfait = path.join(DIST_DIR, parfaitPath);
+                if (!fs.existsSync(targetDirParfait)) fs.mkdirSync(targetDirParfait, { recursive: true });
+
+                const parfaitTitle = title.replace(' —', ' (Parfait) —');
+                fs.writeFileSync(path.join(targetDirParfait, 'index.html'), stubTemplate(parfaitTitle, description, publicImageUrl, parfaitPath));
+                sitemapEntries.push(`${BASE_URL}/${parfaitPath}`);
+            }
         }
     }
 

@@ -1,16 +1,6 @@
 import { useState } from 'react'
 import { resolveIcon, WEAPON_TYPE_ICONS, GameIcon } from '../../../utils/gameAssets'
 
-const COMPAT_LABELS = {
-  fusil: 'Fusil',
-  calibre_12: 'Cal.12',
-  fusil_assaut: 'FA',
-  fusil_mitrailleur: 'FM',
-  fusil_precision: 'FP',
-  pistolet: 'Pistolet',
-  pistolet_mitrailleur: 'PM',
-}
-
 /**
  * Affiche un talent résolu inline (dans une WeaponCard, GearCard, etc.)
  * Même présentation que TalentArmeCard mais en version compacte.
@@ -69,41 +59,6 @@ export default function TalentInline({ talent, isExotic = false, allArmes, allEq
       {description && (
         <div className="text-xs text-gray-400 leading-relaxed whitespace-pre-line">
           {description}
-        </div>
-      )}
-
-      {/* Armes/équipements nommés portant la version parfaite */}
-      {showPerfect && talent.armesParfaites?.length > 0 && (
-        <div className="text-xs text-yellow-500/70 mt-0.5 flex items-center gap-1">
-          <span className="text-yellow-400 font-bold uppercase tracking-widest">Arme :</span>
-          {talent.armesParfaites.map(slug => {
-            const arme = allArmes?.find(a => a.slug === slug)
-            return arme?.nom || slug
-          }).join(', ')}
-        </div>
-      )}
-      {showPerfect && talent.equipementsParfaits?.length > 0 && (
-        <div className="text-xs text-yellow-500/70 mt-0.5 flex flex-col items-start gap-1">
-          <span className="text-yellow-400 font-bold uppercase tracking-widest">Équipement :</span>
-          <span className='whitespace-pre-line text-xs'>
-            - {talent.equipementsParfaits.map(slug => {
-              const eq = allEquipements?.find(e => e.slug === slug)
-              return eq?.nom || slug
-            }).join('\n- ')}
-          </span>
-
-        </div>
-      )}
-
-      {/* Compatibilité armes */}
-      {compatTypes.length > 0 && !talent.estExotique && (
-        <div className="flex flex-wrap gap-1">
-          {compatTypes.map(t => (
-            <span key={t} className="text-xs font-bold uppercase tracking-widest bg-shd/10 text-shd/70 px-1 py-0.5 rounded flex items-center gap-0.5">
-              <GameIcon src={WEAPON_TYPE_ICONS[t]} alt="" size="w-2.5 h-2.5" className="opacity-60" />
-              {COMPAT_LABELS[t] || t}
-            </span>
-          ))}
         </div>
       )}
 

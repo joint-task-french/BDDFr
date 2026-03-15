@@ -28,16 +28,15 @@ export default function App() {
     }, []);
 
 
-  return (
-    <Routes>
-        <Route element={<Layout />}>
-            <Route index element={<SuspensePage><DatabasePage /></SuspensePage>} />
-            <Route path="db/:category/:slug?" element={<SuspensePage><DatabasePage /></SuspensePage>} />
-            <Route path="build" element={<SuspensePage><BuildPlannerPage /></SuspensePage>} />
-            <Route path="changelog" element={<SuspensePage><ChangelogPage /></SuspensePage>} />
-            <Route path="generator" element={<SuspensePage><GeneratorPage /></SuspensePage>} />
-        </Route>
-    </Routes>
-  )
+    return (
+        <Routes>
+            <Route element={<Layout />}>
+                <Route index element={<SuspensePage><DatabasePage /></SuspensePage>} />
+                <Route path="db/:category/:slug?/:modifier?" element={<SuspensePage><DatabasePage /></SuspensePage>} />
+                <Route path="build" element={<SuspensePage><BuildPlannerPage /></SuspensePage>} />
+                <Route path="changelog" element={<SuspensePage><ChangelogPage /></SuspensePage>} />
+                <Route path="generator" element={<SuspensePage><GeneratorPage /></SuspensePage>} />
+            </Route>
+        </Routes>
+    )
 }
-

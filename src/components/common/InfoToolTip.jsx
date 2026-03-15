@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-export function InfoToolTip({ text }) {
+export function InfoToolTip({ text, icon }) {
     const [isVisible, setIsVisible] = useState(false);
     const [coords, setCoords] = useState({ left: 0, top: 0, arrowLeft: '50%' });
     const iconRef = useRef(null);
@@ -48,17 +48,21 @@ export function InfoToolTip({ text }) {
         <>
             <div
                 ref={iconRef}
-                className="relative ml-1.5 flex items-center"
+                className=""
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onClick={() => setIsVisible(!isVisible)}
             >
-                <svg
-                    className="w-3.5 h-3.5 text-gray-500 cursor-help hover:text-gray-300 transition-colors"
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                { icon ||
+                    <div className="relative ml-1.5 flex items-center">
+                        <svg
+                            className="w-3.5 h-3.5 text-gray-500 cursor-help hover:text-gray-300 transition-colors"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                }
             </div>
             {isVisible && createPortal(
                 <div className="

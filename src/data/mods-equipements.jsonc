@@ -1,4 +1,3 @@
-// Mods d'equipements — The Division 2
 {
   "duree_de_competence": {
     "categorie": "utilitaire",
@@ -97,6 +96,17 @@
       {
         "attribut": "degats_de_headshot_eqp",
         "valeur": 10
+      }
+    ]
+  },
+  "protocole-dfensif-endurance": {
+    "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
+    "categorie": "defensif",
+    "protocole": "test",
+    "attributs": [
+      {
+        "attribut": "protection_contre_ennemi_elite_mod",
+        "valeur": 13
       }
     ]
   }

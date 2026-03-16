@@ -11,6 +11,7 @@ export default defineConfig({
   },
   define: {
     __APP_VERSION__: JSON.stringify(Date.now().toString()),
+    __REPOS_URL__: JSON.stringify(`https://github.com/${ process.env.GITHUB_REPOSITORY || 'joint-task-french/bddfr' }`)
   },
   server: {
     allowedHosts: true,

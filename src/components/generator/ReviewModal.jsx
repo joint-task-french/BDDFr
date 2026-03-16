@@ -1,4 +1,6 @@
 import { useMemo, useEffect, useState } from 'react'
+import { applyEdits, modify } from 'jsonc-parser'
+import { slugify } from '../../utils/slugify'
 
 export default function ReviewModal({ loadedData, savedItems, categories, dataKey, identityKey, fileMap, onConfirm, onCancel }) {
   const report = useMemo(() => buildReport(loadedData, savedItems, categories, dataKey, identityKey), [loadedData, savedItems, categories, dataKey, identityKey])
@@ -31,7 +33,7 @@ export default function ReviewModal({ loadedData, savedItems, categories, dataKe
         let itemSlug = findInLoadedKey(item, loadedObj, idK)
 
         if (!itemSlug) {
-          itemSlug = item._slug || slugifyBasique(item.nom || 'nouvel-element')
+          itemSlug = item._slug || slugify(item.nom || 'nouvel_element_' + Math.random().toString(36).substring(2, 9))
         }
 
         upsertsDict[itemSlug] = clean
@@ -253,13 +255,6 @@ function findInLoadedKey(savedItem, loadedObj, idKey) {
     }
   }
   return null
-}
-
-function slugifyBasique(str) {
-  return str.toString().toLowerCase().trim()
-      .replace(/[\s_]+/g, '-')
-      .replace(/[^\w-]+/g, '')
-      .replace(/--+/g, '-')
 }
 
 function deepEqual(a, b) {

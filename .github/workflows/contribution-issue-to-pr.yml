@@ -38,6 +38,9 @@ jobs:
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: node scripts/apply-contribution-patch.mjs
 
+      - name: Valider les JSONC (Sécurité locale)
+        run: npm run validate
+
       - name: Créer la Pull Request
         id: cpr
         if: success()

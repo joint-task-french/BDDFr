@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout du dépôt
         uses: actions/checkout@v4
+        with:
+          ref: dev
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -23,28 +25,51 @@ jobs:
           node-version: '20'
 
       - name: Appliquer le patch JSON
+        id: apply-patch
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: node scripts/apply-contribution-patch.mjs
 
       - name: Créer la Pull Request
+        id: cpr
+        if: success()
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "feat(data): contribution via issue #${{ github.event.issue.number }}"
           title: "Contribution de données: #${{ github.event.issue.number }}"
           body: |
             Contribution soumise via le générateur web par @${{ github.event.issue.user.login }}
-            Ferme #${{ github.event.issue.number }}
+            Cette Pull Request adresse l'issue #${{ github.event.issue.number }}
           branch: contrib/issue-${{ github.event.issue.number }}
           base: dev
 
-      - name: Commenter l'issue
+      - name: Succès - Fermer l'issue
+        if: success() && steps.cpr.outputs.pull-request-number
         uses: actions/github-script@v7
         with:
           script: |
-            github.rest.issues.createComment({
+            const prUrl = "${{ steps.cpr.outputs.pull-request-url }}";
+            await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "✅ Merci pour ta contribution ! Le patch a été appliqué et une Pull Request a été générée pour validation."
-            })
+              body: `✅ **Succès !**\n\nLes données ont été traitées automatiquement. La [Pull Request a été générée](${prUrl}) pour validation par les administrateurs.\n\nL'issue est désormais fermée car le relais est pris par la Pull Request.`
+            });
+            await github.rest.issues.update({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed'
+            });
+
+      - name: Erreur - Commenter l'issue
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "❌ **Erreur lors du traitement automatique**\n\nNos automates n'ont pas pu appliquer les modifications (le fichier cible n'existe pas ou le JSON est invalide).\n\nL'issue reste ouverte pour qu'un administrateur puisse vérifier et appliquer les données manuellement."
+            });

@@ -11,7 +11,7 @@ const regex = /[\s\S]*?```json\n([\s\S]*?)\n```[\s\S]*?/;
 const match = body.match(regex);
 
 if (!match) {
-    console.log("Aucune donnée JSON trouvée dans l'issue. Opération annulée.");
+    console.log("Aucune donnée JSON trouvée dans l'issue. Opération ignorée (non fatale).");
     process.exit(0);
 }
 
@@ -23,12 +23,14 @@ try {
     process.exit(1);
 }
 
+let hasChanges = false;
+
 for (const patch of patches) {
     const { path, upserts } = patch;
 
     if (!fs.existsSync(path)) {
-        console.log(`Fichier introuvable, ignoré : ${path}`);
-        continue;
+        console.error(`Erreur fatale : Fichier introuvable : ${path}`);
+        process.exit(1);
     }
 
     const rawContent = fs.readFileSync(path, 'utf8');
@@ -38,8 +40,8 @@ for (const patch of patches) {
     try {
         fileData = JSON.parse(jsonContent);
     } catch (e) {
-        console.error(`Erreur de parsing JSON pour ${path} :`, e);
-        continue;
+        console.error(`Erreur fatale de parsing JSON pour le fichier ${path} :`, e);
+        process.exit(1);
     }
 
     for (const [slug, newItem] of Object.entries(upserts)) {
@@ -48,7 +50,13 @@ for (const patch of patches) {
         } else {
             fileData[slug] = newItem;
         }
+        hasChanges = true;
     }
+
     fs.writeFileSync(path, JSON.stringify(fileData, null, 2) + '\n', 'utf8');
     console.log(`Fichier mis à jour avec succès : ${path}`);
+}
+
+if (!hasChanges) {
+    console.log("Aucune modification à appliquer.");
 }

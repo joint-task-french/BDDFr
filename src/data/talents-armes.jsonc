@@ -1113,6 +1113,15 @@
       "oh_noel"
     ],
     "estExotique": false
+  },
+  "mode_vitesse": {
+    "nom": "Mode vitesse",
+    "icone": "mode_vitesse",
+    "description": "Uniquement en version parfaite",
+    "perfectDescription": "+20% vitesse de déplacement.\nCe bonus ne peut pas se cumuler avec d'autres bonus de vitesse de déplacement",
+    "armesParfaites": [
+      "quickstep"
+    ]
   }
 }
 

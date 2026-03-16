@@ -5396,5 +5396,28 @@
       "chargeur",
       "bouche"
     ]
+  },
+  "quickstep": {
+    "nom": "Quickstep",
+    "type": "pistolet",
+    "portee": 12,
+    "rpm": 310,
+    "chargeur": 7,
+    "rechargement": 2.12,
+    "headshot": 100,
+    "degatsBase": 117400,
+    "estNomme": true,
+    "talents": [
+      "mode_vitesse"
+    ],
+    "emplacementsMods": [
+      "chargeur",
+      "canon",
+      "bouche",
+      "viseur"
+    ],
+    "obtention": {
+      "description": "Évènement uniquement"
+    }
   }
 }

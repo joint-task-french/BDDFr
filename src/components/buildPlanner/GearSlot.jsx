@@ -7,7 +7,7 @@ function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles, talentsEquipements, allAttributs, gearAttributes, onSetAttributes, modsEquipements, gearMod, onSetMod, attributsType, expertiseLevel, onExpertiseChange, maxExpertiseLevel }) {
+export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles, talentsEquipements, allAttributs, gearAttributes, onSetAttributes, modsEquipements, gearMods, onSetMod, attributsType, expertiseLevel, onExpertiseChange, maxExpertiseLevel }) {
   const { dispatch } = useBuild()
 
   const remove = (e) => {
@@ -99,7 +99,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                     attributes={gearAttributes}
                     allAttributs={allAttributs}
                     modsEquipements={modsEquipements}
-                    gearMod={gearMod}
+                    gearMods={gearMods}
                     onChange={onSetAttributes}
                     onChangeMod={onSetMod}
                     attributsType={attributsType}

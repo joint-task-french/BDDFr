@@ -25,7 +25,7 @@ const INITIAL_STATE = {
   gearTalents: { torse: null, sac_a_dos: null },
   // Attributs équipements : { slot: { essentiels: [{nom,valeur}], classiques: [{nom,valeur}] } }
   gearAttributes: {},
-  // Mods d'équipements : { slot: mod_object }
+  // Mods d'équipements : { slot: [mod_object_1, mod_object_2] }
   gearMods: {},
   // Compétences
   skills: [null, null],
@@ -164,7 +164,11 @@ function buildReducer(state, action) {
       return { ...state, gearAttributes }
     }
     case 'SET_GEAR_MOD': {
-      const gearMods = { ...state.gearMods, [action.slot]: action.mod }
+      // action: { slot: string, modIndex: number, mod: object }
+      const currentMods = state.gearMods[action.slot] || []
+      const newMods = [...currentMods]
+      newMods[action.modIndex || 0] = action.mod
+      const gearMods = { ...state.gearMods, [action.slot]: newMods }
       return { ...state, gearMods }
     }
     // ---- Mods de compétence ----

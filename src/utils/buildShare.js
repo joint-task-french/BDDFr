@@ -64,8 +64,10 @@ export function serializeBuild(state) {
 
   // Mods d'équipements (slugs)
   const gm = {}
-  for (const [slot, mod] of Object.entries(state.gearMods || {})) {
-    if (mod) gm[slot] = mod.slug || mod.statistique
+  for (const [slot, mods] of Object.entries(state.gearMods || {})) {
+    const modArray = Array.isArray(mods) ? mods : [mods]
+    const slugs = modArray.map(m => m ? (m.slug || m.statistique) : null)
+    if (slugs.some(Boolean)) gm[slot] = slugs
   }
   if (Object.keys(gm).length > 0) b.gm = gm
 
@@ -239,8 +241,9 @@ export function resolveBuild(compact, data) {
   // Mods d'équipements
   build.gearMods = {}
   if (compact.gm) {
-    for (const [slot, id] of Object.entries(compact.gm)) {
-      build.gearMods[slot] = findBySlugOrName(data.modsEquipements || [], id, 'statistique') || null
+    for (const [slot, ids] of Object.entries(compact.gm)) {
+      const idArray = Array.isArray(ids) ? ids : [ids]
+      build.gearMods[slot] = idArray.map(id => findBySlugOrName(data.modsEquipements || [], id, 'statistique') || null)
     }
   }
 

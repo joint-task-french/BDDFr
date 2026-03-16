@@ -24,9 +24,9 @@ function getClassicSlotCount(piece) {
 function findDefaultEssentialAttr(allAttributs, categorie) {
   if (!allAttributs || !categorie) return null
   const ref = allAttributs.find(a =>
-    a.cible?.includes('equipement') &&
-    a.categorie === categorie &&
-    a.estEssentiel === true
+      a.cible?.includes('equipement') &&
+      a.categorie === categorie &&
+      a.estEssentiel === true
   )
   if (!ref) return null
   return {
@@ -91,13 +91,24 @@ function mapEssentialNames(names) {
  * Pour les exotiques avec attributEssentiel fixé par la pièce, l'attribut
  * est pré-rempli et non remplaçable.
  */
-export default function GearAttributePanel({ piece, attributes, allAttributs, modsEquipements, gearMod, onChange, onChangeMod, attributsType, ensembles }) {
+export default function GearAttributePanel({ piece, attributes, allAttributs, modsEquipements, gearMods, onChange, onChangeMod, attributsType, ensembles }) {
   const [pickerOpen, setPickerOpen] = useState(null)
-  const [modPickerOpen, setModPickerOpen] = useState(false)
+  const [modPickerIndex, setModPickerIndex] = useState(null)
 
   const isExotic = piece?.type === 'exotique'
   const classicCount = getClassicSlotCount(piece)
-  const hasMod = piece?.mod === true
+
+  // Calcul du nombre de mods possibles en fonction de piece.mod (booléen ou entier)
+  const modCount = useMemo(() => {
+    if (typeof piece?.mod === 'number') return piece.mod
+    return piece?.mod ? 1 : 0
+  }, [piece])
+
+  // Sécurisation de gearMods pour s'assurer que c'est toujours un tableau
+  const currentMods = useMemo(() => {
+    if (!gearMods) return []
+    return Array.isArray(gearMods) ? gearMods : [gearMods]
+  }, [gearMods])
 
   // Est-ce que l'attribut essentiel est fixé par la pièce elle-même ?
   // (exotiques avec attributEssentiel listé dans la donnée de la pièce)
@@ -127,8 +138,8 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
     if (isEssentialFixedByPiece) {
       // Exotiques : pré-remplir avec les catégories fixées
       const newEss = fixedEssentialCategories
-        .map(cat => findDefaultEssentialAttr(allAttributs, cat))
-        .filter(Boolean)
+          .map(cat => findDefaultEssentialAttr(allAttributs, cat))
+          .filter(Boolean)
       if (newEss.length > 0) {
         onChange({ essentiels: newEss, classiques })
       }
@@ -171,116 +182,126 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
   if (!piece) return null
 
   return (
-    <div className="mt-2 pt-2 border-t border-tactical-border/30 space-y-0.5">
-      {/* Attributs essentiels */}
-      {isExotic && isEssentialFixedByPiece ? (
-        /* Exotiques avec attributs fixés : un slider par catégorie fixée, non remplaçable */
-        fixedEssentialCategories.map((cat, i) => {
-          const catLabel = getAttrCategoryLabel(attributsType, cat)
-          const existing = essentiels[i]
-          return (
+      <div className="mt-2 pt-2 border-t border-tactical-border/30 space-y-0.5">
+        {/* Attributs essentiels */}
+        {isExotic && isEssentialFixedByPiece ? (
+            /* Exotiques avec attributs fixés : un slider par catégorie fixée, non remplaçable */
+            fixedEssentialCategories.map((cat, i) => {
+              const catLabel = getAttrCategoryLabel(attributsType, cat)
+              const existing = essentiels[i]
+              return (
+                  <AttributeSlider
+                      key={`ess-${i}`}
+                      attribute={existing || null}
+                      readOnly={false}
+                      locked
+                      onChange={(attr) => setEssential(i, attr)}
+                      label={`Essentiel ${catLabel}`}
+                  />
+              )
+            })
+        ) : (
+            /* Équipement normal : 1 attribut essentiel, interchangeable entre les 3 core attributes */
             <AttributeSlider
-              key={`ess-${i}`}
-              attribute={existing || null}
-              readOnly={false}
-              locked
-              onChange={(attr) => setEssential(i, attr)}
-              label={`Essentiel ${catLabel}`}
+                attribute={essentiels[0] || null}
+                onChange={(attr) => setEssential(0, attr)}
+                onPick={() => setPickerOpen('essential-0')}
+                onRemove={() => setEssential(0, null)}
+                label="Essentiel"
             />
-          )
-        })
-      ) : (
-        /* Équipement normal : 1 attribut essentiel, interchangeable entre les 3 core attributes */
-        <AttributeSlider
-          attribute={essentiels[0] || null}
-          onChange={(attr) => setEssential(0, attr)}
-          onPick={() => setPickerOpen('essential-0')}
-          onRemove={() => setEssential(0, null)}
-          label="Essentiel"
-        />
-      )}
+        )}
 
-      {/* Attributs classiques */}
-      {Array.from({ length: classicCount }).map((_, i) => (
-        <AttributeSlider
-          key={`classic-${i}`}
-          attribute={classiques[i] || null}
-          onChange={(attr) => setClassic(i, attr)}
-          onPick={() => setPickerOpen(`classic-${i}`)}
-          onRemove={() => setClassic(i, null)}
-          label={`Attribut ${i + 1}`}
-        />
-      ))}
+        {/* Attributs classiques */}
+        {Array.from({ length: classicCount }).map((_, i) => (
+            <AttributeSlider
+                key={`classic-${i}`}
+                attribute={classiques[i] || null}
+                onChange={(attr) => setClassic(i, attr)}
+                onPick={() => setPickerOpen(`classic-${i}`)}
+                onRemove={() => setClassic(i, null)}
+                label={`Attribut ${i + 1}`}
+            />
+        ))}
 
-      {/* Mod d'équipement */}
-      {hasMod && (
-        <div className="pt-1">
-          <div className="text-xs text-gray-600 uppercase tracking-widest mb-0.5">Mod</div>
-          {gearMod ? (
-            <div className="flex items-center gap-1.5 py-0.5">
-              <span className="text-xs text-gray-300 truncate relative group/gmod cursor-default">
-                {gearMod.nom}
-                {(gearMod.attributs || gearMod.bonus) && (
-                  <span className="absolute left-0 bottom-full mb-1 z-50 hidden group-hover/gmod:block bg-tactical-panel border border-tactical-border rounded px-2 py-1.5 shadow-lg whitespace-nowrap pointer-events-none">
-                    <span className="block text-xs text-green-400">{formatModAttributs(gearMod, allAttributs)}</span>
-                    {gearMod.categorie && <span className="block text-xs text-gray-500">{gearMod.categorie}</span>}
-                  </span>
-                )}
-              </span>
-              <button
-                onClick={() => onChangeMod(null)}
-                className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
-              >✕</button>
+        {/* Mods d'équipement */}
+        {modCount > 0 && (
+            <div className="pt-1">
+              <div className="text-xs text-gray-600 uppercase tracking-widest mb-0.5">
+                {modCount > 1 ? 'Mods' : 'Mod'}
+              </div>
+              {Array.from({ length: modCount }).map((_, idx) => {
+                const currentMod = currentMods[idx]
+                return (
+                    <div key={`mod-${idx}`} className="mb-1">
+                      {currentMod ? (
+                          <div className="flex items-center gap-1.5 py-0.5">
+                    <span className="text-xs text-gray-300 truncate relative group/gmod cursor-default">
+                      {modCount > 1 && <span className="text-gray-500 mr-1">{idx + 1}.</span>}
+                      {currentMod.nom}
+                      {(currentMod.attributs || currentMod.bonus) && (
+                          <span className="absolute left-0 bottom-full mb-1 z-50 hidden group-hover/gmod:block bg-tactical-panel border border-tactical-border rounded px-2 py-1.5 shadow-lg whitespace-nowrap pointer-events-none">
+                          <span className="block text-xs text-green-400">{formatModAttributs(currentMod, allAttributs)}</span>
+                            {currentMod.categorie && <span className="block text-xs text-gray-500">{currentMod.categorie}</span>}
+                        </span>
+                      )}
+                    </span>
+                            <button
+                                onClick={() => onChangeMod(null, idx)}
+                                className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
+                            >✕</button>
+                          </div>
+                      ) : (
+                          <button
+                              onClick={() => setModPickerIndex(idx)}
+                              className="text-xs text-shd/40 hover:text-shd transition-colors"
+                          >
+                            + Mod {modCount > 1 ? idx + 1 : ''}
+                          </button>
+                      )}
+                    </div>
+                )
+              })}
             </div>
-          ) : (
-            <button
-              onClick={() => setModPickerOpen(true)}
-              className="text-xs text-shd/40 hover:text-shd transition-colors"
-            >
-              + Mod
-            </button>
-          )}
-        </div>
-      )}
+        )}
 
-      {/* Picker attribut essentiel : pas de filtre catégorie, uniquement les essentiels d'équipement */}
-      {pickerOpen === 'essential-0' && (
-        <AttributePicker
-          attributs={allAttributs}
-          cible="equipement"
-          essentiel={true}
-          exclude={usedNames}
-          onSelect={(attr) => { setEssential(0, attr); setPickerOpen(null) }}
-          onClose={() => setPickerOpen(null)}
-        />
-      )}
+        {/* Picker attribut essentiel : pas de filtre catégorie, uniquement les essentiels d'équipement */}
+        {pickerOpen === 'essential-0' && (
+            <AttributePicker
+                attributs={allAttributs}
+                cible="equipement"
+                essentiel={true}
+                exclude={usedNames}
+                onSelect={(attr) => { setEssential(0, attr); setPickerOpen(null) }}
+                onClose={() => setPickerOpen(null)}
+            />
+        )}
 
-      {/* Picker attribut classique */}
-      {pickerOpen && pickerOpen.startsWith('classic-') && (
-        <AttributePicker
-          attributs={allAttributs}
-          cible="equipement"
-          essentiel={false}
-          exclude={usedNames}
-          onSelect={(attr) => {
-            const idx = parseInt(pickerOpen.split('-')[1])
-            setClassic(idx, attr)
-            setPickerOpen(null)
-          }}
-          onClose={() => setPickerOpen(null)}
-        />
-      )}
+        {/* Picker attribut classique */}
+        {pickerOpen && pickerOpen.startsWith('classic-') && (
+            <AttributePicker
+                attributs={allAttributs}
+                cible="equipement"
+                essentiel={false}
+                exclude={usedNames}
+                onSelect={(attr) => {
+                  const idx = parseInt(pickerOpen.split('-')[1])
+                  setClassic(idx, attr)
+                  setPickerOpen(null)
+                }}
+                onClose={() => setPickerOpen(null)}
+            />
+        )}
 
-      {/* Picker mod équipement */}
-      {modPickerOpen && (
-        <GearModPicker
-          mods={modsEquipements}
-          allAttributs={allAttributs}
-          onSelect={(mod) => { onChangeMod(mod); setModPickerOpen(false) }}
-          onClose={() => setModPickerOpen(false)}
-        />
-      )}
-    </div>
+        {/* Picker mod équipement */}
+        {modPickerIndex !== null && (
+            <GearModPicker
+                mods={modsEquipements}
+                allAttributs={allAttributs}
+                onSelect={(mod) => { onChangeMod(mod, modPickerIndex); setModPickerIndex(null) }}
+                onClose={() => setModPickerIndex(null)}
+            />
+        )}
+      </div>
   )
 }
 
@@ -299,42 +320,41 @@ function GearModPicker({ mods, allAttributs, onSelect, onClose }) {
     if (!search) return mods
     const s = search.toLowerCase()
     return mods.filter(m =>
-      (m.nom || '').toLowerCase().includes(s) ||
-      (m.categorie || '').toLowerCase().includes(s) ||
-      formatModAttributs(m, allAttributs).toLowerCase().includes(s)
+        (m.nom || '').toLowerCase().includes(s) ||
+        (m.categorie || '').toLowerCase().includes(s) ||
+        formatModAttributs(m, allAttributs).toLowerCase().includes(s)
     )
   }, [mods, allAttributs, search])
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" onClick={onClose}>
-      <div className="bg-tactical-panel border border-tactical-border rounded-lg w-full max-w-md max-h-[70vh] flex flex-col" onClick={e => e.stopPropagation()}>
-        <div className="px-4 py-3 border-b border-tactical-border flex justify-between items-center">
-          <span className="text-sm text-white font-bold uppercase tracking-widest">Mod d'équipement</span>
-          <button onClick={onClose} className="text-gray-500 hover:text-white text-lg">✕</button>
-        </div>
-        <div className="px-4 py-2 border-b border-tactical-border/50">
-          <input
-            type="text" placeholder="Rechercher..." value={search} onChange={e => setSearch(e.target.value)}
-            className="w-full bg-tactical-bg border border-tactical-border rounded px-3 py-1.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-shd/50"
-            autoFocus
-          />
-        </div>
-        <div className="overflow-y-auto p-2 flex-1">
-          {filtered.length === 0 && <p className="text-center text-gray-600 text-sm py-4">Aucun mod</p>}
-          {filtered.map((mod, i) => (
-            <button key={mod.slug || i} onClick={() => onSelect(mod)}
-              className="w-full text-left px-3 py-2 rounded hover:bg-shd/10 transition-colors group"
-            >
-              <div className="text-sm text-white group-hover:text-shd">{mod.nom}</div>
-              <div className="flex gap-3 text-xs">
-                <span className="text-green-400">{formatModAttributs(mod, allAttributs)}</span>
-                {mod.categorie && <span className="text-gray-500">{mod.categorie}</span>}
-              </div>
-            </button>
-          ))}
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" onClick={onClose}>
+        <div className="bg-tactical-panel border border-tactical-border rounded-lg w-full max-w-md max-h-[70vh] flex flex-col" onClick={e => e.stopPropagation()}>
+          <div className="px-4 py-3 border-b border-tactical-border flex justify-between items-center">
+            <span className="text-sm text-white font-bold uppercase tracking-widest">Mod d'équipement</span>
+            <button onClick={onClose} className="text-gray-500 hover:text-white text-lg">✕</button>
+          </div>
+          <div className="px-4 py-2 border-b border-tactical-border/50">
+            <input
+                type="text" placeholder="Rechercher..." value={search} onChange={e => setSearch(e.target.value)}
+                className="w-full bg-tactical-bg border border-tactical-border rounded px-3 py-1.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-shd/50"
+                autoFocus
+            />
+          </div>
+          <div className="overflow-y-auto p-2 flex-1">
+            {filtered.length === 0 && <p className="text-center text-gray-600 text-sm py-4">Aucun mod</p>}
+            {filtered.map((mod, i) => (
+                <button key={mod.slug || i} onClick={() => onSelect(mod)}
+                        className="w-full text-left px-3 py-2 rounded hover:bg-shd/10 transition-colors group"
+                >
+                  <div className="text-sm text-white group-hover:text-shd">{mod.nom}</div>
+                  <div className="flex gap-3 text-xs">
+                    <span className="text-green-400">{formatModAttributs(mod, allAttributs)}</span>
+                    {mod.categorie && <span className="text-gray-500">{mod.categorie}</span>}
+                  </div>
+                </button>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
   )
 }
-

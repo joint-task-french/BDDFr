@@ -6,6 +6,19 @@ import SelectionModal from '../common/SelectionModal'
 import FilterPanel from '../database/FilterPanel'
 import Badge from '../common/Badge'
 
+const SLOT_ORDER = {
+  'masque': 1,
+  'sac_a_dos': 2,
+  'torse': 3,
+  'gants': 4,
+  'holster': 5,
+  'genouilleres': 6
+}
+
+function getSlotOrder(slot) {
+  return SLOT_ORDER[slot] || 99
+}
+
 export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
   const { dispatch, canEquipExoticGear } = useBuild()
   const [search, setSearch] = useState('')
@@ -49,15 +62,30 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
     if (search) {
       const term = search.toLowerCase()
       list = list.filter(p =>
-        p.nom.toLowerCase().includes(term) ||
-        (p.marque || '').toLowerCase().includes(term)
+          p.nom.toLowerCase().includes(term) ||
+          (p.marque || '').toLowerCase().includes(term)
       )
     }
-    // Sort: exotics first, then named, then gear sets, then standard
+    // Sort: exotics (0) > named (1) > gear sets (2) > standard (3) > improvise (4)
     list.sort((a, b) => {
-      const oa = a.type === 'exotique' ? 0 : a.estNomme ? 1 : a.type === 'gear_set' ? 2 : 3
-      const ob = b.type === 'exotique' ? 0 : b.estNomme ? 1 : b.type === 'gear_set' ? 2 : 3
-      return oa - ob
+      const getRarity = (p) => p.type === 'exotique' ? 0 : p.estNomme ? 1 : p.type === 'gear_set' ? 2 : p.type === 'improvise' ? 4 : 3
+      const ra = getRarity(a)
+      const rb = getRarity(b)
+
+      if (ra !== rb) return ra - rb
+
+      const marqueA = a.marque || ''
+      const marqueB = b.marque || ''
+      const cmpMarque = marqueA.localeCompare(marqueB, 'fr')
+      if (cmpMarque !== 0) return cmpMarque
+
+      const orderA = getSlotOrder(a.emplacement)
+      const orderB = getSlotOrder(b.emplacement)
+      if (orderA !== orderB) return orderA - orderB
+
+      const nomA = a.nom || ''
+      const nomB = b.nom || ''
+      return nomA.localeCompare(nomB, 'fr')
     })
     return list
   }, [afterFilters, search])
@@ -83,57 +111,56 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
   const resolveMarque = (slug) => marqueNames[slug] || marqueNames[slug?.toLowerCase()] || slug
 
   return (
-    <SelectionModal
-      open={true}
-      title={`Sélection — ${getGearSlotLabel(data.equipements_type, slotKey)}`}
-      onClose={onClose}
-      searchValue={search}
-      onSearch={setSearch}
-    >
-      {/* Filtres avancés style base de données */}
-      <div className="mb-4">
-        <FilterPanel
-          filters={filterConfig}
-          values={filters}
-          onChange={handleFilterChange}
-          onReset={resetFilters}
-        />
-      </div>
+      <SelectionModal
+          open={true}
+          title={`Sélection — ${getGearSlotLabel(data.equipements_type, slotKey)}`}
+          onClose={onClose}
+          searchValue={search}
+          onSearch={setSearch}
+      >
+        {/* Filtres avancés style base de données */}
+        <div className="mb-4">
+          <FilterPanel
+              filters={filterConfig}
+              values={filters}
+              onChange={handleFilterChange}
+              onReset={resetFilters}
+          />
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-        {filtered.map(p => {
-          const blocked = p.type === 'exotique' && !canExotic
-          const borderClass = p.type === 'exotique' ? 'border-shd/60 bg-shd/5'
-            : p.estNomme ? 'border-yellow-600/40 bg-yellow-900/5'
-            : p.type === 'gear_set' ? 'border-emerald-600/40 bg-emerald-900/5' : ''
-          return (
-            <div
-              key={p.nom}
-              onClick={() => !blocked && select(p)}
-              className={`modal-item group ${borderClass} ${blocked ? 'disabled' : ''}`}
-            >
-              {p.type === 'exotique' && <Badge type="exotic" />}
-              {p.estNomme && p.type !== 'exotique' && <Badge type="named" />}
-              {p.type === 'gear_set' && <Badge type="gearset" />}
-              {blocked && <div className="text-xs text-red-400 mt-1">⚠ Exotique déjà équipé</div>}
-              <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-shd transition-colors mt-1">
-                {p.nom}
-              </div>
-              <div className="text-xs text-gray-500">{resolveMarque(p.marque)}</div>
-              {Array.isArray(p.attributEssentiel) && p.attributEssentiel.length > 0 && (
-                <div className="text-xs text-blue-400 mt-1">{p.attributEssentiel.join(', ')}</div>
-              )}
-              {p.talents && p.talents.length > 0 && (
-                <div className="text-xs text-shd/70 mt-1 line-clamp-2">🏅 {p.talents[0]}</div>
-              )}
-            </div>
-          )
-        })}
-      </div>
-      {filtered.length === 0 && (
-        <div className="text-center text-gray-500 py-12 uppercase tracking-widest">Aucun équipement trouvé</div>
-      )}
-    </SelectionModal>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+          {filtered.map(p => {
+            const blocked = p.type === 'exotique' && !canExotic
+            const borderClass = p.type === 'exotique' ? 'border-shd/60 bg-shd/5'
+                : p.estNomme ? 'border-yellow-600/40 bg-yellow-900/5'
+                    : p.type === 'gear_set' ? 'border-emerald-600/40 bg-emerald-900/5' : ''
+            return (
+                <div
+                    key={p.nom}
+                    onClick={() => !blocked && select(p)}
+                    className={`modal-item group ${borderClass} ${blocked ? 'disabled' : ''}`}
+                >
+                  {p.type === 'exotique' && <Badge type="exotic" />}
+                  {p.estNomme && p.type !== 'exotique' && <Badge type="named" />}
+                  {p.type === 'gear_set' && <Badge type="gearset" />}
+                  {blocked && <div className="text-xs text-red-400 mt-1">⚠ Exotique déjà équipé</div>}
+                  <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-shd transition-colors mt-1">
+                    {p.nom}
+                  </div>
+                  <div className="text-xs text-gray-500">{resolveMarque(p.marque)}</div>
+                  {Array.isArray(p.attributEssentiel) && p.attributEssentiel.length > 0 && (
+                      <div className="text-xs text-blue-400 mt-1">{p.attributEssentiel.join(', ')}</div>
+                  )}
+                  {p.talents && p.talents.length > 0 && (
+                      <div className="text-xs text-shd/70 mt-1 line-clamp-2">🏅 {p.talents[0]}</div>
+                  )}
+                </div>
+            )
+          })}
+        </div>
+        {filtered.length === 0 && (
+            <div className="text-center text-gray-500 py-12 uppercase tracking-widest">Aucun équipement trouvé</div>
+        )}
+      </SelectionModal>
   )
 }
-

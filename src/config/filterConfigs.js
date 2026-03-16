@@ -1,6 +1,22 @@
 import { getWeaponTypeEntries, getGearSlots, getGearSlotLabel, getAttrCategoryLabel } from '../utils/formatters'
 
 // ================================================================
+// Ordre personnalisé des emplacements
+// ================================================================
+const SLOT_ORDER = {
+  'masque': 1,
+  'sac_a_dos': 2,
+  'torse': 3,
+  'gants': 4,
+  'holster': 5,
+  'genouilleres': 6
+}
+
+function getSlotOrder(slot) {
+  return SLOT_ORDER[slot] || 99
+}
+
+// ================================================================
 // Utilitaire : calcul des bornes min/max depuis un tableau de valeurs
 // ================================================================
 function bounds(items, field, { step = 1, fallbackMin = 0, fallbackMax = 100 } = {}) {
@@ -54,11 +70,14 @@ function genericRarity(item) {
   return 0
 }
 
+// Equipement improvisé en tant que "moins rare que standard"
 function gearRarity(item) {
-  if (item.type === 'exotique') return 3
-  if (item.estNomme) return 2
-  if (item.type === 'gear_set') return 1
-  return 0
+  if (item.type === 'exotique') return 4
+  if (item.estNomme) return 3
+  if (item.type === 'gear_set') return 2
+  if (item.type === 'standard') return 1
+  if (item.type === 'improvise') return 0
+  return 1 // Fallback (Standard)
 }
 
 /** Parse "alpha_desc" → { base: "alpha", desc: true } */
@@ -92,12 +111,25 @@ export function applySortGear(items, sortKey) {
     if (base === 'rarity') {
       const ra = gearRarity(a), rb = gearRarity(b)
       if (ra !== rb) return desc ? rb - ra : ra - rb
+
+      // Sous-tri 1 : Marque (alphabétique)
+      const marqueA = a.marque || ''
+      const marqueB = b.marque || ''
+      const cmpMarque = marqueA.localeCompare(marqueB, 'fr')
+      if (cmpMarque !== 0) return cmpMarque
+
+      // Sous-tri 2 : Emplacement (ordre personnalisé)
+      const orderA = getSlotOrder(a.emplacement)
+      const orderB = getSlotOrder(b.emplacement)
+      if (orderA !== orderB) return orderA - orderB
+
     } else if (base === 'marque') {
       const cmp = (a.marque || '').localeCompare(b.marque || '', 'fr')
       if (cmp !== 0) return desc ? -cmp : cmp
     } else if (base === 'emplacement') {
-      const cmp = (a.emplacement || '').localeCompare(b.emplacement || '', 'fr')
-      if (cmp !== 0) return desc ? -cmp : cmp
+      const orderA = getSlotOrder(a.emplacement)
+      const orderB = getSlotOrder(b.emplacement)
+      if (orderA !== orderB) return desc ? orderB - orderA : orderA - orderB
     }
 
     const nomA = a.nom || ''

@@ -153,14 +153,17 @@ export function useBuildStats(data) {
   // Bonus de mods d'équipement (affectent le joueur globalement → s'appliquent à toutes les armes)
   const gearModTotals = useMemo(() => {
     const totals = {}
-    for (const mod of Object.values(build.gearMods || {})) {
-      if (!mod?.attributs || !Array.isArray(mod.attributs)) continue
-      for (const entry of mod.attributs) {
-        if (!entry.attribut || entry.valeur == null) continue
-        const info = resolveAttrInfo(entry.attribut)
-        const key = entry.attribut
-        if (!totals[key]) totals[key] = { nom: info.nom, total: 0, unite: info.unite, categorie: info.categorie }
-        totals[key].total += entry.valeur
+    for (const slotMods of Object.values(build.gearMods || {})) {
+      const modArray = Array.isArray(slotMods) ? slotMods : [slotMods]
+      for (const mod of modArray) {
+        if (!mod?.attributs || !Array.isArray(mod.attributs)) continue
+        for (const entry of mod.attributs) {
+          if (!entry.attribut || entry.valeur == null) continue
+          const info = resolveAttrInfo(entry.attribut)
+          const key = entry.attribut
+          if (!totals[key]) totals[key] = { nom: info.nom, total: 0, unite: info.unite, categorie: info.categorie }
+          totals[key].total += entry.valeur
+        }
       }
     }
     return totals
@@ -380,8 +383,11 @@ export function useBuildStats(data) {
   // Mods d'équipement équipés
   const equippedGearMods = useMemo(() => {
     const mods = []
-    for (const [slot, mod] of Object.entries(build.gearMods || {})) {
-      if (mod) mods.push({ slot, ...mod })
+    for (const [slot, slotMods] of Object.entries(build.gearMods || {})) {
+      const modArray = Array.isArray(slotMods) ? slotMods : [slotMods]
+      modArray.forEach((mod, idx) => {
+        if (mod) mods.push({ slot: modArray.length > 1 ? `${slot} (${idx + 1})` : slot, ...mod })
+      })
     }
     return mods
   }, [build.gearMods])
@@ -436,18 +442,3 @@ export function useBuildStats(data) {
     totalWeapons,
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

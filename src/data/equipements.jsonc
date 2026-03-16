@@ -2892,5 +2892,53 @@
       "parkour"
     ],
     "type": "exotique"
+  },
+  "masque_improvise": {
+    "nom": "Masque improvisé",
+    "marque": "improvise",
+    "emplacement": "masque",
+    "mod": 2,
+    "talents": [],
+    "type": "improvise"
+  },
+  "sac_a_dos_improvise": {
+    "nom": "Sac à dos improvisé",
+    "marque": "improvise",
+    "emplacement": "sac_a_dos",
+    "mod": 2,
+    "talents": [],
+    "type": "improvise"
+  },
+  "protection_corporelle_improvisee": {
+    "nom": "Protection corporelle improvisée",
+    "marque": "improvise",
+    "emplacement": "torse",
+    "mod": 2,
+    "talents": [],
+    "type": "improvise"
+  },
+  "gants_improvises": {
+    "nom": "Gants improvisés",
+    "marque": "improvise",
+    "emplacement": "gants",
+    "mod": 2,
+    "talents": [],
+    "type": "improvise"
+  },
+  "holster_improvise": {
+    "nom": "Holster improvisé",
+    "marque": "improvise",
+    "emplacement": "holster",
+    "mod": 2,
+    "talents": [],
+    "type": "improvise"
+  },
+  "genouilleres_improvisees": {
+    "nom": "Genouillères improvisées",
+    "marque": "improvise",
+    "emplacement": "genouilleres",
+    "mod": 2,
+    "talents": [],
+    "type": "improvise"
   }
 }

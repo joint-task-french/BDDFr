@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { applyEdits, modify } from 'jsonc-parser';
 
 const body = process.env.ISSUE_BODY;
 
@@ -11,7 +12,7 @@ const regex = /[\s\S]*?```json\n([\s\S]*?)\n```[\s\S]*?/;
 const match = body.match(regex);
 
 if (!match) {
-    console.log("Aucune donnée JSON trouvée dans l'issue. Opération ignorée (non fatale).");
+    console.log("Aucune donnée JSON trouvée dans l'issue. Opération ignorée.");
     process.exit(0);
 }
 
@@ -23,8 +24,6 @@ try {
     process.exit(1);
 }
 
-let hasChanges = false;
-
 for (const patch of patches) {
     const { path, upserts } = patch;
 
@@ -33,30 +32,21 @@ for (const patch of patches) {
         process.exit(1);
     }
 
-    const rawContent = fs.readFileSync(path, 'utf8');
-    const jsonContent = rawContent.replace(/\/\/.*|\/\*[\s\S]*?\*\//g, '');
-
-    let fileData = {};
-    try {
-        fileData = JSON.parse(jsonContent);
-    } catch (e) {
-        console.error(`Erreur fatale de parsing JSON pour le fichier ${path} :`, e);
-        process.exit(1);
-    }
+    let rawContent = fs.readFileSync(path, 'utf8');
+    let updatedContent = rawContent;
 
     for (const [slug, newItem] of Object.entries(upserts)) {
-        if (fileData[slug]) {
-            fileData[slug] = { ...fileData[slug], ...newItem };
-        } else {
-            fileData[slug] = newItem;
-        }
-        hasChanges = true;
+        const edits = modify(updatedContent, [slug], newItem, {
+            formattingOptions: {
+                insertSpaces: true,
+                tabSize: 2,
+                eol: '\n'
+            }
+        });
+
+        updatedContent = applyEdits(updatedContent, edits);
     }
 
-    fs.writeFileSync(path, JSON.stringify(fileData, null, 2) + '\n', 'utf8');
-    console.log(`Fichier mis à jour avec succès : ${path}`);
-}
-
-if (!hasChanges) {
-    console.log("Aucune modification à appliquer.");
+    fs.writeFileSync(path, updatedContent, 'utf8');
+    console.log(`Fichier mis à jour avec succès (commentaires préservés) : ${path}`);
 }

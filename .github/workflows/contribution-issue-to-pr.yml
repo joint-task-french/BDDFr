@@ -4,6 +4,11 @@ on:
   issues:
     types: [opened, edited]
 
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -11,10 +16,6 @@ jobs:
   create-pr:
     if: startsWith(github.event.issue.title, '[Contribution]')
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      issues: write
 
     steps:
       - name: Checkout du dépôt
@@ -25,9 +26,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: '24'
+          cache: 'npm'
 
-      - name: Appliquer le patch JSON
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Appliquer le patch JSONC
         id: apply-patch
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
@@ -56,7 +61,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `✅ **Succès !**\n\nLes données ont été traitées automatiquement. La [Pull Request a été générée](${prUrl}) pour validation par les administrateurs.\n\nL'issue est désormais fermée car le relais est pris par la Pull Request.`
+              body: `✅ **Succès !**\n\nLes données ont été traitées automatiquement en préservant les commentaires. La [Pull Request a été générée](${prUrl}).\n\nL'issue est désormais fermée.`
             });
             await github.rest.issues.update({
               issue_number: context.issue.number,
@@ -74,5 +79,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "❌ **Erreur lors du traitement automatique**\n\nNos automates n'ont pas pu appliquer les modifications (le fichier cible n'existe pas ou le JSON est invalide).\n\nL'issue reste ouverte pour qu'un administrateur puisse vérifier et appliquer les données manuellement."
+              body: "❌ **Erreur lors du traitement automatique**\n\nL'application du patch a échoué. Cela peut arriver si le fichier cible est mal formé ou si une dépendance est manquante."
             });

@@ -1,6 +1,6 @@
 import { useMemo, useEffect, useState } from 'react'
 
-export default function ReviewModal({ loadedData, savedItems, categories, dataKey, identityKey, onConfirm, onCancel }) {
+export default function ReviewModal({ loadedData, savedItems, categories, dataKey, identityKey, fileMap, onConfirm, onCancel }) {
   const report = useMemo(() => buildReport(loadedData, savedItems, categories, dataKey, identityKey), [loadedData, savedItems, categories, dataKey, identityKey])
   const [isProcessing, setIsProcessing] = useState(false)
 
@@ -16,6 +16,7 @@ export default function ReviewModal({ loadedData, savedItems, categories, dataKe
       if (items.length === 0) continue
 
       const dk = dataKey[cat.key]
+      const fileName = fileMap[cat.key]
       const idK = identityKey[cat.key]
       const loadedObj = loadedData?.[dk] || {}
 
@@ -37,7 +38,7 @@ export default function ReviewModal({ loadedData, savedItems, categories, dataKe
       }
 
       patches.push({
-        path: `src/data/${dk}.jsonc`,
+        path: `src/data/${fileName}`,
         upserts: upsertsDict
       })
     }
@@ -53,7 +54,7 @@ export default function ReviewModal({ loadedData, savedItems, categories, dataKe
       url,
       isTooLong: url.length > 8000
     }
-  }, [categories, savedItems, dataKey, identityKey, loadedData, hasChanges])
+  }, [categories, savedItems, dataKey, identityKey, fileMap, loadedData, hasChanges])
 
   useEffect(() => {
     const handleKey = (e) => { if (e.key === 'Escape' && !isProcessing) onCancel() }

@@ -86,7 +86,7 @@ function genericRarity(item) {
 
 // ARMES
 export const WEAPON_SORT_OPTIONS = [
-  { id: 'rarity', label: 'Rareté', ascLabel: 'Croissant', descLabel: 'Décroissant' },
+  { id: 'rarity', label: 'Rareté', ascLabel: '↑', descLabel: '↓' },
   { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
   { id: 'type', label: "Type d'arme", ascLabel: 'A-Z', descLabel: 'Z-A' }
 ]
@@ -104,7 +104,7 @@ export function applySortWeapons(items, sortLayers) { return multiSort(items, so
 
 // EQUIPEMENTS
 export const GEAR_SORT_OPTIONS = [
-  { id: 'rarity', label: 'Rareté', ascLabel: 'Croissant', descLabel: 'Décroissant' },
+  { id: 'rarity', label: 'Rareté', ascLabel: '↑', descLabel: '↓' },
   { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
   { id: 'marque', label: 'Marque / Ensemble', ascLabel: 'A-Z', descLabel: 'Z-A' },
   { id: 'emplacement', label: 'Emplacement', ascLabel: '', descLabel: '', hideDirection: true }
@@ -125,7 +125,7 @@ export function applySortGear(items, sortLayers) { return multiSort(items, sortL
 
 // ENSEMBLES (Gear Sets / Marques)
 export const ENSEMBLE_SORT_OPTIONS = [
-  { id: 'rarity', label: 'Rareté', ascLabel: 'Croissant', descLabel: 'Décroissant' },
+  { id: 'rarity', label: 'Type', ascLabel: '↑', descLabel: '↓' },
   { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' }
 ]
 export const ENSEMBLE_DEFAULT_SORT = [
@@ -140,11 +140,11 @@ export function applySortEnsembles(items, sortLayers) { return multiSort(items, 
 
 // GENERIQUE (Talents, Mods, etc.)
 export const GENERIC_SORT_OPTIONS = [
-  { id: 'rarity', label: 'Rareté', ascLabel: 'Croissant', descLabel: 'Décroissant' },
+  { id: 'rarity', label: 'Rareté', ascLabel: '↑', descLabel: '↓' },
   { id: 'alpha', label: 'Nom / Variante', ascLabel: 'A-Z', descLabel: 'Z-A' },
   { id: 'categorie', label: 'Catégorie / Type', ascLabel: 'A-Z', descLabel: 'Z-A' },
   { id: 'parent', label: 'Compétence parente', ascLabel: 'A-Z', descLabel: 'Z-A' },
-  { id: 'emplacement', label: 'Emplacement', ascLabel: 'Tête ➔ Pieds', descLabel: 'Pieds ➔ Tête' }
+  { id: 'emplacement', label: 'Emplacement', ascLabel: '', descLabel: '', hideDirection: true }
 ]
 export const GENERIC_DEFAULT_SORT = [
   { id: 'rarity', desc: false },

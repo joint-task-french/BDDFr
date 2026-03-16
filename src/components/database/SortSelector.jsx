@@ -78,7 +78,7 @@ export function useSortPanel({ options, value, defaultSort, onChange }) {
                     : 'bg-tactical-panel text-gray-400 border-tactical-border hover:border-gray-500 hover:text-gray-300'
             }`}
         >
-            <svg className="w-4 h-4 text-shd" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className={"w-4 h-4 " + (isModified ? 'text-shd ' : '')} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
             </svg>
             <span>Tri{isModified ? '*' : ''}</span>

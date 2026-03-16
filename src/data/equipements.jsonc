@@ -48,8 +48,8 @@
     "talents": [],
     "type": "gear_set"
   },
-  "masque_strikers_battlegear": {
-    "nom": "Masque strikers_battlegear",
+  "masque_strikers": {
+    "nom": "Masque strikers",
     "marque": "strikers_battlegear",
     "emplacement": "masque",
     "mod": true,

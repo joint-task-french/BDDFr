@@ -498,6 +498,10 @@
     "description": "Après 3 éliminations consécutives, le chargeur se remplit et les dégâts de l'arme sont augmentés de +40% pendant 10 secondes.",
     "prerequis": "n/a",
     "icone": "martelement",
+    "perfectDescription": "Après 2 éliminations consécutives, le chargeur se remplit et les dégâts de l'arme sont augmentés de +40% pendant 10 secondes.",
+    "armesParfaites": [
+      "tsunami"
+    ],
     "compatibilite": {
       "fusil": false,
       "calibre_12": true,
@@ -637,7 +641,7 @@
     "description": "Infliger des dégâts avec une grenade applique une marque sur la cible. Les cibles marquées subissent 15% de dégâts en plus à la protection de la part de l'auteur de la marque, et -20% de vitesse de déplacement.\nLa marque disparaît après 10s.",
     "prerequis": "n/a",
     "icone": "coup_de_massue",
-    "perfectDescription": "Infliger des dégâts avec une grenade applique une marque sur la cible. Les cibles marquées subissent 15% de dégâts en plus à la protection de la part de l'auteur de la marque, et -20% de vitesse de déplacement.\nLa marque disparaît après 10s.",
+    "perfectDescription": "Infliger des dégâts avec une grenade applique une marque sur la cible. Les cibles marquées subissent 20% de dégâts en plus à la protection de la part de l'auteur de la marque, et -30% de vitesse de déplacement.\nLa marque disparaît après 10s.",
     "armesParfaites": [
       "scene_gauche",
       "gaucher"
@@ -727,9 +731,14 @@
   },
   "imprudence": {
     "nom": "Imprudence",
-    "description": "Inflige +3,5% (+2%) au tir suivant avec la même arme pour chaque plomb qui touche la cible si au moins 6 plombs touchent un ennemi",
+    "description": "Inflige +3,5% au tir suivant avec la même arme pour chaque plomb qui touche la cible si au moins 6 plombs touchent la cible.",
     "prerequis": "n/a",
     "icone": "imprudence",
+    "perfectDescription": "Inflige +3,5% au tir suivant avec la même arme pour chaque plomb qui touche la cible si au moins 4 plombs touchent la cible. Tuer un ennemi confère de dégâts au prochain tir.",
+    "armesParfaites": [
+      "comme_de_la_colle"
+    ],
+    "notes": "2%/3% normal/parfait en pvp ",
     "compatibilite": {
       "fusil": false,
       "calibre_12": true,
@@ -866,7 +875,8 @@
   "detente_binaire": {
     "nom": "Détente binaire",
     "icone": "detente_binaire",
-    "description": "(PVE)Cette arme tire lorsque l'utilisateur presse et relâche la détente.Si les deux balles touchent le même ennemi, vous gagnez un bonus.À 7 bonus, tirer sur un ennemi inflige des dégâts accrus de +500% et crée une explosion de 7m qui inflige 500% (250%) des dégâts d'arme et consomme les bonus cumulés.",
+    "description": "Cette arme tire lorsque l'utilisateur presse et relâche la détente.\nSi les deux balles touchent le même ennemi, vous gagnez un bonus.\nÀ 7 bonus, tirer sur un ennemi inflige des dégâts accrus de +500% et crée une explosion de 7m qui inflige 500% des dégâts d'arme et consomme les bonus cumulés.",
+    "notes": "L'explosion fait 250% en pvp",
     "estExotique": true
   },
   "morsure_fatale": {
@@ -878,7 +888,7 @@
   "geri_et_freki": {
     "nom": "Geri et Freki",
     "icone": "geri_et_freki",
-    "description": "Tire des deux canons en même temps d'une seule pression sur la gâchette.Utilisé à l'épaule droite ses tirs confèrent des effets offensifs. Utilisé à l'épaule gauche, ses tirs confèrent des effets défensifs.Les coups au but réalisés d'une épaule déclenchent tous les effets de l'épaule opposée.À l'activation chaque effet offensif infilge +100% des dégâts d'arme, et chaque effet défensif confère +4% de protection bonus et +10% de dégâts aux plaques de protection pendant 5s.Les effets voient leur efficacité doublée s'ils sont appliqués 10 fois.",
+    "description": "Tire des deux canons en même temps d'une seule pression sur la gâchette.\nUtilisé à l'épaule droite, ses tirs confèrent des effets offensifs. Utilisé à l'épaule gauche, ses tirs confèrent des effets défensifs.\nLes coups au but réalisés d'une épaule déclenchent tous les effets de l'épaule opposée.\nÀ l'activation chaque effet offensif infilge +100% des dégâts d'arme, et chaque effet défensif confère +4% de protection bonus et +10% de dégâts aux plaques de protection pendant 5s.\nLes effets voient leur efficacité doublée s'ils sont appliqués 10 fois.",
     "estExotique": true
   },
   "medecin_de_famille": {
@@ -896,7 +906,7 @@
   "transfusion": {
     "nom": "Transfusion",
     "icone": "transfusion",
-    "description": "Réaliser des headshots cumule des effets jusqu'à un maximun de 8. Quand vous tirez sur un allié ou un proxy de compétence, vous les réparez de 50% de la valeur totale des dégâts de l'arme pour chaque effet cumulé.Les alliés soignés recevront 50% du bonus de vos compétences de réparation en bonus de protection pour chaque effe*t pendant 10s.Après avoir soigné un allié ou une compétence, tous les tirs au but assurent des headshots pendant 8s si vous avez cumulé le maximun d'effets.",
+    "description": "Réaliser des headshots cumule des effets jusqu'à un maximun de 8. Quand vous tirez sur un allié ou un proxy de compétence, vous les réparez de 50% de la valeur totale des dégâts de l'arme pour chaque effet cumulé.\nLes alliés soignés recevront 50% du bonus de vos compétences de réparation en bonus de protection pour chaque effet pendant 10s.\nAprès avoir soigné un allié ou une compétence, tous les tirs au but assurent des headshots pendant 8s si vous avez cumulé le maximun d'effets.",
     "estExotique": true
   },
   "frappe_de_l_aigle": {
@@ -1122,6 +1132,18 @@
     "armesParfaites": [
       "quickstep"
     ]
+  },
+  "extra": {
+    "nom": "Extra",
+    "icone": "extra",
+    "description": "Version parfaite uniquement",
+    "prerequis": "n/a",
+    "estExotique": false,
+    "perfectDescription": "+50% à la capacité de chargeur.",
+    "armesParfaites": [
+      "rock_n_roll"
+    ]
   }
+
 }
 

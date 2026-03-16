@@ -1152,7 +1152,7 @@
         "estExotique": true,
         "compatible": []
     },
-    "poigne_du_medecin": {
+    "poigne_du_medecin_de_famille": {
         "nom": "Poigne du médecin",
         "type": "canon",
         "attributs": [
@@ -1164,7 +1164,7 @@
         "estExotique": true,
         "compatible": []
     },
-    "perseverance_du_medecin": {
+    "perseverance_du_medecin_de_famille": {
         "nom": "Persévérance du médecin",
         "type": "bouche",
         "attributs": [
@@ -1536,7 +1536,7 @@
         "estExotique": true,
         "compatible": []
     },
-    "poigne_du_medecin": {
+    "poigne_du_medecin_sacrum_imperium": {
         "nom": "Poigne du médecin",
         "type": "canon",
         "attributs": [
@@ -1548,7 +1548,7 @@
         "estExotique": true,
         "compatible": []
     },
-    "perseverance_du_medecin": {
+    "perseverance_du_medecin_sacrum_imperium": {
         "nom": "Persévérance du médecin",
         "type": "bouche",
         "attributs": [
@@ -1699,6 +1699,138 @@
             {
                 "attribut": "degats_de_headshot_arm",
                 "valeur": 20
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "optique_impitoyable": {
+        "nom": "Optique Impitoyable",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "chargeur_impitoyable": {
+        "nom": "Chargeur Impitoyable",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "poignee_impitoyable": {
+        "nom": "Poignée Impitoyable",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "maniement_d_arme_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "bouche_impitoyable": {
+        "nom": "Bouche Impitoyable",
+        "type": "bouche",
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "lunette_de_bittersweet": {
+        "nom": "Lunette de Bittersweet",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 5
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "chargeur_de_bittersweet": {
+        "nom": "Chargeur de Bittersweet",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "munitions_mod",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "accessoire_sous_canon_de_bittersweet": {
+        "nom": "Accessoire sous canon de Bittersweet",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "degats_de_headshot_arm",
+                "valeur": 5
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "optique_du_predateur": {
+        "nom": "Optique du prédateur",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "probabilite_de_coup_critique_arm",
+                "valeur": 5
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "chargeurs_gloutons": {
+        "nom": "Chargeurs gloutons",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "gueule_devorante": {
+        "nom": "Gueule dévorante",
+        "type": "bouche",
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 5
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "griffe_de_loup": {
+        "nom": "Griffe de loup",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 10
             }
         ],
         "estExotique": true,

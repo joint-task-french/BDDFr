@@ -85,6 +85,9 @@
         "slug": "bombe_adhesive_iem",
         "icone": "bombe_adhesive_iem"
       }
+    ],
+    "emplacementsMods": [
+
     ]
   },
   "piege": {
@@ -246,8 +249,7 @@
         "emplacement": "BOBINE"
       },
       {
-        "emplacement": "BOBINE",
-        "prerequis": "artilleur"
+        "emplacement": "BOBINE"
       }
     ]
   },
@@ -319,8 +321,7 @@
         "emplacement": "MÉCANISME DE TIR"
       },
       {
-        "emplacement": "MÉCANISME DE TIR",
-        "prerequis": "demolisseur"
+        "emplacement": "MÉCANISME DE TIR"
       }
     ]
   },
@@ -598,8 +599,7 @@
         "emplacement": "ENTRAÎNEMENT"
       },
       {
-        "emplacement": "DÉSIGNATION",
-        "prerequis": "survivaliste"
+        "emplacement": "DÉSIGNATION"
       }
     ]
   },
@@ -683,8 +683,7 @@
         "emplacement": "BATTERIE"
       },
       {
-        "emplacement": "BATTERIE",
-        "prerequis": "tireur_elite"
+        "emplacement": "BATTERIE"
       }
     ]
   },
@@ -754,8 +753,7 @@
         "emplacement": "CIRCUIT IMPRIMÉ"
       },
       {
-        "emplacement": "REVÊTEMENT DUR",
-        "prerequis": "incendiaire"
+        "emplacement": "REVÊTEMENT DUR"
       }
     ]
   }

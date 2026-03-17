@@ -839,7 +839,7 @@
     "talents": [],
     "type": "standard"
   },
-  "protection_de_rotules": { // TODO : changer le nom ici
+  "protection_de_rotules": {
     "nom": "Protection de rotules",
     "marque": "hana_u_corporation",
     "emplacement": "genouilleres",
@@ -1484,7 +1484,7 @@
     "talents": [],
     "type": "standard"
   },
-  "sac_garibaldi": { // TODO : renomé le sac
+  "sac_garibaldi": {
     "nom": "Sac Garibaldi",
     "marque": "yaahl_gear",
     "emplacement": "sac_a_dos",

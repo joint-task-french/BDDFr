@@ -10,7 +10,7 @@
     "bonus1piece": "",
     "bonus2pieces": "+15% Effets d'état",
     "bonus3pieces": "+30% Vitesse de rechargement",
-    "bonus4pieces": "Règle d'engagement : Tirer sur un ennemi effecté par un effet d'état lui applique une marque. Tuer un ennemi marqué vous octroie un chargeur plein de munitions à pointe creuse pour votre arme active, et un demi-chargeur pour l'arme active de l'agent pour le reste du groupe. La marque dure 10 secondes. Les munitions à pointe creuse augmentent les dégâts d'arme de 20% et infligent un saignement.",
+    "bonus4pieces": "Règle d'engagement : Tirer sur un ennemi affecté par un effet d'état lui applique une marque. Tuer un ennemi marqué vous octroie un chargeur plein de munitions à pointe creuse pour votre arme active, et un demi-chargeur pour l'arme active de l'agent pour le reste du groupe. La marque dure 10 secondes. Les munitions à pointe creuse augmentent les dégâts d'arme de 20% et infligent un saignement.",
     "talentTorse": "munitions_parabellum",
     "talentSac": "specialiste_des_traumatismes"
   },
@@ -24,7 +24,7 @@
     "bonus1piece": "",
     "bonus2pieces": "+30% Capacité Munitions",
     "bonus3pieces": "+30% Taille du chargeur",
-    "bonus4pieces": "Rouge, Blanc et Bleu :Toutes les 2s, les ennemis sur lesquels vous tirez subissent un débuff cumulable de \"rouge\", \"blanc\" et \"bleu\" Rouge : augmente les dégâts subis par l'ennemi de 8%Blanc : toucher l'ennemi répare votre défensif et celle de vos alliés de 2% à chaque seconde. Bleu : diminue les dégâts infligés par l'ennemi de 8%. Tricolore :Les ennemis qui meurent quand ils sont sous les effets des 3 débuffs déclenchent une explosion de 5m de rayon infligeant des dégâts équivalant à leur total de santé et de défensif. (Les dégâts de l'explosion sont réduits si c'est un ennemi spécifié qui meurt).",
+    "bonus4pieces": "Rouge, Blanc et Bleu :Toutes les 2s, les ennemis sur lesquels vous tirez subissent un débuff cumulable de \"rouge\", \"blanc\" et \"bleu\" Rouge : augmente les dégâts subis par l'ennemi de 8% Blanc : toucher l'ennemi répare votre défensif et celle de vos alliés de 2% à chaque seconde. Bleu : diminue les dégâts infligés par l'ennemi de 8%. Tricolore :Les ennemis qui meurent quand ils sont sous les effets des 3 débuffs déclenchent une explosion de 5m de rayon infligeant des dégâts équivalant à leur total de santé et de défensif. (Les dégâts de l'explosion sont réduits si c'est un ennemi spécifié qui meurt).",
     "talentTorse": "drapeau_brandi",
     "talentSac": "elan_patriotique"
   },
@@ -67,8 +67,8 @@
     "bonus2pieces": "+20% Dégâts d'arme spécifique",
     "bonus3pieces": "+10% Dégâts d'arme",
     "bonus4pieces": "Reconnaissance Agressive :Tuer une cible à l'arme spécifique confère un bonus aux dégâts d'arme spécifique de 15% pendant 10s ainsi que +25% de vitesse de rechargement pour le prochain rechargement de l'arme (les bonus ne se cumulent pas). Génère automatiquement des munitions spécifiques toutes les 60s.",
-    "talentTorse": "destruction_specialisee",
-    "talentSac": "mouvement_specifique"
+    "talentTorse": "destruction_spécialisée",
+    "talentSac": "mouvement_spécifique"
   },
   "dilemme_du_negociateur": {
     "nom": "Dilemme du Négociateur",
@@ -79,8 +79,8 @@
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Probabilité coup critique",
-    "bonus3pieces": "+ 20% Dégâts de coup critique",
-    "bonus4pieces": "Négociation hostiles :Les coups critiques marquent les ennemis pendant 20s. Jusqu'à 3 marques peuvent être cumulées sur un ennemi. Quand vous réalisez un coup critique sur un ennemi marqué, tous les autres ennemis marqués subissent également 60% des dégâts ingligésQuand un ennemi marqué meurt, vous gagnez +2% aux dégâts de coup critique. Cet effet est cumulable jusqu'à 20 fois avant la fin du combat.",
+    "bonus3pieces": "+20% Dégâts de coup critique",
+    "bonus4pieces": "Négociation hostiles :Les coups critiques marquent les ennemis pendant 20s. Jusqu'à 3 marques peuvent être cumulées sur un ennemi. Quand vous réalisez un coup critique sur un ennemi marqué, tous les autres ennemis marqués subissent également 60% des dégâts infligés Quand un ennemi marqué meurt, vous gagnez +2% aux dégâts de coup critique. Cet effet est cumulable jusqu'à 20 fois avant la fin du combat.",
     "talentTorse": "controle_de_masse",
     "talentSac": "mesures_critiques"
   },
@@ -136,8 +136,8 @@
     "bonus1piece": "",
     "bonus2pieces": "+10% de défensif totale",
     "bonus3pieces": "+1% de régénération de défensif +50% santé de bouclier",
-    "bonus4pieces": "Répération de Fortune : Quand vous ou votre boucliez subissez des dégâts, 25% de ceux-ci sont réparés sur 10s.",
-    "talentTorse": "materiaux_ameliores",
+    "bonus4pieces": "Réparation de Fortune : Quand vous ou votre boucliez subissez des dégâts, 25% de ceux-ci sont réparés sur 10s.",
+    "talentTorse": "materiaux_ameliorés",
     "talentSac": "processus_de_raffinerie"
   },
   "future_initiative": {
@@ -151,7 +151,7 @@
     "bonus2pieces": "+15% Compétences de réparation",
     "bonus3pieces": "+15% Récupération de compétence +15% Durée de compétence",
     "bonus4pieces": "Contrôle du Terrain :Augmente vos dégâts d'arme et de compétences ainsi que ceux de vos alliés de 15% quand votre défensif est intacte. Quand vous réparez la défensif d'un allié, vous et vos alliés situés à 5m de vous êtes également réparés de 60% du montant.",
-    "talentTorse": "superiorite_tactique",
+    "talentTorse": "supériorité_tactique",
     "talentSac": "tactiques_de_combat_ameliorees"
   },
   "fureur_du_chasseur": {
@@ -164,9 +164,9 @@
     "bonus1piece": "",
     "bonus2pieces": "+15% Dégâts - fusil de calibre 12 +15% Dégâts - PM",
     "bonus3pieces": "+20% défensif pour élimination +50% Santé pour élimination",
-    "bonus4pieces": "Prédateur ultime :Les ennemis situés à moins de 15m subissent un débuff qui augmente vos dégâts d'arme contre eux de 20%. Éliminer un ennemi effecté par un débuff avec votre arme désoriente les ennemis situés à moins de 5m et augmente les dégâts d'arme de 5% pendant 10s, cet effet étant cumulable jusqu'à 5 fois.",
+    "bonus4pieces": "Prédateur ultime :Les ennemis situés à moins de 15m subissent un débuff qui augmente vos dégâts d'arme contre eux de 20%. Éliminer un ennemi affecté par un débuff avec votre arme désoriente les ennemis situés à moins de 5m et augmente les dégâts d'arme de 5% pendant 10s, cet effet étant cumulable jusqu'à 5 fois.",
     "talentTorse": "faim_insatiable",
-    "talentSac": "force_ecrasante"
+    "talentSac": "force_écrasante"
   },
   "rigger": {
     "nom": "Rigger",
@@ -180,7 +180,7 @@
     "bonus3pieces": "+15% Durée de compétence",
     "bonus4pieces": "Entretien efficace :Intéragir avec une compétence déployée lui confère un bonus de dégâts de 25% pendant 10 secondes. Ce buff ne peut pas être rafraîchi. Les intéractions incluent :- Utilisation/déploiement de compétence- Changement de cible de la compétence- Réparation de l'objet de compétence déployé",
     "talentTorse": "meilleurs_potes",
-    "talentSac": "disponibilite_totale"
+    "talentSac": "disponibilité_totale"
   },
   "heartbreaker": {
     "nom": "Heartbreaker",
@@ -248,7 +248,7 @@
     "bonus1piece": "",
     "bonus2pieces": "+20% Durée de brûlure augmentée +15% Santé de compétence",
     "bonus3pieces": "+40% Dégâts de brûlure",
-    "bonus4pieces": "Prototype Tourelle incinératrice \"Ortiz\" :La tourelle incinératrice pivote à 360°. Vous bénéficiez d'une immunité au tir de votre propre tourelle incinératriceLa tourelle incinératrice explose quand elle est désactivée.",
+    "bonus4pieces": "Prototype Tourelle incinératrice \"Ortiz\" :La tourelle incinératrice pivote à 360°. Vous bénéficiez d'une immunité au tir de votre propre tourelle incinératrice La tourelle incinératrice explose quand elle est désactivée.",
     "talentTorse": "combustion_en_chaine",
     "talentSac": "coup_de_chaud"
   },
@@ -304,7 +304,7 @@
     ],
     "bonus1piece": "",
     "bonus2pieces": "+15% Effets d'état",
-    "bonus3pieces": "+25% Dégats de compétences",
+    "bonus3pieces": "+25% Dégâts de compétences",
     "bonus4pieces": "Retour à l'envoyeur :Vous bénéficiez de réparations équivalant à 10% (5%) des dégâts infligés par vos compétences. Vos alliés bénéficient de réparations équivalant à 20% (10%) des dégâts infligés par vos compétences.",
     "talentTorse": "interet_accru",
     "talentSac": "surdéfensif"
@@ -332,9 +332,9 @@
     ],
     "bonus1piece": "",
     "bonus2pieces": "+30% Taille du chargeur",
-    "bonus3pieces": "+30% Dégats - Fusil-mitrailleur",
-    "bonus4pieces": "Contrôle de la puissance :Le fait de tirer cumule des effets jusqu'à un maximun de 50. Chaque effet cumulé confère +0,5% de maniabilité d'arme et +4% de dégats de coup critique. Vous perdez 6 effets par secondes quand vous ne tirez pas. Aucun effet n'est perdu si un ennemi est fixé.",
-    "talentTorse": "durabilite",
+    "bonus3pieces": "+30% Dégâts - Fusil-mitrailleur",
+    "bonus4pieces": "Contrôle de la puissance :Le fait de tirer cumule des effets jusqu'à un maximum de 50. Chaque effet cumulé confère +0,5% de maniabilité d'arme et +4% de dégâts de coup critique. Vous perdez 6 effets par secondes quand vous ne tirez pas. Aucun effet n'est perdu si un ennemi est fixé.",
+    "talentTorse": "durabilité",
     "talentSac": "boule_de_neige"
   },
   "concentrated_company": {
@@ -345,9 +345,9 @@
       "offensif"
     ],
     "bonus1piece": "",
-    "bonus2pieces": "+10% Dégats d'arme",
+    "bonus2pieces": "+10% Dégâts d'arme",
     "bonus3pieces": "+30% Maniement d'arme",
-    "bonus4pieces": "Camaraderie :Tirer sur un ennemi le marque pendant 7s. Quand un ennemi marqué meurt, vous recevez +3% de dégâts d'arme et +2% de dégâts de coup critique pour chaque allié ou compétence, y compris vous-même, ayant participé à l'élimination de cet ennemi. Cumul maximun : 35. Les effets se dissipent toutes les 10s. Maximun de marques pouvant être appliquées : 4.",
+    "bonus4pieces": "Camaraderie :Tirer sur un ennemi le marque pendant 7s. Quand un ennemi marqué meurt, vous recevez +3% de dégâts d'arme et +2% de dégâts de coup critique pour chaque allié ou compétence, y compris vous-même, ayant participé à l'élimination de cet ennemi. Cumul maximum : 35. Les effets se dissipent toutes les 10s. Maximum de marques pouvant être appliquées : 4.",
     "talentTorse": "tous_pour_un",
     "talentSac": "un_pour_tous"
   },
@@ -372,7 +372,7 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "+13%Dégâts d'headshot",
+    "bonus1piece": "+13%Dégâts de headshot",
     "bonus2pieces": "+8% Probabilité de coup critique",
     "bonus3pieces": "+13% Dégâts de coup critique",
     "bonus4pieces": "",
@@ -401,7 +401,7 @@
       "défensif"
     ],
     "bonus1piece": "+30% Santé",
-    "bonus2pieces": "+ 30% Réparations subies",
+    "bonus2pieces": "+30% Réparations subies",
     "bonus3pieces": "+30% défensif contre altérations d'état",
     "bonus4pieces": "",
     "talentTorse": "",
@@ -527,7 +527,7 @@
       "offensif"
     ],
     "bonus1piece": "+10% Dégâts - Fusil de précision",
-    "bonus2pieces": "+13% Dégâts d'headshot",
+    "bonus2pieces": "+13% Dégâts de headshot",
     "bonus3pieces": "+5% Dégâts aux défensifs",
     "bonus4pieces": "",
     "talentTorse": "",
@@ -584,7 +584,7 @@
     ],
     "bonus1piece": "+13% Dégâts de coup critique",
     "bonus2pieces": "+20% Dégâts d'explosion",
-    "bonus3pieces": "+13% Dégâts d'headshot",
+    "bonus3pieces": "+13% Dégâts de headshot",
     "bonus4pieces": "",
     "talentTorse": "",
     "talentSac": ""
@@ -708,7 +708,7 @@
     "attributsEssentiels": [
       "défensif"
     ],
-    "bonus1piece": "+13% Dégâts d'headshot",
+    "bonus1piece": "+13% Dégâts de headshot",
     "bonus2pieces": "+20% Dégâts - Fusil de précision",
     "bonus3pieces": "+25% Effets d'état",
     "bonus4pieces": "",

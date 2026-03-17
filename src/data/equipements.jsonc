@@ -167,8 +167,8 @@
     "type": "standard",
     "estNomme": false
   },
-  "strong_vest_bauson": {
-    "nom": "Strong Vest \"Bauson\"",
+  "veste_robuste_bauson": {
+    "nom": "Veste robuste \"Bauson\"",
     "marque": "badger_tuff",
     "emplacement": "torse",
     "mod": true,
@@ -329,7 +329,7 @@
     "nom": "Gants NBC",
     "marque": "ceska_vyroba_s_r_o",
     "emplacement": "gants",
-    "mod": true,
+    "mod": false,
     "talents": [],
     "type": "standard"
   },
@@ -557,8 +557,8 @@
     "talents": [],
     "type": "standard"
   },
-  "stridssack_combat_sack": {
-    "nom": "Stridssäck Combat Sack",
+  "sac_de_combat_stridssack": {
+    "nom": "Sac de combat Stridssäck",
     "marque": "fenris_group_ab",
     "emplacement": "sac_a_dos",
     "mod": true,
@@ -839,8 +839,8 @@
     "talents": [],
     "type": "standard"
   },
-  "genouilleres_hana_u": { // TODO : changer le nom ici
-    "nom": "Genouilleres Hana U",
+  "protection_de_rotules": { // TODO : changer le nom ici
+    "nom": "Protection de rotules",
     "marque": "hana_u_corporation",
     "emplacement": "genouilleres",
     "mod": false,
@@ -1031,8 +1031,8 @@
     "talents": [],
     "type": "standard"
   },
-  "graffham_thigh_combo": {
-    "nom": "\"Graffham\" Thigh Combo",
+  "protection_de_hanches_graffham": {
+    "nom": "Protections de hanches Graffham",
     "marque": "overlord_armaments",
     "emplacement": "holster",
     "mod": false,
@@ -1452,8 +1452,8 @@
     "type": "standard",
     "estNomme": false
   },
-  "digits_finger_stabilizer": {
-    "nom": "\"Digits\" Finger Stabilizer",
+  "gants_digits": {
+    "nom": "Gants \"Digits\"",
     "marque": "wyvern_wear",
     "emplacement": "gants",
     "mod": false,
@@ -1484,8 +1484,8 @@
     "talents": [],
     "type": "standard"
   },
-  "sac_yaahl_gear": { // TODO : renomé le sac
-    "nom": "Masque Cascades",
+  "sac_garibaldi": { // TODO : renomé le sac
+    "nom": "Sac Garibaldi",
     "marque": "yaahl_gear",
     "emplacement": "sac_a_dos",
     "mod": true,
@@ -1501,8 +1501,8 @@
     "type": "standard",
     "estNomme": false
   },
-  "gants_shasta": {
-    "nom": "Gants Shasta",
+  "gants_olympique": {
+    "nom": "Gants Olympique",
     "marque": "yaahl_gear",
     "emplacement": "gants",
     "mod": false,
@@ -1517,8 +1517,8 @@
     "talents": [],
     "type": "standard"
   },
-  "yukon_kneepads": {
-    "nom": "Yukon Kneepads",
+  "genouilleres_yukon": {
+    "nom": "Genouillères Yukon",
     "marque": "yaahl_gear",
     "emplacement": "genouilleres",
     "mod": false,

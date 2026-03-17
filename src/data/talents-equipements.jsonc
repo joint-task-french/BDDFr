@@ -518,14 +518,16 @@
     "description": "Augmente le bonus de dégâts de La main du mort de 30% à 50%.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "as_et_huit"
+    "gearSet": "as_et_huit",
+    "prerequis": "La main du mort"
   },
   "as_dans_la_manche": {
     "nom": "As dans la manche",
     "description": "Améliore 1 tir supplémentaire quand vous révélez votre main.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "as_et_huit"
+    "gearSet": "as_et_huit",
+    "prerequis": "La main du mort"
   },
   "destruction_specialisee": {
     "nom": "Destruction Spécialisée",
@@ -763,21 +765,23 @@
     "description": "Diminue de 4 à 3 le nombre d'effets nécessaires pour déclencher le double bonus de Symphonie.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "Virtuoso"
+    "gearSet": "virtuoso"
   },
   "interet_accru": {
     "nom": "Intérêt accru",
     "description": "Améliore les réparations de Retour à l'envoyeur de 10% (5%) à 25% (15%) et de 20% (10%) à 35% (20%).",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "refactor"
+    "gearSet": "refactor",
+    "prerequis": "Retour à l'envoyeur"
   },
   "surprotection": {
     "nom": "Surprotection",
     "description": "Quand votre protection est intacte, les réparations de Retour à l'envoyeur vous donnent un bonus d'armure pouvant atteindre 80% de votre armure totale. Ne s'applique pas aux alliés.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "refactor"
+    "gearSet": "refactor",
+    "prerequis": "Retour à l'envoyeur"
   },
   "esprit_de_ruche": {
     "nom": "Esprit de ruche",

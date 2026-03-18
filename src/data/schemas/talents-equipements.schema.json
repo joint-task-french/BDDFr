@@ -17,6 +17,7 @@
         },
         "icone": {
           "type": "string",
+          "pattern": "^[a-z0-9_]+$",
           "description": "Slug du fichier icône dans game_assets/talents/equipements/ (sans .png)"
         },
         "description": {
@@ -49,6 +50,7 @@
           "type": "array",
           "description": "Noms des équipements nommés qui portent la version parfaite de ce talent",
           "items": {
+            "pattern": "^[a-z0-9_]+$",
             "type": "string"
           }
         },

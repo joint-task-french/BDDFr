@@ -16,7 +16,9 @@ const DATA_DIR = join(__dirname, '..', 'src', 'data')
 // CONFIGURATION DES RELATIONS À VALIDER
 // -----------------------------------------------------------------------------
 const RELATIONS = [
-    // --- ARMES ---
+    // ==========================================
+    // 🔫 ARMES
+    // ==========================================
     {
         name: "Armes -> Types d'armes",
         sourceFile: 'armes-type.jsonc',
@@ -30,19 +32,33 @@ const RELATIONS = [
         targetKey: 'talents'
     },
     {
-        name: "Armes -> Attributs (Sur l'arme directement)",
+        name: "Armes -> Mods pré-équipés",
+        sourceFile: 'mods-armes.jsonc',
+        targetFile: 'armes.jsonc',
+        targetKey: 'modsPredefinis'
+    },
+    {
+        name: "Armes -> Attributs Essentiels",
         sourceFile: 'attributs.jsonc',
         targetFile: 'armes.jsonc',
         targetKey: 'attributs_essentiels'
     },
     {
-        name: "Types d'armes -> Attributs",
+        name: "Armes -> Attributs (Classiques)",
+        sourceFile: 'attributs.jsonc',
+        targetFile: 'armes.jsonc',
+        targetKey: 'attributs'
+    },
+    {
+        name: "Types d'armes -> Attributs Essentiels",
         sourceFile: 'attributs.jsonc',
         targetFile: 'armes-type.jsonc',
         targetKey: 'attributs_essentiels'
     },
 
-    // --- TALENTS ---
+    // ==========================================
+    // 🌟 TALENTS (ARMES)
+    // ==========================================
     {
         name: "Talents d'armes -> Armes (Armes Parfaites)",
         sourceFile: 'armes.jsonc',
@@ -54,21 +70,71 @@ const RELATIONS = [
         sourceFile: 'armes-type.jsonc',
         targetFile: 'talents-armes.jsonc',
         targetKey: 'compatibilite',
-        targetIsKey: true // Spécifie d'extraire les clés de l'objet (ex: "fusil": true)
+        targetIsKey: true
     },
 
-    // --- ÉQUIPEMENTS ---
+    // ==========================================
+    // 🛡️ ÉQUIPEMENTS
+    // ==========================================
     {
-        name: "Équipements -> Types d'équipements",
+        name: "Équipements -> Types d'équipements (Emplacements)",
         sourceFile: 'equipements-type.jsonc',
         targetFile: 'equipements.jsonc',
         targetKey: 'emplacement'
+    },
+    {
+        name: "Équipements -> Marques / Gear Sets",
+        sourceFile: 'ensembles.jsonc',
+        targetFile: 'equipements.jsonc',
+        targetKey: 'marque' // ⚠️ Attention au slug "*" (voir note plus bas)
     },
     {
         name: "Équipements -> Talents d'équipements",
         sourceFile: 'talents-equipements.jsonc',
         targetFile: 'equipements.jsonc',
         targetKey: 'talents'
+    },
+    {
+        name: "Équipements -> Attributs",
+        sourceFile: 'attributs.jsonc',
+        targetFile: 'equipements.jsonc',
+        targetKey: 'attributs'
+    },
+
+    // ==========================================
+    // 🌟 TALENTS (ÉQUIPEMENTS)
+    // ==========================================
+    {
+        name: "Talents d'équipements -> Équipements (Pièces Parfaites)",
+        sourceFile: 'equipements.jsonc',
+        targetFile: 'talents-equipements.jsonc',
+        targetKey: 'equipementsParfaits'
+    },
+
+    // ==========================================
+    // 🧩 ENSEMBLES (MARQUES & GEAR SETS)
+    // ==========================================
+    {
+        name: "Ensembles -> Talent Torse",
+        sourceFile: 'talents-equipements.jsonc',
+        targetFile: 'ensembles.jsonc',
+        targetKey: 'talentTorse'
+    },
+    {
+        name: "Ensembles -> Talent Sac",
+        sourceFile: 'talents-equipements.jsonc',
+        targetFile: 'ensembles.jsonc',
+        targetKey: 'talentSac'
+    },
+
+    // ==========================================
+    // 📊 ATTRIBUTS & STATISTIQUES
+    // ==========================================
+    {
+        name: "Attributs -> Statistiques de jeu",
+        sourceFile: 'statistiques.jsonc',
+        targetFile: 'attributs.jsonc',
+        targetKey: 'statistiques'
     }
 ]
 
@@ -123,14 +189,14 @@ function extractValues(data, targetKey, targetIsKey = false, results = new Set()
                     // Extraction des valeurs
                     if (Array.isArray(value)) {
                         value.forEach(v => {
-                            if (typeof v === 'string') {
-                                results.add(v) // Tableau de strings: ["talent_1", "talent_2"]
+                            if (typeof v === 'string' && v !== '*') {
+                                results.add(v)
                             } else if (typeof v === 'object' && v !== null && typeof v.nom === 'string') {
-                                results.add(v.nom) // Tableau d'objets: [{"nom": "attribut_1", "valeur": 10}]
+                                results.add(v.nom)
                             }
                         })
-                    } else if (typeof value === 'string') {
-                        results.add(value) // Valeur string directe: "type": "fusil"
+                    } else if (typeof value === 'string' && value !== '*') {
+                        results.add(value)
                     }
                 }
 

@@ -16,12 +16,11 @@ Check mise en forme :
 - Talent equipement
 
 Check :
--Obtention Exotic
+- Obtention Exotic
 - Les version pvp de tout
 - Obtention exo represaille
 
 Ocelus :
-- Mettre talent descente merci
 - Nom des talent exo en orange lors du mode compact
 
 Images :

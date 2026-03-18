@@ -18,6 +18,7 @@ import {
   getEnsembleFilters, getEnsembleDefaults, applyEnsembleFilters,
   getAttributFilters, getAttributDefaults, applyAttributFilters,
   getCompetenceFilters, getCompetenceDefaults, applyCompetenceFilters,
+  getDescenteFilters, getDescenteDefaults, applyDescenteFilters,
 
   WEAPON_SORT_OPTIONS, WEAPON_DEFAULT_SORT, applySortWeapons,
   GEAR_SORT_OPTIONS, GEAR_DEFAULT_SORT, applySortGear,
@@ -28,7 +29,8 @@ import {
   MOD_EQUIP_SORT_OPTIONS, MOD_EQUIP_DEFAULT_SORT, applySortModsEquip,
   MOD_COMP_SORT_OPTIONS, MOD_COMP_DEFAULT_SORT, applySortModsComp,
   ATTRIBUT_SORT_OPTIONS, ATTRIBUT_DEFAULT_SORT, applySortAttributs,
-  SKILL_SORT_OPTIONS, SKILL_DEFAULT_SORT, applySortSkills
+  SKILL_SORT_OPTIONS, SKILL_DEFAULT_SORT, applySortSkills,
+  DESCENTE_SORT_OPTIONS, DESCENTE_DEFAULT_SORT, applySortDescente
 } from '../config/filterConfigs'
 
 const CATEGORIES = [
@@ -42,13 +44,14 @@ const CATEGORIES = [
   { key: 'modsArmes', label: "Mods d'Armes", icon: '🔧' },
   { key: 'modsEquipements', label: "Mods d'Équipements", icon: '⚙️' },
   { key: 'modsCompetences', label: 'Mods de Compétences', icon: '💎' },
+  { key: 'descente', label: 'Descente', icon: '🧬' },
 ]
 
 // Catégories qui ont des filtres avancés
 const FILTER_CATEGORIES = new Set([
   'armes', 'equipements', 'talentsArmes', 'talentsEquipements',
   'modsArmes', 'ensembles', 'attributs', 'competences',
-  'modsEquipements', 'modsCompetences'
+  'modsEquipements', 'modsCompetences', 'descente'
 ])
 
 // Catégories avec options de tri multi-couches
@@ -63,6 +66,7 @@ const SORT_CATEGORIES = {
   modsArmes:          { options: MOD_ARME_SORT_OPTIONS, default: MOD_ARME_DEFAULT_SORT, apply: applySortModsArmes },
   modsEquipements:    { options: MOD_EQUIP_SORT_OPTIONS, default: MOD_EQUIP_DEFAULT_SORT, apply: applySortModsEquip },
   modsCompetences:    { options: MOD_COMP_SORT_OPTIONS, default: MOD_COMP_DEFAULT_SORT, apply: applySortModsComp },
+  descente:           { options: DESCENTE_SORT_OPTIONS, default: DESCENTE_DEFAULT_SORT, apply: applySortDescente },
 }
 
 function getFiltersConfig(category, data, values) {
@@ -77,6 +81,7 @@ function getFiltersConfig(category, data, values) {
     case 'competences':       return { filters: getCompetenceFilters(data), defaults: getCompetenceDefaults(), apply: applyCompetenceFilters }
     case 'modsEquipements':   return { filters: getModEquipementFilters(data), defaults: getModEquipementDefaults(), apply: applyModEquipementFilters }
     case 'modsCompetences':   return { filters: getModCompetenceFilters(data, values), defaults: getModCompetenceDefaults(), apply: applyModCompetenceFilters }
+    case 'descente':          return { filters: getDescenteFilters(data), defaults: getDescenteDefaults(), apply: applyDescenteFilters }
     default:                  return null
   }
 }
@@ -229,7 +234,20 @@ export default function DatabasePage() {
   // APPLICATION DES FILTRES ET DU TRI
   // =========================================================
   const filteredData = useMemo(() => {
-    let items = data[activeCategory]
+    let items = []
+
+    if (activeCategory === 'descente') {
+      const wTalents = Array.isArray(data?.talentsArmes) ? data.talentsArmes : Object.values(data?.talentsArmes || {})
+      const gTalents = Array.isArray(data?.talentsEquipements) ? data.talentsEquipements : Object.values(data?.talentsEquipements || {})
+
+      const descentWeapons = wTalents.filter(t => t.decente).map(t => ({ ...t, isWeaponTalent: true }))
+      const descentGear = gTalents.filter(t => t.decente).map(t => ({ ...t, isWeaponTalent: false }))
+
+      items = [...descentWeapons, ...descentGear]
+    } else {
+      items = data[activeCategory]
+    }
+
     if (!items || !Array.isArray(items)) return []
 
     if (filterConfig && currentFilters) {
@@ -238,11 +256,12 @@ export default function DatabasePage() {
 
     if (searchTerm) {
       const term = searchTerm.toLowerCase()
-      items = items.filter(item =>
-          Object.values(item).some(v =>
-              typeof v === 'string' && v.toLowerCase().includes(term)
-          )
-      )
+      items = items.filter(item => {
+        const descenteText = item.decente?.levels?.base?.toLowerCase() || ''
+        return Object.values(item).some(v =>
+            typeof v === 'string' && v.toLowerCase().includes(term)
+        ) || descenteText.includes(term)
+      })
     }
 
     if (sortConfig && currentSort.length > 0) {

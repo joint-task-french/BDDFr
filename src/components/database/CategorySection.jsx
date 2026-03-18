@@ -8,6 +8,7 @@ import ModArmeCard from './cards/ModArmeCard'
 import AttributCard from './cards/AttributCard'
 import ModCompetencesCard from "./cards/ModCompetencesCard.jsx";
 import ModEquipementCard from "./cards/ModEquipementCard.jsx";
+import DescentTalentCard from './cards/DescentTalentCard.jsx';
 import CompactListView from './CompactListView'
 import {useLocation, useNavigate} from "react-router-dom";
 import {slugify} from "../../utils/slugify.js";
@@ -24,6 +25,7 @@ const GRID_CONFIG = {
   modsArmes:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
   modsEquipements:   'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
   modsCompetences:   'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
+  descente:          'grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3',
 }
 
 // Quel composant card pour chaque catégorie
@@ -38,7 +40,10 @@ const CARD_COMPONENTS = {
   modsArmes: ModArmeCard,
   modsCompetences: ModCompetencesCard,
   modsEquipements: ModEquipementCard,
+  descente: DescentTalentCard
 }
+
+// ... Le reste du fichier CategorySection.jsx reste exactement identique ...
 
 // Fallback card générique pour mods équipement / compétences
 function GenericCard({ item }) {

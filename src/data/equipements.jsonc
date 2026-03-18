@@ -2103,7 +2103,199 @@
     "talents": [],
     "type": "gear_set"
   },
-    "masque_de_discretion": {
+  "masque_unit": {//TODO
+    "nom": "Masque unit",
+    "marque": "unit_alloys",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_unit": {//TODO
+    "nom": "Sac à dos Unit",
+    "marque": "unit_alloys",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "torse_unit": {//TODO
+    "nom": "Torse unit",
+    "marque": "unit_alloys",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_unit": {//TODO
+    "nom": "Gants unit",
+    "marque": "unit_alloys",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_unit": {//TODO
+    "nom": "Holster unit",
+    "marque": "unit_alloys",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_unit": {//TODO
+    "nom": "Genouillères unit",
+    "marque": "unit_alloys",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_d_eclaireur": {
+    "nom": "Masque d'éclaireur",
+    "marque": "urban_lookout",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_de_balade": {
+    "nom": "Sac à dos de balade",
+    "marque": "urban_lookout",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "plastron_marque": {
+    "nom": "Plastron marqué",
+    "marque": "urban_lookout",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "gants_etanches": {
+    "nom": "Gants étanches",
+    "marque": "urban_lookout",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_grossier": {
+    "nom": "Holster grossier",
+    "marque": "urban_lookout",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_de_randonnee": {
+    "nom": "Genouillères de randonnée",
+    "marque": "urban_lookout",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "prototype_de_masque": {
+    "nom": "Prototype de masque",
+    "marque": "imminence_armaments",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "paquetage_de_mission": {
+    "nom": "Paquetage de mission",
+    "marque": "imminence_armaments",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "gilet_urban_assault": {
+    "nom": "Gilet Urban Assault",
+    "marque": "imminence_armaments",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "gants_d_infiltrateur": {
+    "nom": "Gants d'infiltrateur",
+    "marque": "imminence_armaments",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_en_soie_d_araignee": {
+    "nom": "Holster en soir d'araignée",
+    "marque": "imminence_armaments",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_d_operateur": {
+    "nom": "Genouillères d'opérateur",
+    "marque": "imminence_armaments",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_de_machiniste": {
+    "nom": "Masque de machiniste",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "boite_a_outils_d_artificier": {
+    "nom": "Boîte à outils d'artificier ",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "gilet_de_service": {
+    "nom": "Gilet de service",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "gants_de_garage": {
+    "nom": "Gants de garage",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_d_artisan": {
+    "nom": "Holster d'artisan",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_professionnelles": {
+    "nom": "Genouillères professionnelles",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_de_discretion": {
     "nom": "Masque de discrétion",
     "marque": "heartbreaker",
     "emplacement": "masque",

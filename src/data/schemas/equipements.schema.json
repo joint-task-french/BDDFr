@@ -21,7 +21,7 @@
         },
         "marque": {
           "type": "string",
-          "pattern": "^[a-z0-9_]+$",
+          "pattern": "^([a-z0-9_]+|\\*)$",
           "description": "Slug de la marque/gear set, ou 'Exotique'"
         },
         "emplacement": {

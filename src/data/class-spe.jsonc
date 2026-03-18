@@ -3,7 +3,7 @@
   "demolisseur": {
     "cle": "demolisseur",
     "nom": "Démolisseur",
-    "icone": "💥",
+    "icone": "demolisseur",
     "arme": {
       "nom": "LANCE-GRENADES MULTIPLE M32A1",
       "icone": "m32a1",
@@ -18,7 +18,7 @@
   "survivaliste": {
     "cle": "survivaliste",
     "nom": "Survivaliste",
-    "icone": "🏹",
+    "icone": "survivaliste",
     "arme": {
       "nom": "CARREAUX",
       "icone": "carreaux",
@@ -33,7 +33,7 @@
   "tireur_elite": {
     "cle": "tireur_elite",
     "nom": "Tireur d'élite",
-    "icone": "🎯",
+    "icone": "tireur_elite",
     "arme": {
       "nom": "FUSIL TAC-50",
       "icone": "tac50",
@@ -48,7 +48,7 @@
   "artilleur": {
     "cle": "artilleur",
     "nom": "Artilleur",
-    "icone": "⚙️",
+    "icone": "artilleur",
     "arme": {
       "nom": "MINIGUN",
       "icone": "minigun",
@@ -63,7 +63,7 @@
   "technicien": {
     "cle": "technicien",
     "nom": "Technicien",
-    "icone": "🔧",
+    "icone": "technicien",
     "arme": {
       "nom": "LANCEUR P-017",
       "icone": "p017",
@@ -78,7 +78,7 @@
   "incendiaire": {
     "cle": "incendiaire",
     "nom": "Incendiaire",
-    "icone": "🔥",
+    "icone": "incendiaire",
     "arme": {
       "nom": "LANCE-FLAMMES K8-JETSTREAM",
       "icone": "k8_jetstream",

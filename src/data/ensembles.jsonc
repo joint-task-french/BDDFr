@@ -67,8 +67,8 @@
     "bonus2pieces": "+20% Dégâts d'arme spécifique",
     "bonus3pieces": "+10% Dégâts d'arme",
     "bonus4pieces": "Reconnaissance Agressive :Tuer une cible à l'arme spécifique confère un bonus aux dégâts d'arme spécifique de 15% pendant 10s ainsi que +25% de vitesse de rechargement pour le prochain rechargement de l'arme (les bonus ne se cumulent pas). Génère automatiquement des munitions spécifiques toutes les 60s.",
-    "talentTorse": "destruction_spécialisée",
-    "talentSac": "mouvement_spécifique"
+    "talentTorse": "destruction_specialisee",
+    "talentSac": "mouvement_specifique"
   },
   "dilemme_du_negociateur": {
     "nom": "Dilemme du Négociateur",
@@ -137,7 +137,7 @@
     "bonus2pieces": "+10% de défensif totale",
     "bonus3pieces": "+1% de régénération de défensif +50% santé de bouclier",
     "bonus4pieces": "Réparation de Fortune : Quand vous ou votre boucliez subissez des dégâts, 25% de ceux-ci sont réparés sur 10s.",
-    "talentTorse": "materiaux_ameliorés",
+    "talentTorse": "materiaux_ameliores",
     "talentSac": "processus_de_raffinerie"
   },
   "future_initiative": {
@@ -151,7 +151,7 @@
     "bonus2pieces": "+15% Compétences de réparation",
     "bonus3pieces": "+15% Récupération de compétence +15% Durée de compétence",
     "bonus4pieces": "Contrôle du Terrain :Augmente vos dégâts d'arme et de compétences ainsi que ceux de vos alliés de 15% quand votre défensif est intacte. Quand vous réparez la défensif d'un allié, vous et vos alliés situés à 5m de vous êtes également réparés de 60% du montant.",
-    "talentTorse": "supériorité_tactique",
+    "talentTorse": "superiorite_tactique",
     "talentSac": "tactiques_de_combat_ameliorees"
   },
   "fureur_du_chasseur": {
@@ -166,7 +166,7 @@
     "bonus3pieces": "+20% défensif pour élimination +50% Santé pour élimination",
     "bonus4pieces": "Prédateur ultime :Les ennemis situés à moins de 15m subissent un débuff qui augmente vos dégâts d'arme contre eux de 20%. Éliminer un ennemi affecté par un débuff avec votre arme désoriente les ennemis situés à moins de 5m et augmente les dégâts d'arme de 5% pendant 10s, cet effet étant cumulable jusqu'à 5 fois.",
     "talentTorse": "faim_insatiable",
-    "talentSac": "force_écrasante"
+    "talentSac": "force_ecrasante"
   },
   "rigger": {
     "nom": "Rigger",
@@ -180,7 +180,7 @@
     "bonus3pieces": "+15% Durée de compétence",
     "bonus4pieces": "Entretien efficace :Intéragir avec une compétence déployée lui confère un bonus de dégâts de 25% pendant 10 secondes. Ce buff ne peut pas être rafraîchi. Les intéractions incluent :- Utilisation/déploiement de compétence- Changement de cible de la compétence- Réparation de l'objet de compétence déployé",
     "talentTorse": "meilleurs_potes",
-    "talentSac": "disponibilité_totale"
+    "talentSac": "disponibilite_totale"
   },
   "heartbreaker": {
     "nom": "Heartbreaker",
@@ -236,7 +236,7 @@
     "bonus3pieces": "+40% Compétences de réparation",
     "bonus4pieces": "Charge en cours :- Charge en cours: Pour chaque seconde passée à découvert pendant le combat,l'agent bénéficie d'une réduction de 5% des dégâts de compétence subis. Max 50%. - Charge complète :Une fois la charge complète, l'agent et tous ses alliés bénéficient de l'immunité contre les altérations de vitesse de déplacement, d'une défensif contre les altérations d'état, et d'une réduction des dégâts subis pour une durée de 10sUne fois la charge consommée, le processus de charge reprend normalement si le jouer est toujours au combat et à découvert.",
     "talentTorse": "surcharge",
-    "talentSac": "défensif_de_charge"
+    "talentSac": "defensif_de_charge"
   },
   "ortiz_exuro": {
     "nom": "Ortiz: Exuro",
@@ -307,7 +307,7 @@
     "bonus3pieces": "+25% Dégâts de compétences",
     "bonus4pieces": "Retour à l'envoyeur :Vous bénéficiez de réparations équivalant à 10% (5%) des dégâts infligés par vos compétences. Vos alliés bénéficient de réparations équivalant à 20% (10%) des dégâts infligés par vos compétences.",
     "talentTorse": "interet_accru",
-    "talentSac": "surdéfensif"
+    "talentSac": "surdefensif"
   },
   "measured_assembly": {
     "nom": "Measured Assembly",
@@ -334,7 +334,7 @@
     "bonus2pieces": "+30% Taille du chargeur",
     "bonus3pieces": "+30% Dégâts - Fusil-mitrailleur",
     "bonus4pieces": "Contrôle de la puissance :Le fait de tirer cumule des effets jusqu'à un maximum de 50. Chaque effet cumulé confère +0,5% de maniabilité d'arme et +4% de dégâts de coup critique. Vous perdez 6 effets par secondes quand vous ne tirez pas. Aucun effet n'est perdu si un ennemi est fixé.",
-    "talentTorse": "durabilité",
+    "talentTorse": "durabilite",
     "talentSac": "boule_de_neige"
   },
   "concentrated_company": {
@@ -360,10 +360,7 @@
     ],
     "bonus1piece": "+10% Dégâts de Pistolet mitrailleur",
     "bonus2pieces": "+13% Dégâts de coup critique",
-    "bonus3pieces": "+8% Probabilité de coup critique",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+8% Probabilité de coup critique"
   },
   "providence_defense": {
     "nom": "Providence Defense",
@@ -374,10 +371,7 @@
     ],
     "bonus1piece": "+13%Dégâts de headshot",
     "bonus2pieces": "+8% Probabilité de coup critique",
-    "bonus3pieces": "+13% Dégâts de coup critique",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+13% Dégâts de coup critique"
   },
   "overlord_armaments": {
     "nom": "Overlord Armaments",
@@ -388,10 +382,7 @@
     ],
     "bonus1piece": "+10% Dégâts de fusil",
     "bonus2pieces": "+30% Précision",
-    "bonus3pieces": "+30% Maniement d'arme",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+30% Maniement d'arme"
   },
   "5_11_tactical": {
     "nom": "5.11 Tactical",
@@ -402,10 +393,7 @@
     ],
     "bonus1piece": "+30% Santé",
     "bonus2pieces": "+30% Réparations subies",
-    "bonus3pieces": "+30% défensif contre altérations d'état",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+30% défensif contre altérations d'état"
   },
   "douglas_harding": {
     "nom": "Douglas & Harding",
@@ -416,10 +404,7 @@
     ],
     "bonus1piece": "+20% Dégâts de Pistolet",
     "bonus2pieces": "+30% Stabilité",
-    "bonus3pieces": "+50% Précision",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+50% Précision"
   },
   "petrov_defense_group": {
     "nom": "Petrov Defense Group",
@@ -430,10 +415,7 @@
     ],
     "bonus1piece": "+10% Dégâts - Fusil mitrailleur",
     "bonus2pieces": "+15% Maniement d'arme",
-    "bonus3pieces": "+50% Capacité munitions",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+50% Capacité munitions"
   },
   "wyvern_wear": {
     "nom": "Wyvern Wear",
@@ -444,10 +426,7 @@
     ],
     "bonus1piece": "+8% Dégâts de compétences",
     "bonus2pieces": "+18% Effets d'état",
-    "bonus3pieces": "+45% Durée de compétence",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+45% Durée de compétence"
   },
   "alps_summit_armement": {
     "nom": "Alps Summit Armement",
@@ -458,10 +437,7 @@
     ],
     "bonus1piece": "+18% Compétences de réparation",
     "bonus2pieces": "+30% Durée de compétence",
-    "bonus3pieces": "+30% Récupération de compétence",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+30% Récupération de compétence"
   },
   "richter_kaiser_gmbh": {
     "nom": "Richter & Kaiser GmbH",
@@ -472,10 +448,7 @@
     ],
     "bonus1piece": "+15% Réparations subies",
     "bonus2pieces": "+25% Resistance aux explosions",
-    "bonus3pieces": "+40% Compétences de réparation",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+40% Compétences de réparation"
   },
   "gila_guard": {
     "nom": "Gila Guard",
@@ -486,10 +459,7 @@
     ],
     "bonus1piece": "+5% défensif totale",
     "bonus2pieces": "+60% Santé",
-    "bonus3pieces": "+2% Régénération de défensif",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+2% Régénération de défensif"
   },
   "murakami_industries": {
     "nom": "Murakami Industries",
@@ -500,10 +470,7 @@
     ],
     "bonus1piece": "+15% Durée de compétence",
     "bonus2pieces": "+35% Compétences de réparation",
-    "bonus3pieces": "+18% Dégâts de compétences",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+18% Dégâts de compétences"
   },
   "fenris_group_ab": {
     "nom": "Fenris Group AB",
@@ -514,10 +481,7 @@
     ],
     "bonus1piece": "+10% Dégâts de fusil d'assaut",
     "bonus2pieces": "+30% Vitesse de rechargement",
-    "bonus3pieces": "+50% Stabilité",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+50% Stabilité"
   },
   "airaldi_holdings": {
     "nom": "Airaldi Holdings",
@@ -528,10 +492,7 @@
     ],
     "bonus1piece": "+10% Dégâts - Fusil de précision",
     "bonus2pieces": "+13% Dégâts de headshot",
-    "bonus3pieces": "+5% Dégâts aux défensifs",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+5% Dégâts aux défensifs"
   },
   "china_light_industries_corporation": {
     "nom": "China Light Industries Corporation",
@@ -542,10 +503,7 @@
     ],
     "bonus1piece": "+15% Dégâts d'explosion",
     "bonus2pieces": "+20% Récupération de compétence",
-    "bonus3pieces": "+25% Effets d'état",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+25% Effets d'état"
   },
   "yaahl_gear": {
     "nom": "Yaahl Gear",
@@ -556,10 +514,7 @@
     ],
     "bonus1piece": "+10% défensif contre les altérations d'état",
     "bonus2pieces": "+10% Dégâts d'arme",
-    "bonus3pieces": "+40% Résistance à l'impulsion",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+40% Résistance à l'impulsion"
   },
   "badger_tuff": {
     "nom": "Badger Tuff",
@@ -570,10 +525,7 @@
     ],
     "bonus1piece": "+10% Dégâts fusils calibre 12",
     "bonus2pieces": "+5% défensif totale",
-    "bonus3pieces": "+15% Pourcentage de défensif pour élimination",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+15% Pourcentage de défensif pour élimination"
   },
   "grupo_sombra_s_a": {
     "nom": "Grupo Sombra S.A",
@@ -584,10 +536,7 @@
     ],
     "bonus1piece": "+13% Dégâts de coup critique",
     "bonus2pieces": "+20% Dégâts d'explosion",
-    "bonus3pieces": "+13% Dégâts de headshot",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+13% Dégâts de headshot"
   },
   "hana_u_corporation": {
     "nom": "Hana-U Corporation",
@@ -598,10 +547,7 @@
     ],
     "bonus1piece": "+10% Récupération de compétence",
     "bonus2pieces": "+10% Dégâts de compétences",
-    "bonus3pieces": "+15% Dégâts d'arme",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+15% Dégâts d'arme"
   },
   "golan_gear_ltd": {
     "nom": "Golan Gear Ltd",
@@ -612,10 +558,7 @@
     ],
     "bonus1piece": "+10% Effets d'état",
     "bonus2pieces": "+1,5% Régénération de défensif",
-    "bonus3pieces": "+10% défensif totale",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+10% défensif totale"
   },
   "ceska_vyroba_s_r_o": {
     "nom": "Česká Výroba s.r.o",
@@ -626,10 +569,7 @@
     ],
     "bonus1piece": "+8% Probabilité de coup critique",
     "bonus2pieces": "+20% défensif contre les altérations d'état",
-    "bonus3pieces": "+90% Santé",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+90% Santé"
   },
   "walker_harris_co": {
     "nom": "Walker, Harris & co",
@@ -640,211 +580,166 @@
     ],
     "bonus1piece": "+5% Dégâts d'arme",
     "bonus2pieces": "+5% Dégâts aux défensifs",
-    "bonus3pieces": "+10% Dégâts à la santé",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+10% Dégâts à la santé"
   },
   "belstone_armory": {
     "nom": "Belstone Armory",
     "type": "marque",
-    "logo": "",
+    "logo": "belstone_armory",
     "attributsEssentiels": [
       "défensif"
     ],
     "bonus1piece": "+1% Régénération de défensif",
     "bonus2pieces": "+10% défensif pour élimination",
-    "bonus3pieces": "+45% Réparations subies",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+45% Réparations subies"
   },
   "empress_international": {
     "nom": "Empress International",
     "type": "marque",
-    "logo": "",
+    "logo": "empress_international",
     "attributsEssentiels": [
       "utilitaire"
     ],
     "bonus1piece": "+10% Santé pour compétence",
     "bonus2pieces": "+10% Dégâts de compétences",
-    "bonus3pieces": "+8% efficacité de compétence",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+8% efficacité de compétence"
   },
   "uzina_getica": {
     "nom": "Uzina Getica",
     "type": "marque",
-    "logo": "",
+    "logo": "uzina_getica",
     "attributsEssentiels": [
       "défensif"
     ],
     "bonus1piece": "+5% défensif totale",
     "bonus2pieces": "+10% défensif pour élimination",
-    "bonus3pieces": "+30% défensif contre les altérations d'état",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+30% défensif contre les altérations d'état"
   },
   "brazos_de_arcabuz": {
     "nom": "Brazos de Arcabuz",
     "type": "marque",
-    "logo": "",
+    "logo": "brazos_de_arcabuz",
     "attributsEssentiels": [
       "défensif"
     ],
     "bonus1piece": "+10% Récupération de compétence",
     "bonus2pieces": "+1 utilitaire",
-    "bonus3pieces": "+50% Taille du chargeur",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+50% Taille du chargeur"
   },
   "hasburg_guard": {
     "nom": "Hasburg Guard",
     "type": "marque",
-    "logo": "",
+    "logo": "hasburg_guard",
     "attributsEssentiels": [
       "défensif"
     ],
     "bonus1piece": "+13% Dégâts de headshot",
     "bonus2pieces": "+20% Dégâts - Fusil de précision",
-    "bonus3pieces": "+25% Effets d'état",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+25% Effets d'état"
   },
   "electrique": {
     "nom": "Electrique",
     "type": "marque",
-    "logo": "",
+    "logo": "electrique",
     "attributsEssentiels": [
       "utilitaire"
     ],
     "bonus1piece": "+10% Effets d'état",
     "bonus2pieces": "+20% Resistance - Électrocutions",
-    "bonus3pieces": "+30% Dégâts - Pistolet mitrailleur",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+30% Dégâts - Pistolet mitrailleur"
   },
   "palisade_steelworks": {
     "nom": "Palisade Steelworks",
     "type": "marque",
-    "logo": "",
+    "logo": "palisade_steelworks",
     "attributsEssentiels": [
       "défensif"
     ],
     "bonus1piece": "+10% défensif pour élimination",
     "bonus2pieces": "+60% Santé",
-    "bonus3pieces": "+1 utilitaire",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+1 utilitaire"
   },
   "zwiadowka_sp_z_o_o": {
     "nom": "Zwiadowka Sp. z o.o.",
     "type": "marque",
-    "logo": "",
+    "logo": "zwiadowka_sp_z_o_o",
     "attributsEssentiels": [
       "offensif"
     ],
     "bonus1piece": "+15% Taille du chargeur",
     "bonus2pieces": "+20% Dégâts de fusil",
-    "bonus3pieces": "+30% Maniement d'arme",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+30% Maniement d'arme"
   },
   "legatus_s_p_a": {
     "nom": "Legatus S.p.A.",
     "type": "marque",
-    "logo": "",
+    "logo": "legatus_s_p_a",
     "attributsEssentiels": [
       "offensif"
     ],
     "bonus1piece": "+30% Vitesse de rechargement",
     "bonus2pieces": "+70% Portée optimale",
-    "bonus3pieces": "+15% Dégâts d'arme",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+15% Dégâts d'arme"
   },
   "unit_alloys": {
     "nom": "Unit Alloys",
     "type": "marque",
-    "logo": "",
+    "logo": "unit_alloys",
     "attributsEssentiels": [
       "offensif"
     ],
     "bonus1piece": "+5% Cadence de tir",
     "bonus2pieces": "+20% Dégâts - Fusil d'assaut",
-    "bonus3pieces": "+50% Taille du chargeur",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+50% Taille du chargeur"
   },
   "urban_lookout": {
     "nom": "Urban Lookout",
     "type": "marque",
-    "logo": "",
+    "logo": "urban_lookout",
     "attributsEssentiels": [
       "offensif"
     ],
     "bonus1piece": "+10% Précision",
     "bonus2pieces": "+30% Durée de compétence",
-    "bonus3pieces": "+30% Dégâts - Fusil de précision",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+30% Dégâts - Fusil de précision"
   },
   "imminence_armaments": {
     "nom": "Imminence Armaments",
     "type": "marque",
-    "logo": "",
+    "logo": "imminence_armaments",
     "attributsEssentiels": [
       "offensif"
     ],
     "bonus1piece": "+5% Dégâts d'arme",
     "bonus2pieces": "+100% Menace augmentée",
-    "bonus3pieces": "+60% Dégâts - Pistolet",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+60% Dégâts - Pistolet"
   },
   "shiny_monkey_gear": {
     "nom": "Shiny Monkey Gear",
     "type": "marque",
-    "logo": "",
+    "logo": "shiny_monkey_gear",
     "attributsEssentiels": [
       "utilitaire"
     ],
     "bonus1piece": "+15% Durée de compétence",
     "bonus2pieces": "+5% Efficacité de compétence",
-    "bonus3pieces": "+52% Compétence de réparation",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+52% Compétence de réparation"
   },
   "lengmo": {
     "nom": "Lengmo",
     "type": "marque",
-    "logo": "",
+    "logo": "lengmo",
     "attributsEssentiels": [
       "défensif"
     ],
     "bonus1piece": "+20% Résistance - Explosions",
     "bonus2pieces": "+20% Santé pour compétence",
-    "bonus3pieces": "+30% Dégâts - Fusil-mitrailleur",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": ""
+    "bonus3pieces": "+30% Dégâts - Fusil-mitrailleur"
   },
   "improvise": {
     "nom": "Improvisé",
     "type": "improvise",
-    "logo": "",
+    "logo": "improvise",
     "attributsEssentiels": [
       "défensif",
       "offensif",
@@ -853,9 +748,6 @@
     "bonus1piece": "",
     "bonus2pieces": "",
     "bonus3pieces": "",
-    "bonus4pieces": "",
-    "talentTorse": "",
-    "talentSac": "",
     "notes": "Les équipements improvisé ont la particularité de pouvoir porté un mod sur toutes de leurs pieces."
   }
 }

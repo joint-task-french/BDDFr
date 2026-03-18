@@ -142,8 +142,8 @@
     "talents": [],
     "type": "standard"
   },
-  "Protections Clutch XO-Skin": {
-    "nom": "Protections Clutch XO-Skin",
+  "protections_clutch_x0_skin": {
+    "nom": "Protections Clutch X0-Skin",
     "marque": "alps_summit_armement",
     "emplacement": "genouilleres",
     "mod": false,

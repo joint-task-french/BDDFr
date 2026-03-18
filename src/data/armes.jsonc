@@ -5396,7 +5396,7 @@
     ],
     "attributs": [
       {
-      "nom": "degats_sur_cible_non_abritee",
+      "nom": "degats_sur_cible_non_abritee_arm",
         "valeur": 10
       }
     ]

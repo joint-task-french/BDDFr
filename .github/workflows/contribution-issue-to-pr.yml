@@ -64,7 +64,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `✅ **Succès !**\n\nLes données ont été traitées automatiquement en préservant les commentaires. La [Pull Request a été générée](${prUrl}).\n\nL'issue est désormais fermée.`
+              body: `✅ **Succès !**\n\nLes données ont été traitées automatiquement. La [Pull Request avec vos changements a été générée](${prUrl}).\n\nL'issue est désormais fermée.`
             });
             await github.rest.issues.update({
               issue_number: context.issue.number,
@@ -82,5 +82,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "❌ **Erreur lors du traitement automatique**\n\nL'application du patch a échoué. Cela peut arriver si le fichier cible est mal formé ou si une dépendance est manquante."
+              body: "❌ **Erreur lors du traitement automatique**\n\nL'application du patch a échoué. Un mainteneur du projet traitera manuellement votre contribution."
             });

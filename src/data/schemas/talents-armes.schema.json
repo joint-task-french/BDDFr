@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Talents d'armes — The Division 2",
+  "title": "Talents d'armes",
   "description": "Clé = slug du talent.",
   "type": "object",
   "additionalProperties": false,
@@ -8,16 +8,16 @@
     "^[a-z0-9_]+$": {
       "type": "object",
       "required": [
-        "nom",
-        "icone",
-        "description"
+        "nom"
       ],
       "properties": {
         "nom": {
           "type": "string"
         },
         "icone": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Slug du fichier icône dans game_assets/talents/arme/ (sans .png)"
         },
         "description": {
           "type": "string"
@@ -26,46 +26,67 @@
           "type": "string"
         },
         "estExotique": {
-          "type": "boolean"
-        },
-        "compatibilite": {
-          "type": "object",
-          "properties": {
-            "fusil": {
-              "type": "boolean"
-            },
-            "calibre_12": {
-              "type": "boolean"
-            },
-            "fusil_assaut": {
-              "type": "boolean"
-            },
-            "fusil_mitrailleur": {
-              "type": "boolean"
-            },
-            "fusil_precision": {
-              "type": "boolean"
-            },
-            "pistolet": {
-              "type": "boolean"
-            },
-            "pistolet_mitrailleur": {
-              "type": "boolean"
-            }
-          }
+          "type": "boolean",
+          "description": "True si talent exotique (dédié à une arme exotique)."
         },
         "perfectDescription": {
-          "type": "string"
+          "type": "string",
+          "description": "Description de la version parfaite du talent"
         },
         "armesParfaites": {
           "type": "array",
+          "description": "Noms des armes nommées qui portent la version parfaite de ce talent",
           "items": {
+            "pattern": "^[a-z0-9_]+$",
             "type": "string"
+          }
+        },
+        "compatibilite": {
+          "type": "object",
+          "description": "Types d'armes compatibles (true) ou non (false). Si absent, compatible avec tout.",
+          "patternProperties": {
+            "^[a-z0-9_]+$": {
+              "type": "boolean"
+            }
           }
         },
         "notes": {
           "type": "string",
           "description": "Notes libres sur le talent"
+        },
+        "decente": {
+          "type": "object",
+          "description": "Données spécifiques au mode de jeu Descente",
+          "required": ["boucles", "categorie", "levels"],
+          "properties": {
+            "boucles": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "categorie": {
+              "type": "string",
+              "enum": ["offensif", "défensif", "utilitaire", "exotique"]
+            },
+            "levels": {
+              "type": "object",
+              "required": ["base"],
+              "properties": {
+                "base": {
+                  "type": "string",
+                  "description": "Description du talent avec variables : {var_name}, {other_var_name}..."
+                }
+              },
+              "additionalProperties": {
+                "type": "object",
+                "description": "Valeurs des variables pour un niveau donné (ex: '1', '2', etc.)",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
         }
       }
     }

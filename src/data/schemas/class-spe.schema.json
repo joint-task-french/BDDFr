@@ -15,20 +15,14 @@
       "properties": {
         "cle": {
           "type": "string",
-          "enum": [
-            "demolisseur",
-            "survivaliste",
-            "tireur_elite",
-            "artilleur",
-            "technicien",
-            "incendiaire"
-          ]
+          "pattern": "^[a-z0-9_]+$"
         },
         "nom": {
           "type": "string"
         },
         "icone": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
         },
         "arme": {
           "type": "object",

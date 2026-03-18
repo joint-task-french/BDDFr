@@ -662,3 +662,63 @@ export function applyModCompetenceFilters(items, filters) {
     return true
   })
 }
+
+
+// ================================================================
+// FILTRES : DESCENTE
+// ================================================================
+export const DESCENTE_SORT_OPTIONS = [
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'categorie', label: 'Catégorie', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const DESCENTE_DEFAULT_SORT = [
+  { id: 'categorie', desc: false },
+  { id: 'alpha', desc: false }
+]
+const descenteGetters = {
+  alpha: (item) => item.nom || '',
+  categorie: (item) => item.decente?.categorie || ''
+}
+export function applySortDescente(items, sortLayers) { return multiSort(items, sortLayers, descenteGetters) }
+
+
+export function getDescenteFilters(data) {
+  const wTalents = Array.isArray(data?.talentsArmes) ? data.talentsArmes : Object.values(data?.talentsArmes || {})
+  const gTalents = Array.isArray(data?.talentsEquipements) ? data.talentsEquipements : Object.values(data?.talentsEquipements || {})
+
+  const descentTalents = [...wTalents, ...gTalents].filter(t => t.decente)
+
+  const bouclesSet = new Set()
+  descentTalents.forEach(t => t.decente.boucles.forEach(b => bouclesSet.add(b)))
+  const boucleOptions = Array.from(bouclesSet)
+      .sort()
+      .map(b => ({ value: b, label: b }))
+
+  return [
+    {
+      key: 'boucle', type: 'select', label: 'Boucle',
+      options: boucleOptions,
+    },
+    {
+      key: 'categorie', type: 'select', label: 'Catégorie',
+      options: [
+        { value: 'offensif', label: 'Offensif' },
+        { value: 'défensif', label: 'Défensif' },
+        { value: 'utilitaire', label: 'Utilitaire' },
+        { value: 'exotique', label: 'Exotique' },
+      ],
+    }
+  ]
+}
+
+export function getDescenteDefaults() {
+  return { boucle: '', categorie: '' }
+}
+
+export function applyDescenteFilters(items, filters) {
+  return items.filter(item => {
+    if (filters.boucle && !item.decente.boucles.includes(filters.boucle)) return false
+    if (filters.categorie && item.decente.categorie !== filters.categorie) return false
+    return true
+  })
+}

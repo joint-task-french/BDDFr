@@ -17,7 +17,8 @@
           "description": "Nom du type de compétence (ex: TOURELLE, DRONE)"
         },
         "icone": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
         },
         "emplacementsMods": {
           "type": "array",
@@ -59,7 +60,8 @@
                 "type": "string"
               },
               "icone": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
               },
               "expertise": {
                 "type": "string"

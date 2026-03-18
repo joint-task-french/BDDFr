@@ -100,6 +100,10 @@ const categoryFormatters = {
         title: `Attribut : ${item.nom} — BDDFr`,
         description: item.description || `Valeurs : ${item.min}-${item.max}${item.unite}.`
     }),
+    'descente': (item, level) => ({
+        title: `🧬 ${item.nom} (Niv. ${level || 1}) — BDDFr`,
+        description: `Talent du mode Descente : ${item.decente?.categorie || 'Spécial'}`
+    }),
     'default': (item) => ({
         title: `${item.nom || item.competence || 'Élément'} — BDDFr`,
         description: item.description || "Détails et statistiques."
@@ -168,35 +172,47 @@ async function generate() {
     const exportIconsDir = path.join(DIST_DIR, 'og-icons');
     if (!fs.existsSync(exportIconsDir)) fs.mkdirSync(exportIconsDir, { recursive: true });
 
-    for (const [categoryKey, fileName] of Object.entries(categoryMap)) {
-        const filePath = path.join(DATA_DIR, fileName);
-        if (!fs.existsSync(filePath)) continue;
-        const rawData = parseJsonc(filePath);
-        if (!rawData) continue;
+    const categoriesToProcess = [...Object.keys(categoryMap), 'descente'];
 
+    for (const categoryKey of categoriesToProcess) {
         let items = [];
-        if (categoryKey === 'competences') {
-            Object.entries(rawData).forEach(([skillKey, skill]) => {
-                skill.variantes.forEach(v => items.push({ ...v, competence: skill.competence, skillSlug: skillKey }));
-            });
-        } else if (categoryKey === 'armes') {
-            items = Array.isArray(rawData) ? [...rawData] : Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
-            if (classSpe) {
-                Object.values(classSpe).forEach(spe => {
-                    if (spe.arme && spe.arme.nom) {
-                        items.push({
-                            ...spe.arme,
-                            slug: slugify(spe.arme.nom),
-                            isSignature: true,
-                            type: spe.nom
-                        });
-                    }
-                });
-            }
-        } else if (!Array.isArray(rawData)) {
-            items = Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
+
+        if (categoryKey === 'descente') {
+            const wTalents = parseJsonc(path.join(DATA_DIR, 'talents-armes.jsonc')) || {};
+            const gTalents = parseJsonc(path.join(DATA_DIR, 'talents-equipements.jsonc')) || {};
+            items = [
+                ...Object.entries(wTalents).map(([s, v]) => ({ ...v, slug: s })),
+                ...Object.entries(gTalents).map(([s, v]) => ({ ...v, slug: s }))
+            ].filter(i => i.decente);
         } else {
-            items = rawData;
+            const filePath = path.join(DATA_DIR, categoryMap[categoryKey]);
+            if (!fs.existsSync(filePath)) continue;
+            const rawData = parseJsonc(filePath);
+            if (!rawData) continue;
+
+            if (categoryKey === 'competences') {
+                Object.entries(rawData).forEach(([skillKey, skill]) => {
+                    skill.variantes.forEach(v => items.push({ ...v, competence: skill.competence, skillSlug: skillKey }));
+                });
+            } else if (categoryKey === 'armes') {
+                items = Array.isArray(rawData) ? [...rawData] : Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
+                if (classSpe) {
+                    Object.values(classSpe).forEach(spe => {
+                        if (spe.arme && spe.arme.nom) {
+                            items.push({
+                                ...spe.arme,
+                                slug: slugify(spe.arme.nom),
+                                isSignature: true,
+                                type: spe.nom
+                            });
+                        }
+                    });
+                }
+            } else if (!Array.isArray(rawData)) {
+                items = Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
+            } else {
+                items = rawData;
+            }
         }
 
         for (const item of items) {
@@ -220,23 +236,47 @@ async function generate() {
                 publicImageUrl = `og-icons/${resolvedFileName}`;
             }
 
-            const pagePath = `db/${categoryKey}/${itemSlug}`;
             const formatter = categoryFormatters[categoryKey] || categoryFormatters['default'];
-            const { title, description } = formatter(item);
-            const targetDir = path.join(DIST_DIR, pagePath);
-            if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-            fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(title, description, publicImageUrl, pagePath));
-            sitemapEntries.push(`${BASE_URL}/${pagePath}`);
 
-            // Nouvelle page HTML statique pour la version parfaite
-            if ((categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') && !item.estExotique && item.perfectDescription) {
-                const parfaitPath = `db/${categoryKey}/${itemSlug}/parfait`;
-                const targetDirParfait = path.join(DIST_DIR, parfaitPath);
-                if (!fs.existsSync(targetDirParfait)) fs.mkdirSync(targetDirParfait, { recursive: true });
+            if (categoryKey === 'descente') {
+                const levels = Object.keys(item.decente.levels).filter(k => k !== 'base').sort((a,b)=>parseInt(a)-parseInt(b));
 
-                const parfaitTitle = title.replace(' —', ' (Parfait) —');
-                fs.writeFileSync(path.join(targetDirParfait, 'index.html'), stubTemplate(parfaitTitle, description, publicImageUrl, parfaitPath));
-                sitemapEntries.push(`${BASE_URL}/${parfaitPath}`);
+                for (const level of levels) {
+                    const { title, description } = formatter(item, level);
+                    const pagePath = `db/descente/${itemSlug}/${level}`;
+
+                    const targetDir = path.join(DIST_DIR, pagePath);
+                    if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+                    fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(title, description, publicImageUrl, pagePath));
+                    sitemapEntries.push(`${BASE_URL}/${pagePath}`);
+
+                    // Création de la page par défaut (niveau 1)
+                    if (level === levels[0]) {
+                        const defaultPath = `db/descente/${itemSlug}`;
+                        const defaultDir = path.join(DIST_DIR, defaultPath);
+                        if (!fs.existsSync(defaultDir)) fs.mkdirSync(defaultDir, { recursive: true });
+                        fs.writeFileSync(path.join(defaultDir, 'index.html'), stubTemplate(title, description, publicImageUrl, defaultPath));
+                        sitemapEntries.push(`${BASE_URL}/${defaultPath}`);
+                    }
+                }
+            } else {
+                const { title, description } = formatter(item);
+                const pagePath = `db/${categoryKey}/${itemSlug}`;
+                const targetDir = path.join(DIST_DIR, pagePath);
+
+                if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+                fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(title, description, publicImageUrl, pagePath));
+                sitemapEntries.push(`${BASE_URL}/${pagePath}`);
+
+                if ((categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') && !item.estExotique && item.perfectDescription) {
+                    const parfaitPath = `db/${categoryKey}/${itemSlug}/parfait`;
+                    const targetDirParfait = path.join(DIST_DIR, parfaitPath);
+                    if (!fs.existsSync(targetDirParfait)) fs.mkdirSync(targetDirParfait, { recursive: true });
+
+                    const parfaitTitle = title.replace(' —', ' (Parfait) —');
+                    fs.writeFileSync(path.join(targetDirParfait, 'index.html'), stubTemplate(parfaitTitle, description, publicImageUrl, parfaitPath));
+                    sitemapEntries.push(`${BASE_URL}/${parfaitPath}`);
+                }
             }
         }
     }

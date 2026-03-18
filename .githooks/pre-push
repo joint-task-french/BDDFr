@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# On définit une variable pour mémoriser si on a mis des choses de côté
+HAS_STASH=0
+
+# 1. DÉFINITION DE LA SÉCURITÉ (CLEANUP)
+# Cette fonction s'exécutera à la toute fin du script, qu'il réussisse ou qu'il échoue.
+cleanup() {
+  if [ "$HAS_STASH" -eq 1 ]; then
+    echo "📦 Restauration de tes modifications en cours..."
+    # On remet les fichiers non commités exactement comme ils étaient
+    git stash pop -q
+  fi
+}
+
+# On utilise "trap" pour s'assurer que cleanup est toujours appelé à la sortie (EXIT)
+trap cleanup EXIT
+
+# 2. PRÉPARATION DE L'ENVIRONNEMENT
+# On vérifie si l'espace de travail est "sale" (fichiers modifiés ou nouveaux fichiers non suivis)
+if ! git diff-index --quiet HEAD -- || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+  echo "📦 Mise de côté (stash) des fichiers non commités pour tester la version exacte du push..."
+  # On stash tout, y compris les fichiers non suivis (-u), de manière silencieuse (-q)
+  git stash push -u -q -m "Temp stash for pre-push hook"
+  HAS_STASH=1
+fi
+
+# 3. EXÉCUTION DES TESTS
+# À partir d'ici, le dossier correspond EXACTEMENT au dernier commit.
+echo "🚀 Exécution des validations avant le push..."
+
+# L'option -e arrête le script immédiatement si une commande (Node) échoue
+set -e
+
+node scripts/validate-schemas.mjs
+node scripts/validate-slugs.mjs
+
+echo "✅ Tests validés sur le code commité, envoi vers le serveur en cours..."

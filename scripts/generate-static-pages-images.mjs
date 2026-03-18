@@ -76,6 +76,10 @@ const categoryFormatters = {
         title: `📊 ${item.nom} — BDDFr`,
         description: "Attribut"
     }),
+    'descente': (item, level) => ({
+        title: `🧬 ${item.nom} (Niv. ${level || 1}) — BDDFr`,
+        description: `Talent du mode Descente : ${item.decente?.categorie || 'Spécial'}`
+    }),
     'default': (item) => ({
         title: `${item.nom || item.competence || 'Élément'} — BDDFr`,
         description: "Élément de la base de données"
@@ -92,7 +96,8 @@ const categoryTitles = {
     'talentsEquipements': 'Talents d\'équipements',
     'modsArmes': 'Mods d\'armes',
     'modsEquipements': 'Mods d\'équipements',
-    'modsCompetences': 'Mods de compétences'
+    'modsCompetences': 'Mods de compétences',
+    'descente': 'Descente'
 };
 
 const pages_fixes = [
@@ -200,10 +205,9 @@ async function generate() {
         }
 
         console.log("📸 Début des captures d'écran...");
-        const capturePromises = Object.entries(categoryMap).map(async ([categoryKey, fileName]) => {
-            const filePath = path.join(DATA_DIR, fileName);
-            if (!fs.existsSync(filePath)) return;
+        const categoriesToProcess = Object.keys(categoryTitles);
 
+        const capturePromises = categoriesToProcess.map(async (categoryKey) => {
             const categoryOgDir = path.join(exportOgImagesDir, categoryKey);
             if (!fs.existsSync(categoryOgDir)) fs.mkdirSync(categoryOgDir, { recursive: true });
 
@@ -211,7 +215,7 @@ async function generate() {
             await page.setViewport({ width: 1920, height: 1080 });
 
             try {
-                const processCards = async (isPerfect) => {
+                const processCards = async (isPerfect, isDescente = false) => {
                     const suffix = isPerfect ? '-parfait' : '';
                     const suffixLog = isPerfect ? ' (Parfait)' : '';
                     const targetUrl = `${DEV_SERVER_URL}/#/db/${categoryKey}${isPerfect ? '?parfait=true' : ''}`;
@@ -246,68 +250,95 @@ async function generate() {
                             if (!hasPerfectBtn) continue;
                         }
 
-                        const cardHtml = await page.evaluate(el => el.innerHTML, card);
-                        const currentHash = crypto.createHash('md5').update(cardHtml).digest('hex');
-                        const hashKey = `${categoryKey}_${slug}${suffix}`;
-                        const imageOutputPath = path.join(categoryOgDir, `${slug}${suffix}.jpg`);
+                        let levelsToProcess = ['']; // Chaîne vide pour les cartes standards
+                        if (isDescente) {
+                            levelsToProcess = await page.evaluate(el => {
+                                const select = el.querySelector('select');
+                                return select ? Array.from(select.options).map(o => o.value) : ['1'];
+                            }, card);
+                        }
 
-                        if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) continue;
-
-                        let attempts = 3;
-                        let success = false;
-
-                        while (attempts > 0 && !success) {
-                            try {
-                                await page.evaluate((el, logo) => {
-                                    const rect = el.getBoundingClientRect();
-                                    el.style.setProperty('width', rect.width + 'px', 'important');
-                                    el.classList.add('puppeteer-teleport');
-                                    if (!el.querySelector('.watermark-overlay')) {
-                                        const img = document.createElement('img');
-                                        img.src = logo; img.className = 'watermark-overlay';
-                                        el.appendChild(img);
+                        for (const level of levelsToProcess) {
+                            if (isDescente) {
+                                // Simulation d'un événement React pour changer de niveau
+                                await page.evaluate((el, lvl) => {
+                                    const select = el.querySelector('select');
+                                    if (select && select.value !== lvl) {
+                                        const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLSelectElement.prototype, "value").set;
+                                        if (nativeInputValueSetter) nativeInputValueSetter.call(select, lvl);
+                                        select.dispatchEvent(new Event('change', { bubbles: true }));
                                     }
-                                }, card, WATERMARK_URL);
+                                }, card, level);
+                                await new Promise(r => setTimeout(r, 150)); // Attendre le re-render React
+                            }
 
-                                await new Promise(r => setTimeout(r, 300));
-                                await card.screenshot({ path: imageOutputPath, type: 'jpeg', quality: 85 });
+                            const levelSuffix = isDescente ? `-${level}` : suffix;
+                            const levelSuffixLog = isDescente ? ` (Niv. ${level})` : suffixLog;
 
-                                await page.evaluate(el => {
-                                    el.style.removeProperty('width');
-                                    el.classList.remove('puppeteer-teleport');
-                                    const wm = el.querySelector('.watermark-overlay');
-                                    if (wm) wm.remove();
-                                }, card);
+                            const cardHtml = await page.evaluate(el => el.innerHTML, card);
+                            const currentHash = crypto.createHash('md5').update(cardHtml).digest('hex');
+                            const hashKey = `${categoryKey}_${slug}${levelSuffix}`;
+                            const imageOutputPath = path.join(categoryOgDir, `${slug}${levelSuffix}.jpg`);
 
-                                console.log(`📸 [${categoryKey}] Généré : ${slug}${suffix}.jpg`);
-                                imageHashes[hashKey] = currentHash;
-                                success = true;
-                            } catch (e) {
-                                attempts--;
-                                await page.evaluate(el => {
-                                    el.style.removeProperty('width');
-                                    el.classList.remove('puppeteer-teleport');
-                                    const wm = el.querySelector('.watermark-overlay');
-                                    if (wm) wm.remove();
-                                }, card).catch(() => {});
+                            if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) continue;
 
-                                if (attempts > 0) {
-                                    console.warn(`⚠️ [${categoryKey}] Timeout pour ${slug}${suffixLog}, tentative restante: ${attempts}...`);
-                                    await new Promise(r => setTimeout(r, 2000));
-                                } else {
-                                    console.error(`❌ [${categoryKey}] Échec définitif pour ${slug}${suffixLog}:`, e.message);
+                            let attempts = 3;
+                            let success = false;
+
+                            while (attempts > 0 && !success) {
+                                try {
+                                    await page.evaluate((el, logo) => {
+                                        const rect = el.getBoundingClientRect();
+                                        el.style.setProperty('width', rect.width + 'px', 'important');
+                                        el.classList.add('puppeteer-teleport');
+                                        if (!el.querySelector('.watermark-overlay')) {
+                                            const img = document.createElement('img');
+                                            img.src = logo; img.className = 'watermark-overlay';
+                                            el.appendChild(img);
+                                        }
+                                    }, card, WATERMARK_URL);
+
+                                    await new Promise(r => setTimeout(r, 300));
+                                    await card.screenshot({ path: imageOutputPath, type: 'jpeg', quality: 85 });
+
+                                    await page.evaluate(el => {
+                                        el.style.removeProperty('width');
+                                        el.classList.remove('puppeteer-teleport');
+                                        const wm = el.querySelector('.watermark-overlay');
+                                        if (wm) wm.remove();
+                                    }, card);
+
+                                    console.log(`📸 [${categoryKey}] Généré : ${slug}${levelSuffix}.jpg`);
+                                    imageHashes[hashKey] = currentHash;
+                                    success = true;
+                                } catch (e) {
+                                    attempts--;
+                                    await page.evaluate(el => {
+                                        el.style.removeProperty('width');
+                                        el.classList.remove('puppeteer-teleport');
+                                        const wm = el.querySelector('.watermark-overlay');
+                                        if (wm) wm.remove();
+                                    }, card).catch(() => {});
+
+                                    if (attempts > 0) {
+                                        console.warn(`⚠️ [${categoryKey}] Timeout pour ${slug}${levelSuffixLog}, tentative restante: ${attempts}...`);
+                                        await new Promise(r => setTimeout(r, 2000));
+                                    } else {
+                                        console.error(`❌ [${categoryKey}] Échec définitif pour ${slug}${levelSuffixLog}:`, e.message);
+                                    }
                                 }
                             }
                         }
                     }
                 };
 
-                // Normal pass
-                await processCards(false);
-
-                // Perfect pass if applicable
-                if (categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') {
-                    await processCards(true);
+                if (categoryKey === 'descente') {
+                    await processCards(false, true);
+                } else {
+                    await processCards(false);
+                    if (categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') {
+                        await processCards(true);
+                    }
                 }
 
             } finally { await page.close(); }
@@ -333,57 +364,91 @@ async function generate() {
             sitemapEntries.push(`${BASE_URL}/${pagePath}`);
         }
 
-        for (const [categoryKey, fileName] of Object.entries(categoryMap)) {
-            const filePath = path.join(DATA_DIR, fileName);
-            if (!fs.existsSync(filePath)) continue;
-            const rawData = parseJsonc(filePath);
-            if (!rawData) continue;
-
+        for (const categoryKey of categoriesToProcess) {
             let items = [];
-            if (categoryKey === 'competences') {
-                Object.entries(rawData).forEach(([skillKey, skill]) => {
-                    skill.variantes.forEach(v => items.push({ ...v, competence: skill.competence, skillSlug: skillKey }));
-                });
-            } else if (categoryKey === 'armes') {
-                items = Array.isArray(rawData) ? [...rawData] : Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
-                if (classSpe) {
-                    Object.values(classSpe).forEach(spe => {
-                        if (spe.arme && spe.arme.nom) {
-                            items.push({ ...spe.arme, slug: slugify(spe.arme.nom), isSignature: true, speNom: spe.nom, type: 'Arme de spécialisation' });
-                        }
+
+            if (categoryKey === 'descente') {
+                const wTalents = parseJsonc(path.join(DATA_DIR, 'talents-armes.jsonc')) || {};
+                const gTalents = parseJsonc(path.join(DATA_DIR, 'talents-equipements.jsonc')) || {};
+                items = [
+                    ...Object.entries(wTalents).map(([s, v]) => ({ ...v, slug: s })),
+                    ...Object.entries(gTalents).map(([s, v]) => ({ ...v, slug: s }))
+                ].filter(i => i.decente);
+            } else {
+                const filePath = path.join(DATA_DIR, categoryMap[categoryKey]);
+                if (!fs.existsSync(filePath)) continue;
+                const rawData = parseJsonc(filePath);
+                if (!rawData) continue;
+
+                if (categoryKey === 'competences') {
+                    Object.entries(rawData).forEach(([skillKey, skill]) => {
+                        skill.variantes.forEach(v => items.push({ ...v, competence: skill.competence, skillSlug: skillKey }));
                     });
-                }
-            } else if (!Array.isArray(rawData)) {
-                items = Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
-            } else { items = rawData; }
+                } else if (categoryKey === 'armes') {
+                    items = Array.isArray(rawData) ? [...rawData] : Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
+                    if (classSpe) {
+                        Object.values(classSpe).forEach(spe => {
+                            if (spe.arme && spe.arme.nom) {
+                                items.push({ ...spe.arme, slug: slugify(spe.arme.nom), isSignature: true, speNom: spe.nom, type: 'Arme de spécialisation' });
+                            }
+                        });
+                    }
+                } else if (!Array.isArray(rawData)) {
+                    items = Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
+                } else { items = rawData; }
+            }
 
             for (const item of items) {
                 const itemSlug = item.slug || slugify(item.nom || item.variante || 'Element');
-                const pagePath = `db/${categoryKey}/${itemSlug}`;
                 const formatter = categoryFormatters[categoryKey] || categoryFormatters['default'];
-                const res = formatter(item);
-                const imagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}.jpg`)) ? `og-images/${categoryKey}/${itemSlug}.jpg` : 'favicon.png';
 
-                const targetDir = path.join(DIST_DIR, pagePath);
-                if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-                fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(res.title, res.description, imagePath, pagePath));
-                sitemapEntries.push(`${BASE_URL}/${pagePath}`);
+                if (categoryKey === 'descente') {
+                    const levels = Object.keys(item.decente.levels).filter(k => k !== 'base').sort((a,b)=>parseInt(a)-parseInt(b));
 
-                // Nouvelle page HTML statique pour la version parfaite
-                if ((categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') && !item.estExotique && item.perfectDescription) {
-                    const parfaitPath = `db/${categoryKey}/${itemSlug}/parfait`;
-                    const parfaitImagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}-parfait.jpg`))
-                        ? `og-images/${categoryKey}/${itemSlug}-parfait.jpg`
-                        : 'favicon.png';
+                    for (const level of levels) {
+                        const res = formatter(item, level);
+                        const pagePath = `db/descente/${itemSlug}/${level}`;
+                        const imagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}-${level}.jpg`))
+                            ? `og-images/${categoryKey}/${itemSlug}-${level}.jpg`
+                            : 'favicon.png';
 
-                    const targetDirParfait = path.join(DIST_DIR, parfaitPath);
-                    if (!fs.existsSync(targetDirParfait)) fs.mkdirSync(targetDirParfait, { recursive: true });
+                        const targetDir = path.join(DIST_DIR, pagePath);
+                        if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+                        fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(res.title, res.description, imagePath, pagePath));
+                        sitemapEntries.push(`${BASE_URL}/${pagePath}`);
 
-                    // Modifie le titre pour inclure "(Parfait)" proprement
-                    const parfaitTitle = res.title.replace(' —', ' (Parfait) —');
+                        // Création de la page par défaut (niveau 1)
+                        if (level === levels[0]) {
+                            const defaultPath = `db/descente/${itemSlug}`;
+                            const defaultDir = path.join(DIST_DIR, defaultPath);
+                            if (!fs.existsSync(defaultDir)) fs.mkdirSync(defaultDir, { recursive: true });
+                            fs.writeFileSync(path.join(defaultDir, 'index.html'), stubTemplate(res.title, res.description, imagePath, defaultPath));
+                            sitemapEntries.push(`${BASE_URL}/${defaultPath}`);
+                        }
+                    }
+                } else {
+                    const res = formatter(item);
+                    const imagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}.jpg`)) ? `og-images/${categoryKey}/${itemSlug}.jpg` : 'favicon.png';
+                    const pagePath = `db/${categoryKey}/${itemSlug}`;
 
-                    fs.writeFileSync(path.join(targetDirParfait, 'index.html'), stubTemplate(parfaitTitle, res.description, parfaitImagePath, parfaitPath));
-                    sitemapEntries.push(`${BASE_URL}/${parfaitPath}`);
+                    const targetDir = path.join(DIST_DIR, pagePath);
+                    if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+                    fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(res.title, res.description, imagePath, pagePath));
+                    sitemapEntries.push(`${BASE_URL}/${pagePath}`);
+
+                    if ((categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') && !item.estExotique && item.perfectDescription) {
+                        const parfaitPath = `db/${categoryKey}/${itemSlug}/parfait`;
+                        const parfaitImagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}-parfait.jpg`))
+                            ? `og-images/${categoryKey}/${itemSlug}-parfait.jpg`
+                            : 'favicon.png';
+
+                        const targetDirParfait = path.join(DIST_DIR, parfaitPath);
+                        if (!fs.existsSync(targetDirParfait)) fs.mkdirSync(targetDirParfait, { recursive: true });
+
+                        const parfaitTitle = res.title.replace(' —', ' (Parfait) —');
+                        fs.writeFileSync(path.join(targetDirParfait, 'index.html'), stubTemplate(parfaitTitle, res.description, parfaitImagePath, parfaitPath));
+                        sitemapEntries.push(`${BASE_URL}/${parfaitPath}`);
+                    }
                 }
             }
         }

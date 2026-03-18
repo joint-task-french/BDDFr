@@ -4,13 +4,16 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "prepare": "git config core.hooksPath .githooks",
+    "prebuild": "npm run prepare && npm run sync-data",
+    "predev": "npm run prepare && npm run sync-data",
+
     "sync-data": "node scripts/sync-data.mjs",
     "generate-statics": "node scripts/generate-static-pages.mjs",
     "generate-statics-images": "node scripts/generate-static-pages-images.mjs",
-    "validate": "node scripts/validate-schemas.mjs",
+    "validate": "node scripts/validate-schemas.mjs && node scripts/validate-slugs.mjs",
+
     "dev": "vite",
-    "prebuild": "npm run sync-data",
-    "predev": "npm run sync-data",
     "build": "vite build && npm run generate-statics",
     "buildWithImages": "vite build && npm run generate-statics-images",
     "preview": "npm run build && vite preview",

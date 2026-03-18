@@ -24,7 +24,8 @@
           ]
         },
         "logo": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
         },
         "attributsEssentiels": {
           "type": "array",
@@ -50,10 +51,12 @@
           "type": "string"
         },
         "talentTorse": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
         },
         "talentSac": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
         },
         "notes": {
           "type": "string",

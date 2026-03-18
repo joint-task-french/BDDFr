@@ -102,7 +102,7 @@
   },
   "obliteration": {
     "nom": "Oblitération",
-    "description": "Les coups critiques augmentent le total de degâts d'arme de 1% pendant 10s.Peut se cumuler jusqu'à 20 fois.",
+    "description": "Les coups critiques augmentent le total de dégâts d'arme de 1% pendant 10s.Peut se cumuler jusqu'à 20 fois.",
     "prerequis": "n/a",
     "emplacement": "torse"
   },
@@ -417,14 +417,14 @@
   "cercle_vicieux": {
     "nom": "Cercle vicieux",
     "icone": "cercle_vicieux",
-    "description": "Subir des dégats cumule des effets jusqu'à un maximum de 30. Chaque effet confère +1,5% de dégats d'arme. Subir des dégâts quand le cumul est à son maximum déclenche une purge qui consomme le cumul, supprime les effets d'état et génère un nuage qui restaure +5% de la protection maximum pendant 10s pour tous les alliés situés dans la zone d'effet.",
-    "emplacement": "torse",
+    "description": "Subir des dégâts cumule des effets jusqu'à un maximum de 30. Chaque effet confère +1,5% de dégâts d'arme. Subir des dégâts quand le cumul est à son maximum déclenche une purge qui consomme le cumul, supprime les effets d'état et génère un nuage qui restaure +5% de la protection maximum pendant 10s pour tous les alliés situés dans la zone d'effet.",
+    "emplacement": "masque",
     "estExotique": true
   },
   "agent_chimique": {
     "nom": "Agent chimique",
     "icone": "agent_chimique",
-    "description": "CatalyseInfliger et subir des effets d'état permet d'accumuler des effets de Catalyse jusqu'à un maximun de 12. Chaque effet confère :+2% dégâts d'arme+2% déffets d'étatChaque ennemi situé dans un rayon de 25m et affecté par un effet d'état confère +1 effet/s. Recevoir un effet d'état confère +2 effet/s.Les effets cumulés se dissipent au rythme de 1 effet(s)/s au bout de 5s si ni vous ni un ennemi à portée n'êtes affectés par un effet d'état.RéactifQuand le cumul est à son maximun, tuer un ennemi subissant un effet d'état confère des bonus pendant 5s :+25% de protection bonus+20% de vitesse de rechargementStabilisationPendant que vous êtes en feu, vous conservez votre capacité à viser.",
+    "description": "CatalyseInfliger et subir des effets d'état permet d'accumuler des effets de Catalyse jusqu'à un maximun de 12. Chaque effet confère :+2% dégâts d'arme+2% d'effets d'étatChaque ennemi situé dans un rayon de 25m et affecté par un effet d'état confère +1 effet/s. Recevoir un effet d'état confère +2 effet/s.Les effets cumulés se dissipent au rythme de 1 effet(s)/s au bout de 5s si ni vous ni un ennemi à portée n'êtes affectés par un effet d'état.RéactifQuand le cumul est à son maximun, tuer un ennemi subissant un effet d'état confère des bonus pendant 5s :+25% de protection bonus+20% de vitesse de rechargementStabilisationPendant que vous êtes en feu, vous conservez votre capacité à viser.",
     "emplacement": "masque",
     "estExotique": true
   },
@@ -518,14 +518,16 @@
     "description": "Augmente le bonus de dégâts de La main du mort de 30% à 50%.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "as_et_huit"
+    "gearSet": "as_et_huit",
+    "prerequis": "La main du mort"
   },
   "as_dans_la_manche": {
     "nom": "As dans la manche",
     "description": "Améliore 1 tir supplémentaire quand vous révélez votre main.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "as_et_huit"
+    "gearSet": "as_et_huit",
+    "prerequis": "La main du mort"
   },
   "destruction_specialisee": {
     "nom": "Destruction Spécialisée",
@@ -763,21 +765,23 @@
     "description": "Diminue de 4 à 3 le nombre d'effets nécessaires pour déclencher le double bonus de Symphonie.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "Virtuoso"
+    "gearSet": "virtuoso"
   },
   "interet_accru": {
     "nom": "Intérêt accru",
     "description": "Améliore les réparations de Retour à l'envoyeur de 10% (5%) à 25% (15%) et de 20% (10%) à 35% (20%).",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "refactor"
+    "gearSet": "refactor",
+    "prerequis": "Retour à l'envoyeur"
   },
   "surprotection": {
     "nom": "Surprotection",
     "description": "Quand votre protection est intacte, les réparations de Retour à l'envoyeur vous donnent un bonus d'armure pouvant atteindre 80% de votre armure totale. Ne s'applique pas aux alliés.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "refactor"
+    "gearSet": "refactor",
+    "prerequis": "Retour à l'envoyeur"
   },
   "esprit_de_ruche": {
     "nom": "Esprit de ruche",
@@ -820,5 +824,16 @@
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "concentrated_company"
+  },
+  "defibrillateur": {
+    "nom": "Défibrillateur",
+    "description": "Lorsqu'\"Electrochoc\" est équipé, l'étourdissement de l'agent dû a l'effet d'électrocution est réduit de 50%.\n\nL'utilisation d'un bouclier permet d'augmenter les dégâts de corps a corps de 100%.\n\n En utilisant le Feu de Saint-Elme avec le holster, vous infligerez 100% de dégâts au corps a corps supplémentaires et votre prochaine attaque au corps a corps électrocutera votre cible.\n\nEn utilisant les trois objets, vous bénéficierez de tous les bonus mentionnés ci-dessus et l'électrocution provoquée par l'attaque au corps à corps portera sur un rayon de 5m à partir de la première cible.\n\n15 secondes de recharge.",
+    "emplacement": "holster",
+    "notes": "Le terme électrocuté est présent dans le jeu, cependant le terme adéquat serait \"électrisé\" une éléctrocution étant par définition mortel."
+  },
+  "courant_alternatif": {
+    "nom": "Courant alternatif",
+    "description": "Génère un effet de 3% de dégâts de compétences pour une de vos compétences à chaque seconde, jusqu'a un maximum de 10 effets. Au bout de 10 secondes au maximum, les effets sont transférés a votre autre compétence. Le processus de répète ensuite indéfiniment.",
+    "emplacement": "holster"
   }
 }

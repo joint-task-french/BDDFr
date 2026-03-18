@@ -9,20 +9,6 @@ import { resolveIcon, WEAPON_TYPE_ICONS, GameIcon } from '../../../utils/gameAss
 export default function TalentInline({ talent, isExotic = false, allArmes, allEquipements, isNamed }) {
 
   if (!talent) return null
-
-  // Talent non résolu (texte brut depuis les anciennes données)
-  if (typeof talent === 'string') {
-    return (
-      <div className="text-xs text-gray-400 leading-relaxed">
-        <span className={`font-bold uppercase tracking-widest text-xs ${isExotic ? 'text-red-400' : 'text-shd'}`}>
-          Talent :{' '}
-        </span>
-        {talent}
-      </div>
-    )
-  }
-
-  // Talent résolu (objet complet depuis talents-armes ou talents-equipements)
   const icon = resolveIcon(talent.icone)
   const nameColor = talent.estExotique ? 'text-red-400' : 'text-shd'
   const isPerfectNamed = isNamed && talent.perfectDescription

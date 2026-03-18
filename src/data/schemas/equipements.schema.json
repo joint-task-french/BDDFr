@@ -21,6 +21,7 @@
         },
         "marque": {
           "type": "string",
+          "pattern": "^([a-z0-9_]+|\\*)$",
           "description": "Slug de la marque/gear set, ou 'Exotique'"
         },
         "emplacement": {
@@ -66,7 +67,8 @@
         "talents": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
           }
         },
         "mod": {

@@ -22,6 +22,7 @@
         },
         "icone": {
           "type": "string",
+          "pattern": "^[a-z0-9_]+$",
           "description": "Slug du fichier icône du talent exotique/nommé dans game_assets/talents/arme/ (sans .png)"
         },
         "type": {
@@ -67,12 +68,12 @@
           "items": {
             "type": "object",
             "required": [
-              "nom",
-              "valeur"
+              "nom"
             ],
             "properties": {
               "nom": {
                 "type": "string",
+                "pattern": "^[a-z0-9_]+$",
                 "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)"
               },
               "valeur": {
@@ -93,6 +94,7 @@
             "properties": {
               "nom": {
                 "type": "string",
+                "pattern": "^[a-z0-9_]+$",
                 "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)"
               },
               "valeur": {
@@ -118,6 +120,7 @@
           "type": "array",
           "description": "Liste de slugs de talents (référencent les noms dans talents-armes.jsonc). Pour les exotiques, les talents dédiés sont directement dans cette liste.",
           "items": {
+            "pattern": "^[a-z0-9_]+$",
             "type": "string"
           }
         },
@@ -189,8 +192,9 @@
         },
         "modsPredefinis": {
           "type": "array",
-          "description": "Mods pré-équipés (armes exotiques) — non modifiables. Chaque entrée est le nom du mod.",
+          "description": "Mods pré-équipés (armes exotiques) — non modifiables. Chaque entrée est le slug du mod.",
           "items": {
+            "pattern": "^[a-z0-9_]+$",
             "type": "string"
           }
         },

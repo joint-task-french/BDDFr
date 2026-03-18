@@ -1,9 +1,8 @@
-import { useMemo } from 'react'
-import { getGearSlotLabel, getAttrCategoryLabel } from '../../../utils/formatters'
-import {GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, GameIcon, resolveIcon} from '../../../utils/gameAssets'
+import {useMemo} from 'react'
+import {getAttrCategoryLabel, getGearSlotLabel} from '../../../utils/formatters'
+import {GameIcon, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveIcon} from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
-import type from "ajv/lib/vocabularies/jtd/type.ts";
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-' && v !== 'FALSE' && v !== 'TRUE'
@@ -18,8 +17,7 @@ function resolveTalents(item, talentsEquipements) {
     return item.talents.filter(t => hasContent(t))
   }
   return item.talents.filter(t => hasContent(t)).map(slug => {
-    const found = talentsEquipements.find(te => te.slug === slug) ||
-        talentsEquipements.find(te => te.nom.toLowerCase() === slug.toLowerCase())
+    const found = talentsEquipements.find(te => te.slug === slug) || talentsEquipements.find(te => te.nom.toLowerCase() === slug.toLowerCase())
     return found || slug
   })
 }
@@ -29,6 +27,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
   const isNamed = item.estNomme && !isExotic
   const isGearSet = item.type === 'gear_set'
   const isImprovised = item.type === 'improvise'
+  const isMarque = item.type === 'standard'
 
   const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isGearSet ? 'text-emerald-400' : isImprovised ? 'text-indigo-400' : 'text-shd'
   const borderColor = isExotic ? 'border-l-red-500' : isNamed ? 'border-l-yellow-500' : isGearSet ? 'border-l-emerald-500' : isImprovised ? 'border-l-indigo-500' : 'border-l-shd/50'
@@ -49,11 +48,8 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
     if (!isGearSet || !ensemble) return null
     const findTalent = (slug) => {
       if (!slug || !hasContent(slug)) return null
-      const found = talentsEquipements?.find(t => t.slug === slug) ||
+      return talentsEquipements?.find(t => t.slug === slug) ||
           talentsEquipements?.find(t => t.nom.toLowerCase() === slug.toLowerCase())
-      if (found) return { label: found.nom, text: found.description || '', notes: found.notes }
-      // Fallback: afficher le slug/texte tel quel
-      return { label: slug, text: '', notes: '' }
     }
     if (item.emplacement === 'torse' && hasContent(ensemble.talentTorse)) return findTalent(ensemble.talentTorse)
     if (item.emplacement === 'sac_a_dos' && hasContent(ensemble.talentSac)) return findTalent(ensemble.talentSac)
@@ -77,6 +73,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
             <div className='w-full'>
               <div className="flex flex-col">
                 <div className="flex flex-row items-center gap-2">
+                  {isMarque && <span className="text-xs font-bold text-shd bg-shd/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Marque</span>}
                   {isExotic && <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
                   {isNamed && <span className="text-xs font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
                   {isGearSet && <span className="text-xs font-bold text-emerald-400 bg-emerald-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Gear Set</span>}
@@ -161,19 +158,8 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
 
         {/* Talent gear set résolu depuis l'ensemble */}
         {hasGearSetTalent && (
-            <div className="px-4 py-2.5 border-t border-tactical-border/50">
-              <div className="text-xs text-gray-400 leading-relaxed">
-                <span className="text-emerald-400 font-bold uppercase tracking-widest text-xs">{gearSetTalent.label} : </span>
-                {gearSetTalent.text}
-              </div>
-              {hasContent(gearSetTalent.notes) && (
-                  <div className="mt-1 pt-1 border-t border-tactical-border/30">
-                    <div className="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Notes</div>
-                    <div className="text-[11px] text-gray-400 italic leading-relaxed whitespace-pre-line">
-                      {gearSetTalent.notes}
-                    </div>
-                  </div>
-              )}
+            <div className="px-3 py-2.5 border-t border-tactical-border/50 space-y-2">
+              <TalentInline key={gearSetTalent} talent={gearSetTalent} isExotic={isExotic} isNamed={isNamed} />
             </div>
         )}
 

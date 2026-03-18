@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# L'option -e arrête le script immédiatement si une commande échoue (exit code != 0)
+set -e
+
+echo "🔍 Exécution des validations locales avant le commit..."
+
+# 1. Validation de la structure des données (Schémas JSON)
+node scripts/validate-schemas.mjs
+
+# 2. Validation de l'intégrité relationnelle (Slugs)
+node scripts/validate-slugs.mjs
+
+echo "✅ Toutes les validations sont passées, création du commit autorisée."

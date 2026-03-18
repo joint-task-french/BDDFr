@@ -107,7 +107,7 @@ export default function DatabasePage() {
   const activeCategory = category || 'armes'
   const activeCatObj = CATEGORIES.find(c => c.key === activeCategory)
 
-  // 2. Lecture sécurisée des états depuis l'URL (Source de vérité absolue)
+  // 2. Lecture sécurisée des états depuis l'URL
   const searchTerm = searchParams.get('q') || ''
 
   const activeValues = useMemo(() => {
@@ -161,7 +161,6 @@ export default function DatabasePage() {
 
   const handleSortChange = useCallback((val) => {
     setSearchParams(prev => {
-      // Si c'est la valeur par défaut exacte, on nettoie l'URL pour garder ça propre
       if (val && JSON.stringify(val) !== JSON.stringify(sortConfig?.default)) {
         prev.set('sort', JSON.stringify(val))
       } else {
@@ -184,12 +183,10 @@ export default function DatabasePage() {
 
       const newValues = { ...currentVals, [key]: value }
 
-      // Sécurité : vider l'emplacement si la compétence cible change
       if (activeCategory === 'modsCompetences' && key === 'competence') {
         newValues.emplacement = ''
       }
 
-      // Nettoyage des valeurs vides
       const cleanValues = {}
       for (const [k, v] of Object.entries(newValues)) {
         if (v !== '' && v !== null && !(Array.isArray(v) && v.length === 0)) {
@@ -231,7 +228,7 @@ export default function DatabasePage() {
   }, [slug, loading, data]);
 
   // =========================================================
-  // APPLICATION DES FILTRES ET DU TRI
+  // APPLICATION DES FILTRES ET DU TRI AVEC RÉSOLUTION GLOBALE
   // =========================================================
   const filteredData = useMemo(() => {
     let items = []
@@ -240,8 +237,8 @@ export default function DatabasePage() {
       const wTalents = Array.isArray(data?.talentsArmes) ? data.talentsArmes : Object.values(data?.talentsArmes || {})
       const gTalents = Array.isArray(data?.talentsEquipements) ? data.talentsEquipements : Object.values(data?.talentsEquipements || {})
 
-      const descentWeapons = wTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: true }))
-      const descentGear = gTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: false }))
+      const descentWeapons = wTalents.filter(t => t.decente).map(t => ({ ...t, isWeaponTalent: true }))
+      const descentGear = gTalents.filter(t => t.decente).map(t => ({ ...t, isWeaponTalent: false }))
 
       items = [...descentWeapons, ...descentGear]
     } else {
@@ -256,11 +253,55 @@ export default function DatabasePage() {
 
     if (searchTerm) {
       const term = searchTerm.toLowerCase()
+
+      const slugDict = {}
+      const populateDict = (source, nameField = 'nom') => {
+        if (!source) return
+        if (Array.isArray(source)) {
+          source.forEach(item => {
+            if (item.slug && item[nameField]) slugDict[item.slug] = String(item[nameField]).toLowerCase()
+          })
+        } else {
+          Object.entries(source).forEach(([key, val]) => {
+            if (val && val[nameField]) slugDict[key] = String(val[nameField]).toLowerCase()
+          })
+        }
+      }
+
+      populateDict(data?.ensembles)
+      populateDict(data?.attributs)
+      populateDict(data?.talentsArmes)
+      populateDict(data?.talentsEquipements)
+      populateDict(data?.statistiques)
+      populateDict(data?.modsArmes)
+      populateDict(data?.modsEquipements)
+      populateDict(data?.armes_type || data?.armesType || data?.['armes-type'])
+      populateDict(data?.equipements_type || data?.equipementsType || data?.['equipements-type'])
+      populateDict(data?.attributs_type || data?.attributsType || data?.['attributs-type'])
+      populateDict(data?.class_spe || data?.classSpe || data?.['class-spe'])
+
+      const extractText = (val) => {
+        if (!val) return ''
+        if (typeof val === 'string') {
+          const resolved = slugDict[val]
+          return resolved ? `${val.toLowerCase()} ${resolved}` : val.toLowerCase()
+        }
+        if (typeof val === 'number' || typeof val === 'boolean') {
+          return String(val).toLowerCase()
+        }
+        if (Array.isArray(val)) {
+          return val.map(extractText).join(' ')
+        }
+        if (typeof val === 'object') {
+          return Object.values(val).map(extractText).join(' ')
+        }
+        return ''
+      }
+
       items = items.filter(item => {
-        const descenteText = item.descente?.levels?.base?.toLowerCase() || ''
-        return Object.values(item).some(v =>
-            typeof v === 'string' && v.toLowerCase().includes(term)
-        ) || descenteText.includes(term)
+        const fullItemText = extractText(item)
+        const descenteText = item.decente?.levels?.base?.toLowerCase() || ''
+        return fullItemText.includes(term) || descenteText.includes(term)
       })
     }
 
@@ -276,7 +317,6 @@ export default function DatabasePage() {
   // =========================================================
   const hasFilters = FILTER_CATEGORIES.has(activeCategory)
 
-  // Utilisation des hooks de panels (Filtres + Tri)
   const filterProps = hasFilters && filterConfig && currentFilters
       ? { filters: filterConfig.filters, values: currentFilters, onChange: handleFilterChange, onReset: handleFilterReset }
       : { filters: [], values: {}, onChange: () => {}, onReset: () => {} }

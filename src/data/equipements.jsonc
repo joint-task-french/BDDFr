@@ -2109,7 +2109,7 @@
     "emplacement": "masque",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "standard"
   },
   "sac_a_dos_unit": {//TODO
     "nom": "Sac à dos Unit",
@@ -2117,7 +2117,7 @@
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "standard"
   },
   "torse_unit": {//TODO
     "nom": "Torse unit",
@@ -2125,7 +2125,7 @@
     "emplacement": "torse",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "standard"
   },
   "gants_unit": {//TODO
     "nom": "Gants unit",
@@ -2133,7 +2133,7 @@
     "emplacement": "gants",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "standard"
   },
   "holster_unit": {//TODO
     "nom": "Holster unit",
@@ -2141,7 +2141,7 @@
     "emplacement": "holster",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "standard"
   },
   "genouilleres_unit": {//TODO
     "nom": "Genouillères unit",
@@ -2149,7 +2149,7 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "standard"
   },
   "masque_d_eclaireur": {
     "nom": "Masque d'éclaireur",

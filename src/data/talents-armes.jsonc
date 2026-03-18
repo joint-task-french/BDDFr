@@ -851,7 +851,8 @@
   "marchand_de_sable": {
     "nom": "Marchand de sable",
     "icone": "marchand_de_sable",
-    "description": "(PVE)Les attaques au corps à corps tuent instantanément les ennemis non élite.temps de recharge : 15s.",
+    "description": "Les attaques au corps à corps tuent instantanément les ennemis non élite.\ntemps de recharge : 15s.",
+    "notes": "PVP :\nLes attaques au corps à corps tuent instantanément les ennemis non élite.\ntemps de recharge : 15s.\nLes attaques au corps à corps tuent les personnages joueurs à 20% de protection ou moins.",
     "estExotique": true
   },
   "choc_septique": {

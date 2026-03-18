@@ -1835,5 +1835,65 @@
         ],
         "estExotique": true,
         "compatible": []
+    },
+    "optique_endommagee": {
+        "nom": "Optique endommagée",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "systeme_de_chargement_modifie": {
+        "nom": "Système de chargement modifié",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "poignee_renforcee": {
+        "nom": "Poignée renforcée",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": 25
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "optique_parias": {
+        "nom": "Optique Parias",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "etourdisseur": {
+        "nom": "Étourdisseur",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "portee_optimale_arm",
+                "valeur": 25
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
     }
 }

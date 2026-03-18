@@ -1967,7 +1967,7 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [
-      "gaucher"
+      "coup_de_massue"
     ],
     "emplacementsMods": [
       "viseur",
@@ -4269,13 +4269,47 @@
     ]
   },
   "bonne_nuit": {
-    "nom": "Bonne nuit",//TODO
+    "nom": "Bonne nuit",
     "type": "calibre_12",
     "fabricant": "FRANCHI",
     "portee": 13,
     "rpm": 70,
     "chargeur": 8,
-    "rechargement": 5.5,
+    "rechargement": 4.53,
+    "notes": "Les mods sont inclus dans les stats de l'arme",
+    "headshot": 25,
+    "degatsBase": 716000,
+    "estExotique": true,
+    "obtention": {
+      "represailles": "Parias,Excouade d'extermination",
+      "butinCible": true,
+      "mission": true,
+      "description": "Tuer un boss Parias, 1/3/5/7% normal/difficile/défi/héroïque"
+    },
+    "estNomme": false,
+    "talents": [
+      "marchand_de_sable"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ],
+    "modsPredefinis": [
+      "optique_parias",
+      "systeme_de_chargement_modifie",
+      "etourdisseur"
+    ]
+  },
+  "berceuse": {
+    "nom": "Berceuse",
+    "type": "calibre_12",
+    "fabricant": "FRANCHI",
+    "portee": 13,
+    "rpm": 70,
+    "chargeur": 8,
+    "rechargement": 4.53,
+    "notes": "Les mods sont inclus dans les stats de l'arme",
     "headshot": 25,
     "degatsBase": 716000,
     "estExotique": true,
@@ -4290,30 +4324,11 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
-  },
-  "berceuse": {
-    "nom": "Berceuse",//TODO
-    "type": "calibre_12",
-    "fabricant": "FRANCHI",
-    "portee": 13,
-    "rpm": 70,
-    "chargeur": 8,
-    "rechargement": 5.5,
-    "headshot": 25,
-    "degatsBase": 716000,
-    "estExotique": true,
-    "obtention": {
-      "description": "Dégâts de fusil calibre 12 Dégâts aux protections"
-    },
-    "estNomme": false,
-    "talents": [
-      "marchand_de_sable"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
+    "modsPredefinis": [
+      "optique_endommagee",
+      "systeme_de_chargement_modifie",
+      "poignee_renforcee"
     ]
   },
   "scorpio": {

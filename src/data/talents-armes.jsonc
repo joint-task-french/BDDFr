@@ -20,6 +20,10 @@
     "description": "Éliminer un ennemi par coup critique augmente de +50% les dégâts de coup critique pendant 10s.",
     "prerequis": "n/a",
     "icone": "tueur",
+    "perfectDescription": "Éliminer un ennemi par coup critique augmente de +90% les dégâts de coup critique pendant 10s.",
+    "armesParfaites": [
+      "protecteur"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -294,12 +298,13 @@
   },
   "synchro": {
     "nom": "Synchro",
-    "description": "Toucher un ennemi confère +15% de dégâts de compétence pendant 5s. Utiliser une compétence non-bouclier ou endommager un ennemi avec une compétence confère +15% aux dégâts d'arme pendant 5s.Les augmentations sont doublées quand les deux buffs sont activés en même temps.",
+    "description": "Toucher un ennemi confère +15% de dégâts de compétence pendant 5s.\nUtiliser une compétence non-bouclier ou endommager un ennemi avec une compétence confère +15% aux dégâts d'arme pendant 5s.\nLes augmentations sont doublées quand les deux buffs sont activés en même temps.",
     "prerequis": "n/a",
     "icone": "synchro",
-    "perfectDescription": "Toucher un ennemi confère +20% de dégâts de compétence pendant 5s. Utiliser une compétence non-bouclier ou endommager un ennemi avec une compétence confère +20% aux dégâts d'arme pendant 5s.Les augmentations sont doublées quand les deux buffs sont activés en même temps.",
+    "perfectDescription": "Toucher un ennemi confère +20% de dégâts de compétence pendant 5s.\nUtiliser une compétence non-bouclier ou endommager un ennemi avec une compétence confère +20% aux dégâts d'arme pendant 5s.\nLes augmentations sont doublées quand les deux buffs sont activés en même temps.",
     "armesParfaites": [
-      "harmony"
+      "harmony",
+      "sujet_de_test"
     ],
     "compatibilite": {
       "fusil": true,
@@ -963,7 +968,7 @@
   "deluge_de_feu": {
     "nom": "Déluge de feu",
     "icone": "deluge_de_feu",
-    "description": "Cette arme ne nécessite pas de rechargement.Pour chaque 100 balles qui touchent un ennemi, des munitions sont ajoutées dans votre réserve et celles de vos alliés",
+    "description": "Cette arme ne nécessite pas de rechargement. Pour chaque 100 balles qui touchent un ennemi, des munitions sont ajoutées dans votre réserve et celles de vos alliés",
     "estExotique": true,
     "descente": {
       "boucles": [

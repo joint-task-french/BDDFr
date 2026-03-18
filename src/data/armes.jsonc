@@ -344,26 +344,6 @@
       "bouche"
     ]
   },
-  "g36": {
-    "nom": "G36",
-    "type": "fusil_assaut",
-    "fabricant": "HECKLER&KOCH",
-    "portee": 35,
-    "rpm": 750,
-    "chargeur": 30,
-    "rechargement": 2.13,
-    "headshot": 55,
-    "degatsBase": 52600,
-    "estExotique": false,
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
-  },
   "g36_ameliore": {
     "nom": "G36 amélioré",
     "type": "fusil_assaut",
@@ -489,7 +469,7 @@
     ]
   },
   "carcajou_furieux": {
-    "nom": "Carjou furieux",
+    "nom": "Carcajou furieux",
     "type": "fusil_assaut",
     "fabricant": "AAC",
     "portee": 28,
@@ -747,7 +727,9 @@
     "degatsBase": 57600,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "synchro"
+    ],
     "emplacementsMods": [
       "viseur",
       "chargeur",
@@ -787,7 +769,7 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [
-
+      "ligne_plate"
     ],
     "emplacementsMods": [
       "viseur",
@@ -2993,7 +2975,7 @@
     ]
   },
   "adrestia": {
-    "nom": "ADRESTIA",
+    "nom": "Adrestia",
     "type": "fusil_precision",
     "fabricant": "DSR-PRECISION",
     "portee": 50,
@@ -3004,6 +2986,7 @@
     "degatsBase": 409400,
     "estExotique": false,
     "estNomme": true,
+    "notes": "A démonter pour fabriquer le Nemesis, c'est une arme unique.",
     "talents": [],
     "emplacementsMods": [
       "viseur",
@@ -4167,8 +4150,8 @@
       "chargeur"
     ]
   },
-  "mk47_resolute": {
-    "nom": "MK47 RESOLUTE",
+  "resolute_mk47": {
+    "nom": "Resolute MK47",
     "type": "fusil",
     "fabricant": "CMMG",
     "portee": 55,
@@ -5369,7 +5352,7 @@
     "chargeur": 30,
     "rechargement": 2.55,
     "headshot": 85,
-    "notes": "+20% particularité du nommé",
+    "notes": "+20% de headshot particularité du nommé",
     "degatsBase": 67200,
     "estExotique": false,
     "estNomme": true,
@@ -5392,7 +5375,9 @@
     "degatsBase": 52600,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "tueur"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",

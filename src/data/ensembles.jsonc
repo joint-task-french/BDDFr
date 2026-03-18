@@ -7,7 +7,6 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% Effets d'état",
     "bonus3pieces": "+30% Vitesse de rechargement",
     "bonus4pieces": "Règle d'engagement : Tirer sur un ennemi affecté par un effet d'état lui applique une marque. Tuer un ennemi marqué vous octroie un chargeur plein de munitions à pointe creuse pour votre arme active, et un demi-chargeur pour l'arme active de l'agent pour le reste du groupe. La marque dure 10 secondes. Les munitions à pointe creuse augmentent les dégâts d'arme de 20% et infligent un saignement.",
@@ -21,7 +20,6 @@
     "attributsEssentiels": [
       "défensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+30% Capacité Munitions",
     "bonus3pieces": "+30% Taille du chargeur",
     "bonus4pieces": "Rouge, Blanc et Bleu :Toutes les 2s, les ennemis sur lesquels vous tirez subissent un débuff cumulable de \"rouge\", \"blanc\" et \"bleu\" Rouge : augmente les dégâts subis par l'ennemi de 8% Blanc : toucher l'ennemi répare votre défensif et celle de vos alliés de 2% à chaque seconde. Bleu : diminue les dégâts infligés par l'ennemi de 8%. Tricolore :Les ennemis qui meurent quand ils sont sous les effets des 3 débuffs déclenchent une explosion de 5m de rayon infligeant des dégâts équivalant à leur total de santé et de défensif. (Les dégâts de l'explosion sont réduits si c'est un ennemi spécifié qui meurt).",
@@ -35,7 +33,6 @@
     "attributsEssentiels": [
       "utilitaire"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% Récupération de compétence",
     "bonus3pieces": "+15% Dégâts de compétence +30% Compétences de réparation",
     "bonus4pieces": "Boucle de rétroaction :Chaque fois que vous utilisez ou annulez une compétence, le temps de recharge de votre autre compétence est automatiquement réduit de 30s et vos totaux de dégâts et de réparations des compétences sont augmentées de 10% pendant 20s. Boucle de rétroaction peut se produire une fois toutes les 10s.",
@@ -49,7 +46,6 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% Dégâts - Fusil de précision +15% Dégâts - Fusil",
     "bonus3pieces": "+30% Dégâts de headshot",
     "bonus4pieces": "La main du mort :Retournez une carte quand vous touchez avec un fusil de précision. Quand 5 cartes sont retournées, les dégâts du coup suivant sont accrus de 30%. Plus la main révélée est forte, plus vous bénéficiez de tir améliorés. Carré : 4 tirsFull : 3 tirsAs et Huit : 2 tirsVous retournez une carte supplémentaire sur les headshot.",
@@ -63,7 +59,6 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+20% Dégâts d'arme spécifique",
     "bonus3pieces": "+10% Dégâts d'arme",
     "bonus4pieces": "Reconnaissance Agressive :Tuer une cible à l'arme spécifique confère un bonus aux dégâts d'arme spécifique de 15% pendant 10s ainsi que +25% de vitesse de rechargement pour le prochain rechargement de l'arme (les bonus ne se cumulent pas). Génère automatiquement des munitions spécifiques toutes les 60s.",
@@ -77,7 +72,6 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% Probabilité coup critique",
     "bonus3pieces": "+20% Dégâts de coup critique",
     "bonus4pieces": "Négociation hostiles :Les coups critiques marquent les ennemis pendant 20s. Jusqu'à 3 marques peuvent être cumulées sur un ennemi. Quand vous réalisez un coup critique sur un ennemi marqué, tous les autres ennemis marqués subissent également 60% des dégâts infligés Quand un ennemi marqué meurt, vous gagnez +2% aux dégâts de coup critique. Cet effet est cumulable jusqu'à 20 fois avant la fin du combat.",
@@ -91,7 +85,6 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% Maniement d'arme",
     "bonus3pieces": "+15% Cadence de tir",
     "bonus4pieces": "Amplification Striker :Les tirs réussis augmentent le total de dégâts d'arme de 0,65%. Ces bonus sont cumulables jusqu'à 100 fois.1 cumuls perdus par seconde entre 0 et 50 cumuls, 2 cumuls perdus par secondes entre 50 et 100 cumuls.",
@@ -105,7 +98,6 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% de défensif pour élimination",
     "bonus3pieces": "+40% Résistance- Désactivation +40% Résistance - Impulsion",
     "bonus4pieces": "Protocole Hackstep :Remplace les kits de défensif par une capacité instantanée à usage illimité et dotée d'un temps de recharge de 20s, qui répare 20% de défensif, confère 50% de défensif bonus et masque votre plaque pendant 5s. Augmente le total de dégâts d'arme de 2% par 5% de défensif bonus gagnée, jusqu'à 20%.",
@@ -119,7 +111,6 @@
     "attributsEssentiels": [
       "utilitaire"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% Effets d'état",
     "bonus3pieces": "+15% Récupération de compétence +30% Résistance aux altérations d'états",
     "bonus4pieces": "Transmission Indirecte :Lorsque vous tuez un ennemi, vos effets d'état se transmettent désormais à tous les ennemis situés à moins de 10m (5m) et renouvellent 50% de la durée.",
@@ -133,7 +124,6 @@
     "attributsEssentiels": [
       "défensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+10% de défensif totale",
     "bonus3pieces": "+1% de régénération de défensif +50% santé de bouclier",
     "bonus4pieces": "Réparation de Fortune : Quand vous ou votre boucliez subissez des dégâts, 25% de ceux-ci sont réparés sur 10s.",
@@ -147,7 +137,6 @@
     "attributsEssentiels": [
       "utilitaire"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% Compétences de réparation",
     "bonus3pieces": "+15% Récupération de compétence +15% Durée de compétence",
     "bonus4pieces": "Contrôle du Terrain :Augmente vos dégâts d'arme et de compétences ainsi que ceux de vos alliés de 15% quand votre défensif est intacte. Quand vous réparez la défensif d'un allié, vous et vos alliés situés à 5m de vous êtes également réparés de 60% du montant.",
@@ -161,7 +150,6 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% Dégâts - fusil de calibre 12 +15% Dégâts - PM",
     "bonus3pieces": "+20% défensif pour élimination +50% Santé pour élimination",
     "bonus4pieces": "Prédateur ultime :Les ennemis situés à moins de 15m subissent un débuff qui augmente vos dégâts d'arme contre eux de 20%. Éliminer un ennemi affecté par un débuff avec votre arme désoriente les ennemis situés à moins de 5m et augmente les dégâts d'arme de 5% pendant 10s, cet effet étant cumulable jusqu'à 5 fois.",
@@ -175,7 +163,6 @@
     "attributsEssentiels": [
       "utilitaire"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% Récupération de compétence",
     "bonus3pieces": "+15% Durée de compétence",
     "bonus4pieces": "Entretien efficace :Intéragir avec une compétence déployée lui confère un bonus de dégâts de 25% pendant 10 secondes. Ce buff ne peut pas être rafraîchi. Les intéractions incluent :- Utilisation/déploiement de compétence- Changement de cible de la compétence- Réparation de l'objet de compétence déployé",
@@ -189,7 +176,6 @@
     "attributsEssentiels": [
       "défensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% Dégâts - fusil d'assaut +15% Dégâts - Fusil-mitrailleur",
     "bonus3pieces": "+15% Maniement d'arme",
     "bonus4pieces": "Coup de coeur :Les Headshot appliquent impulsion pendant 5s. Les tirs sur des ennemis touchés par impulsion ajoutent et renouvellent une bonus de défensif bonus de +1% et de offensif de +1,1% contre les ennemis touchés par impulsion, jusqu'à un maximum de 50 effets. 2 effets sont perdus par seconde.",
@@ -203,7 +189,6 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% Probabilité coup critique",
     "bonus3pieces": "+30% Vitesse de rechargement",
     "bonus4pieces": "Depuis les ombres à la lumière :À couvert, vous gagnez 10 cumuls par seconde jusqu'à 50. Chaque cumul octroie une augmentation de +1,2% aux dégâts critiques et de +0,4% de cpm. Le buff ne s'applique pas lorsque vous tirez depuis votre couverture. Quand ils ne sont plus à couvert, les agents perdent 2 cumuls par seconde à vitesse normale et 1 cumuls par seconde s'ils sprintent. Quand vous n'êtes plus à couvert et en combat, vous gagnez 10 cumuls par seconde, jusqu'à 50 max. Chaque cumul vous octroie +0.8% de régénération de défensif une fois consommé. Les cumuls se consomment uniquement à couvert, 10 cumuls par seconde.",
@@ -217,7 +202,6 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+30% Dégâts - Fusil de précision +30% Maniement d'arme",
     "bonus3pieces": "+30% Dégâts de headshot",
     "bonus4pieces": "Céphalée :Le 1er headshot avec Fusil de précision (FP) augmente les dégâts du headshot suivant de +20%; le 2ème headshot consécutif avec FP donne +10% de défensif (si la défensif est au maximum, confère un bonus de +50% de la défensif actuelle); le 3ème headshot consécutif remplit le chargeur. A partir du 4ème headshot, l'agent obtient les 3 bonus pour chaque élimination par headshot consécutive. Manquer un headshot réinitialise le cycle.",
@@ -231,12 +215,11 @@
     "attributsEssentiels": [
       "défensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+30% Résistance aux altérations d'états",
     "bonus3pieces": "+40% Compétences de réparation",
     "bonus4pieces": "Charge en cours :- Charge en cours: Pour chaque seconde passée à découvert pendant le combat,l'agent bénéficie d'une réduction de 5% des dégâts de compétence subis. Max 50%. - Charge complète :Une fois la charge complète, l'agent et tous ses alliés bénéficient de l'immunité contre les altérations de vitesse de déplacement, d'une défensif contre les altérations d'état, et d'une réduction des dégâts subis pour une durée de 10sUne fois la charge consommée, le processus de charge reprend normalement si le jouer est toujours au combat et à découvert.",
     "talentTorse": "surcharge",
-    "talentSac": "defensif_de_charge"
+    "talentSac": "protection_de_charge"
   },
   "ortiz_exuro": {
     "nom": "Ortiz: Exuro",
@@ -245,7 +228,6 @@
     "attributsEssentiels": [
       "utilitaire"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+20% Durée de brûlure augmentée +15% Santé de compétence",
     "bonus3pieces": "+40% Dégâts de brûlure",
     "bonus4pieces": "Prototype Tourelle incinératrice \"Ortiz\" :La tourelle incinératrice pivote à 360°. Vous bénéficiez d'une immunité au tir de votre propre tourelle incinératrice La tourelle incinératrice explose quand elle est désactivée.",
@@ -259,7 +241,6 @@
     "attributsEssentiels": [
       "défensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+70% Santé",
     "bonus3pieces": "+15% défensif totale",
     "bonus4pieces": "Stoïque : Confère +4% de résistance aux dégâts pour chaque ennemi qui vous cible. Le bonus est multiplié par 1,x ou X est le nombre de d'agents dans votre groupe.",
@@ -274,7 +255,6 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+25% Dégâts - Fusil de précision +25% Dégâts - Fusil",
     "bonus3pieces": "+30% Dégâts de headshot +15% Maniement d'arme",
     "bonus4pieces": "En ligne de mire :Réussir un tir avec un fusil ou un fusil de précision octroie un effet cumulable. Le nombre max d'effets cumulés est égal à la capacité de chargeur de l'arme. Recharger confère +2% de maniabilité d'arme et +4% de dégâts d'arme par effet pendant 10s. Il est impossible de cumuler des effets quand les bonus sont actifs. A expiration du chronomètre, votre chargeur se remplit. Si vous changez d'arme alors que les bonus sont actifs, l'effet se dissipe et votre chargeur se remplit. Si vous changez d'arme alors que les bonus ne sont pas actifs tous les effets cumulés sont supprimés et votre chargeur se remplit.",
@@ -288,7 +268,6 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% maniement d'arme +15% taille du chargeur",
     "bonus3pieces": "+15% de dégâts d'arme",
     "bonus4pieces": "Symphonie :Tuer un ennemi situé à plus 25m confère +40% de dégâts d'arme aux calibres 12, pistolet-mitrailleur et pistolets, +20% de dégâts aux fusils d'assaut et fusil-mitrailleurs et +25% de défensif bonus pendant 15s. Tuer un ennemi situé à moins de 25m confère +40% de dégâts d'arme aux fusil de précision et fusils, +20% de dégâts d'arme aux fusils d'assaut et fusil-mitrailleurs et +30% de dégâts de headshot pendant 15s. Tuer par intermittence des ennemis situés aux deux distances permet d'accumuler des effets. À 4 effets, tous les bonus sont multipliés par 1,5 et activés en même temps pendant 15s. Aucun effet ne peut être cumulé pendant que ces bonus sont actifs.",
@@ -302,12 +281,11 @@
     "attributsEssentiels": [
       "utilitaire"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% Effets d'état",
     "bonus3pieces": "+25% Dégâts de compétences",
     "bonus4pieces": "Retour à l'envoyeur :Vous bénéficiez de réparations équivalant à 10% (5%) des dégâts infligés par vos compétences. Vos alliés bénéficient de réparations équivalant à 20% (10%) des dégâts infligés par vos compétences.",
     "talentTorse": "interet_accru",
-    "talentSac": "surdefensif"
+    "talentSac": "surprotection"
   },
   "measured_assembly": {
     "nom": "Measured Assembly",
@@ -316,7 +294,6 @@
     "attributsEssentiels": [
       "utilitaire"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+15% Récupération de compétence",
     "bonus3pieces": "+60% Compétences de réparation +40% Résistance - Explosions",
     "bonus4pieces": "Pelotonnement :Recevez +1 utilitaire pour chaque agent allié se trouvant à portée de votre ruche ou abri intelligent. Au utilitaire 6, avoir au moins un agent allié à portée de votre ruche ou abri intelligent pendant 4s vous confère surcharge pendant 15s. Temps de recharge : 40s. Les mortiers et les compétences ennemies qui entrent à portée de votre ruche ou abri intelligent sont détruits. Temps de recharge : 10s. Le temps de recharge est 20% plus rapide pour chaque agent allié à portée de votre ruche ou abri intelligent.",
@@ -330,7 +307,6 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+30% Taille du chargeur",
     "bonus3pieces": "+30% Dégâts - Fusil-mitrailleur",
     "bonus4pieces": "Contrôle de la puissance :Le fait de tirer cumule des effets jusqu'à un maximum de 50. Chaque effet cumulé confère +0,5% de maniabilité d'arme et +4% de dégâts de coup critique. Vous perdez 6 effets par secondes quand vous ne tirez pas. Aucun effet n'est perdu si un ennemi est fixé.",
@@ -344,7 +320,6 @@
     "attributsEssentiels": [
       "offensif"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "+10% Dégâts d'arme",
     "bonus3pieces": "+30% Maniement d'arme",
     "bonus4pieces": "Camaraderie :Tirer sur un ennemi le marque pendant 7s. Quand un ennemi marqué meurt, vous recevez +3% de dégâts d'arme et +2% de dégâts de coup critique pour chaque allié ou compétence, y compris vous-même, ayant participé à l'élimination de cet ennemi. Cumul maximum : 35. Les effets se dissipent toutes les 10s. Maximum de marques pouvant être appliquées : 4.",
@@ -745,7 +720,6 @@
       "offensif",
       "utilitaire"
     ],
-    "bonus1piece": "",
     "bonus2pieces": "",
     "bonus3pieces": "",
     "notes": "Les équipements improvisé ont la particularité de pouvoir porté un mod sur toutes de leurs pieces."

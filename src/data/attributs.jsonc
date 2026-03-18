@@ -147,7 +147,7 @@
     "description": "Augmente les dégâts infligés aux cibles non abritées",
     "estEssentiel": true,
     "statistiques": [
-      "degats_sur_cible_non_abritee"
+      "degats_cible_non_abritee"
     ]
   },
   "degats_fusil_calibre_12_es": {
@@ -252,7 +252,7 @@
     "description": "Augmente les dégâts infligés aux cibles non abritées",
     "estEssentiel": false,
     "statistiques": [
-      "degats_sur_cible_non_abritee"
+      "degats_cible_non_abritee"
     ]
   },
   "degats_de_headshot_arm": {

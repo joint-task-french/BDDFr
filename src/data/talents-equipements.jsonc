@@ -824,5 +824,16 @@
     "emplacement": "sac_a_dos",
     "estExotique": false,
     "gearSet": "concentrated_company"
+  },
+  "defibrillateur": {
+    "nom": "Défibrillateur",
+    "description": "Lorsqu'\"Electrochoc\" est équipé, l'étourdissement de l'agent dû a l'effet d'électrocution est réduit de 50%.\n\nL'utilisation d'un bouclier permet d'augmenter les dégâts de corps a corps de 100%.\n\n En utilisant le Feu de Saint-Elme avec le holster, vous infligerez 100% de dégâts au corps a corps supplémentaires et votre prochaine attaque au corps a corps électrocutera votre cible.\n\nEn utilisant les trois objets, vous bénéficierez de tous les bonus mentionnés ci-dessus et l'électrocution provoquée par l'attaque au corps à corps portera sur un rayon de 5m à partir de la première cible.\n\n15 secondes de recharge.",
+    "emplacement": "holster",
+    "notes": "Le terme électrocuté est présent dans le jeu, cependant le terme adéquat serait \"électrisé\" une éléctrocution étant par définition mortel."
+  },
+  "courant_alternatif": {
+    "nom": "Courant alternatif",
+    "description": "Génère un effet de 3% de dégâts de compétences pour une de vos compétences à chaque seconde, jusqu'a un maximum de 10 effets. Au bout de 10 secondes au maximum, les effets sont transférés a votre autre compétence. Le processus de répète ensuite indéfiniment.",
+    "emplacement": "holster"
   }
 }

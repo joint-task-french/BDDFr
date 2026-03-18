@@ -690,8 +690,8 @@
       "pistolet_mitrailleur": true
     }
   },
-  "stablilisation": {
-    "nom": "Stablilisation",
+  "stabilisation": {
+    "nom": "Stabilisation",
     "description": "Tirer augmente la précision d'arme +1% et la stabilité d'arme +1% par tir, jusqu'à 60%. Si vous arrêtez de tirer, les bonus se réinitialisent au bout de 4s.",
     "prerequis": "n/a",
     "icone": "stabilisation",
@@ -1079,7 +1079,7 @@
     "description": "Version parfaite uniquement",
     "perfectDescription": "L'arme tire un jet d'eau. En touchant des agents alliés, vous leur conférez des effets cumulables jusqu'à 5 maximun. Les effets cumulés se dissipent toutes les 2s.\nTant qu'il dispose d'au moins 1 effet, l'allié bénéficie de +50% de protection contre les altérations d'état.",
     "armesParfaites": [
-      "rafraichissement"
+      "rafraichisseur"
     ],
     "estExotique": false
   },

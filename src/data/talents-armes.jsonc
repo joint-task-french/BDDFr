@@ -932,7 +932,18 @@
     "nom": "Instinct d'adaptation",
     "icone": "instinct_d_adaptation",
     "description": "Placer 30 headshots confère +20% à la probalitité de coup critique et 50% aux dégâts de coup critique pendant 45 s.\nPlacer 65 tirs au corps confère +90% aux dégâts d'arme pendant 45 s.\nPlacer 20 tirs aux jambes confère +150% à la vitesse de rechargement pendant 45 s.\nLes buffs se réinitilialisent hors combat.",
-    "estExotique": true
+    "estExotique": true,
+    "descente": {
+      "boucles": [
+        "Colère",
+        "Gourmandise"
+      ],
+      "categorie": "exotique",
+      "levels": {
+        "base": "Placer 30 headshots confère +20% à la probalitité de coup critique et 50% aux dégâts de coup critique pendant 45 s.\nPlacer 65 tirs au corps confère +90% aux dégâts d'arme pendant 45 s.\nPlacer 20 tirs aux jambes confère +150% à la vitesse de rechargement pendant 45 s.\nLes buffs se réinitilialisent hors combat.",
+        "1": {}
+      }
+    }
   },
   "chasseur_de_gros_gibier": {
     "nom": "Chasseur de gros gibier",

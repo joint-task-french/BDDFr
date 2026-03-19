@@ -41,7 +41,7 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
           degatsBase: spec.arme.degatsBase,
           _specCle: spec.cle,
           _specNom: spec.nom,
-          _specIcone: spec.icone,
+          _specIcone: spec.icon,
         }))
       case 'sidearm':
         return armes.filter(w => w.type === 'pistolet')

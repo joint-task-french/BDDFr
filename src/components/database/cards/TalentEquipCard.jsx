@@ -17,7 +17,7 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
   const hasPerfect = !isExotic && !!item.perfectDescription
   const nameColor = isExotic ? 'text-red-400' : 'text-shd'
   const borderColor = isExotic ? 'border-l-red-500' : ''
-  const talentIcon = resolveIcon(item.icone)
+  const talentIcon = resolveIcon(item.icon)
   const slotIcon = GEAR_SLOT_ICONS_IMG[item.emplacement]
 
   const isUrlPerfect = params.slug === item.slug && params.modifier === 'parfait'

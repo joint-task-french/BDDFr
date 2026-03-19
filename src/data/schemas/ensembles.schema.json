@@ -23,7 +23,7 @@
             "improvise"
           ]
         },
-        "logo": {
+        "icon": {
           "type": "string",
           "pattern": "^[a-z0-9_]+$"
         },

@@ -66,8 +66,8 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
         <div className="px-4 py-3 border-b border-tactical-border/50">
           <div className="flex items-start gap-2">
             {/* Logo de la marque */}
-            {resolveIcon(ensemble?.logo) && (
-                <GameIcon src={resolveIcon(ensemble.logo)} alt="" size="w-10 h-10" className="rounded" />
+            {resolveIcon(ensemble?.icon) && (
+                <GameIcon src={resolveIcon(ensemble.icon)} alt="" size="w-10 h-10" className="rounded" />
             )}
 
             <div className='w-full'>

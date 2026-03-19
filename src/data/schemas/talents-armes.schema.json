@@ -14,7 +14,7 @@
         "nom": {
           "type": "string"
         },
-        "icone": {
+        "icon": {
           "type": "string",
           "pattern": "^[a-z0-9_]+$",
           "description": "Slug du fichier icône dans game_assets/talents/arme/ (sans .png)"

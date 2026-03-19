@@ -3,7 +3,7 @@
   "tir_destabilisant": {
     "nom": "Tir déstabilisant",
     "description": "Toucher un ennemi au corps augmente de +55% les dégâts du headshot suivant pendant 10s.\nPeut se cumuler jusqu'à 3 fois.",
-    "icone": "tir_destabilisant",
+    "icon": "tir_destabilisant",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -32,7 +32,7 @@
   "tueur": {
     "nom": "Tueur",
     "description": "Éliminer un ennemi par coup critique augmente de +50% les dégâts de coup critique pendant 10s.",
-    "icone": "tueur",
+    "icon": "tueur",
     "perfectDescription": "Éliminer un ennemi par coup critique augmente de +90% les dégâts de coup critique pendant 10s.",
     "armesParfaites": [
       "protecteur"
@@ -50,7 +50,7 @@
   "preservation": {
     "nom": "Préservation",
     "description": "Éliminer un ennemi répare 10% de votre protection sur 5s.\nLes éliminations par headshot améliorent la réparation de +10% supplémentaires.",
-    "icone": "preservation",
+    "icon": "preservation",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -82,7 +82,7 @@
   "optimiste": {
     "nom": "Optimiste",
     "description": "Les dégâts d'arme augmentent de +3,5% pour chaque tranche de 10% de munitions manquantes dans le chargeur.",
-    "icone": "optimiste",
+    "icon": "optimiste",
     "perfectDescription": "Les dégâts d'arme augmentent de +4,5% pour chaque tranche de 10% de munitions manquantes dans le chargeur.",
     "armesParfaites": [
       "shield_splinterer"
@@ -114,7 +114,7 @@
   "contrainte": {
     "nom": "Contrainte",
     "description": "Vous gagnez +10% aux dégâts de coup critique toutes les 0.5s pendant que vous tirez.\nPeut se cumuler jusqu'à 5 fois.",
-    "icone": "contrainte",
+    "icon": "contrainte",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -143,7 +143,7 @@
   "corps_a_corps": {
     "nom": "Corps à corps",
     "description": "Tuer une cible située dans un rayon de 7 mètres augmente les dégâts d'arme de +30% pendant 10 secondes.",
-    "icone": "corps_a_corps",
+    "icon": "corps_a_corps",
     "perfectDescription": "Tuer une cible située dans un rayon de 7 mètres augmente les dégâts d'arme de +38% pendant 10 secondes.",
     "armesParfaites": [
       "carcajou_furieux"
@@ -176,7 +176,7 @@
   "mains_rapides": {
     "nom": "Mains rapides",
     "description": "Les coups critiques améliorent la vitesse de rechargement d'arme de 3%.\nPeut se cumuler jusqu'à 40 fois.",
-    "icone": "mains_rapides",
+    "icon": "mains_rapides",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -203,7 +203,7 @@
   "sadique": {
     "nom": "Sadique",
     "description": "Dégâts d'arme accrus de 30% (+20%) contre les ennemis affectés par un saignement.\nAu bout de 4 éliminations, inflige un saignement au prochain ennemi touché.",
-    "icone": "sadique",
+    "icon": "sadique",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -230,7 +230,7 @@
   "vindicatif": {
     "nom": "Vindicatif",
     "description": "Éliminer un ennemi touché par un effet d'état vous confère à vous ainsi qu'aux alliés à moins de 15m :\n16% à la probabilité de coup critique et 16% aux dégâts de coup critique pendant 20s.",
-    "icone": "vindicatif",
+    "icon": "vindicatif",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -259,7 +259,7 @@
   "ranger": {
     "nom": "Ranger",
     "description": "Augmente les dégâts d'arme de 2% pour chaque tranche de 4m entre vous et votre cible.",
-    "icone": "ranger",
+    "icon": "ranger",
     "perfectDescription": "Augmente les dégâts d'arme de 2% pour chaque tranche de 3m entre vous et votre cible.",
     "armesParfaites": [
       "grand_baton_d_ekim"
@@ -277,7 +277,7 @@
   "main_ferme": {
     "nom": "Main ferme",
     "description": "Les tirs réussis confèrent un bonus de 1% à la précision et à la stabilité.\nAu bout de 100 bonus cumulés, l'effet est consommé pour remplir le chargeur.",
-    "icone": "main_ferme",
+    "icon": "main_ferme",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -304,7 +304,7 @@
   "pointe": {
     "nom": "Pointe",
     "description": "Les headshots confèrent +20% de dégâts de compétence pendant 15s.",
-    "icone": "pointe",
+    "icon": "pointe",
     "perfectDescription": "Les headshots confèrent +25% de dégâts de compétence pendant 15s.",
     "armesParfaites": [
       "surge"
@@ -337,7 +337,7 @@
   "realisme": {
     "nom": "Réalisme",
     "description": "Dégâts d'arme accrus de 30% contre les ennemis aveuglés.\nAu bout de 4 éliminations, inflige aveuglement au prochain ennemi touché.",
-    "icone": "realisme",
+    "icon": "realisme",
     "perfectDescription": "Dégâts d'arme accrus de 35% contre les ennemis aveuglés.\nAu bout de 3 éliminations, inflige aveuglement au prochain ennemi touché.",
     "armesParfaites": [
       "les_tenebres"
@@ -369,7 +369,7 @@
   "inflammabilite": {
     "nom": "Inflammabilité",
     "description": "Dégâts d'arme accrus de 25% contre les ennemis affectés par une brûlure.\nAu bout de 4 éliminations, inflige un effet de brûlure au prochain ennemi touché.",
-    "icone": "inflammabilite",
+    "icon": "inflammabilite",
     "perfectDescription": "Dégâts d'arme accrus de 30% contre les ennemis affectés par une brûlure.\nAu bout de 3 éliminations, inflige un effet de brûlure au prochain ennemi touché.",
     "armesParfaites": [
       "pyromane"
@@ -400,7 +400,7 @@
   "perpetuation": {
     "nom": "Perpétuation",
     "description": "Les headshots confèrent +50% aux dégâts des effets d'état et à la durée du prochain effet d'état que vous infligez.\nTemps de recharge : 20s.",
-    "icone": "perpetuation",
+    "icon": "perpetuation",
     "perfectDescription": "Les headshots confèrent +75% aux dégâts des effets d'état et à la durée du prochain effet d'état que vous infligez.\nTemps de recharge : 16s.",
     "armesParfaites": [
       "regard_eternel"
@@ -431,7 +431,7 @@
   "reformation": {
     "nom": "Reformation",
     "description": "Les headshots confèrent +60% à la réparation de compétence pendant 15s.",
-    "icone": "reformation",
+    "icon": "reformation",
     "perfectDescription": "Les headshots confèrent +80% à la réparation de compétence pendant 15s.",
     "armesParfaites": [
       "tueur_attitre"
@@ -449,7 +449,7 @@
   "futur_parfait": {
     "nom": "Futur parfait",
     "description": "Les élimintations par arme confèrent +1 Tier de compétence pendant 15s.\nCet effet peut se cumuler jusqu'à 3 fois.\nLes éliminations par arme au Tier de compétence 6 confèrent surcharge pendant 15s.\nTemps de recharge de la surcharge : 90s.",
-    "icone": "futur_parfait",
+    "icon": "futur_parfait",
     "perfectDescription": "Les élimintations par arme confèrent +1 Tier de compétence pendant 19s.\nCet effet peut se cumuler jusqu'à 4 fois.\nLes éliminations par arme au Tier de compétence 6 confèrent surcharge pendant 15s.\nTemps de recharge de la surcharge : 90s.",
     "armesParfaites": [
       "mecanimal",
@@ -468,7 +468,7 @@
   "synchro": {
     "nom": "Synchro",
     "description": "Toucher un ennemi confère +15% de dégâts de compétence pendant 5s.\nUtiliser une compétence non-bouclier ou endommager un ennemi avec une compétence confère +15% aux dégâts d'arme pendant 5s.\nLes augmentations sont doublées quand les deux buffs sont activés en même temps.",
-    "icone": "synchro",
+    "icon": "synchro",
     "perfectDescription": "Toucher un ennemi confère +20% de dégâts de compétence pendant 5s.\nUtiliser une compétence non-bouclier ou endommager un ennemi avec une compétence confère +20% aux dégâts d'arme pendant 5s.\nLes augmentations sont doublées quand les deux buffs sont activés en même temps.",
     "armesParfaites": [
       "harmony",
@@ -502,7 +502,7 @@
   "ligne_plate": {
     "nom": "Ligne plate",
     "description": "Dégâts d'arme accrus de 15% contre les ennemis touchés par impulsion.\nAprès 4 éliminations, génère une impulsion sur le prochain ennemi touché.",
-    "icone": "ligne_plate",
+    "icon": "ligne_plate",
     "perfectDescription": "Dégâts d'arme accrus de 20% contre les ennemis touchés par impulsion.\nAprès 3 éliminations, génère une impulsion sur le prochain ennemi touché.",
     "armesParfaites": [
       "tueur_de_rois"
@@ -520,7 +520,7 @@
   "fusilier": {
     "nom": "Fusilier",
     "description": "Placer un headshot ajoute un bonus de +10% de dégâts d'arme pendant 5s.\nPeut se cumuler jusqu'à 5 fois. Les headshots ultérieurs renouvellent la durée du bonus.",
-    "icone": "fusilier",
+    "icon": "fusilier",
     "perfectDescription": "Placer un headshot ajoute un bonus de +11% de dégâts d'arme pendant 5s.\nPeut se cumuler jusqu'à 6 fois. Les headshots ultérieurs renouvellent la durée du bonus.",
     "armesParfaites": [
       "outil_d_artiste"
@@ -554,7 +554,7 @@
   "boomerang": {
     "nom": "Boomerang",
     "description": "Les coups critiques ont 50% de probabilité de renvoyer les munitions dans le chargeur.\nSi une munition est renvoyée dans le chargeur, les dégâts du prochain tir sont accrus de +40%.",
-    "icone": "boomerang",
+    "icon": "boomerang",
     "perfectDescription": "Les coups critiques ont 75% de probabilité de renvoyer les munitions dans le chargeur.\nSi une munition est renvoyée dans le chargeur, les dégâts du prochain tir sont accrus de +50%.",
     "armesParfaites": [
       "la_virginienne"
@@ -572,7 +572,7 @@
   "tir_chanceux": {
     "nom": "Tir chanceux",
     "description": "Augmente la capacité du chargeur de 20%.\nLes tirs ratés effectués depuis un abri ont une probabilité de 100% de retourner dans le chargeur.",
-    "icone": "tir_chanceux",
+    "icon": "tir_chanceux",
     "compatibilite": {
       "fusil": true,
       "calibre_12": false,
@@ -600,7 +600,7 @@
   "myope": {
     "nom": "Myope",
     "description": "Stabilité accrue de +80% au prix de -35% de portée optimale.",
-    "icone": "myope",
+    "icon": "myope",
     "perfectDescription": "Stabilité accrue de +100% au prix de -35% de portée optimale.",
     "armesParfaites": [
       "vision_glorieuse"
@@ -618,7 +618,7 @@
   "a_vide": {
     "nom": "A vide",
     "description": "Recharger une arme vide améliore son maniement de +60% pendant 10s.",
-    "icone": "a_vide",
+    "icon": "a_vide",
     "perfectDescription": "Recharger une arme vide améliore son maniement de +80% pendant 10s.",
     "armesParfaites": [
       "burn_out"
@@ -636,7 +636,7 @@
   "mesure": {
     "nom": "Mesure",
     "description": "Pour la moitié supérieure du chargeur :\naugmente la cadence de tir de 25% et diminue les dégâts d'arme de 25%.\nPour la moitié inférieure du chargeur :\nla cadence de tir diminue de 18% et les dégâts d'arme augmentent de 30%.",
-    "icone": "mesure",
+    "icon": "mesure",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -650,7 +650,7 @@
   "surcapacite": {
     "nom": "Surcapacité",
     "description": "Au bout de 3 rechargements réalisés à vide, la capacité de base de votre chargeur est augmentée de 100%",
-    "icone": "surcapacite",
+    "icon": "surcapacite",
     "perfectDescription": "Au bout de 2 rechargements réalisés à vide, la capacité de base de votre chargeur est augmentée de 100%",
     "armesParfaites": [
       "maniaque"
@@ -668,7 +668,7 @@
   "nudite": {
     "nom": "Nudité",
     "description": "Toucher un ennemi sans protection confère +50% aux dégâts de headshot pendant 5s.",
-    "icone": "realisme",
+    "icon": "realisme",
     "perfectDescription": "Toucher un ennemi sans protection confère +50% aux dégâts de headshot pendant 8s.",
     "armesParfaites": [
       "commando"
@@ -687,7 +687,7 @@
     "nom": "Premier sang",
     "description": "En zoom, la première munition tirée hors combat ou après avoir complètement rechargé le chargeur vide inflige des dégâts de headshot quelle que soit la partie du corps touchée.",
     "prerequis": "Nécessite une lunette à grossissement 8x minimum",
-    "icone": "premier_sang",
+    "icon": "premier_sang",
     "perfectDescription": "En zoom, les 2 première munitions tirée hors combat ou après avoir complètement rechargé le chargeur vide inflige des dégâts de headshot quelle que soit la partie du corps touchée.",
     "armesParfaites": [
       "epingle"
@@ -705,7 +705,7 @@
   "martelement": {
     "nom": "Martèlement",
     "description": "Après 3 éliminations consécutives, le chargeur se remplit et les dégâts de l'arme sont augmentés de +40% pendant 10 secondes.",
-    "icone": "martelement",
+    "icon": "martelement",
     "perfectDescription": "Après 2 éliminations consécutives, le chargeur se remplit et les dégâts de l'arme sont augmentés de +40% pendant 10 secondes.",
     "armesParfaites": [
       "tsunami"
@@ -739,7 +739,7 @@
   "motive": {
     "nom": "Motivé",
     "description": "Le rechargement confère +1% aux dégâts d'arme pendant 10s.\nPeut se cumuler jusqu'à 25 fois.",
-    "icone": "motive",
+    "icon": "motive",
     "compatibilite": {
       "fusil": false,
       "calibre_12": true,
@@ -753,7 +753,7 @@
   "outsider": {
     "nom": "Outsider",
     "description": "Après avoir tué un ennemi, confère 100% de portée optimale et +100% de précision pendant 10s.",
-    "icone": "outsider",
+    "icon": "outsider",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -767,7 +767,7 @@
   "indefectible": {
     "nom": "Indéfectible",
     "description": "Changer d'arme pour celle-ci confère +300% au maniement d'arme pendant 5s.\nLes éliminations renouvellent ce buff.\nChanger une nouvelle fois d'arme désactive cet effet pour toutes les armes pendant 5s.",
-    "icone": "indefectible",
+    "icon": "indefectible",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -781,7 +781,7 @@
   "desequilibre": {
     "nom": "Déséquilibre",
     "description": "Confère +18% de dégâts d'arme\naux prix de -25% de stabilité et de -25% de précision.",
-    "icone": "desequilibre",
+    "icon": "desequilibre",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -810,7 +810,7 @@
   "frenesie": {
     "nom": "Frénésie",
     "description": "Quand vous rechargez à vide, pour chaque tranche de 10 balles de capacité du chargeur, vous gagnez +3% de cadence de tir et +3% de dégâts d'arme pendant 9s.",
-    "icone": "frenesie",
+    "icon": "frenesie",
     "perfectDescription": "Quand vous rechargez à vide, pour chaque tranche de 8 balles de capacité du chargeur, vous gagnez +3% de cadence de tir et +3% de dégâts d'arme pendant 9s.",
     "armesParfaites": [
       "huntsman"
@@ -828,7 +828,7 @@
   "accablement": {
     "nom": "Accablement",
     "description": "Fixer un ennemi qui n'est actuellement pas fixé confère +10% aux dégâts des armes pendant 12s.\nPeut se cumuler un maximum de 4 fois.",
-    "icone": "accablement",
+    "icon": "accablement",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -856,7 +856,7 @@
   "debarras": {
     "nom": "Débarras",
     "description": "Éliminer une cible offre +70% de probabilité de remplir le chargeur.",
-    "icone": "debarras",
+    "icon": "debarras",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -884,7 +884,7 @@
   "finisseur": {
     "nom": "Finisseur",
     "description": "Prendre une arme autre que celle-ci dans les 10s suivant l'élimination d'un ennemi augmente de 30% la probabilité de coup critique et de 30% les dégâts de coup critique pendant 15s.",
-    "icone": "finisseur",
+    "icon": "finisseur",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -898,7 +898,7 @@
   "coup_de_massue": {
     "nom": "Coup de massue",
     "description": "Infliger des dégâts avec une grenade applique une marque sur la cible.\nLes cibles marquées subissent 15% de dégâts en plus à la protection de la part de l'auteur de la marque, et -20% de vitesse de déplacement.\nLa marque disparaît après 10s.",
-    "icone": "coup_de_massue",
+    "icon": "coup_de_massue",
     "perfectDescription": "Infliger des dégâts avec une grenade applique une marque sur la cible.\nLes cibles marquées subissent 20% de dégâts en plus à la protection de la part de l'auteur de la marque, et -30% de vitesse de déplacement.\nLa marque disparaît après 10s.",
     "armesParfaites": [
       "scene_gauche",
@@ -917,7 +917,7 @@
   "resolu": {
     "nom": "Résolu",
     "description": "Après avoir tué un ennemi avec un headshot, le tir suivant qui touche un ennemi est un headshot garanti.",
-    "icone": "resolu",
+    "icon": "resolu",
     "perfectDescription": "Après avoir tué un ennemi avec un headshot, le tir suivant qui touche un ennemi est un headshot critique garanti.\nMême si le talent est actif, le fait de tuer un ennemi ne déclenchera pas à nouveau le talent.",
     "armesParfaites": [
       "relique"
@@ -935,7 +935,7 @@
   "coup_de_tonnerre": {
     "nom": "Coup de tonnerre",
     "description": "Inflige 30% de dégâts supplémentaires aux cibles électrocutées.\nAu bout de 4 éliminations, inflige électrocution au prochain ennemi touché.",
-    "icone": "coup_de_tonnerre",
+    "icon": "coup_de_tonnerre",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -949,7 +949,7 @@
   "stabilisation": {
     "nom": "Stabilisation",
     "description": "Tirer augmente la précision d'arme +1% et la stabilité d'arme +1% par tir, jusqu'à 60%.\nSi vous arrêtez de tirer, les bonus se réinitialisent au bout de 4s.",
-    "icone": "stabilisation",
+    "icon": "stabilisation",
     "perfectDescription": "Tirer augmente la précision d'arme +1% et la stabilité d'arme +1% par tir, jusqu'à 75%.\nSi vous arrêtez de tirer, les bonus se réinitialisent au bout de 6s.",
     "armesParfaites": [
       "l_inne"
@@ -967,7 +967,7 @@
   "derriere_toi": {
     "nom": "Derrière toi",
     "description": "Inflige +20% de dégâts d'armes aux ennemis qui ne vous ciblent pas.",
-    "icone": "derriere_toi",
+    "icon": "derriere_toi",
     "perfectDescription": "Inflige +25% de dégâts d'armes aux ennemis qui ne vous ciblent pas.",
     "armesParfaites": [
       "murmure",
@@ -986,7 +986,7 @@
   "imprudence": {
     "nom": "Imprudence",
     "description": "Inflige +3,5% au tir suivant avec la même arme pour chaque plomb qui touche la cible si au moins 6 plombs touchent la cible.",
-    "icone": "imprudence",
+    "icon": "imprudence",
     "perfectDescription": "Inflige +3,5% au tir suivant avec la même arme pour chaque plomb qui touche la cible si au moins 4 plombs touchent la cible.\nTuer un ennemi confère de dégâts au prochain tir.",
     "armesParfaites": [
       "comme_de_la_colle"
@@ -1005,7 +1005,7 @@
   "frappe_de_precision": {
     "nom": "Frappe de précision",
     "description": "Tuer des ennemis situés à plus de 20m cumule des effets. Le maximum d'effets est de 3.\nToucher un ennemi situé à moins de 20m consomme tous les effets pour conférer +20% de dégâts contre les ennemis situés à moins de 20m pendant 5s.",
-    "icone": "frappe_de_precision",
+    "icon": "frappe_de_precision",
     "perfectDescription": "Tuer des ennemis situés à plus de 20m cumule des effets. Le maximum d'effets est de 2.\nToucher un ennemi situé à moins de 20m consomme tous les effets pour conférer +35% de dégâts contre les ennemis situés à moins de 20m pendant 5s.",
     "armesParfaites": [
       "la_foreuse"
@@ -1023,7 +1023,7 @@
   "point_de_pression": {
     "nom": "Point de pression",
     "description": "Dégâts d'arme accrus de 15% contre les ennemis affectés par des effets d'état.",
-    "icone": "point_de_pression",
+    "icon": "point_de_pression",
     "perfectDescription": "Dégâts d'arme accrus de 20% contre les ennemis affectés par des effets d'état.",
     "armesParfaites": [
       "goalie"
@@ -1042,7 +1042,7 @@
     "nom": "Rationalisation",
     "description": "Augmente les dégâts d'arme de 42% quand il n'y a aucune compétence déployée ou en recharge.",
     "notes": "32% (normal)/37% (parfaite) en pvp",
-    "icone": "rationalisation",
+    "icon": "rationalisation",
     "perfectDescription": "Augmente les dégâts d'arme de 47% quand il n'y a aucune compétence déployée ou en recharge.",
     "armesParfaites": [
       "lud"
@@ -1060,7 +1060,7 @@
   "petit_faible": {
     "nom": "Petit faible",
     "description": "Détruire un point faible confère +27% de dégâts d'arme pendant 10s.",
-    "icone": "petit_faible",
+    "icon": "petit_faible",
     "perfectDescription": "Détruire un point faible confère +32% de dégâts d'arme pendant 15s.",
     "armesParfaites": [
       "achille",
@@ -1079,7 +1079,7 @@
   "immobilisation": {
     "nom": "Immobilisation",
     "description": "Dégâts d'arme accrus de 20% (10%) contre les ennemis entravés.\nAu bout de 4 éliminations, inflige Entrave au prochain ennemi touché.",
-    "icone": "immobilisation",
+    "icon": "immobilisation",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -1092,7 +1092,7 @@
   },
   "munitions_desactivatrices": {
     "nom": "Munitions désactivatrices",
-    "icone": "munitions_desactivatrices",
+    "icon": "munitions_desactivatrices",
     "description": "Tirer sur un ennemi le marque et inflige un effet cumulable sur l'agent jusqu'à un maximum de 50.\nTirer sur un ennemi marqué renouvelle la marque et ajoute des effets cumulables sur l'agent.\nQuand vous déployez une compétence non-bouclier, vous supprimez tous les effets cumulés sur l'agent et toutes les cibles marquées déclenchent un effet :\n1 - 10 effets : Détecte et désactive les cibles marquées pendant 5s.\n11 - 25 effets : Détecte, désactive et désoriente les cibles marquées pendant 5s.\n26 - 49 effets : Détecte, désactive et désoriente les cibles marquées ainsi que tous les ennemis à moins de 10m pendant 5s.\nCet effet se déclenche immédiatement si un ennemi marqué est tué.",
     "estExotique": true,
     "descente": {
@@ -1112,7 +1112,7 @@
   },
   "marchand_de_sable": {
     "nom": "Marchand de sable",
-    "icone": "marchand_de_sable",
+    "icon": "marchand_de_sable",
     "description": "Les attaques au corps à corps tuent instantanément les ennemis non élite.\nTemps de recharge : 15s.",
     "notes": "PVP :\nLes attaques au corps à corps tuent instantanément les ennemis non élite.\ntemps de recharge : 15s.\nLes attaques au corps à corps tuent les personnages joueurs à 20% de protection ou moins.",
     "estExotique": true,
@@ -1132,32 +1132,32 @@
   },
   "choc_septique": {
     "nom": "Choc septique",
-    "icone": "choc_septique",
+    "icon": "choc_septique",
     "description": "Tirer sur une cible lui inflige des effets de venin qui durent 10 secondes. Le cumul d'effets aggrave les débuffs :\n2 - Poison (Saignement)\n4 - Désorientation (Désactivation)\n6 - Électrocution (Immobilisation)\n9 - La cible subit 20% de dégâts supplémentaires (de toutes les sources).\nLa durée des effets d'état est basée sur le pourcentage de plombs qui atteignent leur cible.",
     "estExotique": true
   },
   "capitulation": {
     "nom": "Capitulation",
-    "icone": "capitulation",
+    "icon": "capitulation",
     "description": "Toucher un ennemi inflige -4% à la vitesse de déplacement pour chaque plomb qui atteint la cible pendant 5s.\nTirer à nouveau sur l'ennemi réapplique les effets cumulables.",
     "estExotique": true
   },
   "autentico": {
     "nom": "Autentico",
-    "icone": "autentico",
+    "icon": "autentico",
     "description": "Dégâts d'arme +35%\nPrécision +100%\nPas de diminution des dégâts.\nCes bonus sont intégrés aux statistiques de base de l'arme.",
     "estExotique": true
   },
   "detente_binaire": {
     "nom": "Détente binaire",
-    "icone": "detente_binaire",
+    "icon": "detente_binaire",
     "description": "Cette arme tire lorsque l'utilisateur presse et relâche la détente.\nSi les deux balles touchent le même ennemi, vous gagnez un bonus.\nÀ 7 bonus, tirer sur un ennemi inflige des dégâts accrus de +500% et crée une explosion de 7m qui inflige 500% des dégâts d'arme et consomme les bonus cumulés.",
     "notes": "L'explosion fait 250% en pvp",
     "estExotique": true
   },
   "morsure_fatale": {
     "nom": "Morsure Fatale",
-    "icone": "morsure_fatale",
+    "icon": "morsure_fatale",
     "description": "La Diamondback marque un ennemi désigné aléatoirement dans un rayon de 20m.\nS'il n'y a aucun ennemi dans les 20m, l'ennemi le plus proche de vous est marqué.\nToucher cet ennemi supprime la marque et assure un coup critique aux dégâts accrus de 20%.\nAprès avoir touché une marque, tous les tirs assurent des coups critiques pendant 5s.\nUn nouvel ennemi est marqué aléatoirement par la suite et à chaque fois que vous rechargez.",
     "estExotique": true,
     "descente": {
@@ -1179,13 +1179,13 @@
   },
   "geri_et_freki": {
     "nom": "Geri et Freki",
-    "icone": "geri_et_freki",
+    "icon": "geri_et_freki",
     "description": "Tire des deux canons en même temps d'une seule pression sur la gâchette.\nUtilisé à l'épaule droite, ses tirs confèrent des effets offensifs. Utilisé à l'épaule gauche, ses tirs confèrent des effets défensifs.\nLes coups au but réalisés d'une épaule déclenchent tous les effets de l'épaule opposée.\nÀ l'activation chaque effet offensif inflige +100% des dégâts d'arme, et chaque effet défensif confère +4% de protection bonus et +10% de dégâts aux plaques de protection pendant 5s.\nLes effets voient leur efficacité doublée s'ils sont appliqués 10 fois.",
     "estExotique": true
   },
   "medecin_de_famille": {
     "nom": "Médecin de Famille",
-    "icone": "medecin_de_famille",
+    "icon": "medecin_de_famille",
     "description": "Tirer sur un ennemi avec cette arme applique une marque pendant 5 secondes.\nSi une cible marquée est tuée, elle lâche un kit de réparation de protection de 10% qui s'applique à tout le groupe automatiquement.",
     "estExotique": true,
     "descente": {
@@ -1206,32 +1206,32 @@
   },
   "interface_d_assaut_ortiz": {
     "nom": "Interface d'assaut Ortiz",
-    "icone": "interface_d_assaut_ortiz",
+    "icon": "interface_d_assaut_ortiz",
     "description": "En zoom, l'arme met en surbrillance une partie aléatoire du corps de chaque ennemi.\nL'arme inflige +60% de dégâts d'arme sur les parties de corps en surbrillance.",
     "estExotique": true
   },
   "transfusion": {
     "nom": "Transfusion",
-    "icone": "transfusion",
+    "icon": "transfusion",
     "description": "Réaliser des headshots cumule des effets jusqu'à un maximum de 8.\nQuand vous tirez sur un allié ou un proxy de compétence, vous les réparez de 50% de la valeur totale des dégâts de l'arme par effet.\nLes alliés soignés recevront 50% du bonus de vos compétences de réparation en protection bonus par effet pendant 10s.\nAprès avoir soigné un allié, tous les tirs assurent des headshots pendant 8s si vous aviez le maximum d'effets.",
     "estExotique": true
   },
   "frappe_de_l_aigle": {
     "nom": "Frappe de l'aigle",
-    "icone": "frappe_de_l_aigle",
+    "icon": "frappe_de_l_aigle",
     "description": "La précision de vos tirs augmente lorsque vous tirez en continu, jusqu'à +30%.\nLes éliminations par headshot confèrent le buff Ténacité pendant 15s.\nLa puissance de Ténacité est augmentée de 1% pour les dégâts corporels et de 5% pour les headshots.",
     "notes": "PVP : précision jusqu'à +100%, Ténacité pendant 10s",
     "estExotique": true
   },
   "tenacite": {
     "nom": "Ténacité",
-    "icone": "tenacite",
+    "icon": "tenacite",
     "description": "40-80% des dégâts subis sont retardés jusqu'à l'expiration du buff.\nL'intégralité du total de dégâts retardés est réduite pour chaque ennemi éliminé pendant le buff, jusqu'à 100% avec 3 éliminations.",
     "estExotique": true
   },
   "instinct_d_adaptation": {
     "nom": "Instinct d'adaptation",
-    "icone": "instinct_d_adaptation",
+    "icon": "instinct_d_adaptation",
     "description": "Placer 30 headshots confère +20% à la probabilité de critique et 50% aux dégâts critiques pendant 45s.\nPlacer 65 tirs au corps confère +90% aux dégâts d'arme pendant 45s.\nPlacer 20 tirs aux jambes confère +150% à la vitesse de rechargement pendant 45s.\nLes buffs se réinitialisent hors combat.",
     "estExotique": true,
     "descente": {
@@ -1259,13 +1259,13 @@
   },
   "chasseur_de_gros_gibier": {
     "nom": "Chasseur de gros gibier",
-    "icone": "chasseur_de_gros_gibier",
+    "icon": "chasseur_de_gros_gibier",
     "description": "Quand vous zoomez, l'arme passe en mode semi-auto et inflige 450% de dégâts d'armes à chaque tir.\nLes headshots confèrent +6% de dégâts headshot (max 25).\nUne fois le cumul max atteint, 10 effets se dissipent toutes les 4s.\nLes headshots ralentissent la disparition des effets.",
     "estExotique": true
   },
   "capacite": {
     "nom": "Capacité",
-    "icone": "capacite",
+    "icon": "capacite",
     "description": "Tirer sur des ennemis cumule des effets jusqu'à un maximum de 40. Chaque effet confère 1.5% de dégâts de compétences.\nAu bout de 5 secondes, les effets cumulés diminuent de 1 par seconde.\nPour chaque Tier de compétence, confère 7.5% de dégâts d'arme.",
     "estExotique": true,
     "descente": {
@@ -1287,20 +1287,20 @@
   },
   "actum_est": {
     "nom": "Actum Est",
-    "icone": "actum_est",
+    "icon": "actum_est",
     "description": "Tirer sur un ennemi avec cette arme confère 1 effet cumulable.\nAu bout de 100, votre prochain chargeur contiendra des munitions électriques.",
     "notes": "50% du chargeur en pvp",
     "estExotique": true
   },
   "pertubation": {
     "nom": "Pertubation",
-    "icone": "pertubation",
+    "icon": "pertubation",
     "description": "Abattre un ennemi applique une marque à tous les ennemis situés à moins de 20m de lui.\nIl est possible d'appliquer plusieurs marques au même ennemi (max 5).\nToutes les marques disparaissent 10s après la dernière application.\nVous infligez +15% de dégâts par marque aux ennemis marqués.",
     "estExotique": true
   },
   "fleo_des_parias": {
     "nom": "Fléau des Parias",
-    "icone": "fleo_des_parias",
+    "icon": "fleo_des_parias",
     "description": "Les coups au but appliquent un débuff qui inflige 100% des dégâts d'arme sur 10s (max 50).\nQuand un ennemi subissant ce débuff meurt, le cumul d'effets est transféré à un ennemi situé dans un rayon de 25m.",
     "estExotique": true,
     "descente": {
@@ -1322,7 +1322,7 @@
   },
   "deluge_de_feu": {
     "nom": "Déluge de feu",
-    "icone": "deluge_de_feu",
+    "icon": "deluge_de_feu",
     "description": "Cette arme ne nécessite pas de rechargement.\nPour chaque 100 balles qui touchent un ennemi, des munitions sont ajoutées dans votre réserve et celles de vos alliés.",
     "estExotique": true,
     "descente": {
@@ -1341,49 +1341,49 @@
   },
   "ardent": {
     "nom": "Ardent",
-    "icone": "ardent",
+    "icon": "ardent",
     "description": "Tirer chauffe l'arme, remplissant la jauge de chaleur (50% du chargeur).\nQuand la jauge est pleine, les balles tirées par l'arme embrasent les ennemis.\nLorsque vous ne tirez pas, la jauge se vide. Recharger ou changer d'arme vide la jauge.",
     "estExotique": true
   },
   "pakhan": {
     "nom": "Pakhan",
-    "icone": "pakhan",
+    "icon": "pakhan",
     "description": "Chaque élimination avec cette arme augmente de +75% la capacité du prochain chargeur.\nCumulable jusqu'à un maximum de 4 effets.",
     "estExotique": true
   },
   "accelerateur_electromagnetique": {
     "nom": "Accélérateur électromagnétique",
-    "icone": "accelerateur_electromagnetique",
+    "icon": "accelerateur_electromagnetique",
     "description": "Les tirs infligent 0-100% de dégâts en fonction du temps de pression avant de relâcher la détente.",
     "estExotique": true
   },
   "visee_analytique": {
     "nom": "Visée analytique",
-    "icone": "visee_analytique",
+    "icon": "visee_analytique",
     "description": "Votre vue zoomée affiche des informations sur les ennemis qui ne vous ciblent pas.\nLes dégâts de headshot et de point faible contre ces ennemis sont augmentés de 50%.\nLes éliminations par headshot réinitialisent le temps de recharge du leurre.",
     "estExotique": true
   },
   "point_final": {
     "nom": "Point Final",
-    "icone": "point_final",
+    "icon": "point_final",
     "description": "Les tirs génèrent un cumul (max 20). Les headshots accumulent 2 effets.\nChaque effet confère +2% de dégâts d'arme et +5% de dégâts d'headshot.\nAu rechargement, le cumul est consommé pour gagner +5% de protection temporaire par effet pendant 10s.\nLes éliminations par headshot réapprovisionnent intégralement le chargeur.",
     "estExotique": true
   },
   "le_piege": {
     "nom": "Le piège",
-    "icone": "le_piege",
+    "icon": "le_piege",
     "description": "Marque les ennemis dans le champ de visée (max 10).\nSi l'agent tue une cible marquée par headshot, les autres cibles subissent entrave (50%) et Brûlure pendant 10s.\nTemps de recharge : 30s.\nTuer par headshot diminue le temps de recharge de 10s.",
     "estExotique": true
   },
   "cible_de_priorite_elevee": {
     "nom": "Cible de priorité élevée",
-    "icone": "cible_de_priorite_elevee",
+    "icon": "cible_de_priorite_elevee",
     "description": "Dégâts d'arme accrus de 125% contre les ennemis des rangs les plus élevés actuellement en combat.\nTier 1 : chasseur, renégat, chef, tank, bouclier, armes lourdes, lance-roquettes, médecin, contrôleur, chien de guerre, maraudeur\nTier 2 : support, ingénieur, garde du corps, immobilisateur, poseur de bombe, mini-char, opérateur de drone\nTier 3 : tout autre ennemi ou proxy de compétence",
     "estExotique": true
   },
   "la_liberte_ou_la_mort": {
     "nom": "La Liberté ou la Mort",
-    "icone": "la_liberte_ou_la_mort",
+    "icon": "la_liberte_ou_la_mort",
     "description": "Les tirs réussis confèrent +2% aux dégâts d'arme (max 30).\nLes headshots consomment les effets pour réparer votre bouclier de 3% par effet.",
     "estExotique": true,
     "descente": {
@@ -1404,7 +1404,7 @@
   },
   "regicide": {
     "nom": "Régicide",
-    "icone": "regicide",
+    "icon": "regicide",
     "description": "Les éliminations par headshot créent une explosion de 5m infligeant 400% des dégâts d'arme et saignement à tous les ennemis touchés.",
     "estExotique": true,
     "descente": {
@@ -1423,7 +1423,7 @@
   },
   "petite_abeille_ouvriere": {
     "nom": "Petite abeille ouvrière",
-    "icone": "petite_abeille_ouvriere",
+    "icon": "petite_abeille_ouvriere",
     "description": "Chaque tir sur une cible différente octroie 1 cumul (max 10), chaque cumul conférant 20% (2%) de dégâts d'arme.\nLes cumuls s'activent une fois que l'agent change d'arme et durent 10 secondes.",
     "estExotique": true,
     "descente": {
@@ -1444,13 +1444,13 @@
   },
   "chanson_du_mosquito": {
     "nom": "Chanson du Mosquito",
-    "icone": "chanson_du_mosquito",
+    "icon": "chanson_du_mosquito",
     "description": "Toucher un ennemi lui attribue une marque cumulable.\nAu bout de 5 marques, l'ennemi est contraint de cibler le dernier joueur ayant marqué pendant 5s et subit +25% de dégâts à la protection.\nLes marques se dissipent toutes les 5s.",
     "estExotique": true
   },
   "conversation_ininterrompue": {
     "nom": "Conversation ininterrompue",
-    "icone": "conversation_ininterrompue",
+    "icon": "conversation_ininterrompue",
     "description": "Quand vous rechargez, la cadence de tir augmente de 25% pour chaque ennemi à moins de 15m.\nCumulable 5 fois maximum.\nLes éliminations remplissent 50% de votre chargeur.",
     "estExotique": true,
     "descente": {
@@ -1472,7 +1472,7 @@
   },
   "souffle_ultime": {
     "nom": "Souffle ultime",
-    "icone": "souffle_ultime",
+    "icon": "souffle_ultime",
     "description": "Quand vous vous déplacez, confère 4 bonus par seconde (8 si vous sprintez).\nChaque munition tirée consomme un bonus qui augmente les dégâts de 75% (60%).\nLes éliminations confèrent +20% en vitesse de déplacement pendant 10s.",
     "estExotique": true,
     "descente": {
@@ -1494,7 +1494,7 @@
   },
   "paiement_en_nature": {
     "nom": "Paiement en nature",
-    "icone": "paiement_en_nature",
+    "icon": "paiement_en_nature",
     "description": "Infliger des dégâts ajoute +2% de dégâts critiques (max 100) pendant 10s.\nAu rechargement, vous subissez un saignement infligeant 0,5% de dégâts à la protection par effet cumulé.",
     "estExotique": true,
     "descente": {
@@ -1515,31 +1515,31 @@
   },
   "rule_them_all": {
     "nom": "Rule them all",
-    "icone": "rule_them_all",
+    "icon": "rule_them_all",
     "description": "Quand l'agent subit un effet d'état, le prochain chargeur sera rempli à 50% du dernier effet d'état subi.\nNe fonctionne qu'en combat.",
     "estExotique": true
   },
   "symbiose": {
     "nom": "Symbiose",
-    "icone": "symbiose",
+    "icon": "symbiose",
     "description": "Quand vous avez un bouclier déployé, vous perdez de la santé de bouclier de 10% par seconde.\nVotre bouclier reçoit des réparations équivalant à 25% des dégâts infligés par cette arme.",
     "estExotique": true
   },
   "courant_alternatif": {
     "nom": "Courant alternatif",
-    "icone": "courant_alternatif",
+    "icon": "courant_alternatif",
     "description": "Génère un effet de 3% de dégâts de compétences à chaque seconde (max 10).\nAu bout de 10s max, les effets sont transférés à votre autre compétence.\nLe processus se répète indéfiniment.",
     "estExotique": true
   },
   "defibrillator": {
     "nom": "Defibrillator",
-    "icone": "defibrillator",
+    "icon": "defibrillator",
     "description": "Lorsqu' \"Électrochoc\" est équipé, l'étourdissement par électrocution est réduit de 50%.\nL'utilisation d'un bouclier augmente les dégâts au corps à corps de 100%.\nLe Holster et le Saint-Elme ajoutent 100% de dégâts CàC et électrocutent la cible.\nAvec les 3 objets : électrocution en zone (5m). Recharge : 15s.",
     "estExotique": true
   },
   "rafraichissement": {
     "nom": "Rafraîchissement",
-    "icone": "rafraichissement",
+    "icon": "rafraichissement",
     "description": "Version parfaite uniquement",
     "perfectDescription": "L'arme tire un jet d'eau.\nEn touchant des agents alliés, vous leur conférez des effets cumulables (max 5) qui se dissipent toutes les 2s.\nTant qu'il dispose d'au moins 1 effet, l'allié bénéficie de +50% de protection contre les altérations d'état.",
     "armesParfaites": [
@@ -1554,7 +1554,7 @@
     "armesParfaites": [
       "le_fendoir"
     ],
-    "icone": "precis",
+    "icon": "precis",
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -1583,7 +1583,7 @@
   },
   "allegro": {
     "nom": "Allegro",
-    "icone": "allegro",
+    "icon": "allegro",
     "description": "Version parfaite uniquement",
     "perfectDescription": "+15% de cadence de tir",
     "armesParfaites": [
@@ -1609,7 +1609,7 @@
   },
   "lumieres_scintillantes": {
     "nom": "Lumières scintillantes",
-    "icone": "lumieres_scintillantes",
+    "icon": "lumieres_scintillantes",
     "description": "Version parfaite uniquement",
     "perfectDescription": "Seules la nuit et ses lumières scintillantes, emplissent les têtes d'une joie débordante",
     "armesParfaites": [
@@ -1619,7 +1619,7 @@
   },
   "mode_vitesse": {
     "nom": "Mode vitesse",
-    "icone": "mode_vitesse",
+    "icon": "mode_vitesse",
     "description": "Uniquement en version parfaite",
     "perfectDescription": "+20% vitesse de déplacement.\nCe bonus ne peut pas se cumuler avec d'autres bonus de vitesse de déplacement",
     "armesParfaites": [
@@ -1628,7 +1628,7 @@
   },
   "extra": {
     "nom": "Extra",
-    "icone": "extra",
+    "icon": "extra",
     "description": "Version parfaite uniquement",
     "estExotique": false,
     "perfectDescription": "+50% à la capacité de chargeur.",
@@ -1654,7 +1654,7 @@
   "critique": {
     "nom": "Critique",
     "description": "TODO: Description du talent",
-    "icone": "critique",
+    "icon": "critique",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -1682,7 +1682,7 @@
   "chirurgical": {
     "nom": "Chirurgical",
     "description": "TODO: Description du talent",
-    "icone": "chirurgical",
+    "icon": "chirurgical",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -1710,7 +1710,7 @@
   "optimise": {
     "nom": "Optimisé",
     "description": "TODO: Description du talent",
-    "icone": "optimise",
+    "icon": "optimise",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -1738,7 +1738,7 @@
   "determination": {
     "nom": "Détermination",
     "description": "TODO: Description du talent",
-    "icone": "determination",
+    "icon": "determination",
     "estExotique": true,
     "compatibilite": {
       "fusil": true,

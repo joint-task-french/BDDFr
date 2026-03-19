@@ -689,49 +689,49 @@
   },
   "gachette_facile": {
     "nom": "Gâchette facile",
-    "icone": "gachette_facile",
+    "icon": "gachette_facile",
     "description": "Quand votre pistolet est dans son étui, confère un buff cumulable jusqu'à 100 fois toutes les 0.3s.\nQuand vous le dégainez, votre premier tir consomme le buff et inflige +10 % (+0,1%) de dégâts par buff cumulé.\nCela inflige des dégâts de headshot, quel que soit l'endroit touché.\nExigence : Pistolet équipé",
     "emplacement": "holster",
     "estExotique": true
   },
   "optimisation_de_transfert": {
     "nom": "Optimisation de transfert",
-    "icone": "optimisation_de_transfert",
+    "icon": "optimisation_de_transfert",
     "description": "(PVE) Augmente de +15% la récupération de compétence Ruche par tier de compétence.\nFaire exploser une ruche annule vos temps de recharge de compétence et donne surcharge pendant 15s.\nS'il est déjà au Tier de compétence 6, cet effet s'applique également à tous les alliés.\nLes alliés qui reçoivent cet effet ne peuvent plus en bénéficier pendant 120s.",
     "emplacement": "gants",
     "estExotique": true
   },
   "inflexibilite": {
     "nom": "Inflexibilité",
-    "icone": "inflexibilite",
+    "icon": "inflexibilite",
     "description": "Immunité au vacillement par les explosions.\nAugmente le total de dégâts d'arme de 3% pour chaque seconde que vous restez immobile.\nCe bonus peut se cumuler 10 fois jusqu'à ce que vous bougiez.\nLe cumul de bonus se dissipe 10s après avoir bougé.",
     "emplacement": "genouilleres",
     "estExotique": true
   },
   "un_tiens_vaut_mieux": {
     "nom": "Un tiens vaut mieux ...",
-    "icone": "un_tiens_vaut_mieux",
+    "icon": "un_tiens_vaut_mieux",
     "description": "Quand vous lancez une grenade, vous la récupérez et obtenez +1 au tier de compétence pendant 15s.\nSi vous êtes déjà au Tier de compétence 6, donne surcharge.\n(Ne donne pas de surcharge en PVP)",
     "emplacement": "sac_a_dos",
     "estExotique": true
   },
   "que_deux_tu_l_auras": {
     "nom": "Que deux tu l'auras",
-    "icone": "que_deux_tu_l_auras",
+    "icon": "que_deux_tu_l_auras",
     "description": "Capacité en kit de protection +1\nCapacité en grenades +3\nCapacité en munition +25%\nCompétence de réparation +10%\nEffets d'états +10%",
     "emplacement": "sac_a_dos",
     "estExotique": true
   },
   "instinct_de_meute": {
     "nom": "Instinct de meute",
-    "icone": "instinct_de_meute",
+    "icon": "instinct_de_meute",
     "description": "Vous et vos alliés recevez un bonus basé sur la distance à laquelle se trouve le dernier ennemi touché.\n0-15 m : +25% aux dégâts de coup critique\n15-25 m : +10% aux dégâts de coup critique et +10% à la probabilité de coup critique\nPlus de 25 m : +25% à la probabilité de coup critique",
     "emplacement": "masque",
     "estExotique": true
   },
   "nano_plaquage_ablatif": {
     "nom": "Nano-plaquage ablatif",
-    "icone": "nano_plaquage_ablatif",
+    "icon": "nano_plaquage_ablatif",
     "description": "Quand votre protection ou celle d'un allié est détruite, celui-ci gagne 80% (40%) de votre protection en protection bonus pendant 10s.\nTemps de recharge par allié : 45s\nTuer un ennemi avec votre arme spécifique supprime ce temps de recharge pour tous les alliés.",
     "emplacement": "torse",
     "estExotique": true
@@ -739,146 +739,146 @@
   "eclat_du_dragon": {
     "nom": "Éclat du dragon",
     "description": "Au combat, inflige brûlure à l'ennemi le plus proche dans un rayon de 20m.\nTemps de recharge de 35s.",
-    "icone": "eclat_du_dragon",
+    "icon": "eclat_du_dragon",
     "emplacement": "holster",
     "estExotique": true
   },
   "contre": {
     "nom": "Contre",
-    "icone": "contre",
+    "icon": "contre",
     "description": "Changer d'arme donne les groupes de bonus suivants un par un, dans l'ordre :\n1. +20% (+10%) de cadence de tir, +20% (+10%) de dégâts d'arme\n2. +50% (+25%) taille du chargeur, +50% de vitesse de rechargement\nLes bonus restent actifs 12s ou jusqu'à l'échange d'arme suivant.\nPasser à votre arme d'appoint ne déclenche pas le groupe de bonus suivant",
     "emplacement": "gants",
     "estExotique": true
   },
   "esquive_reparatrice": {
     "nom": "Esquive réparatrice",
-    "icone": "esquive_reparatrice",
+    "icon": "esquive_reparatrice",
     "description": "Vous réparez 5% (3%) de votre protection pour chaque mètre de course d'un couvert à l'autre.\nLes dégâts subis lors d'un changement d'abri sont restaurés pendant 10s.",
     "emplacement": "genouilleres",
     "estExotique": true
   },
   "exuberant": {
     "nom": "Exubérant",
-    "icone": "exuberant",
+    "icon": "exuberant",
     "description": "Infliger des dégâts à un ennemi avec une grenade ou frapper un ennemi avec une attaque au corps à corps active Voir rouge.\nVoir rouge confère +25% aux dégâts d'arme +100% aux dégâts de corps à corps.\nVoir rouge dure 20 secondes et possède un temps de recharge de 60 secondes.\nUne fois en recharge, infliger des dégâts à un ennemi avec une attaque de corps à corps ou frapper un ennemi avec l'effet d'une grenade réinitialise instantanément ce temps de recharge.",
     "emplacement": "torse",
     "estExotique": true
   },
   "poigne_de_fer": {
     "nom": "Poigne de fer",
-    "icone": "poigne_de_fer",
+    "icon": "poigne_de_fer",
     "description": "Pénalité de recul -50% en tirant de la hanche.\nPénalité de recul -50% en tirant à l'aveuglette depuis un abri.",
     "emplacement": "gants",
     "estExotique": true
   },
   "ecran_de_fumee": {
     "nom": "Ecran de fumée",
-    "icone": "ecran_de_fumee",
+    "icon": "ecran_de_fumee",
     "description": "(PVE) Quand votre protection est détruite, vous lâchez une bombe fumigène qui empêche les ennemis de vous voir pendant 3s.\nTemps de recharge : 40s",
     "emplacement": "torse",
     "estExotique": true
   },
   "maillon_faible": {
     "nom": "Maillon faible",
-    "icone": "maillon_faible",
+    "icon": "maillon_faible",
     "description": "Dégâts d'arme accrus de 30% contre les ennemis des rangs les plus faibles actuellement en combat, selon la hiérarchie des Tiers.\nTier 1 : chasseur, renégat, chef, tank, bouclier, armes lourdes, lance-roquettes, médecin, contrôleur, chien de guerre, maraudeur\nTier 2 : support, ingénieur, garde du corps, immobilisateur, poseur de bombe, mini-char, opérateur de drone\nTier 3 : tout autre ennemi ou proxy de compétence",
     "emplacement": "masque",
     "estExotique": true
   },
   "parkour": {
     "nom": "Parkour !",
-    "icone": "parkour",
+    "icon": "parkour",
     "description": "(PVE) Se déplacer d'un abri à un autre ou franchir un obstacle recharge votre arme actuelle et vous bénéficiez d'un bonus de +25% à la protection pendant 5s.",
     "emplacement": "genouilleres",
     "estExotique": true
   },
   "ostracisation": {
     "nom": "Ostracisation",
-    "icone": "ostracisation",
+    "icon": "ostracisation",
     "description": "Toucher un ennemi lui applique une marque.\nLa marque disparaît au bout de 15s, ou à la mort de l'ennemi marqué.\nVous subissez +600% de dégâts de l'ennemi marqué.\nVous infligez +20% de dégâts aux ennemis non marqués.\nS'il ne reste qu'un ennemi en combat, la marque disparaît et ne peut pas être appliquée de nouveau.",
     "emplacement": "masque",
     "estExotique": true
   },
   "elimination_confirmee": {
     "nom": "Élimination confirmée",
-    "icone": "elimination_confirmee",
+    "icon": "elimination_confirmee",
     "description": "Les ennemis éliminés génèrent un trophée. La récupération des trophées fournit à la fois un buff à court terme et à long terme.\nLe premier buff dépend du nombre d'attributs essentiels équipés et dure 10s :\n- Offensif : +5% de dégâts d'arme\n- Défensif : +10% de protection bonus\n- Utilitaire : +5% d'efficacité de compétence\nPour chaque trophée récupéré, vous obtenez en plus +1% de dégâts d'arme, +1% d'efficacité de compétence et 0,1% de régénération de protection pendant 300s.\nEffet cumulable 30 fois.",
     "emplacement": "sac_a_dos",
     "estExotique": true
   },
   "debrouillardise": {
     "nom": "Débrouillardise",
-    "icone": "debrouillardise",
+    "icon": "debrouillardise",
     "description": "Utilise tout objet d'ensemble d'équipement et/ou de marque équipé pour remplir une condition de déverrouillage de bonus d'ensemble.\nPeut déverrouiller les bonus de plusieurs ensembles simultanément.",
     "emplacement": "sac_a_dos",
     "estExotique": true
   },
   "medecin_de_combat": {
     "nom": "Médecin de combat",
-    "icone": "medecin_de_combat",
+    "icon": "medecin_de_combat",
     "description": "Vitesse de ranimation +80%\nTemps des malus d'affaiblissement -50%\nEfficacité de la ruche +45%\nConfère +50% de résistance aux dégâts à l'agent ranimé et au réanimateur pendant 5s après une ranimation de ruche réussie, ou 10s après une ranimation manuelle réussie.\nToute ranimation réussie donne +1 Tier de compétence pendant 5s.\nLes ranimations au Tier de compétence 6 donnent une surchage pendant 15s.",
     "emplacement": "sac_a_dos",
     "estExotique": true
   },
   "charge_toxique": {
     "nom": "Charge toxique",
-    "icone": "charge_toxique",
+    "icon": "charge_toxique",
     "description": "Les effets d'état infligent également un débuff de dégâts sur la durée pendant 10s.\nLe total de dégâts infligés est égal à 50% (20%) des dégâts de votre grenade offensive et est accru par vos attributs d'effet d'état.",
     "emplacement": "torse",
     "estExotique": true
   },
   "cercle_vicieux": {
     "nom": "Cercle vicieux",
-    "icone": "cercle_vicieux",
+    "icon": "cercle_vicieux",
     "description": "Subir des dégâts cumule des effets jusqu'à un maximum de 30.\nChaque effet confère +1,5% de dégâts d'arme.\nSubir des dégâts quand le cumul est à son maximum déclenche une purge qui consomme le cumul, supprime les effets d'état et génère un nuage qui restaure +5% de la protection maximum pendant 10s pour tous les alliés situés dans la zone d'effet.",
     "emplacement": "masque",
     "estExotique": true
   },
   "agent_chimique": {
     "nom": "Agent chimique",
-    "icone": "agent_chimique",
+    "icon": "agent_chimique",
     "description": "Catalyse :\nInfliger et subir des effets d'état permet d'accumuler des effets de Catalyse jusqu'à un maximum de 12.\nChaque effet confère : +2% dégâts d'arme et +2% d'effets d'état.\nChaque ennemi situé dans un rayon de 25m et affecté par un effet d'état confère +1 effet/s. Recevoir un effet d'état confère +2 effet/s.\nLes effets cumulés se dissipent au rythme de 1 effet(s)/s au bout de 5s si ni vous ni un ennemi à portée n'êtes affectés par un effet d'état.\n\nRéactif :\nQuand le cumul est à son maximum, tuer un ennemi subissant un effet d'état confère des bonus pendant 5s : +25% de protection bonus et +20% de vitesse de rechargement.\n\nStabilisation :\nPendant que vous êtes en feu, vous conservez votre capacité à viser.",
     "emplacement": "masque",
     "estExotique": true
   },
   "abrege": {
     "nom": "Abrégé",
-    "icone": "abrege",
+    "icon": "abrege",
     "description": "Si vos armes principale et secondaire ne sont pas exotiques ou spécifiées et du même type, le talent de l'arme secondaire sera également appliqué à l'arme principale.\nNe s'applique pas si le talent de l'arme principale ou secondaire inclut un changement d'arme.\nNe s'applique pas si les talents des armes principales et secondaire sont les mêmes.",
     "emplacement": "torse",
     "estExotique": true
   },
   "avantage_sanglant": {
     "nom": "Avantage sanglant",
-    "icone": "avantage_sanglant",
+    "icon": "avantage_sanglant",
     "description": "Endommager un ennemi situé à moins de 15m inflige un saignement à la cible.\nRépare 3-48% de votre protection par seconde pour chaque ennemi subissant un saignement situé à moins de 15m.\n- 1 ennemi : 3%\n- 2 ennemis : 6%\n- 3 ennemis : 12%\n- 4 ennemis : 24%\n- 5 ennemis : 48%",
     "emplacement": "torse",
     "estExotique": true
   },
   "hoarder": {
     "nom": "Hoarder",
-    "icone": "hoarder",
+    "icon": "hoarder",
     "description": "+3 capacité de grenade.\n+50% Portée des grenades.\n+35% Dégâts des grenades.\n+25% dégâts des grenades pour chaque ennemi supplémentaire \"attrapé\" dans l'explosion",
     "emplacement": "sac_a_dos",
     "estExotique": true
   },
   "pretendant": {
     "nom": "Prétendant",
-    "icone": "pretendant",
+    "icon": "pretendant",
     "description": "+25% (20%) de résistance aux dégâts des ennemis à moins de 20m (15m).",
     "emplacement": "torse",
     "estExotique": true
   },
   "lien": {
     "nom": "Lien",
-    "icone": "lien",
+    "icon": "lien",
     "description": "(Ne fonctionne pas en PVP)\nVous et vos alliés bénéficiez de +30% de dégâts critiques, +15% d'efficacité de compétence et +2% de régénération de protection quand un allié se trouve à moins de 10m de vous.\nVous bénéficiez de +15% de dégâts critiques, +8% d'efficacité de compétence et +1% de régénération de protection quand une de vos compétences se trouve à moins de 10m de vous.\nSeul l'ensemble de bonus le plus puissant peut être actif à la fois.",
     "emplacement": "torse",
     "estExotique": true
   },
   "plan_de_fuite": {
     "nom": "Plan de fuite",
-    "icone": "plan_de_fuite",
+    "icon": "plan_de_fuite",
     "description": "Franchir un obstacle confère +10% de vitesse de déplacement pendant 3s.\nAu bout de 5s d'immobilité, vous recevez +20% de vitesse de déplacement pendant 5s.\nRecevoir un effet d'état confère +10% de vitesse de déplacement pendant 5s.\nLe bonus de vitesse de déplacement max. est de 20%.\nCes bonus ne se cumulent pas avec les bonus de déplacement d'autres sources.\n-50% aux pénalités d'entrave au déplacement causées par les effets d'état.",
     "emplacement": "genouilleres",
     "estExotique": true
@@ -1253,7 +1253,7 @@
     "nom": "Isolé",
     "description": "TODO: Description du talent",
     "emplacement": "torse",
-    "icone": "isole",
+    "icon": "isole",
     "descente": {
       "boucles": [
         "Avidité",
@@ -1273,7 +1273,7 @@
     "nom": "Capacitif",
     "description": "TODO: Description du talent",
     "emplacement": "torse",
-    "icone": "capacitif",
+    "icon": "capacitif",
     "descente": {
       "boucles": [
         "Avidité",
@@ -1292,7 +1292,7 @@
     "nom": "Destructeur",
     "description": "TODO: Description du talent",
     "emplacement": "torse",
-    "icone": "destructeur",
+    "icon": "destructeur",
     "descente": {
       "boucles": [
         "Avidité",
@@ -1311,7 +1311,7 @@
     "nom": "Autonome",
     "description": "TODO: Description du talent",
     "emplacement": "torse",
-    "icone": "autonome",
+    "icon": "autonome",
     "descente": {
       "boucles": [
         "Avidité",
@@ -1329,7 +1329,7 @@
     "nom": "Fortifiant",
     "description": "TODO: Description du talent",
     "emplacement": "torse",
-    "icone": "fortifiant",
+    "icon": "fortifiant",
     "descente": {
       "boucles": [
         "Avidité",
@@ -1346,7 +1346,7 @@
     "nom": "Poussée",
     "description": "TODO: Description du talent",
     "emplacement": "torse",
-    "icone": "poussee",
+    "icon": "poussee",
     "descente": {
       "boucles": [
         "Avidité",

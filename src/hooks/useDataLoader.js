@@ -95,7 +95,7 @@ export function useDataLoader() {
               rechargement: spec.arme.rechargement,
               headshot: spec.arme.headshot,
               degatsBase: spec.arme.degatsBase,
-              icone: spec.arme.icone,
+              icon: spec.arme.icon,
               estExotique: false,
               estNomme: false,
               talents: [],

@@ -27,7 +27,7 @@ export default function TalentArmeCard({ item, armes }) {
   const compatTypes = item.compatibilite
       ? Object.entries(item.compatibilite).filter(([, v]) => v).map(([k]) => k)
       : []
-  const talentIcon = resolveIcon(item.icone)
+  const talentIcon = resolveIcon(item.icon)
   const hasPerfect = !isExotic && !!item.perfectDescription
   const nameColor = isExotic ? 'text-red-400' : 'text-shd'
   const borderColor = isExotic ? 'border-l-red-500' : ''

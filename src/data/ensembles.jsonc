@@ -3,7 +3,7 @@
   "ongoing_directive": {
     "nom": "Ongoing Directive",
     "type": "gear_set",
-    "logo": "ongoing_directive",
+    "icon": "ongoing_directive",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -16,7 +16,7 @@
   "true_patriot": {
     "nom": "True Patriot",
     "type": "gear_set",
-    "logo": "true_patriot",
+    "icon": "true_patriot",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -29,7 +29,7 @@
   "hard_wired": {
     "nom": "Hard Wired",
     "type": "gear_set",
-    "logo": "hard_wired",
+    "icon": "hard_wired",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -42,7 +42,7 @@
   "as_et_huit": {
     "nom": "As et Huit",
     "type": "gear_set",
-    "logo": "as_et_huit",
+    "icon": "as_et_huit",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -55,7 +55,7 @@
   "pointe_de_lance": {
     "nom": "Pointe de Lance",
     "type": "gear_set",
-    "logo": "pointe_de_lance",
+    "icon": "pointe_de_lance",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -68,7 +68,7 @@
   "dilemme_du_negociateur": {
     "nom": "Dilemme du Négociateur",
     "type": "gear_set",
-    "logo": "dilemme_du_negociateur",
+    "icon": "dilemme_du_negociateur",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -81,7 +81,7 @@
   "strikers_battlegear": {
     "nom": "Strikers Battlegear",
     "type": "gear_set",
-    "logo": "strikers_battlegear",
+    "icon": "strikers_battlegear",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -94,7 +94,7 @@
   "corruption_systeme": {
     "nom": "Corruption Système",
     "type": "gear_set",
-    "logo": "corruption_systeme",
+    "icon": "corruption_systeme",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -107,7 +107,7 @@
   "protocole_eclipse": {
     "nom": "Protocole Eclipse",
     "type": "gear_set",
-    "logo": "protocole_eclipse",
+    "icon": "protocole_eclipse",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -120,7 +120,7 @@
   "foundry_bullwark": {
     "nom": "Foundry Bullwark",
     "type": "gear_set",
-    "logo": "foundry_bullwark",
+    "icon": "foundry_bullwark",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -133,7 +133,7 @@
   "future_initiative": {
     "nom": "Future Initiative",
     "type": "gear_set",
-    "logo": "future_initiative",
+    "icon": "future_initiative",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -146,7 +146,7 @@
   "fureur_du_chasseur": {
     "nom": "Fureur du chasseur",
     "type": "gear_set",
-    "logo": "fureur_du_chasseur",
+    "icon": "fureur_du_chasseur",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -159,7 +159,7 @@
   "rigger": {
     "nom": "Rigger",
     "type": "gear_set",
-    "logo": "rigger",
+    "icon": "rigger",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -172,7 +172,7 @@
   "heartbreaker": {
     "nom": "Heartbreaker",
     "type": "gear_set",
-    "logo": "heartbreaker",
+    "icon": "heartbreaker",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -185,7 +185,7 @@
   "initiative_umbra": {
     "nom": "Initiative Umbra",
     "type": "gear_set",
-    "logo": "initiative_umbra",
+    "icon": "initiative_umbra",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -198,7 +198,7 @@
   "hotshot": {
     "nom": "Hotshot",
     "type": "gear_set",
-    "logo": "hotshot",
+    "icon": "hotshot",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -211,7 +211,7 @@
   "cavalier": {
     "nom": "Cavalier",
     "type": "gear_set",
-    "logo": "cavalier",
+    "icon": "cavalier",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -224,7 +224,7 @@
   "ortiz_exuro": {
     "nom": "Ortiz: Exuro",
     "type": "gear_set",
-    "logo": "ortiz_exuro",
+    "icon": "ortiz_exuro",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -237,7 +237,7 @@
   "aegis": {
     "nom": "Aegis",
     "type": "gear_set",
-    "logo": "aegis",
+    "icon": "aegis",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -251,7 +251,7 @@
   "breaking_point": {
     "nom": "Breaking Point",
     "type": "gear_set",
-    "logo": "breaking_point",
+    "icon": "breaking_point",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -264,7 +264,7 @@
   "virtuoso": {
     "nom": "Virtuoso",
     "type": "gear_set",
-    "logo": "virtuoso",
+    "icon": "virtuoso",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -277,7 +277,7 @@
   "refactor": {
     "nom": "Refactor",
     "type": "gear_set",
-    "logo": "refactor",
+    "icon": "refactor",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -290,7 +290,7 @@
   "measured_assembly": {
     "nom": "Measured Assembly",
     "type": "gear_set",
-    "logo": "measured_assembly",
+    "icon": "measured_assembly",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -303,7 +303,7 @@
   "point_de_bascule": {
     "nom": "Point de bascule",
     "type": "gear_set",
-    "logo": "point_de_bascule",
+    "icon": "point_de_bascule",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -316,7 +316,7 @@
   "concentrated_company": {
     "nom": "Concentrated Company",
     "type": "gear_set",
-    "logo": "concentrated_company",
+    "icon": "concentrated_company",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -329,7 +329,7 @@
   "sokolov_concern": {
     "nom": "Sokolov Concern",
     "type": "marque",
-    "logo": "sokolov_concern",
+    "icon": "sokolov_concern",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -340,7 +340,7 @@
   "providence_defense": {
     "nom": "Providence Defense",
     "type": "marque",
-    "logo": "providence_defense",
+    "icon": "providence_defense",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -351,7 +351,7 @@
   "overlord_armaments": {
     "nom": "Overlord Armaments",
     "type": "marque",
-    "logo": "overlord",
+    "icon": "overlord",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -362,7 +362,7 @@
   "5_11_tactical": {
     "nom": "5.11 Tactical",
     "type": "marque",
-    "logo": "5_11_tactical",
+    "icon": "5_11_tactical",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -373,7 +373,7 @@
   "douglas_harding": {
     "nom": "Douglas & Harding",
     "type": "marque",
-    "logo": "douglas_harding",
+    "icon": "douglas_harding",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -384,7 +384,7 @@
   "petrov_defense_group": {
     "nom": "Petrov Defense Group",
     "type": "marque",
-    "logo": "petrov_defense",
+    "icon": "petrov_defense",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -395,7 +395,7 @@
   "wyvern_wear": {
     "nom": "Wyvern Wear",
     "type": "marque",
-    "logo": "wyvern_wear",
+    "icon": "wyvern_wear",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -406,7 +406,7 @@
   "alps_summit_armement": {
     "nom": "Alps Summit Armement",
     "type": "marque",
-    "logo": "alps_summit",
+    "icon": "alps_summit",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -417,7 +417,7 @@
   "richter_kaiser_gmbh": {
     "nom": "Richter & Kaiser GmbH",
     "type": "marque",
-    "logo": "richter_kaiser",
+    "icon": "richter_kaiser",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -428,7 +428,7 @@
   "gila_guard": {
     "nom": "Gila Guard",
     "type": "marque",
-    "logo": "gila_guard",
+    "icon": "gila_guard",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -439,7 +439,7 @@
   "murakami_industries": {
     "nom": "Murakami Industries",
     "type": "marque",
-    "logo": "murakami",
+    "icon": "murakami",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -450,7 +450,7 @@
   "fenris_group_ab": {
     "nom": "Fenris Group AB",
     "type": "marque",
-    "logo": "fenris_group",
+    "icon": "fenris_group",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -461,7 +461,7 @@
   "airaldi_holdings": {
     "nom": "Airaldi Holdings",
     "type": "marque",
-    "logo": "airaldi_holding",
+    "icon": "airaldi_holding",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -472,7 +472,7 @@
   "china_light_industries_corporation": {
     "nom": "China Light Industries Corporation",
     "type": "marque",
-    "logo": "china_light",
+    "icon": "china_light",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -483,7 +483,7 @@
   "yaahl_gear": {
     "nom": "Yaahl Gear",
     "type": "marque",
-    "logo": "yaahl_gear",
+    "icon": "yaahl_gear",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -494,7 +494,7 @@
   "badger_tuff": {
     "nom": "Badger Tuff",
     "type": "marque",
-    "logo": "badger_tuff",
+    "icon": "badger_tuff",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -505,7 +505,7 @@
   "grupo_sombra_s_a": {
     "nom": "Grupo Sombra S.A",
     "type": "marque",
-    "logo": "grupo_sombra",
+    "icon": "grupo_sombra",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -516,7 +516,7 @@
   "hana_u_corporation": {
     "nom": "Hana-U Corporation",
     "type": "marque",
-    "logo": "hana_u",
+    "icon": "hana_u",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -527,7 +527,7 @@
   "golan_gear_ltd": {
     "nom": "Golan Gear Ltd",
     "type": "marque",
-    "logo": "golan_gear",
+    "icon": "golan_gear",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -538,7 +538,7 @@
   "ceska_vyroba_s_r_o": {
     "nom": "Česká Výroba s.r.o",
     "type": "marque",
-    "logo": "ceska_vyroba",
+    "icon": "ceska_vyroba",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -549,7 +549,7 @@
   "walker_harris_co": {
     "nom": "Walker, Harris & co",
     "type": "marque",
-    "logo": "walker_harris",
+    "icon": "walker_harris",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -560,7 +560,7 @@
   "belstone_armory": {
     "nom": "Belstone Armory",
     "type": "marque",
-    "logo": "belstone_armory",
+    "icon": "belstone_armory",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -571,7 +571,7 @@
   "empress_international": {
     "nom": "Empress International",
     "type": "marque",
-    "logo": "empress_international",
+    "icon": "empress_international",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -582,7 +582,7 @@
   "uzina_getica": {
     "nom": "Uzina Getica",
     "type": "marque",
-    "logo": "uzina_getica",
+    "icon": "uzina_getica",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -593,7 +593,7 @@
   "brazos_de_arcabuz": {
     "nom": "Brazos de Arcabuz",
     "type": "marque",
-    "logo": "brazos_de_arcabuz",
+    "icon": "brazos_de_arcabuz",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -604,7 +604,7 @@
   "hasburg_guard": {
     "nom": "Hasburg Guard",
     "type": "marque",
-    "logo": "hasburg_guard",
+    "icon": "hasburg_guard",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -615,7 +615,7 @@
   "electrique": {
     "nom": "Electrique",
     "type": "marque",
-    "logo": "electrique",
+    "icon": "electrique",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -626,7 +626,7 @@
   "palisade_steelworks": {
     "nom": "Palisade Steelworks",
     "type": "marque",
-    "logo": "palisade_steelworks",
+    "icon": "palisade_steelworks",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -637,7 +637,7 @@
   "zwiadowka_sp_z_o_o": {
     "nom": "Zwiadowka Sp. z o.o.",
     "type": "marque",
-    "logo": "zwiadowka_sp_z_o_o",
+    "icon": "zwiadowka_sp_z_o_o",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -648,7 +648,7 @@
   "legatus_s_p_a": {
     "nom": "Legatus S.p.A.",
     "type": "marque",
-    "logo": "legatus_s_p_a",
+    "icon": "legatus_s_p_a",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -659,7 +659,7 @@
   "unit_alloys": {
     "nom": "Unit Alloys",
     "type": "marque",
-    "logo": "unit_alloys",
+    "icon": "unit_alloys",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -670,7 +670,7 @@
   "urban_lookout": {
     "nom": "Urban Lookout",
     "type": "marque",
-    "logo": "urban_lookout",
+    "icon": "urban_lookout",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -681,7 +681,7 @@
   "imminence_armaments": {
     "nom": "Imminence Armaments",
     "type": "marque",
-    "logo": "imminence_armaments",
+    "icon": "imminence_armaments",
     "attributsEssentiels": [
       "offensif"
     ],
@@ -692,7 +692,7 @@
   "shiny_monkey_gear": {
     "nom": "Shiny Monkey Gear",
     "type": "marque",
-    "logo": "shiny_monkey_gear",
+    "icon": "shiny_monkey_gear",
     "attributsEssentiels": [
       "utilitaire"
     ],
@@ -703,7 +703,7 @@
   "lengmo": {
     "nom": "Lengmo",
     "type": "marque",
-    "logo": "lengmo",
+    "icon": "lengmo",
     "attributsEssentiels": [
       "défensif"
     ],
@@ -714,7 +714,7 @@
   "improvise": {
     "nom": "Improvisé",
     "type": "improvise",
-    "logo": "improvise",
+    "icon": "improvise",
     "attributsEssentiels": [
       "défensif",
       "offensif",

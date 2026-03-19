@@ -31,12 +31,12 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques })
 
   return (
       <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`}>
-        {/* Header : logo + nom + type + attributs essentiels */}
+        {/* Header : icon + nom + type + attributs essentiels */}
         <div className="px-4 py-3 border-b border-tactical-border/50">
           <div className="flex items-start gap-3">
             {/* Logo */}
-            {resolveIcon(item.logo) ? (
-                <GameIcon src={resolveIcon(item.logo)} alt="" size="w-10 h-10" className="rounded" />
+            {resolveIcon(item.icon) ? (
+                <GameIcon src={resolveIcon(item.icon)} alt="" size="w-10 h-10" className="rounded" />
             ) : (
                 <div className={`w-10 h-10 shrink-0 rounded flex items-center justify-center text-lg ${isGearSet ? 'bg-emerald-500/10' : isImprovised ? 'bg-indigo-500/10' : 'bg-shd/10'}`}>
                   {isGearSet ? '🔗' : isImprovised ? '🛠️' : '🏷️'}

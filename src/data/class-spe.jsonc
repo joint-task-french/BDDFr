@@ -3,10 +3,10 @@
   "demolisseur": {
     "cle": "demolisseur",
     "nom": "Démolisseur",
-    "icone": "demolisseur",
+    "icon": "demolisseur",
     "arme": {
       "nom": "LANCE-GRENADES MULTIPLE M32A1",
-      "icone": "m32a1",
+      "icon": "m32a1",
       "portee": 60,
       "rpm": 98,
       "chargeur": 6,
@@ -18,10 +18,10 @@
   "survivaliste": {
     "cle": "survivaliste",
     "nom": "Survivaliste",
-    "icone": "survivaliste",
+    "icon": "survivaliste",
     "arme": {
       "nom": "CARREAUX",
-      "icone": "carreaux",
+      "icon": "carreaux",
       "portee": 30,
       "rpm": 98,
       "chargeur": 1,
@@ -33,10 +33,10 @@
   "tireur_elite": {
     "cle": "tireur_elite",
     "nom": "Tireur d'élite",
-    "icone": "tireur_elite",
+    "icon": "tireur_elite",
     "arme": {
       "nom": "FUSIL TAC-50",
-      "icone": "tac50",
+      "icon": "tac50",
       "portee": 70,
       "rpm": 41,
       "chargeur": 6,
@@ -48,10 +48,10 @@
   "artilleur": {
     "cle": "artilleur",
     "nom": "Artilleur",
-    "icone": "artilleur",
+    "icon": "artilleur",
     "arme": {
       "nom": "MINIGUN",
-      "icone": "minigun",
+      "icon": "minigun",
       "portee": 35,
       "rpm": 100,
       "chargeur": 150,
@@ -63,10 +63,10 @@
   "technicien": {
     "cle": "technicien",
     "nom": "Technicien",
-    "icone": "technicien",
+    "icon": "technicien",
     "arme": {
       "nom": "LANCEUR P-017",
-      "icone": "p017",
+      "icon": "p017",
       "portee": 60,
       "rpm": 98,
       "chargeur": 6,
@@ -78,10 +78,10 @@
   "incendiaire": {
     "cle": "incendiaire",
     "nom": "Incendiaire",
-    "icone": "incendiaire",
+    "icon": "incendiaire",
     "arme": {
       "nom": "LANCE-FLAMMES K8-JETSTREAM",
-      "icone": "k8_jetstream",
+      "icon": "k8_jetstream",
       "portee": 35,
       "rpm": 500,
       "chargeur": 50,

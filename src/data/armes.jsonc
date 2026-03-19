@@ -894,7 +894,7 @@
   },
   "ecran_bleu": {
     "nom": "Écran bleu",
-    "icone": "ecran_bleu",
+    "icon": "ecran_bleu",
     "type": "fusil_mitrailleur",
     "fabricant": "KNIGHT'S ARMEMENT",
     "portee": 40,

@@ -6,7 +6,7 @@
  *
  * Pour ajouter un nouvel asset talent/compétence/marque :
  *   1. Déposer le fichier .png dans le bon dossier sous src/img/game_assets/
- *   2. Renseigner le champ "icone" dans le JSONC correspondant avec le nom du fichier (sans .png)
+ *   2. Renseigner le champ "icon" dans le JSONC correspondant avec le nom du fichier (sans .png)
  *   → L'icône sera automatiquement disponible, aucun code à modifier.
  */
 

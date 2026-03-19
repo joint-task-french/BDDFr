@@ -219,7 +219,7 @@ async function generate() {
             const itemSlug = item.slug || slugify(item.nom || item.variante || 'Element');
             if (!itemSlug) continue;
 
-            const possibleIconKeys = [item.icone, itemSlug, item.skillSlug, item.marque, item.ensemble, item.type, item.emplacement].filter(Boolean).map(k => slugify(k));
+            const possibleIconKeys = [item.icon, itemSlug, item.skillSlug, item.marque, item.ensemble, item.type, item.emplacement].filter(Boolean).map(k => slugify(k));
             let iconPath = null, resolvedFileName = null;
             for (const key of possibleIconKeys) {
                 if (iconIndex[key]) {

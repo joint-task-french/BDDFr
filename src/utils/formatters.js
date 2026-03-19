@@ -221,7 +221,7 @@ export function buildSpecialisations(classSpeData) {
   if (!classSpeData || !Array.isArray(classSpeData)) return {}
   const map = {}
   for (const spec of classSpeData) {
-    map[spec.cle] = { label: spec.nom, arme: spec.arme?.nom || '', icon: spec.icone || '🎖️' }
+    map[spec.cle] = { label: spec.nom, arme: spec.arme?.nom || '', icon: spec.icon || '🎖️' }
   }
   return map
 }

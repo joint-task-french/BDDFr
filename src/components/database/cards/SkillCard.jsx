@@ -21,8 +21,8 @@ export default function SkillCard({ item }) {
     return (
         <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden">
             <div className='flex flex-row gap-2 text-start items-center px-4 py-3 border-b border-tactical-border/50'>
-                {resolveIcon(item.icone) && (
-                    <GameIcon src={resolveIcon(item.icone)} alt="" size="w-10 h-10" className="rounded" />
+                {resolveIcon(item.icon) && (
+                    <GameIcon src={resolveIcon(item.icon)} alt="" size="w-10 h-10" className="rounded" />
                 )}
 
                 <div>

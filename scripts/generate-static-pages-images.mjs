@@ -287,13 +287,13 @@ async function generate() {
 
                             while (attempts > 0 && !success) {
                                 try {
-                                    await page.evaluate((el, logo) => {
+                                    await page.evaluate((el, icon) => {
                                         const rect = el.getBoundingClientRect();
                                         el.style.setProperty('width', rect.width + 'px', 'important');
                                         el.classList.add('puppeteer-teleport');
                                         if (!el.querySelector('.watermark-overlay')) {
                                             const img = document.createElement('img');
-                                            img.src = logo; img.className = 'watermark-overlay';
+                                            img.src = icon; img.className = 'watermark-overlay';
                                             el.appendChild(img);
                                         }
                                     }, card, WATERMARK_URL);

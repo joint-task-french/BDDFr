@@ -34,7 +34,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
   const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isSpecific ? 'text-purple-400' : 'text-shd'
 
   // Priorité : icône personnalisée de l'arme > icône par défaut du type d'arme
-  const customIcon = resolveIcon(item.icone)
+  const customIcon = resolveIcon(item.icon)
   const typeIcon = customIcon || WEAPON_TYPE_ICONS[item.type]
 
   // Résoudre les attributs essentiels hérités du type d'arme

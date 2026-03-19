@@ -34,7 +34,7 @@ for (const gs of gearSets) {
     nom: gs.nom,
     type: 'gear_set',
     // Logo à remplir manuellement — nom de fichier dans public/img/ensembles/
-    logo: '',
+    icon: '',
     // Attributs essentiels par défaut de l'ensemble — à remplir
     attributsEssentiels: [],
     bonus1piece: '',
@@ -51,7 +51,7 @@ for (const bm of brandSets) {
   ensembles.push({
     nom: bm.nom,
     type: 'marque',
-    logo: '',
+    icon: '',
     attributsEssentiels: [],
     bonus1piece: bm.bonus1piece || '',
     bonus2pieces: bm.bonus2pieces || '',

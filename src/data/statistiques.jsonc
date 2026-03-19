@@ -123,6 +123,10 @@
     "nom": "Récup de compétence",
     "description": "Réduit le temps de recharge des compétences"
   },
+  "recup_impulsion_scanner": {
+    "nom": "Récup d'impulsion de scanner",
+    "description": "Réduit le temps de recharge de l'impulsion de scanner"
+  },
   "duree_competence": {
     "nom": "Durée de compétence",
     "description": "Augmente la durée des compétences"

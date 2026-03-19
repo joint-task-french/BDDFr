@@ -2146,7 +2146,7 @@
     "notes": "Présent en tant qu'arme d'appoint (pistolet)"
   },
   "allume_feu": {
-    "nom": "Allume-feu",//TODO attribut de merde
+    "nom": "Allume-feu",
     "description": "Les cartouches contiennent une fine poudre augmentant l'inflammibilité des cibles touchées par le fusil",
     "type": "calibre_12",
     "fabricant": "L.C SMITH",
@@ -2163,8 +2163,18 @@
     ],
     "emplacementsMods": [],
     "notes": "Présent en tant qu'arme d'appoint (pistolet)",
-    "attributs_essentiels": [],
-    "attributs": []
+    "attributs_essentiels": [
+      {
+        "nom": "degats_calibre_12_es",
+        "valeur": 11.6
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "degats_a_la_sante_arm",
+        "valeur": 7.5
+      }
+    ]
   },
   "baguette_magique_de_secours": {
     "nom": "Baguette magique de secours",

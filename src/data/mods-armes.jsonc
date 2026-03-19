@@ -1895,5 +1895,137 @@
         ],
         "estExotique": true,
         "compatible": []
+    },
+    "glandes_venimeuses": {
+        "nom": "Glandes venimeuses",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "recepteurs_de_lumiere_stellaire": {
+        "nom": "Récepteurs de lumière stellaire",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "probabilite_de_coup_critique_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "poignee_a_pince": {
+        "nom": "Poignée à pince",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "maniement_d_arme_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "aculeus": {
+        "nom": "Aculeus",
+        "type": "bouche",
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "chargeur_antiemeute": {
+        "nom": "Chargeur antiémeute",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "rail_balistique": {
+        "nom": "Rail balistique",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "degats_de_coup_critique_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "poignee_optimisee": {
+        "nom": "Poignée optimisée",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 20
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "visee_russe_personnalisee_non_identifiee": {
+        "nom": "Visée russe personnalisée non identifiée",
+        "type": "viseur",
+        "attributs": [
+            {
+                "attribut": "precision_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "chargeur_inflexible": {
+        "nom": "Chargeur Inflexible",
+        "type": "chargeur",
+        "attributs": [
+            {
+                "attribut": "vitesse_de_rechargement_arm",
+                "valeur": 10
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "poignee_inflexible": {
+        "nom": "Poignée Inflexible",
+        "type": "canon",
+        "attributs": [
+            {
+                "attribut": "maniement_d_arme_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
+    },
+    "bouche_de_mayhem": {
+        "nom": "Bouche de Mayhem",
+        "type": "bouche",
+        "attributs": [
+            {
+                "attribut": "stabilite_arm",
+                "valeur": 15
+            }
+        ],
+        "estExotique": true,
+        "compatible": []
     }
 }

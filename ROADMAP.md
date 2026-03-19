@@ -27,3 +27,6 @@ Images :
 - Talent
 - Marque
 - Exotic
+
+Revoir :
+-La Totalite des temps de rechargement

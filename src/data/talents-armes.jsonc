@@ -708,7 +708,8 @@
     "icon": "martelement",
     "perfectDescription": "Après 2 éliminations consécutives, le chargeur se remplit et les dégâts de l'arme sont augmentés de +40% pendant 10 secondes.",
     "armesParfaites": [
-      "tsunami"
+      "tsunami",
+      "enforcer"
     ],
     "compatibilite": {
       "fusil": false,
@@ -740,6 +741,10 @@
     "nom": "Motivé",
     "description": "Le rechargement confère +1% aux dégâts d'arme pendant 10s.\nPeut se cumuler jusqu'à 25 fois.",
     "icon": "motive",
+    "perfectDescription": "Le rechargement confère +6% aux dégâts d'arme pendant 10s. Peut se cumuler jusqu'à 5 fois.",
+    "armesParfaites": [
+      "baguette_magique"
+    ],
     "compatibilite": {
       "fusil": false,
       "calibre_12": true,
@@ -989,7 +994,8 @@
     "icon": "imprudence",
     "perfectDescription": "Inflige +3,5% au tir suivant avec la même arme pour chaque plomb qui touche la cible si au moins 4 plombs touchent la cible.\nTuer un ennemi confère de dégâts au prochain tir.",
     "armesParfaites": [
-      "comme_de_la_colle"
+      "comme_de_la_colle",
+      "epine"
     ],
     "notes": "2%/3% normal/parfait en pvp ",
     "compatibilite": {
@@ -1080,6 +1086,11 @@
     "nom": "Immobilisation",
     "description": "Dégâts d'arme accrus de 20% (10%) contre les ennemis entravés.\nAu bout de 4 éliminations, inflige Entrave au prochain ennemi touché.",
     "icon": "immobilisation",
+    "perfectDescription": "Dégâts d'arme accrus de 25% (10%) contre les ennemis entravés.\nAu bout de 3 éliminations, inflige Entrave au prochain ennemi touché.",
+    "armesParfaites": [
+      "confinement"
+    ],
+    "notes": "PVP : 10%/15% normal/Parfait",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -1133,7 +1144,8 @@
   "choc_septique": {
     "nom": "Choc septique",
     "icon": "choc_septique",
-    "description": "Tirer sur une cible lui inflige des effets de venin qui durent 10 secondes. Le cumul d'effets aggrave les débuffs :\n2 - Poison (Saignement)\n4 - Désorientation (Désactivation)\n6 - Électrocution (Immobilisation)\n9 - La cible subit 20% de dégâts supplémentaires (de toutes les sources).\nLa durée des effets d'état est basée sur le pourcentage de plombs qui atteignent leur cible.",
+    "description": "Tirer sur une cible lui des effets de venin qui durent 10 secondes. Le cumul d'effets aggrave les débuffs sur la cible.\n2 - Poison\n4 - Désorientation\n6 - Électrocution\n9 - La cible subit 20% de dégâts supplémentaires (de toutes les sources). Le cumul n'augmente plus.\nLa durée des effets d'état est basée sur le pourcentage de plombs qui atteignent leur cible lors du tir.",
+    "notes": "PVP :\n2 - Saignement\n4 - Désactivation\n7 - Entrave\n8 - La cible subit 20% de dégâts supplémentaires (de toutes les sources)",
     "estExotique": true
   },
   "capitulation": {
@@ -1759,5 +1771,35 @@
         "1": {}
       }
     }
+  },
+  "munitions_catalysantes": {
+    "nom": "munitions_catalysantes",
+    "icon": "munitions_catalysantes",
+    "description": "Version parfaite uniquement",
+    "estExotique": false,
+    "perfectDescription": "Les ennemis touchés perdent 50% de résistance aux brûlures pendant 5s.",
+    "armesParfaites": [
+      "allume_feu"
+    ]
+  },
+  "mouvements_jazz": {
+    "nom": "Mouvements jazz",
+    "icon": "mouvements_jazz",
+    "description": "Version parfaite uniquement",
+    "estExotique": false,
+    "perfectDescription": "+50% à la vitesse de rechargement.",
+    "armesParfaites": [
+      "cuelebre"
+    ]
+  },
+  "distance": {
+    "nom": "Distance",
+    "icon": "distance",
+    "description": "Version parfaite uniquement",
+    "estExotique": false,
+    "perfectDescription": "+100% à la portée optimale.",
+    "armesParfaites": [
+      "l_inhumateur"
+    ]
   }
 }

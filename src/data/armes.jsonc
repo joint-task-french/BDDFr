@@ -2165,7 +2165,7 @@
     "notes": "Présent en tant qu'arme d'appoint (pistolet)",
     "attributs_essentiels": [
       {
-        "nom": "degats_calibre_12_es",
+        "nom": "degats_fusil_calibre_12_es",
         "valeur": 11.6
       }
     ],

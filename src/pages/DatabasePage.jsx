@@ -237,8 +237,8 @@ export default function DatabasePage() {
       const wTalents = Array.isArray(data?.talentsArmes) ? data.talentsArmes : Object.values(data?.talentsArmes || {})
       const gTalents = Array.isArray(data?.talentsEquipements) ? data.talentsEquipements : Object.values(data?.talentsEquipements || {})
 
-      const descentWeapons = wTalents.filter(t => t.decente).map(t => ({ ...t, isWeaponTalent: true }))
-      const descentGear = gTalents.filter(t => t.decente).map(t => ({ ...t, isWeaponTalent: false }))
+      const descentWeapons = wTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: true }))
+      const descentGear = gTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: false }))
 
       items = [...descentWeapons, ...descentGear]
     } else {
@@ -300,7 +300,7 @@ export default function DatabasePage() {
 
       items = items.filter(item => {
         const fullItemText = extractText(item)
-        const descenteText = item.decente?.levels?.base?.toLowerCase() || ''
+        const descenteText = item.descente?.levels?.base?.toLowerCase() || ''
         return fullItemText.includes(term) || descenteText.includes(term)
       })
     }

@@ -2109,18 +2109,20 @@
     ]
   },
   "enforcer": {
-    "nom": "ENFORCER",//TODO Il me faut une photo
+    "nom": "Enforcer",
     "type": "calibre_12",
     "fabricant": "BENELLI",
     "portee": 11,
     "rpm": 160,
     "chargeur": 8,
-    "rechargement": 4.23,
+    "rechargement": 4.65,
     "headshot": 45,
     "degatsBase": 389900,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "martelement"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -2128,7 +2130,7 @@
     ]
   },
   "deux_canons_scies": {
-    "nom": "Deux canons sciés",//TODO
+    "nom": "Deux canons sciés",
     "type": "calibre_12",
     "fabricant": "L.C SMITH",
     "portee": 7,
@@ -2136,20 +2138,46 @@
     "chargeur": 2,
     "rechargement": 2.51,
     "headshot": 45,
-    "degatsBase": 635700,
+    "degatsBase": 678100,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
+    "emplacementsMods": [],
     "notes": "Présent en tant qu'arme d'appoint (pistolet)"
   },
   "allume_feu": {
-    "nom": "Allume-feu",//TODO
+    "nom": "Allume-feu",
     "description": "Les cartouches contiennent une fine poudre augmentant l'inflammibilité des cibles touchées par le fusil",
+    "type": "calibre_12",
+    "fabricant": "L.C SMITH",
+    "portee": 11,
+    "rpm": 200,
+    "chargeur": 2,
+    "rechargement": 3.89,
+    "headshot": 45,
+    "degatsBase": 635700,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "munitions_catalysantes"
+    ],
+    "emplacementsMods": [],
+    "notes": "Présent en tant qu'arme d'appoint (pistolet)",
+    "attributs_essentiels": [
+      {
+        "nom": "degats_fusil_calibre_12_es",
+        "valeur": 11.6
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "degats_a_la_sante_arm",
+        "valeur": 7.5
+      }
+    ]
+  },
+  "baguette_magique_de_secours": {
+    "nom": "Baguette magique de secours",
     "type": "calibre_12",
     "fabricant": "L.C SMITH",
     "portee": 7,
@@ -2162,49 +2190,19 @@
     "estNomme": true,
     "talents": [],
     "emplacementsMods": [],
-    "notes": "Présent en tant qu'arme d'appoint (pistolet)"
-  },
-  "baguette_magique_de_secours": {
-    "nom": "BAGUETTE MAGIQUE DE SECOURS",//TODO
-    "type": "calibre_12",
-    "fabricant": "L.C SMITH",
-    "portee": 7,
-    "rpm": 200,
-    "chargeur": 2,
-    "rechargement": 2.51,
-    "headshot": 45,
-    "degatsBase": 635700,
-    "estExotique": false,
-    "estNomme": true,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
+    "attributs_essentiels": [
+      {
+        "nom": "degats_fusil_calibre_12_es",
+        "valeur": 17
+      },
+      {
+        "nom": "degats_aux_protections_es"
+      }
     ],
     "notes": "Présent en tant qu'arme secondaire (pistolet)"
   },
-  "fusil_a_double_canon": {
-    "nom": "FUSIL À DOUBLE CANON",
-    "type": "calibre_12",
-    "fabricant": "L.C SMITH",
-    "portee": 11,
-    "rpm": 200,
-    "chargeur": 2,
-    "rechargement": 3.89,
-    "headshot": 45,
-    "degatsBase": 677979,
-    "estExotique": false,
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
-  },
   "baguette_magique": {
-    "nom": "BAGUETTE MAGIQUE",//TODO
+    "nom": "Baguette magique",
     "type": "calibre_12",
     "fabricant": "L.C SMITH",
     "portee": 11,
@@ -2212,15 +2210,13 @@
     "chargeur": 2,
     "rechargement": 3.89,
     "headshot": 45,
-    "degatsBase": 677979,
+    "degatsBase": 678100,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "talents": [
+      "motive"
+    ],
+    "emplacementsMods": []
   },
   "ksg": {
     "nom": "KSG",
@@ -2242,7 +2238,7 @@
     ]
   },
   "l_inhumateur": {
-    "nom": "L'INHUMATEUR",//TODO
+    "nom": "L'Inhumateur",
     "description": "Quand vous quittez ce monde, tout ce que vous entendez c'est un bruit blanc.",
     "type": "calibre_12",
     "fabricant": "KEL-TEC",
@@ -2251,10 +2247,12 @@
     "chargeur": 12,
     "rechargement": 7.99,
     "headshot": 45,
-    "degatsBase": 678672,
+    "degatsBase": 678900,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "distance"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -2262,7 +2260,7 @@
     ]
   },
   "m870_mcs_personnalise": {
-    "nom": "M870 MCS PERSONNALISÉ",//TODO
+    "nom": "M870 MCS personnalisé",
     "type": "calibre_12",
     "fabricant": "REMINGTON",
     "portee": 11,
@@ -2270,7 +2268,7 @@
     "chargeur": 5,
     "rechargement": 3.35,
     "headshot": 45,
-    "degatsBase": 703527,
+    "degatsBase": 703700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -2300,7 +2298,7 @@
     ]
   },
   "m870_express": {
-    "nom": "M870 EXPRESS",//TODO
+    "nom": "M870 Express",
     "type": "calibre_12",
     "fabricant": "REMINGTON",
     "portee": 11,
@@ -2308,7 +2306,7 @@
     "chargeur": 5,
     "rechargement": 3.35,
     "headshot": 45,
-    "degatsBase": 703527,
+    "degatsBase": 703700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -2319,7 +2317,7 @@
     ]
   },
   "m870_militaire": {
-    "nom": "M870 MILITAIRE",//TODO
+    "nom": "M870 militaire",
     "type": "calibre_12",
     "fabricant": "REMINGTON",
     "portee": 11,
@@ -2327,26 +2325,7 @@
     "chargeur": 5,
     "rechargement": 3.35,
     "headshot": 45,
-    "degatsBase": 703527,
-    "estExotique": false,
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
-  },
-  "m870": {
-    "nom": "M870",
-    "type": "calibre_12",
-    "fabricant": "REMINGTON",
-    "portee": 11,
-    "rpm": 75,
-    "chargeur": 5,
-    "rechargement": 3.35,
-    "headshot": 45,
-    "degatsBase": 703527,
+    "degatsBase": 703700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -2357,18 +2336,20 @@
     ]
   },
   "cuelebre": {
-    "nom": "CUÉLEBRE",//TODO
+    "nom": "Cuélebre",
     "type": "calibre_12",
     "fabricant": "REMINGTON",
     "portee": 11,
     "rpm": 75,
     "chargeur": 5,
-    "rechargement": 3.35,
+    "rechargement": 2.23,
     "headshot": 45,
-    "degatsBase": 703527,
+    "degatsBase": 703700,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "mouvements_jazz"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -2376,7 +2357,7 @@
     ]
   },
   "spas_12": {
-    "nom": "SPAS-12",//TODO
+    "nom": "SPAS-12",
     "type": "calibre_12",
     "fabricant": "FRANCHI",
     "portee": 16,
@@ -2384,18 +2365,16 @@
     "chargeur": 8,
     "rechargement": 5.5,
     "headshot": 45,
-    "degatsBase": 715833,
+    "degatsBase": 716000,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
-      "viseur",
-      "canon",
       "chargeur"
     ]
   },
   "epine": {
-    "nom": "ÉPINE",//TODO
+    "nom": "ÉPINE",
     "type": "calibre_12",
     "fabricant": "FRANCHI",
     "portee": 16,
@@ -2403,18 +2382,18 @@
     "chargeur": 8,
     "rechargement": 5.5,
     "headshot": 45,
-    "degatsBase": 715833,
+    "degatsBase": 716000,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "imprudence"
+    ],
     "emplacementsMods": [
-      "viseur",
-      "canon",
       "chargeur"
     ]
   },
   "six12": {
-    "nom": "SIX12",//TODO
+    "nom": "SIX12",
     "type": "calibre_12",
     "fabricant": "CRYE PRECISION",
     "portee": 14,
@@ -2422,7 +2401,7 @@
     "chargeur": 7,
     "rechargement": 3,
     "headshot": 45,
-    "degatsBase": 409469,
+    "degatsBase": 409600,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -2433,7 +2412,7 @@
     ]
   },
   "la_serpilliere": {
-    "nom": "LA SERPILLIERE",//TODO
+    "nom": "La Serpillière",
     "type": "calibre_12",
     "fabricant": "CRYE PRECISION",
     "portee": 14,
@@ -2441,7 +2420,7 @@
     "chargeur": 7,
     "rechargement": 3,
     "headshot": 45,
-    "degatsBase": 409469,
+    "degatsBase": 409600,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
@@ -2449,6 +2428,12 @@
       "viseur",
       "canon",
       "chargeur"
+    ],
+    "attributs": [
+      {
+        "nom": "protection_pour_eliminations_arm",
+        "valeur": 10
+      }
     ]
   },
   "g28": {
@@ -4314,7 +4299,7 @@
     ]
   },
   "scorpio": {
-    "nom": "Scorpio",//TODO
+    "nom": "Scorpio",
     "description": "Cette arme tire des munitions empoisonnées débilitantes inspirées du scorpion (de l'espèce Hottentotta, précisément). Développée en collaboration avec la DARPA, elle n'a pas reçu d'autorisation de commercialisation car elle n'est pas conforme aux termes de la Convention de La Haye de 1899.",
     "type": "calibre_12",
     "fabricant": "CRYE PRECISION",
@@ -4323,7 +4308,7 @@
     "chargeur": 7,
     "rechargement": 3,
     "headshot": 45,
-    "degatsBase": 409469,
+    "degatsBase": 409600,
     "estExotique": true,
     "obtention": {
       "represailles": "Hyènes, Fin de mission",
@@ -4338,22 +4323,30 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
+    ],
+    "modsPredefinis": [
+      "glandes_venimeuses",
+      "recepteurs_de_lumiere_stellaire",
+      "poignee_a_pince",
+      "aculeus"
     ]
   },
   "overlord": {
-    "nom": "Overlord",//TODO
+    "nom": "Overlord",
     "type": "calibre_12",
     "fabricant": "KEL-TEC",
     "portee": 16,
     "rpm": 70,
     "chargeur": 12,
-    "rechargement": 7.99,
+    "rechargement": 6.94,
     "headshot": 45,
-    "degatsBase": 678672,
+    "degatsBase": 678900,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil calibre 12 Dégâts aux protections"
+      "mission": true,
+      "description": "Récompense de traque :\nUnited Ironworks : le général Anderson\n Maître - 100% (La 1er fois)"
     },
     "estNomme": false,
     "talents": [
@@ -4363,33 +4356,34 @@
       "viseur",
       "canon",
       "chargeur"
+    ],
+    "modsPredefinis": [
+      "chargeur_antiemeute",
+      "rail_balistique",
+      "poignee_optimisee"
     ]
   },
   "sherif": {
-    "nom": "Shérif",//TODO
+    "nom": "Shérif",//TODO rechargement
     "description": "Là, c'est du sérieux.",
     "type": "calibre_12",
     "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
+    "portee": 100,
+    "rpm": 70,
+    "chargeur": 8,
     "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "headshot": 45,
+    "degatsBase": 526400,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil calibre 12 Dégâts aux protections"
+      "mission": true,
+      "description": "Récompense de Traque :\nUnited Ironworks : le général Anderson\nMaître - 100% (la 1er fois)."
     },
     "estNomme": false,
     "talents": [
       "autentico"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": []
   },
   "impitoyable": {
     "nom": "Impitoyable",
@@ -4423,7 +4417,7 @@
     ]
   },
   "inflexible": {
-    "nom": "Inflexible",//TODO Changer le nom des mods
+    "nom": "Inflexible",
     "type": "fusil",
     "fabricant": "IZHMASH",
     "portee": 35,
@@ -4448,10 +4442,10 @@
       "bouche"
     ],
     "modsPredefinis": [
-      "optique_impitoyable",
-      "chargeur_impitoyable",
-      "poignee_impitoyable",
-      "bouche_impitoyable"
+      "visee_russe_personnalisee_non_identifiee",
+      "chargeur_inflexible",
+      "poignee_inflexible",
+      "bouche_de_mayhem"
     ]
   },
   "diamondback": {
@@ -4809,8 +4803,8 @@
     "rpm": 0,
     "chargeur": 0,
     "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "headshot": 45,
+    "degatsBase": 526400,
     "estExotique": true,
     "obtention": {
       "description": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée"
@@ -5468,64 +5462,55 @@
     }
   },
   "confinement": {
-    "nom": "confinement",//TODO
+    "nom": "confinement",
     "type": "calibre_12",
-    "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "fabricant": "REMINGTON",
+    "portee": 11,
+    "rpm": 75,
+    "chargeur": 5,
+    "rechargement": 3.35,
+    "headshot": 45,
+    "degatsBase": 703700,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "immobilisation"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur",
-      "bouche"
+      "chargeur"
     ]
   },
   "fusil_calibre_12_ksg": {
-    "nom": "Fusil calibre 12 KSG",//TODO
+    "nom": "Fusil calibre 12 KSG",
     "type": "calibre_12",
-    "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "fabricant": "L.C SMITH",
+    "portee": 7,
+    "rpm": 200,
+    "chargeur": 2,
+    "rechargement": 2.51,
+    "headshot": 45,
+    "degatsBase": 635700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": []
   },
   "fusil_calibre_12_a_double_canon": {
-    "nom": "Fusil calibre 12 à double canon",//TODO
+    "nom": "Fusil calibre 12 à double canon",
     "type": "calibre_12",
-    "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "fabricant": "KEL-TEC",
+    "portee": 16,
+    "rpm": 70,
+    "chargeur": 12,
+    "rechargement": 7.99,
+    "headshot": 45,
+    "degatsBase": 678900,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": []
   },
   "stack_broker": {
     "nom": "Stack broker",

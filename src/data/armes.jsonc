@@ -12,9 +12,9 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762"
+    }
   },
   "acr": {
     "nom": "ACR",
@@ -29,12 +29,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "acr_e": {
     "nom": "ACR-E",
@@ -49,12 +49,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "f2000": {
     "nom": "F2000",
@@ -69,11 +69,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique"
+    }
   },
   "shield_splinterer": {
     "nom": "Shield Splinterer",
@@ -90,11 +90,11 @@
     "talents": [
       "optimiste"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique"
+    }
   },
   "aug_a3_cqc": {
     "nom": "AUG A3-CQC",
@@ -109,12 +109,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "main_invisible": {
     "nom": "Main Invisible",
@@ -132,12 +132,12 @@
     "talents": [
       "allegro"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "ak_m": {
     "nom": "AK-M",
@@ -152,11 +152,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "ak_m_du_marche_noire": {
     "nom": "AK-M DU MARCHÉ NOIRE",
@@ -171,12 +171,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "maniaque": {
     "nom": "Maniaque",
@@ -193,12 +193,12 @@
     "talents": [
       "surcapacite"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "fal": {
     "nom": "FAL",
@@ -213,12 +213,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "fal_sa_58": {
     "nom": "FAL SA-58",
@@ -233,12 +233,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "fal_sa_58_para": {
     "nom": "FAL SA-58 Para",
@@ -253,12 +253,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "famas_2010": {
     "nom": "FAMAS 2010",
@@ -273,12 +273,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "burn_out": {
     "nom": "Burn Out",
@@ -295,12 +295,12 @@
     "talents": [
       "a_vide"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "g36_militaire": {
     "nom": "G36 militaire",
@@ -315,12 +315,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "l_inne": {
     "nom": "L'inné",
@@ -337,12 +337,12 @@
     "talents": [
       "stabilisation"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "g36_ameliore": {
     "nom": "G36 amélioré",
@@ -357,12 +357,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m4_police": {
     "nom": "M4 Police",
@@ -377,12 +377,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "pyromane": {
     "nom": "Pyromane",
@@ -400,12 +400,12 @@
     "talents": [
       "inflammabilite"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "carbine_7": {
     "nom": "CARBINE 7",
@@ -420,12 +420,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "la_foreuse": {
     "nom": "La Foreuse",
@@ -442,12 +442,12 @@
     "talents": [
       "frappe_de_precision"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "honey_badger": {
     "nom": "Honey Badger",
@@ -462,11 +462,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "carcajou_furieux": {
     "nom": "Carcajou furieux",
@@ -483,11 +483,11 @@
     "talents": [
       "corps_a_corps"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "p416_militaire": {
     "nom": "P416 militaire",
@@ -502,12 +502,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "p416_g3_personnalise": {
     "nom": "P416 G3 Personnalisé",
@@ -522,12 +522,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "vision_glorieuse": {
     "nom": "Vision glorieuse",
@@ -545,12 +545,12 @@
     "talents": [
       "myope"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "mk16": {
     "nom": "Mk16",
@@ -565,12 +565,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "mk16_socom": {
     "nom": "Mk16 SOCOM",
@@ -585,12 +585,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "mk_16_tactique": {
     "nom": "Mk 16 tactique",
@@ -605,12 +605,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "ctar_21": {
     "nom": "CTAR-21",
@@ -625,12 +625,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "le_fendoir": {
     "nom": "Le Fendoir",
@@ -647,12 +647,12 @@
     "talents": [
       "precis"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "sig_556": {
     "nom": "SIG 556",
@@ -667,12 +667,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "mecanimal": {
     "nom": "Mécanimal",
@@ -689,12 +689,12 @@
     "talents": [
       "futur_parfait"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "pdr": {
     "nom": "PDR",
@@ -709,11 +709,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique"
+    }
   },
   "sujet_de_test": {
     "nom": "Sujet de test",
@@ -730,11 +730,11 @@
     "talents": [
       "synchro"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique"
+    }
   },
   "tkb_408": {
     "nom": "TKB-408",
@@ -743,18 +743,18 @@
     "portee": 27,
     "rpm": 600,
     "chargeur": 30,
-    "rechargement": 1.70,
+    "rechargement": 1.7,
     "headshot": 55,
     "degatsBase": 63500,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "tueur_de_rois": {
     "nom": "Tueur de rois",
@@ -763,7 +763,7 @@
     "portee": 27,
     "rpm": 600,
     "chargeur": 30,
-    "rechargement": 1.70,
+    "rechargement": 1.7,
     "headshot": 55,
     "degatsBase": 63500,
     "estExotique": false,
@@ -771,12 +771,12 @@
     "talents": [
       "ligne_plate"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "mg5": {
     "nom": "MG5",
@@ -791,11 +791,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "big_show": {
     "nom": "BIG SHOW",
@@ -810,11 +810,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "sleipnir": {
     "nom": "SLEIPNIR",
@@ -829,11 +829,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "mg5_infanterie": {
     "nom": "MG5 INFANTERIE",
@@ -848,11 +848,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "stoner_lamg": {
     "nom": "STONER LAMG",
@@ -867,11 +867,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "grondement": {
     "nom": "GRONDEMENT",
@@ -886,11 +886,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "ecran_bleu": {
     "nom": "Écran bleu",
@@ -910,11 +910,11 @@
     "talents": [
       "munitions_desactivatrices"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m249b": {
     "nom": "M249B",
@@ -929,11 +929,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "black_friday": {
     "nom": "BLACK FRIDAY",
@@ -948,11 +948,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "stinger": {
     "nom": "STINGER",
@@ -967,11 +967,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m249_para_tactique": {
     "nom": "M249 PARA TACTIQUE",
@@ -986,11 +986,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "mk46_militaire": {
     "nom": "MK46 MILITAIRE",
@@ -1005,11 +1005,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m60_classique": {
     "nom": "M60 CLASSIQUE",
@@ -1024,11 +1024,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m60_e4_militaire": {
     "nom": "M60 E4 MILITAIRE",
@@ -1043,11 +1043,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m60_e6_du_marche_noire": {
     "nom": "M60 E6 DU MARCHÉ NOIRE",
@@ -1062,11 +1062,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "belle_epoque": {
     "nom": "BELLE ÉPOQUE",
@@ -1081,11 +1081,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "rpk_74_classique": {
     "nom": "RPK-74 CLASSIQUE",
@@ -1100,11 +1100,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "rpk_74_militaire": {
     "nom": "RPK-74 MILITAIRE",
@@ -1119,11 +1119,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "rpk_74_du_marche_noire": {
     "nom": "RPK-74 DU MARCHÉ NOIRE",
@@ -1138,11 +1138,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "nouveau_et_fiable": {
     "nom": "NOUVEAU ET FIABLE",
@@ -1157,11 +1157,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "l86_lsw_militaire": {
     "nom": "L86 LSW MILITAIRE",
@@ -1176,11 +1176,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "l86_a2_personnalise": {
     "nom": "L86 A2 PERSONNALISÉ",
@@ -1195,11 +1195,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "tabula_rasa": {
     "nom": "TABULA RASA",
@@ -1214,11 +1214,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "iwi_negev": {
     "nom": "IWI NEGEV",
@@ -1233,11 +1233,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "carnage": {
     "nom": "CARNAGE",
@@ -1252,11 +1252,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "gr9": {
     "nom": "GR9",
@@ -1271,11 +1271,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "defi": {
     "nom": "DÉFI",
@@ -1290,11 +1290,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "cricket": {
     "nom": "CRICKET",
@@ -1309,11 +1309,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "px4_storm_type_f": {
     "nom": "Px4 STORM TYPE F",
@@ -1328,11 +1328,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "px4_storm_type_t": {
     "nom": "Px4 STORM TYPE T",
@@ -1347,11 +1347,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "x_45": {
     "nom": "X-45",
@@ -1366,11 +1366,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "x_45_tactique": {
     "nom": "X-45 TACTIQUE",
@@ -1385,11 +1385,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "m9_militaire": {
     "nom": "M9 MILITAIRE",
@@ -1404,11 +1404,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "m9a1_d_officer": {
     "nom": "M9A1 D'OFFICER",
@@ -1423,11 +1423,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "93r": {
     "nom": "93R",
@@ -1442,11 +1442,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "93r_de_tireur_d_elite": {
     "nom": "93R DE TIREUR D'ÉLITE",
@@ -1461,11 +1461,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "d50": {
     "nom": "D50",
@@ -1480,11 +1480,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "barillet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "d50_de_survivaliste": {
     "nom": "D50 DE SURVIVALISTE",
@@ -1499,11 +1499,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "barillet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "m1911": {
     "nom": "M1911",
@@ -1518,11 +1518,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "m45a1": {
     "nom": "M45A1",
@@ -1537,11 +1537,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "m1911_tactique": {
     "nom": "M1911 TACTIQUE",
@@ -1556,11 +1556,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "mozambique_special": {
     "nom": "MOZAMBIQUE SPÉCIAL",
@@ -1575,11 +1575,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "first_wave_pf45": {
     "nom": "FIRST WAVE PF45",
@@ -1594,11 +1594,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "pf45_personnalise": {
     "nom": "PF45 PERSONNALISÉ",
@@ -1613,11 +1613,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "paratonnerre": {
     "nom": "PARATONNERRE",
@@ -1632,11 +1632,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "petite_abeille_ouvriere": {
     "nom": "Petite abeille ouvrière",
@@ -1656,11 +1656,11 @@
     "talents": [
       "petite_abeille_ouvriere"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "subnosed_diceros": {
     "nom": "SUBNOSED DICEROS",
@@ -1675,11 +1675,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "barillet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "diceros": {
     "nom": "DICEROS",
@@ -1694,11 +1694,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "barillet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "diceros_special": {
     "nom": "DICEROS SPÉCIAL",
@@ -1714,11 +1714,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "barillet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "586_magnum": {
     "nom": "586 MAGNUM",
@@ -1733,11 +1733,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "barillet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "orbite": {
     "nom": "Orbite",
@@ -1753,11 +1753,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "police_686_magnum": {
     "nom": "POLICE 686 MAGNUM",
@@ -1772,11 +1772,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "barillet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "prophete": {
     "nom": "PROPHÈTE",
@@ -1791,11 +1791,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "le_moissonneur": {
     "nom": "LE MOISSONNEUR",
@@ -1811,11 +1811,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "kard_45": {
     "nom": "KARD-45",
@@ -1830,11 +1830,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "tdi_kard_personnalise": {
     "nom": "TDI \"KARD\" PERSONNALISÉ",
@@ -1849,11 +1849,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "maxim_9": {
     "nom": "MAXIM 9",
@@ -1868,11 +1868,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "p320": {
     "nom": "P320",
@@ -1887,11 +1887,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "acs_12": {
     "nom": "ACS-12",
@@ -1906,11 +1906,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_integre",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "rock_n_roll": {
     "nom": "Rock'n'Roll",
@@ -1929,11 +1929,11 @@
     "talents": [
       "extra"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "gaucher": {
     "nom": "Gaucher",
@@ -1950,11 +1950,11 @@
     "talents": [
       "coup_de_massue"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "sasg_12_s_marche_noir": {
     "nom": "SASG-12 S marché noir",
@@ -1969,10 +1969,10 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon"
-    ]
+    "emplacementsMods": {
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "sasg_12": {
     "nom": "SASG-12",
@@ -1987,10 +1987,10 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon"
-    ]
+    "emplacementsMods": {
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "sasg_12_tactique": {
     "nom": "SASG-12 K tactique",
@@ -2005,10 +2005,10 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon"
-    ]
+    "emplacementsMods": {
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "tsunami": {
     "nom": "Tsunami",
@@ -2025,10 +2025,10 @@
     "talents": [
       "martelement"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon"
-    ]
+    "emplacementsMods": {
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "super_90_marine": {
     "nom": "SUPER 90 MARINE",
@@ -2043,11 +2043,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "super_90": {
     "nom": "SUPER 90",
@@ -2062,11 +2062,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "comme_de_la_colle": {
     "nom": "Comme de la colle",
@@ -2083,11 +2083,11 @@
     "talents": [
       "imprudence"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "super_90_sbs_tactique": {
     "nom": "SUPER 90 SBS TACTIQUE",
@@ -2102,11 +2102,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "enforcer": {
     "nom": "Enforcer",
@@ -2123,11 +2123,11 @@
     "talents": [
       "martelement"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "deux_canons_scies": {
     "nom": "Deux canons sciés",
@@ -2142,7 +2142,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [],
+    "emplacementsMods": {},
     "notes": "Présent en tant qu'arme d'appoint (pistolet)"
   },
   "allume_feu": {
@@ -2161,7 +2161,7 @@
     "talents": [
       "munitions_catalysantes"
     ],
-    "emplacementsMods": [],
+    "emplacementsMods": {},
     "notes": "Présent en tant qu'arme d'appoint (pistolet)",
     "attributs_essentiels": [
       {
@@ -2189,7 +2189,7 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [],
+    "emplacementsMods": {},
     "attributs_essentiels": [
       {
         "nom": "degats_fusil_calibre_12_es",
@@ -2216,7 +2216,7 @@
     "talents": [
       "motive"
     ],
-    "emplacementsMods": []
+    "emplacementsMods": {}
   },
   "l_inhumateur": {
     "nom": "L'Inhumateur",
@@ -2234,11 +2234,11 @@
     "talents": [
       "distance"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "m870_mcs_personnalise": {
     "nom": "M870 MCS personnalisé",
@@ -2253,11 +2253,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "m870_express": {
     "nom": "M870 Express",
@@ -2272,11 +2272,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "m870_militaire": {
     "nom": "M870 militaire",
@@ -2291,11 +2291,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "cuelebre": {
     "nom": "Cuélebre",
@@ -2312,11 +2312,11 @@
     "talents": [
       "mouvements_jazz"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "spas_12": {
     "nom": "SPAS-12",
@@ -2331,9 +2331,9 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire"
+    }
   },
   "epine": {
     "nom": "ÉPINE",
@@ -2350,9 +2350,9 @@
     "talents": [
       "imprudence"
     ],
-    "emplacementsMods": [
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire"
+    }
   },
   "six12": {
     "nom": "SIX12",
@@ -2367,11 +2367,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "la_serpilliere": {
     "nom": "La Serpillière",
@@ -2386,11 +2386,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    },
     "attributs": [
       {
         "nom": "protection_pour_eliminations_arm",
@@ -2411,12 +2411,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "relique": {
     "nom": "Relique",
@@ -2433,12 +2433,12 @@
     "talents": [
       "resolu"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "sacrum_imperium": {
     "nom": "Sacrum Imperium",
@@ -2462,12 +2462,12 @@
     "talents": [
       "le_piege"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "visee_du_medecin",
       "chargeur_home",
@@ -2488,12 +2488,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "les_tenebres": {
     "nom": "Les ténèbres",
@@ -2508,12 +2508,12 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "replique_de_m700_carbon": {
     "nom": "Réplique de M700 Carbon",
@@ -2522,18 +2522,18 @@
     "portee": 50,
     "rpm": 55,
     "chargeur": 7,
-    "rechargement": 3.60,
+    "rechargement": 3.6,
     "headshot": 0,
     "degatsBase": 412500,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m700_carbon": {
     "nom": "M700 Carbon",
@@ -2548,12 +2548,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "brutus": {
     "nom": "Brutus",
@@ -2570,12 +2570,12 @@
     "talents": [
       "derriere_toi"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m700_tactique": {
     "nom": "M700 tactique",
@@ -2590,12 +2590,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "model_700": {
     "nom": "Model 700",
@@ -2610,11 +2610,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "bouche",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long"
+    }
   },
   "grand_baton_d_ekim": {
     "nom": "Grand bâton d'Ekim",
@@ -2631,11 +2631,11 @@
     "talents": [
       "ranger"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "bouche",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long"
+    }
   },
   "svd_surplus": {
     "nom": "SVD surplus",
@@ -2650,12 +2650,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "svd_parachutiste": {
     "nom": "SVD para",
@@ -2670,12 +2670,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "commando": {
     "nom": "Commando",
@@ -2692,12 +2692,12 @@
     "talents": [
       "nudite"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "effroyable_sentence": {
     "nom": "Effroyable sentence",
@@ -2718,11 +2718,11 @@
     "talents": [
       "point_final"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "srs_furtif": {
     "nom": "SRS furtif",
@@ -2731,18 +2731,18 @@
     "portee": 60,
     "rpm": 60,
     "chargeur": 7,
-    "rechargement": 3.90,
+    "rechargement": 3.9,
     "headshot": 0,
     "degatsBase": 409400,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "srs_a1": {
     "nom": "SRS A1",
@@ -2751,18 +2751,18 @@
     "portee": 60,
     "rpm": 60,
     "chargeur": 7,
-    "rechargement": 3.90,
+    "rechargement": 3.9,
     "headshot": 0,
     "degatsBase": 409400,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "epingle": {
     "nom": "Épingle",
@@ -2771,7 +2771,7 @@
     "portee": 60,
     "rpm": 60,
     "chargeur": 7,
-    "rechargement": 3.90,
+    "rechargement": 3.9,
     "headshot": 0,
     "degatsBase": 409400,
     "estExotique": false,
@@ -2779,12 +2779,12 @@
     "talents": [
       "premier_sang"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m44_personnalise": {
     "nom": "M44 personnalisé",
@@ -2793,18 +2793,18 @@
     "portee": 50,
     "rpm": 55,
     "chargeur": 5,
-    "rechargement": 3.90,
+    "rechargement": 3.9,
     "headshot": 0,
     "degatsBase": 417700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m44_carabine_classique": {
     "nom": "M44 Carabine classique",
@@ -2813,17 +2813,17 @@
     "portee": 50,
     "rpm": 55,
     "chargeur": 5,
-    "rechargement": 3.90,
+    "rechargement": 3.9,
     "headshot": 0,
     "degatsBase": 433600,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m44_chasse": {
     "nom": "M44 chasse",
@@ -2832,18 +2832,18 @@
     "portee": 50,
     "rpm": 55,
     "chargeur": 5,
-    "rechargement": 3.90,
+    "rechargement": 3.9,
     "headshot": 0,
     "degatsBase": 428700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "mort_blanche": {
     "nom": "Mort blanche",
@@ -2853,7 +2853,7 @@
     "portee": 50,
     "rpm": 55,
     "chargeur": 5,
-    "rechargement": 3.90,
+    "rechargement": 3.9,
     "headshot": 0,
     "degatsBase": 433600,
     "estExotique": false,
@@ -2865,11 +2865,11 @@
         "valeur": 137
       }
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "oh_noel": {
     "nom": "Oh, Noël",
@@ -2887,9 +2887,9 @@
     "talents": [
       "lumieres_scintillantes"
     ],
-    "emplacementsMods": [
-      "viseur"
-    ],
+    "emplacementsMods": {
+      "viseur": "rail_optique_long"
+    },
     "modsPredefinis": [
       "lunette_vx1_12x"
     ],
@@ -2913,12 +2913,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "adrestia": {
     "nom": "Adrestia",
@@ -2934,12 +2934,12 @@
     "estNomme": true,
     "notes": "A démonter pour fabriquer le Nemesis, c'est une arme unique.",
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "tueur_attitre": {
     "nom": "Tueur attitré",
@@ -2954,12 +2954,12 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "tactical_308": {
     "nom": "Tacticol .308",
@@ -2974,12 +2974,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "scalpel": {
     "nom": "Scalpel",
@@ -2996,12 +2996,12 @@
     "talents": [
       "futur_parfait"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "smg_9_converti": {
     "nom": "SMG-9 converti",
@@ -3016,11 +3016,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "bouche",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "bouche": "bouche_9mm",
+      "viseur": "rail_optique_court"
+    }
   },
   "smg_9_a2_converti": {
     "nom": "SMG-9 A2 converti",
@@ -3029,17 +3029,17 @@
     "portee": 15,
     "rpm": 1000,
     "chargeur": 32,
-    "rechargement": 2.30,
+    "rechargement": 2.3,
     "headshot": 50,
     "degatsBase": 46700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "bouche",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "bouche": "bouche_9mm",
+      "viseur": "rail_optique_court"
+    }
   },
   "mp5a2": {
     "nom": "MP5A2",//TODO
@@ -3054,11 +3054,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "mp5_n": {
     "nom": "MP5-N",//TODO
@@ -3073,11 +3073,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "mp5_st": {
     "nom": "MP5 ST",//TODO
@@ -3092,11 +3092,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "cabaret": {
     "nom": "CABARET",//TODO
@@ -3111,11 +3111,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "pp_19": {
     "nom": "PP-19",//TODO
@@ -3130,11 +3130,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "pp_19_ameliore": {
     "nom": "PP-19 AMÉLIORÉ",//TODO
@@ -3149,11 +3149,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "coup_de_froid": {
     "nom": "COUP DE FROID",//TODO
@@ -3168,11 +3168,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "aug_a3_para_xs": {
     "nom": "AUG A3 PARA XS",//TODO
@@ -3187,11 +3187,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "aug_a3_ameliore": {
     "nom": "AUG A3 AMÉLIORÉ",//TODO
@@ -3206,11 +3206,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "aug_a3_tactique": {
     "nom": "AUG A3 TACTIQUE",//TODO
@@ -3225,11 +3225,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "vector_sbr_9_mm_tactique": {
     "nom": "VECTOR SBR 9 MM TACTIQUE ",//TODO
@@ -3244,11 +3244,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "vector_sbr_9mm": {
     "nom": "VECTOR SBR 9MM",//TODO
@@ -3263,11 +3263,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "vector_45_acp": {
     "nom": "VECTOR .45 ACP",//TODO
@@ -3282,11 +3282,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "hiver_funeste": {
     "nom": "HIVER FUNESTE",//TODO
@@ -3301,11 +3301,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "mp7": {
     "nom": "MP7",//TODO
@@ -3320,11 +3320,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "echangeur": {
     "nom": "ÉCHANGEUR",//TODO
@@ -3339,11 +3339,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "t821_du_marche_noir": {
     "nom": "T821 DU MARCHÉ NOIR",//TODO
@@ -3358,11 +3358,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "t821_police": {
     "nom": "T821 POLICE",//TODO
@@ -3377,11 +3377,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "ump_45_police": {
     "nom": "UMP-45 POLICE",//TODO
@@ -3396,11 +3396,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_45_acp",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "ump_45_tactique": {
     "nom": "UMP-45 TACTIQUE",//TODO
@@ -3415,11 +3415,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_45_acp",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "m1928": {
     "nom": "M1928",//TODO
@@ -3434,11 +3434,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_45_acp",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "tommy_gun": {
     "nom": "TOMMY GUN",//TODO
@@ -3453,11 +3453,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_45_acp",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "l_acquis": {
     "nom": "L'ACQUIS",//TODO
@@ -3473,11 +3473,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "l_enneigeur": {
     "nom": "L'ENNEIGEUR",//TODO
@@ -3492,11 +3492,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "p90": {
     "nom": "P90",//TODO
@@ -3511,11 +3511,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "bouclier_d_emeline": {
     "nom": "BOUCLIER D'EMELINE",//TODO
@@ -3530,11 +3530,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "mpx": {
     "nom": "MPX",
@@ -3549,11 +3549,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "ecarteur": {
     "nom": "ÉCARTEUR",//TODO
@@ -3568,11 +3568,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "l_appartement": {
     "nom": "L'APPARTEMENT",//TODO
@@ -3587,11 +3587,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "cmmg_banshee": {
     "nom": "CMMG BANSHEE",//TODO
@@ -3606,11 +3606,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "rancune": {
     "nom": "RANCUNE",//TODO
@@ -3625,11 +3625,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "uic15_mod2": {
     "nom": "UIC15 MOD2",
@@ -3644,12 +3644,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "acr_ss": {
     "nom": "ACR SS",
@@ -3664,12 +3664,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m16a2": {
     "nom": "M16A2",
@@ -3684,11 +3684,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "bouche",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique"
+    }
   },
   "murmure": {
     "nom": "MURMURE",
@@ -3705,11 +3705,11 @@
     "talents": [
       "derriere_toi"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m1a_socom": {
     "nom": "M1A SOCOM",
@@ -3724,12 +3724,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "m1a_cqb": {
     "nom": "M1A CQB",
@@ -3744,12 +3744,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "rafraichisseur": {
     "nom": "RAFRAÎCHISSEUR",
@@ -3767,7 +3767,7 @@
     "talents": [
       "rafraichissement"
     ],
-    "emplacementsMods": []
+    "emplacementsMods": {}
   },
   "medecin_de_famille": {
     "nom": "Médecin de famille",
@@ -3789,12 +3789,12 @@
     "talents": [
       "medecin_de_famille"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "vision_du_medecin",
       "chargeur_de_famille",
@@ -3815,11 +3815,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "secret_du_chef": {
     "nom": "SECRET DU CHEF",
@@ -3829,17 +3829,17 @@
     "portee": 60,
     "rpm": 180,
     "chargeur": 13,
-    "rechargement": 2.60,
+    "rechargement": 2.6,
     "headshot": 60,
     "degatsBase": 231300,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "lvoa_c": {
     "nom": "LVOA-C",
@@ -3854,12 +3854,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "surge": {
     "nom": "SURGE",
@@ -3877,12 +3877,12 @@
     "talents": [
       "pointe"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "mdr_urbain": {
     "nom": "MDR URBAIN",
@@ -3897,12 +3897,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "vindicator": {
     "nom": "Vindicator",
@@ -3922,12 +3922,12 @@
     "talents": [
       "interface_d_assaut_ortiz"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "lunette_ra",
       "chargeur_de_simulation",
@@ -3948,12 +3948,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "mk17_police": {
     "nom": "Mk17 POLICE",
@@ -3968,12 +3968,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "regard_eternel": {
     "nom": "REGARD ÉTERNEL",
@@ -3991,12 +3991,12 @@
     "talents": [
       "perpetuation"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "sig_716_cqb": {
     "nom": "SIG 716 CQB",
@@ -4011,11 +4011,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "sig_716": {
     "nom": "SIG 716",
@@ -4030,12 +4030,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "outil_d_artiste": {
     "nom": "Outil d'Artiste",
@@ -4052,11 +4052,11 @@
     "talents": [
       "fusilier"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "usc_45_acp": {
     "nom": "USC .45 ACP",
@@ -4071,11 +4071,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "la_virginienne": {
     "nom": "LA VIRGINIENNE",
@@ -4092,9 +4092,9 @@
     "talents": [
       "boomerang"
     ],
-    "emplacementsMods": [
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556"
+    }
   },
   "resolute_mk47": {
     "nom": "Resolute MK47",
@@ -4109,12 +4109,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "harmony": {
     "nom": "HARMONY",
@@ -4131,13 +4131,12 @@
     "talents": [
       "synchro"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "la_vorace": {
     "nom": "La Vorace",
@@ -4164,12 +4163,12 @@
     "talents": [
       "geri_et_freki"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "optique_du_predateur",
       "chargeurs_gloutons",
@@ -4190,12 +4189,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "bonne_nuit": {
     "nom": "Bonne nuit",
@@ -4219,11 +4218,11 @@
     "talents": [
       "marchand_de_sable"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    },
     "modsPredefinis": [
       "optique_parias",
       "systeme_de_chargement_modifie",
@@ -4249,11 +4248,11 @@
     "talents": [
       "marchand_de_sable"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    },
     "modsPredefinis": [
       "optique_endommagee",
       "systeme_de_chargement_modifie",
@@ -4282,12 +4281,12 @@
     "talents": [
       "choc_septique"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "bouche": "bouche",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    },
     "modsPredefinis": [
       "glandes_venimeuses",
       "recepteurs_de_lumiere_stellaire",
@@ -4314,11 +4313,11 @@
     "talents": [
       "capitulation"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    },
     "modsPredefinis": [
       "chargeur_antiemeute",
       "rail_balistique",
@@ -4345,7 +4344,7 @@
     "talents": [
       "autentico"
     ],
-    "emplacementsMods": []
+    "emplacementsMods": {}
   },
   "impitoyable": {
     "nom": "Impitoyable",
@@ -4365,12 +4364,12 @@
     "talents": [
       "detente_binaire"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "optique_impitoyable",
       "chargeur_impitoyable",
@@ -4397,12 +4396,12 @@
     "talents": [
       "detente_binaire"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "visee_russe_personnalisee_non_identifiee",
       "chargeur_inflexible",
@@ -4431,12 +4430,12 @@
     "talents": [
       "morsure_fatale"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "viseur_a_point_de_diamondback",
       "levier_de_diamondback",
@@ -4464,11 +4463,11 @@
     "talents": [
       "transfusion"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "lunette_de_bittersweet",
       "chargeur_de_bittersweet",
@@ -4500,12 +4499,12 @@
       "frappe_de_l_aigle",
       "tenacite"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "visee_oeil_d_aigle",
       "aire_balistique",
@@ -4535,12 +4534,12 @@
     "talents": [
       "instinct_d_adaptation"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "optique_de_cameleon",
       "processeur_activcamo_de_cameleon",
@@ -4568,12 +4567,12 @@
     "talents": [
       "chasseur_de_gros_gibier"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "lunette_de_selection_de_tir",
       "chargeur_a_ressort_ajuste",
@@ -4589,7 +4588,7 @@
     "portee": 31,
     "rpm": 700,
     "chargeur": 30,
-    "rechargement": 1.70,
+    "rechargement": 1.7,
     "headshot": 55,
     "degatsBase": 57600,
     "estExotique": true,
@@ -4602,12 +4601,12 @@
     "talents": [
       "capacite"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "visee_condutrice",
       "generateur_de_tension",
@@ -4637,12 +4636,12 @@
     "talents": [
       "actum_est"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "rail_conducteur",
       "chargeur_isolee",
@@ -4672,12 +4671,12 @@
     "talents": [
       "pertubation"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "optique_strega",
       "chargeur_strega",
@@ -4703,11 +4702,11 @@
     "talents": [
       "fleo_des_parias"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "bullet_king": {
     "nom": "Bullet King",
@@ -4727,11 +4726,11 @@
     "talents": [
       "deluge_de_feu"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "dragon_de_fer": {
     "nom": "Dragon de Fer",
@@ -4751,11 +4750,11 @@
     "talents": [
       "ardent"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "pakhan": {
     "nom": "Pakhan",
@@ -4775,11 +4774,11 @@
     "talents": [
       "pakhan"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "nemesis": {
     "nom": "Nemesis",
@@ -4803,18 +4802,17 @@
     "talents": [
       "accelerateur_electromagnetique"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "lunette_numerique_nemesis",
       "culasse_nemesis",
       "bipied_nemesis",
       "canon_nemesis"
-
     ]
   },
   "mantis": {
@@ -4841,12 +4839,12 @@
     "talents": [
       "visee_analytique"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "visee_a_revetement_antireflet",
       "machine_bien_huilee",
@@ -4876,12 +4874,12 @@
     "talents": [
       "cible_de_priorite_elevee"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    },
     "modsPredefinis": [
       "lunette_de_linceul",
       "chargeur_de_linceul",
@@ -4907,11 +4905,11 @@
     "talents": [
       "la_liberte_ou_la_mort"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "regulus": {
     "nom": "Regulus",
@@ -4932,11 +4930,11 @@
     "talents": [
       "regicide"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "mosquito": {
     "nom": "Mosquito",
@@ -4956,11 +4954,11 @@
     "talents": [
       "chanson_du_mosquito"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "tempest": {
     "nom": "Tempest",
@@ -4980,16 +4978,15 @@
     "talents": [
       "mesure"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
   },
   "flux_continu": {
     "nom": "Flux continu",//TODO
     "description": "\"On dit que je ne sais pas quand il faut la fermer, mais c'est juste l'Épice qui parle.\"\n- Dime, membre de la Commission des Hyènes",
-
     "type": "pistolet_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 21,
@@ -5006,11 +5003,11 @@
     "talents": [
       "conversation_ininterrompue"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "lady_death": {
     "nom": "Lady death",//TODO
@@ -5031,11 +5028,11 @@
     "talents": [
       "souffle_ultime"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "contre_feu": {
     "nom": "Contre-feu",//TODO
@@ -5057,11 +5054,11 @@
     "talents": [
       "paiement_en_nature"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "ouroboros": {
     "nom": "Ouroboros",//TODO
@@ -5081,11 +5078,11 @@
     "talents": [
       "rule_them_all"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "oxpecker": {
     "nom": "Oxpecker",//TODO
@@ -5105,11 +5102,11 @@
     "talents": [
       "symbiose"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "achille": {
     "nom": "Achille",
@@ -5126,11 +5123,11 @@
     "talents": [
       "petit_faible"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "scene_gauche": {
     "nom": "Scène gauche",
@@ -5148,12 +5145,12 @@
     "talents": [
       "coup_de_massue"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "ak_m_militaire": {
     "nom": "AK-M militaire",
@@ -5168,12 +5165,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "g36_c": {
     "nom": "G36 C",
@@ -5188,12 +5185,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "goalie": {
     "nom": "Goalie",
@@ -5210,12 +5207,12 @@
     "talents": [
       "point_de_pression"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "huntsman": {
     "nom": "Huntsman",
@@ -5233,12 +5230,12 @@
     "talents": [
       "frenesie"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "lexington": {
     "nom": "Lexington",
@@ -5254,12 +5251,12 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "attributs_essentiels": [
       {
         "nom": "degats_fusil_d_assaut_es",
@@ -5292,12 +5289,12 @@
     "talents": [
       "rationalisation"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "premiere_vue": {
     "nom": "Première vue",
@@ -5313,11 +5310,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "protecteur": {
     "nom": "Protecteur",
@@ -5334,12 +5331,12 @@
     "talents": [
       "tueur"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
     "attributs_essentiels": [
       {
         "nom": "degats_fusil_d_assaut_es",
@@ -5352,7 +5349,7 @@
     ],
     "attributs": [
       {
-      "nom": "degats_sur_cible_non_abritee_arm",
+        "nom": "degats_sur_cible_non_abritee_arm",
         "valeur": 10
       }
     ]
@@ -5364,7 +5361,7 @@
     "portee": 50,
     "rpm": 55,
     "chargeur": 5,
-    "rechargement": 3.90,
+    "rechargement": 3.9,
     "headshot": 0,
     "degatsBase": 417700,
     "estExotique": false,
@@ -5372,12 +5369,12 @@
     "talents": [
       "petit_faible"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "panier": {
     "nom": "Panier",
@@ -5393,12 +5390,12 @@
     "estNomme": true,
     "talents": [],
     "notes": "+320300 dégats de base, -200 de cpm",
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "quickstep": {
     "nom": "Quickstep",
@@ -5413,12 +5410,12 @@
     "talents": [
       "mode_vitesse"
     ],
-    "emplacementsMods": [
-      "chargeur",
-      "canon",
-      "bouche",
-      "viseur"
-    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_9mm",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    },
     "obtention": {
       "description": "Évènement uniquement"
     }
@@ -5438,11 +5435,11 @@
     "talents": [
       "immobilisation"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "fusil_calibre_12_ksg": {
     "nom": "Fusil calibre 12 KSG",
@@ -5457,7 +5454,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": []
+    "emplacementsMods": {}
   },
   "fusil_calibre_12_a_double_canon": {
     "nom": "Fusil calibre 12 à double canon",
@@ -5472,7 +5469,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": []
+    "emplacementsMods": {}
   },
   "stack_broker": {
     "nom": "Stack broker",
@@ -5488,10 +5485,10 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon"
-    ]
+    "emplacementsMods": {
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "fronde": {
     "nom": "Fronde",//TODO
@@ -5506,12 +5503,12 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "bouche": "bouche_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "puriste": {
     "nom": "Puriste",
@@ -5520,7 +5517,7 @@
     "portee": 15,
     "rpm": 1000,
     "chargeur": 32,
-    "rechargement": 2.30,
+    "rechargement": 2.3,
     "headshot": 50,
     "degatsBase": 46700,
     "estExotique": false,
@@ -5528,11 +5525,11 @@
     "talents": [
       "rationalisation"
     ],
-    "emplacementsMods": [
-      "viseur",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "bouche": "bouche_9mm",
+      "viseur": "rail_optique_court"
+    }
   },
   "sig_mpx": {
     "nom": "SIG MPX",//TODO
@@ -5547,12 +5544,12 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "bouche": "bouche_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   },
   "ecume": {
     "nom": "Écume",//TODO
@@ -5567,11 +5564,11 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "bouche"
-    ]
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "bouche": "bouche_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
   }
 }

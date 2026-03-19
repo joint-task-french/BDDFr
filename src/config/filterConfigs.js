@@ -668,18 +668,28 @@ export function applyModCompetenceFilters(items, filters) {
 // FILTRES : DESCENTE
 // ================================================================
 export const DESCENTE_SORT_OPTIONS = [
+  { id: 'categorie', label: 'Catégorie', ascLabel: 'Exo ➔ Uti', descLabel: 'Uti ➔ Exo' },
   { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
-  { id: 'categorie', label: 'Catégorie', ascLabel: 'A-Z', descLabel: 'Z-A' }
 ]
 export const DESCENTE_DEFAULT_SORT = [
   { id: 'categorie', desc: false },
   { id: 'alpha', desc: false }
 ]
+
+// Dictionnaire de poids pour forcer l'ordre de tri
+const DESCENTE_CATEGORIE_ORDER = {
+  'exotique': 1,
+  'offensif': 2,
+  'défensif': 3,
+  'utilitaire': 4
+}
+
 const descenteGetters = {
   alpha: (item) => item.nom || '',
-  categorie: (item) => item.descente?.categorie || ''
+  categorie: (item) => DESCENTE_CATEGORIE_ORDER[item.descente?.categorie] || 99
 }
 export function applySortDescente(items, sortLayers) { return multiSort(items, sortLayers, descenteGetters) }
+
 
 
 export function getDescenteFilters(data) {

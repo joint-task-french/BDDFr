@@ -448,15 +448,19 @@
   },
   "sangsue": {
     "nom": "Sangsue",
-    "description": "Éliminer un ennemi augmente ou renouvelle un effet cumulé de +10% de protection bonus pendant 10s.\nPeut se cumuler jusq'à 10 fois.",
+    "description": "Éliminer un ennemi augmente ou renouvelle un effet cumulé de +10% de protection bonus pendant 10s.\nPeut se cumuler jusqu'à 10 fois.",
     "emplacement": "sac_a_dos",
+    "equipementsParfaits": [
+      "ingenieur_fluides"
+    ],
+    "perfectDescription": "Éliminer un ennemi augmente ou renouvelle un effet cumulé de +12% de protection bonus pendant 10s.\nPeut se cumuler jusqu'à 10 fois.",
     "descente": {
       "boucles": [
         "Colère"
       ],
       "categorie": "exotique",
       "levels": {
-        "base": "Éliminer un ennemi augmente ou renouvelle un effet cumulé de +{bonus_armor}% de protection bonus pendant {duration}s.\nPeut se cumuler jusq'à {max_stacks} fois.",
+        "base": "Éliminer un ennemi augmente ou renouvelle un effet cumulé de +{bonus_armor}% de protection bonus pendant {duration}s.\nPeut se cumuler jusqu'à {max_stacks} fois.",
         "1": {
           "bonus_armor": 10,
           "duration": 10,

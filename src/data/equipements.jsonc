@@ -217,6 +217,15 @@
     "type": "standard",
     "estNomme": false
   },
+  "ingenieur_fluides": {
+    "nom": "Ingénieur fluides",
+    "marque": "belstone_armory",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["sangsue"],
+    "type": "standard",
+    "estNomme": true
+  },
   "systeme_de_plastron_lancer": {
     "nom": "Système de plastron Lancer",
     "marque": "belstone_armory",

@@ -858,7 +858,20 @@
     "icone": "marchand_de_sable",
     "description": "Les attaques au corps à corps tuent instantanément les ennemis non élite.\ntemps de recharge : 15s.",
     "notes": "PVP :\nLes attaques au corps à corps tuent instantanément les ennemis non élite.\ntemps de recharge : 15s.\nLes attaques au corps à corps tuent les personnages joueurs à 20% de protection ou moins.",
-    "estExotique": true
+    "estExotique": true,
+    "descente": {
+      "boucles": [
+        "Colère",
+        "Avidité"
+      ],
+      "categorie": "exotique",
+      "levels": {
+        "base": "Les attaques au corps à corps tuent instantanément les ennemis non élite.\ntemps de recharge : {temps_recharge}s.",
+        "1": {
+          "temps_recharge": "15"
+        }
+      }
+    }
   },
   "choc_septique": {
     "nom": "Choc septique",
@@ -889,7 +902,24 @@
     "nom": "Morsure Fatale",
     "icone": "morsure_fatale",
     "description": "La Diamondback marque un ennemi désigné aléatoirement dans un rayon de 20m. S'il n'y a aucun ennemi dans les 20m, l'ennemi le plus proche de vous est marqué.\nToucher cet ennemi supprime la marque et assure un coup critique aux dégâts accrus de 20%.\nAprès avoir touché une marque, tous les tirs assurent des coups critiques pendant 5s.\nUn nouvel ennemi est marqué aléatoirement par la suite et à chaque fois que vous rechargez.",
-    "estExotique": true
+    "estExotique": true,
+
+    "descente": {
+      "boucles": [
+        "Avidité",
+        "Envie",
+        "Gourmandise"
+      ],
+      "categorie": "exotique",
+      "levels": {
+        "base": "La Diamondback marque un ennemi désigné aléatoirement dans un rayon de {rayon_marque}. S'il n'y a aucun ennemi dans les {rayon_marque}, l'ennemi le plus proche de vous est marqué.\nToucher cet ennemi supprime la marque et assure un coup critique aux dégâts accrus de {bonus_degats_crit}.\nAprès avoir touché une marque, tous les tirs assurent des coups critiques pendant {duree_buff}.\nUn nouvel ennemi est marqué aléatoirement par la suite et à chaque fois que vous rechargez.",
+        "1": {
+          "rayon_marque": "20m",
+          "bonus_degats_crit": "20%",
+          "duree_buff": "5s"
+        }
+      }
+    }
   },
   "geri_et_freki": {
     "nom": "Geri et Freki",
@@ -901,7 +931,22 @@
     "nom": "Médecin de Famille",
     "icone": "medecin_de_famille",
     "description": "Tirer sur un ennemi avec cette arme applique une marque pendant 5 secondes.Si une cible marquée est tuée, elle lâche un kit de réparation de protection de 10% qui s'applique à tout le groupe automatiquement.Le kit ne confère pas de bonus d'armure.",
-    "estExotique": true
+    "estExotique": true,
+    "descente": {
+      "boucles": [
+        "Colère",
+        "Avidité",
+        "Gourmandise"
+      ],
+      "categorie": "exotique",
+      "levels": {
+        "base": "Tirer sur un ennemi avec cette arme applique une marque pendant {duree_marque} secondes. Si une cible marquée est tuée, elle lâche un kit de réparation de protection de {valeur_reparation} qui s'applique à tout le groupe automatiquement. Le kit ne confère pas de bonus d'armure.",
+        "1": {
+          "duree_marque": "5",
+          "valeur_reparation": "10%"
+        }
+      }
+    }
   },
   "interface_d_assaut_ortiz": {
     "nom": "Interface d'assaut Ortiz",
@@ -940,8 +985,19 @@
       ],
       "categorie": "exotique",
       "levels": {
-        "base": "Placer 30 headshots confère +20% à la probalitité de coup critique et 50% aux dégâts de coup critique pendant 45 s.\nPlacer 65 tirs au corps confère +90% aux dégâts d'arme pendant 45 s.\nPlacer 20 tirs aux jambes confère +150% à la vitesse de rechargement pendant 45 s.\nLes buffs se réinitilialisent hors combat.",
-        "1": {}
+        "base": "Placer {req_headshots} headshots confère {bonus_chc} à la probabilité de coup critique et {bonus_chd} aux dégâts de coup critique pendant {duree_headshots}s.\nPlacer {req_corps} tirs au corps confère {bonus_degats} aux dégâts d'arme pendant {duree_corps}s.\nPlacer {req_jambes} tirs aux jambes confère {bonus_rechargement} à la vitesse de rechargement pendant {duree_jambes}s.\nLes buffs se réinitialisent hors combat.",
+        "1": {
+          "req_headshots": "30",
+          "bonus_chc": "+20%",
+          "bonus_chd": "50%",
+          "duree_headshots": "45",
+          "req_corps": "65",
+          "bonus_degats": "+90%",
+          "duree_corps": "45",
+          "req_jambes": "20",
+          "bonus_rechargement": "+150%",
+          "duree_jambes": "45"
+        }
       }
     }
   },
@@ -970,11 +1026,27 @@
     "description": "Abattre un ennemi applique une marque à tous les ennemis situés à moins de 20m de lui. Il est possible d'appliquer plusieurs marques au même ennemi.\nLe nombre maximun de marques applicables est de 5. Toutes les marques sur un ennemi disparaissent 10s après la dernière d'entre elles a été appliquée.\nVous infligez +15% de dégâts par marque aux ennemis marqués.",
     "estExotique": true
   },
-  "peste_des_parias": {
-    "nom": "Peste des Parias",
-    "icone": "peste_des_parias",
+  "fleo_des_parias": {
+    "nom": "Fléau des Parias",
+    "icone": "fleo_des_parias",
     "description": "Les coups au but appliquent un débuff qui inflige 100% des dégâts d'arme sur 10s. Cet effet est cumulable 50 fois.Quand un ennemi qui subit ce débuff meurt, le cumul d'effets est transféré à un ennemi situé dans un rayon de 25m.",
-    "estExotique": true
+    "estExotique": true,
+    "descente": {
+      "boucles": [
+        "Colère",
+        "Envie"
+      ],
+      "categorie": "exotique",
+      "levels": {
+        "base": "Les coups au but appliquent un débuff qui inflige {degats} des dégâts d'arme sur {duree}. Cet effet est cumulable {cumul_max} fois. Quand un ennemi qui subit ce débuff meurt, le cumul d'effets est transféré à un ennemi situé dans un rayon de {rayon_transfert}.",
+        "1": {
+          "degats": "100%",
+          "duree": "10s",
+          "cumul_max": "50",
+          "rayon_transfert": "25m"
+        }
+      }
+    }
   },
   "deluge_de_feu": {
     "nom": "Déluge de feu",
@@ -1071,7 +1143,23 @@
     "nom": "Souffle ultime",
     "icone": "souffle_ultime",
     "description": "Quand vous vous déplacez, confère 4 bonus par seconde, 8 bonus si vous sprintez. Le nombre de bonus est équivalent à la taille du chargeur. Chaque munition tirée consomme un bonus qui augmente les dégâts de 75% (60%)Les éliminations confèrent +20% en vitesse de déplacement pendant 10s.",
-    "estExotique": true
+    "estExotique": true,
+    "descente": {
+      "boucles": [
+        "Avidité"
+      ],
+      "categorie": "exotique",
+      "levels": {
+        "base": "Quand vous vous déplacez, confère {bonus_sec_mouv} bonus par seconde, {bonus_sec_sprint} bonus si vous sprintez. Le nombre de bonus est équivalent à la taille du chargeur. Chaque munition tirée consomme un bonus qui augmente les dégâts de {bonus_degats}. Les éliminations confèrent {buff_vitesse} en vitesse de déplacement pendant {duree_buff}.",
+        "1": {
+          "bonus_sec_mouv": "4",
+          "bonus_sec_sprint": "8",
+          "bonus_degats": "75%",
+          "buff_vitesse": "+20%",
+          "duree_buff": "10s"
+        }
+      }
+    }
   },
   "paiement_en_nature": {
     "nom": "Paiement en nature",

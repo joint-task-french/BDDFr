@@ -450,6 +450,21 @@
       "maniement_arme"
     ]
   },
+  "precision_arm_eqp": {
+    "nom": "Précision",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 38,
+    "description": "Augmente la précision de l'arme",
+    "estEssentiel": false,
+    "statistiques": [
+      "precision"
+    ]
+  },
   "probabilite_de_coup_critique_eqp": {
     "nom": "Probabilité de coup critique",
     "categorie": "offensif",

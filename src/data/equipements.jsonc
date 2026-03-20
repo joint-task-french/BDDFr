@@ -2428,6 +2428,24 @@
     "talents": [],
     "type": "standard"
   },
+  "dans_le_mille": {
+    "nom": "Dans le mille",
+    "description": "\"Tout est dans la hanche\"",
+    "emplacement": "holster",
+    "marque": "urban_lookout",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "precision_arm_eqp",
+        "valeur": 38
+      }
+    ],
+    "type": "standard"
+  },
   "genouilleres_de_randonnee": {
     "nom": "Genouillères de randonnée",
     "marque": "urban_lookout",

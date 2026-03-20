@@ -1598,6 +1598,24 @@
     "talents": [],
     "type": "standard"
   },
+  "toutes_griffes_dehors": {
+    "nom": "Toutes griffes dehors",
+    "description": "\"Attends un peu que je les chope ! -Saint\"",
+    "emplacement": "holster",
+    "marque": "wyvern_wear",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_corps_a_corps_eqp",
+        "valeur": 500
+      }
+    ],
+    "type": "standard"
+  },
   "genouilleres_patella": {
     "nom": "Genouillères Patella",
     "marque": "wyvern_wear",

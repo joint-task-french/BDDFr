@@ -525,6 +525,21 @@
       "protection_alterations_etat"
     ]
   },
+  "degats_corps_a_corps_eqp": {
+    "nom": "Dégâts Corps à corps",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 500,
+    "description": "Augmente les dégâts de corps à corps",
+    "estEssentiel": false,
+    "statistiques": [
+      "degats_corps_a_corps"
+    ]
+  },
   "sante_eqp": {
     "nom": "Santé",
     "categorie": "défensif",

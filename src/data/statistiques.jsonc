@@ -59,6 +59,10 @@
     "nom": "Dégâts sur cible non abritée",
     "description": "Bonus de dégâts aux cibles non abritées"
   },
+  "degats_corps_a_corps": {
+    "nom": "Dégâts Corps à coprs",
+    "description": "Bonus de dégâts au corps à corps"
+  },
   "maniement_arme": {
     "nom": "Maniement d'arme",
     "description": "Améliore la maniabilité de l'arme"

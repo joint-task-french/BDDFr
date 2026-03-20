@@ -229,6 +229,24 @@
     "talents": [],
     "type": "standard"
   },
+  "reserve_de_munitions": {
+    "nom": "Réserve de munitions",
+    "description": "\"Comment ça, t'as plus de munitions ? Fouille-moi ce truc qui te sert de holster, trouve quelque chose à carrer dans ton flingue et tire ! -Chef de section des True Sons\"",
+    "emplacement": "holster",
+    "marque": "badger_tuff",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "défensif"
+    ],
+    "attributs": [
+      {
+        "nom": "munitions_eqp",
+        "valeur": 10
+      }
+    ],
+    "type": "standard"
+  },
   "renforts_de_genoux_jonti": {
     "nom": "Renforts de genoux Jonti",
     "marque": "badger_tuff",

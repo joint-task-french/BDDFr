@@ -720,6 +720,21 @@
       "taille_chargeur"
     ]
   },
+  "munitions_eqp": {
+    "nom": "Capacité Munitions",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la capacité de munitions.",
+    "estEssentiel": false,
+    "statistiques": [
+      "capacite_munitions"
+    ]
+  },
   "maniement_d_arme_mod": {
     "nom": "Maniement d'arme",
     "categorie": "offensif",

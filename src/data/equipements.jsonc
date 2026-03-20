@@ -34,6 +34,24 @@
     "talents": [],
     "type": "standard"
   },
+  "poigne_mortelle": {
+    "nom": "Poigne mortelle",
+    "description": "\"La plupart des gens passent leur temps à se battre dans la vie. Ils stressent dans des jobs sans avenir et pour payer leur bouffe, leur loyer ou leur prêt étudiant. Si tu manques de discernement dans la vie, toute cette merde finit par te tuer. Et il n'y a rien qui te donne plus de discernement que le fait d'être accroché au flanc d'une montagne.\"",
+    "emplacement": "gants",
+    "marque": "5_11_tactical",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "défensif"
+    ],
+    "attributs": [
+      {
+        "nom": "protection_pour_eliminations_eqp",
+        "valeur": 10
+      }
+    ],
+    "type": "standard"
+  },
   "poche_de_holster_compact": {
     "nom": "Poche de Holster Compact",
     "marque": "5_11_tactical",
@@ -134,6 +152,25 @@
     "talents": [],
     "type": "standard"
   },
+  "amour_maternel": {
+    "nom": "Amour maternel",
+    "marque": "alps_summit_armement",
+    "description": "\"La vie est horrible. Quand vous avez compris ça, il est plus facile d'apprécier les moments qui sont des exceptions. C'est une forme de réalisme.\"",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "sante_pour_competence_eqp",
+        "valeur": 25
+      }
+    ]
+  },
   "saccoche_de_jambe": {
     "nom": "Saccoche de jambe",
     "marque": "alps_summit_armement",
@@ -190,6 +227,24 @@
     "emplacement": "holster",
     "mod": false,
     "talents": [],
+    "type": "standard"
+  },
+  "reserve_de_munitions": {
+    "nom": "Réserve de munitions",
+    "description": "\"Comment ça, t'as plus de munitions ? Fouille-moi ce truc qui te sert de holster, trouve quelque chose à carrer dans ton flingue et tire ! -Chef de section des True Sons\"",
+    "emplacement": "holster",
+    "marque": "badger_tuff",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "défensif"
+    ],
+    "attributs": [
+      {
+        "nom": "munitions_eqp",
+        "valeur": 10
+      }
+    ],
     "type": "standard"
   },
   "renforts_de_genoux_jonti": {
@@ -299,6 +354,23 @@
     "emplacement": "holster",
     "mod": false,
     "talents": [],
+    "type": "standard"
+  },
+  "holster_de_picaro": {
+    "nom": "Holster de Picaro",
+    "emplacement": "holster",
+    "marque": "brazos_de_arcabuz",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "défensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_arme_eqp",
+        "valeur": 10
+      }
+    ],
     "type": "standard"
   },
   "genouilleres_cerinola": {
@@ -1343,6 +1415,24 @@
     "talents": [],
     "type": "standard"
   },
+  "forge": {
+    "nom": "Forge",
+    "description": "\"Tu dois emplir l'espace. Tu n'es ni le marteau, ni l'enclume. Tu es l'impact ; l'énergie. Le potentiel. Plie ou brise-toi, tu trouveras ton but. Et dans le but se trouve la vérité.\"",
+    "emplacement": "holster",
+    "marque": "richter_kaiser_gmbh",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "sante_bouclier_eqp",
+        "valeur": 50
+      }
+    ],
+    "type": "standard"
+  },
   "renforts_d_articulation_hulian": {
     "nom": "Renforts d'articulation Hulian",
     "marque": "richter_kaiser_gmbh",
@@ -1383,6 +1473,24 @@
     "emplacement": "gants",
     "mod": false,
     "talents": [],
+    "type": "standard"
+  },
+  "poigne_ferme": {
+    "nom": "Poigne ferme",
+    "description": "\"La poignée de main d'une personne en dit long sur elle. C'est aussi un geste hautement pathogène.\"",
+    "emplacement": "gants",
+    "marque": "sokolov_concern",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "effets_d_etat_eqp",
+        "valeur": 16
+      }
+    ],
     "type": "standard"
   },
   "holster_vertical_y": {
@@ -1543,6 +1651,24 @@
     "talents": [],
     "type": "standard"
   },
+  "toutes_griffes_dehors": {
+    "nom": "Toutes griffes dehors",
+    "description": "\"Attends un peu que je les chope ! -Saint\"",
+    "emplacement": "holster",
+    "marque": "wyvern_wear",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_corps_a_corps_eqp",
+        "valeur": 500
+      }
+    ],
+    "type": "standard"
+  },
   "genouilleres_patella": {
     "nom": "Genouillères Patella",
     "marque": "wyvern_wear",
@@ -1650,6 +1776,24 @@
     "emplacement": "gants",
     "mod": false,
     "talents": [],
+    "type": "standard"
+  },
+  "etreinte_de_l_aigle": {
+    "nom": "Étreinte de l'Aigle",
+    "description": "\"Attends un peu que je les chope ! -Saint\"",
+    "emplacement": "gants",
+    "marque": "zwiadowka_sp_z_o_o",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "maniement_d_arme_eqp",
+        "valeur": 15
+      }
+    ],
     "type": "standard"
   },
   "holster_zwiadowka_sp_z_o_o": {

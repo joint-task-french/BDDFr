@@ -59,6 +59,10 @@
     "nom": "Dégâts sur cible non abritée",
     "description": "Bonus de dégâts aux cibles non abritées"
   },
+  "degats_corps_a_corps": {
+    "nom": "Dégâts Corps à coprs",
+    "description": "Bonus de dégâts au corps à corps"
+  },
   "maniement_arme": {
     "nom": "Maniement d'arme",
     "description": "Améliore la maniabilité de l'arme"
@@ -78,6 +82,10 @@
   "sante": {
     "nom": "Santé",
     "description": "Valeur totale de santé"
+  },
+  "sante_bouclier": {
+    "nom": "Santé de bouclier",
+    "description": "Valeur totale de la santé de bouclier"
   },
   "regeneration_protection": {
     "nom": "Régénération de protection",
@@ -131,7 +139,7 @@
     "nom": "Durée de compétence",
     "description": "Augmente la durée des compétences"
   },
-  "sante_competence": {
+  "sante_pour_competence": {
     "nom": "Santé de compétence",
     "description": "Augmente la santé des objets de compétence"
   },

@@ -54,6 +54,10 @@
           "type": "number",
           "description": "Valeur maximum classique de l'attribut"
         },
+        "prototypeMax": {
+          "type": "number",
+          "description": "Valeur maximum de l'attribut sur les prototypes"
+        },
         "description": {
           "type": "string",
           "description": "Description courte de ce que fait l'attribut"

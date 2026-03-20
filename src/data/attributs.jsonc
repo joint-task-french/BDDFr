@@ -734,5 +734,20 @@
     "statistiques": [
       "protection_elimination"
     ]
+  },
+  "protection_pour_eliminations_eqp": {
+    "nom": "Protection pour éliminations",
+    "categorie": "défensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Apporte de la protection lors de l'éliminations d'un ennemi",
+    "estEssentiel": false,
+    "statistiques": [
+      "protection_elimination"
+    ]
   }
 }

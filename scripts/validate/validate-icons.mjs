@@ -71,16 +71,23 @@ if (!existsSync(IMG_DIR)) {
 }
 const availableImagesPaths = getAllImages(IMG_DIR)
 const validIconIdentifiers = new Set()
+const identifierToPathMap = new Map()
 
 availableImagesPaths.forEach(filepath => {
     const relPath = relative(IMG_DIR, filepath).replace(/\\/g, '/');
     const relPathNoExt = relPath.replace(/\.png$/, '');
     const baseName = basename(filepath);
     const baseNameNoExt = basename(filepath, '.png');
+
     validIconIdentifiers.add(relPath);
     validIconIdentifiers.add(relPathNoExt);
     validIconIdentifiers.add(baseName);
     validIconIdentifiers.add(baseNameNoExt);
+
+    if (!identifierToPathMap.has(relPath)) identifierToPathMap.set(relPath, relPath);
+    if (!identifierToPathMap.has(relPathNoExt)) identifierToPathMap.set(relPathNoExt, relPath);
+    if (!identifierToPathMap.has(baseName)) identifierToPathMap.set(baseName, relPath);
+    if (!identifierToPathMap.has(baseNameNoExt)) identifierToPathMap.set(baseNameNoExt, relPath);
 });
 
 const jsoncFiles = []
@@ -103,6 +110,7 @@ let hasErrors = false
 let totalFiles = 0
 let passedFiles = 0
 let totalIconsChecked = 0
+const usedImages = new Set();
 
 for (const filename of jsoncFiles) {
     totalFiles++;
@@ -130,6 +138,8 @@ for (const filename of jsoncFiles) {
     for (const iconValue of iconsInFile) {
         if (!validIconIdentifiers.has(iconValue)) {
             invalidIcons.push(iconValue);
+        } else {
+            usedImages.add(identifierToPathMap.get(iconValue));
         }
     }
 
@@ -152,10 +162,26 @@ for (const filename of jsoncFiles) {
 // -----------------------------------------------------------------------------
 // RÉSULTATS
 // -----------------------------------------------------------------------------
+
+const unusedImages = [];
+availableImagesPaths.forEach(filepath => {
+    const relPath = relative(IMG_DIR, filepath).replace(/\\/g, '/');
+    if (!usedImages.has(relPath)) {
+        unusedImages.push(relPath);
+    }
+});
+
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`📊 Résultat : ${passedFiles}/${totalFiles} fichiers validés`);
 console.log(`🏷️  Total des champs "icon" vérifiés : ${totalIconsChecked}`);
 console.log(`📁 Total des images indexées : ${availableImagesPaths.length}`);
+
+if (unusedImages.length > 0) {
+    console.log(`\n⚠️ IMAGES PRÉSENTES MAIS NON UTILISÉES (${unusedImages.length}) (non bloquant pour la CI) :`);
+    unusedImages.forEach(img => console.log(`   - ${img}`));
+} else {
+    console.log(`\n✨ Toutes les images du dossier sont utilisées !`);
+}
 
 if (hasErrors) {
     console.log('\n❌ La validation des icônes a échoué.\n');

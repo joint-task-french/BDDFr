@@ -8,28 +8,35 @@ import { useState, useMemo, useRef, useEffect } from 'react'
 export default function GeneratorForm({ fields, data, onChange, suggestions, onIdentitySelect }) {
   return (
     <div className="space-y-3">
-      {fields.map(field => {
-        // Conditional visibility
-        if (field.visibleWhen) {
-          const depVal = data[field.visibleWhen.key]
-          if (depVal !== field.visibleWhen.value) return null
-        }
-        if (field.hiddenWhen) {
-          const depVal = data[field.hiddenWhen.key]
-          if (depVal === field.hiddenWhen.value) return null
-        }
-        return (
-          <FieldRenderer key={field.key} field={field} value={data[field.key]}
-            onChange={(v) => onChange(field.key, v)}
-            onSelect={field.isIdentity ? (v) => onIdentitySelect?.(field.key, v) : null}
-            suggestions={suggestions} />
-        )
-      })}
+      {fields.map(field => (
+        <FieldRenderer key={field.key} field={field} value={data[field.key]}
+          onChange={(v) => onChange(field.key, v)}
+          onSelect={field.isIdentity ? (v) => onIdentitySelect?.(field.key, v) : null}
+          suggestions={suggestions}
+          data={data}
+          allData={data} />
+      ))}
     </div>
   )
 }
 
-function FieldRenderer({ field, value, onChange, onSelect, suggestions }) {
+function FieldRenderer({ field, value, onChange, onSelect, suggestions, data, allData }) {
+  // Conditional visibility
+  const checkCondition = (cond, d) => {
+    if (!cond) return true
+    const conds = Array.isArray(cond) ? cond : [cond]
+    return conds.every(c => {
+      const depVal = d[c.key] ?? allData?.[c.key]
+      if (c.hasOwnProperty('value')) return depVal === c.value
+      if (c.hasOwnProperty('notValue')) return depVal !== c.notValue
+      if (c.hasOwnProperty('notEmpty')) return !!depVal
+      return true
+    })
+  }
+
+  if (field.visibleWhen && !checkCondition(field.visibleWhen, data)) return null
+  if (field.hiddenWhen && checkCondition(field.hiddenWhen, data)) return null
+
   switch (field.type) {
     case 'text': return <TextInput field={field} value={value} onChange={onChange} />
     case 'textarea': return <TextArea field={field} value={value} onChange={onChange} />
@@ -38,8 +45,8 @@ function FieldRenderer({ field, value, onChange, onSelect, suggestions }) {
     case 'triState': return <TriStateInput field={field} value={value} onChange={onChange} />
     case 'enum': return <EnumInput field={field} value={value} onChange={onChange} />
     case 'array': return <ArrayInput field={field} value={value} onChange={onChange} />
-    case 'objectArray': return <ObjectArrayInput field={field} value={value} onChange={onChange} suggestions={suggestions} />
-    case 'objectGroup': return <ObjectGroupInput field={field} value={value} onChange={onChange} suggestions={suggestions} />
+    case 'objectArray': return <ObjectArrayInput field={field} value={value} onChange={onChange} suggestions={suggestions} allData={allData} />
+    case 'objectGroup': return <ObjectGroupInput field={field} value={value} onChange={onChange} suggestions={suggestions} allData={allData} />
     case 'checkboxMap': return <CheckboxMapInput field={field} value={value} onChange={onChange} />
     case 'radioGroup': return <RadioGroupInput field={field} value={value} onChange={onChange} />
     case 'tagSelect': return <TagSelectInput field={field} value={value} onChange={onChange} suggestions={suggestions} />
@@ -493,7 +500,7 @@ function ArrayInput({ field, value, onChange }) {
 }
 
 /** Tableau d'objets avec sous-champs. Ex: attributs [{ nom, valeur }, ...] */
-function ObjectArrayInput({ field, value, onChange, suggestions }) {
+function ObjectArrayInput({ field, value, onChange, suggestions, allData }) {
   const items = Array.isArray(value) ? value : []
   const subFields = field.fields || []
 
@@ -527,6 +534,8 @@ function ObjectArrayInput({ field, value, onChange, suggestions }) {
                   value={item[sf.key]}
                   onChange={v => update(i, sf.key, v)}
                   suggestions={suggestions}
+                  data={item}
+                  allData={allData}
                 />
               ))}
             </div>
@@ -546,7 +555,7 @@ function ObjectArrayInput({ field, value, onChange, suggestions }) {
 }
 
 /** Groupe de sous-champs formant un objet. Ex: obtention { description, butinCible, ... } */
-function ObjectGroupInput({ field, value, onChange, suggestions }) {
+function ObjectGroupInput({ field, value, onChange, suggestions, allData }) {
   const obj = value && typeof value === 'object' ? value : {}
   const subFields = field.fields || []
 
@@ -565,6 +574,8 @@ function ObjectGroupInput({ field, value, onChange, suggestions }) {
             value={obj[sf.key]}
             onChange={v => updateField(sf.key, v)}
             suggestions={suggestions}
+            data={obj}
+            allData={allData}
           />
         ))}
       </div>

@@ -70,11 +70,17 @@ export const FIELDS = {
       { key: 'type', label: 'Type', type: 'tagSelect', required: true, dynamicOptions: 'armesTypes', singleSelect: true },
       { key: 'fabricant', label: 'Fabricant', type: 'autocomplete', suggestionsKey: 'fabricants' },
       { key: 'portee', label: 'Portée (m)', type: 'number', min: 0 },
+      { key: 'prototypePortee', label: 'Portée (Prototype)', type: 'number', min: 0, visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'portee', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: 'rpm', label: 'CPM', type: 'number', step: 1, min: 0 },
+      { key: 'prototypeRpm', label: 'CPM (Prototype)', type: 'number', step: 1, min: 0, visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'rpm', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: 'chargeur', label: 'Chargeur', type: 'number', step: 1, min: 0 },
+      { key: 'prototypeChargeur', label: 'Chargeur (Prototype)', type: 'number', step: 1, min: 0, visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'chargeur', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: 'rechargement', label: 'Rechargement (s)', type: 'number', step: 0.1, min: 0 },
+      { key: 'prototypeRechargement', label: 'Rechargement (Prototype)', type: 'number', step: 0.1, min: 0, visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'rechargement', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: 'headshot', label: 'Headshot (%)', type: 'number', step: 1, min: 0 },
+      { key: 'prototypeHeadshot', label: 'Headshot (Prototype)', type: 'number', step: 1, min: 0, visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'headshot', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: 'degatsBase', label: 'Dégâts base', type: 'number', step: 1, min: 0 },
+      { key: 'prototypeDegatsBase', label: 'Dégâts base (Prototype)', type: 'number', step: 1, min: 0, visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'degatsBase', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: '_rarity', label: 'Rareté', type: 'radioGroup', target: { exo: 'estExotique', nom: 'estNomme' }, options: [
           { value: '', label: 'Standard' },
           { value: 'exo', label: 'Exotique' },
@@ -84,6 +90,7 @@ export const FIELDS = {
       { key: 'attributs', label: 'Attributs fixés', type: 'objectArray', fields: [
           { key: 'nom', label: 'Nom', type: 'autocomplete', suggestionsKey: 'attributs' },
           { key: 'valeur', label: 'Valeur', type: 'number' },
+          { key: 'prototypeValue', label: 'Valeur (Prototype)', type: 'number', visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'valeur', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
         ]},
       { key: 'emplacementsMods', label: 'Emplacements Mods', type: 'tagSelect', options: [
           { value: 'chargeur', label: 'Chargeur', color: 'yellow' },
@@ -115,6 +122,7 @@ export const FIELDS = {
       { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
           { key: 'nom', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'attributs' },
           { key: 'valeur', label: 'Valeur', type: 'number', step: 0.1 },
+          { key: 'prototypeValue', label: 'Valeur (Prototype)', type: 'number', step: 0.1, visibleWhen: [{ key: 'emplacement', notEmpty: true }, { key: 'valeur', notEmpty: true }], hiddenWhen: { key: 'type', value: 'exotique' } },
         ]},
       { key: 'talents', label: 'Talents', type: 'autocomplete_array', suggestionsKey: 'talentsEquipements', placeholder: 'Rechercher un talent...' },
       { key: 'mod', label: 'Emplacement de mod', type: 'boolean' },
@@ -249,6 +257,7 @@ export const FIELDS = {
       { key: 'unite', label: 'Unité', type: 'text', placeholder: '%, pts, pts/s...' },
       { key: 'min', label: 'Minimum', type: 'number', step: 0.1, min: 0 },
       { key: 'max', label: 'Maximum', type: 'number', step: 0.1, min: 0 },
+      { key: 'prototypeMax', label: 'Maximum (Prototype)', type: 'number', step: 0.1, min: 0, visibleWhen: [{ key: 'categorie', notEmpty: true }, { key: 'max', notEmpty: true }] },
       { key: 'description', label: 'Description', type: 'text' },
       { key: 'estEssentiel', label: 'Attribut essentiel', type: 'boolean' },
       { key: 'statistiques', label: 'Statistiques affectées', type: 'autocomplete_array', suggestionsKey: 'statistiques', placeholder: 'Rechercher une statistique...' },

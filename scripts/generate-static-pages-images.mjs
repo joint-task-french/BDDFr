@@ -215,10 +215,10 @@ async function generate() {
             await page.setViewport({ width: 1920, height: 1080 });
 
             try {
-                const processCards = async (isPerfect, isDescente = false) => {
-                    const suffix = isPerfect ? '-parfait' : '';
-                    const suffixLog = isPerfect ? ' (Parfait)' : '';
-                    const targetUrl = `${DEV_SERVER_URL}/#/db/${categoryKey}${isPerfect ? '?parfait=true' : ''}`;
+                const processCards = async (isPerfect, isDescente = false, isPrototype = false) => {
+                    const suffix = isPerfect ? '-parfait' : (isPrototype ? '-prototype' : '');
+                    const suffixLog = isPerfect ? ' (Parfait)' : (isPrototype ? ' (Prototype)' : '');
+                    const targetUrl = `${DEV_SERVER_URL}/#/db/${categoryKey}${isPerfect ? '?parfait=true' : (isPrototype ? '?prototype=true' : '')}`;
 
                     await page.goto(targetUrl, { waitUntil: 'networkidle0', timeout: 60000 });
                     await page.addStyleTag({
@@ -248,6 +248,13 @@ async function generate() {
                                 return Array.from(el.querySelectorAll('button')).some(b => b.textContent.includes('Parfait'));
                             }, card);
                             if (!hasPerfectBtn) continue;
+                        }
+
+                        if (isPrototype) {
+                            const hasPrototypeBtn = await page.evaluate(el => {
+                                return Array.from(el.querySelectorAll('button')).some(b => b.textContent.includes('Prototype'));
+                            }, card);
+                            if (!hasPrototypeBtn) continue;
                         }
 
                         let levelsToProcess = ['']; // Chaîne vide pour les cartes standards
@@ -338,6 +345,9 @@ async function generate() {
                     await processCards(false);
                     if (categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') {
                         await processCards(true);
+                    }
+                    if (categoryKey === 'armes' || categoryKey === 'equipements') {
+                        await processCards(false, false, true);
                     }
                 }
 

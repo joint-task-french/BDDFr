@@ -75,6 +75,13 @@
             "pattern": "^[a-z0-9_]+$"
           }
         },
+        "talentsPrototypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          }
+        },
         "mod": {
           "oneOf": [
             { "type": "boolean" },

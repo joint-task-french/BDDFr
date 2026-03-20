@@ -11,6 +11,7 @@ export const GENERATOR_CATEGORIES = [
   { key: 'equipements', label: 'Équipements', icon: '🛡️' },
   { key: 'talentsArmes', label: "Talents d'Armes", icon: '🎯' },
   { key: 'talentsEquipements', label: "Talents d'Équipements", icon: '🏅' },
+  { key: 'talentsPrototypes', label: 'Talents Prototypes', icon: '💎' },
   { key: 'ensembles', label: 'Ensembles', icon: '🔗' },
   { key: 'competences', label: 'Compétences', icon: '⚡' },
   { key: 'attributs', label: 'Attributs', icon: '📊' },
@@ -25,6 +26,7 @@ export const IDENTITY_KEY = {
   equipements: 'slug',
   talentsArmes: 'slug',
   talentsEquipements: 'slug',
+  talentsPrototypes: 'slug',
   ensembles: 'slug',
   competences: ['competence', 'variante'],
   attributs: 'slug',
@@ -39,6 +41,7 @@ export const DATA_KEY = {
   equipements: 'equipements',
   talentsArmes: 'talentsArmes',
   talentsEquipements: 'talentsEquipements',
+  talentsPrototypes: 'talentsPrototypes',
   ensembles: 'ensembles',
   competences: 'competences',
   attributs: 'attributs',
@@ -53,6 +56,7 @@ export const FILE_MAP = {
   equipements: 'equipements.jsonc',
   talentsArmes: 'talents-armes.jsonc',
   talentsEquipements: 'talents-equipements.jsonc',
+  talentsPrototypes: 'talents-prototypes.jsonc',
   ensembles: 'ensembles.jsonc',
   competences: 'competences.jsonc',
   attributs: 'attributs.jsonc',
@@ -87,6 +91,7 @@ export const FIELDS = {
           { value: 'nom', label: 'Nommé' },
         ]},
       { key: 'talents', label: 'Talents', type: 'autocomplete_array', suggestionsKey: 'talentsArmes', placeholder: 'Rechercher un talent...' },
+      { key: 'talentsPrototypes', label: 'Talents Prototypes', type: 'autocomplete_array', suggestionsKey: 'talentsPrototypes', placeholder: 'Rechercher un talent prototype...', hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: 'attributs', label: 'Attributs fixés', type: 'objectArray', fields: [
           { key: 'nom', label: 'Nom', type: 'autocomplete', suggestionsKey: 'attributs' },
           { key: 'valeur', label: 'Valeur', type: 'number' },
@@ -125,6 +130,7 @@ export const FIELDS = {
           { key: 'prototypeValue', label: 'Valeur (Prototype)', type: 'number', step: 0.1, visibleWhen: [{ key: 'emplacement', notEmpty: true }, { key: 'valeur', notEmpty: true }], hiddenWhen: { key: 'type', value: 'exotique' } },
         ]},
       { key: 'talents', label: 'Talents', type: 'autocomplete_array', suggestionsKey: 'talentsEquipements', placeholder: 'Rechercher un talent...' },
+      { key: 'talentsPrototypes', label: 'Talents Prototypes', type: 'autocomplete_array', suggestionsKey: 'talentsPrototypes', placeholder: 'Rechercher un talent prototype...', hiddenWhen: { key: 'type', value: 'exotique' } },
       { key: 'mod', label: 'Emplacement de mod', type: 'boolean' },
       { key: 'type', label: 'Type', type: 'tagSelect', singleSelect: true, options: [
           { value: 'standard', label: 'Standard', color: 'blue' },
@@ -202,6 +208,17 @@ export const FIELDS = {
           { key: 'variable', label: 'Variable (ex: degats)', type: 'text' },
           { key: 'valeur', label: 'Valeur (ex: 10%)', type: 'text' }
         ], visibleWhen: { key: 'hasDescente', value: true } },
+    ],
+  },
+
+  talentsPrototypes: {
+    comment: "// Talent Prototype — The Division 2",
+    fields: [
+      { key: 'nom', label: 'Nom', type: 'autocomplete', required: true, suggestionsKey: 'nomsTalentsPrototypes', isIdentity: true },
+      { key: 'icon', label: 'Icône (slug)', type: 'text', placeholder: 'nom_fichier_sans_extension' },
+      { key: 'description', label: 'Description', type: 'textarea', required: true },
+      { key: 'statMin', label: 'Valeur Min', type: 'number', step: 0.1, required: true },
+      { key: 'statMax', label: 'Valeur Max', type: 'number', step: 0.1, required: true },
     ],
   },
 
@@ -370,6 +387,7 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
 
   s.nomsTalentsArmes = extractUniqueWithSlugs(merged.talentsArmes)
   s.nomsTalentsEquipements = extractUniqueWithSlugs(merged.talentsEquipements)
+  s.nomsTalentsPrototypes = extractUniqueWithSlugs(merged.talentsPrototypes)
   s.nomsEnsembles = extractUniqueWithSlugs(merged.ensembles)
   s.nomsAttributs = extractUniqueWithSlugs(merged.attributs)
   s.nomsModsArmes = extractUniqueWithSlugs(merged.modsArmes)
@@ -441,6 +459,15 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
     }
   }
 
+  s.talentsPrototypes = (merged.talentsPrototypes || []).filter(t => t.slug && t.nom).map(t => ({ value: t.slug, label: t.nom }))
+  s.talentsPrototypes.sort((a, b) => a.label.localeCompare(b.label))
+  if (generatorData?.talentsPrototypes?.nom) {
+    const slug = generatorData.talentsPrototypes.slug || slugify(generatorData.talentsPrototypes.nom)
+    if (!s.talentsPrototypes.find(t => t.value === slug)) {
+      s.talentsPrototypes.push({ value: slug, label: generatorData.talentsPrototypes.nom })
+    }
+  }
+
   s.attributs = (merged.attributs || []).filter(a => a.slug && a.nom).map(a => ({ value: a.slug, label: a.nom }))
   s.attributs.sort((a, b) => a.label.localeCompare(b.label))
 
@@ -457,6 +484,7 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   addLookup(merged.equipements)
   addLookup(merged.talentsArmes)
   addLookup(merged.talentsEquipements)
+  addLookup(merged.talentsPrototypes)
   addLookup(merged.attributs)
   addLookup(merged.modsArmes)
   addLookup(merged.ensembles)

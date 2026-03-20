@@ -156,6 +156,14 @@
             "type": "string"
           }
         },
+        "talentsPrototypes": {
+          "type": "array",
+          "description": "Liste de slugs de talents prototypes (référencent les noms dans talents-prototypes.jsonc).",
+          "items": {
+            "pattern": "^[a-z0-9_]+$",
+            "type": "string"
+          }
+        },
         "obtention": {
           "type": "object",
           "description": "Comment obtenir l'arme",

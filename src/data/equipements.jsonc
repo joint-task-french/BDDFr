@@ -1707,6 +1707,24 @@
     "talents": [],
     "type": "standard"
   },
+  "etreinte_de_l_aigle": {
+    "nom": "Étreinte de l'Aigle",
+    "description": "\"Attends un peu que je les chope ! -Saint\"",
+    "emplacement": "gants",
+    "marque": "zwiadowka_sp_z_o_o",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "maniement_d_arme_eqp",
+        "valeur": 15
+      }
+    ],
+    "type": "standard"
+  },
   "holster_zwiadowka_sp_z_o_o": {
     "nom": "Holster Zwiadowka Sp. z o.o.",
     "marque": "zwiadowka_sp_z_o_o",

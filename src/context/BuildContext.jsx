@@ -41,6 +41,11 @@ const INITIAL_STATE = {
       weapon0: false, weapon1: false, sidearm: false,
       masque: false, torse: false, holster: false, sac_a_dos: false, gants: false, genouilleres: false,
     },
+    // Talents prototypes : { slot: talent_object }
+    prototypeTalents: {
+      weapon0: null, weapon1: null, sidearm: null,
+      masque: null, torse: null, holster: null, sac_a_dos: null, gants: null, genouilleres: null,
+    },
   }
 
 function buildReducer(state, action) {
@@ -63,7 +68,8 @@ function buildReducer(state, action) {
       const slotKey = `weapon${action.slot}`
       const weaponEssentialValues = { ...state.weaponEssentialValues, [slotKey]: {} }
       const prototypes = { ...state.prototypes, [slotKey]: false }
-      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods, weaponEssentialValues, prototypes }
+      const prototypeTalents = { ...state.prototypeTalents, [slotKey]: null }
+      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods, weaponEssentialValues, prototypes, prototypeTalents }
     }
     case 'REMOVE_WEAPON': {
       const weapons = [...state.weapons]
@@ -77,7 +83,8 @@ function buildReducer(state, action) {
       const slotKey2 = `weapon${action.slot}`
       const weaponEssentialValues2 = { ...state.weaponEssentialValues, [slotKey2]: {} }
       const prototypes2 = { ...state.prototypes, [slotKey2]: false }
-      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods, weaponEssentialValues: weaponEssentialValues2, prototypes: prototypes2 }
+      const prototypeTalents2 = { ...state.prototypeTalents, [slotKey2]: null }
+      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods, weaponEssentialValues: weaponEssentialValues2, prototypes: prototypes2, prototypeTalents: prototypeTalents2 }
     }
     case 'SET_WEAPON_TALENT': {
       const weaponTalents = [...state.weaponTalents]
@@ -87,12 +94,14 @@ function buildReducer(state, action) {
     case 'SET_SIDEARM': {
       const wev = { ...state.weaponEssentialValues, sidearm: {} }
       const prototypes = { ...state.prototypes, sidearm: false }
-      return { ...state, sidearm: action.weapon, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null, weaponEssentialValues: wev, prototypes }
+      const prototypeTalents = { ...state.prototypeTalents, sidearm: null }
+      return { ...state, sidearm: action.weapon, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null, weaponEssentialValues: wev, prototypes, prototypeTalents }
     }
     case 'REMOVE_SIDEARM': {
       const wev2 = { ...state.weaponEssentialValues, sidearm: {} }
       const prototypes2 = { ...state.prototypes, sidearm: false }
-      return { ...state, sidearm: null, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null, weaponEssentialValues: wev2, prototypes: prototypes2 }
+      const prototypeTalents2 = { ...state.prototypeTalents, sidearm: null }
+      return { ...state, sidearm: null, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null, weaponEssentialValues: wev2, prototypes: prototypes2, prototypeTalents: prototypeTalents2 }
     }
     case 'SET_SIDEARM_TALENT': {
       return { ...state, sidearmTalent: action.talent }
@@ -108,7 +117,8 @@ function buildReducer(state, action) {
       const gearMods = { ...state.gearMods }
       delete gearMods[action.slot]
       const prototypes = { ...state.prototypes, [action.slot]: false }
-      return { ...state, gear, gearTalents, gearAttributes, gearMods, prototypes }
+      const prototypeTalents = { ...state.prototypeTalents, [action.slot]: null }
+      return { ...state, gear, gearTalents, gearAttributes, gearMods, prototypes, prototypeTalents }
     }
     case 'REMOVE_GEAR': {
       const gear = { ...state.gear, [action.slot]: null }
@@ -121,7 +131,8 @@ function buildReducer(state, action) {
       const gearMods = { ...state.gearMods }
       delete gearMods[action.slot]
       const prototypes = { ...state.prototypes, [action.slot]: false }
-      return { ...state, gear, gearTalents, gearAttributes, gearMods, prototypes }
+      const prototypeTalents = { ...state.prototypeTalents, [action.slot]: null }
+      return { ...state, gear, gearTalents, gearAttributes, gearMods, prototypes, prototypeTalents }
     }
     case 'SET_GEAR_TALENT': {
       const gearTalents = { ...state.gearTalents, [action.slot]: action.talent }
@@ -191,6 +202,10 @@ function buildReducer(state, action) {
     case 'SET_EXPERTISE_LEVEL': {
       const expertise = { ...state.expertise, [action.slot]: Math.max(0, Math.min(20, action.level)) }
       return { ...state, expertise }
+    }
+    case 'SET_PROTOTYPE_TALENT': {
+      const prototypeTalents = { ...state.prototypeTalents, [action.slot]: action.talent }
+      return { ...state, prototypeTalents }
     }
     case 'LOAD_BUILD':
       return { ...INITIAL_STATE, ...action.build }

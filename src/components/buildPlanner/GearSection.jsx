@@ -4,11 +4,13 @@ import { getGearSlots, getGearSlotLabel, getGearSlotEmoji } from '../../utils/fo
 import GearSlot from './GearSlot'
 import GearPicker from './GearPicker'
 import GearTalentPicker from './GearTalentPicker'
+import PrototypeTalentPicker from './PrototypeTalentPicker'
 
 export default function GearSection({ data }) {
-    const { gear, gearTalents, gearAttributes, gearMods, expertise, maxExpertiseLevel, prototypes, dispatch } = useBuild()
+    const { gear, gearTalents, gearAttributes, gearMods, expertise, maxExpertiseLevel, prototypes, prototypeTalents, dispatch } = useBuild()
     const [pickerSlot, setPickerSlot] = useState(null)
     const [talentSlot, setTalentSlot] = useState(null)
+    const [protoTalentSlot, setProtoTalentSlot] = useState(null)
 
     const handleExpertise = (slot, level) => dispatch({ type: 'SET_EXPERTISE_LEVEL', slot, level })
 
@@ -41,6 +43,8 @@ export default function GearSection({ data }) {
                         onExpertiseChange={handleExpertise}
                         maxExpertiseLevel={maxExpertiseLevel}
                         isPrototype={prototypes?.[slot]}
+                        prototypeTalent={prototypeTalents?.[slot]}
+                        onSelectPrototypeTalent={() => setProtoTalentSlot(slot)}
                         dispatch={dispatch}
                     />
                 ))}
@@ -59,6 +63,14 @@ export default function GearSection({ data }) {
                     data={data}
                     slotKey={talentSlot}
                     onClose={() => setTalentSlot(null)}
+                />
+            )}
+
+            {protoTalentSlot && (
+                <PrototypeTalentPicker
+                    data={data}
+                    slotKey={protoTalentSlot}
+                    onClose={() => setProtoTalentSlot(null)}
                 />
             )}
         </>

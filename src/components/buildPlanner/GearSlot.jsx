@@ -7,7 +7,7 @@ function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles, talentsEquipements, allAttributs, gearAttributes, onSetAttributes, modsEquipements, gearMods, onSetMod, attributsType, expertiseLevel, onExpertiseChange, maxExpertiseLevel, isPrototype }) {
+export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles, talentsEquipements, allAttributs, gearAttributes, onSetAttributes, modsEquipements, gearMods, onSetMod, attributsType, expertiseLevel, onExpertiseChange, maxExpertiseLevel, isPrototype, prototypeTalent, onSelectPrototypeTalent }) {
   const { dispatch } = useBuild()
 
   const remove = (e) => {
@@ -215,6 +215,37 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                           </button>
                         </div>
                     )
+                )}
+
+                {/* Talent Prototype supplémentaire */}
+                {isPrototype && (
+                    <div className="mt-3 pt-3 border-t border-cyan-500/30">
+                        {prototypeTalent ? (
+                            <div className="flex items-center justify-between gap-2">
+                                <div>
+                                    <div className="text-[10px] text-cyan-500 font-bold uppercase tracking-widest mb-0.5">Talent Prototype</div>
+                                    <div className="text-xs text-cyan-400 font-bold uppercase tracking-wide">{prototypeTalent.nom}</div>
+                                    {prototypeTalent.description && (
+                                        <div className="text-[11px] text-gray-400 mt-0.5 leading-relaxed line-clamp-2">{prototypeTalent.description}</div>
+                                    )}
+                                </div>
+                                {onSelectPrototypeTalent && (
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); onSelectPrototypeTalent() }}
+                                        className="text-xs text-gray-600 hover:text-cyan-400 transition-colors"
+                                        title="Changer le talent prototype"
+                                    >✎</button>
+                                )}
+                            </div>
+                        ) : (
+                            <button
+                                onClick={(e) => { e.stopPropagation(); onSelectPrototypeTalent() }}
+                                className="text-xs text-cyan-500/60 hover:text-cyan-400 uppercase tracking-widest flex items-center gap-1"
+                            >
+                                <span className="text-lg leading-none">+</span> Talent Prototype
+                            </button>
+                        )}
+                    </div>
                 )}
               </div>
           ) : (

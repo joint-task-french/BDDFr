@@ -9,7 +9,7 @@ const HEADER_COLORS = {
     gray:   { bg: 'bg-gray-500/10',   border: 'border-gray-500/30',   text: 'text-gray-400',   hover: 'group-hover:text-gray-500/50' },
 }
 
-export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch, data, isPrototype }) {
+export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch, data, isPrototype, prototypeTalent, onSelectPrototypeTalent }) {
     const colors = HEADER_COLORS[headerColor] || HEADER_COLORS.red
     const isExotic = weapon?.estExotique
     const isSpecific = weapon?.type === 'arme_specifique'
@@ -194,6 +194,37 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                 </button>
                             </div>
                         ) : null}
+
+                        {/* Talent Prototype supplémentaire */}
+                        {isPrototype && (
+                            <div className="mt-3 pt-3 border-t border-cyan-500/30">
+                                {prototypeTalent ? (
+                                    <div className="flex items-center justify-between gap-2">
+                                        <div>
+                                            <div className="text-[10px] text-cyan-500 font-bold uppercase tracking-widest mb-0.5">Talent Prototype</div>
+                                            <div className="text-xs text-cyan-400 font-bold uppercase tracking-wide">{prototypeTalent.nom}</div>
+                                            {prototypeTalent.description && (
+                                                <div className="text-[11px] text-gray-400 mt-0.5 leading-relaxed line-clamp-2">{prototypeTalent.description}</div>
+                                            )}
+                                        </div>
+                                        {onSelectPrototypeTalent && (
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); onSelectPrototypeTalent() }}
+                                                className="text-xs text-gray-600 hover:text-cyan-400 transition-colors"
+                                                title="Changer le talent prototype"
+                                            >✎</button>
+                                        )}
+                                    </div>
+                                ) : (
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); onSelectPrototypeTalent() }}
+                                        className="text-xs text-cyan-500/60 hover:text-cyan-400 uppercase tracking-widest flex items-center gap-1"
+                                    >
+                                        <span className="text-lg leading-none">+</span> Talent Prototype
+                                    </button>
+                                )}
+                            </div>
+                        )}
                     </div>
                 ) : (
                     <div className="flex flex-col items-center justify-center h-full text-gray-600 py-4">

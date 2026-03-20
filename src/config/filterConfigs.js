@@ -171,6 +171,20 @@ const talentEquipGetters = {
 }
 export function applySortTalentsEquip(items, sortLayers) { return multiSort(items, sortLayers, talentEquipGetters) }
 
+// TALENTS PROTOTYPES
+export const TALENT_PROTOTYPE_SORT_OPTIONS = [
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'statMax', label: 'Statistique Max', ascLabel: '↑', descLabel: '↓' }
+]
+export const TALENT_PROTOTYPE_DEFAULT_SORT = [
+  { id: 'alpha', desc: false }
+]
+const talentPrototypeGetters = {
+  alpha: (item) => item.nom || '',
+  statMax: (item) => item.statMax || 0
+}
+export function applySortTalentsPrototypes(items, sortLayers) { return multiSort(items, sortLayers, talentPrototypeGetters) }
+
 // MODS D'ARMES
 export const MOD_ARME_SORT_OPTIONS = [
   { id: 'rarity', label: 'Rareté', ascLabel: '↑', descLabel: '↓' },
@@ -435,6 +449,19 @@ export function applyTalentEquipFilters(items, filters) {
     if (filters.aParfait && !item.perfectDescription) return false
     return true
   })
+}
+
+// ================================================================
+// TALENTS PROTOTYPES
+// ================================================================
+export function getTalentPrototypeFilters(data) {
+  return []
+}
+export function getTalentPrototypeDefaults() {
+  return {}
+}
+export function applyTalentPrototypeFilters(items, filters) {
+  return items
 }
 
 export function getModArmeFilters(data) {

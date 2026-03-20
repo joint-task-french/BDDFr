@@ -117,6 +117,10 @@ export const WEAPON_TALENT_ICONS = buildIndex(_talentsArmeGlob)
 const _talentsEquipGlob = import.meta.glob('../img/game_assets/talents/equipements/**/*.png', { eager: true })
 export const GEAR_TALENT_ICONS = buildIndex(_talentsEquipGlob)
 
+// Talents Prototypes
+const _talentsPrototypesGlob = import.meta.glob('../img/game_assets/talents/prototypes/**/*.png', { eager: true })
+export const PROTOTYPE_TALENT_ICONS = buildIndex(_talentsPrototypesGlob)
+
 // Compétences
 const _competencesGlob = import.meta.glob('../img/game_assets/competences/**/*.png', { eager: true })
 export const SKILL_ICONS = buildIndex(_competencesGlob)
@@ -138,6 +142,7 @@ export function resolveIcon(slug) {
   return WEAPON_ICONS[slug]
     || WEAPON_TALENT_ICONS[slug]
     || GEAR_TALENT_ICONS[slug]
+    || PROTOTYPE_TALENT_ICONS[slug]
     || SKILL_ICONS[slug]
     || BRAND_ICONS[slug]
     || null

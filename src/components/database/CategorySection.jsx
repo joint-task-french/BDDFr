@@ -2,6 +2,7 @@ import WeaponCard from './cards/WeaponCard'
 import GearCard from './cards/GearCard'
 import TalentArmeCard from './cards/TalentArmeCard'
 import TalentEquipCard from './cards/TalentEquipCard'
+import TalentPrototypeCard from './cards/TalentPrototypeCard'
 import EnsembleCard from './cards/EnsembleCard'
 import SkillCard from './cards/SkillCard'
 import ModArmeCard from './cards/ModArmeCard'
@@ -20,6 +21,7 @@ const GRID_CONFIG = {
   attributs:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
   talentsArmes:      'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
   talentsEquipements:'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
+  talentsPrototypes: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
   ensembles:         'grid-cols-1 sm:grid-cols-2 3xl:grid-cols-3',
   competences:       'grid-cols-1 sm:grid-cols-2 3xl:grid-cols-3',
   modsArmes:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
@@ -35,6 +37,7 @@ const CARD_COMPONENTS = {
   attributs: AttributCard,
   talentsArmes: TalentArmeCard,
   talentsEquipements: TalentEquipCard,
+  talentsPrototypes: TalentPrototypeCard,
   ensembles: EnsembleCard,
   competences: SkillCard,
   modsArmes: ModArmeCard,

@@ -89,6 +89,13 @@ export function serializeBuild(state) {
   }
   if (Object.keys(proto).length > 0) b.p = proto
 
+  // Talents prototypes (slugs)
+  const pt = {}
+  for (const [slot, talent] of Object.entries(state.prototypeTalents || {})) {
+    if (talent) pt[slot] = talent.slug || talent.nom
+  }
+  if (Object.keys(pt).length > 0) b.pt = pt
+
   // Valeurs des attributs essentiels d'arme (par slot — seulement si modifiées)
   const wev = {}
   for (const [slotKey, vals] of Object.entries(state.weaponEssentialValues || {})) {
@@ -167,6 +174,7 @@ export function resolveBuild(compact, data) {
   }
 
   const findWeaponTalent = (id) => findBySlugOrName(data.talentsArmes || [], id)
+  const findPrototypeTalent = (id) => findBySlugOrName(data.talentsPrototypes || [], id)
   const findGear = (id) => findBySlugOrName(data.equipements || [], id)
   const findGearTalent = (id) => findBySlugOrName(data.talentsEquipements || [], id)
 
@@ -283,6 +291,17 @@ export function resolveBuild(compact, data) {
   if (compact.p) {
     for (const [slot, val] of Object.entries(compact.p)) {
       build.prototypes[slot] = !!val
+    }
+  }
+
+  // Talents prototypes
+  build.prototypeTalents = {
+    weapon0: null, weapon1: null, sidearm: null,
+    masque: null, torse: null, holster: null, sac_a_dos: null, gants: null, genouilleres: null,
+  }
+  if (compact.pt) {
+    for (const [slot, id] of Object.entries(compact.pt)) {
+      build.prototypeTalents[slot] = findPrototypeTalent(id)
     }
   }
 

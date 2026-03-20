@@ -12,6 +12,7 @@ import {
   getGearFilters, getGearDefaults, applyGearFilters,
   getTalentArmeFilters, getTalentArmeDefaults, applyTalentArmeFilters,
   getTalentEquipFilters, getTalentEquipDefaults, applyTalentEquipFilters,
+  getTalentPrototypeFilters, getTalentPrototypeDefaults, applyTalentPrototypeFilters,
   getModArmeFilters, getModArmeDefaults, applyModArmeFilters,
   getModEquipementFilters, getModEquipementDefaults, applyModEquipementFilters,
   getModCompetenceFilters, getModCompetenceDefaults, applyModCompetenceFilters,
@@ -25,6 +26,7 @@ import {
   ENSEMBLE_SORT_OPTIONS, ENSEMBLE_DEFAULT_SORT, applySortEnsembles,
   TALENT_ARME_SORT_OPTIONS, TALENT_ARME_DEFAULT_SORT, applySortTalentsArmes,
   TALENT_EQUIP_SORT_OPTIONS, TALENT_EQUIP_DEFAULT_SORT, applySortTalentsEquip,
+  TALENT_PROTOTYPE_SORT_OPTIONS, TALENT_PROTOTYPE_DEFAULT_SORT, applySortTalentsPrototypes,
   MOD_ARME_SORT_OPTIONS, MOD_ARME_DEFAULT_SORT, applySortModsArmes,
   MOD_EQUIP_SORT_OPTIONS, MOD_EQUIP_DEFAULT_SORT, applySortModsEquip,
   MOD_COMP_SORT_OPTIONS, MOD_COMP_DEFAULT_SORT, applySortModsComp,
@@ -41,6 +43,7 @@ const CATEGORIES = [
   { key: 'attributs', label: 'Attributs', icon: '📊' },
   { key: 'talentsArmes', label: "Talents d'Armes", icon: '🎯' },
   { key: 'talentsEquipements', label: "Talents d'Équipements", icon: '🏅' },
+  { key: 'talentsPrototypes', label: "Talents Prototypes", icon: '🧬' },
   { key: 'modsArmes', label: "Mods d'Armes", icon: '🔧' },
   { key: 'modsEquipements', label: "Mods d'Équipements", icon: '⚙️' },
   { key: 'modsCompetences', label: 'Mods de Compétences', icon: '💎' },
@@ -49,7 +52,7 @@ const CATEGORIES = [
 
 // Catégories qui ont des filtres avancés
 const FILTER_CATEGORIES = new Set([
-  'armes', 'equipements', 'talentsArmes', 'talentsEquipements',
+  'armes', 'equipements', 'talentsArmes', 'talentsEquipements', 'talentsPrototypes',
   'modsArmes', 'ensembles', 'attributs', 'competences',
   'modsEquipements', 'modsCompetences', 'descente'
 ])
@@ -61,6 +64,7 @@ const SORT_CATEGORIES = {
   attributs:          { options: ATTRIBUT_SORT_OPTIONS, default: ATTRIBUT_DEFAULT_SORT, apply: applySortAttributs },
   talentsArmes:       { options: TALENT_ARME_SORT_OPTIONS, default: TALENT_ARME_DEFAULT_SORT, apply: applySortTalentsArmes },
   talentsEquipements: { options: TALENT_EQUIP_SORT_OPTIONS, default: TALENT_EQUIP_DEFAULT_SORT, apply: applySortTalentsEquip },
+  talentsPrototypes: { options: TALENT_PROTOTYPE_SORT_OPTIONS, default: TALENT_PROTOTYPE_DEFAULT_SORT, apply: applySortTalentsPrototypes },
   ensembles:          { options: ENSEMBLE_SORT_OPTIONS, default: ENSEMBLE_DEFAULT_SORT, apply: applySortEnsembles },
   competences:        { options: SKILL_SORT_OPTIONS, default: SKILL_DEFAULT_SORT, apply: applySortSkills },
   modsArmes:          { options: MOD_ARME_SORT_OPTIONS, default: MOD_ARME_DEFAULT_SORT, apply: applySortModsArmes },
@@ -75,6 +79,7 @@ function getFiltersConfig(category, data, values) {
     case 'equipements':       return { filters: getGearFilters(data), defaults: getGearDefaults(), apply: applyGearFilters }
     case 'talentsArmes':      return { filters: getTalentArmeFilters(data), defaults: getTalentArmeDefaults(), apply: applyTalentArmeFilters }
     case 'talentsEquipements':return { filters: getTalentEquipFilters(data), defaults: getTalentEquipDefaults(), apply: applyTalentEquipFilters }
+    case 'talentsPrototypes': return { filters: getTalentPrototypeFilters(data), defaults: getTalentPrototypeDefaults(), apply: applyTalentPrototypeFilters }
     case 'modsArmes':         return { filters: getModArmeFilters(data), defaults: getModArmeDefaults(), apply: applyModArmeFilters }
     case 'ensembles':         return { filters: getEnsembleFilters(data), defaults: getEnsembleDefaults(), apply: applyEnsembleFilters }
     case 'attributs':         return { filters: getAttributFilters(data), defaults: getAttributDefaults(), apply: applyAttributFilters }

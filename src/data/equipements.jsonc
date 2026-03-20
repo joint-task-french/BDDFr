@@ -134,6 +134,25 @@
     "talents": [],
     "type": "standard"
   },
+  "amour_maternel": {
+    "nom": "Amour maternel",
+    "marque": "alps_summit_armement",
+    "description": "\"La vie est horrible. Quand vous avez compris ça, il est plus facile d'apprécier les moments qui sont des exceptions. C'est une forme de réalisme.\"",
+    "emplacement": "gants",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "sante_pour_competence_eqp",
+        "valeur": 25
+      }
+    ]
+  },
   "saccoche_de_jambe": {
     "nom": "Saccoche de jambe",
     "marque": "alps_summit_armement",

@@ -64,7 +64,7 @@ const SORT_CATEGORIES = {
   attributs:          { options: ATTRIBUT_SORT_OPTIONS, default: ATTRIBUT_DEFAULT_SORT, apply: applySortAttributs },
   talentsArmes:       { options: TALENT_ARME_SORT_OPTIONS, default: TALENT_ARME_DEFAULT_SORT, apply: applySortTalentsArmes },
   talentsEquipements: { options: TALENT_EQUIP_SORT_OPTIONS, default: TALENT_EQUIP_DEFAULT_SORT, apply: applySortTalentsEquip },
-  talentsPrototypes: { options: TALENT_PROTOTYPE_SORT_OPTIONS, default: TALENT_PROTOTYPE_DEFAULT_SORT, apply: applySortTalentsPrototypes },
+  talentsPrototypes:  { options: TALENT_PROTOTYPE_SORT_OPTIONS, default: TALENT_PROTOTYPE_DEFAULT_SORT, apply: applySortTalentsPrototypes },
   ensembles:          { options: ENSEMBLE_SORT_OPTIONS, default: ENSEMBLE_DEFAULT_SORT, apply: applySortEnsembles },
   competences:        { options: SKILL_SORT_OPTIONS, default: SKILL_DEFAULT_SORT, apply: applySortSkills },
   modsArmes:          { options: MOD_ARME_SORT_OPTIONS, default: MOD_ARME_DEFAULT_SORT, apply: applySortModsArmes },

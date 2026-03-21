@@ -176,13 +176,17 @@ export function applySortTalentsEquip(items, sortLayers) { return multiSort(item
 // TALENTS PROTOTYPES
 export const TALENT_PROTOTYPE_SORT_OPTIONS = [
   { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'statMin', label: 'Statistique Min', ascLabel: '↑', descLabel: '↓' },
   { id: 'statMax', label: 'Statistique Max', ascLabel: '↑', descLabel: '↓' }
 ]
 export const TALENT_PROTOTYPE_DEFAULT_SORT = [
-  { id: 'alpha', desc: false }
+  { id: 'alpha', desc: false },
+  { id: 'statMax', desc: false },
+  { id: 'statMin', desc: false }
 ]
 const talentPrototypeGetters = {
   alpha: (item) => item.nom || '',
+  statMin: (item) => item.statMin || 0,
   statMax: (item) => item.statMax || 0
 }
 export function applySortTalentsPrototypes(items, sortLayers) { return multiSort(items, sortLayers, talentPrototypeGetters) }

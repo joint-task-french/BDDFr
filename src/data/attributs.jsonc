@@ -783,6 +783,22 @@
       "portee_optimale_eqp"
     ]
   },
+  "cadence_de_tir_eqp": {
+    "nom": "Cadence de tir",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
+    "description": "Augmente la cadence de tir de l'arme",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "cadence_tir"
+    ]
+  },
   "munitions_mod": {
     "nom": "munitions",
     "categorie": "utilitaire",

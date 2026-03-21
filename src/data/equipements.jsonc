@@ -2380,6 +2380,24 @@
     "talents": [],
     "type": "standard"
   },
+  "salve": {
+    "nom": "Salve",
+    "description": "\"La vitesse de l'éclair !\"",
+    "emplacement": "holster",
+    "marque": "unit_alloys",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "cadence_de_tir_eqp",
+        "valeur": 5
+      }
+    ],
+    "type": "standard"
+  },
   "genouilleres_sans_pareilles": {
     "nom": "Genouillères sans pareilles",
     "marque": "unit_alloys",

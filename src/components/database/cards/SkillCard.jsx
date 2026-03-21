@@ -20,7 +20,7 @@ export default function SkillCard({ item }) {
     const slug = item.slug || (item.variante ? item.variante.toLowerCase().replace(/\s+/g, '_') : 'skill')
 
     return (
-        <div className="og-target-card bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden" data-slug={slug}>
+        <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden">
             <div className='flex flex-row gap-2 text-start items-center px-4 py-3 border-b border-tactical-border/50'>
                 {resolveIcon(item.icon) && (
                     <GameIcon src={resolveIcon(item.icon)} alt="" size="w-10 h-10" className="rounded" />

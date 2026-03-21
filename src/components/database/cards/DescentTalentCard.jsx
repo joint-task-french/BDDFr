@@ -56,7 +56,7 @@ export default function DescentTalentCard({ item }) {
     }[categorie] || "bg-gray-500/10 text-gray-400 border-gray-500/20";
 
     return (
-        <div className="og-target-card bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden flex flex-col h-full hover:border-gray-500 transition-colors" data-slug={itemSlug}>
+        <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden flex flex-col h-full hover:border-gray-500 transition-colors">
 
             {/* --- EN-TÊTE --- */}
             <div className="px-4 py-3 border-b border-tactical-border/50">

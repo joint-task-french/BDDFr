@@ -36,7 +36,7 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques })
   }
 
   return (
-      <div className={`og-target-card bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`} data-slug={item.slug}>
+      <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`}>
         {/* Header : icon + nom + type + attributs essentiels */}
         <div className="px-4 py-3 border-b border-tactical-border/50">
           <div className="flex items-start gap-3">

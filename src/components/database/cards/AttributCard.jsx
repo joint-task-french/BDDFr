@@ -23,7 +23,7 @@ export default function AttributCard({ item, attributsType }) {
 
 
   return (
-    <div className="og-target-card bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden" data-slug={item.slug}>
+    <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden">
       {/* Header */}
       <div className="px-4 py-3 border-b border-tactical-border/50">
         <div className="flex items-center gap-2">

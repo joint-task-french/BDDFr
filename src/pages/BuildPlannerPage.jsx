@@ -57,7 +57,7 @@ function BuildPlannerContent({ data }) {
           </h2>
           <p className="text-sm text-gray-500">Concevez votre build The Division 2</p>
         </div>
-        <BuildActions />
+        <BuildActions data={data} />
       </div>
 
       {/* Layout 2 colonnes : build editor + stats sidebar */}

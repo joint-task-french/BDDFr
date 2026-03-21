@@ -146,8 +146,11 @@ export function resolveBuild(compact, data) {
   // Helper: cherche par slug puis par nom (rétrocompatibilité)
   const findBySlugOrName = (items, id, nameField = 'nom') => {
     if (!id || !items) return null
+    // Supporter les objets (slug -> objet) et les tableaux
+    const list = Array.isArray(items) ? items : Object.values(items)
     const lower = id.toLowerCase()
-    return items.find(i => i.slug === id || i.slug === lower) || items.find(i => (i[nameField] || '').toLowerCase() === lower) || null
+    return list.find(i => i.slug === id || (i.slug && i.slug.toLowerCase() === lower)) || 
+           list.find(i => (i[nameField] || '').toLowerCase() === lower) || null
   }
 
   const findWeapon = (id) => {
@@ -155,7 +158,8 @@ export function resolveBuild(compact, data) {
     const found = findBySlugOrName(data.armes || [], id)
     if (found) return found
     // Search in specialisation weapons (class-spe.jsonc)
-    for (const spec of (data.classSpe || [])) {
+    const specs = Array.isArray(data.classSpe) ? data.classSpe : Object.values(data.classSpe || {})
+    for (const spec of specs) {
       if (spec.cle === id || spec.slug === id || spec.arme?.nom?.toLowerCase() === id.toLowerCase()) {
         return {
           nom: spec.arme.nom,

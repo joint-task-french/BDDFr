@@ -26,42 +26,45 @@ export default function BuildActions({ data }) {
   })
 
   const showAlert = (title, message) => {
-    setDialog({
+    setDialog(prev => ({
+      ...prev,
       open: true,
       title,
       message,
       type: 'alert',
-      onConfirm: () => setDialog(prev => ({ ...prev, open: false })),
-    })
+      onConfirm: () => setDialog(p => ({ ...p, open: false })),
+    }))
   }
 
   const showConfirm = (title, message, onConfirm) => {
-    setDialog({
+    setDialog(prev => ({
+      ...prev,
       open: true,
       title,
       message,
       type: 'confirm',
       onConfirm: (val) => {
+        setDialog(p => ({ ...p, open: false }))
         if (val) onConfirm()
-        setDialog(prev => ({ ...prev, open: false }))
       },
-      onCancel: () => setDialog(prev => ({ ...prev, open: false }))
-    })
+      onCancel: () => setDialog(p => ({ ...p, open: false }))
+    }))
   }
 
   const showPrompt = (title, message, defaultValue, onConfirm) => {
-    setDialog({
+    setDialog(prev => ({
+      ...prev,
       open: true,
       title,
       message,
       type: 'prompt',
       defaultValue,
       onConfirm: (val) => {
+        setDialog(p => ({ ...p, open: false }))
         onConfirm(val)
-        setDialog(prev => ({ ...prev, open: false }))
       },
-      onCancel: () => setDialog(prev => ({ ...prev, open: false }))
-    })
+      onCancel: () => setDialog(p => ({ ...p, open: false }))
+    }))
   }
 
   const buildState = {
@@ -139,13 +142,18 @@ export default function BuildActions({ data }) {
           return
         }
 
-        const build = resolveBuild(compact, data)
-        if (build) {
-          dispatch({ type: 'LOAD_BUILD', build })
-          setShowSaves(false)
-          showAlert('Succès', 'Build importé avec succès !')
-        } else {
-          showAlert('Erreur', 'Impossible de résoudre le build avec les données actuelles.')
+        try {
+          const build = resolveBuild(compact, data)
+          if (build) {
+            dispatch({ type: 'LOAD_BUILD', build })
+            setShowSaves(false)
+            showAlert('Succès', 'Build importé avec succès !')
+          } else {
+            showAlert('Erreur', 'Impossible de résoudre le build avec les données actuelles.')
+          }
+        } catch (error) {
+          console.error('Error resolving build:', error)
+          showAlert('Erreur', 'Une erreur est survenue lors de la résolution du build.')
         }
       }
     )

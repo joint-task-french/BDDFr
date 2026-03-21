@@ -17,6 +17,7 @@ const formatText = (text) => {
 export default function SkillCard({ item }) {
     const SPECIALISATIONS = getSpecialisations()
     const specLabel = item.prerequis ? (SPECIALISATIONS?.[item.prerequis]?.label || item.prerequis) : null
+    const slug = item.slug || (item.variante ? item.variante.toLowerCase().replace(/\s+/g, '_') : 'skill')
 
     return (
         <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden">

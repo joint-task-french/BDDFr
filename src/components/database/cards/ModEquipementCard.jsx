@@ -18,7 +18,7 @@ export default function ModEquipementCard({ item, allAttributs }) {
   const icon = resolveAttributeIcon(item.categorie)
 
   return (
-      <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden flex">
+      <div className="og-target-card bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden flex" data-slug={item.slug}>
         <div className="w-1.5 shrink-0 bg-shd/30" />
         <div className="px-3 py-2.5 flex-1 min-w-0">
           <div className="flex items-center flex-row gap-1 font-bold text-xs uppercase tracking-widest">

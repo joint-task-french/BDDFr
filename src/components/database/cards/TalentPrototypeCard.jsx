@@ -5,7 +5,7 @@ export default function TalentPrototypeCard({ item }) {
   const talentIcon = resolveIcon(item.icon)
 
   return (
-    <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 border-l-cyan-500">
+    <div className="og-target-card bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 border-l-cyan-500" data-slug={item.slug}>
       <div className="px-4 py-3 border-b border-tactical-border/50">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">

@@ -113,7 +113,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
   const hasGearSetTalent = !hasResolvedTalents && gearSetTalent
 
   return (
-      <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`}>
+      <div className={`og-target-card bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`} data-slug={item.slug}>
         {/* Header */}
         <div className={`px-4 py-3 border-b ${isPrototype ? 'border-cyan-500/30 bg-cyan-500/5' : 'border-tactical-border/50'}`}>
           <div className="flex items-start gap-2">

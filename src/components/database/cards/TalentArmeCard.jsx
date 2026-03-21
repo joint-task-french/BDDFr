@@ -64,7 +64,7 @@ export default function TalentArmeCard({ item, armes }) {
   const description = showPerfect && hasPerfect ? item.perfectDescription : item.description
 
   return (
-      <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden ${borderColor ? `border-l-2 ${borderColor}` : ''}`}>
+      <div className={`og-target-card bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden ${borderColor ? `border-l-2 ${borderColor}` : ''}`} data-slug={item.slug}>
         <div className="px-4 py-3 border-b border-tactical-border/50">
           <div className="flex items-center gap-2">
             <GameIcon src={talentIcon} alt="" size="w-6 h-6" />

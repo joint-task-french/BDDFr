@@ -100,6 +100,10 @@ const categoryFormatters = {
         title: `Attribut : ${item.nom} — BDDFr`,
         description: item.description || `Valeurs : ${item.min}-${item.max}${item.unite}.`
     }),
+    'talentsPrototypes': (item) => ({
+        title: `Talent Prototype : ${item.nom} — BDDFr`,
+        description: item.description || `Valeur : ${item.statMin}-${item.statMax}.`
+    }),
     'descente': (item, level) => ({
         title: `🧬 ${item.nom} (Niv. ${level || 1}) — BDDFr`,
         description: `Talent du mode Descente : ${item.descente?.categorie || 'Spécial'}`
@@ -124,6 +128,7 @@ const categoryMap = {
     'attributs': 'attributs.jsonc',
     'talentsArmes': 'talents-armes.jsonc',
     'talentsEquipements': 'talents-equipements.jsonc',
+    'talentsPrototypes': 'talents-prototypes.jsonc',
     'modsArmes': 'mods-armes.jsonc',
     'modsEquipements': 'mods-equipements.jsonc',
     'modsCompetences': 'mods-competences.jsonc'
@@ -276,6 +281,16 @@ async function generate() {
                     const parfaitTitle = title.replace(' —', ' (Parfait) —');
                     fs.writeFileSync(path.join(targetDirParfait, 'index.html'), stubTemplate(parfaitTitle, description, publicImageUrl, parfaitPath));
                     sitemapEntries.push(`${BASE_URL}/${parfaitPath}`);
+                }
+
+                if (categoryKey === 'armes' || categoryKey === 'equipements') {
+                    const prototypePath = `db/${categoryKey}/${itemSlug}/prototype`;
+                    const targetDirPrototype = path.join(DIST_DIR, prototypePath);
+                    if (!fs.existsSync(targetDirPrototype)) fs.mkdirSync(targetDirPrototype, { recursive: true });
+
+                    const prototypeTitle = title.replace(' —', ' (Prototype) —');
+                    fs.writeFileSync(path.join(targetDirPrototype, 'index.html'), stubTemplate(prototypeTitle, description, publicImageUrl, prototypePath));
+                    sitemapEntries.push(`${BASE_URL}/${prototypePath}`);
                 }
             }
         }

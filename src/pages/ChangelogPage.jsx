@@ -160,12 +160,12 @@ function ChangeItem({ change }) {
   const isObject = typeof change === 'object' && change !== null
   const [open, setOpen] = useState(false)
 
+  // Si c'est une chaîne, on l'affiche simplement (non repliable) avec rendu Markdown
   if (!isObject) {
-    // Élément simple: rendu markdown inline
+    const raw = String(change || '').trim()
     return (
-      <li className="flex items-start gap-2 text-sm text-gray-400 leading-relaxed">
-        <span className="text-shd/50 mt-1 shrink-0">›</span>
-        <span className="min-w-0"><MarkdownText text={String(change)} /></span>
+      <li className="flex flex-col gap-1 text-sm text-gray-300 leading-relaxed">
+        <MarkdownText text={raw} />
       </li>
     )
   }

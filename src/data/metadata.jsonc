@@ -39,54 +39,82 @@
       "date": "Le 25/02/2026",
       "patch": "",
       "changements": [
-        "Ajout de la compétence \"abri intelligent\"",
-        "Ajout des mods de compétence \"abri intelligent\"",
-        "Ajout des equipements nommées",
-        "Ajout des talents d'armes"
+        {
+          "titre": "Nouvelle compétence — Abri intelligent",
+          "description": "Ajouts liés à la compétence :\n\n- Ajout de la compétence \"Abri intelligent\"\n- Ajout de l'ensemble des mods pour \"Abri intelligent\""
+        },
+        {
+          "titre": "Équipements nommés",
+          "description": "- Ajout de plusieurs équipements nommés"
+        },
+        {
+          "titre": "Talents d'armes",
+          "description": "- Ajout de nouveaux talents d'armes"
+        }
       ]
     },
     {
       "date": "Le 23/02/2026",
       "patch": "",
       "changements": [
-        "Ajout des 15 exotiques de traque.Refonte de la page des exotiques :",
-        "Ajout de l'obtention d'exotique via représaille",
-        "Ajout de lien expliquant les pourcentages de drop des exotiques (anglais)"
+        {
+          "titre": "Exotiques de traque",
+          "description": "- Ajout des 15 exotiques de traque"
+        },
+        {
+          "titre": "Refonte de la page des exotiques",
+          "description": "- Ajout de l'obtention d'exotiques via représaille\n- Ajout d'un lien expliquant les taux de drop (anglais)"
+        }
       ]
     },
     {
       "date": "Le 21/02/2026",
       "patch": "",
       "changements": [
-        "Ajout des marque \"Units alloys\", \"Lengmo\", \"Shiny Monkey Gear\", \"Imminence armaments\" et \"Urban lookout\".",
-        "Ajout des exotiques \"Sherif\" et \"bittersweet\"."
+        {
+          "titre": "Nouvelles marques",
+          "description": "- Units Alloys\n- Lengmo\n- Shiny Monkey Gear\n- Imminence Armaments\n- Urban Lookout"
+        },
+        {
+          "titre": "Nouveaux exotiques",
+          "description": "- Sherif\n- Bittersweet"
+        }
       ]
     },
     {
       "date": "Le 20/02/2026",
       "patch": "Remise à jour de la BDDFR",
       "changements": [
-        "Ajout des ensembles de set \"Refactor\", \"Mesured assembly\", \"Point de bascule\" et \"Concentrated compagny\""
+        {
+          "titre": "Ensembles de set ajoutés",
+          "description": "- Refactor\n- Mesured Assembly\n- Point de bascule\n- Concentrated Company"
+        }
       ]
     },
     {
       "date": "Le 20/11/2024",
       "patch": "Patch TU22 Warlords of New York",
       "changements": [
-        "Mise à jour des stats des armes",
-        "Mise a jour des mods des armes",
-        "Mise à jour des exotiques",
-        "Mise à jour des ensembles de marque",
-        "Mise à jour des ensembles de set",
-        "Ajout du nouveau talent \"Frappe de précision\" et de sa version parfaite",
-        "Ajout de l'exotique \"Strega\"",
-        "Ajout de l'exotique \"Provocateur\"",
-        "Ajout de l'exotique \"Fourreau Centurion\"",
-        "Ajout de la marque \"Legatus S.p.A.\"",
-        "Ajout de l'ensemble de set \"Virtuose\"",
-        "Ajout du torse et du masque nommé \"Vigil\" et \"Visionario\"",
-        "Ajout des armes nommées \"La foreuse\" et \"Cricket\"",
-        "Ajout des moyens d'obtention des armes nommées"
+        {
+          "titre": "Mises à jour globales",
+          "description": "- Mise à jour des stats des armes\n- Mise à jour des mods des armes\n- Mise à jour des exotiques\n- Mise à jour des ensembles de marque\n- Mise à jour des ensembles de set"
+        },
+        {
+          "titre": "Nouveaux talents",
+          "description": "- Ajout du talent \"Frappe de précision\" et de sa version parfaite"
+        },
+        {
+          "titre": "Nouveaux exotiques",
+          "description": "- Strega\n- Provocateur\n- Fourreau Centurion"
+        },
+        {
+          "titre": "Nouvelles marques et ensembles",
+          "description": "- Marque : Legatus S.p.A.\n- Ensemble de set : Virtuose"
+        },
+        {
+          "titre": "Nommes et obtention",
+          "description": "- Torse et masque nommés : Vigil, Visionario\n- Armes nommées : La foreuse, Cricket\n- Ajout des moyens d'obtention des armes nommées"
+        }
       ]
     },
     {
@@ -100,14 +128,26 @@
       "date": "Le 08/09/2024",
       "patch": "Patch TU21 Warlords of New York",
       "changements": [
-        "Ajout de l'ensemble de set \"Breaking Point\"",
-        "Ajout de l'ensemble de marque \"Zwiadowska Sp. z o.o.\"",
-        "Ajout du talent d'arme \"imprudence\"",
-        "Ajout des équipements nommés \"Bober\" et \"Étreinte de l'aigle\"",
-        "Ajout des armes nommées \"Comme de la colle\" et \"Épine\"",
-        "Ajout des exotiques \"Overlord\" et \"Genouillères d'Acosta\"",
-        "Ajout de l'arme nommée \"Cooler\"",
-        "Changement du talent de l'exotique \"Diamondback\""
+        {
+          "titre": "Nouveaux ensembles",
+          "description": "- Ensemble de set : Breaking Point\n- Ensemble de marque : Zwiadowska Sp. z o.o."
+        },
+        {
+          "titre": "Nouvelles mécaniques",
+          "description": "- Ajout du talent d'arme \"Imprudence\""
+        },
+        {
+          "titre": "Équipements et armes nommés",
+          "description": "- Équipements nommés : Bober, Étreinte de l'aigle\n- Armes nommées : Comme de la colle, Épine, Cooler"
+        },
+        {
+          "titre": "Nouveaux exotiques",
+          "description": "- Overlord\n- Genouillères d'Acosta"
+        },
+        {
+          "titre": "Équilibrage",
+          "description": "- Changement du talent de l'exotique \"Diamondback\""
+        }
       ]
     },
     {

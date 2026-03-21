@@ -336,6 +336,12 @@ export function applyWeaponFilters(items, filters) {
     if (filters.estExotique !== null && filters.estExotique !== undefined && !!item.estExotique !== filters.estExotique) return false
     if (filters.estNomme !== null && filters.estNomme !== undefined && !!item.estNomme !== filters.estNomme) return false
     return true
+  }).sort((a, b) => {
+    // 1. Rareté : Classique (0) < Nommé (1) < Exotique (2)
+    const rankA = a.estExotique ? 2 : (a.estNomme ? 1 : 0)
+    const rankB = b.estExotique ? 2 : (b.estNomme ? 1 : 0)
+    if (rankA !== rankB) return rankA - rankB
+    return (a.nom || '').localeCompare(b.nom || '', 'fr', { sensitivity: 'base' })
   })
 }
 
@@ -393,6 +399,12 @@ export function applyGearFilters(items, filters) {
     }
     if (filters.estNomme !== null && filters.estNomme !== undefined && !!item.estNomme !== filters.estNomme) return false
     return true
+  }).sort((a, b) => {
+    // 1. Rareté : Classique (0) < Nommé (1) < Exotique (2)
+    const rankA = a.estExotique ? 2 : (a.estNomme ? 1 : 0)
+    const rankB = b.estExotique ? 2 : (b.estNomme ? 1 : 0)
+    if (rankA !== rankB) return rankA - rankB
+    return (a.nom || '').localeCompare(b.nom || '', 'fr', { sensitivity: 'base' })
   })
 }
 
@@ -426,6 +438,12 @@ export function applyTalentArmeFilters(items, filters) {
     if (filters.estExotique !== null && filters.estExotique !== undefined && !!item.estExotique !== filters.estExotique) return false
     if (filters.aParfait && !item.perfectDescription) return false
     return true
+  }).sort((a, b) => {
+    // Classique (0) < Exotique (1)
+    const rankA = a.estExotique ? 1 : 0
+    const rankB = b.estExotique ? 1 : 0
+    if (rankA !== rankB) return rankA - rankB
+    return (a.nom || '').localeCompare(b.nom || '', 'fr', { sensitivity: 'base' })
   })
 }
 
@@ -459,6 +477,21 @@ export function applyTalentEquipFilters(items, filters) {
     if (filters.estExotique !== null && filters.estExotique !== undefined && !!item.estExotique !== filters.estExotique) return false
     if (filters.aParfait && !item.perfectDescription) return false
     return true
+  }).sort((a, b) => {
+    // 1. Définir le rang de rareté : Classique (0) < Gear Set (1) < Exotique (2)
+    const getRarityRank = (item) => {
+      if (item.estExotique) return 2
+      if (item.gearSet || item.gear_set) return 1
+      return 0
+    }
+
+    const rankA = getRarityRank(a)
+    const rankB = getRarityRank(b)
+
+    if (rankA !== rankB) return rankA - rankB
+
+    // 2. Si même rang, trier par nom (alphabétique)
+    return (a.nom || '').localeCompare(b.nom || '', 'fr', { sensitivity: 'base' })
   })
 }
 
@@ -472,7 +505,15 @@ export function getTalentPrototypeDefaults() {
   return {}
 }
 export function applyTalentPrototypeFilters(items, filters) {
-  return items
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  return list.sort((a, b) => {
+    // 1. Rareté : Classique (0) < Exotique (1)
+    const rankA = a.estExotique ? 1 : 0
+    const rankB = b.estExotique ? 1 : 0
+    if (rankA !== rankB) return rankA - rankB
+    // 2. Alphabétique
+    return (a.nom || '').localeCompare(b.nom || '', 'fr', { sensitivity: 'base' })
+  })
 }
 
 export function getModArmeFilters(data) {
@@ -507,6 +548,13 @@ export function applyModArmeFilters(items, filters) {
     if (filters.type.length > 0 && !filters.type.includes(item.type)) return false
     if (filters.estExotique !== null && filters.estExotique !== undefined && !!item.estExotique !== filters.estExotique) return false
     return true
+  }).sort((a, b) => {
+    // 1. Rareté : Classique (0) < Exotique (1)
+    const rankA = a.estExotique ? 1 : 0
+    const rankB = b.estExotique ? 1 : 0
+    if (rankA !== rankB) return rankA - rankB
+    // 2. Alphabétique
+    return (a.nom || '').localeCompare(b.nom || '', 'fr', { sensitivity: 'base' })
   })
 }
 
@@ -550,6 +598,12 @@ export function applyEnsembleFilters(items, filters) {
     }
     if (filters.attributEssentiel && !(Array.isArray(item.attributsEssentiels) && item.attributsEssentiels.includes(filters.attributEssentiel))) return false
     return true
+  }).sort((a, b) => {
+    // Gear sets après marques
+    const rankA = a.type === 'gear_set' ? 1 : 0
+    const rankB = b.type === 'gear_set' ? 1 : 0
+    if (rankA !== rankB) return rankA - rankB
+    return (a.nom || '').localeCompare(b.nom || '', 'fr', { sensitivity: 'base' })
   })
 }
 
@@ -601,7 +655,7 @@ export function applyAttributFilters(items, filters) {
     if (filters.cible && !(Array.isArray(item.cible) && item.cible.includes(filters.cible))) return false
     if (filters.statistique && !(Array.isArray(item.statistiques) && item.statistiques.includes(filters.statistique))) return false
     return true
-  })
+  }).sort((a, b) => (a.nom || '').localeCompare(b.nom || '', 'fr', { sensitivity: 'base' }))
 }
 
 export function getCompetenceFilters(data) {
@@ -638,6 +692,13 @@ export function applyCompetenceFilters(items, filters) {
   return list.filter(item => {
     if (filters.competence && item.competence !== filters.competence) return false
     return true
+  }).sort((a, b) => {
+    // Trier par compétence parente puis par variante
+    const compA = a.competence || ''
+    const compB = b.competence || ''
+    const res = compA.localeCompare(compB, 'fr', { sensitivity: 'base' })
+    if (res !== 0) return res
+    return (a.variante || a.nom || '').localeCompare(b.variante || b.nom || '', 'fr', { sensitivity: 'base' })
   })
 }
 

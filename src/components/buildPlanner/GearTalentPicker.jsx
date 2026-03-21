@@ -21,7 +21,7 @@ export default function GearTalentPicker({ data, slotKey, onClose }) {
     if (!data.talentsEquipements) return []
     const list = Array.isArray(data.talentsEquipements) ? data.talentsEquipements : Object.values(data.talentsEquipements || {})
     return list.filter(t =>
-        t.emplacement === slotKey && !t.estExotique
+        t.emplacement === slotKey && !t.estExotique && !t.gear_set && !t.gearSet
     )
   }, [data.talentsEquipements, slotKey])
 

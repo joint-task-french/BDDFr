@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
+import Badge from '../../common/Badge'
 import { getGearSlotLabel } from '../../../utils/formatters'
 import { GEAR_SLOT_ICONS_IMG, resolveIcon, GameIcon } from '../../../utils/gameAssets'
 
@@ -14,9 +15,10 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
   const location = useLocation()
 
   const isExotic = item.estExotique
+  const isGearSet = item.gearSet || item.gear_set
   const hasPerfect = !isExotic && !!item.perfectDescription
-  const nameColor = isExotic ? 'text-red-400' : 'text-shd'
-  const borderColor = isExotic ? 'border-l-red-500' : ''
+  const nameColor = isExotic ? 'text-red-400' : isGearSet ? 'text-emerald-400' : 'text-shd'
+  const borderColor = isExotic ? 'border-l-red-500' : isGearSet ? 'border-l-emerald-500' : ''
   const talentIcon = resolveIcon(item.icon)
   const slotIcon = GEAR_SLOT_ICONS_IMG[item.emplacement]
 
@@ -58,11 +60,7 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
             <div className="flex items-center gap-2">
               <GameIcon src={talentIcon} alt="" size="w-6 h-6" />
               <div className={`font-bold text-sm uppercase tracking-wide ${nameColor}`}>{item.nom}</div>
-              {isExotic && (
-                  <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1 py-0.5 rounded uppercase tracking-widest">
-                Exotique
-              </span>
-              )}
+
 
               {hasPerfect && (
                   <button
@@ -80,10 +78,15 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
                   </button>
               )}
             </div>
-            <span className="text-xs font-bold uppercase tracking-widest bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded flex items-center gap-1">
-            <GameIcon src={slotIcon} alt="" size="w-3 h-3" className="opacity-70" />
-              {getGearSlotLabel(equipementsType, item.emplacement)}
-          </span>
+
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-widest bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded flex items-center gap-1">
+                <GameIcon src={slotIcon} alt="" size="w-3 h-3" className="opacity-70" />
+                {getGearSlotLabel(equipementsType, item.emplacement)}
+              </span>
+              {isExotic && <Badge type="exotic" />}
+              {isGearSet && <Badge type="gearset" />}
+            </div>
           </div>
           {hasContent(item.prerequis) && (
               <div className="text-xs text-yellow-500/70 mt-0.5">Requis : {item.prerequis}</div>

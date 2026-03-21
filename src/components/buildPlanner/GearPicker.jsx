@@ -132,7 +132,7 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {filtered.map(p => {
             const blocked = p.type === 'exotique' && !canExotic
             const borderClass = p.type === 'exotique' ? 'border-shd/60 bg-shd/5'

@@ -9,19 +9,19 @@
         "nom": "Sac à dos",
         "icon": "sac",
         "emoji": "🎒",
-        "protectionBase": 120000
+        "protectionBase": 131000
     },
     "torse": {
         "nom": "Torse",
         "icon": "torse",
         "emoji": "🦺",
-        "protectionBase": 150000
+        "protectionBase": 158000
     },
     "holster": {
         "nom": "Holster",
         "icon": "holster",
         "emoji": "🔧",
-        "protectionBase": 80000
+        "protectionBase": 112000
     },
     "gants": {
         "nom": "Gants",
@@ -33,6 +33,6 @@
         "nom": "Genouillères",
         "icon": "genouilleres",
         "emoji": "🦿",
-        "protectionBase": 100000
+        "protectionBase": 99000
     }
 }

@@ -11,6 +11,7 @@ export const GENERATOR_CATEGORIES = [
   { key: 'equipements', label: 'Équipements', icon: '🛡️' },
   { key: 'talentsArmes', label: "Talents d'Armes", icon: '🎯' },
   { key: 'talentsEquipements', label: "Talents d'Équipements", icon: '🏅' },
+  { key: 'talentsPrototypes', label: 'Talents Prototypes', icon: '💎' },
   { key: 'ensembles', label: 'Ensembles', icon: '🔗' },
   { key: 'competences', label: 'Compétences', icon: '⚡' },
   { key: 'attributs', label: 'Attributs', icon: '📊' },
@@ -25,6 +26,7 @@ export const IDENTITY_KEY = {
   equipements: 'slug',
   talentsArmes: 'slug',
   talentsEquipements: 'slug',
+  talentsPrototypes: 'slug',
   ensembles: 'slug',
   competences: ['competence', 'variante'],
   attributs: 'slug',
@@ -39,6 +41,7 @@ export const DATA_KEY = {
   equipements: 'equipements',
   talentsArmes: 'talentsArmes',
   talentsEquipements: 'talentsEquipements',
+  talentsPrototypes: 'talentsPrototypes',
   ensembles: 'ensembles',
   competences: 'competences',
   attributs: 'attributs',
@@ -53,6 +56,7 @@ export const FILE_MAP = {
   equipements: 'equipements.jsonc',
   talentsArmes: 'talents-armes.jsonc',
   talentsEquipements: 'talents-equipements.jsonc',
+  talentsPrototypes: 'talents-prototypes.jsonc',
   ensembles: 'ensembles.jsonc',
   competences: 'competences.jsonc',
   attributs: 'attributs.jsonc',
@@ -70,20 +74,28 @@ export const FIELDS = {
       { key: 'type', label: 'Type', type: 'tagSelect', required: true, dynamicOptions: 'armesTypes', singleSelect: true },
       { key: 'fabricant', label: 'Fabricant', type: 'autocomplete', suggestionsKey: 'fabricants' },
       { key: 'portee', label: 'Portée (m)', type: 'number', min: 0 },
+      { key: 'prototypePortee', label: 'Portée (Prototype)', type: 'number', min: 0, visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'portee', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: 'rpm', label: 'CPM', type: 'number', step: 1, min: 0 },
+      { key: 'prototypeRpm', label: 'CPM (Prototype)', type: 'number', step: 1, min: 0, visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'rpm', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: 'chargeur', label: 'Chargeur', type: 'number', step: 1, min: 0 },
+      { key: 'prototypeChargeur', label: 'Chargeur (Prototype)', type: 'number', step: 1, min: 0, visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'chargeur', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: 'rechargement', label: 'Rechargement (s)', type: 'number', step: 0.1, min: 0 },
+      { key: 'prototypeRechargement', label: 'Rechargement (Prototype)', type: 'number', step: 0.1, min: 0, visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'rechargement', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: 'headshot', label: 'Headshot (%)', type: 'number', step: 1, min: 0 },
+      { key: 'prototypeHeadshot', label: 'Headshot (Prototype)', type: 'number', step: 1, min: 0, visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'headshot', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: 'degatsBase', label: 'Dégâts base', type: 'number', step: 1, min: 0 },
+      { key: 'prototypeDegatsBase', label: 'Dégâts base (Prototype)', type: 'number', step: 1, min: 0, visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'degatsBase', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: '_rarity', label: 'Rareté', type: 'radioGroup', target: { exo: 'estExotique', nom: 'estNomme' }, options: [
           { value: '', label: 'Standard' },
           { value: 'exo', label: 'Exotique' },
           { value: 'nom', label: 'Nommé' },
         ]},
       { key: 'talents', label: 'Talents', type: 'autocomplete_array', suggestionsKey: 'talentsArmes', placeholder: 'Rechercher un talent...' },
+      { key: 'talentsPrototypes', label: 'Talents Prototypes', type: 'autocomplete_array', suggestionsKey: 'talentsPrototypes', placeholder: 'Rechercher un talent prototype...', hiddenWhen: { key: '_rarity', value: 'exo' } },
       { key: 'attributs', label: 'Attributs fixés', type: 'objectArray', fields: [
           { key: 'nom', label: 'Nom', type: 'autocomplete', suggestionsKey: 'attributs' },
           { key: 'valeur', label: 'Valeur', type: 'number' },
+          { key: 'prototypeValue', label: 'Valeur (Prototype)', type: 'number', visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'valeur', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
         ]},
       { key: 'emplacementsMods', label: 'Emplacements Mods', type: 'tagSelect', options: [
           { value: 'chargeur', label: 'Chargeur', color: 'yellow' },
@@ -101,7 +113,7 @@ export const FIELDS = {
           { key: 'incursion', label: 'Incursion', type: 'triState' },
           { key: 'represailles', label: 'Schémas représailles (faction)', type: 'text', placeholder: 'Nom de la faction (optionnel)' },
         ]},
-      { key: 'icone', label: 'Icône (slug)', type: 'text', placeholder: 'nom_fichier_sans_extension' },
+      { key: 'icon', label: 'Icône (slug)', type: 'text', placeholder: 'nom_fichier_sans_extension' },
     ],
   },
 
@@ -115,8 +127,10 @@ export const FIELDS = {
       { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
           { key: 'nom', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'attributs' },
           { key: 'valeur', label: 'Valeur', type: 'number', step: 0.1 },
+          { key: 'prototypeValue', label: 'Valeur (Prototype)', type: 'number', step: 0.1, visibleWhen: [{ key: 'emplacement', notEmpty: true }, { key: 'valeur', notEmpty: true }], hiddenWhen: { key: 'type', value: 'exotique' } },
         ]},
       { key: 'talents', label: 'Talents', type: 'autocomplete_array', suggestionsKey: 'talentsEquipements', placeholder: 'Rechercher un talent...' },
+      { key: 'talentsPrototypes', label: 'Talents Prototypes', type: 'autocomplete_array', suggestionsKey: 'talentsPrototypes', placeholder: 'Rechercher un talent prototype...', hiddenWhen: { key: 'type', value: 'exotique' } },
       { key: 'mod', label: 'Emplacement de mod', type: 'boolean' },
       { key: 'type', label: 'Type', type: 'tagSelect', singleSelect: true, options: [
           { value: 'standard', label: 'Standard', color: 'blue' },
@@ -141,13 +155,29 @@ export const FIELDS = {
     comment: "// Talent d'arme — The Division 2",
     fields: [
       { key: 'nom', label: 'Nom', type: 'autocomplete', required: true, suggestionsKey: 'nomsTalentsArmes', isIdentity: true },
-      { key: 'icone', label: 'Icône (slug)', type: 'text', required: true, placeholder: 'nom_fichier_sans_extension' },
+      { key: 'icon', label: 'Icône (slug)', type: 'text', required: true, placeholder: 'nom_fichier_sans_extension' },
       { key: 'description', label: 'Description', type: 'textarea', required: true },
       { key: 'prerequis', label: 'Prérequis', type: 'text' },
       { key: 'estExotique', label: 'Talent exotique', type: 'boolean' },
       { key: 'compatibilite', label: 'Compatibilité', type: 'tagSelect', hiddenWhen: { key: 'estExotique', value: true }, dynamicOptions: 'armesTypesCompat', outputAsObject: true },
       { key: 'perfectDescription', label: 'Description parfaite', type: 'textarea', hiddenWhen: { key: 'estExotique', value: true } },
       { key: 'armesParfaites', label: 'Armes parfaites', type: 'autocomplete_array', suggestionsKey: 'armesNommees', placeholder: "Rechercher une arme nommée...", hiddenWhen: { key: 'estExotique', value: true } },
+
+      // --- MODE DESCENTE ---
+      { key: 'hasDescente', label: 'Disponible en mode Descente', type: 'boolean' },
+      { key: 'descente_boucles', label: 'Boucles (Descente)', type: 'array', visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_categorie', label: 'Catégorie (Descente)', type: 'radioGroup', options: [
+          { value: 'offensif', label: 'Offensif' },
+          { value: 'défensif', label: 'Défensif' },
+          { value: 'utilitaire', label: 'Utilitaire' },
+          { value: 'exotique', label: 'Exotique' },
+        ], visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_base', label: 'Description avec variables {var} (Descente)', type: 'textarea', visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_vars', label: 'Variables par niveau (Descente)', type: 'objectArray', fields: [
+          { key: 'niveau', label: 'Niveau (1, 2...)', type: 'text' },
+          { key: 'variable', label: 'Variable (ex: degats)', type: 'text' },
+          { key: 'valeur', label: 'Valeur (ex: 10%)', type: 'text' }
+        ], visibleWhen: { key: 'hasDescente', value: true } },
     ],
   },
 
@@ -155,13 +185,40 @@ export const FIELDS = {
     comment: "// Talent d'équipement — The Division 2",
     fields: [
       { key: 'nom', label: 'Nom', type: 'autocomplete', required: true, suggestionsKey: 'nomsTalentsEquipements', isIdentity: true },
-      { key: 'icone', label: 'Icône (slug)', type: 'text', placeholder: 'nom_fichier_sans_extension' },
+      { key: 'icon', label: 'Icône (slug)', type: 'text', placeholder: 'nom_fichier_sans_extension' },
       { key: 'description', label: 'Description', type: 'textarea' },
       { key: 'prerequis', label: 'Prérequis', type: 'text' },
       { key: 'estExotique', label: 'Talent exotique', type: 'boolean' },
       { key: 'emplacement', label: 'Emplacement', type: 'tagSelect', required: true, singleSelect: true, dynamicOptions: 'talentEquipEmplacements' },
       { key: 'perfectDescription', label: 'Description parfaite', type: 'textarea', hiddenWhen: { key: 'estExotique', value: true } },
       { key: 'equipementsParfaits', label: 'Équipements parfaits', type: 'autocomplete_array', suggestionsKey: 'equipementsNommes', placeholder: "Rechercher un équipement nommé...", hiddenWhen: { key: 'estExotique', value: true } },
+
+      // --- MODE DESCENTE ---
+      { key: 'hasDescente', label: 'Disponible en mode Descente', type: 'boolean' },
+      { key: 'descente_boucles', label: 'Boucles (Descente)', type: 'array', visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_categorie', label: 'Catégorie (Descente)', type: 'radioGroup', options: [
+          { value: 'offensif', label: 'Offensif' },
+          { value: 'défensif', label: 'Défensif' },
+          { value: 'utilitaire', label: 'Utilitaire' },
+          { value: 'exotique', label: 'Exotique' },
+        ], visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_base', label: 'Description avec variables {var} (Descente)', type: 'textarea', visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_vars', label: 'Variables par niveau (Descente)', type: 'objectArray', fields: [
+          { key: 'niveau', label: 'Niveau (1, 2...)', type: 'text' },
+          { key: 'variable', label: 'Variable (ex: degats)', type: 'text' },
+          { key: 'valeur', label: 'Valeur (ex: 10%)', type: 'text' }
+        ], visibleWhen: { key: 'hasDescente', value: true } },
+    ],
+  },
+
+  talentsPrototypes: {
+    comment: "// Talent Prototype — The Division 2",
+    fields: [
+      { key: 'nom', label: 'Nom', type: 'autocomplete', required: true, suggestionsKey: 'nomsTalentsPrototypes', isIdentity: true },
+      { key: 'icon', label: 'Icône (slug)', type: 'text', placeholder: 'nom_fichier_sans_extension' },
+      { key: 'description', label: 'Description', type: 'textarea', required: true },
+      { key: 'statMin', label: 'Valeur Min', type: 'number', step: 0.1, required: true },
+      { key: 'statMax', label: 'Valeur Max', type: 'number', step: 0.1, required: true },
     ],
   },
 
@@ -174,7 +231,7 @@ export const FIELDS = {
           { value: 'gear_set', label: 'Gear Set', color: 'green' },
           { value: 'marque', label: 'Marque', color: 'blue' },
         ]},
-      { key: 'logo', label: 'Logo (fichier)', type: 'text', placeholder: 'nom-du-logo.png' },
+      { key: 'icon', label: 'Logo (fichier)', type: 'text', placeholder: 'nom-du-icon.png' },
       { key: 'attributsEssentiels', label: 'Attributs essentiels', type: 'tagSelect', dynamicOptions: 'attributsTypes' },
       { key: 'bonus1piece', label: 'Bonus 1 pièce', type: 'text', hiddenWhen: { key: 'type', value: 'gear_set' } },
       { key: 'bonus2pieces', label: 'Bonus 2 pièces', type: 'text' },
@@ -191,7 +248,7 @@ export const FIELDS = {
       { key: 'competence', label: 'Compétence', type: 'autocomplete', suggestionsKey: 'competences', required: true, placeholder: 'TOURELLE, DRONE...', isIdentity: true },
       { key: 'variante', label: 'Variante', type: 'autocomplete', required: true, suggestionsKey: 'variantes', isIdentity: true },
       { key: 'prerequis', label: 'Spécialisation requise', type: 'tagSelect', singleSelect: true, dynamicOptions: 'specialisations' },
-      { key: 'icone', label: 'Icône (slug)', type: 'text' },
+      { key: 'icon', label: 'Icône (slug)', type: 'text' },
       { key: 'expertise', label: 'Expertise', type: 'text' },
       { key: 'statistiques', label: 'Statistiques', type: 'textarea' },
       { key: 'effetEtat', label: "Effet d'état", type: 'text' },
@@ -217,6 +274,7 @@ export const FIELDS = {
       { key: 'unite', label: 'Unité', type: 'text', placeholder: '%, pts, pts/s...' },
       { key: 'min', label: 'Minimum', type: 'number', step: 0.1, min: 0 },
       { key: 'max', label: 'Maximum', type: 'number', step: 0.1, min: 0 },
+      { key: 'prototypeMax', label: 'Maximum (Prototype)', type: 'number', step: 0.1, min: 0, visibleWhen: [{ key: 'categorie', notEmpty: true }, { key: 'max', notEmpty: true }] },
       { key: 'description', label: 'Description', type: 'text' },
       { key: 'estEssentiel', label: 'Attribut essentiel', type: 'boolean' },
       { key: 'statistiques', label: 'Statistiques affectées', type: 'autocomplete_array', suggestionsKey: 'statistiques', placeholder: 'Rechercher une statistique...' },
@@ -288,9 +346,10 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   const merged = {}
   for (const cat of GENERATOR_CATEGORIES) {
     const dk = DATA_KEY[cat.key]
-    const loaded = loadedData?.[dk] || []
+    const loaded = loadedData?.[dk] || {}
+    const loadedArray = Array.isArray(loaded) ? loaded : Object.values(loaded)
     const saved = savedItems?.[cat.key] || []
-    merged[dk] = [...loaded, ...saved]
+    merged[dk] = [...loadedArray, ...saved]
   }
 
   const extractUniqueWithSlugs = (items) => {
@@ -329,6 +388,7 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
 
   s.nomsTalentsArmes = extractUniqueWithSlugs(merged.talentsArmes)
   s.nomsTalentsEquipements = extractUniqueWithSlugs(merged.talentsEquipements)
+  s.nomsTalentsPrototypes = extractUniqueWithSlugs(merged.talentsPrototypes)
   s.nomsEnsembles = extractUniqueWithSlugs(merged.ensembles)
   s.nomsAttributs = extractUniqueWithSlugs(merged.attributs)
   s.nomsModsArmes = extractUniqueWithSlugs(merged.modsArmes)
@@ -350,9 +410,12 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
     s.variantes = [...new Set(flatComps.map(c => c.variante).filter(Boolean))].sort()
   }
 
-  s.specialisations = (loadedData?.classSpe || []).map(sp => ({ value: sp.cle, label: sp.nom })).sort((a, b) => a.label.localeCompare(b.label))
+  const rawSpe = loadedData?.classSpe || {}
+  const speList = Array.isArray(rawSpe) ? rawSpe : Object.values(rawSpe)
+  s.specialisations = speList.map(sp => ({ value: sp.cle, label: sp.nom })).sort((a, b) => a.label.localeCompare(b.label))
 
-  const groupedComps = loadedData?.competencesGrouped || []
+  const rawGrouped = loadedData?.competencesGrouped || {}
+  const groupedComps = Array.isArray(rawGrouped) ? rawGrouped : Object.values(rawGrouped)
   const emplacementSet = new Set()
   groupedComps.forEach(c => {
     (c.emplacementsMods || []).forEach(em => emplacementSet.add(em.emplacement))
@@ -400,6 +463,15 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
     }
   }
 
+  s.talentsPrototypes = (merged.talentsPrototypes || []).filter(t => t.slug && t.nom).map(t => ({ value: t.slug, label: t.nom }))
+  s.talentsPrototypes.sort((a, b) => a.label.localeCompare(b.label))
+  if (generatorData?.talentsPrototypes?.nom) {
+    const slug = generatorData.talentsPrototypes.slug || slugify(generatorData.talentsPrototypes.nom)
+    if (!s.talentsPrototypes.find(t => t.value === slug)) {
+      s.talentsPrototypes.push({ value: slug, label: generatorData.talentsPrototypes.nom })
+    }
+  }
+
   s.attributs = (merged.attributs || []).filter(a => a.slug && a.nom).map(a => ({ value: a.slug, label: a.nom }))
   s.attributs.sort((a, b) => a.label.localeCompare(b.label))
 
@@ -416,6 +488,7 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   addLookup(merged.equipements)
   addLookup(merged.talentsArmes)
   addLookup(merged.talentsEquipements)
+  addLookup(merged.talentsPrototypes)
   addLookup(merged.attributs)
   addLookup(merged.modsArmes)
   addLookup(merged.ensembles)
@@ -600,6 +673,37 @@ export function cleanOutput(data, categoryKey) {
     result.slug = slugify(result.nom || fallback)
   }
 
+  // --- TRAITEMENT SPÉCIFIQUE POUR LE MODE DESCENTE ---
+  if (data.hasDescente) {
+    result.descente = {
+      boucles: data.descente_boucles || [],
+      categorie: data.descente_categorie || 'offensif',
+      levels: {
+        base: data.descente_base || ''
+      }
+    }
+
+    // Reconstruction de la hiérarchie imbriquée des niveaux
+    if (Array.isArray(data.descente_vars)) {
+      data.descente_vars.forEach(v => {
+        if (v.niveau && v.variable) {
+          if (!result.descente.levels[v.niveau]) {
+            result.descente.levels[v.niveau] = {}
+          }
+          result.descente.levels[v.niveau][v.variable] = v.valeur
+        }
+      })
+    }
+  }
+
+  // Nettoyage des champs virtuels liés au formulaire
+  // On s'assure qu'ils n'apparaissent pas dans le JSONC final, qu'ils soient vides ou remplis
+  delete result.hasDescente
+  delete result.descente_boucles
+  delete result.descente_categorie
+  delete result.descente_base
+  delete result.descente_vars
+
   return result
 }
 
@@ -720,5 +824,25 @@ export function itemToFormData(categoryKey, item) {
       data[field.key] = field.type === 'number' ? String(item[field.key]) : item[field.key]
     }
   }
+
+  // --- MAPPING INVERSE POUR LE MODE DESCENTE ---
+  if (item.descente) {
+    data.hasDescente = true
+    data.descente_boucles = item.descente.boucles || []
+    data.descente_categorie = item.descente.categorie || 'offensif'
+    data.descente_base = item.descente.levels?.base || ''
+    data.descente_vars = []
+
+    // Déconstruction de la hiérarchie imbriquée vers un tableau plat pour le formulaire
+    if (item.descente.levels) {
+      for (const [niv, vars] of Object.entries(item.descente.levels)) {
+        if (niv === 'base') continue
+        for (const [varName, varVal] of Object.entries(vars)) {
+          data.descente_vars.push({ niveau: niv, variable: varName, valeur: varVal })
+        }
+      }
+    }
+  }
+
   return data
 }

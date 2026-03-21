@@ -10,33 +10,35 @@
 export function buildLookupMaps(data) {
   const maps = {}
 
-  const buildMap = (items, slugField = 'slug') => {
-    const map = new Map()
-    if (!Array.isArray(items)) return map
-    for (const item of items) {
-      if (item[slugField]) map.set(item[slugField], item)
-    }
-    return map
+  // Les données sont maintenant des objets indexés par slug (clé/valeur)
+  // On les garde tels quels pour les lookups ultra-rapides
+  maps.armes = data.armes || {}
+  maps.equipements = data.equipements || {}
+  maps.attributs = data.attributs || {}
+  maps.talentsArmes = data.talentsArmes || {}
+  maps.talentsEquipements = data.talentsEquipements || {}
+  maps.ensembles = data.ensembles || {}
+  maps.modsArmes = data.modsArmes || {}
+  maps.modsEquipements = data.modsEquipements || {}
+  maps.modsCompetences = data.modsCompetences || {}
+  maps.statistiques = data.statistiques || {}
+
+  // Competences flat reste un tableau transformé en objet pour le lookup
+  const compMap = {}
+  if (Array.isArray(data.competences)) {
+    data.competences.forEach(c => {
+      if (c.slug) compMap[c.slug] = c
+    })
   }
+  maps.competences = compMap
 
-  maps.armes = buildMap(data.armes || [])
-  maps.equipements = buildMap(data.equipements || [])
-  maps.attributs = buildMap(data.attributs || [])
-  maps.talentsArmes = buildMap(data.talentsArmes || [])
-  maps.talentsEquipements = buildMap(data.talentsEquipements || [])
-  maps.ensembles = buildMap(data.ensembles || [])
-  maps.modsArmes = buildMap(data.modsArmes || [])
-  maps.modsEquipements = buildMap(data.modsEquipements || [])
-  maps.modsCompetences = buildMap(data.modsCompetences || [])
-
-  // Competences flat (slug variante → objet)
-  maps.competences = buildMap(data.competences || [])
-
-  // Class spe (cle → objet)
-  const speMap = new Map()
-  for (const spec of (data.classSpe || [])) {
-    speMap.set(spec.cle, spec)
-    if (spec.slug) speMap.set(spec.slug, spec)
+  // Class spe (clé et slug comme entrées)
+  const speMap = {}
+  if (data.classSpe) {
+    Object.values(data.classSpe).forEach(spec => {
+      if (spec.cle) speMap[spec.cle] = spec
+      if (spec.slug) speMap[spec.slug] = spec
+    })
   }
   maps.classSpe = speMap
 
@@ -45,14 +47,14 @@ export function buildLookupMaps(data) {
 
 /**
  * Résout un slug vers le nom affiché.
- * @param {Map} map - La map de lookup pour la catégorie
+ * @param {Object} map - L'objet de lookup pour la catégorie
  * @param {string} slug - Le slug à résoudre
  * @param {string} [nameField='nom'] - Le champ nom à retourner
  * @returns {string} Le nom affiché ou le slug si non trouvé
  */
 export function resolveSlug(map, slug, nameField = 'nom') {
   if (!map || !slug) return slug || ''
-  const item = map.get(slug)
+  const item = map[slug]
   return item ? (item[nameField] || slug) : slug
 }
 

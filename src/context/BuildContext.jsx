@@ -33,10 +33,20 @@ const INITIAL_STATE = {
   skillMods: [null, null],
   // Expertise : niveaux 0-20 par slot
   expertise: {
-    weapon0: 0, weapon1: 0, sidearm: 0,
-    masque: 0, torse: 0, holster: 0, sac_a_dos: 0, gants: 0, genouilleres: 0,
-  },
-}
+      weapon0: 0, weapon1: 0, sidearm: 0,
+      masque: 0, torse: 0, holster: 0, sac_a_dos: 0, gants: 0, genouilleres: 0,
+    },
+    // Prototypes : booleans par slot
+    prototypes: {
+      weapon0: false, weapon1: false, sidearm: false,
+      masque: false, torse: false, holster: false, sac_a_dos: false, gants: false, genouilleres: false,
+    },
+    // Talents prototypes : { slot: talent_object }
+    prototypeTalents: {
+      weapon0: null, weapon1: null, sidearm: null,
+      masque: null, torse: null, holster: null, sac_a_dos: null, gants: null, genouilleres: null,
+    },
+  }
 
 function buildReducer(state, action) {
   switch (action.type) {
@@ -57,7 +67,9 @@ function buildReducer(state, action) {
       weaponMods[action.slot] = null
       const slotKey = `weapon${action.slot}`
       const weaponEssentialValues = { ...state.weaponEssentialValues, [slotKey]: {} }
-      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods, weaponEssentialValues }
+      const prototypes = { ...state.prototypes, [slotKey]: false }
+      const prototypeTalents = { ...state.prototypeTalents, [slotKey]: null }
+      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods, weaponEssentialValues, prototypes, prototypeTalents }
     }
     case 'REMOVE_WEAPON': {
       const weapons = [...state.weapons]
@@ -70,7 +82,9 @@ function buildReducer(state, action) {
       weaponMods[action.slot] = null
       const slotKey2 = `weapon${action.slot}`
       const weaponEssentialValues2 = { ...state.weaponEssentialValues, [slotKey2]: {} }
-      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods, weaponEssentialValues: weaponEssentialValues2 }
+      const prototypes2 = { ...state.prototypes, [slotKey2]: false }
+      const prototypeTalents2 = { ...state.prototypeTalents, [slotKey2]: null }
+      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods, weaponEssentialValues: weaponEssentialValues2, prototypes: prototypes2, prototypeTalents: prototypeTalents2 }
     }
     case 'SET_WEAPON_TALENT': {
       const weaponTalents = [...state.weaponTalents]
@@ -79,11 +93,15 @@ function buildReducer(state, action) {
     }
     case 'SET_SIDEARM': {
       const wev = { ...state.weaponEssentialValues, sidearm: {} }
-      return { ...state, sidearm: action.weapon, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null, weaponEssentialValues: wev }
+      const prototypes = { ...state.prototypes, sidearm: false }
+      const prototypeTalents = { ...state.prototypeTalents, sidearm: null }
+      return { ...state, sidearm: action.weapon, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null, weaponEssentialValues: wev, prototypes, prototypeTalents }
     }
     case 'REMOVE_SIDEARM': {
       const wev2 = { ...state.weaponEssentialValues, sidearm: {} }
-      return { ...state, sidearm: null, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null, weaponEssentialValues: wev2 }
+      const prototypes2 = { ...state.prototypes, sidearm: false }
+      const prototypeTalents2 = { ...state.prototypeTalents, sidearm: null }
+      return { ...state, sidearm: null, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null, weaponEssentialValues: wev2, prototypes: prototypes2, prototypeTalents: prototypeTalents2 }
     }
     case 'SET_SIDEARM_TALENT': {
       return { ...state, sidearmTalent: action.talent }
@@ -98,7 +116,9 @@ function buildReducer(state, action) {
       delete gearAttributes[action.slot]
       const gearMods = { ...state.gearMods }
       delete gearMods[action.slot]
-      return { ...state, gear, gearTalents, gearAttributes, gearMods }
+      const prototypes = { ...state.prototypes, [action.slot]: false }
+      const prototypeTalents = { ...state.prototypeTalents, [action.slot]: null }
+      return { ...state, gear, gearTalents, gearAttributes, gearMods, prototypes, prototypeTalents }
     }
     case 'REMOVE_GEAR': {
       const gear = { ...state.gear, [action.slot]: null }
@@ -110,7 +130,9 @@ function buildReducer(state, action) {
       delete gearAttributes[action.slot]
       const gearMods = { ...state.gearMods }
       delete gearMods[action.slot]
-      return { ...state, gear, gearTalents, gearAttributes, gearMods }
+      const prototypes = { ...state.prototypes, [action.slot]: false }
+      const prototypeTalents = { ...state.prototypeTalents, [action.slot]: null }
+      return { ...state, gear, gearTalents, gearAttributes, gearMods, prototypes, prototypeTalents }
     }
     case 'SET_GEAR_TALENT': {
       const gearTalents = { ...state.gearTalents, [action.slot]: action.talent }
@@ -181,6 +203,10 @@ function buildReducer(state, action) {
       const expertise = { ...state.expertise, [action.slot]: Math.max(0, Math.min(20, action.level)) }
       return { ...state, expertise }
     }
+    case 'SET_PROTOTYPE_TALENT': {
+      const prototypeTalents = { ...state.prototypeTalents, [action.slot]: action.talent }
+      return { ...state, prototypeTalents }
+    }
     case 'LOAD_BUILD':
       return { ...INITIAL_STATE, ...action.build }
     case 'RESET':
@@ -196,6 +222,17 @@ export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
     if (action.type === 'SET_EXPERTISE_LEVEL') {
       const expertise = { ...state.expertise, [action.slot]: Math.max(0, Math.min(maxExpertiseLevel, action.level)) }
       return { ...state, expertise }
+    }
+    if (action.type === 'SET_PROTOTYPE') {
+      const prototypes = { ...state.prototypes, [action.slot]: action.active }
+      const expertise = { ...state.expertise }
+      const prototypeTalents = { ...state.prototypeTalents }
+      if (action.active) {
+        expertise[action.slot] = maxExpertiseLevel
+      } else {
+        prototypeTalents[action.slot] = null
+      }
+      return { ...state, prototypes, expertise, prototypeTalents }
     }
     return buildReducer(state, action)
   }, INITIAL_STATE)

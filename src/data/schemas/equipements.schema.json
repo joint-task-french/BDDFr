@@ -60,11 +60,22 @@
               },
               "valeur": {
                 "type": "number"
+              },
+              "prototypeValue": {
+                "type": "number",
+                "description": "Valeur de l'attribut sur cet équipement si prototype"
               }
             }
           }
         },
         "talents": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          }
+        },
+        "talentsPrototypes": {
           "type": "array",
           "items": {
             "type": "string",

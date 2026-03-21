@@ -14,7 +14,7 @@
         "nom": {
           "type": "string"
         },
-        "icone": {
+        "icon": {
           "type": "string",
           "pattern": "^[a-z0-9_]+$",
           "description": "Slug du fichier icône dans game_assets/talents/arme/ (sans .png)"
@@ -54,7 +54,7 @@
           "type": "string",
           "description": "Notes libres sur le talent"
         },
-        "decente": {
+        "descente": {
           "type": "object",
           "description": "Données spécifiques au mode de jeu Descente",
           "required": ["boucles", "categorie", "levels"],
@@ -82,7 +82,10 @@
                 "type": "object",
                 "description": "Valeurs des variables pour un niveau donné (ex: '1', '2', etc.)",
                 "additionalProperties": {
-                  "type": "string"
+                  "oneOf": [
+                    {"type": "string"},
+                    {"type": "number"}
+                  ]
                 }
               }
             }

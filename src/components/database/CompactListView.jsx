@@ -144,12 +144,16 @@ function GearRow({ item, ensembles, equipementsType, attributsType }) {
   const isNamed = item.estNomme && !isExotic
   const isGearSet = item.type === 'gear_set'
   const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isGearSet ? 'text-emerald-400' : 'text-shd'
-  const ensemble = ensembles?.find(e => e.slug === item.marque )
+  const ensemble = (ensembles && !Array.isArray(ensembles)) 
+    ? ensembles[item.marque] 
+    : ensembles?.find(e => e.slug === item.marque )
 
   const attrsEssentiels = React.useMemo(() => {
     if (Array.isArray(item.attributEssentiel) && item.attributEssentiel.length > 0) return item.attributEssentiel
     if (!ensembles || !item.marque) return []
-    const ensemble = ensembles.find(e => e.slug === item.marque || e.nom.toLowerCase() === item.marque.toLowerCase())
+    const ensemble = (ensembles && !Array.isArray(ensembles))
+      ? ensembles[item.marque]
+      : ensembles.find(e => e.slug === item.marque || e.nom.toLowerCase() === item.marque.toLowerCase())
     return ensemble?.attributsEssentiels || []
   }, [item, ensembles])
 
@@ -180,7 +184,7 @@ function EnsembleRow({ item, attributsType }) {
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">
-        <GameIcon src={resolveIcon(item.logo)} alt="" size="w-8 h-8" />
+        <GameIcon src={resolveIcon(item.icon)} alt="" size="w-8 h-8" />
       </div>
       <div className="flex flex-col min-w-0 w-48 md:w-80 flex-shrink-0">
         <div className={`font-bold text-sm uppercase truncate ${nameColor}`}>{item.nom}</div>
@@ -202,7 +206,7 @@ function SkillRow({ item }) {
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">
-        <GameIcon src={resolveIcon(item.icone)} alt="" size="w-8 h-8" />
+        <GameIcon src={resolveIcon(item.icon)} alt="" size="w-8 h-8" />
       </div>
       <div className="flex flex-col min-w-0 w-48 md:w-80 flex-shrink-0">
         <div className="font-bold text-sm uppercase truncate text-shd">{item.variante}</div>
@@ -230,7 +234,7 @@ function TalentRow({ item }) {
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">
-        <GameIcon src={resolveIcon(item.icone)} alt="" size="w-8 h-8" />
+        <GameIcon src={resolveIcon(item.icon)} alt="" size="w-8 h-8" />
       </div>
       <div className="font-bold text-sm uppercase truncate text-shd w-48 md:w-80 flex-shrink-0">{item.nom}</div>
     </>
@@ -255,7 +259,7 @@ function ModArmeRow({ item, armesType }) {
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">
-        <GameIcon src={resolveIcon(item.icone)} alt="" size="w-8 h-8" />
+        <GameIcon src={resolveIcon(item.icon)} alt="" size="w-8 h-8" />
       </div>
       <div className="flex flex-col min-w-0 w-48 md:w-80 flex-shrink-0">
         <div className="font-bold text-sm uppercase truncate text-shd">{item.nom}</div>
@@ -278,7 +282,7 @@ function ModEquipRow({ item }) {
 
 function ModSkillRow({ item, competencesGrouped }) {
   const skillName = competencesGrouped?.[item.competence]?.competence || item.competence
-  const skillIcon = resolveIcon(item.competence) || resolveIcon(item.icone)
+  const skillIcon = resolveIcon(item.competence) || resolveIcon(item.icon)
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">

@@ -6,7 +6,7 @@
  *
  * Pour ajouter un nouvel asset talent/compétence/marque :
  *   1. Déposer le fichier .png dans le bon dossier sous src/img/game_assets/
- *   2. Renseigner le champ "icone" dans le JSONC correspondant avec le nom du fichier (sans .png)
+ *   2. Renseigner le champ "icon" dans le JSONC correspondant avec le nom du fichier (sans .png)
  *   → L'icône sera automatiquement disponible, aucun code à modifier.
  */
 
@@ -34,12 +34,12 @@ export const WEAPON_TYPE_ICONS = {
 // ================================================================
 // ICÔNES TYPE D'ÉQUIPEMENT (fixes, peu nombreux)
 // ================================================================
-import equip_masque from '../img/game_assets/equipements/masque.png'
-import equip_torse from '../img/game_assets/equipements/torse.png'
-import equip_holster from '../img/game_assets/equipements/holster.png'
-import equip_sac from '../img/game_assets/equipements/sac.png'
-import equip_gants from '../img/game_assets/equipements/gants.png'
-import equip_genouilleres from '../img/game_assets/equipements/genouilleres.png'
+import equip_masque from '../img/game_assets/equipements-type/masque.png'
+import equip_torse from '../img/game_assets/equipements-type/torse.png'
+import equip_holster from '../img/game_assets/equipements-type/holster.png'
+import equip_sac from '../img/game_assets/equipements-type/sac.png'
+import equip_gants from '../img/game_assets/equipements-type/gants.png'
+import equip_genouilleres from '../img/game_assets/equipements-type/genouilleres.png'
 
 export const GEAR_SLOT_ICONS_IMG = {
   masque: equip_masque,
@@ -117,6 +117,10 @@ export const WEAPON_TALENT_ICONS = buildIndex(_talentsArmeGlob)
 const _talentsEquipGlob = import.meta.glob('../img/game_assets/talents/equipements/**/*.png', { eager: true })
 export const GEAR_TALENT_ICONS = buildIndex(_talentsEquipGlob)
 
+// Talents Prototypes
+const _talentsPrototypesGlob = import.meta.glob('../img/game_assets/talents/prototypes/**/*.png', { eager: true })
+export const PROTOTYPE_TALENT_ICONS = buildIndex(_talentsPrototypesGlob)
+
 // Compétences
 const _competencesGlob = import.meta.glob('../img/game_assets/competences/**/*.png', { eager: true })
 export const SKILL_ICONS = buildIndex(_competencesGlob)
@@ -138,6 +142,7 @@ export function resolveIcon(slug) {
   return WEAPON_ICONS[slug]
     || WEAPON_TALENT_ICONS[slug]
     || GEAR_TALENT_ICONS[slug]
+    || PROTOTYPE_TALENT_ICONS[slug]
     || SKILL_ICONS[slug]
     || BRAND_ICONS[slug]
     || null

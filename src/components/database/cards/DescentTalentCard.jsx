@@ -3,8 +3,8 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { slugify } from '../../../utils/slugify.js';
 
 export default function DescentTalentCard({ item }) {
-    const { nom, icone, decente, isWeaponTalent } = item;
-    const { boucles, categorie, levels } = decente;
+    const { nom, icon, descente, isWeaponTalent } = item;
+    const { boucles, categorie, levels } = descente;
     const { category, slug, modifier } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
@@ -63,9 +63,9 @@ export default function DescentTalentCard({ item }) {
                 <div className="flex items-start justify-between gap-2">
 
                     <div className="flex items-center gap-3">
-                        {icone && (
+                        {icon && (
                             <img
-                                src={`/img/game_assets/talents/${isWeaponTalent ? 'arme' : 'equipements'}/${icone}.png`}
+                                src={`/img/game_assets/talents/${isWeaponTalent ? 'arme' : 'equipements'}/${icon}.png`}
                                 alt={nom}
                                 className="w-8 h-8 object-contain"
                                 onError={(e) => { e.target.style.display = 'none'; }}

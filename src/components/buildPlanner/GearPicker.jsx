@@ -41,7 +41,9 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
   const allPieces = useMemo(() => {
     const pieces = []
     const seen = new Set()
-    ;(data.equipements || []).forEach(e => {
+    const rawEquipements = data.equipements || {}
+    const list = Array.isArray(rawEquipements) ? rawEquipements : Object.values(rawEquipements)
+    list.forEach(e => {
       if (e.emplacement === slotKey && !seen.has(e.nom)) {
         seen.add(e.nom)
         pieces.push(e)
@@ -101,7 +103,9 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
   // Résolution slug → nom pour les marques
   const marqueNames = useMemo(() => {
     const map = {}
-    for (const e of (data.ensembles || [])) {
+    const rawEnsembles = data.ensembles || {}
+    const list = Array.isArray(rawEnsembles) ? rawEnsembles : Object.values(rawEnsembles)
+    for (const e of list) {
       if (e.slug) map[e.slug] = e.nom
       map[e.nom.toLowerCase()] = e.nom
     }

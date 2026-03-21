@@ -2,6 +2,7 @@ import WeaponCard from './cards/WeaponCard'
 import GearCard from './cards/GearCard'
 import TalentArmeCard from './cards/TalentArmeCard'
 import TalentEquipCard from './cards/TalentEquipCard'
+import TalentPrototypeCard from './cards/TalentPrototypeCard'
 import EnsembleCard from './cards/EnsembleCard'
 import SkillCard from './cards/SkillCard'
 import ModArmeCard from './cards/ModArmeCard'
@@ -20,6 +21,7 @@ const GRID_CONFIG = {
   attributs:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
   talentsArmes:      'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
   talentsEquipements:'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
+  talentsPrototypes: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
   ensembles:         'grid-cols-1 sm:grid-cols-2 3xl:grid-cols-3',
   competences:       'grid-cols-1 sm:grid-cols-2 3xl:grid-cols-3',
   modsArmes:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
@@ -35,6 +37,7 @@ const CARD_COMPONENTS = {
   attributs: AttributCard,
   talentsArmes: TalentArmeCard,
   talentsEquipements: TalentEquipCard,
+  talentsPrototypes: TalentPrototypeCard,
   ensembles: EnsembleCard,
   competences: SkillCard,
   modsArmes: ModArmeCard,
@@ -108,9 +111,11 @@ export default function CategorySection({ category, items, searchTerm, allData, 
   }
   if (category?.key === 'modsArmes') {
     if (allData?.attributs) extraProps.allAttributs = allData.attributs
+    if (allData?.modsArmesType) extraProps.modsArmesType = allData.modsArmesType
   }
   if (category?.key === 'modsCompetences') {
     if (allData?.competencesGrouped) extraProps.competencesGrouped = allData.competencesGrouped
+    if (allData?.attributs) extraProps.allAttributs = allData.attributs
   }
 
   const navigate = useNavigate();
@@ -118,8 +123,16 @@ export default function CategorySection({ category, items, searchTerm, allData, 
 
   const handleItemClick = (item) => {
     const itemSlug = item.slug || item.nom;
-    const newUrl = `/db/${category.key}/${itemSlug}${location.search}`;
-    navigate(newUrl, { replace: true });
+    const pathParts = location.pathname.split('/');
+    const currentSlug = pathParts[3];
+    const currentModifier = pathParts[4];
+
+    let newPath = `/db/${category.key}/${itemSlug}`;
+    if (currentSlug === itemSlug && currentModifier) {
+      newPath += `/${currentModifier}`;
+    }
+
+    navigate(`${newPath}${location.search}`, { replace: true });
   };
 
   if (isCompactMode) {

@@ -3,11 +3,13 @@ import { useBuild } from '../../context/BuildContext'
 import WeaponSlot from './WeaponSlot'
 import WeaponPicker from './WeaponPicker'
 import WeaponTalentPicker from './WeaponTalentPicker'
+import PrototypeTalentPicker from './PrototypeTalentPicker'
 
 export default function WeaponSection({ data }) {
-  const { specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods, sidearm, sidearmTalent, sidearmAttribute, sidearmMods, specialisation, SPECIALISATIONS, expertise, maxExpertiseLevel, weaponEssentialValues, dispatch } = useBuild()
+  const { specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods, sidearm, sidearmTalent, sidearmAttribute, sidearmMods, specialisation, SPECIALISATIONS, expertise, maxExpertiseLevel, weaponEssentialValues, prototypes, prototypeTalents, dispatch } = useBuild()
   const [pickerOpen, setPickerOpen] = useState(null)
   const [talentPickerSlot, setTalentPickerSlot] = useState(null)
+  const [protoTalentSlot, setProtoTalentSlot] = useState(null)
 
   const handleExpertise = (slot, level) => dispatch({ type: 'SET_EXPERTISE_LEVEL', slot, level })
 
@@ -57,6 +59,9 @@ export default function WeaponSection({ data }) {
           essentialSlotKey="weapon0"
           essentialValues={weaponEssentialValues?.weapon0}
           dispatch={dispatch}
+          isPrototype={prototypes?.weapon0}
+          prototypeTalent={prototypeTalents?.weapon0}
+          onSelectPrototypeTalent={() => setProtoTalentSlot('weapon0')}
         />
 
         {/* Arme secondaire */}
@@ -82,6 +87,9 @@ export default function WeaponSection({ data }) {
           essentialSlotKey="weapon1"
           essentialValues={weaponEssentialValues?.weapon1}
           dispatch={dispatch}
+          isPrototype={prototypes?.weapon1}
+          prototypeTalent={prototypeTalents?.weapon1}
+          onSelectPrototypeTalent={() => setProtoTalentSlot('weapon1')}
         />
 
         {/* Arme de poing */}
@@ -108,6 +116,9 @@ export default function WeaponSection({ data }) {
           essentialSlotKey="sidearm"
           essentialValues={weaponEssentialValues?.sidearm}
           dispatch={dispatch}
+          isPrototype={prototypes?.sidearm}
+          prototypeTalent={prototypeTalents?.sidearm}
+          onSelectPrototypeTalent={() => setProtoTalentSlot('sidearm')}
         />
       </div>
 
@@ -167,6 +178,15 @@ export default function WeaponSection({ data }) {
           slotIndex="sidearm"
           weaponType="pistolet"
           onClose={() => setTalentPickerSlot(null)}
+        />
+      )}
+
+      {/* Prototype Talent Picker */}
+      {protoTalentSlot && (
+        <PrototypeTalentPicker
+          data={data}
+          slotKey={protoTalentSlot}
+          onClose={() => setProtoTalentSlot(null)}
         />
       )}
     </>

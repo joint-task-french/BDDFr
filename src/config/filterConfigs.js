@@ -4,7 +4,8 @@ import { getWeaponTypeEntries } from '../utils/formatters'
 // Utilitaire : calcul des bornes min/max depuis un tableau de valeurs
 // ================================================================
 function bounds(items, field, { step = 1, fallbackMin = 0, fallbackMax = 100 } = {}) {
-  const values = items.map(i => i[field]).filter(v => typeof v === 'number' && v > 0)
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  const values = list.map(i => i[field]).filter(v => typeof v === 'number' && v > 0)
   if (values.length === 0) return { min: fallbackMin, max: fallbackMax }
   const rawMin = Math.min(...values)
   const rawMax = Math.max(...values)
@@ -25,9 +26,10 @@ function getSlotOrder(slot) { return SLOT_ORDER[slot] || 99 }
 // 🛠 MOTEUR DE TRI MULTI-COUCHES
 // ================================================================
 function multiSort(items, sortLayers, getters) {
-  if (!Array.isArray(sortLayers) || sortLayers.length === 0) return items
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  if (!Array.isArray(sortLayers) || sortLayers.length === 0) return list
 
-  return [...items].sort((a, b) => {
+  return [...list].sort((a, b) => {
     for (const layer of sortLayers) {
       const getter = getters[layer.id]
       if (!getter) continue
@@ -171,6 +173,20 @@ const talentEquipGetters = {
 }
 export function applySortTalentsEquip(items, sortLayers) { return multiSort(items, sortLayers, talentEquipGetters) }
 
+// TALENTS PROTOTYPES
+export const TALENT_PROTOTYPE_SORT_OPTIONS = [
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'statMax', label: 'Statistique Max', ascLabel: '↑', descLabel: '↓' }
+]
+export const TALENT_PROTOTYPE_DEFAULT_SORT = [
+  { id: 'alpha', desc: false }
+]
+const talentPrototypeGetters = {
+  alpha: (item) => item.nom || '',
+  statMax: (item) => item.statMax || 0
+}
+export function applySortTalentsPrototypes(items, sortLayers) { return multiSort(items, sortLayers, talentPrototypeGetters) }
+
 // MODS D'ARMES
 export const MOD_ARME_SORT_OPTIONS = [
   { id: 'rarity', label: 'Rareté', ascLabel: '↑', descLabel: '↓' },
@@ -258,7 +274,7 @@ export function applySortSkills(items, sortLayers) { return multiSort(items, sor
 // ================================================================
 
 export function getWeaponFilters(data) {
-  const armes = data?.armes || []
+  const armes = Array.isArray(data?.armes) ? data.armes : Object.values(data?.armes || {})
   const armesType = data?.armes_type || {}
   const typeOptions = getWeaponTypeEntries(armesType)
       .filter(([k]) => k !== 'autre')
@@ -284,7 +300,7 @@ export function getWeaponFilters(data) {
 }
 
 export function getWeaponDefaults(data) {
-  const armes = data?.armes || []
+  const armes = Array.isArray(data?.armes) ? data.armes : Object.values(data?.armes || {})
   const portee = bounds(armes, 'portee', { step: 5 })
   const rpm = bounds(armes, 'rpm', { step: 50 })
   const chargeur = bounds(armes, 'chargeur', { step: 5 })
@@ -302,7 +318,8 @@ export function getWeaponDefaults(data) {
 }
 
 export function applyWeaponFilters(items, filters) {
-  return items.filter(item => {
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  return list.filter(item => {
     if (filters.types.length > 0 && !filters.types.includes(item.type)) return false
     const portee = item.portee || 0
     if (portee > 0 && (portee < filters.porteeMin[0] || portee > filters.porteeMin[1])) return false
@@ -323,8 +340,9 @@ export function getGearFilters(data) {
   const attrType = data?.attributs_type || {}
   const slotOptions = Object.entries(eqType).map(([value, obj]) => ({ value, label: obj.nom }))
 
-  const marques = data?.ensembles
-      ? [...new Map(data.ensembles.map(e => [e.slug || e.nom, e.nom])).entries()]
+  const ensembles = Array.isArray(data?.ensembles) ? data.ensembles : Object.values(data?.ensembles || {})
+  const marques = ensembles
+      ? [...new Map(ensembles.map(e => [e.slug || e.nom, e.nom])).entries()]
           .sort((a, b) => a[1].localeCompare(b[1]))
           .map(([slug, nom]) => ({ value: slug, label: nom }))
       : []
@@ -360,7 +378,8 @@ export function getGearDefaults() {
 }
 
 export function applyGearFilters(items, filters) {
-  return items.filter(item => {
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  return list.filter(item => {
     if (filters.emplacement && item.emplacement !== filters.emplacement) return false
     if (filters.marque && item.marque !== filters.marque) return false
     if (filters.attributEssentiel && !(Array.isArray(item.attributEssentiel) && item.attributEssentiel.includes(filters.attributEssentiel))) return false
@@ -394,7 +413,8 @@ export function getTalentArmeDefaults() {
 }
 
 export function applyTalentArmeFilters(items, filters) {
-  return items.filter(item => {
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  return list.filter(item => {
     if (filters.compatibilite.length > 0) {
       const compat = item.compatibilite || {}
       if (!filters.compatibilite.every(type => compat[type] === true)) return false
@@ -427,7 +447,8 @@ export function getTalentEquipDefaults() {
 }
 
 export function applyTalentEquipFilters(items, filters) {
-  return items.filter(item => {
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  return list.filter(item => {
     if (filters.emplacement) {
       if (item.emplacement !== filters.emplacement) return false
     }
@@ -437,16 +458,36 @@ export function applyTalentEquipFilters(items, filters) {
   })
 }
 
-export function getModArmeFilters() {
+// ================================================================
+// TALENTS PROTOTYPES
+// ================================================================
+export function getTalentPrototypeFilters(data) {
+  return []
+}
+export function getTalentPrototypeDefaults() {
+  return {}
+}
+export function applyTalentPrototypeFilters(items, filters) {
+  return items
+}
+
+export function getModArmeFilters(data) {
+  const types = data?.modsArmesType || {}
+  const typeOptions = Object.entries(types)
+    .filter(([slug]) => !slug.includes('_')) // On ne garde que les types principaux pour le filtre global si on veut, ou tout
+    .map(([value, obj]) => ({ value, label: obj.nom }))
+
+  // Si on veut vraiment limiter aux 4 de base (enum du schema) :
+  const mainTypes = ['chargeur', 'canon', 'viseur', 'bouche']
+  const filteredOptions = mainTypes.map(slug => ({
+    value: slug,
+    label: types[slug]?.nom || slug
+  }))
+
   return [
     {
       key: 'type', type: 'checkboxes', label: 'Type de mod',
-      options: [
-        { value: 'chargeur', label: 'Chargeur' },
-        { value: 'canon', label: 'Canon' },
-        { value: 'viseur', label: 'Viseur' },
-        { value: 'bouche', label: 'bouche' },
-      ],
+      options: filteredOptions,
     },
     { key: 'estExotique', type: 'tri-state', label: 'Exotique' },
   ]
@@ -457,7 +498,8 @@ export function getModArmeDefaults() {
 }
 
 export function applyModArmeFilters(items, filters) {
-  return items.filter(item => {
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  return list.filter(item => {
     if (filters.type.length > 0 && !filters.type.includes(item.type)) return false
     if (filters.estExotique !== null && filters.estExotique !== undefined && !!item.estExotique !== filters.estExotique) return false
     return true
@@ -466,13 +508,13 @@ export function applyModArmeFilters(items, filters) {
 
 export function getEnsembleFilters(data) {
   const statsSet = new Map()
-  const ensembles = data?.ensembles || []
-  const statistiques = data?.statistiques || []
+  const ensembles = Array.isArray(data?.ensembles) ? data.ensembles : Object.values(data?.ensembles || {})
+  const statistiques = data?.statistiques || {}
   for (const ens of ensembles) {
     if (ens.attributsEssentiels) {
       for (const slug of ens.attributsEssentiels) {
         if (!statsSet.has(slug)) {
-          const stat = statistiques.find(s => s.slug === slug)
+          const stat = statistiques[slug]
           statsSet.set(slug, stat?.nom || slug)
         }
       }
@@ -496,7 +538,8 @@ export function getEnsembleDefaults() {
 }
 
 export function applyEnsembleFilters(items, filters) {
-  return items.filter(item => {
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  return list.filter(item => {
     if (filters.isGearSet !== null && filters.isGearSet !== undefined) {
       const isGS = item.type === 'gear_set'
       if (isGS !== filters.isGearSet) return false
@@ -519,7 +562,8 @@ export function getAttributFilters(data) {
   const attrType = data?.attributs_type || {}
   const typeOptions = Object.entries(attrType).map(([value, obj]) => ({ value, label: obj.nom }))
 
-  const statistiques = data?.statistiques || []
+  const statistiquesRaw = data?.statistiques || {}
+  const statistiques = Array.isArray(statistiquesRaw) ? statistiquesRaw : Object.values(statistiquesRaw)
   const statOptions = statistiques
       .map(s => ({ value: s.slug, label: s.nom }))
       .sort((a, b) => a.label.localeCompare(b.label, 'fr'))
@@ -546,7 +590,8 @@ export function getAttributDefaults() {
 }
 
 export function applyAttributFilters(items, filters) {
-  return items.filter(item => {
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  return list.filter(item => {
     if (filters.estEssentiel !== null && filters.estEssentiel !== undefined && !!item.estEssentiel !== filters.estEssentiel) return false
     if (filters.categorie && item.categorie !== filters.categorie) return false
     if (filters.cible && !(Array.isArray(item.cible) && item.cible.includes(filters.cible))) return false
@@ -556,9 +601,10 @@ export function applyAttributFilters(items, filters) {
 }
 
 export function getCompetenceFilters(data) {
-  const comps = data?.competencesGrouped || data?.competences || []
+  const rawComps = data?.competencesGrouped || data?.competences || []
+  const comps = Array.isArray(rawComps) ? rawComps : Object.values(rawComps)
   let parentOptions = []
-  if (Array.isArray(comps) && comps.length > 0) {
+  if (comps.length > 0) {
     if (comps[0]?.variantes) {
       parentOptions = comps
           .map(c => ({ value: c.competence, label: c.competence }))
@@ -584,7 +630,8 @@ export function getCompetenceDefaults() {
 }
 
 export function applyCompetenceFilters(items, filters) {
-  return items.filter(item => {
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  return list.filter(item => {
     if (filters.competence && item.competence !== filters.competence) return false
     return true
   })
@@ -614,7 +661,8 @@ export function getModEquipementDefaults() {
 }
 
 export function applyModEquipementFilters(items, filters) {
-  return items.filter(item => {
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  return list.filter(item => {
     if (filters.categorie && item.categorie !== filters.categorie) return false
     return true
   })
@@ -656,7 +704,8 @@ export function getModCompetenceDefaults() {
 }
 
 export function applyModCompetenceFilters(items, filters) {
-  return items.filter(item => {
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  return list.filter(item => {
     if (filters.competence && item.competence !== filters.competence) return false
     if (filters.emplacement && item.emplacement !== filters.emplacement) return false
     return true
@@ -668,28 +717,38 @@ export function applyModCompetenceFilters(items, filters) {
 // FILTRES : DESCENTE
 // ================================================================
 export const DESCENTE_SORT_OPTIONS = [
+  { id: 'categorie', label: 'Catégorie', ascLabel: 'Exo ➔ Uti', descLabel: 'Uti ➔ Exo' },
   { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
-  { id: 'categorie', label: 'Catégorie', ascLabel: 'A-Z', descLabel: 'Z-A' }
 ]
 export const DESCENTE_DEFAULT_SORT = [
   { id: 'categorie', desc: false },
   { id: 'alpha', desc: false }
 ]
+
+// Dictionnaire de poids pour forcer l'ordre de tri
+const DESCENTE_CATEGORIE_ORDER = {
+  'exotique': 1,
+  'offensif': 2,
+  'défensif': 3,
+  'utilitaire': 4
+}
+
 const descenteGetters = {
   alpha: (item) => item.nom || '',
-  categorie: (item) => item.decente?.categorie || ''
+  categorie: (item) => DESCENTE_CATEGORIE_ORDER[item.descente?.categorie] || 99
 }
 export function applySortDescente(items, sortLayers) { return multiSort(items, sortLayers, descenteGetters) }
+
 
 
 export function getDescenteFilters(data) {
   const wTalents = Array.isArray(data?.talentsArmes) ? data.talentsArmes : Object.values(data?.talentsArmes || {})
   const gTalents = Array.isArray(data?.talentsEquipements) ? data.talentsEquipements : Object.values(data?.talentsEquipements || {})
 
-  const descentTalents = [...wTalents, ...gTalents].filter(t => t.decente)
+  const descentTalents = [...wTalents, ...gTalents].filter(t => t.descente)
 
   const bouclesSet = new Set()
-  descentTalents.forEach(t => t.decente.boucles.forEach(b => bouclesSet.add(b)))
+  descentTalents.forEach(t => t.descente.boucles.forEach(b => bouclesSet.add(b)))
   const boucleOptions = Array.from(bouclesSet)
       .sort()
       .map(b => ({ value: b, label: b }))
@@ -716,9 +775,10 @@ export function getDescenteDefaults() {
 }
 
 export function applyDescenteFilters(items, filters) {
-  return items.filter(item => {
-    if (filters.boucle && !item.decente.boucles.includes(filters.boucle)) return false
-    if (filters.categorie && item.decente.categorie !== filters.categorie) return false
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+  return list.filter(item => {
+    if (filters.boucle && !item.descente.boucles.includes(filters.boucle)) return false
+    if (filters.categorie && item.descente.categorie !== filters.categorie) return false
     return true
   })
 }

@@ -24,20 +24,16 @@ function getClassicSlotCount(piece) {
  */
 function findDefaultEssentialAttr(allAttributs, categorie) {
   if (!allAttributs || !categorie) return null
-  const ref = allAttributs.find(a =>
+  const attrList = Array.isArray(allAttributs) ? allAttributs : Object.values(allAttributs || {})
+  const ref = attrList.find(a =>
       a.cible?.includes('equipement') &&
       a.categorie === categorie &&
       a.estEssentiel === true
   )
   if (!ref) return null
   return {
-    nom: ref.nom,
-    slug: ref.slug,
+    ...ref,
     valeur: ref.max,
-    min: ref.min,
-    max: ref.max,
-    unite: ref.unite,
-    categorie: ref.categorie,
   }
 }
 
@@ -53,7 +49,9 @@ function resolveInitialEssentialCategory(piece, ensembles) {
   }
   // Sinon chercher dans l'ensemble lié pour pré-remplir
   if (piece.marque && piece.marque !== '*' && ensembles) {
-    const ens = ensembles.find(e => e.slug === piece.marque || e.nom === piece.marque)
+    const ens = (ensembles && !Array.isArray(ensembles))
+      ? ensembles[piece.marque]
+      : ensembles.find(e => e.slug === piece.marque || e.nom === piece.marque)
     if (ens?.attributsEssentiels && ens.attributsEssentiels.length > 0) {
       return mapEssentialNames(ens.attributsEssentiels)
     }
@@ -70,14 +68,21 @@ function mapEssentialNames(names) {
   const map = {
     // Slugs utilisés dans ensembles.jsonc
     'degats_arme': 'offensif',
+    'degats_armes': 'offensif',
     'protection': 'défensif',
     'tiers_de_competence': 'utilitaire',
-    // Noms textuels (rétrocompatibilité)
+    'tier_de_competence': 'utilitaire',
+    // Noms textuels
     "Dégâts d'armes": 'offensif',
     "Dégâts d'arme": 'offensif',
     'Protection': 'défensif',
     'Tier de compétence': 'utilitaire',
     'Tiers de compétence': 'utilitaire',
+    // Valeurs directes
+    'offensif': 'offensif',
+    'defensif': 'défensif',
+    'défensif': 'défensif',
+    'utilitaire': 'utilitaire'
   }
   return names.map(n => map[n] || n).filter(Boolean)
 }
@@ -92,12 +97,19 @@ function mapEssentialNames(names) {
  * Pour les exotiques avec attributEssentiel fixé par la pièce, l'attribut
  * est pré-rempli et non remplaçable.
  */
-export default function GearAttributePanel({ piece, attributes, allAttributs, modsEquipements, gearMods, onChange, onChangeMod, attributsType, ensembles }) {
+export default function GearAttributePanel({ piece, attributes, allAttributs, modsEquipements, gearMods, onChange, onChangeMod, attributsType, ensembles, isPrototype, slotKey, equipementsType, expertiseLevel }) {
   const [pickerOpen, setPickerOpen] = useState(null)
   const [modPickerIndex, setModPickerIndex] = useState(null)
 
   const isExotic = piece?.type === 'exotique'
   const classicCount = getClassicSlotCount(piece)
+
+  const pb = useMemo(() => {
+    if (!slotKey || !equipementsType) return 0
+    const base = equipementsType[slotKey]?.protectionBase || 0
+    const grade = expertiseLevel || 0
+    return Math.floor(base * (1 + grade * 0.01))
+  }, [slotKey, equipementsType, expertiseLevel])
 
   // Calcul du nombre de mods possibles en fonction de piece.mod (booléen ou entier)
   const modCount = useMemo(() => {
@@ -131,38 +143,75 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
   const essentiels = attributes?.essentiels || []
   const classiques = attributes?.classiques || []
 
-  // Pré-remplir les attributs essentiels par défaut
+  // Pré-remplir les attributs par défaut (essentiels et classiques pour nommés/exos)
   useEffect(() => {
-    if (!piece || !allAttributs || !allAttributs.length) return
-    if (essentiels.length > 0 && essentiels[0]) return
+    if (!piece || !allAttributs) return
+    const hasData = Array.isArray(allAttributs) ? allAttributs.length > 0 : Object.keys(allAttributs).length > 0
+    if (!hasData) return
 
-    if (isEssentialFixedByPiece) {
-      // Exotiques : pré-remplir avec les catégories fixées
-      const newEss = fixedEssentialCategories
-          .map(cat => findDefaultEssentialAttr(allAttributs, cat))
-          .filter(Boolean)
-      if (newEss.length > 0) {
-        onChange({ essentiels: newEss, classiques })
-      }
-    } else {
-      // Résoudre la catégorie depuis l'ensemble
-      const cats = initialCategories
-      if (cats && cats.length > 0) {
-        const defaultAttr = findDefaultEssentialAttr(allAttributs, cats[0])
-        if (defaultAttr) {
-          onChange({ essentiels: [defaultAttr], classiques })
+    let nextEss = [...essentiels]
+    let nextCls = [...classiques]
+    let changed = false
+
+    // 1. Initialisation des essentiels si vide
+    if (nextEss.length === 0) {
+      if (isEssentialFixedByPiece) {
+        nextEss = fixedEssentialCategories
+            .map(cat => findDefaultEssentialAttr(allAttributs, cat))
+            .filter(Boolean)
+        if (nextEss.length > 0) changed = true
+      } else {
+        const cats = initialCategories
+        if (cats && cats.length > 0) {
+          const defaultAttr = findDefaultEssentialAttr(allAttributs, cats[0])
+          if (defaultAttr) {
+            nextEss = [defaultAttr]
+            changed = true
+          }
         }
       }
     }
-  }, [piece?.nom, allAttributs?.length, ensembles?.length]) // eslint-disable-line react-hooks/exhaustive-deps
+
+    // 2. Initialisation des classiques si vide et présents sur la pièce (exotiques/nommés)
+    if (nextCls.length === 0 && piece.attributs?.length > 0) {
+      nextCls = piece.attributs.map(pa => {
+        // Recherche par slug direct d'abord, puis par nom
+        const ref = allAttributs[pa.nom] || Object.values(allAttributs).find(a => a.nom === pa.nom || a.slug === pa.nom)
+        if (!ref) return null
+        const pMax = ref.maxPrototype ?? ref.prototypeMax ?? ref.max
+        return {
+          ...ref,
+          valeur: pa.valeur ?? (isPrototype ? pMax : ref.max),
+        }
+      }).filter(Boolean)
+      if (nextCls.length > 0) changed = true
+    }
+
+    if (changed) {
+      onChange({ essentiels: nextEss, classiques: nextCls })
+    }
+  }, [piece?.nom, allAttributs, ensembles]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Noms déjà utilisés
   const usedNames = useMemo(() => {
     const names = []
-    essentiels.forEach(a => { if (a?.nom) names.push(a.nom) })
-    classiques.forEach(a => { if (a?.nom) names.push(a.nom) })
+    essentiels.forEach(a => {
+      if (a?.nom) names.push(a.nom)
+      if (a?.slug) names.push(a.slug)
+    })
+    classiques.forEach(a => {
+      if (a?.nom) names.push(a.nom)
+      if (a?.slug) names.push(a.slug)
+    })
     return names
   }, [essentiels, classiques])
+
+  // Est-ce que l'attribut classique est fixé par la pièce ?
+  // (nommés/exotiques avec attributs listés dans la donnée de la pièce)
+  const isClassicFixedByIndex = (idx) => {
+    if (!piece?.attributs || !Array.isArray(piece.attributs)) return false
+    return !!piece.attributs[idx]
+  }
 
   const updateAttributes = (newEss, newClassiques) => {
     onChange({ essentiels: newEss, classiques: newClassiques })
@@ -184,6 +233,17 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
 
   return (
       <div className="mt-2 pt-2 border-t border-tactical-border/30 space-y-0.5">
+        {/* Protection de base */}
+        {pb > 0 && (
+            <div className="flex items-center justify-between text-xs py-0.5 mb-1 px-1 bg-blue-500/5 rounded border border-blue-500/10">
+                <div className="flex flex-col">
+                    <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Protection de base</span>
+                    {expertiseLevel > 0 && <span className="text-[9px] text-blue-400/60 font-medium">Inclut Expertise (+{expertiseLevel}%)</span>}
+                </div>
+                <span className="text-blue-300 font-bold">{pb.toLocaleString('fr-FR')} pts</span>
+            </div>
+        )}
+
         {/* Attributs essentiels */}
         {isExotic && isEssentialFixedByPiece ? (
             /* Exotiques avec attributs fixés : un slider par catégorie fixée, non remplaçable */
@@ -209,6 +269,7 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
                 onPick={() => setPickerOpen('essential-0')}
                 onRemove={() => setEssential(0, null)}
                 label="Essentiel"
+                isPrototype={isPrototype}
             />
         )}
 
@@ -217,10 +278,12 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
             <AttributeSlider
                 key={`classic-${i}`}
                 attribute={classiques[i] || null}
+                readOnly={isClassicFixedByIndex(i)}
                 onChange={(attr) => setClassic(i, attr)}
                 onPick={() => setPickerOpen(`classic-${i}`)}
-                onRemove={() => setClassic(i, null)}
+                onRemove={isClassicFixedByIndex(i) ? null : () => setClassic(i, null)}
                 label={`Attribut ${i + 1}`}
+                isPrototype={isPrototype}
             />
         ))}
 
@@ -318,9 +381,11 @@ function GearModPicker({ mods, allAttributs, onSelect, onClose }) {
 
   const filtered = useMemo(() => {
     if (!mods) return []
-    if (!search) return mods
+    const modsList = Array.isArray(mods) ? mods : Object.values(mods)
+    let list = modsList.filter(m => !m.estExotique)
+    if (!search) return list
     const s = search.toLowerCase()
-    return mods.filter(m =>
+    return list.filter(m =>
         (m.nom || '').toLowerCase().includes(s) ||
         (m.categorie || '').toLowerCase().includes(s) ||
         formatModAttributs(m, allAttributs).toLowerCase().includes(s)

@@ -32,10 +32,24 @@
           "patch": { "type": "string", "description": "Nom du patch associé (ex: TU22)" },
           "changements": {
             "type": "array",
-            "items": { "type": "string" },
-            "description": "Liste des changements effectués"
+            "description": "Liste des changements effectués (chaque élément peut être une chaîne Markdown ou un objet pliable)",
+            "items": {
+              "oneOf": [
+                { "type": "string", "description": "Contenu au format Markdown pris en charge" },
+                {
+                  "type": "object",
+                  "required": ["titre", "description"],
+                  "properties": {
+                    "titre": { "type": "string", "description": "Titre affiché quand l'élément est replié" },
+                    "description": { "type": "string", "description": "Contenu détaillé au format Markdown" }
+                  },
+                  "additionalProperties": false
+                }
+              ]
+            }
           }
-        }
+        },
+        "additionalProperties": false
       }
     }
   }

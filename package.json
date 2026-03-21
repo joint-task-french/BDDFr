@@ -11,7 +11,14 @@
     "sync-data": "node scripts/sync-data.mjs",
     "generate-statics": "node scripts/generate-static-pages.mjs",
     "generate-statics-images": "node scripts/generate-static-pages-images.mjs",
-    "validate": "node scripts/validate-schemas.mjs && node scripts/validate-slugs.mjs",
+
+    "validate-ensembles-pieces": "node scripts/validate/validate-ensembles-pieces.mjs",
+    "validate-schemas": "node scripts/validate/validate-schemas.mjs",
+    "validate-slugs": "node scripts/validate/validate-slugs.mjs",
+    "validate-icons": "node scripts/validate/validate-icons.mjs",
+
+    "validate": "npm run validate-schemas && npm run validate-slugs && npm run validate-ensembles-pieces ",
+    "validate-all": "node scripts/validate/validate.mjs",
 
     "dev": "vite",
     "build": "vite build && npm run generate-statics",

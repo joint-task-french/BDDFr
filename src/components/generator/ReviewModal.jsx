@@ -165,17 +165,24 @@ function buildReport(loadedData, savedItems, categories, dataKey, identityKey) {
   return categories.map(cat => {
     const dk = dataKey[cat.key]
     const idKey = identityKey[cat.key]
-    const loadedArray = loadedData?.[dk] || []
+    const loaded = loadedData?.[dk] || {}
+    const loadedArray = Array.isArray(loaded) ? loaded : Object.values(loaded)
     const saved = savedItems?.[cat.key] || []
 
     const items = saved.map(savedItem => {
       const name = getItemLabel(savedItem, idKey)
 
-      const original = loadedArray.find(item => {
-        if (savedItem.slug && item.slug === savedItem.slug) return true
-        if (Array.isArray(idKey)) return idKey.every(k => (item[k] || '').toLowerCase() === (savedItem[k] || '').toLowerCase())
-        return (item[idKey] || '').toLowerCase() === (savedItem[idKey] || '').toLowerCase()
-      })
+      // Chercher l'original (par slug si possible, sinon par identité)
+      let original = (savedItem.slug && !Array.isArray(loaded)) ? loaded[savedItem.slug] : null
+      if (!original) {
+        original = loadedArray.find(item => {
+          if (savedItem.slug && item.slug === savedItem.slug) return true
+          if (Array.isArray(idKey)) return idKey.every(k => (item[k] || '').toLowerCase() === (savedItem[k] || '').toLowerCase())
+          const idValue = item[idKey] || ''
+          const savedIdValue = savedItem[idKey] || ''
+          return String(idValue).toLowerCase() === String(savedIdValue).toLowerCase()
+        })
+      }
 
       if (!original) {
         return { type: 'new', name, slug: savedItem.slug || '?', data: savedItem }

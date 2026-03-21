@@ -9,7 +9,7 @@ import { resolveIcon, WEAPON_TYPE_ICONS, GameIcon } from '../../../utils/gameAss
 export default function TalentInline({ talent, isExotic = false, allArmes, allEquipements, isNamed }) {
 
   if (!talent) return null
-  const icon = resolveIcon(talent.icone)
+  const icon = resolveIcon(talent.icon)
   const nameColor = talent.estExotique ? 'text-red-400' : 'text-shd'
   const isPerfectNamed = isNamed && talent.perfectDescription
 
@@ -23,7 +23,7 @@ export default function TalentInline({ talent, isExotic = false, allArmes, allEq
 
   return (
     <div className="bg-tactical-bg/40 rounded px-3 py-2 space-y-1.5">
-      {/* Header : icone + nom + badge exo + switch parfait */}
+      {/* Header : icon + nom + badge exo + switch parfait */}
       <div className="flex items-center gap-2 flex-wrap">
         <GameIcon src={icon} alt="" size="w-5 h-5" />
         <span className={`font-bold text-xs uppercase tracking-wide ${nameColor}`}>

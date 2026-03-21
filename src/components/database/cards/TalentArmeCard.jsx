@@ -27,7 +27,7 @@ export default function TalentArmeCard({ item, armes }) {
   const compatTypes = item.compatibilite
       ? Object.entries(item.compatibilite).filter(([, v]) => v).map(([k]) => k)
       : []
-  const talentIcon = resolveIcon(item.icone)
+  const talentIcon = resolveIcon(item.icon)
   const hasPerfect = !isExotic && !!item.perfectDescription
   const nameColor = isExotic ? 'text-red-400' : 'text-shd'
   const borderColor = isExotic ? 'border-l-red-500' : ''
@@ -107,7 +107,9 @@ export default function TalentArmeCard({ item, armes }) {
               <span className="text-yellow-400 font-bold uppercase tracking-widest ">Arme :</span>
               <span className='whitespace-pre-line text-xs'>
             - {item.armesParfaites.map(slug => {
-                const arme = armes?.find(e => e.slug === slug)
+                const arme = (armes && !Array.isArray(armes))
+                    ? armes[slug]
+                    : armes?.find(e => e.slug === slug)
                 return arme?.nom || slug
               }).join('\n- ')}
           </span>
@@ -117,8 +119,8 @@ export default function TalentArmeCard({ item, armes }) {
         {compatTypes.length > 0 && !showPerfect && (
             <div className="px-4 py-2 border-t border-tactical-border/50 flex flex-wrap gap-1">
               {compatTypes.map(t => (
-                  <InfoToolTip text={COMPAT_LABELS[t] || t} icon={
-            <span key={t} className="text-xs font-bold uppercase tracking-widest bg-shd/10 text-shd/80 px-1.5 py-1.5 rounded flex items-center gap-1">
+                  <InfoToolTip key={t} text={COMPAT_LABELS[t] || t} icon={
+            <span className="text-xs font-bold uppercase tracking-widest bg-shd/10 text-shd/80 px-1.5 py-1.5 rounded flex items-center gap-1">
               <GameIcon src={WEAPON_TYPE_ICONS[t]} alt="" size="w-3 h-3" className="opacity-70" />
             </span>
                   }/>

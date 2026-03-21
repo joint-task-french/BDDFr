@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
+import { flattenCompetences } from '../../utils/competenceUtils'
 import SelectionModal from '../common/SelectionModal'
 
 export default function SkillPicker({ data, slotIndex, onClose }) {
@@ -7,7 +8,7 @@ export default function SkillPicker({ data, slotIndex, onClose }) {
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('all')
 
-  const skills = useMemo(() => data.competences || [], [data])
+  const skills = useMemo(() => flattenCompetences(data.competencesGrouped || data.competences), [data])
 
   const skillTypes = useMemo(() =>
     [...new Set(skills.map(s => s.competence))].filter(Boolean),

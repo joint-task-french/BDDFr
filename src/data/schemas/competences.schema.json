@@ -16,7 +16,7 @@
           "type": "string",
           "description": "Nom du type de compétence (ex: TOURELLE, DRONE)"
         },
-        "icone": {
+        "icon": {
           "type": "string",
           "pattern": "^[a-z0-9_]+$"
         },
@@ -59,7 +59,7 @@
               "prerequis": {
                 "type": "string"
               },
-              "icone": {
+              "icon": {
                 "type": "string",
                 "pattern": "^[a-z0-9_]+$"
               },

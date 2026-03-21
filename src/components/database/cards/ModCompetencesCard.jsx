@@ -8,9 +8,7 @@ function hasContent(v) {
 export default function ModCompetencesCard({ item, allAttributs, competencesGrouped }) {
   const statsText = formatModAttributs(item, allAttributs)
 
-  const parentCompetence = competencesGrouped?.find(
-      (comp) => comp.slug === item.competence
-  )
+  const parentCompetence = competencesGrouped?.[item.competence]
   const nomCompetence = parentCompetence ? parentCompetence.competence : item.competence;
 
   return (

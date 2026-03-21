@@ -54,10 +54,36 @@
         },
         "compatible": {
           "type": "array",
-          "description": "Types d'armes compatibles (tableau vide = universel)",
+          "description": "Emplacements spécifiques compatibles (ex: ['rail_optique_court', 'micro_rail_optique']). Tableau vide = universel pour ce type global.",
           "items": {
             "type": "string",
-            "pattern": "^[a-z0-9_]+$"
+            "enum": [
+              "chargeur_556",
+              "chargeur_762",
+              "chargeur_762_precision",
+              "chargeur_integre",
+              "chargeur_pistolet",
+              "barillet",
+              "bande_munitions",
+              "chargeur_45_acp",
+              "chargeur_9mm",
+              "magasin_tubulaire",
+
+              "rail_sous_canon_long",
+              "rail_sous_canon_court",
+              "gadget",
+
+              "rail_optique_court",
+              "rail_optique_long",
+              "micro_rail_optique",
+              "rail_optique",
+
+              "bouche_45_acp",
+              "bouche_9mm",
+              "bouche_556",
+              "bouche_762",
+              "bouche"
+            ]
           }
         },
         "estExotique": {

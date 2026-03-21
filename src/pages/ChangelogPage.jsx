@@ -1,5 +1,58 @@
+import { useMemo, useState } from 'react'
 import { useDataLoader } from '../hooks/useDataLoader'
 import Loader from '../components/common/Loader'
+import { ChevronDown, ChevronRight } from 'lucide-react'
+
+// Convertit un sous-ensemble de Markdown en HTML sécurisé pour notre usage interne (données maîtrisées)
+function markdownToHtml(md = '') {
+  if (!md) return ''
+  let html = md
+    // Échapper les caractères HTML de base pour éviter l'injection
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    // Titres
+    .replace(/^###\s+(.+)$/gm, '<h3 class="text-sm font-bold text-gray-200 mt-3 mb-1">$1</h3>')
+    .replace(/^##\s+(.+)$/gm, '<h2 class="text-base font-bold text-gray-200 mt-3 mb-1">$1</h2>')
+    .replace(/^#\s+(.+)$/gm, '<h1 class="text-lg font-bold text-gray-200 mt-3 mb-1">$1</h1>')
+    // Gras / italique / code inline
+    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-gray-200">$1</strong>')
+    .replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>')
+    .replace(/`([^`]+)`/g, '<code class="px-1 py-0.5 bg-black/40 border border-tactical-border/50 rounded text-gray-200">$1</code>')
+    // Liens [txt](url)
+    .replace(/\[([^\]]+)\]\((https?:[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="text-shd hover:underline">$1</a>')
+
+  // Listes à puces et numérotées (très simple)
+  html = html
+    .replace(/(^|\n)(-\s+.+(?:\n-\s+.+)*)/g, (m) => {
+      const items = m
+        .trim()
+        .split(/\n/)
+        .map(l => l.replace(/^-\s+/, ''))
+        .map(li => `<li class="ml-4">${li}</li>`) // eslint-disable-line
+        .join('')
+      return `\n<ul class="list-disc text-gray-300">${items}</ul>`
+    })
+    .replace(/(^|\n)(\d+\.\s+.+(?:\n\d+\.\s+.+)*)/g, (m) => {
+      const items = m
+        .trim()
+        .split(/\n/)
+        .map(l => l.replace(/^\d+\.\s+/, ''))
+        .map(li => `<li class="ml-4">${li}</li>`) // eslint-disable-line
+        .join('')
+      return `\n<ol class="list-decimal text-gray-300">${items}</ol>`
+    })
+
+  // Sauts de ligne -> <br> (hors listes et titres déjà gérés)
+  html = html.replace(/\n/g, '<br/>')
+
+  return html
+}
+
+function MarkdownText({ text }) {
+  const html = useMemo(() => markdownToHtml(text), [text])
+  return <span dangerouslySetInnerHTML={{ __html: html }} />
+}
 
 export default function ChangelogPage() {
   const { data, loading, error, progress } = useDataLoader()
@@ -93,15 +146,51 @@ function ChangelogEntry({ entry, isFirst }) {
         {entry.changements && entry.changements.length > 0 && (
           <ul className="px-4 py-3 space-y-1.5">
             {entry.changements.map((change, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm text-gray-400 leading-relaxed">
-                <span className="text-shd/50 mt-1 shrink-0">›</span>
-                <span>{change}</span>
-              </li>
+              <ChangeItem key={i} change={change} />
             ))}
           </ul>
         )}
       </div>
     </div>
+  )
+}
+
+
+function ChangeItem({ change }) {
+  const isObject = typeof change === 'object' && change !== null
+  const [open, setOpen] = useState(false)
+
+  // Si c'est une chaîne, on l'affiche simplement (non repliable) avec rendu Markdown
+  if (!isObject) {
+    const raw = String(change || '').trim()
+    return (
+      <li className="flex flex-col gap-1 text-sm text-gray-300 leading-relaxed">
+        <MarkdownText text={raw} />
+      </li>
+    )
+  }
+
+  const title = change.titre || change.title || 'Détail'
+  const description = change.description || ''
+
+  return (
+    <li className="flex flex-col gap-1 text-sm text-gray-400 leading-relaxed">
+      <button
+        type="button"
+        className="group flex items-start gap-2 text-left w-full"
+        onClick={() => setOpen(v => !v)}
+      >
+        <span className="mt-0.5 shrink-0 text-shd/60 group-hover:text-shd transition-colors">
+          {open ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+        </span>
+        <span className="font-semibold text-gray-200 group-hover:text-white">{title}</span>
+      </button>
+      {open && (
+        <div className="pl-6 text-gray-300">
+          <MarkdownText text={description} />
+        </div>
+      )}
+    </li>
   )
 }
 

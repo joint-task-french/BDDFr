@@ -19,24 +19,30 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques })
   // Résoudre les slugs d'attributs essentiels vers leurs noms
   const resolveAttrName = (slug) => {
     if (!slug) return slug
+    if (statistiques && !Array.isArray(statistiques)) {
+      if (statistiques[slug]) return statistiques[slug].nom
+      const normalized = slug.replace(/_de_/g, '_')
+      if (statistiques[normalized]) return statistiques[normalized].nom
+    }
+    const statList = Array.isArray(statistiques) ? statistiques : Object.values(statistiques || {})
     // Chercher correspondance exacte
-    const stat = statistiques?.find(s => s.slug === slug)
+    const stat = statList.find(s => s.slug === slug)
     if (stat) return stat.nom
     // Chercher correspondance approximative (ex: tiers_de_competence → tiers_competence)
     const normalized = slug.replace(/_de_/g, '_')
-    const approx = statistiques?.find(s => s.slug === normalized)
+    const approx = statList.find(s => s.slug === normalized)
     if (approx) return approx.nom
     return slug
   }
 
   return (
       <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`}>
-        {/* Header : logo + nom + type + attributs essentiels */}
+        {/* Header : icon + nom + type + attributs essentiels */}
         <div className="px-4 py-3 border-b border-tactical-border/50">
           <div className="flex items-start gap-3">
             {/* Logo */}
-            {resolveIcon(item.logo) ? (
-                <GameIcon src={resolveIcon(item.logo)} alt="" size="w-10 h-10" className="rounded" />
+            {resolveIcon(item.icon) ? (
+                <GameIcon src={resolveIcon(item.icon)} alt="" size="w-10 h-10" className="rounded" />
             ) : (
                 <div className={`w-10 h-10 shrink-0 rounded flex items-center justify-center text-lg ${isGearSet ? 'bg-emerald-500/10' : isImprovised ? 'bg-indigo-500/10' : 'bg-shd/10'}`}>
                   {isGearSet ? '🔗' : isImprovised ? '🛠️' : '🏷️'}
@@ -86,7 +92,10 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques })
         {(hasContent(item.talentTorse) || hasContent(item.talentSac)) && (
             <div className="px-4 py-2.5 border-t border-tactical-border/50 space-y-1.5">
               {hasContent(item.talentTorse) && (() => {
-                const talent = talentsEquipements?.find(t => t.slug === item.talentTorse)
+                const tKey = item.talentTorse
+                const talent = (talentsEquipements && !Array.isArray(talentsEquipements))
+                    ? talentsEquipements[tKey]
+                    : talentsEquipements?.find(t => t.slug === tKey)
                 return (
                     <div className="text-xs text-gray-400 leading-relaxed whitespace-pre-line">
                       <span className="text-shd font-bold uppercase tracking-widest text-xs">Torse : </span>
@@ -96,7 +105,10 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques })
                 )
               })()}
               {hasContent(item.talentSac) && (() => {
-                const talent = talentsEquipements?.find(t => t.slug === item.talentSac)
+                const tKey = item.talentSac
+                const talent = (talentsEquipements && !Array.isArray(talentsEquipements))
+                    ? talentsEquipements[tKey]
+                    : talentsEquipements?.find(t => t.slug === tKey)
                 return (
                     <div className="text-xs text-gray-400 leading-relaxed whitespace-pre-line">
                       <span className="text-shd font-bold uppercase tracking-widest text-xs">Sac : </span>

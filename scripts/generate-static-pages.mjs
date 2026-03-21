@@ -102,7 +102,7 @@ const categoryFormatters = {
     }),
     'descente': (item, level) => ({
         title: `🧬 ${item.nom} (Niv. ${level || 1}) — BDDFr`,
-        description: `Talent du mode Descente : ${item.decente?.categorie || 'Spécial'}`
+        description: `Talent du mode Descente : ${item.descente?.categorie || 'Spécial'}`
     }),
     'default': (item) => ({
         title: `${item.nom || item.competence || 'Élément'} — BDDFr`,
@@ -137,7 +137,7 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="${BASE_URL}/favicon.png">
+    <link rel="icon" type="image/png" href="${BASE_URL}/favicon_150x150.png">
     <link rel="shortcut icon" href="${BASE_URL}/favicon.ico">
     <title>${title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -165,7 +165,7 @@ async function generate() {
     for (const page of pages_fixes) {
         const targetDir = path.join(DIST_DIR, page.path);
         if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-        fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(page.title, page.description, 'favicon.png', page.path));
+        fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(page.title, page.description, 'favicon_150x150.png', page.path));
         sitemapEntries.push(`${BASE_URL}/${page.path}`);
     }
 
@@ -183,7 +183,7 @@ async function generate() {
             items = [
                 ...Object.entries(wTalents).map(([s, v]) => ({ ...v, slug: s })),
                 ...Object.entries(gTalents).map(([s, v]) => ({ ...v, slug: s }))
-            ].filter(i => i.decente);
+            ].filter(i => i.descente);
         } else {
             const filePath = path.join(DATA_DIR, categoryMap[categoryKey]);
             if (!fs.existsSync(filePath)) continue;
@@ -219,7 +219,7 @@ async function generate() {
             const itemSlug = item.slug || slugify(item.nom || item.variante || 'Element');
             if (!itemSlug) continue;
 
-            const possibleIconKeys = [item.icone, itemSlug, item.skillSlug, item.marque, item.ensemble, item.type, item.emplacement].filter(Boolean).map(k => slugify(k));
+            const possibleIconKeys = [item.icon, itemSlug, item.skillSlug, item.marque, item.ensemble, item.type, item.emplacement].filter(Boolean).map(k => slugify(k));
             let iconPath = null, resolvedFileName = null;
             for (const key of possibleIconKeys) {
                 if (iconIndex[key]) {
@@ -229,7 +229,7 @@ async function generate() {
                 }
             }
 
-            let publicImageUrl = 'favicon.png';
+            let publicImageUrl = 'favicon_150x150.png';
             if (iconPath && resolvedFileName) {
                 const dest = path.join(exportIconsDir, resolvedFileName);
                 if (!fs.existsSync(dest)) fs.copyFileSync(iconPath, dest);
@@ -239,7 +239,7 @@ async function generate() {
             const formatter = categoryFormatters[categoryKey] || categoryFormatters['default'];
 
             if (categoryKey === 'descente') {
-                const levels = Object.keys(item.decente.levels).filter(k => k !== 'base').sort((a,b)=>parseInt(a)-parseInt(b));
+                const levels = Object.keys(item.descente.levels).filter(k => k !== 'base').sort((a,b)=>parseInt(a)-parseInt(b));
 
                 for (const level of levels) {
                     const { title, description } = formatter(item, level);

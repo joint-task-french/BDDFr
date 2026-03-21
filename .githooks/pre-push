@@ -32,7 +32,6 @@ echo "🚀 Exécution des validations avant le push..."
 # L'option -e arrête le script immédiatement si une commande (Node) échoue
 set -e
 
-node scripts/validate-schemas.mjs
-node scripts/validate-slugs.mjs
+npm run validate-all
 
 echo "✅ Tests validés sur le code commité, envoi vers le serveur en cours..."

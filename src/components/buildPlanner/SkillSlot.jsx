@@ -28,10 +28,11 @@ function getSkillModSlots(skill) {
  */
 function getCompatibleSkillMods(competenceSlug, emplacement, modsCompetences, specialisation) {
   if (!modsCompetences || !competenceSlug) return []
+  const modsList = Array.isArray(modsCompetences) ? modsCompetences : Object.values(modsCompetences)
   const compNorm = normalize(competenceSlug)
   const empNorm = normalize(emplacement)
 
-  return modsCompetences.filter(m => {
+  return modsList.filter(m => {
     // Vérifier la compatibilité avec la compétence
     if (m.compatible && m.compatible.length > 0) {
       const isCompat = m.compatible.some(c => normalize(c) === compNorm)

@@ -19,8 +19,9 @@ export default function GearTalentPicker({ data, slotKey, onClose }) {
 
   const talents = useMemo(() => {
     if (!data.talentsEquipements) return []
-    return data.talentsEquipements.filter(t =>
-        t.emplacement === slotKey
+    const list = Array.isArray(data.talentsEquipements) ? data.talentsEquipements : Object.values(data.talentsEquipements || {})
+    return list.filter(t =>
+        t.emplacement === slotKey && !t.estExotique
     )
   }, [data.talentsEquipements, slotKey])
 

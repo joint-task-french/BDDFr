@@ -1,19 +1,19 @@
 import { formatModAttributs } from '../../../utils/modCompatibility'
 
-const TYPE_LABELS = {
-  chargeur: 'Chargeur',
-  canon: 'Canon',
-  viseur: 'Viseur',
-  bouche: 'bouche',
-  autre: 'Autre',
-}
-
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function ModArmeCard({ item, allAttributs }) {
+export default function ModArmeCard({ item, allAttributs, modsArmesType }) {
   const statsText = formatModAttributs(item, allAttributs)
+
+  const getTypeLabel = (type) => {
+    return modsArmesType?.[type]?.nom || type
+  }
+
+  const getCompatibilityLabel = (slug) => {
+    return modsArmesType?.[slug]?.nom || slug
+  }
 
   return (
     <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden flex">
@@ -29,7 +29,7 @@ export default function ModArmeCard({ item, allAttributs }) {
 
 
           <span className="shrink-0 text-xs font-bold uppercase tracking-widest bg-tactical-bg text-gray-500 px-1.5 py-0.5 rounded">
-            {TYPE_LABELS[item.type] || item.type}
+            {getTypeLabel(item.type)}
           </span>
         </div>
         {statsText && (
@@ -38,7 +38,9 @@ export default function ModArmeCard({ item, allAttributs }) {
         {item.compatible && item.compatible.length > 0 && (
           <div className="flex flex-wrap gap-1 mt-1.5">
             {item.compatible.map(c => (
-              <span key={c} className="text-xs text-gray-500 bg-tactical-bg px-1.5 py-0.5 rounded">{c}</span>
+              <span key={c} className="text-xs text-gray-500 bg-tactical-bg px-1.5 py-0.5 rounded">
+                {getCompatibilityLabel(c)}
+              </span>
             ))}
           </div>
         )}

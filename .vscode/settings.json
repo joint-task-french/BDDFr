@@ -37,6 +37,10 @@
             "url": "./src/data/schemas/talents-equipements.schema.json"
         },
         {
+            "fileMatch": ["/src/data/talents-prototypes.jsonc"],
+            "url": "./src/data/schemas/talents-prototypes.schema.json"
+        },
+        {
             "fileMatch": ["/src/data/ensembles.jsonc"],
             "url": "./src/data/schemas/ensembles.schema.json"
         },
@@ -63,6 +67,10 @@
         {
             "fileMatch": ["/src/data/statistiques.jsonc"],
             "url": "./src/data/schemas/statistiques.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/armes-pe.jsonc"],
+            "url": "./src/data/schemas/mods-armes-type.schema.json"
         }
     ]
 }

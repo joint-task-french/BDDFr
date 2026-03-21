@@ -193,6 +193,23 @@
             </SchemaInfo>
           </value>
         </entry>
+        <entry key="mods-armes-type.schema">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="mods-armes-type.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/mods-armes-type.schema.json" />
+              <option name="schemaVersion" value="JSON Schema 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/data/mods-armes-type.jsonc" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
         <entry key="mods-armes.schema">
           <value>
             <SchemaInfo>
@@ -289,6 +306,23 @@
                 <list>
                   <Item>
                     <option name="path" value="src/data/talents-equipements.jsonc" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="talents-prototypes.schema">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="talents-prototypes.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/talents-prototypes.schema.json" />
+              <option name="schemaVersion" value="JSON Schema 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/data/talents-prototypes.jsonc" />
                   </Item>
                 </list>
               </option>

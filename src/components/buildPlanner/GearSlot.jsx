@@ -7,7 +7,7 @@ function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles, talentsEquipements, allAttributs, gearAttributes, onSetAttributes, modsEquipements, gearMods, onSetMod, attributsType, expertiseLevel, onExpertiseChange, maxExpertiseLevel }) {
+export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles, talentsEquipements, allAttributs, gearAttributes, onSetAttributes, modsEquipements, gearMods, onSetMod, attributsType, expertiseLevel, onExpertiseChange, maxExpertiseLevel, isPrototype, prototypeTalent, onSelectPrototypeTalent, equipementsType }) {
   const { dispatch } = useBuild()
 
   const remove = (e) => {
@@ -19,14 +19,18 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
   const gearSetTalent = useMemo(() => {
     if (!piece || piece.type !== 'gear_set') return null
     if (!ensembles || !piece.marque) return null
-    const ens = ensembles.find(e => e.slug === piece.marque || e.nom.toLowerCase() === piece.marque.toLowerCase())
+    const ens = (ensembles && !Array.isArray(ensembles))
+      ? ensembles[piece.marque]
+      : ensembles?.find(e => e.slug === piece.marque || e.nom?.toLowerCase() === piece.marque.toLowerCase())
     if (!ens) return null
     let slug = null
     if (slotKey === 'torse' && hasContent(ens.talentTorse)) slug = ens.talentTorse
     if (slotKey === 'sac_a_dos' && hasContent(ens.talentSac)) slug = ens.talentSac
     if (!slug) return null
     // Resolve slug to full talent object
-    const resolved = talentsEquipements?.find(t => t.slug === slug)
+    const resolved = (talentsEquipements && !Array.isArray(talentsEquipements))
+      ? talentsEquipements[slug]
+      : talentsEquipements?.find(t => t.slug === slug)
     return resolved || { nom: slug, description: slug }
   }, [piece, ensembles, slotKey, talentsEquipements])
 
@@ -34,7 +38,9 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
   const marqueLabel = useMemo(() => {
     if (!piece?.marque || !ensembles) return piece?.marque || ''
     if (piece.marque === '*') return ''
-    const ens = ensembles.find(e => e.slug === piece.marque || e.nom.toLowerCase() === piece.marque.toLowerCase())
+    const ens = (ensembles && !Array.isArray(ensembles))
+      ? ensembles[piece.marque]
+      : ensembles?.find(e => e.slug === piece.marque || e.nom?.toLowerCase() === piece.marque.toLowerCase())
     return ens?.nom || piece.marque
   }, [piece, ensembles])
 
@@ -48,7 +54,9 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
     if (!hasPredefinedTalent || !talentsEquipements) return null
     const slug = piece.talents.find(t => t && t !== 'n/a' && t !== '')
     if (!slug) return null
-    const base = talentsEquipements.find(t => t.slug === slug || t.nom === slug)
+    const base = (talentsEquipements && !Array.isArray(talentsEquipements))
+      ? talentsEquipements[slug]
+      : talentsEquipements.find(t => t.slug === slug || t.nom === slug)
     if (!base) return { nom: slug, description: '' }
     if (piece.estNomme && base.perfectDescription) {
       return {
@@ -66,19 +74,54 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
     return talent
   }, [talent])
 
-  const borderColor = piece?.type === 'exotique'
-      ? 'border-l-shd'
-      : piece?.estNomme
-          ? 'border-l-yellow-500'
-          : piece?.type === 'gear_set'
-              ? 'border-l-emerald-500'
-              : 'border-l-blue-500'
+  const borderColor = isPrototype
+      ? 'border-l-cyan-500'
+      : piece?.type === 'exotique'
+          ? 'border-l-shd'
+          : piece?.estNomme
+              ? 'border-l-yellow-500'
+              : piece?.type === 'gear_set'
+                  ? 'border-l-emerald-500'
+                  : 'border-l-blue-500'
+
+  const headerBg = isPrototype ? 'bg-cyan-500/10' : 'bg-blue-500/10'
+  const headerBorder = isPrototype ? 'border-cyan-500/30' : 'border-blue-500/30'
+  const headerText = isPrototype ? 'text-cyan-400' : 'text-blue-400'
 
   return (
       <div className="build-slot group" onClick={piece ? undefined : onSelect}>
-        <div className="px-3 py-2 bg-blue-500/10 border-b border-blue-500/30 flex justify-between items-center">
-          <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">{icon} {label}</span>
-          {piece && <button onClick={remove} className="text-red-400 hover:text-red-300 text-xs p-1">✕</button>}
+        <div className={`px-3 py-2 ${headerBg} ${headerBorder} border-b flex justify-between items-center`}>
+          <span className={`${headerText} text-xs font-bold uppercase tracking-widest`}>{icon} {label}</span>
+          <div className="flex items-center gap-2">
+            {piece && piece.type !== 'exotique' && (
+                <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      const newActive = !isPrototype
+                      dispatch({ type: 'SET_PROTOTYPE', slot: slotKey, active: newActive })
+                      if (!newActive && gearAttributes) {
+                        const clamp = (a) => (a && a.max != null && a.valeur > a.max) ? { ...a, valeur: a.max } : a
+                        const newAttrs = {
+                          essentiels: gearAttributes.essentiels?.map(clamp),
+                          classiques: gearAttributes.classiques?.map(clamp)
+                        }
+                        onSetAttributes(newAttrs)
+                      }
+                    }}
+                    className={`flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-1 py-0.5 rounded border transition-all ${
+                        isPrototype
+                            ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/40'
+                            : 'bg-tactical-bg/50 text-gray-500 border-tactical-border hover:border-gray-500'
+                    }`}
+                >
+                  <span className="w-4 h-2.5 relative rounded-full border border-current inline-block">
+                    <span className={`absolute top-0.5 w-1.5 h-1.5 rounded-full bg-current transition-all ${isPrototype ? 'left-2' : 'left-0.5'}`} />
+                  </span>
+                  Prototype
+                </button>
+            )}
+            {piece && <button onClick={remove} className="text-red-400 hover:text-red-300 text-xs p-1">✕</button>}
+          </div>
         </div>
         <div className="p-3 min-h-25">
           {piece ? (
@@ -104,16 +147,27 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                     onChangeMod={onSetMod}
                     attributsType={attributsType}
                     ensembles={ensembles}
+                    isPrototype={isPrototype}
+                    slotKey={slotKey}
+                    equipementsType={equipementsType}
                 />
                 {/* Expertise */}
                 {onExpertiseChange && (
-                    <ExpertiseSlider slot={slotKey} level={expertiseLevel || 0} onChange={onExpertiseChange} maxLevel={maxExpertiseLevel} />
+                  <ExpertiseSlider
+                      slot={slotKey}
+                      level={expertiseLevel || 0}
+                      onChange={onExpertiseChange}
+                      maxLevel={maxExpertiseLevel}
+                      disabled={isPrototype}
+                  />
                 )}
                 {/* Talents exotiques (depuis talents[]) — toujours affichés, non modifiables */}
                 {piece.type === 'exotique' && piece.talents && piece.talents.length > 0 && (
                     <div className="mt-3 pt-3 border-t border-tactical-border">
                       {piece.talents.filter(t => t && t !== 'n/a').map((slug, i) => {
-                        const resolved = talentsEquipements?.find(t => t.slug === slug || t.nom === slug)
+                        const resolved = (talentsEquipements && !Array.isArray(talentsEquipements))
+                            ? talentsEquipements[slug]
+                            : talentsEquipements?.find(t => t.slug === slug || t.nom === slug)
                         return (
                             <div key={i} className={i > 0 ? "mt-3" : ""}>
                               <div className="text-xs text-shd font-bold uppercase tracking-widest">
@@ -186,6 +240,62 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                           </button>
                         </div>
                     )
+                )}
+
+                {/* Talent Prototype supplémentaire */}
+                {isPrototype && (
+                    <div className="mt-3 pt-3 border-t border-cyan-500/30">
+                        {prototypeTalent ? (
+                            <div className="py-1">
+                                <div className="flex items-center justify-between gap-2 mb-0.5">
+                                    <div className="text-[10px] text-gray-600 uppercase tracking-widest">Talent Prototype</div>
+                                    {onSelectPrototypeTalent && (
+                                        <button
+                                            onClick={(e) => { e.stopPropagation(); onSelectPrototypeTalent() }}
+                                            className="text-xs text-gray-600 hover:text-cyan-400 transition-colors"
+                                            title="Changer le talent prototype"
+                                        >✎</button>
+                                    )}
+                                </div>
+                                <div className="flex items-center gap-1.5">
+                                    <div className="text-xs text-cyan-400 font-bold uppercase truncate" title={prototypeTalent.nom}>
+                                        {prototypeTalent.nom}
+                                    </div>
+                                    <span className="text-xs font-bold ml-auto shrink-0 text-cyan-400">
+                                        {prototypeTalent.valeur !== undefined ? prototypeTalent.valeur.toFixed(1) : prototypeTalent.statMax}
+                                    </span>
+                                </div>
+                                {prototypeTalent.statMin != null && prototypeTalent.statMax != null && prototypeTalent.statMin !== prototypeTalent.statMax && (
+                                    <input
+                                        type="range"
+                                        min={prototypeTalent.statMin}
+                                        max={prototypeTalent.statMax}
+                                        step={0.1}
+                                        value={prototypeTalent.valeur ?? prototypeTalent.statMax}
+                                        onChange={(e) => {
+                                            e.stopPropagation();
+                                            dispatch({
+                                                type: 'SET_PROTOTYPE_TALENT',
+                                                slot: slotKey,
+                                                talent: { ...prototypeTalent, valeur: parseFloat(e.target.value) }
+                                            })
+                                        }}
+                                        className="attr-slider mt-1 accent-cyan-400"
+                                    />
+                                )}
+                                {prototypeTalent.description && (
+                                    <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-2 italic">{prototypeTalent.description}</div>
+                                )}
+                            </div>
+                        ) : (
+                            <button
+                                onClick={(e) => { e.stopPropagation(); onSelectPrototypeTalent() }}
+                                className="text-xs text-cyan-500/60 hover:text-cyan-400 uppercase tracking-widest flex items-center gap-1 py-1"
+                            >
+                                <span className="text-lg leading-none">+</span> Talent Prototype
+                            </button>
+                        )}
+                    </div>
                 )}
               </div>
           ) : (

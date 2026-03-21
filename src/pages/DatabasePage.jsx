@@ -12,6 +12,7 @@ import {
   getGearFilters, getGearDefaults, applyGearFilters,
   getTalentArmeFilters, getTalentArmeDefaults, applyTalentArmeFilters,
   getTalentEquipFilters, getTalentEquipDefaults, applyTalentEquipFilters,
+  getTalentPrototypeFilters, getTalentPrototypeDefaults, applyTalentPrototypeFilters,
   getModArmeFilters, getModArmeDefaults, applyModArmeFilters,
   getModEquipementFilters, getModEquipementDefaults, applyModEquipementFilters,
   getModCompetenceFilters, getModCompetenceDefaults, applyModCompetenceFilters,
@@ -25,6 +26,7 @@ import {
   ENSEMBLE_SORT_OPTIONS, ENSEMBLE_DEFAULT_SORT, applySortEnsembles,
   TALENT_ARME_SORT_OPTIONS, TALENT_ARME_DEFAULT_SORT, applySortTalentsArmes,
   TALENT_EQUIP_SORT_OPTIONS, TALENT_EQUIP_DEFAULT_SORT, applySortTalentsEquip,
+  TALENT_PROTOTYPE_SORT_OPTIONS, TALENT_PROTOTYPE_DEFAULT_SORT, applySortTalentsPrototypes,
   MOD_ARME_SORT_OPTIONS, MOD_ARME_DEFAULT_SORT, applySortModsArmes,
   MOD_EQUIP_SORT_OPTIONS, MOD_EQUIP_DEFAULT_SORT, applySortModsEquip,
   MOD_COMP_SORT_OPTIONS, MOD_COMP_DEFAULT_SORT, applySortModsComp,
@@ -41,6 +43,7 @@ const CATEGORIES = [
   { key: 'attributs', label: 'Attributs', icon: '📊' },
   { key: 'talentsArmes', label: "Talents d'Armes", icon: '🎯' },
   { key: 'talentsEquipements', label: "Talents d'Équipements", icon: '🏅' },
+  { key: 'talentsPrototypes', label: "Talents Prototypes", icon: '🧬' },
   { key: 'modsArmes', label: "Mods d'Armes", icon: '🔧' },
   { key: 'modsEquipements', label: "Mods d'Équipements", icon: '⚙️' },
   { key: 'modsCompetences', label: 'Mods de Compétences', icon: '💎' },
@@ -49,7 +52,7 @@ const CATEGORIES = [
 
 // Catégories qui ont des filtres avancés
 const FILTER_CATEGORIES = new Set([
-  'armes', 'equipements', 'talentsArmes', 'talentsEquipements',
+  'armes', 'equipements', 'talentsArmes', 'talentsEquipements', 'talentsPrototypes',
   'modsArmes', 'ensembles', 'attributs', 'competences',
   'modsEquipements', 'modsCompetences', 'descente'
 ])
@@ -61,6 +64,7 @@ const SORT_CATEGORIES = {
   attributs:          { options: ATTRIBUT_SORT_OPTIONS, default: ATTRIBUT_DEFAULT_SORT, apply: applySortAttributs },
   talentsArmes:       { options: TALENT_ARME_SORT_OPTIONS, default: TALENT_ARME_DEFAULT_SORT, apply: applySortTalentsArmes },
   talentsEquipements: { options: TALENT_EQUIP_SORT_OPTIONS, default: TALENT_EQUIP_DEFAULT_SORT, apply: applySortTalentsEquip },
+  talentsPrototypes: { options: TALENT_PROTOTYPE_SORT_OPTIONS, default: TALENT_PROTOTYPE_DEFAULT_SORT, apply: applySortTalentsPrototypes },
   ensembles:          { options: ENSEMBLE_SORT_OPTIONS, default: ENSEMBLE_DEFAULT_SORT, apply: applySortEnsembles },
   competences:        { options: SKILL_SORT_OPTIONS, default: SKILL_DEFAULT_SORT, apply: applySortSkills },
   modsArmes:          { options: MOD_ARME_SORT_OPTIONS, default: MOD_ARME_DEFAULT_SORT, apply: applySortModsArmes },
@@ -75,7 +79,8 @@ function getFiltersConfig(category, data, values) {
     case 'equipements':       return { filters: getGearFilters(data), defaults: getGearDefaults(), apply: applyGearFilters }
     case 'talentsArmes':      return { filters: getTalentArmeFilters(data), defaults: getTalentArmeDefaults(), apply: applyTalentArmeFilters }
     case 'talentsEquipements':return { filters: getTalentEquipFilters(data), defaults: getTalentEquipDefaults(), apply: applyTalentEquipFilters }
-    case 'modsArmes':         return { filters: getModArmeFilters(), defaults: getModArmeDefaults(), apply: applyModArmeFilters }
+    case 'talentsPrototypes': return { filters: getTalentPrototypeFilters(data), defaults: getTalentPrototypeDefaults(), apply: applyTalentPrototypeFilters }
+    case 'modsArmes':         return { filters: getModArmeFilters(data), defaults: getModArmeDefaults(), apply: applyModArmeFilters }
     case 'ensembles':         return { filters: getEnsembleFilters(data), defaults: getEnsembleDefaults(), apply: applyEnsembleFilters }
     case 'attributs':         return { filters: getAttributFilters(data), defaults: getAttributDefaults(), apply: applyAttributFilters }
     case 'competences':       return { filters: getCompetenceFilters(data), defaults: getCompetenceDefaults(), apply: applyCompetenceFilters }
@@ -107,7 +112,7 @@ export default function DatabasePage() {
   const activeCategory = category || 'armes'
   const activeCatObj = CATEGORIES.find(c => c.key === activeCategory)
 
-  // 2. Lecture sécurisée des états depuis l'URL (Source de vérité absolue)
+  // 2. Lecture sécurisée des états depuis l'URL
   const searchTerm = searchParams.get('q') || ''
 
   const activeValues = useMemo(() => {
@@ -161,7 +166,6 @@ export default function DatabasePage() {
 
   const handleSortChange = useCallback((val) => {
     setSearchParams(prev => {
-      // Si c'est la valeur par défaut exacte, on nettoie l'URL pour garder ça propre
       if (val && JSON.stringify(val) !== JSON.stringify(sortConfig?.default)) {
         prev.set('sort', JSON.stringify(val))
       } else {
@@ -184,12 +188,10 @@ export default function DatabasePage() {
 
       const newValues = { ...currentVals, [key]: value }
 
-      // Sécurité : vider l'emplacement si la compétence cible change
       if (activeCategory === 'modsCompetences' && key === 'competence') {
         newValues.emplacement = ''
       }
 
-      // Nettoyage des valeurs vides
       const cleanValues = {}
       for (const [k, v] of Object.entries(newValues)) {
         if (v !== '' && v !== null && !(Array.isArray(v) && v.length === 0)) {
@@ -231,24 +233,25 @@ export default function DatabasePage() {
   }, [slug, loading, data]);
 
   // =========================================================
-  // APPLICATION DES FILTRES ET DU TRI
+  // APPLICATION DES FILTRES ET DU TRI AVEC RÉSOLUTION GLOBALE
   // =========================================================
   const filteredData = useMemo(() => {
     let items = []
 
     if (activeCategory === 'descente') {
-      const wTalents = Array.isArray(data?.talentsArmes) ? data.talentsArmes : Object.values(data?.talentsArmes || {})
-      const gTalents = Array.isArray(data?.talentsEquipements) ? data.talentsEquipements : Object.values(data?.talentsEquipements || {})
+      const wTalents = Object.values(data?.talentsArmes || {})
+      const gTalents = Object.values(data?.talentsEquipements || {})
 
-      const descentWeapons = wTalents.filter(t => t.decente).map(t => ({ ...t, isWeaponTalent: true }))
-      const descentGear = gTalents.filter(t => t.decente).map(t => ({ ...t, isWeaponTalent: false }))
+      const descentWeapons = wTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: true }))
+      const descentGear = gTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: false }))
 
       items = [...descentWeapons, ...descentGear]
     } else {
-      items = data[activeCategory]
+      const raw = data[activeCategory]
+      items = (raw && !Array.isArray(raw)) ? Object.values(raw) : (raw || [])
     }
 
-    if (!items || !Array.isArray(items)) return []
+    if (!items || items.length === 0) return []
 
     if (filterConfig && currentFilters) {
       items = filterConfig.apply(items, currentFilters)
@@ -256,11 +259,52 @@ export default function DatabasePage() {
 
     if (searchTerm) {
       const term = searchTerm.toLowerCase()
+
+      const slugDict = {}
+      const populateDict = (source, nameField = 'nom') => {
+        if (!source) return
+        const items = Array.isArray(source) ? source : Object.values(source)
+        items.forEach(item => {
+          if (item && item.slug && item[nameField]) {
+            slugDict[item.slug] = String(item[nameField]).toLowerCase()
+          }
+        })
+      }
+
+      populateDict(data?.ensembles)
+      populateDict(data?.attributs)
+      populateDict(data?.talentsArmes)
+      populateDict(data?.talentsEquipements)
+      populateDict(data?.statistiques)
+      populateDict(data?.modsArmes)
+      populateDict(data?.modsEquipements)
+      populateDict(data?.armes_type || data?.armesType || data?.['armes-type'])
+      populateDict(data?.equipements_type || data?.equipementsType || data?.['equipements-type'])
+      populateDict(data?.attributs_type || data?.attributsType || data?.['attributs-type'])
+      populateDict(data?.class_spe || data?.classSpe || data?.['class-spe'])
+
+      const extractText = (val) => {
+        if (!val) return ''
+        if (typeof val === 'string') {
+          const resolved = slugDict[val]
+          return resolved ? `${val.toLowerCase()} ${resolved}` : val.toLowerCase()
+        }
+        if (typeof val === 'number' || typeof val === 'boolean') {
+          return String(val).toLowerCase()
+        }
+        if (Array.isArray(val)) {
+          return val.map(extractText).join(' ')
+        }
+        if (typeof val === 'object') {
+          return Object.values(val).map(extractText).join(' ')
+        }
+        return ''
+      }
+
       items = items.filter(item => {
-        const descenteText = item.decente?.levels?.base?.toLowerCase() || ''
-        return Object.values(item).some(v =>
-            typeof v === 'string' && v.toLowerCase().includes(term)
-        ) || descenteText.includes(term)
+        const fullItemText = extractText(item)
+        const descenteText = item.descente?.levels?.base?.toLowerCase() || ''
+        return fullItemText.includes(term) || descenteText.includes(term)
       })
     }
 
@@ -276,7 +320,6 @@ export default function DatabasePage() {
   // =========================================================
   const hasFilters = FILTER_CATEGORIES.has(activeCategory)
 
-  // Utilisation des hooks de panels (Filtres + Tri)
   const filterProps = hasFilters && filterConfig && currentFilters
       ? { filters: filterConfig.filters, values: currentFilters, onChange: handleFilterChange, onReset: handleFilterReset }
       : { filters: [], values: {}, onChange: () => {}, onReset: () => {} }

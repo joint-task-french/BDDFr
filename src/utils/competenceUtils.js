@@ -11,9 +11,10 @@
  * @returns {Array} Tableau plat [{competence, variante, emplacementsMods, prerequis?, ...}]
  */
 export function flattenCompetences(grouped) {
-  if (!Array.isArray(grouped)) return []
+  if (!grouped) return []
+  const compList = Array.isArray(grouped) ? grouped : Object.values(grouped)
   const flat = []
-  for (const comp of grouped) {
+  for (const comp of compList) {
     if (!comp.variantes) continue
     for (const v of comp.variantes) {
       flat.push({

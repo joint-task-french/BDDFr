@@ -19,7 +19,7 @@ const BASE_URL = process.env.PUBLIC_URL || (process.env.GITHUB_ACTIONS ? `https:
 const BASE_PATH = process.env.PUBLIC_PATH || (process.env.GITHUB_ACTIONS ? `/${repo}` : '/BDDFr');
 const DIVISION_ORANGE = "#ff8000";
 
-const WATERMARK_URL = `${BASE_PATH}/favicon.png`;
+const WATERMARK_URL = `${BASE_PATH}/favicon_150x150.png`;
 const WATERMARK_OPACITY = 0.15;
 const WATERMARK_SIZE = '60px';
 
@@ -78,7 +78,7 @@ const categoryFormatters = {
     }),
     'descente': (item, level) => ({
         title: `🧬 ${item.nom} (Niv. ${level || 1}) — BDDFr`,
-        description: `Talent du mode Descente : ${item.decente?.categorie || 'Spécial'}`
+        description: `Talent du mode Descente : ${item.descente?.categorie || 'Spécial'}`
     }),
     'default': (item) => ({
         title: `${item.nom || item.competence || 'Élément'} — BDDFr`,
@@ -125,13 +125,13 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
     const mainImageUrl = `${BASE_URL}/${imagePath}`;
     const safeDesc = (description || '').replace(/"/g, '&quot;');
 
-    const cardType = imagePath === 'favicon.png' ? 'summary' : 'summary_large_image';
+    const cardType = imagePath === 'favicon_150x150.png' ? 'summary' : 'summary_large_image';
 
     return `<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="${BASE_URL}/favicon.png">
+    <link rel="icon" type="image/png" href="${BASE_URL}/favicon_150x150.png">
     <title>${title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="canonical" href="${fullUrl}" />
@@ -200,7 +200,7 @@ async function generate() {
         for (const p of pages_fixes) {
             const targetDir = path.join(DIST_DIR, p.path);
             if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-            fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(p.title, p.description, 'favicon.png', p.path));
+            fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(p.title, p.description, 'favicon_150x150.png', p.path));
             sitemapEntries.push(`${BASE_URL}/${p.path}`);
         }
 
@@ -215,10 +215,10 @@ async function generate() {
             await page.setViewport({ width: 1920, height: 1080 });
 
             try {
-                const processCards = async (isPerfect, isDescente = false) => {
-                    const suffix = isPerfect ? '-parfait' : '';
-                    const suffixLog = isPerfect ? ' (Parfait)' : '';
-                    const targetUrl = `${DEV_SERVER_URL}/#/db/${categoryKey}${isPerfect ? '?parfait=true' : ''}`;
+                const processCards = async (isPerfect, isDescente = false, isPrototype = false) => {
+                    const suffix = isPerfect ? '-parfait' : (isPrototype ? '-prototype' : '');
+                    const suffixLog = isPerfect ? ' (Parfait)' : (isPrototype ? ' (Prototype)' : '');
+                    const targetUrl = `${DEV_SERVER_URL}/#/db/${categoryKey}${isPerfect ? '?parfait=true' : (isPrototype ? '?prototype=true' : '')}`;
 
                     await page.goto(targetUrl, { waitUntil: 'networkidle0', timeout: 60000 });
                     await page.addStyleTag({
@@ -248,6 +248,13 @@ async function generate() {
                                 return Array.from(el.querySelectorAll('button')).some(b => b.textContent.includes('Parfait'));
                             }, card);
                             if (!hasPerfectBtn) continue;
+                        }
+
+                        if (isPrototype) {
+                            const hasPrototypeBtn = await page.evaluate(el => {
+                                return Array.from(el.querySelectorAll('button')).some(b => b.textContent.includes('Prototype'));
+                            }, card);
+                            if (!hasPrototypeBtn) continue;
                         }
 
                         let levelsToProcess = ['']; // Chaîne vide pour les cartes standards
@@ -287,13 +294,13 @@ async function generate() {
 
                             while (attempts > 0 && !success) {
                                 try {
-                                    await page.evaluate((el, logo) => {
+                                    await page.evaluate((el, icon) => {
                                         const rect = el.getBoundingClientRect();
                                         el.style.setProperty('width', rect.width + 'px', 'important');
                                         el.classList.add('puppeteer-teleport');
                                         if (!el.querySelector('.watermark-overlay')) {
                                             const img = document.createElement('img');
-                                            img.src = logo; img.className = 'watermark-overlay';
+                                            img.src = icon; img.className = 'watermark-overlay';
                                             el.appendChild(img);
                                         }
                                     }, card, WATERMARK_URL);
@@ -339,6 +346,9 @@ async function generate() {
                     if (categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') {
                         await processCards(true);
                     }
+                    if (categoryKey === 'armes' || categoryKey === 'equipements') {
+                        await processCards(false, false, true);
+                    }
                 }
 
             } finally { await page.close(); }
@@ -359,7 +369,7 @@ async function generate() {
 
             fs.writeFileSync(
                 path.join(targetDir, 'index.html'),
-                stubTemplate(title, description, 'favicon.png', pagePath)
+                stubTemplate(title, description, 'favicon_150x150.png', pagePath)
             );
             sitemapEntries.push(`${BASE_URL}/${pagePath}`);
         }
@@ -373,7 +383,7 @@ async function generate() {
                 items = [
                     ...Object.entries(wTalents).map(([s, v]) => ({ ...v, slug: s })),
                     ...Object.entries(gTalents).map(([s, v]) => ({ ...v, slug: s }))
-                ].filter(i => i.decente);
+                ].filter(i => i.descente);
             } else {
                 const filePath = path.join(DATA_DIR, categoryMap[categoryKey]);
                 if (!fs.existsSync(filePath)) continue;
@@ -403,14 +413,14 @@ async function generate() {
                 const formatter = categoryFormatters[categoryKey] || categoryFormatters['default'];
 
                 if (categoryKey === 'descente') {
-                    const levels = Object.keys(item.decente.levels).filter(k => k !== 'base').sort((a,b)=>parseInt(a)-parseInt(b));
+                    const levels = Object.keys(item.descente.levels).filter(k => k !== 'base').sort((a,b)=>parseInt(a)-parseInt(b));
 
                     for (const level of levels) {
                         const res = formatter(item, level);
                         const pagePath = `db/descente/${itemSlug}/${level}`;
                         const imagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}-${level}.jpg`))
                             ? `og-images/${categoryKey}/${itemSlug}-${level}.jpg`
-                            : 'favicon.png';
+                            : 'favicon_150x150.png';
 
                         const targetDir = path.join(DIST_DIR, pagePath);
                         if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
@@ -428,7 +438,7 @@ async function generate() {
                     }
                 } else {
                     const res = formatter(item);
-                    const imagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}.jpg`)) ? `og-images/${categoryKey}/${itemSlug}.jpg` : 'favicon.png';
+                    const imagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}.jpg`)) ? `og-images/${categoryKey}/${itemSlug}.jpg` : 'favicon_150x150.png';
                     const pagePath = `db/${categoryKey}/${itemSlug}`;
 
                     const targetDir = path.join(DIST_DIR, pagePath);
@@ -440,7 +450,7 @@ async function generate() {
                         const parfaitPath = `db/${categoryKey}/${itemSlug}/parfait`;
                         const parfaitImagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}-parfait.jpg`))
                             ? `og-images/${categoryKey}/${itemSlug}-parfait.jpg`
-                            : 'favicon.png';
+                            : 'favicon_150x150.png';
 
                         const targetDirParfait = path.join(DIST_DIR, parfaitPath);
                         if (!fs.existsSync(targetDirParfait)) fs.mkdirSync(targetDirParfait, { recursive: true });

@@ -1,0 +1,71 @@
+{
+  "chargeur_556": {
+    "nom": "Chargeur 5.56"
+  },
+  "chargeur_762": {
+    "nom": "Chargeur 7.62"
+  },
+  "chargeur_762_precision": {
+    "nom": "Chargeur 7.62 Précision"
+  },
+  "chargeur_integre": {
+    "nom": "Chargeur Intégré"
+  },
+  "chargeur_pistolet": {
+    "nom": "Chargeur Pistolet"
+  },
+  "barillet": {
+    "nom": "Barillet"
+  },
+  "bande_munitions": {
+    "nom": "Bande de Munitions"
+  },
+  "chargeur_45_acp": {
+    "nom": "Chargeur .45 ACP"
+  },
+  "chargeur_9mm": {
+    "nom": "Chargeur 9mm"
+  },
+  "magasin_tubulaire": {
+    "nom": "Magasin Tubulaire"
+  },
+
+  "rail_sous_canon_long": {
+    "nom": "Rail sous canon long"
+  },
+  "rail_sous_canon_court": {
+    "nom": "Rail sous canon court"
+  },
+  "gadget": {
+    "nom": "Gadget"
+  },
+
+  "rail_optique_court": {
+    "nom": "Rail optique court"
+  },
+  "rail_optique_long": {
+    "nom": "Rail optique long"
+  },
+  "micro_rail_optique": {
+    "nom": "Micro-rail optique"
+  },
+  "rail_optique": {
+    "nom": "Rail optique"
+  },
+
+  "bouche_45_acp": {
+    "nom": "Bouche .45 ACP"
+  },
+  "bouche_9mm": {
+    "nom": "Bouche 9mm"
+  },
+  "bouche_556": {
+    "nom": "Bouche 5.56"
+  },
+  "bouche_762": {
+    "nom": "Bouche 7.62"
+  },
+  "bouche": {
+    "nom": "Bouche"
+  }
+}

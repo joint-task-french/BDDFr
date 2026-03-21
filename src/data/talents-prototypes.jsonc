@@ -1,0 +1,8 @@
+{
+    "synesthesie": {
+        "nom": "Synesthésie",
+        "description": "Pourcentage de chances que chaque coup qui touche la cible reduise vos temps de recharge actifs de 0.2s.",
+        "statMin": 2.5,
+        "statMax": 5
+    }
+}

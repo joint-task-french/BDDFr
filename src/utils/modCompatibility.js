@@ -4,16 +4,21 @@
  */
 
 /**
- * Vérifie si un mod d'arme est compatible avec un type d'arme donné.
- * @param {Object} mod - Le mod (avec champ compatible: string[])
- * @param {string} weaponType - Le slug du type d'arme (ex: 'fusil_assaut')
+ * Vérifie si un mod d'arme est compatible avec une arme donnée.
+ * @param {Object} mod - Le mod (avec champ compatible contenant les slugs d'emplacements)
+ * @param {Object} weapon - L'objet arme complet (avec l'objet emplacementsMods)
  * @returns {boolean}
  */
-export function isWeaponModCompatible(mod, weaponType) {
-  if (!mod || !weaponType) return false
-  // compatible vide = universel pour ce type de mod
+export function isWeaponModCompatible(mod, weapon) {
+  if (!mod || !weapon || !weapon.emplacementsMods) return false
+
+  // compatible vide = universel pour ce type de mod (ex: s'adapte à tous les viseurs)
   if (!mod.compatible || mod.compatible.length === 0) return true
-  return mod.compatible.includes(weaponType)
+
+  // Extraction des valeurs de l'objet emplacementsMods (ex: ["rail_optique", "emplacement_bouche_556", ...])
+  // Compatible si l'arme possède au moins un emplacement requis par le mod
+  const weaponSlots = Object.values(weapon.emplacementsMods).filter(Boolean)
+  return mod.compatible.some(slotType => weaponSlots.includes(slotType))
 }
 
 /**
@@ -66,8 +71,8 @@ export function formatModAttributs(mod, allAttributs, statistiques) {
   const parts = []
   if (mod.attributs && Array.isArray(mod.attributs)) {
     for (const entry of mod.attributs) {
-      const attrDef = allAttributs?.find(a => a.slug === entry.attribut)
-      const statDef = !attrDef && statistiques ? statistiques.find(s => s.slug === entry.attribut) : null
+      const attrDef = (allAttributs && !Array.isArray(allAttributs)) ? allAttributs[entry.attribut] : allAttributs?.find(a => a.slug === entry.attribut)
+      const statDef = !attrDef && statistiques ? ((!Array.isArray(statistiques)) ? statistiques[entry.attribut] : statistiques.find(s => s.slug === entry.attribut)) : null
       const name = attrDef?.nom || statDef?.nom || resolveModAttrName(entry.attribut, allAttributs, statistiques)
       const unite = attrDef?.unite || ''
       const sign = entry.valeur >= 0 ? '+' : ''
@@ -117,15 +122,13 @@ export function formatModBonus(bonusOrMalus, allAttributs, isMalus = false) {
 export function resolveModAttrName(slug, allAttributs, statistiques) {
   if (!slug) return ''
   if (allAttributs) {
-    const attr = allAttributs.find(a => a.slug === slug)
+    const attr = (!Array.isArray(allAttributs)) ? allAttributs[slug] : allAttributs.find(a => a.slug === slug)
     if (attr) return attr.nom
   }
   if (statistiques) {
-    const stat = statistiques.find(s => s.slug === slug)
+    const stat = (!Array.isArray(statistiques)) ? statistiques[slug] : statistiques.find(s => s.slug === slug)
     if (stat) return stat.nom
   }
   // Fallback: humaniser le slug
   return slug.replace(/_arm$|_eqp$|_mod$/, '').replace(/_/g, ' ')
 }
-
-

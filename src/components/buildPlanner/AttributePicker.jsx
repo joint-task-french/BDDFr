@@ -28,14 +28,20 @@ export default function AttributePicker({ attributs, cible, categorie, essentiel
 
   const filtered = useMemo(() => {
     if (!attributs) return []
-    let list = attributs.filter(a => a.cible?.includes(cible))
+    const listRaw = Array.isArray(attributs) ? attributs : Object.values(attributs)
+    let list = listRaw.filter(a => a.cible?.includes(cible))
+    // Filtrer les attributs non sélectionnables
+    list = list.filter(a => a.selectionable === true)
     // Séparer attributs essentiels et classiques
     if (essentiel === true) list = list.filter(a => a.estEssentiel === true)
     else if (essentiel === false) list = list.filter(a => !a.estEssentiel)
     if (categorie) list = list.filter(a => a.categorie === categorie)
     if (exclude.length > 0) {
-      const excLow = exclude.map(n => n.toLowerCase())
-      list = list.filter(a => !excLow.includes(a.nom.toLowerCase()))
+      const excLow = exclude.map(n => (n || '').toLowerCase())
+      list = list.filter(a => 
+        !excLow.includes(a.nom.toLowerCase()) && 
+        !excLow.includes((a.slug || '').toLowerCase())
+      )
     }
     if (search) {
       const s = search.toLowerCase()
@@ -68,7 +74,7 @@ export default function AttributePicker({ attributs, cible, categorie, essentiel
           {filtered.map(attr => (
             <button
               key={attr.slug || attr.nom}
-              onClick={() => onSelect({ nom: attr.nom, slug: attr.slug, valeur: attr.max, min: attr.min, max: attr.max, unite: attr.unite, categorie: attr.categorie })}
+              onClick={() => onSelect({ ...attr, valeur: attr.max })}
               className="w-full text-left px-3 py-2.5 rounded hover:bg-shd/10 transition-colors flex items-center gap-3 group"
             >
               <GameIcon src={resolveAttributeIcon(attr.categorie)} alt="" size="w-4 h-4" className="opacity-60" />

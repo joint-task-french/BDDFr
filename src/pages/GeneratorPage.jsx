@@ -55,9 +55,10 @@ export default function GeneratorPage() {
     const hintSlug = slugMatch ? slugMatch[1] : null
 
     const dk = DATA_KEY[activeCategory]
-    const loaded = loadedData?.[dk] || []
+    const loaded = loadedData?.[dk] || {}
+    const loadedArray = Array.isArray(loaded) ? loaded : Object.values(loaded)
     const saved = savedItems?.[activeCategory] || []
-    const all = [...saved, ...loaded]
+    const all = [...saved, ...loadedArray]
 
     let existing = all.find(item => {
       const matchValue = (item[fieldKey] || '').toLowerCase() === actualValue.toLowerCase()
@@ -81,13 +82,14 @@ export default function GeneratorPage() {
     if (!currentIdentity) return
     const dk = DATA_KEY[activeCategory]
     const idKey = IDENTITY_KEY[activeCategory]
-    const loaded = loadedData?.[dk] || []
+    const loaded = loadedData?.[dk] || {}
+    const loadedArray = Array.isArray(loaded) ? loaded : Object.values(loaded)
     let original = null
     if (Array.isArray(idKey)) {
-      original = loaded.find(l => idKey.every(k => (l[k] || '').toLowerCase() === (currentIdentity[k] || '').toLowerCase()))
+      original = loadedArray.find(l => idKey.every(k => (l[k] || '').toLowerCase() === (currentIdentity[k] || '').toLowerCase()))
     } else {
       const name = typeof currentIdentity === 'string' ? currentIdentity : currentIdentity[idKey]
-      if (name) original = loaded.find(l => (l[idKey] || '').toLowerCase() === name.toLowerCase())
+      if (name) original = loadedArray.find(l => (l[idKey] || '').toLowerCase() === name.toLowerCase())
     }
     if (!original) {
       showToast('⚠ Aucune donnée originale trouvée', 'yellow')

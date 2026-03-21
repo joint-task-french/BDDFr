@@ -58,7 +58,7 @@ for (const item of flatCompetences) {
   const variante = {
     variante: cleanName,
     ...(prerequis ? { prerequis } : {}),
-    ...(item.icone ? { icone: item.icone } : {}),
+    ...(item.icon ? { icon: item.icon } : {}),
     ...(item.expertise ? { expertise: item.expertise } : {}),
     ...(item.statistiques ? { statistiques: item.statistiques } : {}),
     ...(item.effetEtat ? { effetEtat: item.effetEtat } : {}),

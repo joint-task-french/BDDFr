@@ -19,6 +19,7 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
   const [modPickerSlot, setModPickerSlot] = useState(null)
 
   const isExotic = weapon?.estExotique
+  const isClassicFixed = weapon?.attributs && Array.isArray(weapon.attributs) && weapon.attributs.length > 0
 
   // Attributs essentiels hérités du type d'arme ou définis par l'arme
   // getWeaponEssentialAttributes gère les deux cas :
@@ -32,8 +33,12 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
   // Noms déjà pris (essentiels + attribut libre)
   const excluded = useMemo(() => {
     const ex = []
-    essentialAttrs.forEach(a => { if (a?.nom) ex.push(a.nom) })
+    essentialAttrs.forEach(a => {
+      if (a?.nom) ex.push(a.nom)
+      if (a?.slug) ex.push(a.slug)
+    })
     if (attribute?.nom) ex.push(attribute.nom)
+    if (attribute?.slug) ex.push(attribute.slug)
     return ex
   }, [essentialAttrs, attribute])
 
@@ -88,9 +93,10 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
         {!isExotic && (
             <AttributeSlider
                 attribute={attribute}
+                readOnly={isClassicFixed}
                 onChange={onChangeAttribute}
                 onPick={() => setPickerOpen(true)}
-                onRemove={() => onChangeAttribute(null)}
+                onRemove={isClassicFixed ? null : () => onChangeAttribute(null)}
                 label="Attribut"
                 isPrototype={isPrototype}
             />
@@ -205,7 +211,7 @@ function ModPicker({ mods, type, weapon, allAttributs, onSelect, onClose }) {
   const filtered = useMemo(() => {
     if (!mods) return []
     const modsList = Array.isArray(mods) ? mods : Object.values(mods)
-    let list = modsList.filter(m => m.type === type)
+    let list = modsList.filter(m => m.type === type && !m.estExotique)
     list = list.filter(m => isWeaponModCompatible(m, weapon))
     if (search) {
       const s = search.toLowerCase()

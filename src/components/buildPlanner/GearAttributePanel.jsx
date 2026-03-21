@@ -103,12 +103,19 @@ function mapEssentialNames(names) {
  * Pour les exotiques avec attributEssentiel fixé par la pièce, l'attribut
  * est pré-rempli et non remplaçable.
  */
-export default function GearAttributePanel({ piece, attributes, allAttributs, modsEquipements, gearMods, onChange, onChangeMod, attributsType, ensembles, isPrototype }) {
+export default function GearAttributePanel({ piece, attributes, allAttributs, modsEquipements, gearMods, onChange, onChangeMod, attributsType, ensembles, isPrototype, slotKey, equipementsType, expertiseLevel }) {
   const [pickerOpen, setPickerOpen] = useState(null)
   const [modPickerIndex, setModPickerIndex] = useState(null)
 
   const isExotic = piece?.type === 'exotique'
   const classicCount = getClassicSlotCount(piece)
+
+  const pb = useMemo(() => {
+    if (!slotKey || !equipementsType) return 0
+    const base = equipementsType[slotKey]?.protectionBase || 0
+    const grade = expertiseLevel || 0
+    return Math.floor(base * (1 + grade * 0.01))
+  }, [slotKey, equipementsType, expertiseLevel])
 
   // Calcul du nombre de mods possibles en fonction de piece.mod (booléen ou entier)
   const modCount = useMemo(() => {
@@ -199,10 +206,23 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
   // Noms déjà utilisés
   const usedNames = useMemo(() => {
     const names = []
-    essentiels.forEach(a => { if (a?.nom) names.push(a.nom) })
-    classiques.forEach(a => { if (a?.nom) names.push(a.nom) })
+    essentiels.forEach(a => {
+      if (a?.nom) names.push(a.nom)
+      if (a?.slug) names.push(a.slug)
+    })
+    classiques.forEach(a => {
+      if (a?.nom) names.push(a.nom)
+      if (a?.slug) names.push(a.slug)
+    })
     return names
   }, [essentiels, classiques])
+
+  // Est-ce que l'attribut classique est fixé par la pièce ?
+  // (nommés/exotiques avec attributs listés dans la donnée de la pièce)
+  const isClassicFixedByIndex = (idx) => {
+    if (!piece?.attributs || !Array.isArray(piece.attributs)) return false
+    return !!piece.attributs[idx]
+  }
 
   const updateAttributes = (newEss, newClassiques) => {
     onChange({ essentiels: newEss, classiques: newClassiques })
@@ -224,6 +244,17 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
 
   return (
       <div className="mt-2 pt-2 border-t border-tactical-border/30 space-y-0.5">
+        {/* Protection de base */}
+        {pb > 0 && (
+            <div className="flex items-center justify-between text-xs py-0.5 mb-1 px-1 bg-blue-500/5 rounded border border-blue-500/10">
+                <div className="flex flex-col">
+                    <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Protection de base</span>
+                    {expertiseLevel > 0 && <span className="text-[9px] text-blue-400/60 font-medium">Inclut Expertise (+{expertiseLevel}%)</span>}
+                </div>
+                <span className="text-blue-300 font-bold">{pb.toLocaleString('fr-FR')} pts</span>
+            </div>
+        )}
+
         {/* Attributs essentiels */}
         {isExotic && isEssentialFixedByPiece ? (
             /* Exotiques avec attributs fixés : un slider par catégorie fixée, non remplaçable */
@@ -258,9 +289,10 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
             <AttributeSlider
                 key={`classic-${i}`}
                 attribute={classiques[i] || null}
+                readOnly={isClassicFixedByIndex(i)}
                 onChange={(attr) => setClassic(i, attr)}
                 onPick={() => setPickerOpen(`classic-${i}`)}
-                onRemove={() => setClassic(i, null)}
+                onRemove={isClassicFixedByIndex(i) ? null : () => setClassic(i, null)}
                 label={`Attribut ${i + 1}`}
                 isPrototype={isPrototype}
             />
@@ -361,9 +393,10 @@ function GearModPicker({ mods, allAttributs, onSelect, onClose }) {
   const filtered = useMemo(() => {
     if (!mods) return []
     const modsList = Array.isArray(mods) ? mods : Object.values(mods)
-    if (!search) return modsList
+    let list = modsList.filter(m => !m.estExotique)
+    if (!search) return list
     const s = search.toLowerCase()
-    return modsList.filter(m =>
+    return list.filter(m =>
         (m.nom || '').toLowerCase().includes(s) ||
         (m.categorie || '').toLowerCase().includes(s) ||
         formatModAttributs(m, allAttributs).toLowerCase().includes(s)

@@ -30,13 +30,18 @@ export default function AttributePicker({ attributs, cible, categorie, essentiel
     if (!attributs) return []
     const listRaw = Array.isArray(attributs) ? attributs : Object.values(attributs)
     let list = listRaw.filter(a => a.cible?.includes(cible))
+    // Filtrer les attributs non sélectionnables
+    list = list.filter(a => a.selectionable === true)
     // Séparer attributs essentiels et classiques
     if (essentiel === true) list = list.filter(a => a.estEssentiel === true)
     else if (essentiel === false) list = list.filter(a => !a.estEssentiel)
     if (categorie) list = list.filter(a => a.categorie === categorie)
     if (exclude.length > 0) {
-      const excLow = exclude.map(n => n.toLowerCase())
-      list = list.filter(a => !excLow.includes(a.nom.toLowerCase()))
+      const excLow = exclude.map(n => (n || '').toLowerCase())
+      list = list.filter(a => 
+        !excLow.includes(a.nom.toLowerCase()) && 
+        !excLow.includes((a.slug || '').toLowerCase())
+      )
     }
     if (search) {
       const s = search.toLowerCase()

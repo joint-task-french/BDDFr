@@ -11,6 +11,7 @@ export default function BuildStatsPanel({ data }) {
   const {
     coreStats,
     weaponStats,
+    attributesByCategory,
     setBonuses,
     equippedSkills,
     totalGearPieces,
@@ -24,7 +25,7 @@ export default function BuildStatsPanel({ data }) {
       {/* Header */}
       <div className="px-4 py-3 border-b border-tactical-border bg-linear-to-r from-tactical-panel to-tactical-bg">
         <h3 className="text-sm font-bold text-white uppercase tracking-widest flex items-center gap-2">
-          📊 Statistiques
+          📊 Statistiques (beta)
         </h3>
       </div>
 
@@ -33,6 +34,28 @@ export default function BuildStatsPanel({ data }) {
         <Section title="Attributs principaux" icon="🎯">
           <CoreAttributeBars coreStats={coreStats} attributsType={data.attributs_type} />
         </Section>
+
+        {/* Statistiques de Protection / Défensives */}
+        {attributesByCategory.defensif.length > 0 && (
+          <Section title="Protection" icon="🛡️">
+            <div className="space-y-0.5">
+              {attributesByCategory.defensif.map((attr, i) => (
+                <GlobalStatRow key={i} attr={attr} color="text-blue-400" />
+              ))}
+            </div>
+          </Section>
+        )}
+
+        {/* Statistiques Utilitaires */}
+        {attributesByCategory.utilitaire.length > 0 && (
+          <Section title="Utilitaires" icon="🔧">
+            <div className="space-y-0.5">
+              {attributesByCategory.utilitaire.map((attr, i) => (
+                <GlobalStatRow key={i} attr={attr} color="text-yellow-400" />
+              ))}
+            </div>
+          </Section>
+        )}
 
         {/* Statistiques par arme — chaque arme a ses propres stats */}
         {weaponStats.length > 0 && (
@@ -93,6 +116,19 @@ function Section({ title, icon, children }) {
   )
 }
 
+/** Ligne de statistique globale */
+function GlobalStatRow({ attr, color = 'text-green-400' }) {
+  const isMainStat = attr.nom === "Armure totale";
+  return (
+    <div className={`flex items-center justify-between text-xs py-0.5 border-b border-tactical-border/10 last:border-0 ${isMainStat ? 'bg-white/5 -mx-1 px-1 rounded' : ''}`}>
+      <span className={`${isMainStat ? 'text-gray-300 font-bold' : 'text-gray-500'} truncate mr-2`}>{attr.nom}</span>
+      <span className={`font-bold shrink-0 ${isMainStat ? 'text-blue-300' : color}`}>
+        {attr.total >= 0 && !isMainStat ? '+' : ''}{formatValue(attr.total, attr.unite)}
+      </span>
+    </div>
+  )
+}
+
 
 /** Formatte une valeur numérique avec son unité */
 function formatValue(value, unite) {
@@ -117,7 +153,7 @@ function WeaponStatBlock({ w }) {
         </div>
         <div className="flex items-center gap-1.5 shrink-0">
           <span className="text-red-400 text-xs font-bold">
-            {w.degatsExpertise ? w.degatsExpertise.toLocaleString('fr-FR') : w.degatsBase ? w.degatsBase.toLocaleString('fr-FR') : '—'}
+            {w.degatsAffiche ? w.degatsAffiche.toLocaleString('fr-FR') : (w.degatsExpertise ? w.degatsExpertise.toLocaleString('fr-FR') : (w.degatsBase ? w.degatsBase.toLocaleString('fr-FR') : '—'))}
           </span>
           {w.expertise > 0 && (
             <span className="text-xs text-shd">+{w.expertise}%</span>

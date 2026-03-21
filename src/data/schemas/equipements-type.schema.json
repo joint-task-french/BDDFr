@@ -18,6 +18,10 @@
         "emoji": {
           "type": "string",
           "description": "Emoji représentant le type d'équipement"
+        },
+        "protectionBase": {
+          "type": "number",
+          "description": "Valeur de protection de base (Armor) pour cet emplacement d'équipement"
         }
       },
       "required": [

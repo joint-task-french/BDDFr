@@ -138,8 +138,8 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                           </span>
                                                 )}
                                             </div>
-                                            {/* On n'affiche le bouton d'édition que si ce n'est PAS un talent parfait */}
-                                            {(!isPerfect && onSelectTalent) && (
+                                            {/* Les talents des armes nommées sont fixes */}
+                                            {(false && onSelectTalent) && (
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); onSelectTalent() }}
                                                     className="text-xs text-gray-600 hover:text-shd transition-colors"
@@ -171,8 +171,8 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                           </span>
                                                 )}
                                             </div>
-                                            {/* On n'affiche le bouton d'édition que si ce n'est PAS un talent parfait */}
-                                            {(!isPerfect && onSelectTalent) && (
+                                            {/* Les talents des armes nommées sont fixes */}
+                                            {(!weapon.estNomme && !isPerfect && onSelectTalent) && (
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); onSelectTalent() }}
                                                     className="text-xs text-gray-600 hover:text-shd transition-colors"
@@ -188,7 +188,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                     </div>
                                 )
                             })()
-                        ) : (!weapon.estExotique && !isSpecific && onSelectTalent) ? (
+                        ) : (!weapon.estExotique && !weapon.estNomme && !isSpecific && onSelectTalent) ? (
                             <div className="mt-3 pt-3 border-t border-tactical-border">
                                 <button
                                     onClick={(e) => { e.stopPropagation(); onSelectTalent() }}

@@ -45,6 +45,7 @@ export default function GearSection({ data }) {
                         isPrototype={prototypes?.[slot]}
                         prototypeTalent={prototypeTalents?.[slot]}
                         onSelectPrototypeTalent={() => setProtoTalentSlot(slot)}
+                        equipementsType={data.equipements_type}
                         dispatch={dispatch}
                     />
                 ))}

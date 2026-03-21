@@ -73,6 +73,10 @@
             "type": "string",
             "pattern": "^[a-z0-9_]+$"
           }
+        },
+        "selectionable": {
+          "type": "boolean",
+          "description": "Si cet attribut peut être sélectionné manuellement dans le build planner"
         }
       }
     }

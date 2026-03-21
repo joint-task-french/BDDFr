@@ -2861,6 +2861,9 @@
     "talents": [],
     "attributs_essentiels": [
       {
+        "nom": "degats_fusil_de_precision_es"
+      },
+      {
         "nom": "degats_de_headshot_es",
         "valeur": 137
       }

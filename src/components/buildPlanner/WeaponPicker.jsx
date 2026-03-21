@@ -47,10 +47,10 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
           _specIcone: spec.icon,
         }))
       case 'sidearm':
-        return armes.filter(w => w.type === 'pistolet')
+        return armes.filter(w => w.type === 'pistolet' || w.armePoing === true)
       case 'classic':
       default:
-        return armes.filter(w => classicTypes.includes(w.type))
+        return armes.filter(w => classicTypes.includes(w.type) && w.armePoing !== true)
     }
   }, [data, mode])
 
@@ -76,7 +76,7 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
   const grouped = useMemo(() => {
     const g = {}
     filtered.forEach(w => {
-      const t = w.type || 'autre'
+      const t = w.armePoing ? 'armePoing' : (w.type || 'autre')
       if (!g[t]) g[t] = []
       g[t].push(w)
     })
@@ -130,7 +130,7 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
         Object.entries(grouped).map(([type, weapons]) => (
           <div key={type} className="mb-4">
             <h4 className="text-sm font-bold text-red-400 uppercase tracking-widest mb-2 px-2 sticky top-0 bg-tactical-panel/90 py-2 z-10 border-b border-red-500/20">
-              {getWeaponTypeLabel(data.armes_type, type)} ({weapons.length})
+              {type === 'armePoing' ? 'Arme de poing' : getWeaponTypeLabel(data.armes_type, type)} ({weapons.length})
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
               {weapons.map(w => {

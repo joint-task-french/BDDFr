@@ -42,25 +42,27 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
   const location = useLocation()
 
   const isExotic = item.estExotique
+  const isSpecific = item.type === 'arme_specifique'
+  const isNamed = item.estNomme && !isExotic
 
   const isUrlPrototype = params.slug === item.slug && params.modifier === 'prototype'
   const forcePrototype = searchParams.get('prototype') === 'true'
 
-  const [isPrototype, setIsPrototype] = useState(isUrlPrototype || forcePrototype)
+  const [isPrototype, setIsPrototype] = useState((isUrlPrototype || forcePrototype) && !isExotic && !isSpecific)
 
   useEffect(() => {
     if (params.slug === item.slug) {
-      setIsPrototype(params.modifier === 'prototype' || forcePrototype)
-    } else if (forcePrototype) {
+      setIsPrototype((params.modifier === 'prototype' || forcePrototype) && !isExotic && !isSpecific)
+    } else if (forcePrototype && !isExotic && !isSpecific) {
       setIsPrototype(true)
     }
-  }, [params.modifier, params.slug, item.slug, forcePrototype])
+  }, [params.modifier, params.slug, item.slug, forcePrototype, isExotic, isSpecific])
 
   const togglePrototype = (e) => {
     e.preventDefault()
     e.stopPropagation()
 
-    if (isExotic) return
+    if (isExotic || isSpecific) return
 
     const nextState = !isPrototype
     setIsPrototype(nextState)
@@ -77,8 +79,6 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
     })
   }
 
-  const isNamed = item.estNomme && !isExotic
-  const isSpecific = item.type === 'arme_specifique'
   const nameColor = isPrototype ? 'text-cyan-400' : isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isSpecific ? 'text-purple-400' : 'text-shd'
   const borderColor = isPrototype ? 'border-cyan-500/50' : ''
 
@@ -112,7 +112,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
             </span>
 
                 <div className="flex items-center gap-2">
-                  {!isExotic && (
+                  {!isExotic && !isSpecific && (
                       <button
                           onClick={togglePrototype}
                           className={`flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border transition-all ${
@@ -133,7 +133,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                 </div>
               </div>
               <div className="flex items-center gap-2 text-xs text-gray-500 mt-0.5">
-                <span>{getWeaponTypeLabel(armesType, item.type)}</span>
+                <span>{item.armePoing ? 'Arme de poing' : getWeaponTypeLabel(armesType, item.type)}</span>
                 <span>·</span>
                 <span>{item.fabricant}</span>
                 {isSpecific && item.specialisation && (
@@ -251,11 +251,13 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
         <ObtentionDisplay obtention={item.obtention} />
 
         {/* Notes */}
-        {hasContent(item.notes) && (
+        {(hasContent(item.notes) || item.armePoing) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
               <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
               <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
-                {item.notes}
+                {hasContent(item.notes) && item.notes}
+                {hasContent(item.notes) && item.armePoing && '\n'}
+                {item.armePoing && "Cette arme s'équipe dans l'emplacement Arme de poing."}
               </div>
             </div>
         )}

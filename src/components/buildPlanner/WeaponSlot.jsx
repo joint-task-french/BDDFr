@@ -76,7 +76,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                     {weapon.nom}
                                 </div>
                                 <div className="text-xs text-gray-500">
-                                    {getWeaponTypeLabel(armesType, weapon.type)}
+                                    {weapon.armePoing ? 'Arme de poing' : getWeaponTypeLabel(armesType, weapon.type)}
                                     {weapon.fabricant && ` — ${weapon.fabricant}`}
                                 </div>
                             </div>

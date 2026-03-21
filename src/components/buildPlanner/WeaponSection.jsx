@@ -176,7 +176,7 @@ export default function WeaponSection({ data }) {
         <WeaponTalentPicker
           data={data}
           slotIndex="sidearm"
-          weaponType="pistolet"
+          weaponType={sidearm?.type}
           onClose={() => setTalentPickerSlot(null)}
         />
       )}

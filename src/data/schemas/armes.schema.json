@@ -148,6 +148,10 @@
           "type": "boolean",
           "description": "True si arme nommée (talent dédié fixe)"
         },
+        "armePoing": {
+          "type": "boolean",
+          "description": "True si l'arme s'équipe dans l'emplacement Arme de poing (sidearm) même si son type est différent"
+        },
         "talents": {
           "type": "array",
           "description": "Liste de slugs de talents (référencent les noms dans talents-armes.jsonc). Pour les exotiques, les talents dédiés sont directement dans cette liste.",

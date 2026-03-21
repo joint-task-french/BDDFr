@@ -138,6 +138,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "maintenance_percutante": {
+    "nom": "Maintenance percutante",
+    "description": "\"T'as essayé d'éteindre et de rallumer ?\"",
+    "marque": "alps_summit_armement",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["soutien_technique"],
+    "type": "standard",
+    "estNomme": true
+  },
   "cage_thoracique_x_treyme_pro": {
     "nom": "Cage thoracique X-TREYME Pro",
     "marque": "alps_summit_armement",
@@ -423,6 +433,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "devil_s_due": {
+    "nom": "Devil's Due",
+    "description": "\"Si tu sens la mort t'appeler essaie donc d'être précis car un tir bien ajusté te sauvera la vie. - Inscription dans le sac\"",
+    "marque": "ceska_vyroba_s_r_o",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["serrement"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_nbc": {
     "nom": "Gants NBC",
@@ -1151,6 +1171,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "vigil": {
+    "nom": "Vigil",
+    "description": "\"Honneur à ceux qui sont tombés.\"",
+    "marque": "legatus_s_p_a",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["polyvalence"],
+    "type": "standard",
+    "estNomme": true
   },
   "veste_legatus_s_p_a": {
     "nom": "Veste Legatus S.p.A.",

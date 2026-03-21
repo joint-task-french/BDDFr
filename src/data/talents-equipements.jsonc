@@ -381,6 +381,8 @@
     "nom": "Soutien technique",
     "description": "Les éliminations par compétence augmente le total de dégâts de compétence de 25% pendant 20s.",
     "emplacement": "sac_a_dos",
+    "perfectDescription": "Les éliminations par compétence augmente le total de dégâts de compétence de 25% pendant 27s.",
+    "equipementsParfaits": ["maintenance_percutante"],
     "descente": {
       "boucles": [
         "Paresse"
@@ -543,6 +545,8 @@
     "nom": "Polyvalence",
     "description": "Augmente le total de dégâts d'arme pendant 10s quand vous passez d'une arme principale à une arme secondaire et inversement si ces armes sont différentes.\n35% contre les ennemis situés à moins de 15m pour les fusils calibre 12 et les PM.\n35% contre les ennemis situés à plus de 25m pour les fusils et les fusils de précision.\n10% contre les ennemis situés à 15-25m pour les FM et les fusils d'assaut.\nAu maximum une fois toutes les 5s par type d'arme.",
     "emplacement": "sac_a_dos",
+    "perfectDescription": "Augmente le total de dégâts d'arme pendant 10s quand vous passez d'une arme principale à une arme secondaire et inversement si ces armes sont différentes.\n45% contre les ennemis situés à moins de 15m pour les fusils calibre 12 et les PM.\n45% contre les ennemis situés à plus de 25m pour les fusils et les fusils de précision.\n15% contre les ennemis situés à 15-25m pour les FM et les fusils d'assaut.\nAu maximum une fois toutes les 5s par type d'arme.",
+    "equipementsParfaits": ["vigil"],
     "descente": {
       "boucles": [
         "Colère",
@@ -674,8 +678,10 @@
   },
   "serrement": {
     "nom": "Serrement",
-    "description": "Si vous êtes à moins de 15% de votre protection, les coups critiques réparent 2.5% de la protection détruite.\nLes éliminations vous permettent de réparer jusqu'à 100% de protection sur 4-10s, en fonction de votre attribut essentiel rouge",
+    "description": "Si vous êtes à moins de 15% de votre protection, les coups critiques réparent 2.5% de la protection détruite.\nLes éliminations vous permettent de réparer jusqu'à 100% de protection sur 4-10s, en fonction de votre attribut essentiel rouge.",
     "emplacement": "torse",
+    "perfectDescription": "Si vous êtes à moins de 20% de votre protection, les coups critiques réparent 2.5% de la protection détruite.\nLes éliminations vous permettent de réparer jusqu'à 100% de protection sur 4-10s, en fonction de votre attribut essentiel rouge.",
+    "equipementsParfaits": ["devil_s_due"],
     "descente": {
       "boucles": [
         "Avidité",

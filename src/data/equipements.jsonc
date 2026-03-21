@@ -40,6 +40,9 @@
     "emplacement": "gants",
     "marque": "5_11_tactical",
     "mod": false,
+    "obtention": {
+      "darkZone": true
+    },
     "estNomme": true,
     "attributEssentiel": [
       "défensif"
@@ -134,6 +137,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "maintenance_percutante": {
+    "nom": "Maintenance percutante",
+    "description": "\"T'as essayé d'éteindre et de rallumer ?\"",
+    "marque": "alps_summit_armement",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["soutien_technique"],
+    "type": "standard",
+    "estNomme": true
   },
   "cage_thoracique_x_treyme_pro": {
     "nom": "Cage thoracique X-TREYME Pro",
@@ -277,6 +290,9 @@
     "marque": "belstone_armory",
     "emplacement": "sac_a_dos",
     "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": ["sangsue"],
     "type": "standard",
     "estNomme": true
@@ -330,6 +346,18 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "hermano": {
+    "nom": "Hermano",
+    "emplacement": "sac_a_dos",
+    "marque": "brazos_de_arcabuz",
+    "mod": true,
+    "talents": ["overclock"],
+    "estNomme": true,
+    "attributEssentiel": [
+      "défensif"
+    ],
+    "type": "standard"
   },
   "feugo_campea": {
     "nom": "Feugo Campea",
@@ -406,6 +434,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "devil_s_due": {
+    "nom": "Devil's Due",
+    "description": "\"Si tu sens la mort t'appeler essaie donc d'être précis car un tir bien ajusté te sauvera la vie. - Inscription dans le sac\"",
+    "marque": "ceska_vyroba_s_r_o",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["serrement"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_nbc": {
     "nom": "Gants NBC",
     "marque": "ceska_vyroba_s_r_o",
@@ -459,6 +497,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "alignement_strategique": {
+    "nom": "Alignement stratégique",
+    "description": "\"Je sais que ça donne l'impression qu'on va tout détruire, mais ne vous inquiétez pas. Avec nous, y a pas de problème. Juste des accidents heureux.\"",
+    "marque": "china_light_industries_corporation",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["mechancete"],
+    "type": "standard",
+    "estNomme": true
   },
   "ps_282": {
     "nom": "PS 282",
@@ -577,6 +625,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "lavoisier": {
+    "nom": "Lavoisier",
+    "description": "\"La perfection à l'état pur, à condition de comprendre comment s'en servir. Anonyme\"",
+    "marque": "electrique",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["galvanisation"],
+    "type": "standard",
+    "estNomme": true
   },
   "veste_electrique": {
     "nom": "Veste Electrique",
@@ -826,6 +884,16 @@
     "talents": [],
     "type": "standard"
   },
+  "livre_de_cuisine_de_l_anarchiste": {
+    "nom": "Livre de cuisine de l'anarchiste",
+    "description": "\"Conley, je crois que tu vas trouver des jouets qui te plairont, ici. Essaie juste de ne pas tout faire sauter en fouillant là-dedans. - Aaron Keener\"",
+    "marque": "golan_gear_ltd",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["mechancete"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_ayal": {
     "nom": "Gants Ayal",
     "marque": "golan_gear_ltd",
@@ -915,6 +983,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "the_courier": {
+    "nom": "The Courier",
+    "description": "\"Pour que ton âme soit transportée au paradis. Le prêtre\"",
+    "marque": "hasburg_guard",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["mort_rampante"],
+    "type": "standard",
+    "estNomme": true
   },
   "veste_hg": {
     "nom": "Veste HG",
@@ -1016,6 +1094,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "armature": {
+    "nom": "Armature",
+    "description": "\"Tuer, c'est difficile la première fois, mais ça devient de plus en plus facile avec la pratique. - Le Stratège\"",
+    "marque": "lengmo",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["force_irresistible"],
+    "type": "standard",
+    "estNomme": true
+  },
   "veste_langmo_bomb": {
     "nom": "Veste Langmo Bomb",
     "marque": "lengmo",
@@ -1083,6 +1171,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "vigil": {
+    "nom": "Vigil",
+    "description": "\"Honneur à ceux qui sont tombés.\"",
+    "marque": "legatus_s_p_a",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["polyvalence"],
+    "type": "standard",
+    "estNomme": true
   },
   "veste_legatus_s_p_a": {
     "nom": "Veste Legatus S.p.A.",
@@ -1391,6 +1489,19 @@
     "type": "standard",
     "estNomme": false
   },
+  "le_don": {
+    "nom": "Le Don",
+    "description": "\"Ce n'est qu'après avoir tout donné que tu peux espérer recevoir en retour. Quand l'enveloppe est vide, l'âme est complète. - Inconnu\"",
+    "marque": "providence_defense",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": ["vigilance"],
+    "type": "standard",
+    "estNomme": true
+  },
   "sacrifice": {
     "nom": "Sacrifice",
     "marque": "providence_defense",
@@ -1638,6 +1749,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "matador": {
+    "nom": "Matador",
+    "description": "\"J'ai déjà dansé avec la mort, et ça m'a vite lassé. Je crois que je préfère quand les chances jouent avec moi.\"",
+    "marque": "walker_harris_co",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["poussee_d_adrenaline"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gilet_balistique": {
     "nom": "Gilet balistique",
     "marque": "walker_harris_co",
@@ -1719,6 +1840,9 @@
     "emplacement": "holster",
     "marque": "wyvern_wear",
     "mod": false,
+    "obtention": {
+      "darkZone": true
+    },
     "estNomme": true,
     "attributEssentiel": [
       "utilitaire"
@@ -1753,6 +1877,9 @@
     "emplacement": "masque",
     "marque": "yaahl_gear",
     "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
     "estNomme": true,
     "attributEssentiel": [
       "offensif"

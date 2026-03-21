@@ -436,6 +436,9 @@
     "emplacement": "genouilleres",
     "marque": "ceska_vyroba_s_r_o",
     "mod": false,
+    "obtention": {
+      "description": "Événement limité"
+    },
     "talents": ["perplexite"],
     "estNomme": true,
     "type": "standard"
@@ -1170,6 +1173,9 @@
     "emplacement": "genouilleres",
     "marque": "murakami_industries",
     "mod": false,
+    "obtention": {
+      "darkZone": true
+    },
     "estNomme": true,
     "attributEssentiel": [
       "utilitaire"

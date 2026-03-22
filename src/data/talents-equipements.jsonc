@@ -9,6 +9,8 @@
     "nom": "Dynamisation",
     "description": "Au combat, chaque compétence génère un bonus cumulable si elle est active ou si elle n'est pas en recharge.\nCes bonus augmentent le total de dégâts de compétence de 1,5% et le total de réparation de compétence de 2%.\nIls sont cumulables 15 fois maximum par compétence et s'annulent quand la compétence est en recharge.",
     "emplacement": "sac_a_dos",
+    "equipementsParfaits": ["elan"],
+    "perfectDescription": "Au combat, chaque compétence génère un bonus cumulable si elle est active ou si elle n'est pas en recharge.\nCes bonus augmentent le total de dégâts de compétence de 1,5% et le total de réparation de compétence de 2%.\nIls sont cumulables 18 fois maximum par compétence et s'annulent quand la compétence est en recharge.",
     "descente": {
       "boucles": [
         "Gourmandise",
@@ -147,6 +149,8 @@
     "nom": "Rechargement Protégé",
     "description": "Confère +20% de protection bonus quand vous rechargez.\nConfère 0-18% de votre protection en protection bonus pour tout vos alliés quand ceux-ci rechargent, en fonction de votre attribut essentiel bleu",
     "emplacement": "torse",
+    "perfectDescription": "Confère +40% de protection bonus quand vous rechargez.\nConfère 0-30% de votre protection en protection bonus pour tout vos alliés quand ceux-ci rechargent, en fonction de votre attribut essentiel bleu",
+    "equipementsParfaits": ["dexterite"],
     "descente": {
       "boucles": [
         "Avidité",

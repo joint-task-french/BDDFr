@@ -3,7 +3,6 @@ import { NavLink, useLocation, Link } from 'react-router-dom'
 import JTFrLogo from '../common/JTFrLogo.jsx'
 import { InfoToolTip } from "../common/InfoToolTip.jsx"
 import { loadJsonc } from '../../utils/dataLoader.js'
-// 👇 Importation de resolveIcon ajoutée ici
 import { GameIcon, resolveIcon } from '../../utils/gameAssets.jsx'
 
 const BASE = import.meta.env.BASE_URL
@@ -114,13 +113,11 @@ export default function Sidebar({ open, onClose }) {
                               }`}
                           >
                             <div className="w-5 h-5 shrink-0 flex items-center justify-center opacity-80">
-                              {/* 👇 Utilisation de resolveIcon pour obtenir la bonne URL (src) */}
                               <GameIcon src={resolveIcon(map.icon)} className="w-full h-full object-contain" />
                             </div>
                             {map.name}
                           </Link>
 
-                          {/* Affichage des sous-cartes en cascade */}
                           {map.subMaps && isCurrentMapActive && (
                               <div className="pl-6 mt-1 space-y-1 border-l border-tactical-border/50 ml-3">
                                 {map.subMaps.map(subMap => {

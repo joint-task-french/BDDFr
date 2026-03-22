@@ -959,6 +959,22 @@
       "protection_elimination"
     ]
   },
+  "degats_corps_a_corps_arm": {
+    "nom": "Dégâts Corps à corps",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 500,
+    "description": "Augmente les dégâts de corps à corps",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_corps_a_corps"
+    ]
+  },
   "protection_pour_eliminations_eqp": {
     "nom": "Protection pour éliminations",
     "categorie": "défensif",

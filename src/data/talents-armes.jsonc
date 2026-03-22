@@ -1548,7 +1548,6 @@
   },
   "lien_des_tenebres": {
     "nom": "Lien des ténèbres",
-    "icon": "lien_des_tenebres",
     "description": "Quand l'agent subit un effet d'état, 50% des munitions de son chargeur suivant infligent le même effet d'état aux cibles.\nCet effet s'applique uniquement lors du combat.",
     "estExotique": true
   },
@@ -1815,7 +1814,6 @@
   },
   "pierre_cachee": {
     "nom": "Pierre cachée",
-    "icon": "pierre_cachee",
     "description": "Les headshots infligent confusion.\nTemps de recharge : 20s.",
     "estExotique": false
   }

@@ -28,7 +28,9 @@
   "doue": {
     "nom": "Doué",
     "description": "Les éliminations par compétence ont 25% de probabilité de réinitialiser les recharges de compétence.",
-    "emplacement": "sac_a_dos",
+    "emplacement": "torse",
+    "perfectDescription": "Les éliminations par compétence ont 30% de probabilité de réinitialiser les recharges de compétence.",
+    "equipementsParfaits": ["protection_de_cesar"],
     "descente": {
       "boucles": [
         "Paresse"
@@ -45,12 +47,16 @@
   "observateur": {
     "nom": "Observateur",
     "description": "Augmente les totaux de dégâts d'arme et de dégâts de compétence de 15% contre les ennemis touchés par impulsion.",
-    "emplacement": "torse"
+    "emplacement": "torse",
+    "equipementsParfaits": ["ampli_de_reperage"],
+    "perfectDescription": "Augmente les totaux de dégâts d'arme et de dégâts de compétence de 20% contre les ennemis touchés par impulsion."
   },
   "livraison_explosive": {
     "nom": "Livraison Explosive",
     "description": "Quand vous déployez un objet de compétence, 1.5s après que celui-ci touche le sol, il génère une explosion infligeant des dégâts aux ennemis situés à moins de 5m.\nLes dégâts sont étalonnés selon le Tier de compétence et infligent 25-100% des dégâts d'une grenade offensive.\nUne fois maximum par compétence.",
-    "emplacement": "torse"
+    "emplacement": "torse",
+    "perfectDescription": "Quand vous déployez un objet de compétence, 1.5s après que celui-ci touche le sol, il génère une explosion infligeant des dégâts aux ennemis situés à moins de 5m. Ensuite, les explosions se produisent toutes les 5s.\nLes dégâts sont étalonnés selon le Tier de compétence et infligent 25-100% des dégâts d'une grenade offensive.\nUne fois maximum par compétence.",
+    "equipementsParfaits": ["combustor"]
   },
   "determination_empathique": {
     "nom": "Détermination Empathique",
@@ -61,6 +67,8 @@
     "nom": "Observation",
     "description": "Au bout de 10s à couvert, augmente les totaux de dégâts d'arme et de dégâts de compétence de 12% pour vous et vos alliés.\nCet effet dure tant que vous restez à couvert ou que vous vous déplacez d'un abri à l'autre.",
     "emplacement": "torse",
+    "perfectDescription": "Au bout de 8s à couvert, augmente les totaux de dégâts d'arme et de dégâts de compétence de 14% pour vous et vos alliés.\nCet effet dure tant que vous restez à couvert ou que vous vous déplacez d'un abri à l'autre.",
+    "equipementsParfaits": ["calme_agressif"],
     "descente": {
       "boucles": [
         "Gourmandise",
@@ -80,6 +88,8 @@
     "nom": "Intimidation",
     "description": "Quand vous disposez d'une protection bonus, vous gagnez 3 effets chaque seconde jusqu'à un max de 9.\nChaque effet cumulé augmente les dégâts d'arme de +4% contre les ennemis situés à moins de 10m.\nTous les effets cumulés sont perdus si vous n'avez plus de protection bonus.",
     "emplacement": "torse",
+    "perfectDescription": "Quand vous disposez d'une protection bonus, vous gagnez 3 effets chaque seconde jusqu'à un max de 10.\nChaque effet cumulé augmente les dégâts d'arme de +4% contre les ennemis situés à moins de 10m.\nTous les effets cumulés sont perdus si vous n'avez plus de protection bonus.",
+    "equipementsParfaits": ["chasseur_tueur"],
     "descente": {
       "boucles": [
         "Avidité",
@@ -100,13 +110,17 @@
   },
   "incassable": {
     "nom": "Incassable",
-    "description": "Quand votre protection est détruite, répare 95% (50%) de votre protection.\nTemps de recharge : 60s",
-    "emplacement": "torse"
+    "description": "Quand votre protection est détruite, répare 95% de votre protection.\nTemps de recharge : 60s",
+    "emplacement": "torse",
+    "perfectDescription": "Quand votre protection est détruite, répare 100% de votre protection.\nTemps de recharge : 55s",
+    "equipementsParfaits": ["rien_a_f"]
   },
   "avant_garde": {
     "nom": "Avant-garde",
-    "description": "Déployer un bouclier le rend invulnérable pendant 5s (2s) et donne à tous les autres alliés 45% (20%) de votre protection en protection bonus pendant 20s.\nTemps de recharge : 25s.",
+    "description": "Déployer un bouclier le rend invulnérable pendant 5s et donne à tous les autres alliés 45% de votre protection en protection bonus pendant 20s.\nTemps de recharge : 25s.",
     "emplacement": "torse",
+    "perfectDescription": "Déployer un bouclier le rend invulnérable pendant 5s et donne à tous les autres alliés 50% de votre protection en protection bonus pendant 20s.\nTemps de recharge : 25s.",
+    "equipementsParfaits": ["leader"],
     "descente": {
       "boucles": [
         "Avidité",
@@ -196,12 +210,16 @@
     "nom": "Mise au point",
     "description": "Augmente le total de dégâts d'arme de 5% à chaque seconde pendant que vous ciblez un ennemi en zoom 8x ou supérieur, jusqu'à 50%.",
     "prerequis": "Une lunette à grossissement 8x minimum.",
-    "emplacement": "torse"
+    "emplacement": "torse",
+    "equipementsParfaits": ["exemple_cristallin"],
+    "perfectDescription": "Augmente le total de dégâts d'arme de 6% à chaque seconde pendant que vous ciblez un ennemi en zoom 8x ou supérieur, jusqu'à 60%."
   },
   "prepare": {
     "nom": "Préparé",
     "description": "A couvert, le maniement d'arme est amélioré de +45%.",
     "emplacement": "torse",
+    "perfectDescription": "A couvert, le maniement d'arme est amélioré de +50%.",
+    "equipementsParfaits": ["gilet_vedmedytsya"],
     "descente": {
       "boucles": [
         "Avidité",
@@ -220,6 +238,8 @@
     "nom": "Étincelle",
     "description": "Blesser des ennemis avec une compétence augmente le total de dégâts d'arme de 15% pendant 15s.",
     "emplacement": "torse",
+    "perfectDescription": "Blesser des ennemis avec une compétence augmente le total de dégâts d'arme de 18% pendant 20s.",
+    "equipementsParfaits": ["plastron_du_fantassin_zele"],
     "descente": {
       "boucles": [
         "Envie",
@@ -239,6 +259,8 @@
     "nom": "Oblitération",
     "description": "Les coups critiques augmentent le total de dégâts d'arme de 1% pendant 10s.\nPeut se cumuler jusqu'à 20 fois.",
     "emplacement": "torse",
+    "equipementsParfaits": ["egalisatrice"],
+    "perfectDescription": "Les coups critiques augmentent le total de dégâts d'arme de 1% pendant 10s.\nPeut se cumuler jusqu'à 24 fois.",
     "descente": {
       "boucles": [
         "Envie"
@@ -258,6 +280,8 @@
     "nom": "Trauma",
     "description": "Inflige aveuglement à un ennemi touché à la tête. Temps de recharge : 30s.\nInflige saignement à un ennemi touché à la poitrine. Temps de recharge : 30s.",
     "emplacement": "torse",
+    "equipementsParfaits": ["precieux"],
+    "perfectDescription": "Inflige aveuglement à un ennemi touché à la tête. Temps de recharge : 20s.\nInflige saignement à un ennemi touché à la poitrine. Temps de recharge : 20s.",
     "descente": {
       "boucles": [
         "Colère",
@@ -280,8 +304,10 @@
   },
   "exploseur": {
     "nom": "Exploseur",
-    "description": "Le rayon d'effet des grenades est accru +50%.\nLes grenades sont récupérées si elles tuent l'ennemi.\nIl est désormais possible d'ajuster le lancer des grenades en maintenant le bouton de tir enfoncé pour les faires exploser plus tôt.\nConfère +15% de protection bonus lorsque vous visez avec les grenades.",
+    "description": "Le rayon d'effet des grenades est accru +50%.\nLes grenades sont récupérées si elles tuent l'ennemi.\nIl est désormais possible d'ajuster le lancer des grenades en maintenant le bouton de tir enfoncé pour les faire exploser plus tôt.\nConfère +15% de protection bonus lorsque vous visez avec les grenades.",
     "emplacement": "torse",
+    "perfectDescription": "Le rayon d'effet des grenades est accru +75%.\nLes grenades sont récupérées si elles tuent l'ennemi.\nIl est désormais possible d'ajuster le lancer des grenades en maintenant le bouton de tir enfoncé pour les faire exploser plus tôt.\nConfère +15% de protection bonus lorsque vous visez avec les grenades.",
+    "equipementsParfaits": ["artisan"],
     "descente": {
       "boucles": [
         "Colère"
@@ -305,8 +331,10 @@
   },
   "efficace": {
     "nom": "Efficace",
-    "description": "Employer un kit de protection à 50% de probabilité de ne pas consommer le kit de protection.\nLes bonus de kit de protection de spécialisation sont accrus de 100% (50%).\n10 secondes sont nécessaires pour armer le talent.",
+    "description": "Employer un kit de protection à 50% de probabilité de ne pas consommer le kit de protection.\nLes bonus de kit de protection de spécialisation sont accrus de 100%.\n10 secondes sont nécessaires pour armer le talent.",
     "emplacement": "torse",
+    "perfectDescription": "Employer un kit de protection à 75% de probabilité de ne pas consommer le kit de protection.\nLes bonus de kit de protection de spécialisation sont accrus de 100%.\n10 secondes sont nécessaires pour armer le talent.",
+    "equipementsParfaits": ["transporteur"],
     "descente": {
       "boucles": [
         "Avidité",
@@ -331,6 +359,8 @@
     "nom": "Retranchement",
     "description": "Si vous êtes à moins de 30% de votre protection, les headshots effectués depuis un abri réparent 20% de votre protection.\nTemps de recharge : 2s.",
     "emplacement": "torse",
+    "perfectDescription": "Si vous êtes à moins de 30% de votre protection, les headshots effectués depuis un abri réparent 30% de votre protection.\nTemps de recharge : 1s.",
+    "equipementsParfaits": ["bober"],
     "descente": {
       "boucles": [
         "Avidité",
@@ -352,8 +382,10 @@
   },
   "chasseur_de_tete": {
     "nom": "Chasseur de Tête",
-    "description": "Après avoir tué un ennemi avec un headshot, le prochain tir réussi dans les 30s (5s) bénéficie d'un bonus de 125% (20%) des dégâts du tir mortel précédent.\nCes dégâts sont limités à 800% (200%) de vos dégâts d'arme.\nCette limite monte à 1250% (300%) si vos dégâts de headshot sont supérieurs à 150%.",
-    "emplacement": "torse"
+    "description": "Après avoir tué un ennemi avec un headshot, le prochain tir réussi dans les 30s bénéficie d'un bonus de 125% des dégâts du tir mortel précédent.\nCes dégâts sont limités à 800% de vos dégâts d'arme.\nCette limite monte à 1250% si vos dégâts de headshot sont supérieurs à 150%.",
+    "emplacement": "torse",
+    "perfectDescription": "Après avoir tué un ennemi avec un headshot, le prochain tir réussi dans les 30s bénéficie d'un bonus de 150% des dégâts du tir mortel précédent.\nCes dégâts sont limités à 800% de vos dégâts d'arme.\nCette limite monte à 1250% si vos dégâts de headshot sont supérieurs à 150%.",
+    "equipementsParfaits": ["tueur_a_la_chaine"]
   },
   "armement_combine": {
     "nom": "Armement Combiné",
@@ -616,7 +648,9 @@
   "compagnon": {
     "nom": "Compagnon",
     "description": "Quand vous êtes à moins de 5m d'un allié ou d'un objet de compétence, le total de dégâts d'arme est augmenté de 15%.",
-    "emplacement": "sac_a_dos",
+    "emplacement": "torse",
+    "perfectDescription": "Quand vous êtes à moins de 10m d'un allié ou d'un objet de compétence, le total de dégâts d'arme est augmenté de 20%.",
+    "equipementsParfaits": ["henri"],
     "descente": {
       "boucles": [
         "Gourmandise",

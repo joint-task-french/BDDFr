@@ -97,6 +97,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "exemple_cristallin": {
+    "nom": "Exemple cristallin",
+    "description": "\"Seul le premier tir est propre. C'est tout ce qui vient après qui est moche\"",
+    "marque": "airaldi_holdings",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["mise_au_point"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_de_precision_persephone": {
     "nom": "Gants de précision Persephone",
     "marque": "airaldi_holdings",
@@ -226,6 +236,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "rien_a_f": {
+    "nom": "Rien à f*",
+    "description": "\"Si jamais je t'ai offensé, sache qu'au fond de mon coeur... J'en ai rien à foutre.\"",
+    "marque": "badger_tuff",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["incassable"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_de_longue_duree_meles": {
     "nom": "Gants de longue durée Meles",
     "marque": "badger_tuff",
@@ -305,6 +325,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "transporteur": {
+    "nom": "Transporteur",
+    "description": "\"Mon fardeau quotidien ? Un blindage maximal. - Agent Sanders\"",
+    "marque": "belstone_armory",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["efficace"],
+    "type": "standard",
+    "estNomme": true
   },
   "ganst_vambrace": {
     "nom": "Ganst Vambrace",
@@ -648,6 +678,18 @@
     "type": "standard",
     "estNomme": false
   },
+
+"henri": {
+"nom": "Henri",
+"description": "\"Nous vivons ensemble, nous apprenons ensemble, nous mourons ensemble. Mais avant tout, nous nous rendons mutuellement plus fort. Anonyme\"",
+"marque": "electrique",
+"emplacement": "torse",
+"mod": true,
+"talents": ["compagnon"],
+"type": "standard",
+"estNomme": true
+},
+
   "gants_electrique": {
     "nom": "Gants Electrique",
     "marque": "electrique",
@@ -717,6 +759,15 @@
     "type": "standard",
     "estNomme": false
   },
+  "protection_de_cesar": {
+    "nom": "Protection de César",
+    "marque": "empress_international",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["doue"],
+    "type": "standard",
+    "estNomme": true
+  },
   "moufles_en_simili_cuir": {
     "nom": "Moufles en simili cuir",
     "marque": "empress_international",
@@ -766,6 +817,19 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "calme_agressif": {
+    "nom": "Calme Agressif",
+    "description": "\"L'invention de l'arme à feu a entraîné une redéfinition du courage, qui n'était plus assimilé à un comportement de férocité agressive, mais aussi à la capacité à garder son calme sous le feu - Robert L O'Connell\"",
+    "marque": "fenris_group_ab",
+    "emplacement": "torse",
+    "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": ["observation"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_tassar": {
     "nom": "Gants Tassar",
@@ -847,6 +911,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "leader": {
+    "nom": "Leader",
+    "description": "\"Knuckles, Ron, avec moi. Duchesse, tu pars devant. Tiens. Prends ça. Ça pourrait te sauver la peau - James Dragov \"",
+    "marque": "gila_guard",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["avant_garde"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_diamondback": {
     "nom": "Gants Diamondback",
     "marque": "gila_guard",
@@ -887,6 +961,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "chasseur_tueur": {
+    "nom": "Chasseur-tueur",
+    "description": "\"Les mecs sont sortis de nulle part. Armés jusqu'aux dents et prêts à tuer. Le problème, c'est que c'était nous leur cible. - Agent de la Division\"",
+    "marque": "golan_gear_ltd",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["intimidation"],
+    "type": "standard",
+    "estNomme": true
   },
   "sac_a_dos_chemar": {
     "nom": "Sac à dos Chemar",
@@ -946,6 +1030,19 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "plastron_du_fantassin_zele": {
+    "nom": "Plastron du fantassin zélé",
+    "description": "\"Tu lâches ta mine et tu la laisses filer. Ne sois pas déstabilisé par la détonation. Tu dois te tenir prêt au choc. - Instructeur de la SHD\"",
+    "marque": "grupo_sombra_s_a",
+    "emplacement": "torse",
+    "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": ["etincelle"],
+    "type": "standard",
+    "estNomme": true
   },
   "sac_a_dos_antumbra": {
     "nom": "Sac à dos Antumbra",
@@ -1024,6 +1121,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "precieux": {
+    "nom": "Précieux",
+    "description": "\"Je t'offre ceci, pour protéger ton coeur sacré. Le prêtre\"",
+    "marque": "hasburg_guard",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["trauma"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_hg": {
     "nom": "Gants HG",
@@ -1144,6 +1251,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "artisan": {
+    "nom": "Artisan",
+    "description": "\"Ce que je casse ne se répare pas -Le Stratège\"",
+    "marque": "lengmo",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["exploseur"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_langmo": {
     "nom": "Gants Langmo",
@@ -1422,6 +1539,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "combustor": {
+    "nom": "Combustor",
+    "description": "\"Mes agents ne se retrouvent jamais seuls sur le terrain. - Natalya Sokolova\"",
+    "marque": "palisade_steelworks",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["livraison_explosive"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_steelworks": {
     "nom": "Gants Steelworks",
     "marque": "palisade_steelworks",
@@ -1471,6 +1598,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "gilet_vedmedytsya": {
+    "nom": "Gilet Vedmedytsya",
+    "description": "\"Prépare-toi à résister aux flots tumultueux de l'Histoire.\"",
+    "marque": "petrov_defense_group",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["prepare"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_de_mercenaire": {
     "nom": "Gants de mercenaire",
@@ -1759,6 +1896,15 @@
     "type": "standard",
     "estNomme": false
   },
+  "ampli_de_reperage": {
+    "nom": "Ampli de repérage",
+    "marque": "uzina_getica",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["observateur"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_theodora": {
     "nom": "Gants Theodora",
     "marque": "uzina_getica",
@@ -1818,6 +1964,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "tueur_a_la_chaine": {
+    "nom": "Tueur à la chaîne",
+    "description": "\"Quatre-vingt-dix-neuf canettes de bière sur le mur. Quatre-vingt-dix-neuf. J'en dégomme une, elle explose. Quatre-vingt-dix-huit canettes de bière sur le mur... - Sniper True Son qui s'ennuie\"",
+    "marque": "walker_harris_co",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["chasseur_de_tete"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_de_terrain_savanna": {
     "nom": "Gants de terrain Savanna",
@@ -2014,6 +2170,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "bober": {
+    "nom": "Bober",
+    "description": "\"Ils ne m'auront jamais avec ce truc. - Diesel\"",
+    "marque": "zwiadowka_sp_z_o_o",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["retranchement"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_zwiadowka_sp_z_o_o": {
     "nom": "Gants Zwiadowka Sp. z o.o.",
@@ -2608,6 +2774,16 @@
     "mod": true,
     "talents": [],
     "type": "standard"
+  },
+  "egalisatrice": {
+    "nom": "Égalisatrice",
+    "description": "\"Construire pour mieux détruire\"",
+    "marque": "unit_alloys",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["obliteration"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_ininflammables": {
     "nom": "Gants ininflammables",

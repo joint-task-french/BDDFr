@@ -810,8 +810,9 @@ export function applySortDescente(items, sortLayers) { return multiSort(items, s
 export function getDescenteFilters(data) {
   const wTalents = Array.isArray(data?.talentsArmes) ? data.talentsArmes : Object.values(data?.talentsArmes || {})
   const gTalents = Array.isArray(data?.talentsEquipements) ? data.talentsEquipements : Object.values(data?.talentsEquipements || {})
+  const aTalents = Array.isArray(data?.talentsAutres) ? data.talentsAutres : Object.values(data?.talentsAutres || {})
 
-  const descentTalents = [...wTalents, ...gTalents].filter(t => t.descente)
+  const descentTalents = [...wTalents, ...gTalents, ...aTalents].filter(t => t.descente)
 
   const bouclesSet = new Set()
   descentTalents.forEach(t => t.descente.boucles.forEach(b => bouclesSet.add(b)))

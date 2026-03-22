@@ -41,6 +41,10 @@
             "url": "./src/data/schemas/talents-prototypes.schema.json"
         },
         {
+            "fileMatch": ["/src/data/talents-autres.jsonc"],
+            "url": "./src/data/schemas/talents-autres.schema.json"
+        },
+        {
             "fileMatch": ["/src/data/ensembles.jsonc"],
             "url": "./src/data/schemas/ensembles.schema.json"
         },

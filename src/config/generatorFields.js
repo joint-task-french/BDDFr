@@ -11,6 +11,7 @@ export const GENERATOR_CATEGORIES = [
   { key: 'equipements', label: 'Équipements', icon: '🛡️' },
   { key: 'talentsArmes', label: "Talents d'Armes", icon: '🎯' },
   { key: 'talentsEquipements', label: "Talents d'Équipements", icon: '🏅' },
+  { key: 'talentsAutres', label: "Talents Autres (Descente)", icon: '🌀' },
   { key: 'talentsPrototypes', label: 'Talents Prototypes', icon: '💎' },
   { key: 'ensembles', label: 'Ensembles', icon: '🔗' },
   { key: 'competences', label: 'Compétences', icon: '⚡' },
@@ -26,6 +27,7 @@ export const IDENTITY_KEY = {
   equipements: 'slug',
   talentsArmes: 'slug',
   talentsEquipements: 'slug',
+  talentsAutres: 'slug',
   talentsPrototypes: 'slug',
   ensembles: 'slug',
   competences: ['competence', 'variante'],
@@ -41,6 +43,7 @@ export const DATA_KEY = {
   equipements: 'equipements',
   talentsArmes: 'talentsArmes',
   talentsEquipements: 'talentsEquipements',
+  talentsAutres: 'talentsAutres',
   talentsPrototypes: 'talentsPrototypes',
   ensembles: 'ensembles',
   competences: 'competences',
@@ -56,6 +59,7 @@ export const FILE_MAP = {
   equipements: 'equipements.jsonc',
   talentsArmes: 'talents-armes.jsonc',
   talentsEquipements: 'talents-equipements.jsonc',
+  talentsAutres: 'talents-autres.jsonc',
   talentsPrototypes: 'talents-prototypes.jsonc',
   ensembles: 'ensembles.jsonc',
   competences: 'competences.jsonc',
@@ -208,6 +212,29 @@ export const FIELDS = {
           { key: 'variable', label: 'Variable (ex: degats)', type: 'text' },
           { key: 'valeur', label: 'Valeur (ex: 10%)', type: 'text' }
         ], visibleWhen: { key: 'hasDescente', value: true } },
+    ],
+  },
+
+  talentsAutres: {
+    comment: "// Talent spécifique Descente — The Division 2",
+    fields: [
+      { key: 'nom', label: 'Nom', type: 'text', required: true, isIdentity: true },
+      { key: 'icon', label: 'Icône (slug)', type: 'text', placeholder: 'nom_fichier_sans_extension' },
+
+      // --- MODE DESCENTE (Toujours activé pour cette catégorie) ---
+      { key: 'descente_boucles', label: 'Boucles (Descente)', type: 'array', required: true },
+      { key: 'descente_categorie', label: 'Catégorie (Descente)', type: 'radioGroup', required: true, options: [
+          { value: 'offensif', label: 'Offensif' },
+          { value: 'defensif', label: 'Défensif' },
+          { value: 'utilitaire', label: 'Utilitaire' },
+          { value: 'exotique', label: 'Exotique' },
+        ]},
+      { key: 'descente_base', label: 'Description avec variables {var} (Descente)', type: 'textarea', required: true },
+      { key: 'descente_vars', label: 'Variables par niveau (Descente)', type: 'objectArray', fields: [
+          { key: 'niveau', label: 'Niveau (1, 2...)', type: 'text' },
+          { key: 'variable', label: 'Variable (ex: degats)', type: 'text' },
+          { key: 'valeur', label: 'Valeur (ex: 10%)', type: 'text' }
+        ]},
     ],
   },
 

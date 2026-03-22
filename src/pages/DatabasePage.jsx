@@ -240,11 +240,13 @@ export default function DatabasePage() {
     if (activeCategory === 'descente') {
       const wTalents = Object.values(data?.talentsArmes || {})
       const gTalents = Object.values(data?.talentsEquipements || {})
+      const aTalents = Object.values(data?.talentsAutres || {})
 
       const descentWeapons = wTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: true }))
       const descentGear = gTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: false }))
+      const descentAutres = aTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: false }))
 
-      items = [...descentWeapons, ...descentGear]
+      items = [...descentWeapons, ...descentGear, ...descentAutres]
     } else {
       const raw = data[activeCategory]
       items = (raw && !Array.isArray(raw)) ? Object.values(raw) : (raw || [])

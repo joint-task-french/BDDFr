@@ -1,0 +1,15 @@
+{
+  "trauma_descente": {
+    "nom": "Trauma (Descente)",
+    "descente": {
+      "boucles": [
+        "1"
+      ],
+      "categorie": "offensif",
+      "levels": {
+        "base": "Effet de trauma en descente",
+        "1": {}
+      }
+    }
+  }
+}

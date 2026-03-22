@@ -1,14 +1,20 @@
 {
-  "trauma_descente": {
-    "nom": "Trauma (Descente)",
+  "chirurgical": {
+    "nom": "Chirurgical",
     "descente": {
       "boucles": [
-        "1"
+        "Avidité",
+        "Colère",
+        "Envie",
+        "Gourmandise",
+        "Paresse"
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Effet de trauma en descente",
-        "1": {}
+        "base": "TODO: Description du talent",
+        "1": {
+
+        }
       }
     }
   }

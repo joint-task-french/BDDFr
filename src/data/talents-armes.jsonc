@@ -1733,33 +1733,6 @@
       }
     }
   },
-  "chirurgical": {//TODO: talent descente
-    "nom": "Chirurgical",
-    "description": "TODO: Description du talent",
-    "compatibilite": {
-      "fusil": true,
-      "calibre_12": true,
-      "fusil_assaut": true,
-      "fusil_mitrailleur": true,
-      "fusil_precision": true,
-      "pistolet": true,
-      "pistolet_mitrailleur": true
-    },
-    "descente": {
-      "boucles": [
-        "Avidité",
-        "Colère",
-        "Envie",
-        "Gourmandise",
-        "Paresse"
-      ],
-      "categorie": "offensif",
-      "levels": {
-        "base": "TODO: Description du talent",
-        "1": {}
-      }
-    }
-  },
   "optimise": {
     "nom": "Optimisé",
     "description": "TODO: Description du talent",

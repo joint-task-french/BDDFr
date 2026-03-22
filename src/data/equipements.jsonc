@@ -2025,6 +2025,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "elan": {
+    "nom": "Élan",
+    "description": "\"Ne t'arrête pas.\"",
+    "marque": "wyvern_wear",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["dynamisation"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_digits": {
     "nom": "Gants \"Digits\"",
     "marque": "wyvern_wear",
@@ -2850,6 +2860,16 @@
     "mod": true,
     "talents": [],
     "type": "standard"
+  },
+  "dexterite": {
+    "nom": "Dextérité",
+    "description": "\"Je me sens d'humeur généreuse.\"",
+    "marque": "urban_lookout",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["rechargement_protege"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_etanches": {
     "nom": "Gants étanches",

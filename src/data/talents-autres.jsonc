@@ -11,9 +11,82 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "TODO: Description du talent",
+        "base": "Equipé ce talent confère +{proba_critique}% à la probabilité de coup critique.",
         "1": {
-
+          "proba_critique": 5
+        },
+        "2": {
+          "proba_critique": 10
+        },
+        "3": {
+          "proba_critique": 15
+        },
+        "4": {
+          "proba_critique": 20
+        },
+        "5": {
+          "proba_critique": 25
+        },
+        "6": {
+          "proba_critique": 30
+        },
+        "7": {
+          "proba_critique": 35
+        },
+        "8": {
+          "proba_critique": 40
+        },
+        "9": {
+          "proba_critique": 45
+        },
+        "10": {
+          "proba_critique": 50
+        }
+      }
+    }
+  },
+  "critique": {
+    "nom": "Critique",
+    "descente": {
+      "boucles": [
+        "Avidité",
+        "Colère",
+        "Envie",
+        "Gourmandise",
+        "Paresse"
+      ],
+      "categorie": "offensif",
+      "levels": {
+        "base": "Equipé, ce talent confère +{degats_critique}% aux dégâts de coup critique",
+        "1": {
+          "degats_critique": 10
+        },
+        "2": {
+          "degats_critique": 20
+        },
+        "3": {
+          "degats_critique": 30
+        },
+        "4": {
+          "degats_critique": 40
+        },
+        "5": {
+          "degats_critique": 50
+        },
+        "6": {
+          "degats_critique": 60
+        },
+        "7": {
+          "degats_critique": 70
+        },
+        "8": {
+          "degats_critique": 80
+        },
+        "9": {
+          "degats_critique": 90
+        },
+        "10": {
+          "degats_critique": 100
         }
       }
     }

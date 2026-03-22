@@ -100,11 +100,11 @@
       "levels": {
         "base": "Quand vous disposez d'une protection bonus, vous gagnez {stacks_per_sec} effets chaque seconde jusqu'à un max de {max_stacks}.\nChaque effet cumulé augmente les dégâts d'arme de +{damage_per_stack}% contre les ennemis situés à moins de {range}m.\nTous les effets cumulés sont perdus si vous n'avez plus de protection bonus.",
         "1": {
-          "stacks_per_sec": 3,
-          "max_stacks": 9,
-          "damage_per_stack": 4,
-          "range": 10
-        }
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 3,
+          "range": 25
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -157,10 +157,9 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Confère +{self_bonus_armor}% de protection bonus quand vous rechargez.\nConfère 0-{ally_bonus_armor_max}% de votre protection en protection bonus pour tout vos alliés quand ceux-ci rechargent, en fonction de votre attribut essentiel bleu",
+        "base": "Confère +{self_bonus_armor}% de protection bonus quand vous rechargez.",
         "1": {
-          "self_bonus_armor": 20,
-          "ally_bonus_armor_max": 18
+          "self_bonus_armor": 10
         }
       }
     }
@@ -348,10 +347,10 @@
         "base": "Employer un kit de protection à {save_chance}% de probabilité de ne pas consommer le kit de protection.\nLes bonus de kit de protection de spécialisation sont accrus de {bonus_kit}% ({bonus_kit_pvp}%).\n{arm_time} secondes sont nécessaires pour armer le talent.",
         "1": {
           "save_chance": 50,
-          "bonus_kit": 100,
+          "bonus_kit": 30,
           "bonus_kit_pvp": 50,
           "arm_time": 10
-        }
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -374,9 +373,9 @@
         "base": "Si vous êtes à moins de {threshold}% de votre protection, les headshots effectués depuis un abri réparent {repair}% de votre protection.\nTemps de recharge : {cooldown}s.",
         "1": {
           "threshold": 30,
-          "repair": 20,
-          "cooldown": 2
-        }
+          "repair": 10,
+          "cooldown": 3
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -492,6 +491,30 @@
       }
     }
   },
+  "protecteur_bouclier": {
+    "nom": "Protecteur",
+    "description": "Quand votre bouclier est emdommagé, vous gagnez +5% de protection bonus et tous vos alliés gagnent 15% de votre protection bonus pendant 3s.\n\n Temps de rechargment : 3s.",
+    "emplacement": "sac_a_dos",
+    "descente": {
+      "boucles": [
+        "Avidité",
+        "Colère",
+        "Envie",
+        "Gourmandise",
+        "Paresse"
+      ],
+      "categorie": "defensif",
+      "levels": {
+        "base": "Quand votre bouclier est emdommagé, vous gagnez +{protection_bonus}% de protection bonus et tous vos alliés gagnent {protection_allies}% de votre protection bonus pendant {time}s.\n\n Temps de rechargment : {rechargement}s.",
+        "1": {
+          "protection_bonus": 5,
+          "protection_allies": 7,
+          "time": 3,
+          "rechargement": 3
+        }//TODO chercher valeurs en descente.
+      }
+    }
+  },
   "overclock": {
     "nom": "Overclock",
     "description": "Les alliés situés à moins de 7m des objets déployés par vos compétences bénéficient de +25% à la vitesse de rechargement.\nLeurs temps de recharge en cours sont diminués de 0.2s",
@@ -549,11 +572,11 @@
       "levels": {
         "base": "Réaliser un changement d'abri confère +{bonus_armor}% de votre protection en protection bonus pour vous et vos alliés pendant {duration}s.\nCe bonus est doublé si vous finissez à moins de {range}m d'un ennemi.\nTemps de recharge : {cooldown}s",
         "1": {
-          "bonus_armor": 15,
+          "bonus_armor": 10,
           "duration": 10,
           "range": 10,
           "cooldown": 10
-        }
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -575,7 +598,43 @@
       "levels": {
         "base": "Augmente le total des dégâts d'arme de {weapon_damage}%.\nSubir des dégâts désactive ce buff pendant {cooldown}s.",
         "1": {
-          "weapon_damage": 25,
+          "weapon_damage": 10,
+          "cooldown": 4
+        },
+        "2": {
+          "weapon_damage": 20,
+          "cooldown": 4
+        },
+        "3": {
+          "weapon_damage": 30,
+          "cooldown": 4
+        },
+        "4": {
+          "weapon_damage": 40,
+          "cooldown": 4
+        },
+        "5": {
+          "weapon_damage": 50,
+          "cooldown": 4
+        },
+        "6": {
+          "weapon_damage": 60,
+          "cooldown": 4
+        },
+        "7": {
+          "weapon_damage": 70,
+          "cooldown": 4
+        },
+        "8": {
+          "weapon_damage": 80,
+          "cooldown": 4
+        },
+        "9": {
+          "weapon_damage": 90,
+          "cooldown": 4
+        },
+        "10": {
+          "weapon_damage": 100,
           "cooldown": 4
         }
       }
@@ -704,7 +763,7 @@
           "hs_duration_mmr": 5,
           "kill_damage": 15,
           "kill_duration": 10
-        }
+        }//TODO chercher les valeurs en descente.
       }
     }
   },
@@ -748,11 +807,11 @@
         "base": "Si vous êtes à moins de {threshold}% de votre protection, les coups critiques réparent {crit_repair}% de la protection détruite.\nLes éliminations vous permettent de réparer jusqu'à {max_repair}% de protection sur {repair_duration_min}-{repair_duration_max}s, en fonction de votre attribut essentiel rouge",
         "1": {
           "threshold": 15,
-          "crit_repair": 2.5,
+          "crit_repair": 5,
           "max_repair": 100,
           "repair_duration_min": 4,
           "repair_duration_max": 10
-        }
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -775,12 +834,12 @@
         "base": "Quand vous vous trouvez à {range}m d'un ennemi, vous gagnez un bonus de protection de {bonus_armor}% ({bonus_armor_pvp}%) pendant {duration}s.\nCet effet peut se cumuler jusqu'à {max_stacks} fois.\nTemps de recharge : {cooldown}s",
         "1": {
           "range": 10,
-          "bonus_armor": 20,
+          "bonus_armor": 3,
           "bonus_armor_pvp": 10,
           "duration": 5,
           "max_stacks": 3,
           "cooldown": 5
-        }
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -1344,8 +1403,10 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "TODO: Description du talent",
-        "1": {}
+        "base": "+{protection_alteration}% à la protection contre les altérations d'état.",
+        "1": {
+          "protection_alteration" : 10
+        }//TODO chercher valeurs en descente.
       }
     }
   },

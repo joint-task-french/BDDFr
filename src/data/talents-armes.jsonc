@@ -22,10 +22,10 @@
       "levels": {
         "base": "Toucher un ennemi au corps augmente de {bonus_degats} les dégâts du headshot suivant pendant {duree}.\nPeut se cumuler jusqu'à {cumul_max} fois.",
         "1": {
-          "bonus_degats": "+55%",
-          "duree": "10s",
+          "bonus_degats": "+15%",
+          "duree": "3s",
           "cumul_max": "3"
-        }
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -73,10 +73,10 @@
       "levels": {
         "base": "Éliminer un ennemi répare {repa_base} de votre protection sur {duree}.\nLes éliminations par headshot améliorent la réparation de {repa_headshot} supplémentaires.",
         "1": {
-          "repa_base": "10%",
+          "repa_base": "7%",
           "duree": "5s",
-          "repa_headshot": "+10%"
-        }
+          "repa_headshot": "+5%"
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -106,9 +106,9 @@
       "levels": {
         "base": "Les dégâts d'arme augmentent de {bonus_degats} pour chaque tranche de {tranche_munitions} de munitions manquantes dans le chargeur.",
         "1": {
-          "bonus_degats": "+3,5%",
+          "bonus_degats": "+3%",
           "tranche_munitions": "10%"
-        }
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -171,10 +171,10 @@
       "levels": {
         "base": "Tuer une cible située dans un rayon de {rayon} augmente les dégâts d'arme de {bonus_degats} pendant {duree}.",
         "1": {
-          "rayon": "7 mètres",
-          "bonus_degats": "+30%",
-          "duree": "10 secondes"
-        }
+          "rayon": "3 mètres",
+          "bonus_degats": "+10%",
+          "duree": "5 secondes"
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -549,10 +549,10 @@
       "levels": {
         "base": "Placer un headshot ajoute un bonus de {bonus_degats} de dégâts d'arme pendant {duree}.\nPeut se cumuler jusqu'à {cumul_max} fois. Les headshots ultérieurs renouvellent la durée du bonus.",
         "1": {
-          "bonus_degats": "+10%",
+          "bonus_degats": "+5%",
           "duree": "5s",
           "cumul_max": "5"
-        }
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -740,9 +740,9 @@
         "base": "Après {elims_requises} éliminations consécutives, le chargeur se remplit et les dégâts de l'arme sont augmentés de {bonus_degats} pendant {duree}.",
         "1": {
           "elims_requises": "3",
-          "bonus_degats": "+40%",
+          "bonus_degats": "+10%",
           "duree": "10 secondes"
-        }
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -1603,9 +1603,36 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "{bonus_precision} à la précision",
+        "base": "Equipé, ce talent confère +{bonus_precision}% aux dégâts de headshot",
         "1": {
-          "bonus_precision": "+80%"
+          "bonus_precision": 10
+        },
+        "2": {
+          "bonus_precision": 20
+        },
+        "3": {
+          "bonus_precision": 30
+        },
+        "4": {
+          "bonus_precision": 40
+        },
+        "5": {
+          "bonus_precision": 50
+        },
+        "6": {
+          "bonus_precision": 60
+        },
+        "7": {
+          "bonus_precision": 70
+        },
+        "8": {
+          "bonus_precision": 80
+        },
+        "9": {
+          "bonus_precision": 90
+        },
+        "10": {
+          "bonus_precision": 100
         }
       }
     }
@@ -1703,33 +1730,6 @@
         "1": {
           "bonus_capacite": "+50%"
         }
-      }
-    }
-  },
-  "critique": {
-    "nom": "Critique",
-    "description": "TODO: Description du talent",
-    "compatibilite": {
-      "fusil": true,
-      "calibre_12": true,
-      "fusil_assaut": true,
-      "fusil_mitrailleur": true,
-      "fusil_precision": true,
-      "pistolet": true,
-      "pistolet_mitrailleur": true
-    },
-    "descente": {
-      "boucles": [
-        "Avidité",
-        "Colère",
-        "Envie",
-        "Gourmandise",
-        "Paresse"
-      ],
-      "categorie": "offensif",
-      "levels": {
-        "base": "TODO: Description du talent",
-        "1": {}
       }
     }
   },

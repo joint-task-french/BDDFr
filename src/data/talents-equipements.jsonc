@@ -535,6 +535,8 @@
     "nom": "Leadership",
     "description": "Réaliser un changement d'abri confère +15% de votre protection en protection bonus pour vous et vos alliés pendant 10s.\nCe bonus est doublé si vous finissez à moins de 10m d'un ennemi.\nTemps de recharge : 10s",
     "emplacement": "sac_a_dos",
+    "perfectDescription": "Réaliser un changement d'abri confère +20% de votre protection en protection bonus pour vous et vos alliés pendant 10s.\nCe bonus est doublé si vous finissez à moins de 10m d'un ennemi.\nTemps de recharge : 10s",
+    "equipementsParfaits": ["cap_n"],
     "descente": {
       "boucles": [
         "Avidité",
@@ -812,6 +814,12 @@
     "emplacement": "sac_a_dos",
     "estExotique": true
   },
+  "reequilibre": {
+    "nom": "Rééquilibre",
+    "description": "Atteindre et éliminer des ennemies 3 fois génère des effets cumulables rouges. Chaque effet confère 0.5% de dégâts d'arme.\nSe faire toucher 3 fois génère des effets cumulables bleus. Chaque effet confère 0.5% de résistance aux dégâts.\nLorsque le total d'effets atteint 80, vous perdez tous les effets cumulés et recevez un bonus distinct de 0.5% de résistance aux dégâts par effet rouge et 0.5% de dégâts d'arme par effet bleu jusqu'à ce que vous atteigniez à nouveau le max d'effets.",
+    "emplacement": "sac_a_dos",
+    "estExotique": true
+  },
   "instinct_de_meute": {
     "nom": "Instinct de meute",
     "description": "Vous et vos alliés recevez un bonus basé sur la distance à laquelle se trouve le dernier ennemi touché.\n0-15 m : +25% aux dégâts de coup critique\n15-25 m : +10% aux dégâts de coup critique et +10% à la probabilité de coup critique\nPlus de 25 m : +25% à la probabilité de coup critique",
@@ -936,9 +944,9 @@
     "emplacement": "sac_a_dos",
     "estExotique": true
   },
-  "pretendant": {
-    "nom": "Prétendant",
-    "description": "+25% (20%) de résistance aux dégâts des ennemis à moins de 20m (15m).",
+  "challenger": {
+    "nom": "Challenger",
+    "description": "+25% de résistance aux dégâts des ennemis à moins de 20m.",
     "emplacement": "torse",
     "estExotique": true
   },
@@ -1313,12 +1321,14 @@
     "nom": "Défibrillateur",
     "description": "Lorsqu'\"Electrochoc\" est équipé, l'étourdissement de l'agent dû à l'effet d'électrocution est réduit de 50%.\n\nL'utilisation d'un bouclier permet d'augmenter les dégâts de corps à corps de 100%.\n\nEn utilisant le Feu de Saint-Elme avec le holster, vous infligerez 100% de dégâts au corps à corps supplémentaires et votre prochaine attaque au corps à corps électrocutera votre cible.\n\nEn utilisant les trois objets, vous bénéficierez de tous les bonus mentionnés ci-dessus et l'électrocution provoquée par l'attaque au corps à corps portera sur un rayon de 5m à partir de la première cible.\n\n15 secondes de recharge.",
     "emplacement": "holster",
+    "estExotique": true,
     "notes": "Le terme électrocuté est présent dans le jeu, cependant le terme adéquat serait \"électrisé\", une électrocution étant par définition mortelle."
   },
   "courant_alternatif": {
     "nom": "Courant alternatif",
     "description": "Génère un effet de 3% de dégâts de compétences pour une de vos compétences à chaque seconde, jusqu'à un maximum de 10 effets.\nAu bout de 10 secondes au maximum, les effets sont transférés à votre autre compétence.\nLe processus se répète ensuite indéfiniment.",
-    "emplacement": "holster"
+    "emplacement": "holster",
+    "estExotique": true
   },
   "isole": {
     "nom": "Isolé",

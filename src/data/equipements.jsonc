@@ -2909,6 +2909,16 @@
     "talents": [],
     "type": "standard"
   },
+  "cap_n": {
+    "nom": "Cap'n",
+    "description": "\"Derrière moi\"",
+    "marque": "imminence_armaments",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["leadership"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gilet_urban_assault": {
     "nom": "Gilet Urban Assault",
     "marque": "imminence_armaments",
@@ -3710,6 +3720,7 @@
   "catharsis": {
     "nom": "Catharsis",
     "emplacement": "masque",
+    "description": "\"L'ordre établi fait tout pour que la rage révolutionnaire soit redirigée vers des exutoires permettant de libérer une pression générée par des désirs qui pourraient devenir dangereux si on les laissait s'exprimer. - George L.Jackson\"",
     "mod": true,
     "obtention": {
       "butinCible": true,
@@ -3724,10 +3735,12 @@
   },
   "le_catalyseur": {
     "nom": "Le Catalyseur",
+    "description": "\"On est toujours en train d'être testés. La seule variable constante est le feu.\"",
     "emplacement": "masque",
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "mission": true,
+      "description": "Mission Army Terminal"
     },
     "talents": [
       "agent_chimique"
@@ -3736,10 +3749,15 @@
   },
   "masque_de_coyote": {
     "nom": "Masque de Coyote",
+    "description": "\"Des balles, j'en ai bouffé un paquet. C'est pas les tiennes qui me feront tomber. - Coyote\"",
     "emplacement": "masque",
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "mission": true,
+      "description": "Mission Jefferson Trade Center, Boss Coyote",
+      "represailles": "Hyènes, Escouade d'extermination"
     },
     "talents": [
       "instinct_de_meute"
@@ -3748,10 +3766,13 @@
   },
   "collector": {
     "nom": "Collector",
-    "emplacement": "sac_a_dos",
+    "description": "\"On va voir si la Division arrive à te recoudre, après ça ! - Le Stratège\"",
+    "emplacement": "torse",
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, Escouade d'extermination"
     },
     "talents": [
       "hoarder"
@@ -3760,7 +3781,7 @@
   },
   "memento": {
     "nom": "Memento",
-    "description": "\"J'ai pris la relève de ceux qui épiaient, chaissaient et récupéraient jusqu'à ce qu'il ne soient plus que des ombres.\nMa mission est maintenant terminée et la tienne peut commencer.\"\n- Inscription d'un auteur inconnu",
+    "description": "\"J'ai pris la relève de ceux qui épiaient, chassaient et récupéraient jusqu'à ce qu'il ne soient plus que des ombres.\nMa mission est maintenant terminée et la tienne peut commencer.\"\n- Inscription d'un auteur inconnu",
     "emplacement": "sac_a_dos",
     "attributEssentiel": [
       "offensif",
@@ -3769,19 +3790,35 @@
     ],
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'armes Protection Tier de compétence"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, Escouade d'extermination"
     },
     "talents": [
       "elimination_confirmee"
     ],
     "type": "exotique"
   },
-  "pack_de_reparation_d_urgence_de_birdie": {
-    "nom": "Pack de réparation d'urgence de Birdie",
+  "fierte_harrier": {
+    "nom": "Fierté Harrier",
+    "description": "\"Les aigles en force !\"",
     "emplacement": "sac_a_dos",
     "mod": true,
     "obtention": {
-      "description": "Tier de compétence"
+      "description": ""//TODO
+    },
+    "talents": [
+      "reequilibre"
+    ],
+    "type": "exotique"
+  },
+  "pack_de_reparation_d_urgence_de_birdie": {
+    "nom": "Pack de réparation d'urgence de Birdie",
+    "description": "\"Relève-toi, on n'a plus de sacs mortuaires.\"",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "obtention": {
+      "description": "Traque Fardeau de la vérité <Alani Kelso> Mission Roosevelt Island "
     },
     "talents": [
       "medecin_de_combat"
@@ -3790,10 +3827,12 @@
   },
   "sac_a_dos_de_survie_d_acosta": {
     "nom": "Sac à dos de survie d'Acosta",
+    "description": "\"On ne sait jamais de quoi on peut avoir besoin, alors mieux vaut se préparer à tout. - Eva Acosta, experte en spéléologie urbaine\"",
     "emplacement": "sac_a_dos",
     "mod": true,
     "obtention": {
-      "description": "Tier de compétence"
+      "cachesExotiques": true,
+      "butinCible": true
     },
     "talents": [
       "un_tiens_vaut_mieux",
@@ -3803,6 +3842,7 @@
   },
   "sac_ninja_bike": {
     "nom": "Sac Ninja Bike",
+    "description": "\"Il est ressuscité des profondeurs de l'enfer, comme s'il ne pouvait pas mourir. Le prêtre\"",
     "emplacement": "sac_a_dos",
     "marque": "*",
     "attributEssentiel": [
@@ -3812,7 +3852,8 @@
     ],
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'armes Protection Tier de compétence"
+      "butinCible": true,
+      "cachesExotiques": true
     },
     "talents": [
       "debrouillardise"
@@ -3822,9 +3863,10 @@
   "beacon": {
     "nom": "Beacon",
     "emplacement": "torse",
+    "description": "\"Avec moi.\"",
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "description": ""//TODO
     },
     "talents": [
       "lien"
@@ -3833,10 +3875,11 @@
   },
   "bricoleur": {
     "nom": "Bricoleur",
-    "emplacement": "torse",
+    "description": "\"Pourquoi pas les deux ?\"",
+    "emplacement": "masque",
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "description": "Traque Crossroads <Le Directeur> Mission Potomac Event Center"
     },
     "talents": [
       "abrege"
@@ -3845,10 +3888,11 @@
   },
   "la_fierte_de_ridgeway": {
     "nom": "La fierté de Ridgeway",
+    "description": "\"La manière dont un homme saigne en dit long sur son compte. Moi ? Je saigne pour mon pays, et rien d'autre. - Général Antwon Ridgeway\"",
     "emplacement": "torse",
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "description": "Projet du Summit"
     },
     "talents": [
       "avantage_sanglant"
@@ -3857,22 +3901,25 @@
   },
   "provocateur": {
     "nom": "Provocateur",
+    "description": "\"On ne peut pas porter de rouge au combat. Un chevalier rouge n'a pas peur, il provoque l'ennemi. - Anonyme",
     "emplacement": "torse",
     "mod": true,
     "obtention": {
-      "description": "Protection"
+      "description": "Traque Nuances de rouge <Théo Parnell> Mission Siège de l'administration spatiale"
     },
     "talents": [
-      "pretendant"
+      "challenger"
     ],
     "type": "exotique"
   },
   "systeme_de_protection_tardigrade": {
     "nom": "Système de protection Tardigrade",
+    "description": "\"Évolution de concept de blindage réactif, le nano-plaquage ablatif était à l'origine destiné aux boucliers thermiques autoréparants équipant les avions conçus pour entrer et sortir de l'atmosphère terrestre de façon répétée.",
     "emplacement": "torse",
     "mod": true,
     "obtention": {
-      "description": "Protection"
+      "cachesExotiques": true,
+      "butinCible": true
     },
     "talents": [
       "nano_plaquage_ablatif"
@@ -3881,10 +3928,13 @@
   },
   "vilenie": {
     "nom": "Vilenie",
-    "emplacement": "torse",
+    "description": "\"Tu t'accroches à la vie comme un ado rebelle qui brave le couvre-feu. Mais la mort est patiente...et moi aussi. - Dr Vilis, BTSU",
+    "emplacement": "masque",
     "mod": true,
     "obtention": {
-      "description": "Tier de compétence"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True Sons, Escouade d'extermination"//TODO ne marche pas sur site
     },
     "talents": [
       "charge_toxique"
@@ -3893,10 +3943,13 @@
   },
   "conquerants": {
     "nom": "Conquérants",
+    "description": "\"Commence tout en bas et hisse-toi jusqu'au sommet",
     "emplacement": "gants",
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Escouade d'extermination"
     },
     "talents": [
       "maillon_faible"
@@ -3905,10 +3958,12 @@
   },
   "gants_exodus": {
     "nom": "Gants Exodus",
+    "description": "\"J'aimerais faire un retrait.",
     "emplacement": "gants",
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "cachesExotiques": true,
+      "butinCible": true
     },
     "talents": [
       "ecran_de_fumee"
@@ -3917,10 +3972,12 @@
   },
   "gants_robustes": {
     "nom": "Gants robustes",
+    "description": "\"On ne peut pas dire que je l'ai inventé, mais j'ai donné un coup de main - Calvin McManus",
     "emplacement": "gants",
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "butinCible": true,
+      "cachesExotiques": true
     },
     "talents": [
       "poigne_de_fer"
@@ -3929,10 +3986,12 @@
   },
   "gants_strategiques_btsu": {
     "nom": "Gants Stratégiques BTSU",
+    "description": "\"Mon père m'a toujours dit que les bons ouvriers avaient de bons outils. C'est pour ça que j'ai choisi de rejoindre l'organisation qui avait les meilleurs outils. - Galveston",
     "emplacement": "gants",
     "mod": false,
     "obtention": {
-      "description": "Tier de compétence"
+      "cachesExotiques": true,
+      "butinCible": true
     },
     "talents": [
       "optimisation_de_transfert"
@@ -3941,10 +4000,12 @@
   },
   "poing_sanglant": {
     "nom": "Poing sanglant",
+    "description": "\"Une montre cassée donne l'heure deux fois par jour. 13" ,
     "emplacement": "gants",
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "butinCible": true,
+      "cachesExotiques": true
     },
     "talents": [
       "exuberant"
@@ -3953,10 +4014,12 @@
   },
   "dynastie_imperiale": {
     "nom": "Dynastie Impériale",
+    "description": "\"Les symboles sont importants. Regarde le phénix sur ta manche. Pour moi, le dragon a la même signification. - Faye Lau",
     "emplacement": "holster",
     "mod": false,
     "obtention": {
-      "description": "Tier de compétence"
+      "cachesExotiques": true,
+      "butinCible": true
     },
     "talents": [
       "eclat_du_dragon"
@@ -3965,10 +4028,13 @@
   },
   "electrochoc": {
     "nom": "Éléctrochoc",
+    "description": "\"Après avoir reçu un coup de poing au centre commercial, j'ai eu une idée...choquante. Anonyme",
     "emplacement": "holster",
     "mod": false,
     "obtention": {
-      "description": "Protection"
+      "butinCible": true,
+      "cachesExotiques": true
+
     },
     "talents": [
       "defibrillateur"
@@ -3977,10 +4043,12 @@
   },
   "forme_d_onde": {
     "nom": "Forme d'onde",
+    "description": "\"Des couches de graphite ont été insérées dans le tissu kevlar du holster pour que les mouvements du porteur génèrent un champs électromagnétique oscillant inducteur permettant de recharger les dispositifs électriques distants.",
     "emplacement": "holster",
     "mod": false,
     "obtention": {
-      "description": "Protection"
+      "cachesExotiques": true,
+      "butinCible": true
     },
     "talents": [
       "courant_alternatif"
@@ -4059,8 +4127,9 @@
     ],
     "type": "exotique"
   },
-  "ninja_bike": {
-    "nom": "Ninja Bike",
+  "genouilleres_ninja_bike": {
+    "nom": "Genouillères de messager Ninja Bike",
+    "description": "\"Parkour ! Parkour !\"- Un messager NinjaBike enthousiaste",
     "emplacement": "genouilleres",
     "attributEssentiel": [
       "offensif",
@@ -4069,7 +4138,8 @@
     ],
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'armes"
+      "butinCible": true,
+      "cachesExotiques": true
     },
     "talents": [
       "parkour"

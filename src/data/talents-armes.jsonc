@@ -1629,9 +1629,36 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "{bonus_cadence} de cadence de tir",
+        "base": "+{bonus_cadence}% de cadence de tir",
         "1": {
-          "bonus_cadence": "+15%"
+          "bonus_cadence": 7
+        },
+        "2": {
+          "bonus_cadence": 14
+        },
+        "3": {
+          "bonus_cadence": 21
+        },
+        "4": {
+          "bonus_cadence": 28
+        },
+        "5": {
+          "bonus_cadence": 35
+        },
+        "6": {
+          "bonus_cadence": 42
+        },
+        "7": {
+          "bonus_cadence": 49
+        },
+        "8": {
+          "bonus_cadence": 56
+        },
+        "9": {
+          "bonus_cadence": 63
+        },
+        "10": {
+          "bonus_cadence": 70
         }
       }
     }
@@ -1706,7 +1733,7 @@
       }
     }
   },
-  "chirurgical": {
+  "chirurgical": {//TODO: talent descente
     "nom": "Chirurgical",
     "description": "TODO: Description du talent",
     "compatibilite": {

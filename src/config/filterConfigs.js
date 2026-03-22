@@ -76,11 +76,12 @@ function gearRarity(item) {
 
 function itemRarity(item) {
   if (item.type === 'exotique' || item.estExotique) return 4
-  if (item.estNomme || item.perfectDescription) return 3
-  if (item.type === 'gear_set') return 2
+  if (item.type === 'gear_set' || item.gearSet || item.gear_set) return 3
+  if (item.estNomme || item.perfectDescription) return 2
   if (item.type === 'improvise') return 0
   return 1
 }
+
 
 // ----------------------------------------------------------------
 // DÉFINITIONS DES COUCHES DE TRI PAR CATÉGORIE
@@ -519,8 +520,8 @@ export function applyTalentPrototypeFilters(items, filters) {
 export function getModArmeFilters(data) {
   const types = data?.modsArmesType || {}
   const typeOptions = Object.entries(types)
-    .filter(([slug]) => !slug.includes('_')) // On ne garde que les types principaux pour le filtre global si on veut, ou tout
-    .map(([value, obj]) => ({ value, label: obj.nom }))
+      .filter(([slug]) => !slug.includes('_')) // On ne garde que les types principaux pour le filtre global si on veut, ou tout
+      .map(([value, obj]) => ({ value, label: obj.nom }))
 
   // Si on veut vraiment limiter aux 4 de base (enum du schema) :
   const mainTypes = ['chargeur', 'canon', 'viseur', 'bouche']

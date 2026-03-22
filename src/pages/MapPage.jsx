@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { MapContainer, ImageOverlay, ZoomControl, useMap, Marker, Tooltip, useMapEvents } from 'react-leaflet'
 import L from 'leaflet'
@@ -58,16 +58,20 @@ function DynamicMapFit({ bounds, urlParams }) {
     return null
 }
 
-function MapMouseCoordinatesHUD({ setHUDCoords }) {
+function MapMouseCoordinatesHUD() {
+    const coordsRef = useRef(null)
     useMapEvents({
         mousemove(e) {
-            setHUDCoords({
-                x: e.latlng.lng.toFixed(0),
-                y: e.latlng.lat.toFixed(0)
-            })
+            if (coordsRef.current) {
+                coordsRef.current.innerText = `GPS: X=${e.latlng.lng.toFixed(0)} Y=${e.latlng.lat.toFixed(0)}`
+            }
         },
     })
-    return null
+    return (
+        <div className="absolute bottom-8 right-14 text-xs text-shd/70 font-mono uppercase tracking-widest pointer-events-none z-[1000]">
+            <span ref={coordsRef}>GPS: X=0 Y=0</span>
+        </div>
+    )
 }
 
 export default function MapPage() {
@@ -79,8 +83,6 @@ export default function MapPage() {
     const [loadingError, setLoadingError] = useState(null)
     const [activeCategories, setActiveCategories] = useState([])
     const [filterPanelOpen, setFilterPanelOpen] = useState(true)
-
-    const [hudCoords, setHUDCoords] = useState({ x: '0', y: '0' })
 
     useEffect(() => {
         setLoading(true)
@@ -129,6 +131,13 @@ export default function MapPage() {
         )
     }
 
+    const visibleMarkers = useMemo(() => {
+        if (!currentMapConfig?.markers) return []
+        return currentMapConfig.markers.filter(marker =>
+            activeCategories.includes(marker.category)
+        )
+    }, [currentMapConfig?.markers, activeCategories])
+
     if (loading) return <Loader />
 
     if (loadingError) return (
@@ -151,10 +160,6 @@ export default function MapPage() {
     }
 
     const resolvedImageUrl = resolveMapImage(currentMapConfig.map)
-
-    const visibleMarkers = (currentMapConfig.markers || []).filter(marker =>
-        activeCategories.includes(marker.category)
-    )
 
     return (
         <div className="h-full w-full relative bg-[#0a0a0a] overflow-hidden z-0">
@@ -219,18 +224,28 @@ export default function MapPage() {
                     crs={L.CRS.Simple}
                     bounds={currentMapConfig.bounds}
                     maxBounds={currentMapConfig.bounds}
-                    maxBoundsViscosity={1.0}
+                    maxBoundsViscosity={0.7}
                     minZoom={currentMapConfig.minZoom || -4}
                     maxZoom={currentMapConfig.maxZoom}
                     zoomSnap={0}
-                    zoomDelta={0.5}
-                    wheelPxPerZoomLevel={100}
+                    zoomDelta={0.1}
+                    wheelPxPerZoomLevel={120}
+                    wheelDebounceTime={40}
+                    zoomAnimation={true}
+                    zoomAnimationThreshold={10}
+                    fadeAnimation={true}
+                    markerZoomAnimation={true}
+                    inertia={true}
+                    inertiaDeceleration={3000}
+                    inertiaMaxSpeed={2000}
+                    easeLinearity={0.1}
+                    preferCanvas={true}
                     zoomControl={false}
                     className="absolute inset-0 z-0"
                     style={{ backgroundColor: '#0a0a0a' }}
                 >
                     <DynamicMapFit bounds={currentMapConfig.bounds} urlParams={urlParams} />
-                    <MapMouseCoordinatesHUD setHUDCoords={setHUDCoords} />
+                    <MapMouseCoordinatesHUD />
                     <ZoomControl position="bottomright" />
 
                     <ImageOverlay
@@ -295,9 +310,6 @@ export default function MapPage() {
             <div className="absolute bottom-4 left-4 text-[10px] text-shd/70 font-mono uppercase tracking-widest pointer-events-none z-[400]">
                 SHD NETWORK<br/>
                 NODE LOCAL
-            </div>
-            <div className="absolute bottom-8 right-14 text-xs text-shd/70 font-mono uppercase tracking-widest pointer-events-none z-[400]">
-                GPS: X={hudCoords.x} Y={hudCoords.y}
             </div>
         </div>
     )

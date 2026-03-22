@@ -795,7 +795,7 @@ export const DESCENTE_DEFAULT_SORT = [
 const DESCENTE_CATEGORIE_ORDER = {
   'exotique': 1,
   'offensif': 2,
-  'défensif': 3,
+  'defensif': 3,
   'utilitaire': 4
 }
 
@@ -829,7 +829,7 @@ export function getDescenteFilters(data) {
       key: 'categorie', type: 'select', label: 'Catégorie',
       options: [
         { value: 'offensif', label: 'Offensif' },
-        { value: 'défensif', label: 'Défensif' },
+        { value: 'defensif', label: 'Défensif' },
         { value: 'utilitaire', label: 'Utilitaire' },
         { value: 'exotique', label: 'Exotique' },
       ],

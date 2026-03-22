@@ -1,6 +1,6 @@
 import {useMemo, useState, useEffect} from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
-import {getAttrCategoryLabel, getGearSlotLabel} from '../../../utils/formatters'
+import {getAttrCategoryLabel, getGearSlotLabel, formatNumber} from '../../../utils/formatters'
 import {GameIcon, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveIcon} from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
@@ -52,7 +52,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
     e.preventDefault()
     e.stopPropagation()
 
-    if (isExotic) return
+    if (isExotic || isImprovised) return
 
     const nextState = !isPrototype
     setIsPrototype(nextState)
@@ -92,6 +92,27 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
     if (Array.isArray(item.attributEssentiel) && item.attributEssentiel.length > 0) return item.attributEssentiel
     return ensemble?.attributsEssentiels || []
   }, [item.attributEssentiel, ensemble])
+
+  // Résoudre les attributs essentiels en objets complets avec valeurs
+  const resolvedEssentialAttrs = useMemo(() => {
+    return attrsEssentiels.map(attrSlug => {
+      let targetSlug = attrSlug;
+      if (attrSlug === 'offensif') targetSlug = 'degats_armes';
+      else if (attrSlug === 'defensif') targetSlug = 'protection';
+      else if (attrSlug === 'utilitaire') targetSlug = 'tiers_de_competence';
+
+      const ref = allAttributs && !Array.isArray(allAttributs)
+          ? allAttributs[targetSlug] || allAttributs[attrSlug]
+          : allAttributs?.find(a => a.slug === targetSlug || a.slug === attrSlug);
+
+      return {
+        slug: attrSlug,
+        targetSlug,
+        ref: ref,
+        label: getAttrCategoryLabel(attributsType, attrSlug)
+      };
+    });
+  }, [attrsEssentiels, allAttributs, attributsType]);
 
   // Résoudre le talent gear set pour torse/sac depuis l'ensemble (slug → objet talent)
   const gearSetTalent = useMemo(() => {
@@ -133,7 +154,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                     {isImprovised && <span className="text-xs font-bold text-indigo-400 bg-indigo-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Improvisé</span>}
                   </div>
 
-                  {!isExotic && item.attributs?.length > 0 && (
+                  {(!isExotic && !isImprovised) && (
                       <button
                           onClick={togglePrototype}
                           className={`flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border transition-all ${
@@ -169,22 +190,38 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
         <div className="px-4 py-2.5 space-y-1">
           {/* Attributs essentiels (depuis l'ensemble ou la pièce) */}
           {attrsEssentiels.length > 0 && (
-              <div className="flex items-start gap-2 text-xs">
+              <div className="flex flex-col gap-1.5 text-xs">
                 <span className="text-blue-400 font-bold shrink-0 uppercase tracking-widest text-xs">Essentiel{attrsEssentiels.length > 1 ? 's' : ''}</span>
-                <div className="flex flex-wrap gap-1">
-                  {attrsEssentiels.map((attr, i) => (
-                      <span key={i} className="text-blue-300 bg-blue-500/10 px-1.5 py-0.5 rounded text-xs flex items-center gap-1">
-                  <GameIcon src={resolveAttributeIcon(attr)} alt="" size="w-3 h-3" />
-                        {getAttrCategoryLabel(attributsType, attr)}
-                </span>
-                  ))}
+                <div className="flex flex-col gap-1 flex-1">
+                  {resolvedEssentialAttrs.map((attr, i) => {
+                    const ref = attr.ref;
+                    const pMax = ref?.maxPrototype ?? ref?.prototypeMax ?? ref?.max
+                    const val = isPrototype ? pMax : ref?.max;
+                    const min = ref?.min || 0;
+                    const isSkillTier = attr.targetSlug === 'tiers_de_competence' || attr.slug === 'utilitaire';
+                    return (
+                        <div key={i} className="text-xs flex items-center gap-1.5 justify-between">
+                          <div className="flex items-center gap-1.5 text-shd">
+                            <GameIcon src={resolveAttributeIcon(attr.slug)} alt="" size="w-3.5 h-3.5" />
+                            <span className="opacity-80">{attr.label} :</span>
+                          </div>
+                          <span className={`font-bold ${isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
+                            {isSkillTier ? (
+                                `+${val}`
+                            ) : (
+                                `${formatNumber(min)}${ref?.unite || ''} - ${formatNumber(val)}${ref?.unite || ''}`
+                            )}
+                          </span>
+                        </div>
+                    )
+                  })}
                 </div>
               </div>
           )}
           {hasContent(item.attributUnique) && (
-              <div className="flex items-start gap-2 text-xs">
+              <div className="flex flex-col gap-1 text-xs">
                 <span className="text-shd font-bold shrink-0 uppercase tracking-widest text-xs">Unique</span>
-                <span className="text-gray-300">{item.attributUnique}</span>
+                <span className={`italic ${isPrototype ? 'text-cyan-400' : 'text-shd'}`}>{item.attributUnique}</span>
               </div>
           )}
           {/* Attributs fixés (référençant attributs.jsonc) */}
@@ -201,13 +238,13 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                   const isOverMax = ref && val > max
                   return (
                       <div key={i} className="flex items-center justify-between text-xs">
-                  <span className="flex items-center gap-1.5 text-gray-400">
+                  <span className="flex items-center gap-1.5 text-shd">
                     <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
                     {ref?.nom || attr.nom}
                   </span>
-                        <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-gray-200'}`}>
-                    {val}{ref?.unite || ''}
-                          {isOverMax && <span className="ml-1 text-[8px] text-yellow-500">(max {max}{ref.unite})</span>}
+                        <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
+                    {typeof val === 'number' ? formatNumber(val) : val}{ref?.unite || ''}
+                          {isOverMax && <span className="ml-1 text-[8px] text-yellow-500">(max {formatNumber(max)}{ref.unite})</span>}
                   </span>
                       </div>
                   )

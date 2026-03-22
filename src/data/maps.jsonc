@@ -24,5 +24,15 @@
 //                "description": "Boss final de la zone."
 //            }
         ]
+    },
+    {
+        "id": "new_york",
+        "name": "New York",
+        "icon": "calibre12",
+        "bounds": [[0, 0], [865, 1050]],
+        "map": "new_york",
+        "minZoom": -4,
+        "maxZoom": 3,
+        "categories": []
     }
 ]

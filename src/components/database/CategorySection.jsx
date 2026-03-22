@@ -6,7 +6,6 @@ import TalentPrototypeCard from './cards/TalentPrototypeCard'
 import EnsembleCard from './cards/EnsembleCard'
 import SkillCard from './cards/SkillCard'
 import ModArmeCard from './cards/ModArmeCard'
-import AttributCard from './cards/AttributCard'
 import ModCompetencesCard from "./cards/ModCompetencesCard.jsx";
 import ModEquipementCard from "./cards/ModEquipementCard.jsx";
 import DescentTalentCard from './cards/DescentTalentCard.jsx';
@@ -18,7 +17,6 @@ import {slugify} from "../../utils/slugify.js";
 const GRID_CONFIG = {
   armes:             'grid-cols-1 lg:grid-cols-2 3xl:grid-cols-3',
   equipements:       'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
-  attributs:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
   talentsArmes:      'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 3xl:grid-cols-3',
   talentsEquipements:'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 3xl:grid-cols-3',
   talentsPrototypes: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 3xl:grid-cols-3',
@@ -34,7 +32,6 @@ const GRID_CONFIG = {
 const CARD_COMPONENTS = {
   armes: WeaponCard,
   equipements: GearCard,
-  attributs: AttributCard,
   talentsArmes: TalentArmeCard,
   talentsEquipements: TalentEquipCard,
   talentsPrototypes: TalentPrototypeCard,
@@ -46,7 +43,6 @@ const CARD_COMPONENTS = {
   descente: DescentTalentCard
 }
 
-// ... Le reste du fichier CategorySection.jsx reste exactement identique ...
 
 // Fallback card générique pour mods équipement / compétences
 function GenericCard({ item }) {

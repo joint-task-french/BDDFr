@@ -40,7 +40,6 @@ const CATEGORIES = [
   { key: 'equipements', label: 'Équipements', icon: '🛡️' },
   { key: 'ensembles', label: 'Ensembles', icon: '🔗' },
   { key: 'competences', label: 'Compétences', icon: '⚡' },
-  { key: 'attributs', label: 'Attributs', icon: '📊' },
   { key: 'talentsArmes', label: "Talents d'Armes", icon: '🎯' },
   { key: 'talentsEquipements', label: "Talents d'Équipements", icon: '🏅' },
   { key: 'talentsPrototypes', label: "Talents Prototypes", icon: '🧬' },

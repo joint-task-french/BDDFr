@@ -427,13 +427,67 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Employer un kit de protection à {save_chance}% de probabilité de ne pas consommer le kit de protection.\nLes bonus de kit de protection de spécialisation sont accrus de {bonus_kit}% ({bonus_kit_pvp}%).\n{arm_time} secondes sont nécessaires pour armer le talent.",
+        "base": "Employer un kit de protection a {save_chance}% de probabilité de ne pas consommer le kit de protection.\nLes bonus de kit de protection de spécialisation sont accrus de {bonus_kit}% ({bonus_kit_pvp}%).\n{arm_time} secondes sont nécessaires pour armer le talent.",
         "1": {
-          "save_chance": 50,
+          "save_chance": 30,
           "bonus_kit": 30,
           "bonus_kit_pvp": 50,
           "arm_time": 10
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "save_chance": 37,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "3": {
+          "save_chance": 44,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "4": {
+          "save_chance": 51,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "5": {
+          "save_chance": 58,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "6": {
+          "save_chance": 65,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "7": {
+          "save_chance": 72,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "8": {
+          "save_chance": 79,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "9": {
+          "save_chance": 86,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "10": {
+          "save_chance": 93,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        }
       }
     }
   },
@@ -458,7 +512,52 @@
           "threshold": 30,
           "repair": 10,
           "cooldown": 3
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "threshold": 30,
+          "repair": 20,
+          "cooldown": 3
+        },
+        "3": {
+          "threshold": 30,
+          "repair": 30,
+          "cooldown": 3
+        },
+        "4": {
+          "threshold": 30,
+          "repair": 40,
+          "cooldown": 3
+        },
+        "5": {
+          "threshold": 30,
+          "repair": 50,
+          "cooldown": 3
+        },
+        "6": {
+          "threshold": 30,
+          "repair": 60,
+          "cooldown": 3
+        },
+        "7": {
+          "threshold": 30,
+          "repair": 70,
+          "cooldown": 3
+        },
+        "8": {
+          "threshold": 30,
+          "repair": 80,
+          "cooldown": 3
+        },
+        "9": {
+          "threshold": 30,
+          "repair": 90,
+          "cooldown": 3
+        },
+        "10": {
+          "threshold": 30,
+          "repair": 100,
+          "cooldown": 3
+        }
       }
     }
   },
@@ -997,7 +1096,70 @@
           "max_repair": 100,
           "repair_duration_min": 4,
           "repair_duration_max": 10
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "threshold": 16,
+          "crit_repair": 10,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "3": {
+          "threshold": 17,
+          "crit_repair": 15,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "4": {
+          "threshold": 18,
+          "crit_repair": 20,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "5": {
+          "threshold": 19,
+          "crit_repair": 25,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "6": {
+          "threshold": 20,
+          "crit_repair": 30,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "7": {
+          "threshold": 21,
+          "crit_repair": 35,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "8": {
+          "threshold": 22,
+          "crit_repair": 40,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "9": {
+          "threshold": 23,
+          "crit_repair": 45,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "10": {
+          "threshold": 24,
+          "crit_repair": 50,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        }
       }
     }
   },
@@ -1025,7 +1187,79 @@
           "duration": 5,
           "max_stacks": 3,
           "cooldown": 5
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "range": 10,
+          "bonus_armor": 6,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 4.7
+        },
+        "3": {
+          "range": 10,
+          "bonus_armor": 9,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 4.4
+        },
+        "4": {
+          "range": 10,
+          "bonus_armor": 12,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 4.1
+        },
+        "5": {
+          "range": 10,
+          "bonus_armor": 15,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 3.8
+        },
+        "6": {
+          "range": 10,
+          "bonus_armor": 18,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 3.5
+        },
+        "7": {
+          "range": 10,
+          "bonus_armor": 21,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 3.2
+        },
+        "8": {
+          "range": 10,
+          "bonus_armor": 24,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 2.9
+        },
+        "9": {
+          "range": 10,
+          "bonus_armor": 27,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 2.6
+        },
+        "10": {
+          "range": 10,
+          "bonus_armor": 30,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 2.3
+        }
       }
     }
   },

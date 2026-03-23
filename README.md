@@ -73,5 +73,6 @@ Ce projet est maintenu par la communauté française de The Division 2. Un grand
 - Captain77
 - ocelus_ftnl
 - NicoLeFourbe
+- MastoroZ
 
 ---

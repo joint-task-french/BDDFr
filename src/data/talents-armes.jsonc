@@ -331,10 +331,46 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Les headshots confèrent {bonus_degats_comp} de dégâts de compétence pendant {duree}.",
+        "base": "Les headshots confèrent +{bonus_degats_comp}% de dégâts de compétence pendant {time}s.",
         "1": {
-          "bonus_degats_comp": "+20%",
-          "duree": "15s"
+          "bonus_degats_comp": 10,
+          "time": 20
+        },
+        "2": {
+          "bonus_degats_comp": 20,
+          "time": 20
+        },
+        "3": {
+          "bonus_degats_comp": 30,
+          "time": 20
+        },
+        "4": {
+          "bonus_degats_comp": 40,
+          "time": 20
+        },
+        "5": {
+          "bonus_degats_comp": 50,
+          "time": 20
+        },
+        "6": {
+          "bonus_degats_comp": 60,
+          "time": 20
+        },
+        "7": {
+          "bonus_degats_comp": 70,
+          "time": 20
+        },
+        "8": {
+          "bonus_degats_comp": 80,
+          "time": 20
+        },
+        "9": {
+          "bonus_degats_comp": 90,
+          "time": 20
+        },
+        "10": {
+          "bonus_degats_comp": 100,
+          "time": 20
         }
       }
     }
@@ -896,10 +932,10 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Éliminer une cible offre {probabilite} de probabilité de remplir le chargeur.",
+        "base": "Éliminer une cible offre +{probabilite}% de probabilité de remplir le chargeur.",
         "1": {
-          "probabilite": "+70%"
-        }
+          "probabilite": 20
+        }//TODO vérifier les valeurs en descente.
       }
     }
   },
@@ -1726,9 +1762,36 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "{bonus_capacite} à la capacité de chargeur.",
+        "base": "+{bonus_capacite}% à la capacité de chargeur.",
         "1": {
-          "bonus_capacite": "+50%"
+          "bonus_capacite": 10
+        },
+        "2": {
+          "bonus_capacite": 20
+        },
+        "3": {
+          "bonus_capacite": 30
+        },
+        "4": {
+          "bonus_capacite": 40
+        },
+        "5": {
+          "bonus_capacite": 50
+        },
+        "6": {
+          "bonus_capacite": 60
+        },
+        "7": {
+          "bonus_capacite": 70
+        },
+        "8": {
+          "bonus_capacite": 80
+        },
+        "9": {
+          "bonus_capacite": 90
+        },
+        "10": {
+          "bonus_capacite": 100
         }
       }
     }
@@ -1755,8 +1818,37 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "TODO: Description du talent",
-        "1": {}
+        "base": "+{maniement_arme}% au maniement d'arme",
+        "1": {
+          "maniement_arme": 5
+        },
+        "2": {
+          "maniement_arme": 10
+        },
+        "3": {
+          "maniement_arme": 15
+        },
+        "4": {
+          "maniement_arme": 20
+        },
+        "5": {
+          "maniement_arme": 25
+        },
+        "6": {
+          "maniement_arme": 30
+        },
+        "7": {
+          "maniement_arme": 35
+        },
+        "8": {
+          "maniement_arme": 40
+        },
+        "9": {
+          "maniement_arme": 45
+        },
+        "10": {
+          "maniement_arme": 50
+        }
       }
     }
   },

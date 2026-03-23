@@ -9,6 +9,8 @@
     "nom": "Dynamisation",
     "description": "Au combat, chaque compétence génère un bonus cumulable si elle est active ou si elle n'est pas en recharge.\nCes bonus augmentent le total de dégâts de compétence de 1,5% et le total de réparation de compétence de 2%.\nIls sont cumulables 15 fois maximum par compétence et s'annulent quand la compétence est en recharge.",
     "emplacement": "sac_a_dos",
+    "equipementsParfaits": ["elan"],
+    "perfectDescription": "Au combat, chaque compétence génère un bonus cumulable si elle est active ou si elle n'est pas en recharge.\nCes bonus augmentent le total de dégâts de compétence de 1,5% et le total de réparation de compétence de 2%.\nIls sont cumulables 18 fois maximum par compétence et s'annulent quand la compétence est en recharge.",
     "descente": {
       "boucles": [
         "Gourmandise",
@@ -134,12 +136,10 @@
         "base": "Déployer un bouclier le rend invulnérable pendant {invulnerability}s ({invulnerability_pvp}s) et donne à tous les autres alliés {bonus_armor}% ({bonus_armor_pvp}%) de votre protection en protection bonus pendant {duration}s.\nTemps de recharge : {cooldown}s.",
         "1": {
           "invulnerability": 5,
-          "invulnerability_pvp": 2,
-          "bonus_armor": 45,
-          "bonus_armor_pvp": 20,
+          "bonus_armor": 10,
           "duration": 20,
           "cooldown": 25
-        }
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -147,6 +147,8 @@
     "nom": "Rechargement Protégé",
     "description": "Confère +20% de protection bonus quand vous rechargez.\nConfère 0-18% de votre protection en protection bonus pour tout vos alliés quand ceux-ci rechargent, en fonction de votre attribut essentiel bleu",
     "emplacement": "torse",
+    "perfectDescription": "Confère +40% de protection bonus quand vous rechargez.\nConfère 0-30% de votre protection en protection bonus pour tout vos alliés quand ceux-ci rechargent, en fonction de votre attribut essentiel bleu",
+    "equipementsParfaits": ["dexterite"],
     "descente": {
       "boucles": [
         "Avidité",
@@ -228,7 +230,34 @@
       "levels": {
         "base": "A couvert, le maniement d'arme est amélioré de +{handling}%.",
         "1": {
-          "handling": 45
+          "handling": 10
+        },
+        "2": {
+          "handling": 20
+        },
+        "3": {
+          "handling": 30
+        },
+        "4": {
+          "handling": 40
+        },
+        "5": {
+          "handling": 50
+        },
+        "6": {
+          "handling": 60
+        },
+        "7": {
+          "handling": 70
+        },
+        "8": {
+          "handling": 80
+        },
+        "9": {
+          "handling": 90
+        },
+        "10": {
+          "handling": 100
         }
       }
     }
@@ -488,8 +517,8 @@
       "levels": {
         "base": "Quand votre protection est intacte, augmente la réparation de compétence de {skill_repair}%.",
         "1": {
-          "skill_repair": 130
-        }
+          "skill_repair": 40
+        }//TODO chercher valeurs en descente.
       }
     }
   },
@@ -697,9 +726,45 @@
       "levels": {
         "base": "Les ennemis que vous touchez au calibre 12 et au fusil de précision subissent des dégâts accrus de {damage_amplification}% de toutes les sources pendant {duration}s.",
         "1": {
+          "damage_amplification": 5,
+          "duration": 5
+        },
+        "2": {
           "damage_amplification": 10,
           "duration": 5
-        }
+        },
+        "3": {
+          "damage_amplification": 15,
+          "duration": 5
+        },
+        "4": {
+          "damage_amplification": 20,
+          "duration": 5
+        },
+        "5": {
+          "damage_amplification": 25,
+          "duration": 5
+        },
+        "6": {
+          "damage_amplification": 30,
+          "duration": 5
+        },
+        "7": {
+          "damage_amplification": 35,
+          "duration": 5
+        },
+        "8": {
+          "damage_amplification": 40,
+          "duration": 5
+        },
+        "9": {
+          "damage_amplification": 45,
+          "duration": 5
+        },
+        "10": {
+          "damage_amplification": 50,
+          "duration": 5
+        }//TODO vérifier les valeurs en descente.
       }
     }
   },
@@ -1427,78 +1492,39 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "TODO: Description du talent",
-        "1": {}
-      }
-    }
-  },
-  "destructeur": {
-    "nom": "Destructeur",
-    "description": "TODO: Description du talent",
-    "emplacement": "torse",
-    "descente": {
-      "boucles": [
-        "Avidité",
-        "Colère",
-        "Gourmandise",
-        "Paresse"
-      ],
-      "categorie": "utilitaire",
-      "levels": {
-        "base": "TODO: Description du talent",
-        "1": {}
-      }
-    }
-  },
-  "autonome": {
-    "nom": "Autonome",
-    "description": "TODO: Description du talent",
-    "emplacement": "torse",
-    "descente": {
-      "boucles": [
-        "Avidité",
-        "Envie",
-        "Paresse"
-      ],
-      "categorie": "utilitaire",
-      "levels": {
-        "base": "TODO: Description du talent",
-        "1": {}
-      }
-    }
-  },
-  "fortifiant": {
-    "nom": "Fortifiant",
-    "description": "TODO: Description du talent",
-    "emplacement": "torse",
-    "descente": {
-      "boucles": [
-        "Avidité",
-        "Gourmandise"
-      ],
-      "categorie": "utilitaire",
-      "levels": {
-        "base": "TODO: Description du talent",
-        "1": {}
-      }
-    }
-  },
-  "poussee": {
-    "nom": "Poussée",
-    "description": "TODO: Description du talent",
-    "emplacement": "torse",
-    "descente": {
-      "boucles": [
-        "Avidité",
-        "Envie",
-        "Gourmandise",
-        "Paresse"
-      ],
-      "categorie": "utilitaire",
-      "levels": {
-        "base": "TODO: Description du talent",
-        "1": {}
+        "base": "Equipé, ce talent confère +{duree_competence}% à la durée de compétence.",
+        "1": {
+          "duree_competence": 10
+        },
+        "2": {
+          "duree_competence": 20
+        },
+        "3": {
+          "duree_competence": 30
+        },
+        "4": {
+          "duree_competence": 40
+        },
+        "5": {
+          "duree_competence": 50
+        },
+        "6": {
+          "duree_competence": 60
+        },
+        "7": {
+          "duree_competence": 70
+        },
+        "8": {
+          "duree_competence": 80
+        },
+        "9": {
+          "duree_competence": 90
+        },
+        "10": {
+          "duree_competence": 100
+        }
       }
     }
   }
 }
+

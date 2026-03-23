@@ -90,5 +90,182 @@
         }
       }
     }
+  },
+  "destructeur": {
+    "nom": "Destructeur",
+    "descente": {
+      "boucles": [
+        "Avidité",
+        "Colère",
+        "Gourmandise",
+        "Paresse"
+      ],
+      "categorie": "utilitaire",
+      "levels": {
+        "base": "Equipé, ce talent confère +{degats_competence} aux dégâts de compétence%",
+        "1": {
+          "degats_competence": 10
+        },
+        "2": {
+          "degats_competence": 20
+        },
+        "3": {
+          "degats_competence": 30
+        },
+        "4": {
+          "degats_competence": 40
+        },
+        "5": {
+          "degats_competence": 50
+        },
+        "6": {
+          "degats_competence": 60
+        },
+        "7": {
+          "degats_competence": 70
+        },
+        "8": {
+          "degats_competence": 80
+        },
+        "9": {
+          "degats_competence": 90
+        },
+        "10": {
+          "degats_competence": 100
+        }
+      }
+    }
+  },
+  "autonome": {
+    "nom": "Autonome",
+    "descente": {
+      "boucles": [
+        "Avidité",
+        "Envie",
+        "Paresse"
+      ],
+      "categorie": "utilitaire",
+      "levels": {
+        "base": "Equipé, ce talent confère +{effets_etat} aux effets d'état%",
+        "1": {
+          "effets_etat": 10
+        },
+        "2": {
+          "effets_etat": 20
+        },
+        "3": {
+          "effets_etat": 30
+        },
+        "4": {
+          "effets_etat": 40
+        },
+        "5": {
+          "effets_etat": 50
+        },
+        "6": {
+          "effets_etat": 60
+        },
+        "7": {
+          "effets_etat": 70
+        },
+        "8": {
+          "effets_etat": 80
+        },
+        "9": {
+          "effets_etat": 90
+        },
+        "10": {
+          "effets_etat": 100
+        }
+      }
+    }
+  },
+  "fortifiant": {
+    "nom": "Fortifiant",
+    "descente": {
+      "boucles": [
+        "Avidité",
+        "Gourmandise"
+      ],
+      "categorie": "utilitaire",
+      "levels": {
+        "base": "Equipé, ce talent confère +{reparation_competence}% à la réparation de compétence.",
+        "1": {
+          "reparation_competence": 10
+        },
+        "2": {
+          "reparation_competence": 20
+        },
+        "3": {
+          "reparation_competence": 30
+        },
+        "4": {
+          "reparation_competence": 40
+        },
+        "5": {
+          "reparation_competence": 50
+        },
+        "6": {
+          "reparation_competence": 60
+        },
+        "7": {
+          "reparation_competence": 70
+        },
+        "8": {
+          "reparation_competence": 80
+        },
+        "9": {
+          "reparation_competence": 90
+        },
+        "10": {
+          "reparation_competence": 100
+        }
+      }
+    }
+  },
+  "poussee": {
+    "nom": "Poussée",
+    "descente": {
+      "boucles": [
+        "Avidité",
+        "Envie",
+        "Gourmandise",
+        "Paresse"
+      ],
+      "categorie": "utilitaire",
+      "levels": {
+        "base": "Equipé, ce talent confère +{recup_competence}% à la récup de compétence",
+        "1": {
+          "recup_competence": 10
+        },
+        "2": {
+          "recup_competence": 20
+        },
+        "3": {
+          "recup_competence": 30
+        },
+        "4": {
+          "recup_competence": 40
+        },
+        "5": {
+          "recup_competence": 50
+        },
+        "6": {
+          "recup_competence": 60
+        },
+        "7": {
+          "recup_competence": 70
+        },
+        "8": {
+          "recup_competence": 80
+        },
+        "9": {
+          "recup_competence": 90
+        },
+        "10": {
+          "recup_competence": 100
+        }
+      }
+    }
   }
 }

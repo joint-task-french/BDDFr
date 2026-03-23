@@ -67,32 +67,21 @@ function ViewportManager({ parts, currentMapId }) {
         zoom: 0
     })
 
-    // Écoute des déplacements pour mettre à jour la zone visible
     useMapEvents({
-        moveend: () => {
-            setViewState({ bounds: map.getBounds(), zoom: map.getZoom() })
-        },
-        zoomend: () => {
-            setViewState({ bounds: map.getBounds(), zoom: map.getZoom() })
-        }
+        moveend: () => setViewState({ bounds: map.getBounds(), zoom: map.getZoom() }),
+        zoomend: () => setViewState({ bounds: map.getBounds(), zoom: map.getZoom() })
     })
 
-    // Initialisation au premier rendu
     useEffect(() => {
         setViewState({ bounds: map.getBounds(), zoom: map.getZoom() })
     }, [map])
 
     if (!viewState.bounds || !parts) return null
 
-    // Filtrage strict : Ne garde que ce qui est au bon zoom ET visible à l'écran
     const visibleParts = parts.filter(part => {
         const minZ = part.minZoom !== undefined ? part.minZoom : -10
         const maxZ = part.maxZoom !== undefined ? part.maxZoom : 10
-
-        // 1. Check de Zoom (LOD)
         if (viewState.zoom < minZ || viewState.zoom > maxZ) return false
-
-        // 2. Check de visibilité (Culling)
         const partBounds = L.latLngBounds(part.bounds)
         return viewState.bounds.intersects(partBounds)
     })
@@ -130,6 +119,30 @@ function MapMouseCoordinatesHUD({ setHUDCoords }) {
 }
 
 // ============================================================================
+// GESTIONNAIRE DU MENU CONTEXTUEL (CLIC DROIT)
+// ============================================================================
+function ContextMenuHandler({ setContextMenu }) {
+    const map = useMap()
+
+    useMapEvents({
+        contextmenu(e) {
+            setContextMenu({
+                x: e.containerPoint.x,
+                y: e.containerPoint.y,
+                lat: e.latlng.lat,
+                lng: e.latlng.lng,
+                zoom: map.getZoom()
+            })
+        },
+        click() { setContextMenu(null) },
+        dragstart() { setContextMenu(null) },
+        zoomstart() { setContextMenu(null) }
+    })
+
+    return null
+}
+
+// ============================================================================
 // COMPOSANT PRINCIPAL
 // ============================================================================
 export default function MapPage() {
@@ -142,6 +155,10 @@ export default function MapPage() {
     const [activeCategories, setActiveCategories] = useState([])
     const [filterPanelOpen, setFilterPanelOpen] = useState(true)
     const [hudCoords, setHUDCoords] = useState({ x: '0', y: '0' })
+    const [contextMenu, setContextMenu] = useState(null)
+
+    // NOUVEL ÉTAT : Le marqueur sélectionné pour afficher ses détails
+    const [selectedMarker, setSelectedMarker] = useState(null)
 
     useEffect(() => {
         setLoading(true)
@@ -187,6 +204,15 @@ export default function MapPage() {
         )
     }
 
+    const handleCopyLocation = () => {
+        const url = new URL(window.location.href)
+        url.searchParams.set('x', Math.round(contextMenu.lng))
+        url.searchParams.set('y', Math.round(contextMenu.lat))
+        url.searchParams.set('z', contextMenu.zoom.toFixed(1))
+        navigator.clipboard.writeText(url.toString())
+        setContextMenu(null)
+    }
+
     const visibleMarkers = useMemo(() => {
         if (!currentMapConfig?.markers) return []
         return currentMapConfig.markers.filter(marker => activeCategories.includes(marker.category))
@@ -204,6 +230,7 @@ export default function MapPage() {
         <div className="h-full w-full relative bg-[#0a0a0a] overflow-hidden z-0">
             <style>{`.leaflet-tooltip.tactical-map-tooltip { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; } .leaflet-tooltip.tactical-map-tooltip::before, .leaflet-tooltip.tactical-map-tooltip::after { display: none !important; }`}</style>
 
+            {/* PANNEAU DE FILTRES */}
             {currentMapConfig.categories?.length > 0 && (
                 <div className="absolute top-4 right-4 z-[400] flex flex-col items-end">
                     <button onClick={() => setFilterPanelOpen(!filterPanelOpen)} className="mb-2 p-2 bg-tactical-panel/90 border border-tactical-border rounded shadow-lg text-gray-400 hover:text-white backdrop-blur-sm"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" /></svg></button>
@@ -225,6 +252,7 @@ export default function MapPage() {
                 </div>
             )}
 
+            {/* CARTE LEAFLET */}
             {hasImageContent ? (
                 <MapContainer
                     key={currentMapConfig.id}
@@ -243,9 +271,9 @@ export default function MapPage() {
                 >
                     <DynamicMapFit bounds={currentMapConfig.bounds} urlParams={urlParams} />
                     <MapMouseCoordinatesHUD setHUDCoords={setHUDCoords} />
+                    <ContextMenuHandler setContextMenu={setContextMenu} />
                     <ZoomControl position="bottomright" />
 
-                    {/* DÉLÉGATION DU RENDU AU VIEWPORT MANAGER */}
                     {currentMapConfig.mapParts ? (
                         <ViewportManager parts={currentMapConfig.mapParts} currentMapId={currentMapConfig.id} />
                     ) : (
@@ -258,18 +286,29 @@ export default function MapPage() {
                         const catDef = currentMapConfig.categories?.find(c => c.id === marker.category) || {}
                         const iconUrl = resolveIcon(catDef.icon)
                         const customIcon = L.divIcon({
-                            html: `<div style="background-color: ${catDef.color || '#3b82f6'}; box-shadow: 0 0 10px ${catDef.color || '#3b82f6'}80;" class="w-8 h-8 rounded-full border border-black/50 flex items-center justify-center shadow-lg p-1">${iconUrl ? `<img src="${iconUrl}" style="filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.6));" class="w-full h-full object-contain" />` : ''}</div>`,
+                            html: `<div style="background-color: ${catDef.color || '#3b82f6'}; box-shadow: 0 0 10px ${catDef.color || '#3b82f6'}80;" class="w-8 h-8 rounded-full border border-black/50 flex items-center justify-center shadow-lg p-1 cursor-pointer hover:scale-110 transition-transform">${iconUrl ? `<img src="${iconUrl}" style="filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.6));" class="w-full h-full object-contain" />` : ''}</div>`,
                             className: 'bg-transparent border-0',
                             iconSize: [32, 32], iconAnchor: [16, 16], tooltipAnchor: [0, -16]
                         })
 
                         return (
-                            <Marker key={marker.id} position={[marker.coords[1], marker.coords[0]]} icon={customIcon}>
+                            <Marker
+                                key={marker.id}
+                                position={[marker.coords[1], marker.coords[0]]}
+                                icon={customIcon}
+                                // L'ÉVÉNEMENT DE CLIC POUR OUVRIR LA FICHE
+                                eventHandlers={{
+                                    click: () => setSelectedMarker({ ...marker, categoryDef: catDef })
+                                }}
+                            >
                                 <Tooltip direction="top" offset={[0, -5]} opacity={1} className="tactical-map-tooltip">
                                     <div className="bg-tactical-panel/95 border border-tactical-border rounded p-3 backdrop-blur-sm min-w-[200px] shadow-2xl text-left font-sans">
                                         <h4 className="font-bold text-sm mb-1 uppercase tracking-widest" style={{ color: catDef.color || '#fff' }}>{marker.label}</h4>
                                         <div className="w-full h-px bg-tactical-border mb-2 opacity-50"></div>
                                         <p className="text-xs text-gray-300 m-0 leading-relaxed whitespace-pre-wrap">{marker.description}</p>
+                                        {(marker.extendedDescription || marker.image) && (
+                                            <p className="text-[10px] text-gray-500 mt-2 uppercase tracking-wide">Clic pour détails ⏵</p>
+                                        )}
                                     </div>
                                 </Tooltip>
                             </Marker>
@@ -282,12 +321,78 @@ export default function MapPage() {
                 </div>
             )}
 
+            {/* COORDONNÉES HUD */}
             <div className="absolute top-4 left-4 text-[10px] text-shd/70 font-mono uppercase tracking-widest pointer-events-none z-[400]">
                 SYS.COORD: {currentMapConfig.id.toUpperCase()}_SEC_01<br/>CRS: SIMPLE (FLAT)
             </div>
             <div className="absolute bottom-8 right-14 text-xs text-shd font-mono uppercase tracking-widest pointer-events-none z-[400] text-right">
                 GPS: X={hudCoords.x} Y={hudCoords.y}
             </div>
+
+            {/* LE MENU CONTEXTUEL (CLIC DROIT) */}
+            {contextMenu && (
+                <div
+                    className="absolute z-[1000] bg-tactical-panel/95 backdrop-blur-md border border-tactical-border shadow-2xl rounded py-1 min-w-[220px]"
+                    style={{ top: contextMenu.y, left: contextMenu.x }}
+                    onMouseLeave={() => setContextMenu(null)}
+                >
+                    <button
+                        className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-shd/20 hover:text-white transition-colors flex items-center gap-3"
+                        onClick={handleCopyLocation}
+                    >
+                        <svg className="w-4 h-4 text-shd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                        <div className="flex flex-col">
+                            <span className="font-semibold">Copier l'URL</span>
+                            <span className="text-[10px] text-gray-500 font-mono uppercase">X:{Math.round(contextMenu.lng)} Y:{Math.round(contextMenu.lat)}</span>
+                        </div>
+                    </button>
+                </div>
+            )}
+
+            {/* LA FICHE DÉTAILLÉE DU MARQUEUR (MODAL) */}
+            {selectedMarker && (
+                <div className="absolute inset-0 z-[2000] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" onClick={() => setSelectedMarker(null)}>
+                    <div
+                        className="bg-tactical-panel border border-tactical-border rounded-lg shadow-2xl max-w-lg w-full max-h-[85vh] overflow-hidden flex flex-col"
+                        onClick={e => e.stopPropagation()} // Empêche de fermer si on clique DANS la boîte
+                    >
+                        {/* En-tête avec image éventuelle */}
+                        {selectedMarker.image && (
+                            <div className="w-full h-48 sm:h-64 relative bg-black shrink-0">
+                                <img
+                                    src={selectedMarker.image.startsWith('http') ? selectedMarker.image : `${BASE}img/${selectedMarker.image}`}
+                                    alt={selectedMarker.label}
+                                    className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-tactical-panel to-transparent" />
+                            </div>
+                        )}
+
+                        {/* Contenu textuel */}
+                        <div className="p-6 overflow-y-auto">
+                            <div className="flex justify-between items-start mb-4">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded-full border border-black/50 flex items-center justify-center shadow-lg p-1 shrink-0" style={{ backgroundColor: selectedMarker.categoryDef?.color || '#3b82f6', boxShadow: `0 0 10px ${selectedMarker.categoryDef?.color || '#3b82f6'}80` }}>
+                                        {selectedMarker.categoryDef?.icon && <img src={resolveIcon(selectedMarker.categoryDef.icon)} className="w-full h-full object-contain filter drop-shadow-md" />}
+                                    </div>
+                                    <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-widest" style={{ color: selectedMarker.categoryDef?.color || '#fff' }}>
+                                        {selectedMarker.label}
+                                    </h2>
+                                </div>
+                                <button onClick={() => setSelectedMarker(null)} className="text-gray-400 hover:text-white p-1 ml-4 rounded hover:bg-white/10 transition-colors">
+                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
+                            </div>
+
+                            <div className="w-full h-px bg-tactical-border mb-4 opacity-50"></div>
+
+                            <p className="text-gray-300 whitespace-pre-wrap leading-relaxed">
+                                {selectedMarker.extendedDescription || selectedMarker.description}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

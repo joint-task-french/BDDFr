@@ -75,6 +75,10 @@
         {
             "fileMatch": ["/src/data/armes-pe.jsonc"],
             "url": "./src/data/schemas/mods-armes-type.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/maps.jsonc"],
+            "url": "./src/data/schemas/maps.schema.json"
         }
     ]
 }

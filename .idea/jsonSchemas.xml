@@ -346,6 +346,23 @@
             </SchemaInfo>
           </value>
         </entry>
+        <entry key="maps.schema">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="maps.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/maps.schema.json" />
+              <option name="schemaVersion" value="JSON Schema 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/data/maps.jsonc" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
       </map>
     </state>
   </component>

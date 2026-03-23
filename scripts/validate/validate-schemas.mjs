@@ -41,6 +41,7 @@ const VALIDATIONS = [
   { data: 'mods-competences.jsonc', schema: 'mods-competences.schema.json' },
   { data: 'mods-armes-type.jsonc', schema: 'mods-armes-type.schema.json' },
   { data: 'metadata.jsonc', schema: 'metadata.schema.json' },
+  { data: 'maps.jsonc', schema: 'maps.schema.json' },
 ]
 
 const ajv = new Ajv({ allErrors: true, strict: false })

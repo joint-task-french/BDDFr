@@ -18,8 +18,23 @@
         "map":"new_york",
         "minZoom":-4,
         "maxZoom":3,
-        "categories":[],
-        "markers":[]
+        "categories": [
+            { // Sample category
+                "id": "info",
+                "name": "Informations",
+                "icon": "calibre12",
+                "color": "#0000ff"
+            }
+        ],
+        "markers": [
+            { // Sample marker
+                "id": "information",
+                "coords": [475, 500],
+                "category": "info",
+                "label": "Information :",
+                "description": "La carte de new-york est assez peu qualitative actuellement, si vous avec une meilleur version n'hésitez pas a nous en faire part !"
+            }
+        ]
     },
     {
         "id": "brooklyn",
@@ -29,22 +44,7 @@
         "map": "brooklyn",
         "minZoom": -4,
         "maxZoom": 3,
-        "categories": [
-        { // Sample category
-        "id": "boss",
-        "name": "Cibles (Boss)",
-        "icon": "calibre12",
-        "color": "#ef4444"
-        }
-        ],
-        "markers": [
-        { // Sample marker
-        "id": "boss_keener",
-        "coords": [1300, 2050],
-        "category": "boss",
-        "label": "Aaron Keener",
-        "description": "Boss final de la zone."
-        }
-        ]
+        "categories": [],
+        "markers": []
     }
 ]

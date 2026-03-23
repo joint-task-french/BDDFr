@@ -1,0 +1,187 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Configuration des Cartes Tactiques",
+    "description": "Schéma de validation pour le fichier maps.jsonc de l'application",
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/mapConfig"
+    },
+    "definitions": {
+        "coordinatePair": {
+            "type": "array",
+            "description": "Coordonnées [Y, X] ou [Latitude, Longitude]",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+        },
+        "boundsArray": {
+            "type": "array",
+            "description": "Limites de la carte [[minY, minX], [maxY, maxX]]",
+            "items": {
+                "$ref": "#/definitions/coordinatePair"
+            },
+            "minItems": 2,
+            "maxItems": 2
+        },
+        "category": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Identifiant unique de la catégorie (ex: 'boss')"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Nom affiché dans les filtres"
+                },
+                "icon": {
+                    "type": "string",
+                    "description": "Nom ou chemin de l'icône"
+                },
+                "color": {
+                    "type": "string",
+                    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+                    "description": "Couleur hexadécimale pour le marqueur (ex: '#ef4444')"
+                }
+            },
+            "required": ["id", "name", "icon"],
+            "additionalProperties": false
+        },
+        "marker": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Identifiant unique du marqueur"
+                },
+                "coords": {
+                    "type": "array",
+                    "description": "Coordonnées du point sur la carte [X, Y]",
+                    "items": {
+                        "type": "number"
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                },
+                "category": {
+                    "type": "string",
+                    "description": "Référence à l'ID d'une catégorie existante"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Titre principal du marqueur"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description courte affichée au survol (Tooltip)"
+                },
+                "extendedDescription": {
+                    "type": "string",
+                    "description": "Description longue affichée lors du clic (Modal)"
+                },
+                "image": {
+                    "type": "string",
+                    "description": "URL ou chemin local de l'image pour le Modal"
+                }
+            },
+            "required": ["id", "coords", "category", "label", "description"],
+            "additionalProperties": false
+        },
+        "mapPart": {
+            "type": "object",
+            "properties": {
+                "map": {
+                    "type": "string",
+                    "description": "Nom du fichier de la tuile (sans extension)"
+                },
+                "slug": {
+                    "type": "string",
+                    "description": "Alias pour le nom du fichier de la tuile"
+                },
+                "bounds": {
+                    "$ref": "#/definitions/boundsArray"
+                },
+                "minZoom": {
+                    "type": "number"
+                },
+                "maxZoom": {
+                    "type": "number"
+                }
+            },
+            "required": ["bounds"],
+            "anyOf": [
+                { "required": ["map"] },
+                { "required": ["slug"] }
+            ],
+            "additionalProperties": false
+        },
+        "mapConfig": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Identifiant unique de la carte (ex: 'washington')"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Nom d'affichage de la carte"
+                },
+                "icon": {
+                    "type": "string",
+                    "description": "Icône de la carte pour la navigation"
+                },
+                "bounds": {
+                    "$ref": "#/definitions/boundsArray"
+                },
+                "map": {
+                    "type": "string",
+                    "description": "Nom de l'image géante unique (sans extension) si pas de mapParts"
+                },
+                "imageSlug": {
+                    "type": "string",
+                    "description": "Alias pour l'image géante"
+                },
+                "minZoom": {
+                    "type": "number",
+                    "description": "Zoom minimum autorisé"
+                },
+                "maxZoom": {
+                    "type": "number",
+                    "description": "Zoom maximum autorisé"
+                },
+                "mapParts": {
+                    "type": "array",
+                    "description": "Liste des tuiles si la carte est découpée en morceaux",
+                    "items": {
+                        "$ref": "#/definitions/mapPart"
+                    }
+                },
+                "subMaps": {
+                    "type": "array",
+                    "description": "Sous-cartes liées à cette carte principale",
+                    "items": {
+                        "$ref": "#/definitions/mapConfig"
+                    }
+                },
+                "categories": {
+                    "type": "array",
+                    "description": "Catégories de marqueurs disponibles sur cette carte",
+                    "items": {
+                        "$ref": "#/definitions/category"
+                    }
+                },
+                "markers": {
+                    "type": "array",
+                    "description": "Liste de tous les points d'intérêts",
+                    "items": {
+                        "$ref": "#/definitions/marker"
+                    }
+                }
+            },
+            "required": ["id", "name", "bounds"],
+            "additionalProperties": false
+        }
+    }
+}

@@ -1186,7 +1186,34 @@
         "base": "Éliminer une cible offre +{probabilite}% de probabilité de remplir le chargeur.",
         "1": {
           "probabilite": 20
-        }//TODO vérifier les valeurs en descente.
+        },
+        "2": {
+          "probabilite": 25
+        },
+        "3": {
+          "probabilite": 30
+        },
+        "4": {
+          "probabilite": 35
+        },
+        "5": {
+          "probabilite": 40
+        },
+        "6": {
+          "probabilite": 45
+        },
+        "7": {
+          "probabilite": 50
+        },
+        "8": {
+          "probabilite": 55
+        },
+        "9": {
+          "probabilite": 60
+        },
+        "10": {
+          "probabilite": 65
+        }
       }
     }
   },

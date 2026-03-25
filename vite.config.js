@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: './',
+  base: process.env.VITE_BASE_PATH || './',
   assetsInclude: ['**/*.jsonc'],
   build: {
     assetsInlineLimit: 10240,

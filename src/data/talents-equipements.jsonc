@@ -20,9 +20,9 @@
       "levels": {
         "base": "Au combat, chaque compétence génère un bonus cumulable si elle est active ou si elle n'est pas en recharge.\nCes bonus augmentent le total de dégâts de compétence de {skill_damage}% et le total de réparation de compétence de {skill_repair}%.\nIls sont cumulables {max_stacks} fois maximum par compétence et s'annulent quand la compétence est en recharge.",
         "1": {
-          "skill_damage": 1.5,
-          "skill_repair": 2.0,
-          "max_stacks": 15
+          "skill_damage": 10,
+          "skill_repair": 12,
+          "max_stacks": 5
         }
       }
     }

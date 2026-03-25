@@ -1450,11 +1450,11 @@
       ],
       "categorie": "exotique",
       "levels": {
-        "base": "Tirer sur un ennemi le marque et inflige un effet cumulable sur l'agent jusqu'à un maximum de {cumul_max}.\nTirer sur un ennemi marqué renouvelle la marque et ajoute des effets cumulables sur l'agent.\nQuand vous déployez une compétence non-bouclier, vous supprimez tous les effets cumulés sur l'agent et toutes les cibles marquées déclenchent un effet :\n1 - 10 effets : Détecte et désactive les cibles marquées pendant {duree}.\n11 - 25 effets : Détecte, désactive et désoriente les cibles marquées pendant {duree}.\n26 - 49 effets : Détecte, désactive et désoriente les cibles marquées ainsi que tous les ennemis à moins de {rayon} pendant {duree}.\nCet effet se déclenche immédiatement si un ennemi marqué est tué.",
+        "base": "Tirer sur un ennemi le marque et inflige un effet cumulable sur l'agent jusqu'à un maximum de {cumul_max}.\nTirer sur un ennemi marqué renouvelle la marque et ajoute des effets cumulables sur l'agent.\nQuand vous déployez une compétence non-bouclier, vous supprimez tous les effets cumulés sur l'agent et toutes les cibles marquées déclenchent un effet :\n1 - 10 effets : Détecte et désactive les cibles marquées pendant {duree}s.\n11 - 25 effets : Détecte, désactive et désoriente les cibles marquées pendant {duree}s.\n26 - 49 effets : Détecte, désactive et désoriente les cibles marquées ainsi que tous les ennemis à moins de {rayon}m pendant {duree}s.\nCet effet se déclenche immédiatement si un ennemi marqué est tué.",
         "1": {
-          "cumul_max": "50",
-          "duree": "5s",
-          "rayon": "10m"
+          "cumul_max": 50,
+          "duree": 5,
+          "rayon": 10
         }
       }
     }
@@ -1739,11 +1739,11 @@
       ],
       "categorie": "exotique",
       "levels": {
-        "base": "Les tirs réussis confèrent {bonus_degats} aux dégâts d'arme (max {cumul_max}).\nLes headshots consomment les effets pour réparer votre bouclier de {reparation_bouclier} par effet.",
+        "base": "Les tirs réussis confèrent +{bonus_degats}% aux dégâts d'arme (max {cumul_max}).\nLes headshots consomment les effets pour réparer votre bouclier de {reparation_bouclier}% par effet.",
         "1": {
-          "bonus_degats": "+2%",
-          "cumul_max": "30",
-          "reparation_bouclier": "3%"
+          "bonus_degats": 2,
+          "cumul_max": 30,
+          "reparation_bouclier": 3
         }
       }
     }
@@ -1779,11 +1779,11 @@
       ],
       "categorie": "exotique",
       "levels": {
-        "base": "Chaque tir sur une cible différente octroie 1 cumul (max {cumul_max}), chaque cumul conférant {bonus_degats} de dégâts d'arme.\nLes cumuls s'activent une fois que l'agent change d'arme et durent {duree}.",
+        "base": "Chaque tir sur une cible différente octroie 1 cumul (max {cumul_max}), chaque cumul conférant {bonus_degats}% de dégâts d'arme.\nLes cumuls s'activent une fois que l'agent change d'arme et durent {duree}s.",
         "1": {
-          "cumul_max": "10",
-          "bonus_degats": "20% (2%)",
-          "duree": "10 secondes"
+          "cumul_max": 10,
+          "bonus_degats": 20,
+          "duree": 10
         }
       }
     }
@@ -1806,12 +1806,12 @@
       ],
       "categorie": "exotique",
       "levels": {
-        "base": "Quand vous rechargez, la cadence de tir pour l'intégralité du chargeur augmente de {bonus_cadence} pour chaque ennemi à moins de {rayon}.\nCumulable {cumul_max} fois maximum.\nLes éliminations remplissent {remplissage_chargeur} de votre chargeur.",
+        "base": "Quand vous rechargez, la cadence de tir pour l'intégralité du chargeur augmente de {bonus_cadence}% pour chaque ennemi à moins de {rayon}m.\nCumulable {cumul_max} fois maximum.\nLes éliminations remplissent {remplissage_chargeur}% de votre chargeur.",
         "1": {
-          "bonus_cadence": "25%",
-          "rayon": "15m",
-          "cumul_max": "5",
-          "remplissage_chargeur": "50%"
+          "bonus_cadence": 25,
+          "rayon": 15,
+          "cumul_max": 5,
+          "remplissage_chargeur": 50
         }
       }
     }
@@ -1828,13 +1828,13 @@
       ],
       "categorie": "exotique",
       "levels": {
-        "base": "En mouvement, gagnez {bonus_sec_mouv} bonus/s ({bonus_sec_sprint} si sprint).\nChaque tir consomme un bonus pour augmenter les dégâts de {bonus_degats}.\nLes éliminations confèrent {buff_vitesse} en vitesse de déplacement pendant {duree_buff}.",
+        "base": "En mouvement, gagnez {bonus_sec_mouv} bonus/s ({bonus_sec_sprint} si sprint).\nChaque tir consomme un bonus pour augmenter les dégâts de {bonus_degats}%.\nLes éliminations confèrent {buff_vitesse}% en vitesse de déplacement pendant {duree_buff}%.",
         "1": {
-          "bonus_sec_mouv": "4",
-          "bonus_sec_sprint": "8",
-          "bonus_degats": "75%",
-          "buff_vitesse": "+20%",
-          "duree_buff": "10s"
+          "bonus_sec_mouv": 4,
+          "bonus_sec_sprint": 8,
+          "bonus_degats": 75,
+          "buff_vitesse": 20,
+          "duree_buff": 10
         }
       }
     }

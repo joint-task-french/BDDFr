@@ -111,6 +111,9 @@ export default function CategorySection({ category, items, searchTerm, allData, 
     if (allData?.attributs) extraProps.allAttributs = allData.attributs
     if (allData?.modsArmesType) extraProps.modsArmesType = allData.modsArmesType
   }
+  if (category?.key === 'modsEquipements') {
+    if (allData?.attributs) extraProps.allAttributs = allData.attributs
+  }
   if (category?.key === 'modsCompetences') {
     if (allData?.competencesGrouped) extraProps.competencesGrouped = allData.competencesGrouped
     if (allData?.attributs) extraProps.allAttributs = allData.attributs

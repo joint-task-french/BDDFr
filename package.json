@@ -34,7 +34,7 @@
     "react-router-dom": "^7.13.2",
     "remark-breaks": "^4.0.0",
     "remark-gfm": "^4.0.1",
-    "react-leaflet": "^5.0.0",
+    "react-leaflet": "^5.0.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.2.2",

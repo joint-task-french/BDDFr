@@ -110,8 +110,9 @@ function CompactRow({ item, category, extraProps }) {
 function WeaponRow({ item, armesType }) {
   const typeIcon = WEAPON_TYPE_ICONS[item.type]
   const isExotic = item.estExotique
+  const isSpecific = item.type === 'arme_specifique'
   const isNamed = item.estNomme && !isExotic
-  const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : 'text-shd'
+  const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isSpecific ? 'text-purple-400' : 'text-shd'
 
   return (
     <>
@@ -143,7 +144,8 @@ function GearRow({ item, ensembles, equipementsType, attributsType }) {
   const isExotic = item.type === 'exotique'
   const isNamed = item.estNomme && !isExotic
   const isGearSet = item.type === 'gear_set'
-  const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isGearSet ? 'text-emerald-400' : 'text-shd'
+  const isImprovised = item.type === 'improvise'
+  const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isGearSet ? 'text-emerald-400' : isImprovised ? 'text-indigo-400' : 'text-shd'
   const ensemble = (ensembles && !Array.isArray(ensembles)) 
     ? ensembles[item.marque] 
     : ensembles?.find(e => e.slug === item.marque )
@@ -209,8 +211,8 @@ function SkillRow({ item }) {
         <GameIcon src={resolveIcon(item.icon)} alt="" size="w-8 h-8" />
       </div>
       <div className="flex flex-col min-w-0 w-48 md:w-80 flex-shrink-0">
-        <div className="font-bold text-sm uppercase truncate text-shd">{item.variante}</div>
-        <div className="text-xs text-gray-500 uppercase truncate">{item.competence}</div>
+        <div className="font-bold text-sm uppercase truncate text-yellow-400">{item.variante}</div>
+        <div className="text-xs text-yellow-500/70 uppercase truncate">{item.competence}</div>
       </div>
     </>
   )
@@ -231,12 +233,15 @@ function AttributeRow({ item }) {
 }
 
 function TalentRow({ item }) {
+  const isExotic = item.estExotique
+  const isGearSet = item.gearSet || item.gear_set
+  const nameColor = isExotic ? 'text-red-400' : isGearSet ? 'text-emerald-400' : 'text-shd'
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">
         <GameIcon src={resolveIcon(item.icon)} alt="" size="w-8 h-8" />
       </div>
-      <div className="font-bold text-sm uppercase truncate text-shd w-48 md:w-80 flex-shrink-0">{item.nom}</div>
+      <div className={`font-bold text-sm uppercase truncate w-48 md:w-80 flex-shrink-0 ${nameColor}`}>{item.nom}</div>
     </>
   )
 }
@@ -255,6 +260,7 @@ function ModArmeRow({ item, armesType }) {
     ? item.compatible.map(c => getWeaponTypeLabel(armesType, c)).join(', ')
     : 'Tous types'
   const slot = WEAPON_MOD_TYPES[item.type] || item.type
+  const nameColor = item.estExotique ? 'text-red-400' : 'text-shd'
 
   return (
     <>
@@ -262,7 +268,7 @@ function ModArmeRow({ item, armesType }) {
         <GameIcon src={resolveIcon(item.icon)} alt="" size="w-8 h-8" />
       </div>
       <div className="flex flex-col min-w-0 w-48 md:w-80 flex-shrink-0">
-        <div className="font-bold text-sm uppercase truncate text-shd">{item.nom}</div>
+        <div className={`font-bold text-sm uppercase truncate ${nameColor}`}>{item.nom}</div>
         <div className="text-xs text-gray-500 uppercase truncate">{compatibility} · {slot}</div>
       </div>
     </>

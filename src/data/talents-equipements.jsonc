@@ -9,7 +9,9 @@
     "nom": "Dynamisation",
     "description": "Au combat, chaque compétence génère un bonus cumulable si elle est active ou si elle n'est pas en recharge.\nCes bonus augmentent le total de dégâts de compétence de 1,5% et le total de réparation de compétence de 2%.\nIls sont cumulables 15 fois maximum par compétence et s'annulent quand la compétence est en recharge.",
     "emplacement": "sac_a_dos",
-    "equipementsParfaits": ["elan"],
+    "equipementsParfaits": [
+      "elan"
+    ],
     "perfectDescription": "Au combat, chaque compétence génère un bonus cumulable si elle est active ou si elle n'est pas en recharge.\nCes bonus augmentent le total de dégâts de compétence de 1,5% et le total de réparation de compétence de 2%.\nIls sont cumulables 18 fois maximum par compétence et s'annulent quand la compétence est en recharge.",
     "descente": {
       "boucles": [
@@ -18,12 +20,12 @@
       ],
       "categorie": "exotique",
       "levels": {
-        "base": "Au combat, chaque compétence génère un bonus cumulable si elle est active ou si elle n'est pas en recharge.\nCes bonus augmentent le total de dégâts de compétence de {skill_damage}% et le total de réparation de compétence de {skill_repair}%.\nIls sont cumulables {max_stacks} fois maximum par compétence et s'annulent quand la compétence est en recharge.",
         "1": {
           "skill_damage": 10,
           "skill_repair": 12,
           "max_stacks": 5
-        }
+        },
+        "base": "Au combat, chaque compétence génère un bonus cumulable si elle est active ou si elle n'est pas en recharge.\nCes bonus augmentent le total de dégâts de compétence de {skill_damage}% et le total de réparation de compétence de {skill_repair}%.\nIls sont cumulables {max_stacks} fois maximum par compétence et s'annulent quand la compétence est en recharge."
       }
     }
   },
@@ -32,17 +34,19 @@
     "description": "Les éliminations par compétence ont 25% de probabilité de réinitialiser les recharges de compétence.",
     "emplacement": "torse",
     "perfectDescription": "Les éliminations par compétence ont 30% de probabilité de réinitialiser les recharges de compétence.",
-    "equipementsParfaits": ["protection_de_cesar"],
+    "equipementsParfaits": [
+      "protection_de_cesar"
+    ],
     "descente": {
       "boucles": [
         "Paresse"
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Les éliminations par compétence ont {reset_chance}% de probabilité de réinitialiser les recharges de compétence.",
         "1": {
           "reset_chance": 25
-        }
+        },
+        "base": "Les éliminations par compétence ont {reset_chance}% de probabilité de réinitialiser les recharges de compétence."
       }
     }
   },
@@ -50,7 +54,9 @@
     "nom": "Observateur",
     "description": "Augmente les totaux de dégâts d'arme et de dégâts de compétence de 15% contre les ennemis touchés par impulsion.",
     "emplacement": "torse",
-    "equipementsParfaits": ["ampli_de_reperage"],
+    "equipementsParfaits": [
+      "ampli_de_reperage"
+    ],
     "perfectDescription": "Augmente les totaux de dégâts d'arme et de dégâts de compétence de 20% contre les ennemis touchés par impulsion."
   },
   "livraison_explosive": {
@@ -58,7 +64,9 @@
     "description": "Quand vous déployez un objet de compétence, 1.5s après que celui-ci touche le sol, il génère une explosion infligeant des dégâts aux ennemis situés à moins de 5m.\nLes dégâts sont étalonnés selon le Tier de compétence et infligent 25-100% des dégâts d'une grenade offensive.\nUne fois maximum par compétence.",
     "emplacement": "torse",
     "perfectDescription": "Quand vous déployez un objet de compétence, 1.5s après que celui-ci touche le sol, il génère une explosion infligeant des dégâts aux ennemis situés à moins de 5m. Ensuite, les explosions se produisent toutes les 5s.\nLes dégâts sont étalonnés selon le Tier de compétence et infligent 25-100% des dégâts d'une grenade offensive.\nUne fois maximum par compétence.",
-    "equipementsParfaits": ["combustor"]
+    "equipementsParfaits": [
+      "combustor"
+    ]
   },
   "determination_empathique": {
     "nom": "Détermination Empathique",
@@ -70,7 +78,9 @@
     "description": "Au bout de 10s à couvert, augmente les totaux de dégâts d'arme et de dégâts de compétence de 12% pour vous et vos alliés.\nCet effet dure tant que vous restez à couvert ou que vous vous déplacez d'un abri à l'autre.",
     "emplacement": "torse",
     "perfectDescription": "Au bout de 8s à couvert, augmente les totaux de dégâts d'arme et de dégâts de compétence de 14% pour vous et vos alliés.\nCet effet dure tant que vous restez à couvert ou que vous vous déplacez d'un abri à l'autre.",
-    "equipementsParfaits": ["calme_agressif"],
+    "equipementsParfaits": [
+      "calme_agressif"
+    ],
     "descente": {
       "boucles": [
         "Gourmandise",
@@ -78,7 +88,6 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Au bout de {activation_time}s à couvert, augmente les totaux de dégâts d'arme et de dégâts de compétence de {damage_bonus}% pour vous et vos alliés.\nCet effet dure tant que vous restez à couvert ou que vous vous déplacez d'un abri à l'autre.",
         "1": {
           "activation_time": 6,
           "damage_bonus": 10
@@ -118,7 +127,8 @@
         "10": {
           "activation_time": 4,
           "damage_bonus": 100
-        }
+        },
+        "base": "Au bout de {activation_time}s à couvert, augmente les totaux de dégâts d'arme et de dégâts de compétence de {damage_bonus}% pour vous et vos alliés.\nCet effet dure tant que vous restez à couvert ou que vous vous déplacez d'un abri à l'autre."
       }
     }
   },
@@ -127,7 +137,9 @@
     "description": "Quand vous disposez d'une protection bonus, vous gagnez 3 effets chaque seconde jusqu'à un max de 9.\nChaque effet cumulé augmente les dégâts d'arme de +4% contre les ennemis situés à moins de 10m.\nTous les effets cumulés sont perdus si vous n'avez plus de protection bonus.",
     "emplacement": "torse",
     "perfectDescription": "Quand vous disposez d'une protection bonus, vous gagnez 3 effets chaque seconde jusqu'à un max de 10.\nChaque effet cumulé augmente les dégâts d'arme de +4% contre les ennemis situés à moins de 10m.\nTous les effets cumulés sont perdus si vous n'avez plus de protection bonus.",
-    "equipementsParfaits": ["chasseur_tueur"],
+    "equipementsParfaits": [
+      "chasseur_tueur"
+    ],
     "descente": {
       "boucles": [
         "Avidité",
@@ -136,7 +148,6 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Quand vous disposez d'une protection bonus, vous gagnez {stacks_per_sec} effets chaque seconde jusqu'à un max de {max_stacks}.\nChaque effet cumulé augmente les dégâts d'arme de +{damage_per_stack}% contre les ennemis situés à moins de {range}mètres.\nTous les effets cumulés sont perdus si vous n'avez plus de protection bonus.",
         "1": {
           "stacks_per_sec": 1,
           "max_stacks": 5,
@@ -196,7 +207,8 @@
           "max_stacks": 5,
           "damage_per_stack": 27,
           "range": 25
-        }
+        },
+        "base": "Quand vous disposez d'une protection bonus, vous gagnez {stacks_per_sec} effets chaque seconde jusqu'à un max de {max_stacks}.\nChaque effet cumulé augmente les dégâts d'arme de +{damage_per_stack}% contre les ennemis situés à moins de {range}mètres.\nTous les effets cumulés sont perdus si vous n'avez plus de protection bonus."
       }
     }
   },
@@ -205,14 +217,18 @@
     "description": "Quand votre protection est détruite, répare 95% de votre protection.\nTemps de recharge : 60s",
     "emplacement": "torse",
     "perfectDescription": "Quand votre protection est détruite, répare 100% de votre protection.\nTemps de recharge : 55s",
-    "equipementsParfaits": ["rien_a_f"]
+    "equipementsParfaits": [
+      "rien_a_f"
+    ]
   },
   "avant_garde": {
     "nom": "Avant-garde",
     "description": "Déployer un bouclier le rend invulnérable pendant 5s et donne à tous les autres alliés 45% de votre protection en protection bonus pendant 20s.\nTemps de recharge : 25s.",
     "emplacement": "torse",
     "perfectDescription": "Déployer un bouclier le rend invulnérable pendant 5s et donne à tous les autres alliés 50% de votre protection en protection bonus pendant 20s.\nTemps de recharge : 25s.",
-    "equipementsParfaits": ["leader"],
+    "equipementsParfaits": [
+      "leader"
+    ],
     "descente": {
       "boucles": [
         "Avidité",
@@ -223,7 +239,6 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Déployer un bouclier le rend invulnérable pendant {invulnerability}s et donne à tous les autres alliés {bonus_armor}% ({bonus_armor_pvp}%) de votre protection en protection bonus pendant {duration}s.\nTemps de recharge : {cooldown}s.",
         "1": {
           "invulnerability": 5,
           "bonus_armor": 10,
@@ -283,7 +298,8 @@
           "bonus_armor": 100,
           "duration": 20,
           "cooldown": 16
-        }
+        },
+        "base": "Déployer un bouclier le rend invulnérable pendant {invulnerability}s et donne à tous les autres alliés {bonus_armor}% ({bonus_armor_pvp}%) de votre protection en protection bonus pendant {duration}s.\nTemps de recharge : {cooldown}s."
       }
     }
   },
@@ -292,7 +308,9 @@
     "description": "Confère +20% de protection bonus quand vous rechargez.\nConfère 0-18% de votre protection en protection bonus pour tout vos alliés quand ceux-ci rechargent, en fonction de votre attribut essentiel bleu",
     "emplacement": "torse",
     "perfectDescription": "Confère +40% de protection bonus quand vous rechargez.\nConfère 0-30% de votre protection en protection bonus pour tout vos alliés quand ceux-ci rechargent, en fonction de votre attribut essentiel bleu",
-    "equipementsParfaits": ["dexterite"],
+    "equipementsParfaits": [
+      "dexterite"
+    ],
     "descente": {
       "boucles": [
         "Avidité",
@@ -303,7 +321,6 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Confère +{self_bonus_armor}% de protection bonus quand vous rechargez.",
         "1": {
           "self_bonus_armor": 10
         },
@@ -333,7 +350,8 @@
         },
         "10": {
           "self_bonus_armor": 100
-        }
+        },
+        "base": "Confère +{self_bonus_armor}% de protection bonus quand vous rechargez."
       }
     }
   },
@@ -351,11 +369,11 @@
       ],
       "categorie": "exotique",
       "levels": {
-        "base": "Tous les dégâts que vous infligez sont accrus de {damage_out}%.\nTous les dégâts que vous subissez sont accrus de {damage_in}%.",
         "1": {
           "damage_out": 25,
           "damage_in": 50
-        }
+        },
+        "base": "Tous les dégâts que vous infligez sont accrus de {damage_out}%.\nTous les dégâts que vous subissez sont accrus de {damage_in}%."
       }
     }
   },
@@ -369,7 +387,6 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Changer d'arme augmente le total de dégâts d'arme de {weapon_damage}% pendant {duration}s.\nCe buff se dissipe pendant {dissipation}s si vous changez d'arme pendant qu'il est actif.",
         "1": {
           "weapon_damage": 15,
           "duration": 5,
@@ -419,7 +436,8 @@
           "weapon_damage": 150,
           "duration": 14,
           "dissipation": 5
-        }
+        },
+        "base": "Changer d'arme augmente le total de dégâts d'arme de {weapon_damage}% pendant {duration}s.\nCe buff se dissipe pendant {dissipation}s si vous changez d'arme pendant qu'il est actif."
       }
     }
   },
@@ -428,7 +446,9 @@
     "description": "Augmente le total de dégâts d'arme de 5% à chaque seconde pendant que vous ciblez un ennemi en zoom 8x ou supérieur, jusqu'à 50%.",
     "prerequis": "Une lunette à grossissement 8x minimum.",
     "emplacement": "torse",
-    "equipementsParfaits": ["exemple_cristallin"],
+    "equipementsParfaits": [
+      "exemple_cristallin"
+    ],
     "perfectDescription": "Augmente le total de dégâts d'arme de 6% à chaque seconde pendant que vous ciblez un ennemi en zoom 8x ou supérieur, jusqu'à 60%."
   },
   "prepare": {
@@ -436,7 +456,9 @@
     "description": "A couvert, le maniement d'arme est amélioré de +45%.",
     "emplacement": "torse",
     "perfectDescription": "A couvert, le maniement d'arme est amélioré de +50%.",
-    "equipementsParfaits": ["gilet_vedmedytsya"],
+    "equipementsParfaits": [
+      "gilet_vedmedytsya"
+    ],
     "descente": {
       "boucles": [
         "Avidité",
@@ -444,7 +466,6 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "A couvert, le maniement d'arme est amélioré de +{handling}%.",
         "1": {
           "handling": 10
         },
@@ -474,7 +495,8 @@
         },
         "10": {
           "handling": 100
-        }
+        },
+        "base": "A couvert, le maniement d'arme est amélioré de +{handling}%."
       }
     }
   },
@@ -483,7 +505,9 @@
     "description": "Blesser des ennemis avec une compétence augmente le total de dégâts d'arme de 15% pendant 15s.",
     "emplacement": "torse",
     "perfectDescription": "Blesser des ennemis avec une compétence augmente le total de dégâts d'arme de 18% pendant 20s.",
-    "equipementsParfaits": ["plastron_du_fantassin_zele"],
+    "equipementsParfaits": [
+      "plastron_du_fantassin_zele"
+    ],
     "descente": {
       "boucles": [
         "Envie",
@@ -491,7 +515,6 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Blesser des ennemis avec une compétence augmente le total de dégâts d'arme de {weapon_damage}% pendant {duration}s.",
         "1": {
           "weapon_damage": 10,
           "duration": 10
@@ -531,7 +554,8 @@
         "10": {
           "weapon_damage": 100,
           "duration": 19
-        }
+        },
+        "base": "Blesser des ennemis avec une compétence augmente le total de dégâts d'arme de {weapon_damage}% pendant {duration}s."
       }
     }
   },
@@ -539,7 +563,9 @@
     "nom": "Oblitération",
     "description": "Les coups critiques augmentent le total de dégâts d'arme de 1% pendant 10s.\nPeut se cumuler jusqu'à 20 fois.",
     "emplacement": "torse",
-    "equipementsParfaits": ["egalisatrice"],
+    "equipementsParfaits": [
+      "egalisatrice"
+    ],
     "perfectDescription": "Les coups critiques augmentent le total de dégâts d'arme de 1% pendant 10s.\nPeut se cumuler jusqu'à 24 fois.",
     "descente": {
       "boucles": [
@@ -547,12 +573,12 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Les coups critiques augmentent le total de dégâts d'arme de {damage_per_crit}% pendant {duration}s.\nPeut se cumuler jusqu'à {max_stacks} fois.",
         "1": {
           "damage_per_crit": 1,
           "duration": 10,
           "max_stacks": 20
-        }
+        },
+        "base": "Les coups critiques augmentent le total de dégâts d'arme de {damage_per_crit}% pendant {duration}s.\nPeut se cumuler jusqu'à {max_stacks} fois."
       }
     }
   },
@@ -560,7 +586,9 @@
     "nom": "Trauma",
     "description": "Inflige aveuglement à un ennemi touché à la tête. Temps de recharge : 30s.\nInflige saignement à un ennemi touché à la poitrine. Temps de recharge : 30s.",
     "emplacement": "torse",
-    "equipementsParfaits": ["precieux"],
+    "equipementsParfaits": [
+      "precieux"
+    ],
     "perfectDescription": "Inflige aveuglement à un ennemi touché à la tête. Temps de recharge : 20s.\nInflige saignement à un ennemi touché à la poitrine. Temps de recharge : 20s.",
     "descente": {
       "boucles": [
@@ -569,11 +597,11 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Inflige aveuglement à un ennemi touché à la tête. Temps de recharge : {cooldown_blind}s.\nInflige saignement à un ennemi touché à la poitrine. Temps de recharge : {cooldown_bleed}s.",
         "1": {
           "cooldown_blind": 30,
           "cooldown_bleed": 30
-        }
+        },
+        "base": "Inflige aveuglement à un ennemi touché à la tête. Temps de recharge : {cooldown_blind}s.\nInflige saignement à un ennemi touché à la poitrine. Temps de recharge : {cooldown_bleed}s."
       }
     }
   },
@@ -587,18 +615,20 @@
     "description": "Le rayon d'effet des grenades est accru +50%.\nLes grenades sont récupérées si elles tuent l'ennemi.\nIl est désormais possible d'ajuster le lancer des grenades en maintenant le bouton de tir enfoncé pour les faire exploser plus tôt.\nConfère +15% de protection bonus lorsque vous visez avec les grenades.",
     "emplacement": "torse",
     "perfectDescription": "Le rayon d'effet des grenades est accru +75%.\nLes grenades sont récupérées si elles tuent l'ennemi.\nIl est désormais possible d'ajuster le lancer des grenades en maintenant le bouton de tir enfoncé pour les faire exploser plus tôt.\nConfère +15% de protection bonus lorsque vous visez avec les grenades.",
-    "equipementsParfaits": ["artisan"],
+    "equipementsParfaits": [
+      "artisan"
+    ],
     "descente": {
       "boucles": [
         "Colère"
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Le rayon d'effet des grenades est accru +{radius_bonus}%.\nLes grenades sont récupérées si elles tuent l'ennemi.\nIl est désormais possible d'ajuster le lancer des grenades en maintenant le bouton de tir enfoncé pour les faires exploser plus tôt.\nConfère +{bonus_armor}% de protection bonus lorsque vous visez avec les grenades.",
         "1": {
           "radius_bonus": 50,
           "bonus_armor": 15
-        }
+        },
+        "base": "Le rayon d'effet des grenades est accru +{radius_bonus}%.\nLes grenades sont récupérées si elles tuent l'ennemi.\nIl est désormais possible d'ajuster le lancer des grenades en maintenant le bouton de tir enfoncé pour les faires exploser plus tôt.\nConfère +{bonus_armor}% de protection bonus lorsque vous visez avec les grenades."
       }
     }
   },
@@ -607,14 +637,18 @@
     "description": "Les ennemis qui passent à moins de 3m de votre ruche, votre tourelle, ou votre impulsion télécommandée subissent une électrocution.\nArmement : 2s\nTemps de recharge par compétence : 10s",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Les ennemis qui passent à moins de 3m de votre ruche, votre tourelle, ou votre impulsion télécommandée subissent une électrocution.\nArmement : 2s\nTemps de recharge par compétence : 8s",
-    "equipementsParfaits": ["proxy"]
+    "equipementsParfaits": [
+      "proxy"
+    ]
   },
   "efficace": {
     "nom": "Efficace",
     "description": "Employer un kit de protection à 50% de probabilité de ne pas consommer le kit de protection.\nLes bonus de kit de protection de spécialisation sont accrus de 100%.\n10 secondes sont nécessaires pour armer le talent.",
     "emplacement": "torse",
     "perfectDescription": "Employer un kit de protection à 75% de probabilité de ne pas consommer le kit de protection.\nLes bonus de kit de protection de spécialisation sont accrus de 100%.\n10 secondes sont nécessaires pour armer le talent.",
-    "equipementsParfaits": ["transporteur"],
+    "equipementsParfaits": [
+      "transporteur"
+    ],
     "descente": {
       "boucles": [
         "Avidité",
@@ -625,7 +659,6 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Employer un kit de protection a {save_chance}% de probabilité de ne pas consommer le kit de protection.\nLes bonus de kit de protection de spécialisation sont accrus de {bonus_kit}% ({bonus_kit_pvp}%).\n{arm_time} secondes sont nécessaires pour armer le talent.",
         "1": {
           "save_chance": 30,
           "bonus_kit": 30,
@@ -685,7 +718,8 @@
           "bonus_kit": 30,
           "bonus_kit_pvp": 50,
           "arm_time": 10
-        }
+        },
+        "base": "Employer un kit de protection a {save_chance}% de probabilité de ne pas consommer le kit de protection.\nLes bonus de kit de protection de spécialisation sont accrus de {bonus_kit}% ({bonus_kit_pvp}%).\n{arm_time} secondes sont nécessaires pour armer le talent."
       }
     }
   },
@@ -694,7 +728,9 @@
     "description": "Si vous êtes à moins de 30% de votre protection, les headshots effectués depuis un abri réparent 20% de votre protection.\nTemps de recharge : 2s.",
     "emplacement": "torse",
     "perfectDescription": "Si vous êtes à moins de 30% de votre protection, les headshots effectués depuis un abri réparent 30% de votre protection.\nTemps de recharge : 1s.",
-    "equipementsParfaits": ["bober"],
+    "equipementsParfaits": [
+      "bober"
+    ],
     "descente": {
       "boucles": [
         "Avidité",
@@ -705,7 +741,6 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Si vous êtes à moins de {threshold}% de votre protection, les headshots effectués depuis un abri réparent {repair}% de votre protection.\nTemps de recharge : {cooldown}s.",
         "1": {
           "threshold": 30,
           "repair": 10,
@@ -755,7 +790,8 @@
           "threshold": 30,
           "repair": 100,
           "cooldown": 3
-        }
+        },
+        "base": "Si vous êtes à moins de {threshold}% de votre protection, les headshots effectués depuis un abri réparent {repair}% de votre protection.\nTemps de recharge : {cooldown}s."
       }
     }
   },
@@ -764,33 +800,39 @@
     "description": "Après avoir tué un ennemi avec un headshot, le prochain tir réussi dans les 30s bénéficie d'un bonus de 125% des dégâts du tir mortel précédent.\nCes dégâts sont limités à 800% de vos dégâts d'arme.\nCette limite monte à 1250% si vos dégâts de headshot sont supérieurs à 150%.",
     "emplacement": "torse",
     "perfectDescription": "Après avoir tué un ennemi avec un headshot, le prochain tir réussi dans les 30s bénéficie d'un bonus de 150% des dégâts du tir mortel précédent.\nCes dégâts sont limités à 800% de vos dégâts d'arme.\nCette limite monte à 1250% si vos dégâts de headshot sont supérieurs à 150%.",
-    "equipementsParfaits": ["tueur_a_la_chaine"]
+    "equipementsParfaits": [
+      "tueur_a_la_chaine"
+    ]
   },
   "armement_combine": {
     "nom": "Armement Combiné",
     "description": "Tirer sur un ennemi augmente le total de dégâts de compétence de 25% pendant 3s.",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Tirer sur un ennemi augmente le total de dégâts de compétence de 30% pendant 3s.",
-    "equipementsParfaits": ["multiplicateur_de_force"]
+    "equipementsParfaits": [
+      "multiplicateur_de_force"
+    ]
   },
   "afflux_d_energie": {
     "nom": "Afflux d'énergie",
     "description": "Utiliser un kit de protection confère +1 en Tier de compétence pendant 15s.\nSi vous êtes déjà au Tier de compétence 6, donne surcharge.\nTemps de recharge : 60s.",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Utiliser un kit de protection confère +1 en Tier de compétence pendant 15s.\nSi vous êtes déjà au Tier de compétence 6, donne surcharge.\nTemps de recharge : 30s.",
-    "equipementsParfaits": ["axel"],
+    "equipementsParfaits": [
+      "axel"
+    ],
     "descente": {
       "boucles": [
         "Paresse"
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Utiliser un kit de protection confère +{skill_tier} en Tier de compétence pendant {duration}s.\nSi vous êtes déjà au Tier de compétence 6, donne surcharge.\nTemps de recharge : {cooldown}s",
         "1": {
           "skill_tier": 1,
           "duration": 15,
           "cooldown": 60
-        }
+        },
+        "base": "Utiliser un kit de protection confère +{skill_tier} en Tier de compétence pendant {duration}s.\nSi vous êtes déjà au Tier de compétence 6, donne surcharge.\nTemps de recharge : {cooldown}s"
       }
     }
   },
@@ -799,18 +841,20 @@
     "description": "Les éliminations par compétence augmente le total de dégâts de compétence de 25% pendant 20s.",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Les éliminations par compétence augmente le total de dégâts de compétence de 25% pendant 27s.",
-    "equipementsParfaits": ["maintenance_percutante"],
+    "equipementsParfaits": [
+      "maintenance_percutante"
+    ],
     "descente": {
       "boucles": [
         "Paresse"
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Les éliminations par compétence augmente le total de dégâts de compétence de {skill_damage}% pendant {duration}s.",
         "1": {
           "skill_damage": 25,
           "duration": 20
-        }
+        },
+        "base": "Les éliminations par compétence augmente le total de dégâts de compétence de {skill_damage}% pendant {duration}s."
       }
     }
   },
@@ -819,21 +863,27 @@
     "description": "Les éliminations réalisées en étant à couvert réduisent de 10% le temps de recharge des compétences.",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Les éliminations réalisées en étant à couvert réduisent de 15% le temps de recharge des compétences.",
-    "equipementsParfaits": ["bloc_batterie"]
+    "equipementsParfaits": [
+      "bloc_batterie"
+    ]
   },
   "spectacle_pyrotechnique": {
     "nom": "Spectacle pyrotechnique",
     "description": "Parfait Uniquement",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Les grenades offensives deviennent des grenades festives. Toucher un ennemi avec une grenade festive provoque des explosions à proximité de deux autres ennemis situés dans un rayon de 20m.",
-    "equipementsParfaits": ["livraison_festive"]
+    "equipementsParfaits": [
+      "livraison_festive"
+    ]
   },
   "sous_le_choc": {
     "nom": "Sous le choc",
     "description": "Infliger un effet d'état à un ennemi augmente les totaux de dégâts et de réparation des compétences de 20% pendant 20s.",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Infliger un effet d'état à un ennemi augmente les totaux de dégâts et de réparation des compétences de 20% pendant 27s.",
-    "equipementsParfaits": ["alignement_strategique"],
+    "equipementsParfaits": [
+      "alignement_strategique"
+    ],
     "descente": {
       "boucles": [
         "Envie",
@@ -841,12 +891,12 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Infliger un effet d'état à un ennemi augmente les totaux de dégâts et de réparation des compétences de {skill_damage}% pendant {duration}s.",
         "1": {
           "skill_damage": 20,
           "skill_repair": 20,
           "duration": 20
-        }
+        },
+        "base": "Infliger un effet d'état à un ennemi augmente les totaux de dégâts et de réparation des compétences de {skill_damage}% pendant {duration}s."
       }
     }
   },
@@ -866,7 +916,6 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Quand votre protection est intacte, augmente la réparation de compétence de {skill_repair}%.",
         "1": {
           "skill_repair": 40
         },
@@ -896,7 +945,8 @@
         },
         "10": {
           "skill_repair": 400
-        }
+        },
+        "base": "Quand votre protection est intacte, augmente la réparation de compétence de {skill_repair}%."
       }
     }
   },
@@ -916,7 +966,6 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Quand votre bouclier est emdommagé, vous gagnez +{protection_bonus}% de protection bonus et tous vos alliés gagnent {protection_allies}% de votre protection bonus pendant {time}s.\n\n Temps de rechargment : {rechargement}s.",
         "1": {
           "protection_bonus": 5,
           "protection_allies": 7,
@@ -976,7 +1025,8 @@
           "protection_allies": 70,
           "time": 3,
           "rechargement": 3
-        }
+        },
+        "base": "Quand votre bouclier est emdommagé, vous gagnez +{protection_bonus}% de protection bonus et tous vos alliés gagnent {protection_allies}% de votre protection bonus pendant {time}s.\n\n Temps de rechargment : {rechargement}s."
       }
     }
   },
@@ -985,7 +1035,9 @@
     "description": "Les alliés situés à moins de 7m des objets déployés par vos compétences bénéficient de +25% à la vitesse de rechargement.\nLeurs temps de recharge en cours sont diminués de 0.2s",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Les alliés situés à moins de 15m des objets déployés par vos compétences bénéficient de +30% à la vitesse de rechargement.\nLeurs temps de recharge en cours sont diminués de 0.6s",
-    "equipementsParfaits": ["hermano"]
+    "equipementsParfaits": [
+      "hermano"
+    ]
   },
   "rafale": {
     "nom": "Rafale",
@@ -1010,12 +1062,12 @@
       ],
       "categorie": "exotique",
       "levels": {
-        "base": "Éliminer un ennemi augmente ou renouvelle un effet cumulé de +{bonus_armor}% de protection bonus pendant {duration}s.\nPeut se cumuler jusqu'à {max_stacks} fois.",
         "1": {
           "bonus_armor": 10,
           "duration": 10,
           "max_stacks": 10
-        }
+        },
+        "base": "Éliminer un ennemi augmente ou renouvelle un effet cumulé de +{bonus_armor}% de protection bonus pendant {duration}s.\nPeut se cumuler jusqu'à {max_stacks} fois."
       }
     }
   },
@@ -1024,7 +1076,9 @@
     "description": "Réaliser un changement d'abri confère +15% de votre protection en protection bonus pour vous et vos alliés pendant 10s.\nCe bonus est doublé si vous finissez à moins de 10m d'un ennemi.\nTemps de recharge : 10s",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Réaliser un changement d'abri confère +20% de votre protection en protection bonus pour vous et vos alliés pendant 10s.\nCe bonus est doublé si vous finissez à moins de 10m d'un ennemi.\nTemps de recharge : 10s",
-    "equipementsParfaits": ["cap_n"],
+    "equipementsParfaits": [
+      "cap_n"
+    ],
     "descente": {
       "boucles": [
         "Avidité",
@@ -1035,7 +1089,6 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Réaliser un changement d'abri confère +{bonus_armor}% de votre protection en protection bonus pour vous et vos alliés pendant {duration}s.\nCe bonus est doublé si vous finissez à moins de {range}m d'un ennemi.\nTemps de recharge : {cooldown}s",
         "1": {
           "bonus_armor": 10,
           "duration": 10,
@@ -1095,7 +1148,8 @@
           "duration": 19,
           "range": 10,
           "cooldown": 19
-        }
+        },
+        "base": "Réaliser un changement d'abri confère +{bonus_armor}% de votre protection en protection bonus pour vous et vos alliés pendant {duration}s.\nCe bonus est doublé si vous finissez à moins de {range}m d'un ennemi.\nTemps de recharge : {cooldown}s"
       }
     }
   },
@@ -1104,7 +1158,9 @@
     "description": "Augmente le total des dégâts d'arme de 25%.\nSubir des dégâts désactive ce buff pendant 4s.",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Augmente le total des dégâts d'arme de 25%.\nSubir des dégâts désactive ce buff pendant 3s.",
-    "equipementsParfaits": ["le_don"],
+    "equipementsParfaits": [
+      "le_don"
+    ],
     "descente": {
       "boucles": [
         "Avidité",
@@ -1115,7 +1171,6 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Augmente le total des dégâts d'arme de {weapon_damage}%.\nSubir des dégâts désactive ce buff pendant {cooldown}s.",
         "1": {
           "weapon_damage": 10,
           "cooldown": 4
@@ -1155,14 +1210,15 @@
         "10": {
           "weapon_damage": 100,
           "cooldown": 4
-        }
+        },
+        "base": "Augmente le total des dégâts d'arme de {weapon_damage}%.\nSubir des dégâts désactive ce buff pendant {cooldown}s."
       }
     }
   },
   "perplexite": {
     "nom": "Perplexité",
     "description": "Talent parfait uniquement",
-    "perfectDescription": "Quand vous infligez des dégâts d'arme à un ennemi, 50% des dégâts sont redirigés vers un autre ennemi se trouvant à moins de 30 mètres. S'il n'y a pas d'autre ennemi à proximité, les dégâts s'infligent normalement. Ne s'applique pas aux plaques de protection",
+    "perfectDescription": "Quand vous infligez des dégâts d'arme à un ennemi, 50% des dégâts sont redirigés vers un autre ennemi se trouvant à moins de 30 mètres.\nS'il n'y a pas d'autre ennemi à proximité, les dégâts s'infligent normalement.\nNe s'applique pas aux plaques de protection",
     "emplacement": "genouilleres",
     "equipementsParfaits": [
       "tourmente"
@@ -1173,7 +1229,9 @@
     "description": "Augmente le total de dégâts d'arme pendant 10s quand vous passez d'une arme principale à une arme secondaire et inversement si ces armes sont différentes.\n35% contre les ennemis situés à moins de 15m pour les fusils calibre 12 et les PM.\n35% contre les ennemis situés à plus de 25m pour les fusils et les fusils de précision.\n10% contre les ennemis situés à 15-25m pour les FM et les fusils d'assaut.\nAu maximum une fois toutes les 5s par type d'arme.",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Augmente le total de dégâts d'arme pendant 10s quand vous passez d'une arme principale à une arme secondaire et inversement si ces armes sont différentes.\n45% contre les ennemis situés à moins de 15m pour les fusils calibre 12 et les PM.\n45% contre les ennemis situés à plus de 25m pour les fusils et les fusils de précision.\n15% contre les ennemis situés à 15-25m pour les FM et les fusils d'assaut.\nAu maximum une fois toutes les 5s par type d'arme.",
-    "equipementsParfaits": ["vigil"],
+    "equipementsParfaits": [
+      "vigil"
+    ],
     "descente": {
       "boucles": [
         "Colère",
@@ -1181,7 +1239,6 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Augmente le total de dégâts d'arme pendant {duration}s quand vous passez d'une arme principale à une arme secondaire et inversement si ces armes sont différentes.\n{close_damage}% contre les ennemis situés à moins de {close_range}m pour les fusils calibre 12 et les PM.\n{far_damage}% contre les ennemis situés à plus de {far_range}m pour les fusils et les fusils de précision.\n{mid_damage}% contre les ennemis situés à {mid_range_min}-{mid_range_max}m pour les FM et les fusils d'assaut.\nAu maximum une fois toutes les {cooldown}s par type d'arme.",
         "1": {
           "duration": 5,
           "close_damage": 10,
@@ -1291,7 +1348,8 @@
           "mid_range_min": 15,
           "mid_range_max": 25,
           "cooldown": 5
-        }
+        },
+        "base": "Augmente le total de dégâts d'arme pendant {duration}s quand vous passez d'une arme principale à une arme secondaire et inversement si ces armes sont différentes.\n{close_damage}% contre les ennemis situés à moins de {close_range}m pour les fusils calibre 12 et les PM.\n{far_damage}% contre les ennemis situés à plus de {far_range}m pour les fusils et les fusils de précision.\n{mid_damage}% contre les ennemis situés à {mid_range_min}-{mid_range_max}m pour les FM et les fusils d'assaut.\nAu maximum une fois toutes les {cooldown}s par type d'arme."
       }
     }
   },
@@ -1301,7 +1359,9 @@
     "prerequis": "Fusil de précision ou calibre 12 seulement.",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Les ennemis que vous touchez au calibre 12 et au fusil de précision subissent des dégâts accrus de 15% de toutes les sources pendant 5s.",
-    "equipementsParfaits": ["de_pres_ou_de_loin"],
+    "equipementsParfaits": [
+      "de_pres_ou_de_loin"
+    ],
     "descente": {
       "boucles": [
         "Avidité",
@@ -1309,7 +1369,6 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Les ennemis que vous touchez au calibre 12 et au fusil de précision subissent des dégâts accrus de {damage_amplification}% de toutes les sources pendant {duration}s.",
         "1": {
           "damage_amplification": 5,
           "duration": 5
@@ -1349,7 +1408,8 @@
         "10": {
           "damage_amplification": 50,
           "duration": 5
-        }
+        },
+        "base": "Les ennemis que vous touchez au calibre 12 et au fusil de précision subissent des dégâts accrus de {damage_amplification}% de toutes les sources pendant {duration}s."
       }
     }
   },
@@ -1358,14 +1418,18 @@
     "description": "Éliminer un ennemi augmente le total de dégâts d'arme de 5% pendant 15s.\nPeut se cumuler jusqu'à 5 fois.",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Éliminer un ennemi augmente le total de dégâts d'arme de 7% pendant 15s.\nPeut se cumuler jusqu'à 5 fois.Les éliminations par grenade ajoutent 2 effets au cumul.",
-    "equipementsParfaits": ["armature"]
+    "equipementsParfaits": [
+      "armature"
+    ]
   },
   "compagnon": {
     "nom": "Compagnon",
     "description": "Quand vous êtes à moins de 5m d'un allié ou d'un objet de compétence, le total de dégâts d'arme est augmenté de 15%.",
     "emplacement": "torse",
     "perfectDescription": "Quand vous êtes à moins de 10m d'un allié ou d'un objet de compétence, le total de dégâts d'arme est augmenté de 20%.",
-    "equipementsParfaits": ["henri"],
+    "equipementsParfaits": [
+      "henri"
+    ],
     "descente": {
       "boucles": [
         "Gourmandise",
@@ -1373,7 +1437,6 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Quand vous êtes à moins de {range}m d'un allié ou d'un objet de compétence, le total de dégâts d'arme est augmenté de {weapon_damage}%.",
         "1": {
           "range": 5,
           "weapon_damage": 10
@@ -1413,7 +1476,8 @@
         "10": {
           "range": 5,
           "weapon_damage": 100
-        }
+        },
+        "base": "Quand vous êtes à moins de {range}m d'un allié ou d'un objet de compétence, le total de dégâts d'arme est augmenté de {weapon_damage}%."
       }
     }
   },
@@ -1428,7 +1492,6 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "À couvert, augmente le total de dégâts d'arme de +{weapon_damage}%.",
         "1": {
           "weapon_damage": 10
         },
@@ -1458,7 +1521,8 @@
         },
         "10": {
           "weapon_damage": 100
-        }
+        },
+        "base": "À couvert, augmente le total de dégâts d'arme de +{weapon_damage}%."
       }
     }
   },
@@ -1473,7 +1537,6 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Les headshots augmentent le total de dégâts d'arme de {hs_damage}% pendant {hs_duration}s ({hs_duration_mmr}s avec les fusils de précision).\nLes éliminations par headshot augmentent le total de dégâts d'arme de {kill_damage}% pendant {kill_duration}s.",
         "1": {
           "hs_damage": 5,
           "hs_duration": 1,
@@ -1491,7 +1554,7 @@
         "3": {
           "hs_damage": 15,
           "hs_duration": 1,
-          "hs_duration_mmr": 5.10,
+          "hs_duration_mmr": 5.1,
           "kill_damage": 30,
           "kill_duration": 10
         },
@@ -1505,7 +1568,7 @@
         "5": {
           "hs_damage": 25,
           "hs_duration": 1,
-          "hs_duration_mmr": 5.20,
+          "hs_duration_mmr": 5.2,
           "kill_damage": 50,
           "kill_duration": 10
         },
@@ -1519,7 +1582,7 @@
         "7": {
           "hs_damage": 35,
           "hs_duration": 1,
-          "hs_duration_mmr": 5.30,
+          "hs_duration_mmr": 5.3,
           "kill_damage": 70,
           "kill_duration": 10
         },
@@ -1533,7 +1596,7 @@
         "9": {
           "hs_damage": 45,
           "hs_duration": 1,
-          "hs_duration_mmr": 5.40,
+          "hs_duration_mmr": 5.4,
           "kill_damage": 90,
           "kill_duration": 10
         },
@@ -1543,7 +1606,8 @@
           "hs_duration_mmr": 5.45,
           "kill_damage": 100,
           "kill_duration": 10
-        }
+        },
+        "base": "Les headshots augmentent le total de dégâts d'arme de {hs_damage}% pendant {hs_duration}s ({hs_duration_mmr}s avec les fusils de précision).\nLes éliminations par headshot augmentent le total de dégâts d'arme de {kill_damage}% pendant {kill_duration}s."
       }
     }
   },
@@ -1552,28 +1616,36 @@
     "description": "Quand vous infligez un effet d'état, il s'applique également à tous les ennemis situés à moins de 8m de votre cible.\nTemps de recharge : 15s",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Quand vous infligez un effet d'état, il s'applique également à tous les ennemis situés à moins de 10m de votre cible.\nTemps de recharge : 10s",
-    "equipementsParfaits": ["the_courier"]
+    "equipementsParfaits": [
+      "the_courier"
+    ]
   },
   "mechancete": {
     "nom": "Méchanceté",
     "description": "Infliger un effet d'état augmente le total de dégâts d'arme de 18% pendant 20s.",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Infliger un effet d'état augmente le total de dégâts d'arme de 18% pendant 27s.",
-    "equipementsParfaits": ["livre_de_cuisine_de_l_anarchiste"]
+    "equipementsParfaits": [
+      "livre_de_cuisine_de_l_anarchiste"
+    ]
   },
   "galvanisation": {
     "nom": "Galvanisation",
     "description": "Infliger aveuglement, entrave, confusion ou électrocution à un ennemi confère aux alliés situés à moins de 20m de cet ennemi 40% de votre protection en protection bonus pendant 10s.",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Infliger aveuglement, entrave, confusion ou électrocution à un ennemi confère aux alliés situés à moins de 30m de cet ennemi 50% de votre protection en protection bonus pendant 10s.",
-    "equipementsParfaits": ["lavoisier"]
+    "equipementsParfaits": [
+      "lavoisier"
+    ]
   },
   "serrement": {
     "nom": "Serrement",
     "description": "Si vous êtes à moins de 15% de votre protection, les coups critiques réparent 2.5% de la protection détruite.\nLes éliminations vous permettent de réparer jusqu'à 100% de protection sur 4-10s, en fonction de votre attribut essentiel rouge.",
     "emplacement": "torse",
     "perfectDescription": "Si vous êtes à moins de 20% de votre protection, les coups critiques réparent 2.5% de la protection détruite.\nLes éliminations vous permettent de réparer jusqu'à 100% de protection sur 4-10s, en fonction de votre attribut essentiel rouge.",
-    "equipementsParfaits": ["devil_s_due"],
+    "equipementsParfaits": [
+      "devil_s_due"
+    ],
     "descente": {
       "boucles": [
         "Avidité",
@@ -1584,7 +1656,6 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Si vous êtes à moins de {threshold}% de votre protection, les coups critiques réparent {crit_repair}% de la protection détruite.\nLes éliminations vous permettent de réparer jusqu'à {max_repair}% de protection sur {repair_duration_min}-{repair_duration_max}s, en fonction de votre attribut essentiel rouge",
         "1": {
           "threshold": 15,
           "crit_repair": 5,
@@ -1654,7 +1725,8 @@
           "max_repair": 100,
           "repair_duration_min": 4,
           "repair_duration_max": 10
-        }
+        },
+        "base": "Si vous êtes à moins de {threshold}% de votre protection, les coups critiques réparent {crit_repair}% de la protection détruite.\nLes éliminations vous permettent de réparer jusqu'à {max_repair}% de protection sur {repair_duration_min}-{repair_duration_max}s, en fonction de votre attribut essentiel rouge"
       }
     }
   },
@@ -1663,7 +1735,9 @@
     "description": "Quand vous vous trouvez à 10m d'un ennemi, vous gagnez un bonus de protection de 20% pendant 5s.\nCet effet peut se cumuler jusqu'à 3 fois.\nTemps de recharge : 5s",
     "emplacement": "sac_a_dos",
     "perfectDescription": "Quand vous vous trouvez à 10m d'un ennemi, vous gagnez un bonus de protection de 23% pendant 5s.\nCet effet peut se cumuler jusqu'à 3 fois.\nTemps de recharge : 5s",
-    "equipementsParfaits": ["matador"],
+    "equipementsParfaits": [
+      "matador"
+    ],
     "descente": {
       "boucles": [
         "Avidité",
@@ -1674,7 +1748,6 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Quand vous vous trouvez à {range}m d'un ennemi, vous gagnez un bonus de protection de {bonus_armor}% ({bonus_armor_pvp}%) pendant {duration}s.\nCet effet peut se cumuler jusqu'à {max_stacks} fois.\nTemps de recharge : {cooldown}s",
         "1": {
           "range": 10,
           "bonus_armor": 3,
@@ -1754,7 +1827,8 @@
           "duration": 5,
           "max_stacks": 3,
           "cooldown": 2.3
-        }
+        },
+        "base": "Quand vous vous trouvez à {range}m d'un ennemi, vous gagnez un bonus de protection de {bonus_armor}% ({bonus_armor_pvp}%) pendant {duration}s.\nCet effet peut se cumuler jusqu'à {max_stacks} fois.\nTemps de recharge : {cooldown}s"
       }
     }
   },
@@ -1942,42 +2016,48 @@
     "notes": "+35% en pvp",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "ongoing_directive"
+    "gearSet": "ongoing_directive",
+    "prerequis": "Règle d'engagement"
   },
   "specialiste_des_traumatismes": {
     "nom": "Spécialiste des traumatismes",
     "description": "Augmente la durée de vos effets d'état de saignement de 50% et tous les dégâts de saignement infligés de 100%",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "ongoing_directive"
+    "gearSet": "ongoing_directive",
+    "prerequis": "Règle d'engagement"
   },
   "drapeau_brandi": {
     "nom": "Drapeau brandi",
     "description": "Augmente la vitesse de rotation de \"Rouge Blanc Bleu\" de 1,5s.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "true_patriot"
+    "gearSet": "true_patriot",
+    "prerequis": "Rouge, Blanc et Bleu"
   },
   "elan_patriotique": {
     "nom": "Élan patriotique",
     "description": "Augmente l'efficacité du debuff de \"Rouge Blanc Bleu\"\nRouge : de 8% à 12%\nBlanc : de 2% à 3%\nBleu : de 8% à 12%",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "true_patriot"
+    "gearSet": "true_patriot",
+    "prerequis": "Rouge, Blanc et Bleu"
   },
   "renforcement_positif": {
     "nom": "Renforcement positif",
     "description": "Augmente le bonus de compétence de réparation de la Boucle de rétroaction de +10% à +25%.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "hard_wired"
+    "gearSet": "hard_wired",
+    "prerequis": "Boucle de rétroaction"
   },
   "cour_circuit": {
     "nom": "Cour-circuit",
     "description": "Diminue le temps de recharge de la Boucle de rétroaction de 10s à 5s.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "hard_wired"
+    "gearSet": "hard_wired",
+    "prerequis": "Boucle de rétroaction"
   },
   "sans_limite": {
     "nom": "Sans Limite",
@@ -2000,238 +2080,272 @@
     "description": "Augmente le bonus de dégâts d'arme spécifique de la Reconnaissance agressive de 15% à 30%.\nEffectuer 3 éliminations à l'arme spécifique génère des munitions d'arme spécifique.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "pointe_de_lance"
+    "gearSet": "pointe_de_lance",
+    "prerequis": "Reconnaissance Agressive"
   },
   "mouvement_specifique": {
     "nom": "Mouvement spécifique",
     "description": "+50% dégâts d'arme pendant 15s après avoir complètement épuisé les munitions de l'arme spécifique.\nDouble la quantité de munitions générée par Reconnaissance Agressive.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "pointe_de_lance"
+    "gearSet": "pointe_de_lance",
+    "prerequis": "Reconnaissance Agressive"
   },
   "controle_de_masse": {
     "nom": "Contrôle de masse",
     "description": "Le nombre de marques de Négociations hostiles passe de 3 à 5",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "dilemme_du_negociateur"
+    "gearSet": "dilemme_du_negociateur",
+    "prerequis": "Négociation hostiles"
   },
   "mesures_critiques": {
     "nom": "Mesures critiques",
     "description": "Augmente les dégâts de Négociations hostiles aux ennemis marqués supplémentaires de 60% à 112%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "dilemme_du_negociateur"
+    "gearSet": "dilemme_du_negociateur",
+    "prerequis": "Négociation hostiles"
   },
   "avantage_accru": {
     "nom": "Avantage accru",
     "description": "Augmente le nombre maximum de bonus cumulables de l'Amplification Striker de 100 à 200.\n3 cumuls par seconde entre 100 et 200 cumuls.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "cogneur"
+    "gearSet": "cogneur",
+    "prerequis": "Amplification Striker"
   },
   "gestion_du_risque": {
     "nom": "Gestion du risque",
     "description": "Augmente le bonus aux dégâts d'arme obtenu par les stacks de 0,65% à 0,90%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "cogneur"
+    "gearSet": "cogneur",
+    "prerequis": "Amplification Striker"
   },
   "optimisation_de_compilation": {
     "nom": "Optimisation de compilation",
     "description": "Diminue le temps de recharge du Protocole Hackstep de 20s à 15s.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "systeme_corrompu"
+    "gearSet": "systeme_corrompu",
+    "prerequis": "Protocole Hackstep"
   },
   "execution_multithereading": {
     "nom": "Execution Multithereading",
     "description": "Augmente la protection bonus du protocole Hackstep de 50% à 100%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "systeme_corrompu"
+    "gearSet": "systeme_corrompu",
+    "prerequis": "Protocole Hackstep"
   },
   "proliferation": {
     "nom": "Prolifération",
     "description": "Augmente la portée et la durée de Transmission Indirecte de 10m (5m) à 15m (7m) et de 50% à 75%.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "protocole_eclipse"
+    "gearSet": "protocole_eclipse",
+    "prerequis": "Transmission Indirecte"
   },
   "amplificateur_de_symptome": {
     "nom": "Amplificateur de Symptôme",
     "description": "Augmente tous les dégâts que vous infligez aux cibles affectées par un effet d'état de 30%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "protocole_eclipse"
+    "gearSet": "protocole_eclipse",
+    "prerequis": "Transmission Indirecte"
   },
   "materiaux_ameliores": {
     "nom": "Matériaux Améliorés",
     "description": "Augmente la vitesse de Réparation de Fortune de 10s à 5s.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "rempart_de_la_founderie"
+    "gearSet": "rempart_de_la_founderie",
+    "prerequis": "Réparation de Fortune"
   },
   "processus_de_raffinerie": {
     "nom": "Processus de Raffinerie",
     "description": "Augmente les réparations de Réparation de Fortune de 25% à 35%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "rempart_de_la_founderie"
+    "gearSet": "rempart_de_la_founderie",
+    "prerequis": "Réparation de Fortune"
   },
   "superiorite_tactique": {
     "nom": "Supériorité Tactique",
     "description": "Augmente le bonus aux dégâts de Contrôle du Terrain de 15% à 25%.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "future_initiative"
+    "gearSet": "future_initiative",
+    "prerequis": "Contrôle du Terrain"
   },
   "tactiques_de_combat_ameliorees": {
     "nom": "Tactiques de Combat Améliorées",
     "description": "Augmente la réparation de proximité de Contrôle du Terrain de 60% à 120%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "future_initiative"
+    "gearSet": "future_initiative",
+    "prerequis": "Contrôle du Terrain"
   },
   "faim_insatiable": {
     "nom": "Faim insatiable",
     "description": "Augmente de 10s à 30s la durée des effets cumulés de Prédateur ultime.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "fureur_du_chasseur"
+    "gearSet": "fureur_du_chasseur",
+    "prerequis": "Prédateur ultime"
   },
   "force_ecrasante": {
     "nom": "Force écrasante",
     "description": "Augmente de 5m à 10m le rayon d'effet de la désorientation d'une élimination par Prédateur ultime.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "fureur_du_chasseur"
+    "gearSet": "fureur_du_chasseur",
+    "prerequis": "Prédateur ultime"
   },
   "meilleurs_potes": {
     "nom": "Meilleurs potes",
     "description": "Augmente le buff de dégâts de 25% à 50%.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "rigger"
+    "gearSet": "rigger",
+    "prerequis": "Entretien efficace"
   },
   "disponibilite_totale": {
     "nom": "Disponibilité totale",
     "description": "Annuler vos compétences réinitialise leur temps de recharge",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "rigger"
+    "gearSet": "rigger",
+    "prerequis": "Entretien efficace"
   },
   "max_bpm": {
     "nom": "Max BPM",
     "description": "Augmente le nombre maximum de bonus cumulables de Coup de coeur de 50 à 100.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "heartbreaker"
+    "gearSet": "heartbreaker",
+    "prerequis": "Coup de coeur"
   },
   "froid": {
     "nom": "Froid",
     "description": "Augmente le total de protection bonus gagnée par effet cumulé de Coup de coeur de 1% à 2%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "heartbreaker"
+    "gearSet": "heartbreaker",
+    "prerequis": "Coup de coeur"
   },
   "depuis_les_ombres": {
     "nom": "Depuis les ombres",
     "description": "Augmente les cumuls max de \"Depuis les ombres\" de 50 à 100, et le gain de cumuls de 10 à 20.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "initiative_umbra"
+    "gearSet": "initiative_umbra",
+    "prerequis": "Depuis les ombres à la lumière"
   },
   "a_la_lumiere": {
     "nom": "À la lumière",
     "description": "Augmente les cumuls max de \"À la lumière\" de 50 à 100, le gain de cumuls de 10 à 20, et la consommation des cumuls de 10 à 20.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "initiative_umbra"
+    "gearSet": "initiative_umbra",
+    "prerequis": "Depuis les ombres à la lumière"
   },
   "audace": {
     "nom": "Audace",
     "description": "Augmente la protection bonus de 50% à 100%.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "hotshot"
+    "gearSet": "hotshot",
+    "prerequis": "Céphalée"
   },
   "benediction": {
     "nom": "Bénédiction",
     "description": "L'agent peut louper un headshot avant réinitialisation du cycle.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "hotshot"
+    "gearSet": "hotshot",
+    "prerequis": "Céphalée"
   },
   "surcharge": {
     "nom": "Surcharge",
     "description": "Augmente la protection maximale contre les dégâts subis pendant la charge à 70%.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "the_cavalier"
+    "gearSet": "the_cavalier",
+    "prerequis": "Charge en cours"
   },
   "protection_de_charge": {
     "nom": "Protection de charge",
     "description": "Charger confère 10% protection par seconde.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "the_cavalier"
+    "gearSet": "the_cavalier",
+    "prerequis": "Charge en cours"
   },
   "combustion_en_chaine": {
     "nom": "Combustion en chaine",
     "description": "Les ennemis enflammés par le prototype de tourelle incinératrice Ortiz enflamment les ennemis situés à moins de 2m.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "ortiz_exuro"
+    "gearSet": "ortiz_exuro",
+    "prerequis": "Prototype Tourelle incinératrice \"Ortiz\""
   },
   "coup_de_chaud": {
     "nom": "Coup de chaud",
     "description": "Confère +25% d'arme contre les ennemis enflammés par le prototype de tourelle incinératrice Ortiz.\nPortée du prototype de tourelle Incinératrice \"Ortiz\" +25%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "ortiz_exuro"
+    "gearSet": "ortiz_exuro",
+    "prerequis": "Prototype Tourelle incinératrice \"Ortiz\""
   },
   "tromperie": {
     "nom": "Tromperie",
     "description": "Les ennemis qui ciblent votre leurre contribuent aussi au bonus de résistance aux dégâts de stoïque.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "aegis"
+    "gearSet": "aegis",
+    "prerequis": "Stoïque"
   },
   "placage_en_polyethylene": {
     "nom": "Placage en polyéthyléne",
     "description": "Augmente le bonus de résistance aux dégâts de stoïque de 4% à 5%",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "aegis"
+    "gearSet": "aegis",
+    "prerequis": "Stoïque"
   },
   "point_de_non_retour": {
     "nom": "Point de non-retour",
     "description": "Augmente la durée des bonus d'En ligne de mire de 10s à 15s",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "breaking_point"
+    "gearSet": "breaking_point",
+    "prerequis": "En ligne de mire"
   },
   "point_d_honneur": {
     "nom": "Point d'honneur",
     "description": "Augmente le bonus de dégâts d'arme d'En ligne de mire de 4% à 7,2%",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "breaking_point"
+    "gearSet": "breaking_point",
+    "prerequis": "En ligne de mire"
   },
   "fortissimo": {
     "nom": "Fortissimo",
     "description": "Double les bonus de dégâts d'arme de Symphonie.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "virtuoso"
+    "gearSet": "virtuoso",
+    "prerequis": "Symphonie"
   },
   "accelerando": {
     "nom": "Accelerando",
     "description": "Diminue de 4 à 3 le nombre d'effets nécessaires pour déclencher le double bonus de Symphonie.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "virtuoso"
+    "gearSet": "virtuoso",
+    "prerequis": "Symphonie"
   },
   "interet_accru": {
     "nom": "Intérêt accru",
@@ -2254,42 +2368,48 @@
     "description": "Diminue le temps de recharge de surchage de 40 à 25.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "measured_assembly"
+    "gearSet": "measured_assembly",
+    "prerequis": "Pelotonnement"
   },
   "cooperation_intelligente": {
     "nom": "Coopération intelligente",
     "description": "Diminue le temps de recharge pour la destruction des mortiers et compétences ennemies de 10 à 1.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "measured_assembly"
+    "gearSet": "measured_assembly",
+    "prerequis": "Pelotonnement"
   },
   "durabilite": {
     "nom": "Durabilité",
     "description": "Augmente le nombre maximum d'effets cumulés de 50 à 75.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "point_de_bascule"
+    "gearSet": "point_de_bascule",
+    "prerequis": "Contrôle de la puissance"
   },
   "boule_de_neige": {
     "nom": "Boule de neige",
     "description": "Augmente les dégâts de coup critique subis de 4 à 7 par effet cumulé.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "point_de_bascule"
+    "gearSet": "point_de_bascule",
+    "prerequis": "Contrôle de la puissance"
   },
   "tous_pour_un": {
     "nom": "Tous pour un",
     "description": "Augmente le nombre de marques pouvant être appliquées de 4 à 8.",
     "emplacement": "torse",
     "estExotique": false,
-    "gearSet": "concentrated_company"
+    "gearSet": "concentrated_company",
+    "prerequis": "Camaraderie"
   },
   "un_pour_tous": {
     "nom": "Un pour tous",
     "description": "Augmente le bonus de dégâts d'arme par effet de 3% à 5%.",
     "emplacement": "sac_a_dos",
     "estExotique": false,
-    "gearSet": "concentrated_company"
+    "gearSet": "concentrated_company",
+    "prerequis": "Camaraderie"
   },
   "defibrillateur": {
     "nom": "Défibrillateur",
@@ -2318,37 +2438,37 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "+{protection_alteration}% à la protection contre les altérations d'état.",
         "1": {
-          "protection_alteration" : 10
+          "protection_alteration": 10
         },
         "2": {
-          "protection_alteration" : 15
+          "protection_alteration": 15
         },
         "3": {
-          "protection_alteration" : 20
+          "protection_alteration": 20
         },
         "4": {
-          "protection_alteration" : 25
+          "protection_alteration": 25
         },
         "5": {
-          "protection_alteration" : 30
+          "protection_alteration": 30
         },
         "6": {
-          "protection_alteration" : 35
+          "protection_alteration": 35
         },
         "7": {
-          "protection_alteration" : 40
+          "protection_alteration": 40
         },
         "8": {
-          "protection_alteration" : 45
+          "protection_alteration": 45
         },
         "9": {
-          "protection_alteration" : 50
+          "protection_alteration": 50
         },
         "10": {
-          "protection_alteration" : 55
-        }
+          "protection_alteration": 55
+        },
+        "base": "+{protection_alteration}% à la protection contre les altérations d'état."
       }
     }
   },
@@ -2365,7 +2485,6 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Equipé, ce talent confère +{duree_competence}% à la durée de compétence.",
         "1": {
           "duree_competence": 10
         },
@@ -2395,55 +2514,56 @@
         },
         "10": {
           "duree_competence": 100
-        }
+        },
+        "base": "Equipé, ce talent confère +{duree_competence}% à la durée de compétence."
       }
     }
   },
   "regle_d_engagement": {
     "nom": "Règle d'engagement",
-    "description": "Tirer sur un ennemi affecté par un effet d'état lui applique une marque. Tuer un ennemi marqué vous octroie un chargeur plein de munitions à pointe creuse pour votre arme active, et un demi-chargeur pour l'arme active de l'agent pour le reste du groupe. La marque dure 10 secondes. Les munitions à pointe creuse augmentent les dégâts d'arme de 20% et infligent un saignement.",
+    "description": "Tirer sur un ennemi affecté par un effet d'état lui applique une marque.\nTuer un ennemi marqué vous octroie un chargeur plein de munitions à pointe creuse pour votre arme active, et un demi-chargeur pour l'arme active de l'agent pour le reste du groupe.\nLa marque dure 10 secondes.\nLes munitions à pointe creuse augmentent les dégâts d'arme de 20% et infligent un saignement.",
     "emplacement": "gear_set",
     "gearSet": "ongoing_directive"
   },
   "rouge_blanc_et_bleu": {
     "nom": "Rouge, Blanc et Bleu",
-    "description": "Toutes les 2s, les ennemis sur lesquels vous tirez subissent un débuff cumulable de \"rouge\", \"blanc\" et \"bleu\" Rouge : augmente les dégâts subis par l'ennemi de 8% Blanc : toucher l'ennemi répare votre défensif et celle de vos alliés de 2% à chaque seconde. Bleu : diminue les dégâts infligés par l'ennemi de 8%. Tricolore :Les ennemis qui meurent quand ils sont sous les effets des 3 débuffs déclenchent une explosion de 5m de rayon infligeant des dégâts équivalant à leur total de santé et de défensif. (Les dégâts de l'explosion sont réduits si c'est un ennemi spécifié qui meurt).",
+    "description": "Toutes les 2s, les ennemis sur lesquels vous tirez subissent un débuff cumulable de \"rouge\", \"blanc\" et \"bleu\".\nRouge : augmente les dégâts subis par l'ennemi de 8%.\nBlanc : toucher l'ennemi répare votre défensif et celle de vos alliés de 2% à chaque seconde.\nBleu : diminue les dégâts infligés par l'ennemi de 8%.\nTricolore : Les ennemis qui meurent quand ils sont sous les effets des 3 débuffs déclenchent une explosion de 5m de rayon infligeant des dégâts équivalant à leur total de santé et de défensif. (Les dégâts de l'explosion sont réduits si c'est un ennemi spécifié qui meurt).",
     "emplacement": "gear_set",
     "gearSet": "true_patriot"
   },
   "boucle_de_retroaction": {
     "nom": "Boucle de rétroaction",
-    "description": "Chaque fois que vous utilisez ou annulez une compétence, le temps de recharge de votre autre compétence est automatiquement réduit de 30s et vos totaux de dégâts et de réparations des compétences sont augmentées de 10% pendant 20s. Boucle de rétroaction peut se produire une fois toutes les 10s.",
+    "description": "Chaque fois que vous utilisez ou annulez une compétence, le temps de recharge de votre autre compétence est automatiquement réduit de 30s et vos totaux de dégâts et de réparations des compétences sont augmentées de 10% pendant 20s.\nBoucle de rétroaction peut se produire une fois toutes les 10s.",
     "emplacement": "gear_set",
     "gearSet": "hard_wired"
   },
   "la_main_du_mort": {
     "nom": "La main du mort",
-    "description": "Retournez une carte quand vous touchez avec un fusil de précision. Quand 5 cartes sont retournées, les dégâts du coup suivant sont accrus de 30%. Plus la main révélée est forte, plus vous bénéficiez de tir améliorés. Carré : 4 tirsFull : 3 tirsAs et Huit : 2 tirsVous retournez une carte supplémentaire sur les headshot.",
+    "description": "Retournez une carte quand vous touchez avec un fusil de précision.\nQuand 5 cartes sont retournées, les dégâts du coup suivant sont accrus de 30%.\nPlus la main révélée est forte, plus vous bénéficiez de tir améliorés.\nCarré : 4 tirs\nFull : 3 tirs\nAs et Huit : 2 tirs\nVous retournez une carte supplémentaire sur les headshot.",
     "emplacement": "gear_set",
     "gearSet": "as_et_huit"
   },
   "reconnaissance_agressive": {
     "nom": "Reconnaissance Agressive",
-    "description": "Tuer une cible à l'arme spécifique confère un bonus aux dégâts d'arme spécifique de 15% pendant 10s ainsi que +25% de vitesse de rechargement pour le prochain rechargement de l'arme (les bonus ne se cumulent pas). Génère automatiquement des munitions spécifiques toutes les 60s.",
+    "description": "Tuer une cible à l'arme spécifique confère un bonus aux dégâts d'arme spécifique de 15% pendant 10s ainsi que +25% de vitesse de rechargement pour le prochain rechargement de l'arme (les bonus ne se cumulent pas).\nGénère automatiquement des munitions spécifiques toutes les 60s.",
     "emplacement": "gear_set",
     "gearSet": "pointe_de_lance"
   },
   "negociation_hostiles": {
     "nom": "Négociation hostiles",
-    "description": "Les coups critiques marquent les ennemis pendant 20s. Jusqu'à 3 marques peuvent être cumulées sur un ennemi. Quand vous réalisez un coup critique on un ennemi marqué, tous les autres ennemis marqués subissent également 60% des dégâts infligés Quand un ennemi marqué meurt, vous gagnez +2% aux dégâts de coup critique. Cet effet est cumulable jusqu'à 20 fois avant la fin du combat.",
+    "description": "Les coups critiques marquent les ennemis pendant 20s. Jusqu'à 3 marques peuvent être cumulées sur un ennemi.\nQuand vous réalisez un coup critique on un ennemi marqué, tous les autres ennemis marqués subissent également 60% des dégâts infligés.\nQuand un ennemi marqué meurt, vous gagnez +2% aux dégâts de coup critique. Cet effet est cumulable jusqu'à 20 fois avant la fin du combat.",
     "emplacement": "gear_set",
     "gearSet": "dilemme_du_negociateur"
   },
   "amplification_striker": {
     "nom": "Amplification Striker",
-    "description": "Les tirs réussis augmentent le total de dégâts d'arme de 0,65%. Ces bonus sont cumulables jusqu'à 100 fois.1 cumuls perdus par seconde entre 0 et 50 cumuls, 2 cumuls perdus par secondes entre 50 et 100 cumuls.",
+    "description": "Les tirs réussis augmentent le total de dégâts d'arme de 0,65%. Ces bonus sont cumulables jusqu'à 100 fois.\n1 cumul perdus par seconde entre 0 et 50 cumuls, 2 cumuls perdus par secondes entre 50 et 100 cumuls.",
     "emplacement": "gear_set",
     "gearSet": "strikers_battlegear"
   },
   "protocole_hackstep": {
     "nom": "Protocole Hackstep",
-    "description": "Remplace les kits de défensif par une capacité instantanée à usage illimité et dotée d'un temps de recharge de 20s, qui répare 20% de défensif, confère 50% de défensif bonus et masque votre plaque pendant 5s. Augmente le total de dégâts d'arme de 2% par 5% de défensif bonus gagnée, jusqu'à 20%.",
+    "description": "Remplace les kits de défensif par une capacité instantanée à usage illimité et dotée d'un temps de recharge de 20s, qui répare 20% de défensif, confère 50% de défensif bonus et masque votre plaque pendant 5s.\nAugmente le total de dégâts d'arme de 2% par 5% de défensif bonus gagnée, jusqu'à 20%.",
     "emplacement": "gear_set",
     "gearSet": "corruption_systeme"
   },
@@ -2461,93 +2581,92 @@
   },
   "controle_du_terrain": {
     "nom": "Contrôle du Terrain",
-    "description": "Augmente vos dégâts d'arme et de compétences ainsi que ceux de vos alliés de 15% quand votre défensif est intacte. Quand vous réparez la défensif d'un allié, vous et vos alliés situés à 5m de vous êtes également réparés de 60% du montant.",
+    "description": "Augmente vos dégâts d'arme et de compétences ainsi que ceux de vos alliés de 15% quand votre défensif est intacte.\nQuand vous réparez la défensif d'un allié, vous et vos alliés situés à 5m de vous êtes également réparés de 60% du montant.",
     "emplacement": "gear_set",
     "gearSet": "future_initiative"
   },
   "predateur_ultime": {
     "nom": "Prédateur ultime",
-    "description": "Les ennemis situés à moins de 15m subissent un débuff qui augmente vos dégâts d'arme contre eux de 20%. Éliminer un ennemi affecté par un débuff avec votre arme désoriente les ennemis situés à moins de 5m et augmente les dégâts d'arme de 5% pendant 10s, cet effet étant cumulable jusqu'à 5 fois.",
+    "description": "Les ennemis situés à moins de 15m subissent un débuff qui augmente vos dégâts d'arme contre eux de 20%.\nÉliminer un ennemi affecté par un débuff avec votre arme désoriente les ennemis situés à moins de 5m et augmente les dégâts d'arme de 5% pendant 10s, cet effet étant cumulable jusqu'à 5 fois.",
     "emplacement": "gear_set",
     "gearSet": "fureur_du_chasseur"
   },
   "entretien_efficace": {
     "nom": "Entretien efficace",
-    "description": "Intéragir avec une compétence déployée lui confère un bonus de dégâts de 25% pendant 10 secondes. Ce buff ne peut pas être rafraîchi. Les intéractions incluent :- Utilisation/déploiement de compétence- Changement de cible de la compétence- Réparation de l'objet de compétence déployé",
+    "description": "Intéragir avec une compétence déployée lui confère un bonus de dégâts de 25% pendant 10 secondes. Ce buff ne peut pas être rafraîchi.\nLes intéractions incluent :\n- Utilisation/déploiement de compétence\n- Changement de cible de la compétence\n- Réparation de l'objet de compétence déployé",
     "emplacement": "gear_set",
     "gearSet": "rigger"
   },
   "coup_de_coeur": {
     "nom": "Coup de coeur",
-    "description": "Les Headshot appliquent impulsion pendant 5s. Les tirs sur des ennemis touchés par impulsion ajoutent et renouvellent une bonus de défensif bonus de +1% et de offensif de +1,1% contre les ennemis touchés par impulsion, jusqu'à un maximum de 50 effets. 2 effets sont perdus par seconde.",
+    "description": "Les Headshot appliquent impulsion pendant 5s.\nLes tirs sur des ennemis touchés par impulsion ajoutent et renouvellent une bonus de défensif bonus de +1% et de offensif de +1,1% contre les ennemis touchés par impulsion, jusqu'à un maximum de 50 effets.\n2 effets sont perdus par seconde.",
     "emplacement": "gear_set",
     "gearSet": "heartbreaker"
   },
   "depuis_les_ombres_a_la_lumiere": {
     "nom": "Depuis les ombres à la lumière",
-    "description": "À couvert, vous gagnez 10 cumuls par seconde jusqu'à 50. Chaque cumul octroie une augmentation de +1,2% aux dégâts critiques et de +0,4% de cpm. Le buff ne s'applique pas lorsque vous tirez depuis votre couverture. Quand ils ne sont plus à couvert, les agents perdent 2 cumuls par seconde à vitesse normale et 1 cumuls par seconde s'ils sprintent. Quand vous n'êtes plus à couvert et en combat, vous gagnez 10 cumuls par seconde, jusqu'à 50 max. Chaque cumul vous octroie +0.8% de régénération de défensif une fois consommé. Les cumuls se consomment uniquement à couvert, 10 cumuls par seconde.",
+    "description": "À couvert, vous gagnez 10 cumuls par seconde jusqu'à 50. Chaque cumul octroie une augmentation de +1,2% aux dégâts critiques et de +0,4% de cpm.\nLe buff ne s'applique pas lorsque vous tirez depuis votre couverture.\nQuand ils ne sont plus à couvert, les agents perdent 2 cumuls par seconde à vitesse normale et 1 cumuls par seconde s'ils sprintent.\nQuand vous n'êtes plus à couvert et en combat, vous gagnez 10 cumuls par seconde, jusqu'à 50 max. Chaque cumul vous octroie +0.8% de régénération de défensif une fois consommé.\nLes cumuls se consomment uniquement à couvert, 10 cumuls par seconde.",
     "emplacement": "gear_set",
     "gearSet": "initiative_umbra"
   },
   "cephalee": {
     "nom": "Céphalée",
-    "description": "Le 1er headshot avec Fusil de précision (FP) augmente les dégâts du headshot suivant de +20%; le 2ème headshot consécutif avec FP donne +10% de défensif (si la défensif est au maximum, confère un bonus de +50% de la défensif actuelle); le 3ème headshot consécutif remplit le chargeur. A partir du 4ème headshot, l'agent obtient les 3 bonus pour chaque élimination par headshot consécutive. Manquer un headshot réinitialise le cycle.",
+    "description": "Le 1er headshot avec Fusil de précision (FP) augmente les dégâts du headshot suivant de +20%.\nLe 2ème headshot consécutif avec FP donne +10% de défensif (si la défensif est au maximum, confère un bonus de +50% de la défensif actuelle).\nLe 3ème headshot consécutif remplit le chargeur.\nA partir du 4ème headshot, l'agent obtient les 3 bonus pour chaque élimination par headshot consécutive.\nManquer un headshot réinitialise le cycle.",
     "emplacement": "gear_set",
     "gearSet": "hotshot"
   },
   "charge_en_cours": {
     "nom": "Charge en cours",
-    "description": "Pour chaque seconde passée à découvert pendant le combat, l'agent bénéficie d'une réduction de 5% des dégâts de compétence subis. Max 50%. - Charge complète :Une fois la charge complète, l'agent et tous ses alliés bénéficient de l'immunité contre les altérations de vitesse de déplacement, d'une défensif contre les altérations d'état, et d'une réduction des dégâts subis pour une durée de 10sUne fois la charge consommée, le processus de charge reprend normalement si le jouer est toujours au combat et à découvert.",
+    "description": "Pour chaque seconde passée à découvert pendant le combat, l'agent bénéficie d'une réduction de 5% des dégâts de compétence subis. Max 50%.\nCharge complète : Une fois la charge complète, l'agent et tous ses alliés bénéficient de l'immunité contre les altérations de vitesse de déplacement, d'une défensif contre les altérations d'état, et d'une réduction des dégâts subis pour une durée de 10s.\nUne fois la charge consommée, le processus de charge reprend normalement si le jouer est toujours au combat et à découvert.",
     "emplacement": "gear_set",
     "gearSet": "cavalier"
   },
   "prototype_tourelle_incineratrice_ortiz": {
     "nom": "Prototype Tourelle incinératrice \"Ortiz\"",
-    "description": "La tourelle incinératrice pivote à 360°. Vous bénéficiez d'une immunité au tir de votre propre tourelle incinératrice La tourelle incinératrice explose quand elle est désactivée.",
+    "description": "La tourelle incinératrice pivote à 360°.\nVous bénéficiez d'une immunité au tir de votre propre tourelle incinératrice.\nLa tourelle incinératrice explose quand elle est désactivée.",
     "emplacement": "gear_set",
     "gearSet": "ortiz_exuro"
   },
   "stoique": {
     "nom": "Stoïque",
-    "description": "Confère +4% de résistance aux dégâts pour chaque ennemi qui vous cible. Le bonus est multiplié par 1,x ou X est le nombre de d'agents dans votre groupe.",
+    "description": "Confère +4% de résistance aux dégâts pour chaque ennemi qui vous cible.\nLe bonus est multiplié par 1,x ou X est le nombre de d'agents dans votre groupe.",
     "emplacement": "gear_set",
     "gearSet": "aegis"
   },
   "en_ligne_de_mire": {
     "nom": "En ligne de mire",
-    "description": "Réussir un tir avec un fusil ou un fusil de précision octroie un effet cumulable. Le nombre max d'effets cumulés est égal à la capacité de chargeur de l'arme. Recharger confère +2% de maniabilité d'arme et +4% de dégâts d'arme par effet pendant 10s. Il est impossible de cumuler des effets quand les bonus sont actifs. A expiration du chronomètre, votre chargeur se remplit. Si vous changez d'arme alors que les bonus sont actifs, l'effet se dissipe et votre chargeur se remplit. Si vous changez d'arme alors que les bonus ne sont pas actifs tous les effets cumulés sont supprimés et votre chargeur se remplit.",
+    "description": "Réussir un tir avec un fusil ou un fusil de précision octroie un effet cumulable.\nLe nombre max d'effets cumulés est égal à la capacité de chargeur de l'arme.\nRecharger confère +2% de maniabilité d'arme et +4% de dégâts d'arme par effet pendant 10s.\nIl est impossible de cumuler des effets quand les bonus sont actifs.\nA expiration du chronomètre, votre chargeur se remplit.\nSi vous changez d'arme alors que les bonus sont actifs, l'effet se dissipe et votre chargeur se remplit.\nSi vous changez d'arme alors que les bonus ne sont pas actifs tous les effets cumulés sont supprimés et votre chargeur se remplit.",
     "emplacement": "gear_set",
     "gearSet": "breaking_point"
   },
   "symphonie": {
     "nom": "Symphonie",
-    "description": "Tuer un ennemi situé à plus 25m confère +40% de dégâts d'arme aux calibres 12, pistolet-mitrailleur et pistolets, +20% de dégâts aux fusils d'assaut et fusil-mitrailleurs et +25% de défensif bonus pendant 15s. Tuer un ennemi situé à moins de 25m confère +40% de dégâts d'arme aux fusil de précision et fusils, +20% de dégâts d'arme aux fusils d'assaut et fusil-mitrailleurs et +30% de dégâts de headshot pendant 15s. Tuer par intermittence des ennemis situés aux deux distances permet d'accumuler des effets. À 4 effets, tous les bonus sont multipliés par 1,5 et activés en même temps pendant 15s. Aucun effet ne peut être cumulé pendant que ces bonus sont actifs.",
+    "description": "Tuer un ennemi situé à plus 25m confère +40% de dégâts d'arme aux calibres 12, pistolet-mitrailleur et pistolets, +20% de dégâts aux fusils d'assaut et fusil-mitrailleurs et +25% de défensif bonus pendant 15s.\nTuer un ennemi situé à moins de 25m confère +40% de dégâts d'arme aux fusil de précision et fusils, +20% de dégâts d'arme aux fusils d'assaut et fusil-mitrailleurs et +30% de dégâts de headshot pendant 15s.\nTuer par intermittence des ennemis situés aux deux distances permet d'accumuler des effets.\nÀ 4 effets, tous les bonus sont multipliés par 1,5 et activés en même temps pendant 15s.\nAucun effet ne peut être cumulé pendant que ces bonus sont actifs.",
     "emplacement": "gear_set",
     "gearSet": "virtuoso"
   },
   "retour_a_l_envoyeur": {
     "nom": "Retour à l'envoyeur",
-    "description": "Vous bénéficiez de réparations équivalant à 10% (5%) des dégâts infligés par vos compétences. Vos alliés bénéficient de réparations équivalant à 20% (10%) des dégâts infligés par vos compétences.",
+    "description": "Vous bénéficiez de réparations équivalant à 10% (5%) des dégâts infligés par vos compétences.\nVos alliés bénéficient de réparations équivalant à 20% (10%) des dégâts infligés par vos compétences.",
     "emplacement": "gear_set",
     "gearSet": "refactor"
   },
   "pelotonnement": {
     "nom": "Pelotonnement",
-    "description": "Recevez +1 utilitaire pour chaque agent allié se trouvant à portée de votre ruche ou abri intelligent. Au utilitaire 6, avoir au moins un agent allié à portée de votre ruche ou abri intelligent pendant 4s vous confère surcharge pendant 15s. Temps de recharge : 40s. Les mortiers et les compétences ennemies qui entrent à portée de votre ruche ou abri intelligent sont détruits. Temps de recharge : 10s. Le temps de recharge est 20% plus rapide pour chaque agent allié à portée de votre ruche ou abri intelligent.",
+    "description": "Recevez +1 utilitaire pour chaque agent allié se trouvant à portée de votre ruche ou abri intelligent.\nAu utilitaire 6, avoir au moins un agent allié à portée de votre ruche ou abri intelligent pendant 4s vous confère surcharge pendant 15s. Temps de recharge : 40s.\nLes mortiers et les compétences ennemies qui entrent à portée de votre ruche ou abri intelligent sont détruits. Temps de recharge : 10s.\nLe temps de recharge est 20% plus rapide pour chaque agent allié à portée de votre ruche ou abri intelligent.",
     "emplacement": "gear_set",
     "gearSet": "measured_assembly"
   },
   "controle_de_la_puissance": {
     "nom": "Contrôle de la puissance",
-    "description": "Le fait de tirer cumule des effets jusqu'à un maximum de 50. Chaque effet cumulé confère +0,5% de maniabilité d'arme et +4% de dégâts de coup critique. Vous perdez 6 effets par secondes quand vous ne tirez pas. Aucun effet n'est perdu si un ennemi est fixé.",
+    "description": "Le fait de tirer cumule des effets jusqu'à un maximum de 50.\nChaque effet cumulé confère +0,5% de maniabilité d'arme et +4% de dégâts de coup critique.\nVous perdez 6 effets par secondes quand vous ne tirez pas.\nAucun effet n'est perdu si un ennemi est fixé.",
     "emplacement": "gear_set",
     "gearSet": "point_de_bascule"
   },
   "camaraderie": {
     "nom": "Camaraderie",
-    "description": "Tirer sur un ennemi le marque pendant 7s. Quand un ennemi marqué meurt, vous recevez +3% de dégâts d'arme et +2% de dégâts de coup critique pour chaque allié ou compétence, y compris vous-même, ayant participé à l'élimination de cet ennemi. Cumul maximum : 35. Les effets se dissipent toutes les 10s. Maximum de marques pouvant être appliquées : 4.",
+    "description": "Tirer sur un ennemi le marque pendant 7s.\nQuand un ennemi marqué meurt, vous recevez +3% de dégâts d'arme et +2% de dégâts de coup critique pour chaque allié ou compétence, y compris vous-même, ayant participé à l'élimination de cet ennemi.\nCumul maximum : 35.\nLes effets se dissipent toutes les 10s.\nMaximum de marques pouvant être appliquées : 4.",
     "emplacement": "gear_set",
     "gearSet": "concentrated_company"
   }
 }
-

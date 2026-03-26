@@ -4,7 +4,6 @@ import remarkBreaks from 'remark-breaks'
 
 /**
  * Composant MarkdownText qui encapsule les textes nécessitant une mise en forme Markdown.
- * Utilise whitespace-pre-line par défaut pour gérer l'affichage de plusieurs lignes.
  */
 export default function MarkdownText({ children, className = "" }) {
   if (!children) return null
@@ -17,7 +16,7 @@ export default function MarkdownText({ children, className = "" }) {
   if (!content) return null
 
   return (
-    <div className={`whitespace-pre-line ${className}`}>
+    <div className={`${className}`}>
       <ReactMarkdown 
         remarkPlugins={[remarkGfm, remarkBreaks]}
         components={{

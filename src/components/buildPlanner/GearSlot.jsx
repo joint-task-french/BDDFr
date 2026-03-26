@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
+import MarkdownText from '../common/MarkdownText'
 import GearAttributePanel from './GearAttributePanel'
 import ExpertiseSlider from './ExpertiseSlider'
 
@@ -173,9 +174,9 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                               <div className="text-xs text-shd font-bold uppercase tracking-widest">
                                 {resolved?.nom ? `Talent : ${resolved.nom}` : 'Talent Exotique'}
                               </div>
-                              <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">
+                              <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">
                                 {resolved?.description || slug}
-                              </div>
+                              </MarkdownText>
                             </div>
                         )
                       })}
@@ -188,7 +189,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                         {gearSetTalent.nom}
                       </div>
                       {gearSetTalent.description && (
-                          <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{gearSetTalent.description}</div>
+                          <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">{gearSetTalent.description}</MarkdownText>
                       )}
                     </div>
                 )}
@@ -206,7 +207,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                         )}
                       </div>
                       {resolvedPredefinedTalent?.description && (
-                          <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-2">{resolvedPredefinedTalent.description}</div>
+                          <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">{resolvedPredefinedTalent.description}</MarkdownText>
                       )}
                     </div>
                 )}
@@ -227,7 +228,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                             )}
                           </div>
                           {gearTalentToDisplay.description && (
-                              <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-2">{gearTalentToDisplay.description}</div>
+                              <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">{gearTalentToDisplay.description}</MarkdownText>
                           )}
                         </div>
                     ) : (
@@ -284,7 +285,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                                     />
                                 )}
                                 {prototypeTalent.description && (
-                                    <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-2 italic">{prototypeTalent.description}</div>
+                                    <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed italic">{prototypeTalent.description}</MarkdownText>
                                 )}
                             </div>
                         ) : (

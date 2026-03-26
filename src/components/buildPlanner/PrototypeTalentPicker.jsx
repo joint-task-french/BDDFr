@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
 import SelectionModal from '../common/SelectionModal'
+import MarkdownText from '../common/MarkdownText'
 
 export default function PrototypeTalentPicker({ data, slotKey, onClose }) {
   const { dispatch } = useBuild()
@@ -47,9 +48,9 @@ export default function PrototypeTalentPicker({ data, slotKey, onClose }) {
                   </div>
                 </div>
                 {t.description && (
-                  <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">
+                  <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">
                     {t.description}
-                  </div>
+                  </MarkdownText>
                 )}
               </div>
           ))}

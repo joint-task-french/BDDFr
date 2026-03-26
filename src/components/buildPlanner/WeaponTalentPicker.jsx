@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
 import { getTalentArmeFilters, getTalentArmeDefaults, applyTalentArmeFilters } from '../../config/filterConfigs'
 import SelectionModal from '../common/SelectionModal'
+import MarkdownText from '../common/MarkdownText'
 import FilterPanel from '../database/FilterPanel'
 
 export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClose }) {
@@ -70,7 +71,7 @@ export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClos
                     {t.nom}
                   </div>
                 </div>
-                {t.description ? (<div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t.description}</div>) : null}
+                {t.description ? (<MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">{t.description}</MarkdownText>) : null}
                 {t.prerequis && t.prerequis !== 'n/a' && (<div className="text-xs text-yellow-500/60 mt-1">Requis : {t.prerequis}</div>)}
               </div>
           ))}

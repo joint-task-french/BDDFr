@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useBuild } from '../../context/BuildContext'
 import { formatModAttributs } from '../../utils/modCompatibility'
+import MarkdownText from '../common/MarkdownText'
 
 /**
  * Normalise un nom pour comparaison.
@@ -86,9 +87,9 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
               </div>
             )}
             {skill.statistiques && (
-              <div className="text-xs text-gray-400 mt-2 leading-relaxed whitespace-pre-line">
+              <MarkdownText className="text-xs text-gray-400 mt-2 leading-relaxed whitespace-pre-line">
                 {skill.statistiques}
-              </div>
+              </MarkdownText>
             )}
             {skill.effetEtat && skill.effetEtat !== 'N/A' && (
               <div className="text-xs text-purple-400 mt-1">⚡ {skill.effetEtat}</div>
@@ -249,7 +250,7 @@ function SkillModPicker({ competenceSlug, emplacement, modsCompetences, allAttri
               >
                 <div className="text-sm text-white group-hover:text-shd">{mod.nom || mod.slug}</div>
                 {statsText && <div className="text-xs text-green-400">{statsText}</div>}
-                {mod.bonus && <div className="text-xs text-gray-500">{mod.bonus}</div>}
+                {mod.bonus && <MarkdownText className="text-xs text-gray-500">{mod.bonus}</MarkdownText>}
               </button>
             )
           })}

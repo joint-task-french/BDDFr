@@ -3,6 +3,7 @@ import { useBuild } from '../../context/BuildContext'
 import { getGearSlotLabel } from '../../utils/formatters'
 import { getTalentEquipFilters, getTalentEquipDefaults, applyTalentEquipFilters } from '../../config/filterConfigs'
 import SelectionModal from '../common/SelectionModal'
+import MarkdownText from '../common/MarkdownText'
 import FilterPanel from '../database/FilterPanel'
 
 export default function GearTalentPicker({ data, slotKey, onClose }) {
@@ -69,9 +70,9 @@ export default function GearTalentPicker({ data, slotKey, onClose }) {
                     )}
                   </div>
                   {isPerfect ? (
-                      <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t.perfectDescription}</div>
+                      <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">{t.perfectDescription}</MarkdownText>
                   ) : t.description ? (
-                      <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t.description}</div>
+                      <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">{t.description}</MarkdownText>
                   ) : null}
                   {t.prerequis && t.prerequis !== 'n/a' && (
                       <div className="text-xs text-yellow-500/60 mt-1">Requis : {t.prerequis}</div>

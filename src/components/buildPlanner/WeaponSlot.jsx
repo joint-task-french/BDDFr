@@ -1,4 +1,5 @@
 import { getWeaponTypeLabel, getWeaponEssentialAttributes } from '../../utils/formatters'
+import MarkdownText from '../common/MarkdownText'
 import StatChip from '../common/StatChip'
 import WeaponAttributePanel from './WeaponAttributePanel'
 import ExpertiseSlider from './ExpertiseSlider'
@@ -129,9 +130,9 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                             <div className="text-xs text-shd font-bold uppercase tracking-widest">
                                                 {resolved?.nom ? `Talent : ${resolved.nom}` : 'Talent Exotique'}
                                             </div>
-                                            <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">
+                                            <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">
                                                 {resolved?.description || slug}
-                                            </div>
+                                            </MarkdownText>
                                         </div>
                                     )
                                 })}
@@ -167,9 +168,9 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                             )}
                                         </div>
                                         {(isPerfect ? resolved.perfectDescription : resolved?.description) && (
-                                            <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">
+                                            <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">
                                                 {isPerfect ? resolved.perfectDescription : resolved.description}
-                                            </div>
+                                            </MarkdownText>
                                         )}
                                     </div>
                                 )
@@ -200,9 +201,9 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                             )}
                                         </div>
                                         {isPerfect ? (
-                                            <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{talent.perfectDescription}</div>
+                                            <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">{talent.perfectDescription}</MarkdownText>
                                         ) : talent.description ? (
-                                            <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{talent.description}</div>
+                                            <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">{talent.description}</MarkdownText>
                                         ) : null}
                                     </div>
                                 )
@@ -260,7 +261,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                             />
                                         )}
                                         {prototypeTalent.description && (
-                                            <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-2 italic">{prototypeTalent.description}</div>
+                                            <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed italic">{prototypeTalent.description}</MarkdownText>
                                         )}
                                     </div>
                                 ) : (

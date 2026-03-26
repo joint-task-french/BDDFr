@@ -143,32 +143,56 @@ export function useBuildStats(data) {
     const brandSets = []
     const setTotals = {}
 
-    const parseAndAddBonus = (text) => {
-      if (!text) return
-      const match = text.match(/^\+?([0-9.,]+)(%?)\s+(.+)$/)
-      if (match) {
-        const val = parseFloat(match[1].replace(',', '.'))
-        const hasPercent = match[2] === '%'
-        const label = match[3].trim().toLowerCase()
-        let foundSlug = null
-        if (data.attributs) {
-          const attrMatch = Object.entries(data.attributs).find(([slug, def]) => 
-            def.nom.toLowerCase() === label || label.includes(def.nom.toLowerCase())
-          )
-          if (attrMatch) foundSlug = attrMatch[0]
-        }
-        if (!foundSlug && data.statistiques) {
-          const statMatch = Object.entries(data.statistiques).find(([slug, def]) => 
-            def.nom.toLowerCase() === label || label.includes(def.nom.toLowerCase())
-          )
-          if (statMatch) foundSlug = statMatch[0]
-        }
-        if (foundSlug) {
-          const info = resolveAttrInfo(foundSlug)
-          if (!setTotals[foundSlug]) {
-            setTotals[foundSlug] = { nom: info.nom, total: 0, unite: hasPercent ? '%' : info.unite, categorie: info.categorie, slug: foundSlug }
+    const parseAndAddBonus = (bonus) => {
+      if (!bonus) return
+      
+      if (typeof bonus === 'string') {
+        const match = bonus.match(/^\+?([0-9.,]+)(%?)\s+(.+)$/)
+        if (match) {
+          const val = parseFloat(match[1].replace(',', '.'))
+          const hasPercent = match[2] === '%'
+          const label = match[3].trim().toLowerCase()
+          let foundSlug = null
+          if (data.attributs) {
+            const attrMatch = Object.entries(data.attributs).find(([slug, def]) => 
+              def.nom.toLowerCase() === label || label.includes(def.nom.toLowerCase())
+            )
+            if (attrMatch) foundSlug = attrMatch[0]
           }
-          setTotals[foundSlug].total += val
+          if (!foundSlug && data.statistiques) {
+            const statMatch = Object.entries(data.statistiques).find(([slug, def]) => 
+              def.nom.toLowerCase() === label || label.includes(def.nom.toLowerCase())
+            )
+            if (statMatch) foundSlug = statMatch[0]
+          }
+          if (foundSlug) {
+            const info = resolveAttrInfo(foundSlug)
+            if (!setTotals[foundSlug]) {
+              setTotals[foundSlug] = { nom: info.nom, total: 0, unite: hasPercent ? '%' : info.unite, categorie: info.categorie, slug: foundSlug }
+            }
+            setTotals[foundSlug].total += val
+          }
+        }
+      } else if (bonus.attributs) {
+        // Nouveau format: objet avec liste d'attributs
+        for (const attr of bonus.attributs) {
+          const val = attr.value
+          const foundSlug = attr.slug
+          if (foundSlug) {
+            const info = resolveAttrInfo(foundSlug)
+            if (!setTotals[foundSlug]) {
+              // Déterminer l'unité (pourcentage par défaut, sauf exceptions connues)
+              const hasPercent = !(
+                foundSlug.includes('taille_chargeur') ||
+                foundSlug.includes('capacite_munitions') ||
+                foundSlug.includes('utilitaire') ||
+                foundSlug.includes('menace') ||
+                foundSlug.includes('portee_optimale')
+              )
+              setTotals[foundSlug] = { nom: info.nom, total: 0, unite: hasPercent ? '%' : info.unite, categorie: info.categorie, slug: foundSlug }
+            }
+            setTotals[foundSlug].total += val
+          }
         }
       }
     }
@@ -177,10 +201,10 @@ export function useBuildStats(data) {
       const ensemble = ensemblesMap[marqueSlug]
       if (!ensemble) continue
       const bonuses = []
-      const checkBonus = (pieces, text) => {
+      const checkBonus = (pieces, bonus) => {
         const active = count >= pieces
-        bonuses.push({ pieces, text, active })
-        if (active) parseAndAddBonus(text)
+        bonuses.push({ pieces, text: bonus, active })
+        if (active) parseAndAddBonus(bonus)
       }
       if (ensemble.bonus1piece) checkBonus(1, ensemble.bonus1piece)
       if (ensemble.bonus2pieces) checkBonus(2, ensemble.bonus2pieces)

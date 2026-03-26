@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
 import { flattenCompetences } from '../../utils/competenceUtils'
 import SelectionModal from '../common/SelectionModal'
+import MarkdownText from '../common/MarkdownText'
 
 export default function SkillPicker({ data, slotIndex, onClose }) {
   const { dispatch, canEquipSkill, skillNeedsSpec, SPECIALISATIONS } = useBuild()
@@ -101,9 +102,9 @@ export default function SkillPicker({ data, slotIndex, onClose }) {
                   </div>
                   <div className="text-xs text-gray-500">{s.competence}</div>
                   {s.statistiques && (
-                    <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-2">
+                    <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">
                       {s.statistiques}
-                    </div>
+                    </MarkdownText>
                   )}
                   {s.effetEtat && s.effetEtat !== 'N/A' && (
                     <div className="text-xs text-purple-400 mt-1">⚡ {s.effetEtat}</div>

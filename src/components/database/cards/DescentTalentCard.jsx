@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { slugify } from '../../../utils/slugify.js';
+import MarkdownText from '../../common/MarkdownText'
 
 export default function DescentTalentCard({ item }) {
     const { nom, icon, descente, isWeaponTalent } = item;
@@ -35,7 +36,7 @@ export default function DescentTalentCard({ item }) {
         navigate(`/db/${currentCategory}/${itemSlug}/${newLevel}${location.search}`, { replace: true });
     };
 
-    const parsedDescription = useMemo(() => {
+    const parsedDescriptionMd = useMemo(() => {
         const baseText = levels.base;
         const currentLevelData = levels[selectedLevel];
 
@@ -43,7 +44,7 @@ export default function DescentTalentCard({ item }) {
 
         return baseText.replace(/\{([^}]+)\}/g, (match, variableName) => {
             return currentLevelData[variableName] !== undefined
-                ? `<strong class="text-shd font-bold">${currentLevelData[variableName]}</strong>`
+                ? `**${currentLevelData[variableName]}**`
                 : match;
         });
     }, [levels, selectedLevel]);
@@ -99,10 +100,11 @@ export default function DescentTalentCard({ item }) {
 
                 </div>
             </div>
-            <div
-                className="px-4 py-3 text-xs text-gray-400 leading-relaxed whitespace-pre-line flex-1"
-                dangerouslySetInnerHTML={{ __html: parsedDescription }}
-            />
+            <MarkdownText
+                className="px-4 py-3 text-xs text-gray-400 leading-relaxed flex-1"
+            >
+                {parsedDescriptionMd}
+            </MarkdownText>
 
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10 mt-auto">
                 <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1.5">
@@ -125,9 +127,9 @@ export default function DescentTalentCard({ item }) {
                     <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">
                         Notes
                     </div>
-                    <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+                    <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
                         {notes}
-                    </div>
+                    </MarkdownText>
                 </div>
             )}
 

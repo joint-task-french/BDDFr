@@ -1,5 +1,6 @@
 import {resolveAttributeIcon, GameIcon, resolveIcon} from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
+import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
@@ -141,9 +142,9 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques, a
         {hasContent(item.notes) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
               <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
-              <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+              <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
                 {item.notes}
-              </div>
+              </MarkdownText>
             </div>
         )}
       </div>
@@ -174,7 +175,9 @@ function BonusRow({ level, bonus, color, talents, statistiques, allAttributs }) 
           <span className={`shrink-0 text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded whitespace-pre-line ${color}`}>
             {level}
           </span>
-          <span className="text-gray-300">{bonus.replace(/^\.\+?/, '+')}</span>
+          <MarkdownText className="text-gray-300">
+            {bonus.replace(/^\.\+?/, '+')}
+          </MarkdownText>
         </div>
     )
   }
@@ -203,7 +206,9 @@ function BonusRow({ level, bonus, color, talents, statistiques, allAttributs }) 
           {talent && (
               <div className="mt-0.5">
                 <div className="text-shd font-bold uppercase tracking-widest text-xs mb-0.5">{talent.nom}</div>
-                <div className="text-gray-400 leading-normal italic text-xs whitespace-pre-line">{talent.description}</div>
+                <MarkdownText className="text-gray-400 leading-normal italic text-xs">
+                  {talent.description}
+                </MarkdownText>
               </div>
           )}
         </div>

@@ -10,6 +10,7 @@ import ModCompetencesCard from "./cards/ModCompetencesCard.jsx";
 import ModEquipementCard from "./cards/ModEquipementCard.jsx";
 import DescentTalentCard from './cards/DescentTalentCard.jsx';
 import CompactListView from './CompactListView'
+import MarkdownText from '../common/MarkdownText'
 import {useLocation, useNavigate} from "react-router-dom";
 import {slugify} from "../../utils/slugify.js";
 
@@ -55,7 +56,7 @@ function GenericCard({ item }) {
         return (
           <div key={key} className="flex items-start gap-2 text-xs">
             <span className="text-gray-500 font-bold uppercase tracking-widest text-xs shrink-0">{key}</span>
-            <span className="text-gray-300">{display}</span>
+            <MarkdownText className="text-gray-300">{display}</MarkdownText>
           </div>
         )
       })}

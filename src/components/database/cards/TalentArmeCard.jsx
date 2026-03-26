@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
 import { resolveIcon, WEAPON_TYPE_ICONS, GameIcon } from '../../../utils/gameAssets'
 import {InfoToolTip} from "../../common/InfoToolTip.jsx";
+import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
@@ -96,23 +97,23 @@ export default function TalentArmeCard({ item, armes }) {
         </div>
 
         {description && (
-            <div className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed whitespace-pre-line flex-1">
+            <MarkdownText className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed flex-1">
               {description}
-            </div>
+            </MarkdownText>
         )}
 
         {/* Arme(s) nommée(s) portant la version parfaite */}
         {showPerfect && item.armesParfaites?.length > 0 && (
-            <div className="px-4 pb-2 text-xs text-yellow-500/70 flex flex-col items-start gap-1 whitespace-pre-line">
+            <div className="px-4 pb-2 text-xs text-yellow-500/70 flex flex-col items-start gap-1">
               <span className="text-yellow-400 font-bold uppercase tracking-widest ">Arme :</span>
-              <span className='whitespace-pre-line text-xs'>
-            - {item.armesParfaites.map(slug => {
-                const arme = (armes && !Array.isArray(armes))
-                    ? armes[slug]
-                    : armes?.find(e => e.slug === slug)
-                return arme?.nom || slug
-              }).join('\n- ')}
-          </span>
+              <MarkdownText className='text-xs'>
+                {'- ' + item.armesParfaites.map(slug => {
+                  const arme = (armes && !Array.isArray(armes))
+                      ? armes[slug]
+                      : armes?.find(e => e.slug === slug)
+                  return arme?.nom || slug
+                }).join('\n- ')}
+              </MarkdownText>
             </div>
         )}
 
@@ -132,9 +133,9 @@ export default function TalentArmeCard({ item, armes }) {
         {hasContent(item.notes) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
               <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
-              <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+              <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
                 {item.notes}
-              </div>
+              </MarkdownText>
             </div>
         )}
       </div>

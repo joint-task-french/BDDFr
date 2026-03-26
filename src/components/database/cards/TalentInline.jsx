@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { resolveIcon, WEAPON_TYPE_ICONS, GameIcon } from '../../../utils/gameAssets'
+import MarkdownText from '../../common/MarkdownText'
 
 /**
  * Affiche un talent résolu inline (dans une WeaponCard, GearCard, etc.)
@@ -43,9 +44,9 @@ export default function TalentInline({ talent, isExotic = false, allArmes, allEq
 
       {/* Description */}
       {description && (
-        <div className="text-xs text-gray-400 leading-relaxed whitespace-pre-line">
+        <MarkdownText className="text-xs text-gray-400 leading-relaxed">
           {description}
-        </div>
+        </MarkdownText>
       )}
 
       {/* Prérequis */}
@@ -57,8 +58,8 @@ export default function TalentInline({ talent, isExotic = false, allArmes, allEq
       {talent.notes && talent.notes !== 'n/a' && talent.notes !== '-' && (
         <div className="mt-1 pt-1 border-t border-tactical-border/30">
           <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-0.5">Notes</div>
-          <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
-            {talent.notes}
+          <div className="text-xs text-gray-400 italic leading-relaxed">
+            <MarkdownText>{talent.notes}</MarkdownText>
           </div>
         </div>
       )}

@@ -5,6 +5,7 @@ import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon, resolveIcon } from '
 import { formatModAttributs } from '../../../utils/modCompatibility'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
+import MarkdownText from '../../common/MarkdownText'
 import {InfoToolTip} from "../../common/InfoToolTip.jsx";
 
 function hasContent(v) {
@@ -145,7 +146,11 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
               </div>
             </div>
           </div>
-          { item.description && <span className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">{item.description}</span> }
+          { item.description && (
+            <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
+              {item.description}
+            </MarkdownText>
+          ) }
         </div>
 
         {/* Stats grid */}
@@ -237,9 +242,9 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                         {stats && <span className="text-emerald-400/80">{stats}</span>}
                       </div>
                       {hasContent(mod.notes) && (
-                          <div className="mt-0.5 text-xs text-gray-500 italic leading-relaxed whitespace-pre-line border-l border-tactical-border/30 pl-2 ml-1">
+                          <MarkdownText className="mt-0.5 text-xs text-gray-500 italic leading-relaxed border-l border-tactical-border/30 pl-2 ml-1">
                             {mod.notes}
-                          </div>
+                          </MarkdownText>
                       )}
                     </div>
                 )
@@ -255,11 +260,11 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
         {(hasContent(item.notes) || item.armePoing) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
               <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
-              <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+              <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
                 {hasContent(item.notes) && item.notes}
                 {hasContent(item.notes) && item.armePoing && '\n'}
                 {item.armePoing && "Cette arme s'équipe dans l'emplacement Arme de poing."}
-              </div>
+              </MarkdownText>
             </div>
         )}
       </div>

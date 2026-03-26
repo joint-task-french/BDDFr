@@ -3,6 +3,7 @@ import { useParams, useSearchParams, useNavigate, useLocation } from 'react-rout
 import Badge from '../../common/Badge'
 import { getGearSlotLabel } from '../../../utils/formatters'
 import { GEAR_SLOT_ICONS_IMG, resolveIcon, GameIcon } from '../../../utils/gameAssets'
+import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
@@ -94,23 +95,23 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
         </div>
 
         {description && (
-            <div className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed whitespace-pre-line flex-1">
+            <MarkdownText className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed flex-1">
               {description}
-            </div>
+            </MarkdownText>
         )}
 
         {/* Équipement(s) nommé(s) portant la version parfaite */}
         {showPerfect && item.equipementsParfaits?.length > 0 && (
             <div className="px-4 pb-2 text-xs text-yellow-500/70 flex flex-col items-start gap-1 ">
               <span className="text-yellow-400 font-bold uppercase tracking-widest">Équipement :</span>
-              <span className='whitespace-pre-line text-xs'>
-            - {item.equipementsParfaits.map(slug => {
-                const eq = (equipements && !Array.isArray(equipements))
-                    ? equipements[slug]
-                    : equipements?.find(e => e.slug === slug)
-                return eq?.nom || slug
-              }).join('\n- ')}
-          </span>
+              <MarkdownText className='text-xs'>
+                {'- ' + item.equipementsParfaits.map(slug => {
+                  const eq = (equipements && !Array.isArray(equipements))
+                      ? equipements[slug]
+                      : equipements?.find(e => e.slug === slug)
+                  return eq?.nom || slug
+                }).join('\n- ')}
+              </MarkdownText>
             </div>
         )}
 
@@ -118,9 +119,9 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
         {hasContent(item.notes) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
               <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
-              <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+              <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
                 {item.notes}
-              </div>
+              </MarkdownText>
             </div>
         )}
       </div>

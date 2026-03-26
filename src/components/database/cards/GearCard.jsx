@@ -4,6 +4,7 @@ import {getAttrCategoryLabel, getGearSlotLabel, formatNumber} from '../../../uti
 import {GameIcon, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveIcon} from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
+import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-' && v !== 'FALSE' && v !== 'TRUE'
@@ -183,7 +184,11 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
 
 
           </div>
-          { item.description && <span className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">{item.description}</span> }
+          { item.description && (
+            <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
+              {item.description}
+            </MarkdownText>
+          ) }
         </div>
 
         {/* Attributs */}
@@ -283,8 +288,8 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
         {hasContent(item.notes) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
               <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
-              <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
-                {item.notes}
+              <div className="text-xs text-gray-400 italic leading-relaxed">
+                <MarkdownText>{item.notes}</MarkdownText>
               </div>
             </div>
         )}

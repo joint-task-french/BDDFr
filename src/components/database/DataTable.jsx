@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import MarkdownText from '../common/MarkdownText'
 
 // Human-readable labels for known keys
 const COLUMN_LABELS = {
@@ -134,7 +135,9 @@ export default function DataTable({ items, allAttributs, statistiques }) {
             <tr key={i} className="hover:bg-tactical-hover transition-colors border-b border-tactical-border/30">
               {columns.map(col => (
                 <td key={col} className="px-3 py-2.5 text-sm text-gray-300 align-top max-w-xs">
-                  <span className="whitespace-pre-line break-words">{formatValue(item[col], col, allAttributs, statistiques)}</span>
+                  <MarkdownText className="break-words">
+                    {formatValue(item[col], col, allAttributs, statistiques)}
+                  </MarkdownText>
                 </td>
               ))}
             </tr>

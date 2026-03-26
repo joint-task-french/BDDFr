@@ -1,3 +1,5 @@
+import MarkdownText from '../../common/MarkdownText'
+
 /**
  * Composant réutilisable pour afficher l'obtention structurée d'un objet (arme ou équipement).
  * Seuls les sous-champs réellement présents (!== undefined) sont affichés.
@@ -76,9 +78,9 @@ export default function ObtentionDisplay({ obtention }) {
       )}
 
       {obtention.description && obtention.description.trim() && (
-        <div className="text-xs text-gray-500 leading-relaxed mt-1.5 whitespace-pre-line">
+        <MarkdownText className="text-xs text-gray-500 leading-relaxed mt-1.5">
           {obtention.description}
-        </div>
+        </MarkdownText>
       )}
     </div>
   )

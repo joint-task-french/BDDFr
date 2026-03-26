@@ -1,4 +1,5 @@
 import { formatModAttributs } from '../../../utils/modCompatibility'
+import MarkdownText from '../../common/MarkdownText'
 
 
 function hasContent(v) {
@@ -24,7 +25,9 @@ export default function ModCompetencesCard({ item, allAttributs, competencesGrou
 
 
         {statsText && (
-            <div className="mt-1.5 text-xs text-emerald-400 whitespace-pre-line">{statsText}</div>
+            <MarkdownText className="mt-1.5 text-xs text-emerald-400">
+              {statsText}
+            </MarkdownText>
         )}
 
         {item.emplacement && (
@@ -39,9 +42,9 @@ export default function ModCompetencesCard({ item, allAttributs, competencesGrou
         {hasContent(item.notes) && (
           <div className="mt-2 pt-2 border-t border-tactical-border/50">
             <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-0.5">Notes</div>
-            <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+            <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
               {item.notes}
-            </div>
+            </MarkdownText>
           </div>
         )}
       </div>

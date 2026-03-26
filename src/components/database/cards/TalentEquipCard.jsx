@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
+import { useParams, useSearchParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import Badge from '../../common/Badge'
 import { getGearSlotLabel } from '../../../utils/formatters'
 import { GEAR_SLOT_ICONS_IMG, resolveIcon, GameIcon } from '../../../utils/gameAssets'
@@ -108,14 +108,25 @@ export default function TalentEquipCard({ item, equipements, equipementsType, is
         {showPerfect && item.equipementsParfaits?.length > 0 && (
             <div className="px-4 pb-2 text-xs text-yellow-500/70 flex flex-col items-start gap-1 ">
               <span className="text-yellow-400 font-bold uppercase tracking-widest">Équipement :</span>
-              <MarkdownText className='text-xs'>
-                {'- ' + item.equipementsParfaits.map(slug => {
+              <ul className="text-xs list-disc list-inside">
+                {item.equipementsParfaits.map(slug => {
                   const eq = (equipements && !Array.isArray(equipements))
                       ? equipements[slug]
                       : equipements?.find(e => e.slug === slug)
-                  return eq?.nom || slug
-                }).join('\n- ')}
-              </MarkdownText>
+                  const nom = eq?.nom || slug
+                  return (
+                    <li key={slug}>
+                      <Link
+                        to={`/db/equipements/${slug}`}
+                        className="text-yellow-300 hover:underline hover:text-yellow-400 transition-colors"
+                        onClick={e => e.stopPropagation()}
+                      >
+                        {nom}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
             </div>
         )}
 

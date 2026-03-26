@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
+import {useParams, useSearchParams, useNavigate, useLocation, Link} from 'react-router-dom'
 import { resolveIcon, WEAPON_TYPE_ICONS, GameIcon } from '../../../utils/gameAssets'
 import {InfoToolTip} from "../../common/InfoToolTip.jsx";
 import MarkdownText from '../../common/MarkdownText'
@@ -106,20 +106,32 @@ export default function TalentArmeCard({ item, armes, isStatic }) {
             </MarkdownText>
         )}
 
-        {/* Arme(s) nommée(s) portant la version parfaite */}
         {showPerfect && item.armesParfaites?.length > 0 && (
             <div className="px-4 pb-2 text-xs text-yellow-500/70 flex flex-col items-start gap-1">
               <span className="text-yellow-400 font-bold uppercase tracking-widest ">Arme :</span>
-              <MarkdownText className='text-xs'>
-                {'- ' + item.armesParfaites.map(slug => {
-                  const arme = (armes && !Array.isArray(armes))
+              <ul className="text-xs list-disc list-inside">
+                {item.armesParfaites.map(slug => {
+                  const eq = (armes && !Array.isArray(armes))
                       ? armes[slug]
                       : armes?.find(e => e.slug === slug)
-                  return arme?.nom || slug
-                }).join('\n- ')}
-              </MarkdownText>
+                  const nom = eq?.nom || slug
+                  return (
+                      <li key={slug}>
+                        <Link
+                            to={`/db/armes/${slug}`}
+                            className="text-yellow-300 hover:underline hover:text-yellow-400 transition-colors"
+                            onClick={e => e.stopPropagation()}
+                        >
+                          {nom}
+                        </Link>
+                      </li>
+                  )
+                })}
+              </ul>
+
             </div>
         )}
+
 
         {compatTypes.length > 0 && !showPerfect && (
             <div className="px-4 py-2 border-t border-tactical-border/50 flex flex-wrap gap-1">

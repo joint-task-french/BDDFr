@@ -1,4 +1,5 @@
 import {resolveAttributeIcon, GameIcon, resolveIcon} from '../../../utils/gameAssets'
+import TalentInline from './TalentInline'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
@@ -99,17 +100,20 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques, a
 
         {/* Talents torse/sac (gear sets uniquement) */}
         {(hasContent(item.talentTorse) || hasContent(item.talentSac)) && (
-            <div className="px-4 py-2.5 border-t border-tactical-border/50 space-y-1.5">
+            <div className="px-4 py-2.5 border-t border-tactical-border/50 space-y-2">
               {hasContent(item.talentTorse) && (() => {
                 const tKey = item.talentTorse
                 const talent = (talentsEquipements && !Array.isArray(talentsEquipements))
                     ? talentsEquipements[tKey]
                     : talentsEquipements?.find(t => t.slug === tKey)
                 return (
-                    <div className="text-xs text-gray-400 leading-relaxed whitespace-pre-line">
+                    <div className="space-y-1">
                       <span className="text-shd font-bold uppercase tracking-widest text-xs">Torse : </span>
-                      <span className="text-shd/80 font-semibold">{talent?.nom || item.talentTorse}</span>
-                      {talent?.description && <> — {talent.description}</>}
+                      {talent ? (
+                        <TalentInline talent={talent} />
+                      ) : (
+                        <span className="text-shd/80 font-semibold text-xs ml-1">{item.talentTorse}</span>
+                      )}
                     </div>
                 )
               })()}
@@ -119,10 +123,13 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques, a
                     ? talentsEquipements[tKey]
                     : talentsEquipements?.find(t => t.slug === tKey)
                 return (
-                    <div className="text-xs text-gray-400 leading-relaxed whitespace-pre-line">
+                    <div className="space-y-1">
                       <span className="text-shd font-bold uppercase tracking-widest text-xs">Sac : </span>
-                      <span className="text-shd/80 font-semibold">{talent?.nom || item.talentSac}</span>
-                      {talent?.description && <> — {talent.description}</>}
+                      {talent ? (
+                        <TalentInline talent={talent} />
+                      ) : (
+                        <span className="text-shd/80 font-semibold text-xs ml-1">{item.talentSac}</span>
+                      )}
                     </div>
                 )
               })()}

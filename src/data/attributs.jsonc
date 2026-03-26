@@ -914,20 +914,20 @@
     ]
   },
   "recup_impulsion_scanner_eqp": {
-      "nom": "Récup d'impulsion de scanner",
-      "categorie": "utilitaire",
-      "cible": [
-        "equipement"
-      ],
-      "unite": "%",
-      "min": 90,
-      "max": 100,
-      "description": "Réduit le temps de recharge de l'impulsion de scanner",
-      "estEssentiel": false,
-      "selectionable": true,
-      "statistiques": [
-        "recup_impulsion_scanner"
-      ]
+    "nom": "Récup d'impulsion de scanner",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 90,
+    "max": 100,
+    "description": "Réduit le temps de recharge de l'impulsion de scanner",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "recup_impulsion_scanner"
+    ]
   },
   "effets_d_etat_eqp": {
     "nom": "Effets d'état",
@@ -1168,6 +1168,230 @@
     "selectionable": false,
     "statistiques": [
       "degats_corps_a_corps"
+    ]
+  },
+  "vitesse_rechargement_eqp": {
+    "nom": "Vitesse de rechargement",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Réduit le temps de rechargement",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "vitesse_rechargement"
+    ]
+  },
+  "taille_chargeur_eqp": {
+    "nom": "Taille du chargeur",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Augmente la capacité du chargeur",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "taille_chargeur"
+    ]
+  },
+  "degats_fusil_precision_eqp": {
+    "nom": "Dégâts Fusil de précision",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des fusils de précision",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_fusil_precision"
+    ]
+  },
+  "degats_fusil_eqp": {
+    "nom": "Dégâts Fusil",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des fusils",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_fusil"
+    ]
+  },
+  "degats_arme_specifique_eqp": {
+    "nom": "Degats arme specifique eqp",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Augmente degats arme specifique eqp",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_arme_specifique_eqp"
+    ]
+  },
+  "duree_competence_eqp": {
+    "nom": "Durée de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Augmente la durée des compétences",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "duree_competence"
+    ]
+  },
+  "degats_fusil_calibre_12_eqp": {
+    "nom": "Dégâts Calibre 12",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des armes de calibre 12",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_calibre_12"
+    ]
+  },
+  "degats_pm_eqp": {
+    "nom": "Dégâts PM",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des pistolets-mitrailleurs",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_pm"
+    ]
+  },
+  "degats_fusil_assaut_eqp": {
+    "nom": "Dégâts Fusil d'assaut",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des fusils d'assaut",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_fusil_assaut"
+    ]
+  },
+  "degats_fusil_mitrailleur_eqp": {
+    "nom": "Dégâts Fusil-mitrailleur",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des fusils-mitrailleurs",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_fusil_mitrailleur"
+    ]
+  },
+  "sante_competence_eqp": {
+    "nom": "Santé de compétence",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus à la santé des objets de compétence",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "santee_competence"
+    ]
+  },
+  "reparation_subies_eqp": {
+    "nom": "Réparations subies",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Augmente les réparations d'armure reçues",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "reparation_subies"
+    ]
+  },
+  "stabilite_eqp": {
+    "nom": "Stabilité",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Réduit le recul de l'arme",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "stabilite"
+    ]
+  },
+  "degats_sante_eqp": {
+    "nom": "Dégâts à la santé",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus de dégâts à la santé de l'ennemi",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_sante"
+    ]
+  },
+  "utilitaire": {
+    "nom": "Utilitaire",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Augmente utilitaire",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "utilitaire"
+    ]
+  },
+  "degats_de_fusil": {
+    "nom": "Dégâts Fusil",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des fusils",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_fusil"
     ]
   }
 }

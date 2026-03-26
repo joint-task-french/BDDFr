@@ -10,7 +10,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "effets_etats_eqp",
+          "slug": "effets_d_etat_eqp",
           "value": 15
         }
       ]
@@ -40,7 +40,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "capacite_munitions_eqp",
+          "slug": "munitions_eqp",
           "value": 30
         }
       ]
@@ -70,7 +70,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "recup_competence_eqp",
+          "slug": "recup_de_competence_eqp",
           "value": 15
         }
       ]
@@ -78,11 +78,11 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "degats_competence_eqp",
+          "slug": "degats_de_competence_eqp",
           "value": 15
         },
         {
-          "slug": "competences_reparation_eqp",
+          "slug": "competences_de_reparation_eqp",
           "value": 30
         }
       ]
@@ -116,7 +116,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "degats_headshot_eqp",
+          "slug": "degats_de_headshot_eqp",
           "value": 30
         }
       ]
@@ -168,7 +168,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "probabilite_coup_critique_eqp",
+          "slug": "probabilite_de_coup_critique_eqp",
           "value": 15
         }
       ]
@@ -176,7 +176,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "degats_coup_critique_eqp",
+          "slug": "degats_de_coup_critique_eqp",
           "value": 20
         }
       ]
@@ -198,7 +198,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "maniement_arme_eqp",
+          "slug": "maniement_d_arme_eqp",
           "value": 15
         }
       ]
@@ -206,7 +206,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "cadence_tir_eqp",
+          "slug": "cadence_de_tir_eqp",
           "value": 15
         }
       ]
@@ -228,7 +228,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "protection_pour_elimination_eqp",
+          "slug": "protection_pour_eliminations_eqp",
           "value": 15
         }
       ]
@@ -236,11 +236,11 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "resistance_desactivation_eqp",
+          "slug": "protection_contre_alterations_d_etat_eqp",
           "value": 40
         },
         {
-          "slug": "resistance_impulsion_eqp",
+          "slug": "protection_contre_alterations_d_etat_eqp",
           "value": 40
         }
       ]
@@ -262,7 +262,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "effets_etats_eqp",
+          "slug": "effets_d_etat_eqp",
           "value": 15
         }
       ]
@@ -270,11 +270,11 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "recup_competence_eqp",
+          "slug": "recup_de_competence_eqp",
           "value": 15
         },
         {
-          "slug": "resistance_alterations_etat_eqp",
+          "slug": "protection_contre_alterations_d_etat_eqp",
           "value": 30
         }
       ]
@@ -296,7 +296,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "protection_totale_eqp",
+          "slug": "protection",
           "value": 10
         }
       ]
@@ -304,7 +304,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "regeneration_protection_eqp",
+          "slug": "regeneration_de_protection_eqp",
           "value": 1
         },
         {
@@ -330,7 +330,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "competences_reparation_eqp",
+          "slug": "competences_de_reparation_eqp",
           "value": 15
         }
       ]
@@ -338,7 +338,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "recup_competence_eqp",
+          "slug": "recup_de_competence_eqp",
           "value": 15
         },
         {
@@ -376,11 +376,11 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "protection_pour_elimination_eqp",
+          "slug": "protection_pour_eliminations_eqp",
           "value": 20
         },
         {
-          "slug": "sante_pour_elimination_eqp",
+          "slug": "protection_pour_eliminations_eqp",
           "value": 50
         }
       ]
@@ -402,7 +402,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "recup_competence_eqp",
+          "slug": "recup_de_competence_eqp",
           "value": 15
         }
       ]
@@ -444,7 +444,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "maniement_arme_eqp",
+          "slug": "maniement_d_arme_eqp",
           "value": 15
         }
       ]
@@ -466,7 +466,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "probabilite_coup_critique_eqp",
+          "slug": "probabilite_de_coup_critique_eqp",
           "value": 15
         }
       ]
@@ -500,7 +500,7 @@
           "value": 30
         },
         {
-          "slug": "maniement_arme_eqp",
+          "slug": "maniement_d_arme_eqp",
           "value": 30
         }
       ]
@@ -508,7 +508,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "degats_headshot_eqp",
+          "slug": "degats_de_headshot_eqp",
           "value": 30
         }
       ]
@@ -530,7 +530,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "resistance_alterations_etat_eqp",
+          "slug": "protection_contre_alterations_d_etat_eqp",
           "value": 30
         }
       ]
@@ -538,7 +538,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "competences_reparation_eqp",
+          "slug": "competences_de_reparation_eqp",
           "value": 40
         }
       ]
@@ -560,7 +560,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "duree_de_brulure",
+          "slug": "effets_d_etat_eqp",
           "value": 20
         },
         {
@@ -572,7 +572,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "degats_brulure_eqp",
+          "slug": "effets_d_etat_eqp",
           "value": 40
         }
       ]
@@ -602,7 +602,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "protection_totale_eqp",
+          "slug": "protection",
           "value": 15
         }
       ]
@@ -637,11 +637,11 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "degats_headshot_eqp",
+          "slug": "degats_de_headshot_eqp",
           "value": 30
         },
         {
-          "slug": "maniement_arme_eqp",
+          "slug": "maniement_d_arme_eqp",
           "value": 15
         }
       ]
@@ -663,7 +663,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "maniement_arme_eqp",
+          "slug": "maniement_d_arme_eqp",
           "value": 15
         },
         {
@@ -697,7 +697,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "effets_etats_eqp",
+          "slug": "effets_d_etat_eqp",
           "value": 15
         }
       ]
@@ -705,7 +705,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "degats_competence_eqp",
+          "slug": "degats_de_competence_eqp",
           "value": 25
         }
       ]
@@ -727,7 +727,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "recup_competence_eqp",
+          "slug": "recup_de_competence_eqp",
           "value": 15
         }
       ]
@@ -735,11 +735,11 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "competences_reparation_eqp",
+          "slug": "competences_de_reparation_eqp",
           "value": 60
         },
         {
-          "slug": "resistance_explosion_eqp",
+          "slug": "resistance_explosions_eqp",
           "value": 40
         }
       ]
@@ -799,7 +799,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "maniement_arme_eqp",
+          "slug": "maniement_d_arme_eqp",
           "value": 30
         }
       ]
@@ -829,7 +829,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "degats_coup_critique_eqp",
+          "slug": "degats_de_coup_critique_eqp",
           "value": 13
         }
       ]
@@ -837,7 +837,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "probabilite_coup_critique_eqp",
+          "slug": "probabilite_de_coup_critique_eqp",
           "value": 8
         }
       ]
@@ -856,7 +856,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "probabilite_coup_critique_eqp",
+          "slug": "probabilite_de_coup_critique_eqp",
           "value": 8
         }
       ]
@@ -864,7 +864,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "degats_coup_critique_eqp",
+          "slug": "degats_de_coup_critique_eqp",
           "value": 13
         }
       ]
@@ -888,7 +888,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "precision_eqp",
+          "slug": "precision_arm_eqp",
           "value": 30
         }
       ]
@@ -896,7 +896,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "maniement_arme_eqp",
+          "slug": "maniement_d_arme_eqp",
           "value": 30
         }
       ]
@@ -928,7 +928,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "resistance_alterations_etat_eqp",
+          "slug": "protection_contre_alterations_d_etat_eqp",
           "value": 30
         }
       ]
@@ -960,7 +960,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "precision_eqp",
+          "slug": "precision_arm_eqp",
           "value": 50
         }
       ]
@@ -984,7 +984,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "maniement_arme_eqp",
+          "slug": "maniement_d_arme_eqp",
           "value": 15
         }
       ]
@@ -992,7 +992,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "capacite_munitions_eqp",
+          "slug": "munitions_eqp",
           "value": 50
         }
       ]
@@ -1008,7 +1008,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "degats_competence_eqp",
+          "slug": "degats_de_competence_eqp",
           "value": 8
         }
       ]
@@ -1016,7 +1016,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "effets_etats_eqp",
+          "slug": "effets_d_etat_eqp",
           "value": 18
         }
       ]
@@ -1040,7 +1040,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "competences_reparation_eqp",
+          "slug": "competences_de_reparation_eqp",
           "value": 18
         }
       ]
@@ -1056,7 +1056,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "recup_competence_eqp",
+          "slug": "recup_de_competence_eqp",
           "value": 30
         }
       ]
@@ -1080,7 +1080,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "resistance_explosion_eqp",
+          "slug": "resistance_explosions_eqp",
           "value": 25
         }
       ]
@@ -1088,7 +1088,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "competences_reparation_eqp",
+          "slug": "competences_de_reparation_eqp",
           "value": 40
         }
       ]
@@ -1104,7 +1104,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "protection_totale_eqp",
+          "slug": "protection",
           "value": 5
         }
       ]
@@ -1120,7 +1120,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "regeneration_protection_eqp",
+          "slug": "regeneration_de_protection_eqp",
           "value": 2
         }
       ]
@@ -1144,7 +1144,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "competences_reparation_eqp",
+          "slug": "competences_de_reparation_eqp",
           "value": 35
         }
       ]
@@ -1152,7 +1152,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "degats_competence_eqp",
+          "slug": "degats_de_competence_eqp",
           "value": 18
         }
       ]
@@ -1208,7 +1208,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "degats_headshot_eqp",
+          "slug": "degats_de_headshot_eqp",
           "value": 13
         }
       ]
@@ -1216,7 +1216,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "degats_armure_eqp",
+          "slug": "degats_aux_protections_eqp",
           "value": 5
         }
       ]
@@ -1232,7 +1232,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "degats_explosion_eqp",
+          "slug": "degats_de_competence_eqp",
           "value": 15
         }
       ]
@@ -1240,7 +1240,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "recup_competence_eqp",
+          "slug": "recup_de_competence_eqp",
           "value": 20
         }
       ]
@@ -1248,7 +1248,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "effets_etats_eqp",
+          "slug": "effets_d_etat_eqp",
           "value": 25
         }
       ]
@@ -1264,7 +1264,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "resistance_alterations_etat_eqp",
+          "slug": "protection_contre_alterations_d_etat_eqp",
           "value": 10
         }
       ]
@@ -1280,7 +1280,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "resistance_impulsion_eqp",
+          "slug": "protection_contre_alterations_d_etat_eqp",
           "value": 40
         }
       ]
@@ -1304,7 +1304,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "protection_totale_eqp",
+          "slug": "protection",
           "value": 5
         }
       ]
@@ -1312,7 +1312,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "protection_pour_elimination_eqp",
+          "slug": "protection_pour_eliminations_eqp",
           "value": 15
         }
       ]
@@ -1328,7 +1328,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "degats_coup_critique_eqp",
+          "slug": "degats_de_coup_critique_eqp",
           "value": 13
         }
       ]
@@ -1336,7 +1336,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "degats_explosion_eqp",
+          "slug": "degats_de_competence_eqp",
           "value": 20
         }
       ]
@@ -1344,7 +1344,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "degats_headshot_eqp",
+          "slug": "degats_de_headshot_eqp",
           "value": 13
         }
       ]
@@ -1360,7 +1360,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "recup_competence_eqp",
+          "slug": "recup_de_competence_eqp",
           "value": 10
         }
       ]
@@ -1368,7 +1368,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "degats_competence_eqp",
+          "slug": "degats_de_competence_eqp",
           "value": 10
         }
       ]
@@ -1392,7 +1392,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "effets_etats_eqp",
+          "slug": "effets_d_etat_eqp",
           "value": 10
         }
       ]
@@ -1400,7 +1400,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "regeneration_protection_eqp",
+          "slug": "regeneration_de_protection_eqp",
           "value": 1.5
         }
       ]
@@ -1408,7 +1408,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "protection_totale_eqp",
+          "slug": "protection",
           "value": 10
         }
       ]
@@ -1424,7 +1424,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "probabilite_coup_critique_eqp",
+          "slug": "probabilite_de_coup_critique_eqp",
           "value": 8
         }
       ]
@@ -1432,7 +1432,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "resistance_alterations_etat_eqp",
+          "slug": "protection_contre_alterations_d_etat_eqp",
           "value": 20
         }
       ]
@@ -1464,7 +1464,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "degats_armure_eqp",
+          "slug": "degats_aux_protections_eqp",
           "value": 5
         }
       ]
@@ -1488,7 +1488,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "regeneration_protection_eqp",
+          "slug": "regeneration_de_protection_eqp",
           "value": 1
         }
       ]
@@ -1496,7 +1496,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "protection_pour_elimination_eqp",
+          "slug": "protection_pour_eliminations_eqp",
           "value": 10
         }
       ]
@@ -1528,7 +1528,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "degats_competence_eqp",
+          "slug": "degats_de_competence_eqp",
           "value": 10
         }
       ]
@@ -1536,7 +1536,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "efficience_competence_eqp",
+          "slug": "degats_de_competence_eqp",
           "value": 8
         }
       ]
@@ -1552,7 +1552,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "protection_totale_eqp",
+          "slug": "protection",
           "value": 5
         }
       ]
@@ -1560,7 +1560,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "protection_pour_elimination_eqp",
+          "slug": "protection_pour_eliminations_eqp",
           "value": 10
         }
       ]
@@ -1568,7 +1568,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "resistance_alterations_etat_eqp",
+          "slug": "protection_contre_alterations_d_etat_eqp",
           "value": 30
         }
       ]
@@ -1584,7 +1584,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "recup_competence_eqp",
+          "slug": "recup_de_competence_eqp",
           "value": 10
         }
       ]
@@ -1616,7 +1616,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "degats_headshot_eqp",
+          "slug": "degats_de_headshot_eqp",
           "value": 13
         }
       ]
@@ -1632,7 +1632,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "effets_etats_eqp",
+          "slug": "effets_d_etat_eqp",
           "value": 25
         }
       ]
@@ -1648,7 +1648,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "effets_etats_eqp",
+          "slug": "effets_d_etat_eqp",
           "value": 10
         }
       ]
@@ -1656,7 +1656,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "resistance_electrocutions",
+          "slug": "protection_contre_alterations_d_etat_eqp",
           "value": 20
         }
       ]
@@ -1680,7 +1680,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "protection_pour_elimination_eqp",
+          "slug": "protection_pour_eliminations_eqp",
           "value": 10
         }
       ]
@@ -1728,7 +1728,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "maniement_arme_eqp",
+          "slug": "maniement_d_arme_eqp",
           "value": 30
         }
       ]
@@ -1776,7 +1776,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "cadence_tir_eqp",
+          "slug": "cadence_de_tir_eqp",
           "value": 5
         }
       ]
@@ -1808,7 +1808,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "precision_eqp",
+          "slug": "precision_arm_eqp",
           "value": 10
         }
       ]
@@ -1848,7 +1848,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "menace",
+          "slug": "menace_reduite_eqp",
           "value": 100
         }
       ]
@@ -1880,7 +1880,7 @@
     "bonus2pieces": {
       "attributs": [
         {
-          "slug": "efficience_competence_eqp",
+          "slug": "degats_de_competence_eqp",
           "value": 5
         }
       ]
@@ -1888,7 +1888,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "competence_de_reparation",
+          "slug": "competences_de_reparation_eqp",
           "value": 52
         }
       ]
@@ -1904,7 +1904,7 @@
     "bonus1piece": {
       "attributs": [
         {
-          "slug": "resistance_explosion_eqp",
+          "slug": "resistance_explosions_eqp",
           "value": 20
         }
       ]

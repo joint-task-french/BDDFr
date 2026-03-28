@@ -160,12 +160,11 @@
     ]
   },
   "abri_intelligent_lanceur_intelligent": {
-    "nom": "Lanceur d'abri intelligent",
+    "nom": "Lanceur d'abri intelligent amélioré",
     "competence": "abri_intelligent",
     "emplacement": "LANCEUR INTELLIGENT",
     "attributs": [
-      { "attribut": "duree_de_competence_mod" },
-      { "attribut": "competences_de_reparation_mod" }
+      { "attribut": "recharge_mod_comp" }
     ]
   }
 }

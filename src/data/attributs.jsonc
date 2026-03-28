@@ -1218,6 +1218,22 @@
       "duree_competence"
     ]
   },
+  "recharge_mod_comp": {
+    "nom": "Recharge",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+         ],
+    "unite": "%",
+    "min": 2,//TODO
+    "max": 5,//TODO
+    "description": "Réduit la durée de rechargement",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "temps_rechargement_comp"
+    ]
+  },
   "degats_corps_a_corps_mod": {
     "nom": "Dégâts Corps à corps",
     "categorie": "offensif",

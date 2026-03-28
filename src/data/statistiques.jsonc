@@ -167,6 +167,10 @@
     "nom": "Durée de compétence",
     "description": "Augmente la durée des compétences"
   },
+  "temps_rechargement_comp": {
+    "nom": "Temps de rechargement compétence",
+    "description": "Réduit le temps de rechargement de la compétence"
+  },
   "sante_pour_competence": {
     "nom": "Santé de compétence",
     "description": "Augmente la santé des objets de compétence"

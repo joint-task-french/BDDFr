@@ -730,7 +730,7 @@
     "estEssentiel": false,
     "selectionable": true,
     "statistiques": [
-      "protection_desactivation"
+      "resistance_desactivation"
     ]
   },
   "protection_impulsion_mod": {
@@ -746,7 +746,7 @@
     "estEssentiel": false,
     "selectionable": true,
     "statistiques": [
-      "protection_impulsion"
+      "resistance_impulsion"
     ]
   },
   "protection_entrave_mod": {
@@ -762,7 +762,7 @@
     "estEssentiel": false,
     "selectionable": true,
     "statistiques": [
-      "protection_entrave"
+      "resistance_entrave"
     ]
   },
   "reparation_subies_mod": {

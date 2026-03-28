@@ -262,11 +262,56 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Vous gagnez {bonus_dgt_crit} aux dégâts de coup critique toutes les {frequence} pendant que vous tirez.\nPeut se cumuler jusqu'à {cumul_max} fois.",
+        "base": "Vous gagnez +{bonus_dgt_crit}% aux dégâts de coup critique toutes les {frequence}s pendant que vous tirez.\nPeut se cumuler jusqu'à {cumul_max} fois.",
         "1": {
-          "bonus_dgt_crit": "+10%",
-          "frequence": "0.5s",
-          "cumul_max": "5"
+          "bonus_dgt_crit": 5,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "2": {
+          "bonus_dgt_crit": 10,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "3": {
+          "bonus_dgt_crit": 15,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "4": {
+          "bonus_dgt_crit": 20,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "5": {
+          "bonus_dgt_crit": 25,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "6": {
+          "bonus_dgt_crit": 30,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "7": {
+          "bonus_dgt_crit": 35,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "8": {
+          "bonus_dgt_crit": 40,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "9": {
+          "bonus_dgt_crit": 45,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "10": {
+          "bonus_dgt_crit": 50,
+          "frequence": 0.5,
+          "cumul_max": 5
         }
       }
     }
@@ -1107,11 +1152,56 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Confère {bonus_degats} de dégâts d'arme\naux prix de {malus_stabilite} de stabilité et de {malus_precision} de précision.",
+        "base": "Confère +{bonus_degats}% de dégâts d'arme\naux prix de -{malus_stabilite}% de stabilité et de -{malus_precision}% de précision.",
         "1": {
-          "bonus_degats": "+18%",
-          "malus_stabilite": "-25%",
-          "malus_precision": "-25%"
+          "bonus_degats": 18,
+          "malus_stabilite": 25,
+          "malus_precision": 25
+        },
+        "2": {
+          "bonus_degats": 36,
+          "malus_stabilite": 35,
+          "malus_precision": 35
+        },
+        "3": {
+          "bonus_degats": 54,
+          "malus_stabilite": 45,
+          "malus_precision": 45
+        },
+        "4": {
+          "bonus_degats": 72,
+          "malus_stabilite": 55,
+          "malus_precision": 55
+        },
+        "5": {
+          "bonus_degats": 90,
+          "malus_stabilite": 65,
+          "malus_precision": 65
+        },
+        "6": {
+          "bonus_degats": 108,
+          "malus_stabilite": 75,
+          "malus_precision": 75
+        },
+        "7": {
+          "bonus_degats": 126,
+          "malus_stabilite": 85,
+          "malus_precision": 85
+        },
+        "8": {
+          "bonus_degats": 144,
+          "malus_stabilite": 95,
+          "malus_precision": 95
+        },
+        "9": {
+          "bonus_degats": 162,
+          "malus_stabilite": 105,
+          "malus_precision": 105
+        },
+        "10": {
+          "bonus_degats": 180,
+          "malus_stabilite": 115,
+          "malus_precision": 115
         }
       }
     }
@@ -1153,11 +1243,46 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Fixer un ennemi qui n'est actuellement pas fixé confère {bonus_degats} aux dégâts des armes pendant {duree}.\nPeut se cumuler un maximum de {cumul_max} fois.",
+        "base": "Fixer un ennemi qui n'est actuellement pas fixé confère +{bonus_degats}% aux dégâts des armes pendant {duree}s.",
         "1": {
-          "bonus_degats": "+10%",
-          "duree": "12s",
-          "cumul_max": "4"
+          "bonus_degats": 15,
+          "duree": 15
+        },
+        "2": {
+          "bonus_degats": 20,
+          "duree": 15
+        },
+        "3": {
+          "bonus_degats": 25,
+          "duree": 15
+        },
+        "4": {
+          "bonus_degats": 30,
+          "duree": 15
+        },
+        "5": {
+          "bonus_degats": 35,
+          "duree": 15
+        },
+        "6": {
+          "bonus_degats": 40,
+          "duree": 15
+        },
+        "7": {
+          "bonus_degats": 45,
+          "duree": 15
+        },
+        "8": {
+          "bonus_degats": 50,
+          "duree": 15
+        },
+        "9": {
+          "bonus_degats": 55,
+          "duree": 15
+        },
+        "10": {
+          "bonus_degats": 60,
+          "duree": 15
         }
       }
     }

@@ -701,6 +701,70 @@
       "protection_alterations_etat"
     ]
   },
+  "protection_contre_electrocution_mod": {
+    "nom": "Protection contre l'électrocutions",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance électrique",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "protection_electrocution"
+    ]
+  },
+  "protection_contre_desactivation_mod": {
+    "nom": "Protection contre les désactivations",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance aux désactivations",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "protection_desactivation"
+    ]
+  },
+  "protection_impulsion_mod": {
+    "nom": "Protection contre l'impulsion",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance à l'impulsion",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "protection_impulsion"
+    ]
+  },
+  "protection_entrave_mod": {
+    "nom": "Protection contre l'entrave",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance à l'entrave",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "protection_entrave"
+    ]
+  },
   "reparation_subies_mod": {
     "nom": "Réparations subies",
     "categorie": "defensif",
@@ -709,7 +773,7 @@
     ],
     "unite": "%",
     "min": 1,
-    "max": 10, // TODO
+    "max": 20,
     "description": "Augmente les réparations d'armure reçues",
     "estEssentiel": false,
     "selectionable": true,
@@ -1111,9 +1175,9 @@
     "cible": [
       "mod_equipement"
     ],
-    "unite": "%",
-    "min": 1,
-    "max": 10,
+    "unite": " points",
+    "min": 10000,
+    "max": 20000,
     "description": "Apporte de la protection lors de l'éliminations d'un ennemi",
     "estEssentiel": false,
     "selectionable": false,

@@ -103,6 +103,22 @@
     "nom": "Protection contre altérations d'état",
     "description": "Réduit la durée des effets d'état subis"
   },
+  "protection_electrocution": {
+    "nom": "Protection contre les électrocutions",
+    "description": "Résistance aux électrocutions"
+  },
+  "resistance_desactivation": {
+    "nom": "Protection contre les désactivations",
+    "description": "Résistance aux désactivations"
+  },
+  "resistance_impulsion": {
+    "nom": "Protection contre l'impulsion",
+    "description": "Résistance à l'impulsion"
+  },
+  "resistance_entrave": {
+    "nom": "Protection contre l'entrave",
+    "description": "Résistance à l'entrave"
+  },
   "resistance_explosions": {
     "nom": "Résistance aux explosions",
     "description": "Réduit les dégâts subis par les explosions"

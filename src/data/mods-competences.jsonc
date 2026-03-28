@@ -113,23 +113,21 @@
       { "attribut": "duree_de_competence_mod" }
     ]
   },
-  "bouclier_circuit_imprime": {
-    "nom": "Circuit imprimé de bouclier",
+  "bouclier_sante_de_bouclier": {
+    "nom": "Lexique UHMPE intelligent",
     "competence": "bouclier",
     "emplacement": "CIRCUIT IMPRIMÉ",
     "attributs": [
-      { "attribut": "santee_de_competence_mod" },
-      { "attribut": "duree_de_competence_mod" }
+      { "attribut": "sante_de_bouclier_mod_comp" }
     ]
   },
-  "bouclier_incendiaire_revetement_dur": {
-    "nom": "Revêtement dur de bouclier (Incendiaire)",
+  "bouclier_incendiaire_sante_de_bouclier": {
+    "nom": "Châssis résistant aux chocs (Incendiaire)",
     "competence": "bouclier",
-    "emplacement": "REVÊTEMENT DUR",
+    "emplacement": "CIRCUIT IMPRIMÉ",
     "prerequis": "incendiaire",
     "attributs": [
-      { "attribut": "santee_de_competence_mod" },
-      { "attribut": "duree_de_competence_mod" }
+      { "attribut": "sante_de_bouclier_mod_comp_incendiaire" }
     ]
   },
   "piege_electronique": {
@@ -144,7 +142,7 @@
   "bombe_adhesive_lanceur_rayon_souffle": {
     "nom": "Charge adhésive améliorée",
     "competence": "bombe_adhesive",
-    "emplacement": "LANCEUR",
+    "emplacement": "CHARGE UTILE",
     "attributs": [
       { "attribut": "rayon_souffle_mod_comp" }
     ]
@@ -160,7 +158,7 @@
   "bombe_adhesive_lanceur_degats": {
     "nom": "Charge adhésive améliorée",
     "competence": "bombe_adhesive",
-    "emplacement": "LANCEUR",
+    "emplacement": "CHARGE UTILE",
     "attributs": [
       { "attribut": "degats_mod_comp" }
     ]
@@ -185,7 +183,7 @@
   "abri_intelligent_lanceur_protection_bonus": {
     "nom": "Éclat de placage réactif",
     "competence": "abri_intelligent",
-    "emplacement": "LANCEUR INTELLIGENT",
+    "emplacement": "PROJECTILE INTELLIGENT",
     "attributs": [
       { "attribut": "protection_bonus_mod_comp" }
     ]
@@ -193,7 +191,7 @@
   "abri_intelligent_lanceur_resistance_explo": {
     "nom": "Éclat de placage réactif",
     "competence": "abri_intelligent",
-    "emplacement": "LANCEUR INTELLIGENT",
+    "emplacement": "PROJECTILE INTELLIGENT",
     "attributs": [
       { "attribut": "resistance_explosions_mod_comp" }
     ]
@@ -201,7 +199,7 @@
   "abri_intelligent_lanceur_resistance_impulsion": {
     "nom": "Membrane de brouilleur de fréquences",
     "competence": "abri_intelligent",
-    "emplacement": "LANCEUR INTELLIGENT",
+    "emplacement": "PROJECTILE INTELLIGENT",
     "attributs": [
       { "attribut": "protection_impulsion_mod_comp" }
     ]
@@ -209,7 +207,7 @@
   "abri_intelligent_lanceur_maniement_arme": {
     "nom": "Noeud de relai balistique",
     "competence": "abri_intelligent",
-    "emplacement": "LANCEUR INTELLIGENT",
+    "emplacement": "PROJECTILE INTELLIGENT",
     "attributs": [
       { "attribut": "maniement_d_arme_mod_comp" }
     ]
@@ -225,7 +223,7 @@
   "abri_intelligent_lanceur_dcna": {
     "nom": "Noeud de relai balistique",
     "competence": "abri_intelligent",
-    "emplacement": "LANCEUR INTELLIGENT",
+    "emplacement": "PROJECTILE INTELLIGENT",
     "attributs": [
       { "attribut": "degats_cible_non_abritees_mod_comp" }
     ]

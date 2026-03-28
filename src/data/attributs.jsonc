@@ -1548,6 +1548,37 @@
       "santee_competence"
     ]
   },
+  "sante_de_bouclier_mod_comp_incendiaire": {
+    "nom": "Santé de bouclier",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "max": 8,
+    "description": "Augmente la santé du bouclier",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "sante_bouclier"
+    ]
+  },
+  "sante_de_bouclier_mod_comp": {
+    "nom": "Santé de bouclier",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente la santé du bouclier",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "sante_bouclier"
+    ]
+  },
   "reparation_subies_eqp": {
     "nom": "Réparations subies",
     "categorie": "defensif",

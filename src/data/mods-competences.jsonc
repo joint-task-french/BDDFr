@@ -141,13 +141,28 @@
       { "attribut": "recup_de_competence_mod" }
     ]
   },
-  "bombe_adhesive_lanceur": {
-    "nom": "Lanceur de bombe adhésive",
+  "bombe_adhesive_lanceur_rayon_souffle": {
+    "nom": "Charge adhésive améliorée",
     "competence": "bombe_adhesive",
     "emplacement": "LANCEUR",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "recup_de_competence_mod" }
+      { "attribut": "rayon_souffle_mod_comp" }
+    ]
+  },
+  "bombe_adhesive_lanceur_recup_de_competence": {
+    "nom": "Lanceur d'adhésif amélioré",
+    "competence": "bombe_adhesive",
+    "emplacement": "LANCEUR",
+    "attributs": [
+      { "attribut": "recup_de_competence_mod_comp" }
+    ]
+  },
+  "bombe_adhesive_lanceur_degats": {
+    "nom": "Charge adhésive améliorée",
+    "competence": "bombe_adhesive",
+    "emplacement": "LANCEUR",
+    "attributs": [
+      { "attribut": "degats_mod_comp" }
     ]
   },
   "leurre_logement": {

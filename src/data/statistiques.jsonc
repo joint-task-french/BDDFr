@@ -127,6 +127,10 @@
     "nom": "Rayon de compétence",
     "description": "Augmente le rayon de compétence"
   },
+  "rayon_de_souffle": {
+    "nom": "Rayon de souffle",
+    "description": "Augmente le rayon de souffle de la compétence"
+  },
   "protection_elite": {
     "nom": "Protection contre ennemi d'élite",
     "description": "Réduit les dégâts subis par les ennemis d'élite"

@@ -1009,6 +1009,22 @@
       "recup_competence"
     ]
   },
+  "recup_de_competence_mod_comp": {
+    "nom": "Récup de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Réduit le temps de recharge de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "recup_competence"
+    ]
+  },
   "sante_pour_competence_eqp": {
     "nom": "Santé pour compétence",
     "categorie": "utilitaire",
@@ -1185,6 +1201,22 @@
       "rayon"
     ]
   },
+  "rayon_souffle_mod_comp": {
+    "nom": "Rayon de souffle",
+    "categorie": "offensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente le rayon de souffle de la compétence.",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "rayon_de_souffle"
+    ]
+  },
   "degats_cible_non_abritees_mod_comp": {
     "nom": "Dégâts sur cibles non abritées",
     "categorie": "offensif",
@@ -1199,6 +1231,22 @@
     "selectionable": true,
     "statistiques": [
       "degats_cible_non_abritee"
+    ]
+  },
+  "degats_mod_comp": {
+    "nom": "Dégâts",
+    "categorie": "offensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
+    "description": "Augmente les dégâts de la compétence.",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_competence"
     ]
   },
   "degats_aux_protections_eqp": {

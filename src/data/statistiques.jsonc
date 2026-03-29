@@ -91,6 +91,14 @@
     "nom": "Santé de bouclier",
     "description": "Valeur totale de la santé de bouclier"
   },
+  "degats_du_deflecteur": {
+    "nom": "Dégâts du déflecteur",
+    "description": "Augmente les dégâts du déflecteur"
+  },
+  "bonus_de_degats": {
+    "nom": "Bonus de dégâts (par ennemi)",
+    "description": "Augmente les dégâts en fonction du nombre d'ennemi"
+  },
   "regeneration_protection": {
     "nom": "Régénération de protection",
     "description": "Régénération d'armure par seconde"
@@ -98,6 +106,14 @@
   "pourcentage_regeneration_protection": {
     "nom": "Régénération de protection",
     "description": "Régénération d'armure par seconde"
+  },
+  "regeneration_active": {
+    "nom": "Régénération active",
+    "description": "Régénération du bouclier lors de son déploiement"
+  },
+  "regeneration_en_etui": {
+    "nom": "Régénération en étui",
+    "description": "Régénération du bouclier lorsqu'il est rangé"
   },
   "protection_alterations_etat": {
     "nom": "Protection contre altérations d'état",

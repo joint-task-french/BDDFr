@@ -122,12 +122,69 @@
     ]
   },
   "bouclier_incendiaire_sante_de_bouclier": {
-    "nom": "Châssis résistant aux chocs (Incendiaire)",
+    "nom": "Châssis résistant aux chocs",
     "competence": "bouclier",
     "emplacement": "CIRCUIT IMPRIMÉ",
     "prerequis": "incendiaire",
     "attributs": [
-      { "attribut": "sante_de_bouclier_mod_comp_incendiaire" }
+      {
+        "attribut": "sante_de_bouclier_mod_comp",
+        "valeur": 8
+      }
+    ]
+  },
+  "bouclier_degats_du_deflecteur": {
+    "nom": "Matériau dérivé du ciment",
+    "competence": "bouclier",
+    "emplacement": "REVÊTEMENT DUR",
+    "attributs": [
+      { "attribut": "degat_du_deflecteur_mod_comp" }
+    ]
+  },
+  "bouclier_regeneration_active": {
+    "nom": "Renfort en titane",
+    "competence": "bouclier",
+    "emplacement": "REVÊTEMENT DUR",
+    "attributs": [
+      { "attribut": "regeneration_active_mod_comp" }
+    ]
+  },
+  "bouclier_incendiaire_regeneration_active": {
+    "nom": "Revêtement macromoléculaire",
+    "competence": "bouclier",
+    "emplacement": "REVÊTEMENT DUR",
+    "prerequis": "incendiaire",
+    "attributs": [
+      {
+        "attribut": "regeneration_active_mod_comp",
+        "valeur": 8
+      }
+    ]
+  },
+  "bouclier_regeneration_en_etui": {
+    "nom": "Élastomères diélectriques",
+    "competence": "bouclier",
+    "emplacement": "GYRO",
+    "attributs": [
+      { "attribut": "regeneration_en_etui_mod_comp" }
+    ]
+  },
+  "bouclier_bonus_de_degats_circuit": {
+    "nom": "Matériau magnétorestrictif",
+    "competence": "bouclier",
+    "emplacement": "CIRCUIT IMPRIMÉ",
+    "attributs": [
+      { "attribut": "bonus_de_degats_mod_comp",
+        "valeur": 1
+      }
+    ]
+  },
+  "bouclier_bonus_de_degats_gyro": {
+    "nom": "Fibre aramide tissée",
+    "competence": "bouclier",
+    "emplacement": "GYRO",
+    "attributs": [
+      { "attribut": "bonus_de_degats_mod_comp" }
     ]
   },
   "piege_electronique": {

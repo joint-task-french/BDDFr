@@ -132,7 +132,7 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {filtered.map(p => {
             const blocked = p.type === 'exotique' && !canExotic
             const borderClass = p.type === 'exotique' ? 'border-shd/60 bg-shd/5'
@@ -156,7 +156,7 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
                       <div className="text-xs text-blue-400 mt-1">{p.attributEssentiel.join(', ')}</div>
                   )}
                   {p.talents && p.talents.length > 0 && (
-                      <div className="text-xs text-shd/70 mt-1 line-clamp-2">🏅 {p.talents[0]}</div>
+                      <div className="text-xs text-shd/70 mt-1">🏅 {p.talents[0]}</div>
                   )}
                 </div>
             )

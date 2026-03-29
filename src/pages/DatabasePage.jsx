@@ -34,13 +34,13 @@ import {
   SKILL_SORT_OPTIONS, SKILL_DEFAULT_SORT, applySortSkills,
   DESCENTE_SORT_OPTIONS, DESCENTE_DEFAULT_SORT, applySortDescente
 } from '../config/filterConfigs'
+import ScrollToTopButton from '../components/common/ScrollToTopButton'
 
 const CATEGORIES = [
   { key: 'armes', label: 'Armes', icon: '🔫' },
   { key: 'equipements', label: 'Équipements', icon: '🛡️' },
   { key: 'ensembles', label: 'Ensembles', icon: '🔗' },
   { key: 'competences', label: 'Compétences', icon: '⚡' },
-  { key: 'attributs', label: 'Attributs', icon: '📊' },
   { key: 'talentsArmes', label: "Talents d'Armes", icon: '🎯' },
   { key: 'talentsEquipements', label: "Talents d'Équipements", icon: '🏅' },
   { key: 'talentsPrototypes', label: "Talents Prototypes", icon: '🧬' },
@@ -64,7 +64,7 @@ const SORT_CATEGORIES = {
   attributs:          { options: ATTRIBUT_SORT_OPTIONS, default: ATTRIBUT_DEFAULT_SORT, apply: applySortAttributs },
   talentsArmes:       { options: TALENT_ARME_SORT_OPTIONS, default: TALENT_ARME_DEFAULT_SORT, apply: applySortTalentsArmes },
   talentsEquipements: { options: TALENT_EQUIP_SORT_OPTIONS, default: TALENT_EQUIP_DEFAULT_SORT, apply: applySortTalentsEquip },
-  talentsPrototypes: { options: TALENT_PROTOTYPE_SORT_OPTIONS, default: TALENT_PROTOTYPE_DEFAULT_SORT, apply: applySortTalentsPrototypes },
+  talentsPrototypes:  { options: TALENT_PROTOTYPE_SORT_OPTIONS, default: TALENT_PROTOTYPE_DEFAULT_SORT, apply: applySortTalentsPrototypes },
   ensembles:          { options: ENSEMBLE_SORT_OPTIONS, default: ENSEMBLE_DEFAULT_SORT, apply: applySortEnsembles },
   competences:        { options: SKILL_SORT_OPTIONS, default: SKILL_DEFAULT_SORT, apply: applySortSkills },
   modsArmes:          { options: MOD_ARME_SORT_OPTIONS, default: MOD_ARME_DEFAULT_SORT, apply: applySortModsArmes },
@@ -241,11 +241,13 @@ export default function DatabasePage() {
     if (activeCategory === 'descente') {
       const wTalents = Object.values(data?.talentsArmes || {})
       const gTalents = Object.values(data?.talentsEquipements || {})
+      const aTalents = Object.values(data?.talentsAutres || {})
 
       const descentWeapons = wTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: true }))
       const descentGear = gTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: false }))
+      const descentAutres = aTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: false }))
 
-      items = [...descentWeapons, ...descentGear]
+      items = [...descentWeapons, ...descentGear, ...descentAutres]
     } else {
       const raw = data[activeCategory]
       items = (raw && !Array.isArray(raw)) ? Object.values(raw) : (raw || [])
@@ -396,6 +398,8 @@ export default function DatabasePage() {
             allData={data}
             isCompactMode={isCompactMode}
         />
+        {console.log('DatabasePage: rendu ScrollToTopButton')}
+        <ScrollToTopButton />
       </div>
   )
 }

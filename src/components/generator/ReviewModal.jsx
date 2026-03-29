@@ -121,7 +121,7 @@ function DiffCard({ item }) {
           {isNew ? '+ Nouveau' : '✎ Modifié'}
         </span>
           <span className="text-white font-bold">{item.name}</span>
-          <span className="ml-auto text-gray-500 font-mono text-[10px]">[{item.slug}]</span>
+          <span className="ml-auto text-gray-500 font-mono text-xs">[{item.slug}]</span>
         </div>
 
         {isNew ? (

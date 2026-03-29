@@ -28,7 +28,33 @@
         "type": "object",
         "required": ["date"],
         "properties": {
-          "date": { "type": "string", "description": "Date de la mise à jour (ex: Le 25/02/2026)" },
+          "date": {
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                "description": "Date de la mise à jour (YYYY-MM-DD)"
+              },
+              {
+                "type": "object",
+                "required": ["from", "to"],
+                "properties": {
+                  "from": {
+                    "type": "string",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                    "description": "Date de début (YYYY-MM-DD)"
+                  },
+                  "to": {
+                    "type": "string",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                    "description": "Date de fin (YYYY-MM-DD)"
+                  }
+                },
+                "additionalProperties": false,
+                "description": "Plage de dates de la mise à jour"
+              }
+            ]
+          },
           "patch": { "type": "string", "description": "Nom du patch associé (ex: TU22)" },
           "changements": {
             "type": "array",
@@ -41,7 +67,12 @@
                   "required": ["titre", "description"],
                   "properties": {
                     "titre": { "type": "string", "description": "Titre affiché quand l'élément est replié" },
-                    "description": { "type": "string", "description": "Contenu détaillé au format Markdown" }
+                    "description": {
+                      "oneOf": [
+                        { "type": "string", "description": "Contenu détaillé au format Markdown" },
+                        { "type": "array", "items": { "type": "string" }, "description": "Liste de chaînes à afficher sous forme de liste Markdown" }
+                      ]
+                    }
                   },
                   "additionalProperties": false
                 }

@@ -7,19 +7,15 @@
     "prepare": "git config core.hooksPath .githooks",
     "prebuild": "npm run prepare && npm run sync-data",
     "predev": "npm run prepare && npm run sync-data",
-
     "sync-data": "node scripts/sync-data.mjs",
     "generate-statics": "node scripts/generate-static-pages.mjs",
     "generate-statics-images": "node scripts/generate-static-pages-images.mjs",
-
     "validate-ensembles-pieces": "node scripts/validate/validate-ensembles-pieces.mjs",
     "validate-schemas": "node scripts/validate/validate-schemas.mjs",
     "validate-slugs": "node scripts/validate/validate-slugs.mjs",
     "validate-icons": "node scripts/validate/validate-icons.mjs",
-
     "validate": "npm run validate-schemas && npm run validate-slugs && npm run validate-ensembles-pieces ",
     "validate-all": "node scripts/validate/validate.mjs",
-
     "dev": "vite",
     "build": "vite build && npm run generate-statics",
     "buildWithImages": "vite build && npm run generate-statics-images",
@@ -27,21 +23,24 @@
     "previewUnbuild": "vite preview"
   },
   "dependencies": {
-    "framer-motion": "^12.35.0",
+    "framer-motion": "^12.38.0",
     "jszip": "^3.10.1",
-    "lucide-react": "^0.577.0",
-    "puppeteer": "^24.38.0",
+    "lucide-react": "^1.6.0",
+    "puppeteer": "^24.40.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-router-dom": "^7.13.1"
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.13.2",
+    "remark-breaks": "^4.0.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.2.1",
-    "@vitejs/plugin-react": "^5.1.4",
+    "@tailwindcss/vite": "^4.2.2",
+    "@vitejs/plugin-react": "^6.0.1",
     "ajv": "^8.18.0",
     "ajv-formats": "^3.0.1",
     "jsonc-parser": "^3.3.1",
-    "tailwindcss": "^4.2.1",
-    "vite": "^7.3.1"
+    "tailwindcss": "^4.2.2",
+    "vite": "^8.0.2"
   }
 }

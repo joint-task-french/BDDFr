@@ -3,6 +3,7 @@ import { useBuild } from '../../context/BuildContext'
 import { getGearSlotLabel } from '../../utils/formatters'
 import { getTalentEquipFilters, getTalentEquipDefaults, applyTalentEquipFilters } from '../../config/filterConfigs'
 import SelectionModal from '../common/SelectionModal'
+import MarkdownText from '../common/MarkdownText'
 import FilterPanel from '../database/FilterPanel'
 
 export default function GearTalentPicker({ data, slotKey, onClose }) {
@@ -21,7 +22,7 @@ export default function GearTalentPicker({ data, slotKey, onClose }) {
     if (!data.talentsEquipements) return []
     const list = Array.isArray(data.talentsEquipements) ? data.talentsEquipements : Object.values(data.talentsEquipements || {})
     return list.filter(t =>
-        t.emplacement === slotKey && !t.estExotique
+        t.emplacement === slotKey && !t.estExotique && !t.gear_set && !t.gearSet
     )
   }, [data.talentsEquipements, slotKey])
 
@@ -63,15 +64,15 @@ export default function GearTalentPicker({ data, slotKey, onClose }) {
                       {t.nom}
                     </div>
                     {isPerfect && (
-                        <span className="text-[10px] font-bold text-shd-dark bg-shd/20 px-1 py-0.5 rounded uppercase tracking-widest leading-none">
+                        <span className="text-xs font-bold text-shd-dark bg-shd/20 px-1 py-0.5 rounded uppercase tracking-widest leading-none">
                     ★ Parfait
                   </span>
                     )}
                   </div>
                   {isPerfect ? (
-                      <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t.perfectDescription}</div>
+                      <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">{t.perfectDescription}</MarkdownText>
                   ) : t.description ? (
-                      <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t.description}</div>
+                      <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">{t.description}</MarkdownText>
                   ) : null}
                   {t.prerequis && t.prerequis !== 'n/a' && (
                       <div className="text-xs text-yellow-500/60 mt-1">Requis : {t.prerequis}</div>

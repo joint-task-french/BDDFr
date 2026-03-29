@@ -41,7 +41,7 @@
             "type": "string",
             "enum": [
               "offensif",
-              "défensif",
+              "defensif",
               "utilitaire"
             ]
           }
@@ -49,23 +49,31 @@
         "attributs": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": [
-              "nom",
-              "valeur"
-            ],
-            "properties": {
-              "nom": {
-                "type": "string"
+            "anyOf": [
+              {
+                "type": "object",
+                "required": [
+                  "nom",
+                  "valeur"
+                ],
+                "properties": {
+                  "nom": {
+                    "type": "string"
+                  },
+                  "valeur": {
+                    "type": "number"
+                  },
+                  "prototypeValue": {
+                    "type": "number",
+                    "description": "Valeur de l'attribut sur cet équipement si prototype"
+                  }
+                }
               },
-              "valeur": {
-                "type": "number"
-              },
-              "prototypeValue": {
-                "type": "number",
-                "description": "Valeur de l'attribut sur cet équipement si prototype"
+              {
+                "type": "object",
+                "additionalProperties": false
               }
-            }
+            ]
           }
         },
         "talents": {

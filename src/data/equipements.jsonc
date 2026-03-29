@@ -40,15 +40,19 @@
     "emplacement": "gants",
     "marque": "5_11_tactical",
     "mod": false,
+    "obtention": {
+      "darkZone": true
+    },
     "estNomme": true,
     "attributEssentiel": [
-      "défensif"
+      "defensif"
     ],
     "attributs": [
       {
         "nom": "protection_pour_eliminations_eqp",
         "valeur": 10
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -94,6 +98,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "exemple_cristallin": {
+    "nom": "Exemple cristallin",
+    "description": "\"Seul le premier tir est propre. C'est tout ce qui vient après qui est moche\"",
+    "marque": "airaldi_holdings",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["mise_au_point"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_de_precision_persephone": {
     "nom": "Gants de précision Persephone",
     "marque": "airaldi_holdings",
@@ -135,6 +149,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "maintenance_percutante": {
+    "nom": "Maintenance percutante",
+    "description": "\"T'as essayé d'éteindre et de rallumer ?\"",
+    "marque": "alps_summit_armement",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["soutien_technique"],
+    "type": "standard",
+    "estNomme": true
+  },
   "cage_thoracique_x_treyme_pro": {
     "nom": "Cage thoracique X-TREYME Pro",
     "marque": "alps_summit_armement",
@@ -168,7 +192,8 @@
       {
         "nom": "sante_pour_competence_eqp",
         "valeur": 25
-      }
+      },
+      {}
     ]
   },
   "saccoche_de_jambe": {
@@ -213,6 +238,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "rien_a_f": {
+    "nom": "Rien à f*",
+    "description": "\"Si jamais je t'ai offensé, sache qu'au fond de mon coeur... J'en ai rien à foutre.\"",
+    "marque": "badger_tuff",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["incassable"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_de_longue_duree_meles": {
     "nom": "Gants de longue durée Meles",
     "marque": "badger_tuff",
@@ -237,13 +272,14 @@
     "mod": false,
     "estNomme": true,
     "attributEssentiel": [
-      "défensif"
+      "defensif"
     ],
     "attributs": [
       {
         "nom": "munitions_eqp",
         "valeur": 10
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -277,6 +313,9 @@
     "marque": "belstone_armory",
     "emplacement": "sac_a_dos",
     "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": ["sangsue"],
     "type": "standard",
     "estNomme": true
@@ -289,6 +328,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "transporteur": {
+    "nom": "Transporteur",
+    "description": "\"Mon fardeau quotidien ? Un blindage maximal. - Agent Sanders\"",
+    "marque": "belstone_armory",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["efficace"],
+    "type": "standard",
+    "estNomme": true
   },
   "ganst_vambrace": {
     "nom": "Ganst Vambrace",
@@ -331,6 +380,18 @@
     "type": "standard",
     "estNomme": false
   },
+  "hermano": {
+    "nom": "Hermano",
+    "emplacement": "sac_a_dos",
+    "marque": "brazos_de_arcabuz",
+    "mod": true,
+    "talents": ["overclock"],
+    "estNomme": true,
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "type": "standard"
+  },
   "feugo_campea": {
     "nom": "Feugo Campea",
     "marque": "brazos_de_arcabuz",
@@ -363,13 +424,14 @@
     "mod": false,
     "estNomme": true,
     "attributEssentiel": [
-      "défensif"
+      "defensif"
     ],
     "attributs": [
       {
         "nom": "degats_arme_eqp",
         "valeur": 10
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -406,6 +468,19 @@
     "type": "standard",
     "estNomme": false
   },
+  "devil_s_due": {
+    "nom": "Devil's Due",
+    "description": "\"Si tu sens la mort t'appeler essaie donc d'être précis car un tir bien ajusté te sauvera la vie. - Inscription dans le sac\"",
+    "marque": "ceska_vyroba_s_r_o",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": ["serrement"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_nbc": {
     "nom": "Gants NBC",
     "marque": "ceska_vyroba_s_r_o",
@@ -430,6 +505,19 @@
     "talents": [],
     "type": "standard"
   },
+  "tourmente": {
+    "nom": "Tourmente",
+    "description": "\"Ne dévoilez jamais votre prochain coup.\"",
+    "emplacement": "genouilleres",
+    "marque": "ceska_vyroba_s_r_o",
+    "mod": false,
+    "obtention": {
+      "description": "Événement limité"
+    },
+    "talents": ["perplexite"],
+    "estNomme": true,
+    "type": "standard"
+  },
   "mj_54": {
     "nom": "MJ 54",
     "marque": "china_light_industries_corporation",
@@ -446,6 +534,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "alignement_strategique": {
+    "nom": "Alignement stratégique",
+    "description": "\"Je sais que ça donne l'impression qu'on va tout détruire, mais ne vous inquiétez pas. Avec nous, y a pas de problème. Juste des accidents heureux.\"",
+    "marque": "china_light_industries_corporation",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["mechancete"],
+    "type": "standard",
+    "estNomme": true
   },
   "ps_282": {
     "nom": "PS 282",
@@ -502,7 +600,8 @@
       {
         "nom": "degats_de_headshot_eqp",
         "valeur": 20
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -565,6 +664,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "lavoisier": {
+    "nom": "Lavoisier",
+    "description": "\"La perfection à l'état pur, à condition de comprendre comment s'en servir. Anonyme\"",
+    "marque": "electrique",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["galvanisation"],
+    "type": "standard",
+    "estNomme": true
+  },
   "veste_electrique": {
     "nom": "Veste Electrique",
     "marque": "electrique",
@@ -574,6 +683,18 @@
     "type": "standard",
     "estNomme": false
   },
+
+"henri": {
+"nom": "Henri",
+"description": "\"Nous vivons ensemble, nous apprenons ensemble, nous mourons ensemble. Mais avant tout, nous nous rendons mutuellement plus fort. Anonyme\"",
+"marque": "electrique",
+"emplacement": "torse",
+"mod": true,
+"talents": ["compagnon"],
+"type": "standard",
+"estNomme": true
+},
+
   "gants_electrique": {
     "nom": "Gants Electrique",
     "marque": "electrique",
@@ -598,6 +719,16 @@
     "talents": [],
     "type": "standard"
   },
+  "canon_a_neige": {
+    "nom": "Canon à neige",
+    "description": "\"Comme nos amis australiens, si on veut de la neige à Noël, on doit la fabriquer nous-mêmes.\"",
+    "emplacement": "genouilleres",
+    "marque": "electrique",
+    "mod": false,
+    "talents": ["rafale"],
+    "estNomme": true,
+    "type": "standard"
+  },
   "respirateur_new_face": {
     "nom": "Respirateur \"New Face\"",
     "marque": "empress_international",
@@ -615,6 +746,15 @@
     "type": "standard",
     "estNomme": false
   },
+  "bloc_batterie": {
+    "nom": "Bloc Batterie",
+    "marque": "empress_international",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["calcule"],
+    "type": "standard",
+    "estNomme": true
+  },
   "protecteur_tendance": {
     "nom": "Protecteur tendance",
     "marque": "empress_international",
@@ -623,6 +763,15 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "protection_de_cesar": {
+    "nom": "Protection de César",
+    "marque": "empress_international",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["doue"],
+    "type": "standard",
+    "estNomme": true
   },
   "moufles_en_simili_cuir": {
     "nom": "Moufles en simili cuir",
@@ -674,6 +823,19 @@
     "type": "standard",
     "estNomme": false
   },
+  "calme_agressif": {
+    "nom": "Calme Agressif",
+    "description": "\"L'invention de l'arme à feu a entraîné une redéfinition du courage, qui n'était plus assimilé à un comportement de férocité agressive, mais aussi à la capacité à garder son calme sous le feu - Robert L O'Connell\"",
+    "marque": "fenris_group_ab",
+    "emplacement": "torse",
+    "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": ["observation"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_tassar": {
     "nom": "Gants Tassar",
     "marque": "fenris_group_ab",
@@ -714,7 +876,7 @@
     "mod": 2,
     "estNomme": true,
     "attributEssentiel": [
-      "défensif"
+      "defensif"
     ],
     "type": "standard"
   },
@@ -726,13 +888,14 @@
     "mod": true,
     "estNomme": true,
     "attributEssentiel": [
-      "défensif"
+      "defensif"
     ],
     "attributs": [
       {
         "nom": "recup_impulsion_scanner_eqp",
         "valeur": 100
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -753,6 +916,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "leader": {
+    "nom": "Leader",
+    "description": "\"Knuckles, Ron, avec moi. Duchesse, tu pars devant. Tiens. Prends ça. Ça pourrait te sauver la peau - James Dragov \"",
+    "marque": "gila_guard",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["avant_garde"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_diamondback": {
     "nom": "Gants Diamondback",
@@ -795,6 +968,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "chasseur_tueur": {
+    "nom": "Chasseur-tueur",
+    "description": "\"Les mecs sont sortis de nulle part. Armés jusqu'aux dents et prêts à tuer. Le problème, c'est que c'était nous leur cible. - Agent de la Division\"",
+    "marque": "golan_gear_ltd",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["intimidation"],
+    "type": "standard",
+    "estNomme": true
+  },
   "sac_a_dos_chemar": {
     "nom": "Sac à dos Chemar",
     "marque": "golan_gear_ltd",
@@ -802,6 +985,16 @@
     "mod": true,
     "talents": [],
     "type": "standard"
+  },
+  "livre_de_cuisine_de_l_anarchiste": {
+    "nom": "Livre de cuisine de l'anarchiste",
+    "description": "\"Conley, je crois que tu vas trouver des jouets qui te plairont, ici. Essaie juste de ne pas tout faire sauter en fouillant là-dedans. - Aaron Keener\"",
+    "marque": "golan_gear_ltd",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["mechancete"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_ayal": {
     "nom": "Gants Ayal",
@@ -844,6 +1037,19 @@
     "type": "standard",
     "estNomme": false
   },
+  "plastron_du_fantassin_zele": {
+    "nom": "Plastron du fantassin zélé",
+    "description": "\"Tu lâches ta mine et tu la laisses filer. Ne sois pas déstabilisé par la détonation. Tu dois te tenir prêt au choc. - Instructeur de la SHD\"",
+    "marque": "grupo_sombra_s_a",
+    "emplacement": "torse",
+    "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": ["etincelle"],
+    "type": "standard",
+    "estNomme": true
+  },
   "sac_a_dos_antumbra": {
     "nom": "Sac à dos Antumbra",
     "marque": "grupo_sombra_s_a",
@@ -851,6 +1057,16 @@
     "mod": true,
     "talents": [],
     "type": "standard"
+  },
+  "livraison_festive": {
+    "nom": "Livraison festive",
+    "description": "\"J'ai mon feu d'artifice, vous avez votre feu d'artifice. Tout le monde a son feu d'artifice !\"",
+    "marque": "grupo_sombra_s_a",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["spectacle_pyrotechnique"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_d_attaque_dusk": {
     "nom": "Gants d'attaque Dusk",
@@ -893,6 +1109,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "the_courier": {
+    "nom": "The Courier",
+    "description": "\"Pour que ton âme soit transportée au paradis. Le prêtre\"",
+    "marque": "hasburg_guard",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["mort_rampante"],
+    "type": "standard",
+    "estNomme": true
+  },
   "veste_hg": {
     "nom": "Veste HG",
     "marque": "hasburg_guard",
@@ -901,6 +1127,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "precieux": {
+    "nom": "Précieux",
+    "description": "\"Je t'offre ceci, pour protéger ton coeur sacré. Le prêtre\"",
+    "marque": "hasburg_guard",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["trauma"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_hg": {
     "nom": "Gants HG",
@@ -942,6 +1178,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "multiplicateur_de_force": {
+    "nom": "Multiplicateur de force",
+    "description": "\"Dans ce job, il faut penser en termes de multiplicateur de force. On n'a pas toujours de renforts, alors il faut faire avec ce qu'on a. - Instructeur de la SHD\"",
+    "marque": "hana_u_corporation",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["armement_combine"],
+    "type": "standard",
+    "estNomme": true
   },
   "gilet_pare_eclats": {
     "nom": "Gilet pare-éclats",
@@ -993,6 +1239,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "armature": {
+    "nom": "Armature",
+    "description": "\"Tuer, c'est difficile la première fois, mais ça devient de plus en plus facile avec la pratique. - Le Stratège\"",
+    "marque": "lengmo",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["force_irresistible"],
+    "type": "standard",
+    "estNomme": true
+  },
   "veste_langmo_bomb": {
     "nom": "Veste Langmo Bomb",
     "marque": "lengmo",
@@ -1001,6 +1257,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "artisan": {
+    "nom": "Artisan",
+    "description": "\"Ce que je casse ne se répare pas -Le Stratège\"",
+    "marque": "lengmo",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["exploseur"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_langmo": {
     "nom": "Gants Langmo",
@@ -1048,7 +1314,8 @@
       {
         "nom": "portee_optimale_eqp",
         "valeur": 50
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -1060,6 +1327,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "vigil": {
+    "nom": "Vigil",
+    "description": "\"Honneur à ceux qui sont tombés.\"",
+    "marque": "legatus_s_p_a",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["polyvalence"],
+    "type": "standard",
+    "estNomme": true
   },
   "veste_legatus_s_p_a": {
     "nom": "Veste Legatus S.p.A.",
@@ -1144,6 +1421,28 @@
     "talents": [],
     "type": "standard"
   },
+  "genouillere_imperiale": {
+    "nom": "Genouillères impériales",
+    "description": "\"À terre sept fois, relève-toi huit fois.\"",
+    "emplacement": "genouilleres",
+    "marque": "murakami_industries",
+    "mod": false,
+    "obtention": {
+      "darkZone": true
+    },
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "poucentage_regeneration_de_protection_eqp",
+        "valeur": 1
+      },
+      {}
+    ],
+    "type": "standard"
+  },
   "masque_de_protection_deadstick": {
     "nom": "Masque de protection \"Deadstick\"",
     "marque": "overlord_armaments",
@@ -1194,6 +1493,25 @@
     "talents": [],
     "type": "standard"
   },
+  "genouilleres_astucieuses": {
+    "nom": "Genouillères astucieuses",
+    "description": "\"Qui a déjà vu un athée compter sur autre chose que son matos ?\"",
+    "emplacement": "genouilleres",
+    "marque": "overlord_armaments",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_sur_cible_non_abritee_eqp",
+        "valeur": 8
+      },
+      {}
+    ],
+    "type": "standard"
+  },
   "masque_steelworks": {
     "nom": "Masque Steelworks",
     "marque": "palisade_steelworks",
@@ -1211,6 +1529,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "proxy": {
+    "nom": "Proxy",
+    "description": "\"Ennemi détecté. Ennemi éliminé. - Alexander Ortiz\"",
+    "marque": "palisade_steelworks",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["zone_de_defense"],
+    "type": "standard",
+    "estNomme": true
+  },
   "plastron_steelworks": {
     "nom": "Plastron Steelworks",
     "marque": "palisade_steelworks",
@@ -1219,6 +1547,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "combustor": {
+    "nom": "Combustor",
+    "description": "\"Mes agents ne se retrouvent jamais seuls sur le terrain. - Natalya Sokolova\"",
+    "marque": "palisade_steelworks",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["livraison_explosive"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_steelworks": {
     "nom": "Gants Steelworks",
@@ -1270,6 +1608,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "gilet_vedmedytsya": {
+    "nom": "Gilet Vedmedytsya",
+    "description": "\"Prépare-toi à résister aux flots tumultueux de l'Histoire.\"",
+    "marque": "petrov_defense_group",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["prepare"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_de_mercenaire": {
     "nom": "Gants de mercenaire",
     "description": "\"Personne ne m'a jamais résisté. Si on appuie assez fort au bon endroit, rien ne résiste.\"",
@@ -1284,7 +1632,8 @@
       {
         "nom": "degats_aux_protections_eqp",
         "valeur": 8
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -1328,6 +1677,19 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "le_don": {
+    "nom": "Le Don",
+    "description": "\"Ce n'est qu'après avoir tout donné que tu peux espérer recevoir en retour. Quand l'enveloppe est vide, l'âme est complète. - Inconnu\"",
+    "marque": "providence_defense",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": ["vigilance"],
+    "type": "standard",
+    "estNomme": true
   },
   "sacrifice": {
     "nom": "Sacrifice",
@@ -1429,7 +1791,8 @@
       {
         "nom": "sante_bouclier_eqp",
         "valeur": 50
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -1489,7 +1852,8 @@
       {
         "nom": "effets_d_etat_eqp",
         "valeur": 16
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -1526,6 +1890,15 @@
     "type": "standard",
     "estNomme": false
   },
+  "de_pres_ou_de_loin": {
+    "nom": "De près ou de loin",
+    "marque": "uzina_getica",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["opportuniste"],
+    "type": "standard",
+    "estNomme": true
+  },
   "protection_parascheva": {
     "nom": "Protection Parascheva",
     "marque": "uzina_getica",
@@ -1534,6 +1907,15 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "ampli_de_reperage": {
+    "nom": "Ampli de repérage",
+    "marque": "uzina_getica",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["observateur"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_theodora": {
     "nom": "Gants Theodora",
@@ -1576,6 +1958,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "matador": {
+    "nom": "Matador",
+    "description": "\"J'ai déjà dansé avec la mort, et ça m'a vite lassé. Je crois que je préfère quand les chances jouent avec moi.\"",
+    "marque": "walker_harris_co",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["poussee_d_adrenaline"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gilet_balistique": {
     "nom": "Gilet balistique",
     "marque": "walker_harris_co",
@@ -1584,6 +1976,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "tueur_a_la_chaine": {
+    "nom": "Tueur à la chaîne",
+    "description": "\"Quatre-vingt-dix-neuf canettes de bière sur le mur. Quatre-vingt-dix-neuf. J'en dégomme une, elle explose. Quatre-vingt-dix-huit canettes de bière sur le mur... - Sniper True Son qui s'ennuie\"",
+    "marque": "walker_harris_co",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["chasseur_de_tete"],
+    "type": "standard",
+    "estNomme": true
   },
   "gants_de_terrain_savanna": {
     "nom": "Gants de terrain Savanna",
@@ -1635,6 +2037,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "elan": {
+    "nom": "Élan",
+    "description": "\"Ne t'arrête pas.\"",
+    "marque": "wyvern_wear",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["dynamisation"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_digits": {
     "nom": "Gants \"Digits\"",
     "marque": "wyvern_wear",
@@ -1657,6 +2069,9 @@
     "emplacement": "holster",
     "marque": "wyvern_wear",
     "mod": false,
+    "obtention": {
+      "darkZone": true
+    },
     "estNomme": true,
     "attributEssentiel": [
       "utilitaire"
@@ -1665,7 +2080,12 @@
       {
         "nom": "degats_corps_a_corps_eqp",
         "valeur": 500
-      }
+      },
+      {
+        "nom": "degats_pistolet_eqp",
+        "valeur": 11
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -1691,15 +2111,19 @@
     "emplacement": "masque",
     "marque": "yaahl_gear",
     "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
     "estNomme": true,
     "attributEssentiel": [
-      "offensif"
+      "defensif"
     ],
     "attributs": [
       {
         "nom": "degats_a_la_sante_es",
         "valeur": 14
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -1770,6 +2194,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "bober": {
+    "nom": "Bober",
+    "description": "\"Ils ne m'auront jamais avec ce truc. - Diesel\"",
+    "marque": "zwiadowka_sp_z_o_o",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["retranchement"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_zwiadowka_sp_z_o_o": {
     "nom": "Gants Zwiadowka Sp. z o.o.",
     "marque": "zwiadowka_sp_z_o_o",
@@ -1792,7 +2226,8 @@
       {
         "nom": "maniement_d_arme_eqp",
         "valeur": 15
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -2364,6 +2799,16 @@
     "talents": [],
     "type": "standard"
   },
+  "egalisatrice": {
+    "nom": "Égalisatrice",
+    "description": "\"Construire pour mieux détruire\"",
+    "marque": "unit_alloys",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["obliteration"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_ininflammables": {
     "nom": "Gants ininflammables",
     "marque": "unit_alloys",
@@ -2378,6 +2823,25 @@
     "emplacement": "holster",
     "mod": false,
     "talents": [],
+    "type": "standard"
+  },
+  "salve": {
+    "nom": "Salve",
+    "description": "\"La vitesse de l'éclair !\"",
+    "emplacement": "holster",
+    "marque": "unit_alloys",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "cadence_de_tir_eqp",
+        "valeur": 5
+      },
+      {}
+    ],
     "type": "standard"
   },
   "genouilleres_sans_pareilles": {
@@ -2412,6 +2876,16 @@
     "talents": [],
     "type": "standard"
   },
+  "dexterite": {
+    "nom": "Dextérité",
+    "description": "\"Je me sens d'humeur généreuse.\"",
+    "marque": "urban_lookout",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["rechargement_protege"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_etanches": {
     "nom": "Gants étanches",
     "marque": "urban_lookout",
@@ -2442,7 +2916,8 @@
       {
         "nom": "precision_arm_eqp",
         "valeur": 38
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -2469,6 +2944,16 @@
     "mod": true,
     "talents": [],
     "type": "standard"
+  },
+  "cap_n": {
+    "nom": "Cap'n",
+    "description": "\"Derrière moi\"",
+    "marque": "imminence_armaments",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["leadership"],
+    "type": "standard",
+    "estNomme": true
   },
   "gilet_urban_assault": {
     "nom": "Gilet Urban Assault",
@@ -2502,6 +2987,25 @@
     "talents": [],
     "type": "standard"
   },
+  "cloak": {
+    "nom": "Cloak",
+    "description": "\"Pas de mouvements brusques.\"",
+    "emplacement": "genouilleres",
+    "marque": "imminence_armaments",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "menace_reduite_eqp",
+        "valeur": -50
+      },
+      {}
+    ],
+    "type": "standard"
+  },
   "masque_de_machiniste": {
     "nom": "Masque de machiniste",
     "marque": "shiny_monkey_gear",
@@ -2517,6 +3021,16 @@
     "mod": true,
     "talents": [],
     "type": "standard"
+  },
+  "axel": {
+    "nom": "Axel",
+    "description": "\"Je ne suis pas en danger. C'est toi qui es en danger\"",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["afflux_d_energie"],
+    "type": "standard",
+    "estNomme": true
   },
   "gilet_de_service": {
     "nom": "Gilet de service",
@@ -2548,6 +3062,25 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
+    "type": "standard"
+  },
+  "grease": {
+    "nom": "Grease",
+    "description": "\"Je ne suis pas en danger. C'est toi qui es en danger.\"",
+    "emplacement": "genouilleres",
+    "marque": "shiny_monkey_gear",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "effets_d_etat_eqp",
+        "valeur": 16
+      },
+      {}
+    ],
     "type": "standard"
   },
   "masque_de_discretion": {
@@ -3225,6 +3758,7 @@
   "catharsis": {
     "nom": "Catharsis",
     "emplacement": "masque",
+    "description": "\"L'ordre établi fait tout pour que la rage révolutionnaire soit redirigée vers des exutoires permettant de libérer une pression générée par des désirs qui pourraient devenir dangereux si on les laissait s'exprimer. - George L.Jackson\"",
     "mod": true,
     "obtention": {
       "butinCible": true,
@@ -3239,10 +3773,12 @@
   },
   "le_catalyseur": {
     "nom": "Le Catalyseur",
+    "description": "\"On est toujours en train d'être testés. La seule variable constante est le feu.\"",
     "emplacement": "masque",
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "mission": "Army Terminal"
+
     },
     "talents": [
       "agent_chimique"
@@ -3251,10 +3787,14 @@
   },
   "masque_de_coyote": {
     "nom": "Masque de Coyote",
+    "description": "\"Des balles, j'en ai bouffé un paquet. C'est pas les tiennes qui me feront tomber. - Coyote\"",
     "emplacement": "masque",
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "mission": true,
+      "represailles": "Hyènes, Escouade d'extermination"
     },
     "talents": [
       "instinct_de_meute"
@@ -3263,10 +3803,13 @@
   },
   "collector": {
     "nom": "Collector",
-    "emplacement": "sac_a_dos",
+    "description": "\"On va voir si la Division arrive à te recoudre, après ça ! - Le Stratège\"",
+    "emplacement": "torse",
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, Escouade d'extermination"
     },
     "talents": [
       "hoarder"
@@ -3275,28 +3818,45 @@
   },
   "memento": {
     "nom": "Memento",
-    "description": "\"J'ai pris la relève de ceux qui épiaient, chaissaient et récupéraient jusqu'à ce qu'il ne soient plus que des ombres.\nMa mission est maintenant terminée et la tienne peut commencer.\"\n- Inscription d'un auteur inconnu",
+    "description": "\"J'ai pris la relève de ceux qui épiaient, chassaient et récupéraient jusqu'à ce qu'il ne soient plus que des ombres.\nMa mission est maintenant terminée et la tienne peut commencer.\"\n- Inscription d'un auteur inconnu",
     "emplacement": "sac_a_dos",
     "attributEssentiel": [
       "offensif",
       "utilitaire",
-      "défensif"
+      "defensif"
     ],
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'armes Protection Tier de compétence"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, Escouade d'extermination"
     },
     "talents": [
       "elimination_confirmee"
     ],
     "type": "exotique"
   },
-  "pack_de_reparation_d_urgence_de_birdie": {
-    "nom": "Pack de réparation d'urgence de Birdie",
+  "fierte_harrier": {
+    "nom": "Fierté Harrier",
+    "description": "\"Les aigles en force !\"",
     "emplacement": "sac_a_dos",
     "mod": true,
     "obtention": {
-      "description": "Tier de compétence"
+      "butinCible": true,
+      "cachesExotiques": true
+    },
+    "talents": [
+      "reequilibre"
+    ],
+    "type": "exotique"
+  },
+  "pack_de_reparation_d_urgence_de_birdie": {
+    "nom": "Pack de réparation d'urgence de Birdie",
+    "description": "\"Relève-toi, on n'a plus de sacs mortuaires.\"",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "obtention": {
+     "mission": "Traque Fardeau de la vérité <Alani Kelso> Mission Roosevelt Island"
     },
     "talents": [
       "medecin_de_combat"
@@ -3305,10 +3865,13 @@
   },
   "sac_a_dos_de_survie_d_acosta": {
     "nom": "Sac à dos de survie d'Acosta",
+    "description": "\"On ne sait jamais de quoi on peut avoir besoin, alors mieux vaut se préparer à tout. - Eva Acosta, experte en spéléologie urbaine\"",
     "emplacement": "sac_a_dos",
     "mod": true,
     "obtention": {
-      "description": "Tier de compétence"
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Parias, Escouade D'extermination"
     },
     "talents": [
       "un_tiens_vaut_mieux",
@@ -3318,16 +3881,19 @@
   },
   "sac_ninja_bike": {
     "nom": "Sac Ninja Bike",
+    "description": "\"Il est ressuscité des profondeurs de l'enfer, comme s'il ne pouvait pas mourir. Le prêtre\"",
     "emplacement": "sac_a_dos",
     "marque": "*",
     "attributEssentiel": [
       "offensif",
       "utilitaire",
-      "défensif"
+      "defensif"
     ],
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'armes Protection Tier de compétence"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Rikers, Escouade D'extermination"
     },
     "talents": [
       "debrouillardise"
@@ -3337,9 +3903,11 @@
   "beacon": {
     "nom": "Beacon",
     "emplacement": "torse",
+    "description": "\"Avec moi.\"",
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "cachesExotiques": true,
+      "butinCible": true
     },
     "talents": [
       "lien"
@@ -3348,10 +3916,11 @@
   },
   "bricoleur": {
     "nom": "Bricoleur",
-    "emplacement": "torse",
+    "description": "\"Pourquoi pas les deux ?\"",
+    "emplacement": "masque",
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "mission": "Traque Crossroads <Le Directeur> Mission Potomac Event Center"
     },
     "talents": [
       "abrege"
@@ -3360,10 +3929,11 @@
   },
   "la_fierte_de_ridgeway": {
     "nom": "La fierté de Ridgeway",
+    "description": "\"La manière dont un homme saigne en dit long sur son compte. Moi ? Je saigne pour mon pays, et rien d'autre. - Général Antwon Ridgeway\"",
     "emplacement": "torse",
     "mod": true,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "mission": "Projet du Summit"
     },
     "talents": [
       "avantage_sanglant"
@@ -3372,22 +3942,26 @@
   },
   "provocateur": {
     "nom": "Provocateur",
+    "description": "\"On ne peut pas porter de rouge au combat. Un chevalier rouge n'a pas peur, il provoque l'ennemi. - Anonyme",
     "emplacement": "torse",
     "mod": true,
     "obtention": {
-      "description": "Protection"
+      "mission": "Traque Nuances de rouge <Théo Parnell> Mission Siège de l'administration spatiale"
     },
     "talents": [
-      "pretendant"
+      "challenger"
     ],
     "type": "exotique"
   },
   "systeme_de_protection_tardigrade": {
     "nom": "Système de protection Tardigrade",
+    "description": "\"Évolution de concept de blindage réactif, le nano-plaquage ablatif était à l'origine destiné aux boucliers thermiques autoréparants équipant les avions conçus pour entrer et sortir de l'atmosphère terrestre de façon répétée.",
     "emplacement": "torse",
     "mod": true,
     "obtention": {
-      "description": "Protection"
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "True Sons, fin de mission"
     },
     "talents": [
       "nano_plaquage_ablatif"
@@ -3396,10 +3970,13 @@
   },
   "vilenie": {
     "nom": "Vilenie",
-    "emplacement": "torse",
+    "description": "\"Tu t'accroches à la vie comme un ado rebelle qui brave le couvre-feu. Mais la mort est patiente...et moi aussi. - Dr Vilis, BTSU",
+    "emplacement": "masque",
     "mod": true,
     "obtention": {
-      "description": "Tier de compétence"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, fin de mission"
     },
     "talents": [
       "charge_toxique"
@@ -3408,10 +3985,13 @@
   },
   "conquerants": {
     "nom": "Conquérants",
+    "description": "\"Commence tout en bas et hisse-toi jusqu'au sommet",
     "emplacement": "gants",
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Hyènes, fin de mission"
     },
     "talents": [
       "maillon_faible"
@@ -3420,10 +4000,13 @@
   },
   "gants_exodus": {
     "nom": "Gants Exodus",
+    "description": "\"J'aimerais faire un retrait.",
     "emplacement": "gants",
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "True Sons, fin de mission"
     },
     "talents": [
       "ecran_de_fumee"
@@ -3432,10 +4015,13 @@
   },
   "gants_robustes": {
     "nom": "Gants robustes",
+    "description": "\"On ne peut pas dire que je l'ai inventé, mais j'ai donné un coup de main - Calvin McManus",
     "emplacement": "gants",
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, fin de mission"
     },
     "talents": [
       "poigne_de_fer"
@@ -3444,10 +4030,13 @@
   },
   "gants_strategiques_btsu": {
     "nom": "Gants Stratégiques BTSU",
+    "description": "\"Mon père m'a toujours dit que les bons ouvriers avaient de bons outils. C'est pour ça que j'ai choisi de rejoindre l'organisation qui avait les meilleurs outils. - Galveston",
     "emplacement": "gants",
     "mod": false,
     "obtention": {
-      "description": "Tier de compétence"
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "True Sons, fin de mission"
     },
     "talents": [
       "optimisation_de_transfert"
@@ -3456,10 +4045,13 @@
   },
   "poing_sanglant": {
     "nom": "Poing sanglant",
+    "description": "\"Une montre cassée donne l'heure deux fois par jour. 13" ,
     "emplacement": "gants",
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Rikers, Escouade D'extermination"
     },
     "talents": [
       "exuberant"
@@ -3468,10 +4060,13 @@
   },
   "dynastie_imperiale": {
     "nom": "Dynastie Impériale",
+    "description": "\"Les symboles sont importants. Regarde le phénix sur ta manche. Pour moi, le dragon a la même signification. - Faye Lau",
     "emplacement": "holster",
     "mod": false,
     "obtention": {
-      "description": "Tier de compétence"
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Nettoyeurs, Escouade D'extermination"
     },
     "talents": [
       "eclat_du_dragon"
@@ -3480,10 +4075,13 @@
   },
   "electrochoc": {
     "nom": "Éléctrochoc",
+    "description": "\"Après avoir reçu un coup de poing au centre commercial, j'ai eu une idée...choquante. Anonyme",
     "emplacement": "holster",
     "mod": false,
     "obtention": {
-      "description": "Protection"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True Sons, Escouade D'extermination"
     },
     "talents": [
       "defibrillateur"
@@ -3492,10 +4090,13 @@
   },
   "forme_d_onde": {
     "nom": "Forme d'onde",
+    "description": "\"Des couches de graphite ont été insérées dans le tissu kevlar du holster pour que les mouvements du porteur génèrent un champs électromagnétique oscillant inducteur permettant de recharger les dispositifs électriques distants.",
     "emplacement": "holster",
     "mod": false,
     "obtention": {
-      "description": "Protection"
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Parias, fin de mission"
     },
     "talents": [
       "courant_alternatif"
@@ -3503,11 +4104,14 @@
     "type": "exotique"
   },
   "fourreau_centurion": {
+    "description": "Il vaut mieux avoir plus qu'une arme dans son étui.",
     "nom": "Fourreau Centurion",
     "emplacement": "holster",
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'armes"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Hyènes, Escouade D'extermination"
     },
     "talents": [
       "contre"
@@ -3516,10 +4120,13 @@
   },
   "holster_d_agilite": {
     "nom": "Holster d'agilité",
+    "description": "Sauvez-vous !",
     "emplacement": "holster",
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'armes"
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Parias, fin de mission"
     },
     "talents": [
       "esquive_reparatrice"
@@ -3528,10 +4135,11 @@
   },
   "holster_du_cow_boy_de_dodge_city": {
     "nom": "Holster du cow-boy de Dodge City",
+    "description": "La rapidité c'est bien, mais la précision c'est tout ! Dans une fusillade...tu dois prendre ton temps dans l'urgence. - Wyatt Earp",
     "emplacement": "holster",
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'armes"
+      "mission": "Project donné par le vendeur de schéma"
     },
     "talents": [
       "gachette_facile"
@@ -3540,22 +4148,26 @@
   },
   "blacklisters": {
     "nom": "Blacklisters",
+    "description": "Abattez ce type spécifiquement.",
     "emplacement": "genouilleres",
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'arme"
+      "mission": "Traque Le pacte <Le sommet> Tidal Basin "
     },
     "talents": [
       "ostracisation"
     ],
     "type": "exotique"
   },
-  "genouillere_d_acosta": {
-    "nom": "Genouillère d'Acosta",
+  "genouilleres_d_acosta": {
+    "nom": "Genouillères d'Acosta",
+    "description": "Ils se sont fait choper par la JTF, mais ils n'ont pas ma maîtrise de dingo du parkour. - Eva Acosta",
     "emplacement": "genouilleres",
     "mod": false,
     "obtention": {
-      "description": "Protection"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, Escouade D'extermination"
     },
     "talents": [
       "plan_de_fuite"
@@ -3564,27 +4176,33 @@
   },
   "genouilleres_de_sawyer": {
     "nom": "Genouillères de Sawyer",
+    "description": "Quand j'ai perdu ma jambe, je me suis dit que c'était fini pour moi. Mais j'ai trouvé le moyen de me rendre utile. Telle le phénix, je me suis relevée de mes cendres. Maintenant, c'est à eux de retrouver une utilité. - Odessa Sawyer",
     "emplacement": "genouilleres",
     "mod": false,
     "obtention": {
-      "description": "Protection"
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Hyènes, Escouade D'extermination"
     },
     "talents": [
       "inflexibilite"
     ],
     "type": "exotique"
   },
-  "ninja_bike": {
-    "nom": "Ninja Bike",
+  "genouilleres_ninja_bike": {
+    "nom": "Genouillères de messager Ninja Bike",
+    "description": "\"Parkour ! Parkour !\"- Un messager NinjaBike enthousiaste",
     "emplacement": "genouilleres",
     "attributEssentiel": [
       "offensif",
-      "défensif",
+      "defensif",
       "utilitaire"
     ],
     "mod": false,
     "obtention": {
-      "description": "Dégâts d'armes"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Nettoyeurs, Escouade D'extermination"
     },
     "talents": [
       "parkour"

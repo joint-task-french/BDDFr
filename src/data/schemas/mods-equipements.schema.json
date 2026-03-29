@@ -30,8 +30,7 @@
           "items": {
             "type": "object",
             "required": [
-              "attribut",
-              "valeur"
+              "attribut"
             ],
             "properties": {
               "attribut": {

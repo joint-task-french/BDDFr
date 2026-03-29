@@ -75,11 +75,32 @@ export function formatModAttributs(mod, allAttributs, statistiques) {
       const statDef = !attrDef && statistiques ? ((!Array.isArray(statistiques)) ? statistiques[entry.attribut] : statistiques.find(s => s.slug === entry.attribut)) : null
       const name = attrDef?.nom || statDef?.nom || resolveModAttrName(entry.attribut, allAttributs, statistiques)
       const unite = attrDef?.unite || ''
-      const sign = entry.valeur >= 0 ? '+' : ''
-      if (unite === 'pts' || unite === 'pts/s') {
-        parts.push(`${sign}${entry.valeur} ${name}`)
+      if (entry.valeur != null) {
+        // Valeur fixe définie sur le mod
+        const sign = entry.valeur >= 0 ? '+' : ''
+        if (unite === 'pts' || unite === 'pts/s') {
+          parts.push(`${sign}${entry.valeur} de ${name}`)
+        } else {
+          parts.push(`${sign}${entry.valeur}${unite} de ${name}`)
+        }
+      } else if (attrDef && attrDef.min != null && attrDef.max != null) {
+        // Pas de valeur fixe → afficher la range min–max de l'attribut
+        if (unite === 'pts' || unite === 'pts/s') {
+          parts.push(`+${attrDef.min} à ${attrDef.max} de ${name}`)
+        } else {
+          parts.push(`+${attrDef.min} à ${attrDef.max}${unite} de ${name}`)
+        }
+      } else if (attrDef && attrDef.max != null) {
+        // Seulement un max connu
+        const sign = attrDef.max >= 0 ? '+' : ''
+        if (unite === 'pts' || unite === 'pts/s') {
+          parts.push(`${sign}${attrDef.max} de ${name}`)
+        } else {
+          parts.push(`${sign}${attrDef.max}${unite} de ${name}`)
+        }
       } else {
-        parts.push(`${sign}${entry.valeur}${unite} ${name}`)
+        // Aucune info de valeur
+        parts.push(name)
       }
     }
   }
@@ -87,28 +108,6 @@ export function formatModAttributs(mod, allAttributs, statistiques) {
     parts.push(mod.bonus)
   }
   return parts.join('\n')
-}
-
-/**
- * Formatte un objet bonus/malus legacy (rétrocompatibilité).
- * @deprecated Utiliser formatModAttributs à la place
- */
-export function formatModBonus(bonusOrMalus, allAttributs, isMalus = false) {
-  if (!bonusOrMalus) return ''
-  // Nouveau format: c'est un mod complet avec attributs[]
-  if (bonusOrMalus.attributs && Array.isArray(bonusOrMalus.attributs)) {
-    return formatModAttributs(bonusOrMalus, allAttributs)
-  }
-  // Texte libre
-  if (typeof bonusOrMalus === 'string') return bonusOrMalus
-  if (bonusOrMalus.description) return bonusOrMalus.description
-  // Legacy format: { attribut, valeur, unite }
-  const sign = isMalus ? '-' : '+'
-  const attrName = resolveModAttrName(bonusOrMalus.attribut, allAttributs)
-  const val = bonusOrMalus.valeur
-  const unite = bonusOrMalus.unite || ''
-  if (unite === 'pts') return `${sign}${val} ${attrName}`
-  return `${sign}${val}${unite} ${attrName}`
 }
 
 /**

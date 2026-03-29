@@ -1,10 +1,11 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { slugify } from '../../../utils/slugify.js';
+import MarkdownText from '../../common/MarkdownText'
 
-export default function DescentTalentCard({ item }) {
+export default function DescentTalentCard({ item, isStatic }) {
     const { nom, icon, descente, isWeaponTalent } = item;
-    const { boucles, categorie, levels } = descente;
+    const { boucles, categorie, levels, notes } = descente;
     const { category, slug, modifier } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
@@ -23,19 +24,24 @@ export default function DescentTalentCard({ item }) {
     });
 
     useEffect(() => {
-        if (isThisCardActive && modifier && availableLevels.includes(modifier)) {
+        if (isStatic) {
+            setSelectedLevel(availableLevels[0] || "1");
+        } else if (isThisCardActive && modifier && availableLevels.includes(modifier)) {
             setSelectedLevel(modifier);
         }
-    }, [isThisCardActive, modifier, availableLevels]);
+    }, [isThisCardActive, modifier, availableLevels, isStatic]);
 
     const handleLevelChange = (e) => {
         const newLevel = e.target.value;
         setSelectedLevel(newLevel);
+
+        if (isStatic) return;
+
         const currentCategory = category || 'descente';
         navigate(`/db/${currentCategory}/${itemSlug}/${newLevel}${location.search}`, { replace: true });
     };
 
-    const parsedDescription = useMemo(() => {
+    const parsedDescriptionMd = useMemo(() => {
         const baseText = levels.base;
         const currentLevelData = levels[selectedLevel];
 
@@ -43,14 +49,14 @@ export default function DescentTalentCard({ item }) {
 
         return baseText.replace(/\{([^}]+)\}/g, (match, variableName) => {
             return currentLevelData[variableName] !== undefined
-                ? `<strong class="text-shd font-bold">${currentLevelData[variableName]}</strong>`
+                ? `**${currentLevelData[variableName]}**`
                 : match;
         });
     }, [levels, selectedLevel]);
 
     const categoryStyle = {
         "offensif": "bg-red-500/10 text-red-400 border-red-500/20",
-        "défensif": "bg-blue-500/10 text-blue-400 border-blue-500/20",
+        "defensif": "bg-blue-500/10 text-blue-400 border-blue-500/20",
         "utilitaire": "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
         "exotique": "bg-orange-500/10 text-orange-400 border-orange-500/20"
     }[categorie] || "bg-gray-500/10 text-gray-400 border-gray-500/20";
@@ -75,13 +81,13 @@ export default function DescentTalentCard({ item }) {
                             <div className="font-bold text-sm uppercase tracking-wide text-gray-100">
                                 {nom}
                             </div>
-                            <div className={`inline-block px-1.5 py-0.5 mt-1 text-[10px] font-bold uppercase tracking-widest rounded border ${categoryStyle}`}>
+                            <div className={`inline-block px-1.5 py-0.5 mt-1 text-xs font-bold uppercase tracking-widest rounded border ${categoryStyle}`}>
                                 {categorie}
                             </div>
                         </div>
                     </div>
                     <div className="flex items-center gap-2 shrink-0">
-                        <label htmlFor={`level-select-${nom}`} className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                        <label htmlFor={`level-select-${nom}`} className="text-xs font-bold text-gray-500 uppercase tracking-widest">
                             Niv.
                         </label>
                         <select
@@ -99,26 +105,38 @@ export default function DescentTalentCard({ item }) {
 
                 </div>
             </div>
-            <div
-                className="px-4 py-3 text-xs text-gray-400 leading-relaxed whitespace-pre-line flex-1"
-                dangerouslySetInnerHTML={{ __html: parsedDescription }}
-            />
+            <MarkdownText
+                className="px-4 py-3 text-xs text-gray-400 leading-relaxed flex-1"
+            >
+                {parsedDescriptionMd}
+            </MarkdownText>
 
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10 mt-auto">
-                <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1.5">
+                <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1.5">
                     Boucles compatibles
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                     {boucles.map(boucle => (
                         <span
                             key={boucle}
-                            className="bg-tactical-bg border border-tactical-border text-gray-400 text-[10px] px-1.5 py-0.5 rounded font-bold uppercase tracking-widest"
+                            className="bg-tactical-bg border border-tactical-border text-gray-400 text-xs px-1.5 py-0.5 rounded font-bold uppercase tracking-widest"
                         >
               {boucle}
             </span>
                     ))}
                 </div>
             </div>
+
+            {notes && (
+                <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
+                    <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">
+                        Notes
+                    </div>
+                    <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
+                        {notes}
+                    </MarkdownText>
+                </div>
+            )}
 
         </div>
     );

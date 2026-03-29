@@ -38,9 +38,15 @@
             "masque",
             "holster",
             "gants",
-            "genouilleres"
+            "genouilleres",
+            "gear_set"
           ],
           "description": "Sur quel emplacement le talent peut être utilisé"
+        },
+        "gearSet": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Slug de l'ensemble (si talent de gear set)"
         },
         "perfectDescription": {
           "type": "string",
@@ -71,7 +77,11 @@
             },
             "categorie": {
               "type": "string",
-              "enum": ["offensif", "défensif", "utilitaire", "exotique"]
+              "enum": ["offensif", "defensif", "utilitaire", "exotique"]
+            },
+            "notes": {
+              "type": "string",
+              "description": "Notes spécifiques au mode Descente"
             },
             "levels": {
               "type": "object",

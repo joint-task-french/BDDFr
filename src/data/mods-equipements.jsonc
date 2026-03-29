@@ -5,8 +5,7 @@
     "nom": "PROTOCOLE UTILITAIRE : INTENSITÉ",
     "attributs": [
       {
-        "attribut": "duree_de_competence_eqp_mod",
-        "valeur": 10
+        "attribut": "duree_de_competence_mod"
       }
     ]
   },
@@ -15,8 +14,7 @@
     "nom": "PROTOCOLE UTILITAIRE : INTENSITÉ",
     "attributs": [
       {
-        "attribut": "recup_de_competence_eqp",
-        "valeur": 12
+        "attribut": "recup_de_competence_eqp"
       }
     ]
   },
@@ -25,8 +23,7 @@
     "nom": "PROTOCOLE UTILITAIRE : INTENSITÉ",
     "attributs": [
       {
-        "attribut": "competences_de_reparation_eqp",
-        "valeur": 20
+        "attribut": "competences_de_reparation_eqp"
       }
     ]
   },
@@ -35,8 +32,7 @@
     "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
     "attributs": [
       {
-        "attribut": "protection_contre_ennemi_elite_mod",
-        "valeur": 13
+        "attribut": "protection_contre_ennemi_elite_mod"
       }
     ]
   },
@@ -45,8 +41,7 @@
     "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
     "attributs": [
       {
-        "attribut": "protection_pour_elimination_mod",
-        "valeur": 18935
+        "attribut": "protection_pour_elimination_mod"
       }
     ]
   },
@@ -55,18 +50,52 @@
     "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
     "attributs": [
       {
-        "attribut": "reparation_subies_mod",
-        "valeur": 20
+        "attribut": "reparation_subies_mod"
       }
     ]
   },
-  "resistance_aux_effets_d_etat_saignements_electrocutions_brulures_aveug_assour_desactivation_desorientation_entrave_impulsion": {
+  "protection_contre_alterations_d_etat": {
     "categorie": "defensif",
-    "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
+    "nom": "PROTOCOLE DÉFENSIF : RÉSILIENCE",
     "attributs": [
       {
-        "attribut": "resistance_aux_effets_d_etat_saignements_electrocutions_brulures_aveug_assour_desactivation_desorientation_entrave_impulsion",
-        "valeur": 0
+        "attribut": "protection_contre_alterations_d_etat_mod"
+      }
+    ]
+  },
+  "protection_contre_electrocution": {
+    "categorie": "defensif",
+    "nom": "PROTOCOLE DÉFENSIF : RÉSILIENCE",
+    "attributs": [
+      {
+        "attribut": "protection_contre_electrocution_mod"
+      }
+    ]
+  },
+  "protection_contre_desactivation": {
+    "categorie": "defensif",
+    "nom": "PROTOCOLE DÉFENSIF : RÉSILIENCE",
+    "attributs": [
+      {
+        "attribut": "protection_contre_desactivation_mod"
+      }
+    ]
+  },
+  "protection_contre_impulsion": {
+    "categorie": "defensif",
+    "nom": "PROTOCOLE DÉFENSIF : RÉSILIENCE",
+    "attributs": [
+      {
+        "attribut": "protection_impulsion_mod"
+      }
+    ]
+  },
+  "protection_contre_entrave": {
+    "categorie": "defensif",
+    "nom": "PROTOCOLE DÉFENSIF : RÉSILIENCE",
+    "attributs": [
+      {
+        "attribut": "protection_entrave_mod"
       }
     ]
   },
@@ -75,8 +104,7 @@
     "nom": "SYSTÈME OFFENSIF : ARME À FEU",
     "attributs": [
       {
-        "attribut": "probabilite_de_coup_critique_eqp",
-        "valeur": 6
+        "attribut": "probabilite_de_coup_critique_eqp"
       }
     ]
   },
@@ -85,8 +113,7 @@
     "nom": "SYSTÈME OFFENSIF : ARME À FEU",
     "attributs": [
       {
-        "attribut": "degats_de_coup_critique_eqp",
-        "valeur": 12
+        "attribut": "degats_de_coup_critique_eqp"
       }
     ]
   },
@@ -95,8 +122,7 @@
     "nom": "SYSTÈME OFFENSIF : ARME À FEU",
     "attributs": [
       {
-        "attribut": "degats_de_headshot_eqp",
-        "valeur": 10
+        "attribut": "degats_de_headshot_eqp"
       }
     ]
   }

@@ -1,8 +1,56 @@
 {
     "synesthesie": {
         "nom": "Synesthésie",
-        "description": "Pourcentage de chances que chaque coup qui touche la cible reduise vos temps de recharge actifs de 0.2s.",
+        "description": "**2.5%** de chances que chaque coup qui touche la cible réduise vos temps de recharge actifs de **0.2s**.",
         "statMin": 2.5,
         "statMax": 5
+    },
+    "quantum": {
+        "nom": "Quantum",
+        "description": "**1%** de chances de bénéficier d'une immunité aux dégâts pendants **2s** lorsque vous subissez des dégâts.",
+        "statMin": 1,
+        "statMax": 5
+    },
+    "echo": {
+        "nom": "Echo",
+        "description": "**2.5%** de chances de dupliquer les dégâts de la dernière munition tirée.",
+        "statMin": 2.5,
+        "statMax": 5
+    },
+    "atomisation": {
+        "nom": "Atomisation",
+        "description": "Portée d'explosion accrue de **12.5%** pour tous les explosifs..",
+        "statMin": 12.5,
+        "statMax": 20
+    },
+    "amalgame": {
+        "nom": "Amalgame",
+        "description": "Les munitions ont **0.5%** de chances d'infliger un effet d'état aléatoire.",
+        "statMin": 0.5,
+        "statMax": 1.5
+    },
+    "piegeur": {
+        "nom": "Piégeur",
+        "description": "La durée des effets de contrôle de foule appliqués est augmentée de **4%**.",
+        "statMin": 4,
+        "statMax": 8
+    },
+    "entropie": {
+        "nom": "Entropie",
+        "description": "Convertit **5%** de la protection en santé; la protection bonus ne compte pas.",
+        "statMin": 5,
+        "statMax": 10
+    },
+    "anomalie": {
+        "nom": "Anomalie",
+        "description": "Soigne **2%** des dégâts infligés par les compétences.",
+        "statMin": 2,
+        "statMax": 8
+    },
+    "paradoxe": {
+        "nom": "Paradoxe",
+        "description": "**1.5%** de chances de remplir votre chargeur de **2** pour chaque munition tirée.",
+        "statMin": 1.5,
+        "statMax": 6
     }
 }

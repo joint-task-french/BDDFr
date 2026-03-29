@@ -8,6 +8,7 @@ import {
 } from '../config/generatorFields'
 import GeneratorForm from '../components/generator/GeneratorForm'
 import JsoncPreview from '../components/generator/JsoncPreview'
+import CardPreview from '../components/generator/CardPreview'
 import ReviewModal from '../components/generator/ReviewModal'
 import { slugify } from '../utils/slugify'
 import Loader from '../components/common/Loader'
@@ -36,6 +37,7 @@ export default function GeneratorPage() {
   const [editMode, setEditMode] = useState(null)
   const [toast, setToast] = useState(null)
   const [showReview, setShowReview] = useState(false)
+  const [viewMode, setViewMode] = useState('card') // 'card' | 'json'
   const editLoadedRef = useRef(false)
 
   const config = FIELDS[activeCategory]
@@ -330,14 +332,39 @@ export default function GeneratorPage() {
                       />
                       {editMode && <span className="text-xs text-yellow-500/60 ml-auto">🔒 Fixe</span>}
                     </div>
-                    {slugConflict && <p className="text-[10px] text-yellow-400">⚠ Conflit : correspond à « {slugConflict.nom} »</p>}
+                    {slugConflict && <p className="text-xs text-yellow-400">⚠ Conflit : correspond à « {slugConflict.nom} »</p>}
                   </div>
               )}
               <GeneratorForm fields={config.fields} data={data} onChange={handleChange} suggestions={suggestions} onIdentitySelect={handleIdentitySelect} />
             </div>
           </div>
-          <div className="space-y-4 max-h-[calc(100vh-200px)] overflow-y-auto">
-            <JsoncPreview data={cleanedData} comment={config?.comment || ''} label={FILE_MAP[activeCategory]} />
+          <div className="space-y-4 max-h-[calc(100vh-200px)] flex flex-col">
+            <div className="flex gap-2 mb-1 shrink-0">
+              <button onClick={() => setViewMode('card')}
+                      className={`flex-1 py-2 text-xs font-bold uppercase tracking-widest rounded border transition-all ${
+                          viewMode === 'card'
+                              ? 'bg-shd/20 border-shd text-shd'
+                              : 'bg-tactical-bg border-tactical-border text-gray-500 hover:text-gray-300'
+                      }`}>
+                🎴 Aperçu Carte
+              </button>
+              <button onClick={() => setViewMode('json')}
+                      className={`flex-1 py-2 text-xs font-bold uppercase tracking-widest rounded border transition-all ${
+                          viewMode === 'json'
+                              ? 'bg-shd/20 border-shd text-shd'
+                              : 'bg-tactical-bg border-tactical-border text-gray-500 hover:text-gray-300'
+                      }`}>
+                📄 Code JSONC
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto scrollbar-tactical">
+              {viewMode === 'card' ? (
+                  <CardPreview category={activeCategory} data={cleanedData} loadedData={loadedData} />
+              ) : (
+                  <JsoncPreview data={cleanedData} comment={config?.comment || ''} label={FILE_MAP[activeCategory]} />
+              )}
+            </div>
           </div>
         </div>
 

@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useBuild } from '../../context/BuildContext'
 import { formatModAttributs } from '../../utils/modCompatibility'
+import MarkdownText from '../common/MarkdownText'
 
 /**
  * Normalise un nom pour comparaison.
@@ -52,7 +53,7 @@ function getCompatibleSkillMods(competenceSlug, emplacement, modsCompetences, sp
 }
 
 export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences, allAttributs, statistiques, onSelect }) {
-  const { dispatch, skillNeedsSpec, specialisation, SPECIALISATIONS } = useBuild()
+  const { dispatch, skillNeedsSpec, specialisation, SPECIALISATIONS, modValues } = useBuild()
   const [modPickerOpen, setModPickerOpen] = useState(null) // emplacement index or null
 
   const remove = (e) => {
@@ -86,9 +87,9 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
               </div>
             )}
             {skill.statistiques && (
-              <div className="text-xs text-gray-400 mt-2 leading-relaxed whitespace-pre-line">
+              <MarkdownText className="text-xs text-gray-400 mt-2 leading-relaxed">
                 {skill.statistiques}
-              </div>
+              </MarkdownText>
             )}
             {skill.effetEtat && skill.effetEtat !== 'N/A' && (
               <div className="text-xs text-purple-400 mt-1">⚡ {skill.effetEtat}</div>
@@ -108,19 +109,47 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
                       <div className="flex items-center gap-1.5">
                         <span className="text-xs text-gray-600 uppercase shrink-0">{slot.emplacement}</span>
                         {equipped ? (
-                          <div className="flex items-center gap-1 flex-1 min-w-0">
-                            <span className="text-xs text-gray-300 truncate relative group/smod cursor-default">
-                              {equipped.nom || equipped.slug}
-                              {equipped.attributs && (
-                                <span className="absolute left-0 bottom-full mb-1 z-50 hidden group-hover/smod:block bg-tactical-panel border border-tactical-border rounded px-2 py-1.5 shadow-lg whitespace-nowrap pointer-events-none">
-                                  <span className="block text-xs text-green-400">{formatModAttributs(equipped, allAttributs, statistiques)}</span>
-                                </span>
-                              )}
-                            </span>
-                            <button
-                              onClick={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, mod: null }) }}
-                              className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
-                            >✕</button>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-1">
+                              <span className="text-xs text-gray-300 truncate relative group/smod cursor-default">
+                                {equipped.nom || equipped.slug}
+                                {equipped.attributs && (
+                                  <span className="absolute left-0 bottom-full mb-1 z-50 hidden group-hover/smod:block bg-tactical-panel border border-tactical-border rounded px-2 py-1.5 shadow-lg whitespace-nowrap pointer-events-none">
+                                    <span className="block text-xs text-green-400">{formatModAttributs(equipped, allAttributs, statistiques)}</span>
+                                  </span>
+                                )}
+                              </span>
+                              <button
+                                onClick={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, mod: null }) }}
+                                className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
+                              >✕</button>
+                            </div>
+                            {equipped.attributs && equipped.attributs.map((entry) => {
+                              if (entry.valeur != null) return null
+                              const attrDef = allAttributs?.[entry.attribut]
+                              if (!attrDef || attrDef.min == null || attrDef.max == null || attrDef.min === attrDef.max) return null
+                              const userVal = modValues?.skillMods?.[slotIndex]?.[entry.attribut]
+                              const val = userVal != null ? userVal : attrDef.max
+                              const unite = attrDef.unite || '%'
+                              const step = unite === 'pts' || unite === 'pts/s' ? 1 : 0.1
+                              return (
+                                <div key={entry.attribut} className="mt-1">
+                                  <div className="flex items-center justify-between text-xs">
+                                    <span className="text-gray-400 truncate">{attrDef.nom}</span>
+                                    <span className="text-green-400 font-bold shrink-0">{unite === 'pts' || unite === 'pts/s' ? val.toLocaleString('fr-FR') : val}{unite}</span>
+                                  </div>
+                                  <input
+                                    type="range"
+                                    min={attrDef.min}
+                                    max={attrDef.max}
+                                    step={step}
+                                    value={val}
+                                    onChange={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD_VALUE', slot: slotIndex, attrSlug: entry.attribut, valeur: parseFloat(e.target.value) }) }}
+                                    className="attr-slider mt-0.5"
+                                  />
+                                </div>
+                              )
+                            })}
                           </div>
                         ) : (
                           <button
@@ -221,7 +250,7 @@ function SkillModPicker({ competenceSlug, emplacement, modsCompetences, allAttri
               >
                 <div className="text-sm text-white group-hover:text-shd">{mod.nom || mod.slug}</div>
                 {statsText && <div className="text-xs text-green-400">{statsText}</div>}
-                {mod.bonus && <div className="text-xs text-gray-500">{mod.bonus}</div>}
+                {mod.bonus && <MarkdownText className="text-xs text-gray-500">{mod.bonus}</MarkdownText>}
               </button>
             )
           })}

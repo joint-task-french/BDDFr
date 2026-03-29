@@ -59,19 +59,20 @@ Un workflow GitHub est en place pour transformer automatiquement certaines issue
 
 ## 📜 Crédits
 
-Ce projet est maintenu par la communauté française de The Division 2. Un grand merci à tous les contributeurs : 
-- Raven
-- Major45-FR
-- marco888
-- Squal_fr
-- Franck-FR
-- Saiyanns
-- V0ldeen
-- Ben3and
-- Titi-FT-70
-- PP.1974-fr
-- Captain77
-- ocelus_ftnl
-- NicoLeFourbe
+Ce projet est maintenu par la communauté française de The Division 2. 
+
+Un grand merci à tous les contributeurs : 
+
+### Base de donnée original ([GDoc](https://docs.google.com/spreadsheets/d/e/2PACX-1vRE4UTNoEFXXhEcTc42rqHsXfJcU-KKGuklNXyjSEAkwlcjzw4qp4p1JTxa9O-yDitiPfnu1yBCxhID/pubhtml))
+|          |            |            |            |           |           |
+|:--------:|:----------:|:----------:|:----------:|:---------:|:---------:|
+|  Raven   | Major45-FR | Titi-FT-70 | PP.1974-fr | Squal_fr  | Franck-FR |
+| Saiyanns | Captain77  |  V0ldeen   |  Ben3and   | marco888  |           |
+
+### Contribution GitHub :
+|             |          |          |              |
+|:-----------:|:--------:|:--------:|:------------:|
+| ocelus_ftnl | marco888 | MastoroZ | NicoLeFourbe |
+
 
 ---

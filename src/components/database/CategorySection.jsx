@@ -6,11 +6,11 @@ import TalentPrototypeCard from './cards/TalentPrototypeCard'
 import EnsembleCard from './cards/EnsembleCard'
 import SkillCard from './cards/SkillCard'
 import ModArmeCard from './cards/ModArmeCard'
-import AttributCard from './cards/AttributCard'
 import ModCompetencesCard from "./cards/ModCompetencesCard.jsx";
 import ModEquipementCard from "./cards/ModEquipementCard.jsx";
 import DescentTalentCard from './cards/DescentTalentCard.jsx';
 import CompactListView from './CompactListView'
+import MarkdownText from '../common/MarkdownText'
 import {useLocation, useNavigate} from "react-router-dom";
 import {slugify} from "../../utils/slugify.js";
 
@@ -18,10 +18,9 @@ import {slugify} from "../../utils/slugify.js";
 const GRID_CONFIG = {
   armes:             'grid-cols-1 lg:grid-cols-2 3xl:grid-cols-3',
   equipements:       'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
-  attributs:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
-  talentsArmes:      'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
-  talentsEquipements:'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
-  talentsPrototypes: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
+  talentsArmes:      'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 3xl:grid-cols-3',
+  talentsEquipements:'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 3xl:grid-cols-3',
+  talentsPrototypes: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 3xl:grid-cols-3',
   ensembles:         'grid-cols-1 sm:grid-cols-2 3xl:grid-cols-3',
   competences:       'grid-cols-1 sm:grid-cols-2 3xl:grid-cols-3',
   modsArmes:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
@@ -34,7 +33,6 @@ const GRID_CONFIG = {
 const CARD_COMPONENTS = {
   armes: WeaponCard,
   equipements: GearCard,
-  attributs: AttributCard,
   talentsArmes: TalentArmeCard,
   talentsEquipements: TalentEquipCard,
   talentsPrototypes: TalentPrototypeCard,
@@ -46,7 +44,6 @@ const CARD_COMPONENTS = {
   descente: DescentTalentCard
 }
 
-// ... Le reste du fichier CategorySection.jsx reste exactement identique ...
 
 // Fallback card générique pour mods équipement / compétences
 function GenericCard({ item }) {
@@ -59,7 +56,7 @@ function GenericCard({ item }) {
         return (
           <div key={key} className="flex items-start gap-2 text-xs">
             <span className="text-gray-500 font-bold uppercase tracking-widest text-xs shrink-0">{key}</span>
-            <span className="text-gray-300">{display}</span>
+            <MarkdownText className="text-gray-300">{display}</MarkdownText>
           </div>
         )
       })}
@@ -108,14 +105,19 @@ export default function CategorySection({ category, items, searchTerm, allData, 
   if (category?.key === 'ensembles') {
     if (allData?.talentsEquipements) extraProps.talentsEquipements = allData.talentsEquipements
     if (allData?.statistiques) extraProps.statistiques = allData.statistiques
+    if (allData?.attributs) extraProps.allAttributs = allData.attributs
   }
   if (category?.key === 'modsArmes') {
     if (allData?.attributs) extraProps.allAttributs = allData.attributs
     if (allData?.modsArmesType) extraProps.modsArmesType = allData.modsArmesType
   }
+  if (category?.key === 'modsEquipements') {
+    if (allData?.attributs) extraProps.allAttributs = allData.attributs
+  }
   if (category?.key === 'modsCompetences') {
     if (allData?.competencesGrouped) extraProps.competencesGrouped = allData.competencesGrouped
     if (allData?.attributs) extraProps.allAttributs = allData.attributs
+    if (allData?.classSpe) extraProps.classSpe = allData.classSpe
   }
 
   const navigate = useNavigate();

@@ -86,7 +86,7 @@ const RELATIONS = [
         name: "Équipements -> Marques / Gear Sets",
         sourceFile: 'ensembles.jsonc',
         targetFile: 'equipements.jsonc',
-        targetKey: 'marque' // ⚠️ Attention au slug "*" (voir note plus bas)
+        targetKey: 'marque' // ⚠️ Attention au slug "*"
     },
     {
         name: "Équipements -> Talents d'équipements",
@@ -99,6 +99,12 @@ const RELATIONS = [
         sourceFile: 'attributs.jsonc',
         targetFile: 'equipements.jsonc',
         targetKey: 'attributs'
+    },
+    {
+        name: "Équipements -> Type d'attribut Essentiel",
+        sourceFile: 'attributs-type.jsonc',
+        targetFile: 'equipements.jsonc',
+        targetKey: 'attributEssentiel'
     },
 
     // ==========================================
@@ -138,13 +144,37 @@ const RELATIONS = [
     },
 
     // ==========================================
-    // 🛠️ MODS
+    // 🛠️ MODS & COMPÉTENCES
     // ==========================================
     {
         name: "Mods d'armes (Compatibilité) -> Types de mods",
         sourceFile: 'mods-armes-type.jsonc',
         targetFile: 'mods-armes.jsonc',
         targetKey: 'compatible'
+    },
+    {
+        name: "Mods d'armes -> Attributs",
+        sourceFile: 'attributs.jsonc',
+        targetFile: 'mods-armes.jsonc',
+        targetKey: 'attribut'
+    },
+    {
+        name: "Mods d'équipements -> Catégorie (Type d'attribut)",
+        sourceFile: 'attributs-type.jsonc',
+        targetFile: 'mods-equipements.jsonc',
+        targetKey: 'categorie'
+    },
+    {
+        name: "Mods d'équipements -> Attributs",
+        sourceFile: 'attributs.jsonc',
+        targetFile: 'mods-equipements.jsonc',
+        targetKey: 'attribut'
+    },
+    {
+        name: "Mods de compétences -> Attributs",
+        sourceFile: 'attributs.jsonc',
+        targetFile: 'mods-competences.jsonc',
+        targetKey: 'attribut'
     }
 ]
 

@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
 import SelectionModal from '../common/SelectionModal'
+import MarkdownText from '../common/MarkdownText'
 
 export default function PrototypeTalentPicker({ data, slotKey, onClose }) {
   const { dispatch } = useBuild()
@@ -40,16 +41,16 @@ export default function PrototypeTalentPicker({ data, slotKey, onClose }) {
                   <div className="font-bold text-cyan-400 text-sm uppercase tracking-wide group-hover:text-cyan-300 transition-colors">
                     {t.nom}
                   </div>
-                  <div className="flex items-center gap-1 text-[10px] font-mono text-cyan-500/70">
+                  <div className="flex items-center gap-1 text-xs font-mono text-cyan-500/70">
                     <span>{t.statMin}</span>
                     <span>→</span>
                     <span>{t.statMax}</span>
                   </div>
                 </div>
                 {t.description && (
-                  <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">
+                  <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">
                     {t.description}
-                  </div>
+                  </MarkdownText>
                 )}
               </div>
           ))}

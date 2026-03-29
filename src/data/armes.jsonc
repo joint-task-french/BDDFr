@@ -3046,72 +3046,75 @@
     }
   },
   "mp5a2": {
-    "nom": "MP5A2",//TODO
+    "nom": "MP5A2",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 21,
     "rpm": 800,
     "chargeur": 30,
-    "rechargement": 2.03,
+    "rechargement": 1.79,
     "headshot": 50,
-    "degatsBase": 53893,
+    "degatsBase": 53900,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_9mm"
     }
   },
   "mp5_n": {
-    "nom": "MP5-N",//TODO
+    "nom": "MP5-N",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 21,
     "rpm": 800,
     "chargeur": 30,
-    "rechargement": 2.03,
+    "rechargement": 1.79,
     "headshot": 50,
-    "degatsBase": 53893,
+    "degatsBase": 53900,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_9mm"
     }
   },
   "mp5_st": {
-    "nom": "MP5 ST",//TODO
+    "nom": "MP5 ST",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 21,
     "rpm": 800,
     "chargeur": 30,
-    "rechargement": 2.03,
+    "rechargement": 1.79,
     "headshot": 50,
-    "degatsBase": 53893,
+    "degatsBase": 53900,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_9mm"
     }
   },
   "cabaret": {
-    "nom": "CABARET",//TODO
+    "nom": "Cabaret",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 21,
     "rpm": 800,
     "chargeur": 30,
-    "rechargement": 2.03,
+    "rechargement": 1.79,
     "headshot": 50,
-    "degatsBase": 53893,
+    "degatsBase": 53900,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
@@ -3122,34 +3125,33 @@
     }
   },
   "pp_19": {
-    "nom": "PP-19",//TODO
+    "nom": "PP-19",
     "type": "pistolet_mitrailleur",
     "fabricant": "IZHMASH",
     "portee": 21,
     "rpm": 700,
     "chargeur": 53,
-    "rechargement": 2.1,
+    "rechargement": 1.46,
     "headshot": 50,
-    "degatsBase": 63579,
+    "degatsBase": 63600,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "bouche": "bouche"
     }
   },
   "pp_19_ameliore": {
-    "nom": "PP-19 AMÉLIORÉ",//TODO
+    "nom": "PP-19 amélioré",
     "type": "pistolet_mitrailleur",
     "fabricant": "IZHMASH",
     "portee": 21,
     "rpm": 700,
     "chargeur": 53,
-    "rechargement": 2.1,
+    "rechargement": 1.46,
     "headshot": 50,
-    "degatsBase": 63579,
+    "degatsBase": 63600,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -3160,18 +3162,20 @@
     }
   },
   "coup_de_froid": {
-    "nom": "COUP DE FROID",//TODO
+    "nom": "Coup de froid",
     "type": "pistolet_mitrailleur",
     "fabricant": "IZHMASH",
     "portee": 21,
     "rpm": 700,
     "chargeur": 53,
-    "rechargement": 2.1,
+    "rechargement": 1.46,
     "headshot": 50,
-    "degatsBase": 63579,
+    "degatsBase": 63600,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "contrainte"
+    ],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3179,15 +3183,15 @@
     }
   },
   "aug_a3_para_xs": {
-    "nom": "AUG A3 PARA XS",//TODO
+    "nom": "AUG A3 Para XS",
     "type": "pistolet_mitrailleur",
     "fabricant": "STEYR",
     "portee": 22,
     "rpm": 725,
     "chargeur": 25,
-    "rechargement": 2.43,
+    "rechargement": 2.31,
     "headshot": 50,
-    "degatsBase": 58651,
+    "degatsBase": 58700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -3198,15 +3202,15 @@
     }
   },
   "aug_a3_ameliore": {
-    "nom": "AUG A3 AMÉLIORÉ",//TODO
+    "nom": "AUG A3 amélioré",
     "type": "pistolet_mitrailleur",
     "fabricant": "STEYR",
     "portee": 22,
     "rpm": 725,
     "chargeur": 25,
-    "rechargement": 2.43,
+    "rechargement": 2.31,
     "headshot": 50,
-    "degatsBase": 58651,
+    "degatsBase": 58700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -3217,15 +3221,15 @@
     }
   },
   "aug_a3_tactique": {
-    "nom": "AUG A3 TACTIQUE",//TODO
+    "nom": "AUG A3 tactique",
     "type": "pistolet_mitrailleur",
     "fabricant": "STEYR",
     "portee": 22,
     "rpm": 725,
     "chargeur": 25,
-    "rechargement": 2.43,
+    "rechargement": 2.31,
     "headshot": 50,
-    "degatsBase": 58651,
+    "degatsBase": 58700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -3236,45 +3240,47 @@
     }
   },
   "vector_sbr_9_mm_tactique": {
-    "nom": "VECTOR SBR 9 MM TACTIQUE ",//TODO
+    "nom": "Vector SBR 9 mm tactique",
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
     "portee": 15,
     "rpm": 1200,
     "chargeur": 19,
-    "rechargement": 1.7,
+    "rechargement": 1.69,
     "headshot": 50,
-    "degatsBase": 40496,
+    "degatsBase": 40500,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
     }
   },
   "vector_sbr_9mm": {
-    "nom": "VECTOR SBR 9MM",//TODO
+    "nom": "Vector SBR 9 mm",
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
     "portee": 15,
     "rpm": 1200,
     "chargeur": 33,
-    "rechargement": 2.46,
+    "rechargement": 2.38,
     "headshot": 50,
-    "degatsBase": 39301,
+    "degatsBase": 39300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
     }
   },
   "vector_45_acp": {
-    "nom": "VECTOR .45 ACP",//TODO
+    "nom": "Vector .45 ACP",
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
     "portee": 15,
@@ -3282,18 +3288,19 @@
     "chargeur": 25,
     "rechargement": 2.06,
     "headshot": 50,
-    "degatsBase": 38295,
+    "degatsBase": 38300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche"
     }
   },
   "hiver_funeste": {
-    "nom": "HIVER FUNESTE",//TODO
+    "nom": "Hiver funeste",
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
     "portee": 15,
@@ -3301,338 +3308,323 @@
     "chargeur": 25,
     "rechargement": 2.06,
     "headshot": 50,
-    "degatsBase": 38295,
+    "degatsBase": 38300,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "tueur"
+    ],
     "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "chargeur": "chargeur_45_acp",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_45_acp"
     }
   },
   "mp7": {
-    "nom": "MP7",//TODO
+    "nom": "MP7",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 21,
     "rpm": 950,
     "chargeur": 40,
-    "rechargement": 1.91,
+    "rechargement": 1.60,
     "headshot": 50,
-    "degatsBase": 46395,
+    "degatsBase": 46400,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_45_acp"
     }
   },
   "echangeur": {
-    "nom": "ÉCHANGEUR",//TODO
+    "nom": "Échangeur",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 21,
     "rpm": 950,
     "chargeur": 40,
-    "rechargement": 1.91,
+    "rechargement": 1.60,
     "headshot": 50,
-    "degatsBase": 46395,
+    "degatsBase": 46400,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "indefectible"
+    ],
     "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
+      "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_court"
     }
   },
-  "t821_du_marche_noir": {
-    "nom": "T821 DU MARCHÉ NOIR",//TODO
+  "t821_marche_noir": {
+    "nom": "T821 marché noir",
     "type": "pistolet_mitrailleur",
     "fabricant": "SOCIMI",
     "portee": 20,
     "rpm": 550,
     "chargeur": 32,
-    "rechargement": 1.92,
+    "rechargement": 1.47,
     "headshot": 50,
-    "degatsBase": 76899,
+    "degatsBase": 76900,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
     }
   },
   "t821_police": {
-    "nom": "T821 POLICE",//TODO
+    "nom": "T821 police",
     "type": "pistolet_mitrailleur",
     "fabricant": "SOCIMI",
     "portee": 20,
     "rpm": 550,
     "chargeur": 32,
-    "rechargement": 1.92,
+    "rechargement": 1.47,
     "headshot": 50,
-    "degatsBase": 76899,
+    "degatsBase": 76900,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
     }
   },
   "ump_45_police": {
-    "nom": "UMP-45 POLICE",//TODO
+    "nom": "UMP-45 Police",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 16,
     "rpm": 650,
     "chargeur": 25,
-    "rechargement": 1.9,
+    "rechargement": 1.67,
     "headshot": 50,
-    "degatsBase": 63677,
+    "degatsBase": 63700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_45_acp",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche"
     }
   },
   "ump_45_tactique": {
-    "nom": "UMP-45 TACTIQUE",//TODO
+    "nom": "UMP-45 tactique",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 16,
     "rpm": 650,
     "chargeur": 25,
-    "rechargement": 1.9,
+    "rechargement": 1.67,
     "headshot": 50,
-    "degatsBase": 63677,
+    "degatsBase": 63700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_45_acp",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche"
     }
   },
   "m1928": {
-    "nom": "M1928",//TODO
+    "nom": "M1928",
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
     "portee": 19,
     "rpm": 600,
     "chargeur": 30,
-    "rechargement": 1.9,
+    "rechargement": 1.46,
     "headshot": 50,
-    "degatsBase": 78399,
+    "degatsBase": 78400,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
-      "chargeur": "chargeur_45_acp",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "viseur": "rail_optique_court"
     }
   },
   "tommy_gun": {
-    "nom": "TOMMY GUN",//TODO
+    "nom": "Tommy Gun",
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
-    "portee": 19,
+    "portee": 21,
     "rpm": 900,
     "chargeur": 50,
-    "rechargement": 2.01,
+    "rechargement": 1.54,
     "headshot": 50,
-    "degatsBase": 50616,
+    "degatsBase": 50600,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
-      "chargeur": "chargeur_45_acp",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
-    }
+    "emplacementsMods": {}
   },
   "l_acquis": {
-    "nom": "L'ACQUIS",//TODO
-    "description": "Les armes ne sont pas sublimes par essence, elles de deviennent.",
+    "nom": "L'ACQUIS",
+    "description": "Les armes ne sont pas sublimes par essence, elles le deviennent.",
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
-    "portee": 19,
+    "portee": 21,
     "rpm": 900,
     "chargeur": 50,
-    "rechargement": 2.01,
+    "rechargement": 1.54,
     "headshot": 50,
-    "degatsBase": 50616,
+    "degatsBase": 50600,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
-    "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
-    }
+    "talents": [
+      "stabilisation"
+    ],
+    "emplacementsMods": {}
   },
   "l_enneigeur": {
-    "nom": "L'ENNEIGEUR",//TODO
+    "nom": "L'Eneigeur",
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
-    "portee": 19,
+    "portee": 16,
     "rpm": 250,
     "chargeur": 50,
-    "rechargement": 2.2,
+    "rechargement": 2.30,
     "headshot": 50,
-    "degatsBase": 93084,
+    "degatsBase": 93000,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
-    "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
-    }
+    "talents": [
+      "pierre_cachee"
+    ],
+    "emplacementsMods": {}
   },
   "p90": {
-    "nom": "P90",//TODO
+    "nom": "P90",
     "type": "pistolet_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 21,
     "rpm": 1100,
     "chargeur": 50,
-    "rechargement": 1.92,
+    "rechargement": 1.57,
     "headshot": 50,
-    "degatsBase": 39449,
+    "degatsBase": 39500,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_court"
     }
   },
   "bouclier_d_emeline": {
-    "nom": "BOUCLIER D'EMELINE",//TODO
+    "nom": "Bouclier d'Emeline",
     "type": "pistolet_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 21,
     "rpm": 1100,
     "chargeur": 50,
-    "rechargement": 1.92,
+    "rechargement": 1.57,
     "headshot": 50,
-    "degatsBase": 39449,
+    "degatsBase": 39500,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
     "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
-    }
-  },
-  "mpx": {
-    "nom": "MPX",
-    "type": "pistolet_mitrailleur",
-    "fabricant": "SIG-SAUER",
-    "portee": 22,
-    "rpm": 850,
-    "chargeur": 30,
-    "rechargement": 2.27,
-    "headshot": 50,
-    "degatsBase": 50989,
-    "estExotique": false,
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_court"
     }
   },
   "ecarteur": {
-    "nom": "ÉCARTEUR",//TODO
+    "nom": "Écarteur",
     "type": "pistolet_mitrailleur",
     "fabricant": "SIG-SAUER",
     "portee": 22,
     "rpm": 850,
     "chargeur": 30,
-    "rechargement": 2.27,
+    "rechargement": 2.09,
     "headshot": 50,
-    "degatsBase": 50989,
+    "degatsBase": 51000,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "outsider"
+    ],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
     }
   },
   "l_appartement": {
-    "nom": "L'APPARTEMENT",//TODO
+    "nom": "L'Appartement",
     "type": "pistolet_mitrailleur",
     "fabricant": "SIG-SAUER",
     "portee": 22,
     "rpm": 850,
     "chargeur": 30,
-    "rechargement": 2.27,
+    "rechargement": 2.09,
     "headshot": 50,
-    "degatsBase": 50989,
+    "degatsBase": 51000,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "mesure"
+    ],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
     }
   },
   "cmmg_banshee": {
-    "nom": "CMMG BANSHEE",//TODO
+    "nom": "CMMG Banshee",
     "type": "pistolet_mitrailleur",
     "fabricant": "CMMG",
     "portee": 21,
     "rpm": 900,
     "chargeur": 32,
-    "rechargement": 2.21,
+    "rechargement": 1.92,
     "headshot": 50,
-    "degatsBase": 47838,
+    "degatsBase": 47800,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
     }
   },
   "rancune": {
-    "nom": "RANCUNE",//TODO
+    "nom": "Rancune",
     "type": "pistolet_mitrailleur",
     "fabricant": "CMMG",
     "portee": 21,
     "rpm": 900,
     "chargeur": 32,
-    "rechargement": 2.21,
+    "rechargement": 1.92,
     "headshot": 50,
-    "degatsBase": 47838,
+    "degatsBase": 47800,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
     }
   },
   "uic15_mod2": {
@@ -4329,14 +4321,14 @@
     ]
   },
   "sherif": {
-    "nom": "Shérif",//TODO rechargement
+    "nom": "Shérif",
     "description": "Là, c'est du sérieux.",
     "type": "calibre_12",
     "fabricant": "Exotique",
     "portee": 100,
     "rpm": 70,
     "chargeur": 8,
-    "rechargement": 0,
+    "rechargement": 3.32,
     "headshot": 45,
     "degatsBase": 526400,
     "estExotique": true,
@@ -4989,19 +4981,21 @@
     }
   },
   "flux_continu": {
-    "nom": "Flux continu",//TODO
+    "nom": "Flux continu",
     "description": "\"On dit que je ne sais pas quand il faut la fermer, mais c'est juste l'Épice qui parle.\"\n- Dime, membre de la Commission des Hyènes",
     "type": "pistolet_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 21,
     "rpm": 850,
     "chargeur": 50,
-    "rechargement": 1.92,
+    "rechargement": 1.43,
     "headshot": 50,
-    "degatsBase": 39449,
+    "degatsBase": 39500,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de pistolet-mitrailleurProbabilité de coup critique"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": "Ouvrir des caches des Hyène dans certains quartiers spécifiques pour obtenir les pièces :\n50% de chance d'obtenir \"Conteneur chargé\" dans Downtown East\n50% de chance d'obtenir \"mods modifiés\" dans Judiciary square \n50% de chance d'obtenir \"chargeur créatif\" dans Downtown West\n100% de chance d'obtenir le blueprint dans une cache des hyènes dans la mission Siège de la banque une fois que vous avez les 3 pièces."
     },
     "estNomme": false,
     "talents": [
@@ -5010,23 +5004,33 @@
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
-    }
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    },
+    "modsPredefinis": [
+      "bouche_flux_continu",
+      "optique_modifiee",
+      "chargeur_flux_continu",
+      "conteneur_flux_continu"
+    ]
   },
   "lady_death": {
-    "nom": "Lady death",//TODO
+    "nom": "Lady death",
     "description": "\"La liberté, inaliénable ? C'est des conneries. On pourra toujours te prendre ta liberté. La seule chose qui te sépare de la tyrannie, c'est le canon de ton flingue.\"\n- Fan du Deuxième Amendement",
     "type": "pistolet_mitrailleur",
     "fabricant": "CMMG",
     "portee": 21,
     "rpm": 900,
     "chargeur": 32,
-    "rechargement": 2.21,
+    "rechargement": 1.75,
     "headshot": 50,
-    "degatsBase": 35401,
+    "degatsBase": 35400,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de pistolet-mitrailleurProbabilité de coup critique"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True sons, Escouade d'extermination",
+      "description": "3% en tuant l'un des 22 boss de NewYork"
     },
     "estNomme": false,
     "talents": [
@@ -5035,24 +5039,34 @@
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
-    }
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    },
+    "modsPredefinis": [
+      "regard_de_la_mort",
+      "visage_de_la_mort",
+      "gueule_de_la_mort",
+      "baiser_de_la_mort"
+    ]
   },
   "contre_feu": {
-    "nom": "Contre-feu",//TODO
+    "nom": "Contre-feu",
     "description": "\"Car seuls ceux qui ont souffert peuvent ordonner la souffrance des autres !\"\n- Credo des Parias",
     "type": "pistolet_mitrailleur",
     "fabricant": "Exotique",
     "notes": "#BackfireForever",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "portee": 22,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.09,
+    "headshot": 50,
+    "degatsBase": 51000,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de pistolet-mitrailleurProbabilité de coup critique"
+      "cachesExotiques": true,
+      "represailles": "Parias, Escouade d'extermination",
+      "butinCible": true,
+      "description": ""
     },
     "estNomme": false,
     "talents": [
@@ -5061,8 +5075,15 @@
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
-    }
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    },
+    "modsPredefinis": [
+      "visee_rapide",
+      "chargeur_a_prise_barbelee",
+      "chassis_barbele",
+      "bouche_dentelee"
+    ]
   },
   "ouroboros": {
     "nom": "Ouroboros",//TODO
@@ -5073,14 +5094,15 @@
     "chargeur": 50,
     "rechargement": 2.06,
     "headshot": 50,
-    "degatsBase": 38295,
+    "degatsBase": 38300,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de pistolet-mitrailleurProbabilité de coup critique"
+      "incursion": true,
+      "description": "1% de chance de loot sur les boss du mode incursion\n10% de chance dans le coffre de butin en récompense de la complétion de l'incursion (1x/semaine/personnage)"
     },
     "estNomme": false,
     "talents": [
-      "rule_them_all"
+      "lien_des_tenebres"
     ],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
@@ -5495,23 +5517,24 @@
     }
   },
   "fronde": {
-    "nom": "Fronde",//TODO
+    "nom": "Fronde",
     "type": "pistolet_mitrailleur",
-    "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "fabricant": "HECKLER&KOCH",
+    "portee": 60,
+    "notes": "+44 de portée optimale car nommé",
+    "rpm": 650,
+    "chargeur": 25,
+    "rechargement": 1.67,
+    "headshot": 50,
+    "degatsBase": 63700,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
     "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "bouche": "bouche_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "chargeur": "chargeur_45_acp",
+      "bouche": "bouche_45_acp",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
     }
   },
   "puriste": {
@@ -5536,15 +5559,15 @@
     }
   },
   "sig_mpx": {
-    "nom": "SIG MPX",//TODO
+    "nom": "SIG MPX",
     "type": "pistolet_mitrailleur",
-    "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "fabricant": "SIG-SAUER",
+    "portee": 22,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.09,
+    "headshot": 50,
+    "degatsBase": 51000,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -5556,18 +5579,20 @@
     }
   },
   "ecume": {
-    "nom": "Écume",//TODO
+    "nom": "Écume",
     "type": "pistolet_mitrailleur",
-    "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "fabricant": "TDI",
+    "portee": 15,
+    "rpm": 1200,
+    "chargeur": 19,
+    "rechargement": 1.69,
+    "headshot": 50,
+    "degatsBase": 40500,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "immobilisation"
+    ],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "bouche": "bouche_9mm",

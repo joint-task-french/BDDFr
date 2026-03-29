@@ -71,7 +71,7 @@ export default function BuildStatsPanel({ data }) {
         {/* Bonus d'ensemble */}
         {(setBonuses.gearSets.length > 0 || setBonuses.brandSets.length > 0) && (
           <Section title="Bonus d'ensemble" icon="🏅">
-            <SetBonusList setBonuses={setBonuses} />
+            <SetBonusList setBonuses={setBonuses} data={data} />
           </Section>
         )}
 

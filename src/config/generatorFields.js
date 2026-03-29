@@ -11,6 +11,7 @@ export const GENERATOR_CATEGORIES = [
   { key: 'equipements', label: 'Équipements', icon: '🛡️' },
   { key: 'talentsArmes', label: "Talents d'Armes", icon: '🎯' },
   { key: 'talentsEquipements', label: "Talents d'Équipements", icon: '🏅' },
+  { key: 'talentsAutres', label: "Talents Autres (Descente)", icon: '🌀' },
   { key: 'talentsPrototypes', label: 'Talents Prototypes', icon: '💎' },
   { key: 'ensembles', label: 'Ensembles', icon: '🔗' },
   { key: 'competences', label: 'Compétences', icon: '⚡' },
@@ -26,6 +27,7 @@ export const IDENTITY_KEY = {
   equipements: 'slug',
   talentsArmes: 'slug',
   talentsEquipements: 'slug',
+  talentsAutres: 'slug',
   talentsPrototypes: 'slug',
   ensembles: 'slug',
   competences: ['competence', 'variante'],
@@ -41,6 +43,7 @@ export const DATA_KEY = {
   equipements: 'equipements',
   talentsArmes: 'talentsArmes',
   talentsEquipements: 'talentsEquipements',
+  talentsAutres: 'talentsAutres',
   talentsPrototypes: 'talentsPrototypes',
   ensembles: 'ensembles',
   competences: 'competences',
@@ -56,6 +59,7 @@ export const FILE_MAP = {
   equipements: 'equipements.jsonc',
   talentsArmes: 'talents-armes.jsonc',
   talentsEquipements: 'talents-equipements.jsonc',
+  talentsAutres: 'talents-autres.jsonc',
   talentsPrototypes: 'talents-prototypes.jsonc',
   ensembles: 'ensembles.jsonc',
   competences: 'competences.jsonc',
@@ -172,6 +176,7 @@ export const FIELDS = {
           { value: 'utilitaire', label: 'Utilitaire' },
           { value: 'exotique', label: 'Exotique' },
         ], visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_notes', label: 'Notes (Descente)', type: 'textarea', visibleWhen: { key: 'hasDescente', value: true } },
       { key: 'descente_base', label: 'Description avec variables {var} (Descente)', type: 'textarea', visibleWhen: { key: 'hasDescente', value: true } },
       { key: 'descente_vars', label: 'Variables par niveau (Descente)', type: 'objectArray', fields: [
           { key: 'niveau', label: 'Niveau (1, 2...)', type: 'text' },
@@ -202,12 +207,37 @@ export const FIELDS = {
           { value: 'utilitaire', label: 'Utilitaire' },
           { value: 'exotique', label: 'Exotique' },
         ], visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_notes', label: 'Notes (Descente)', type: 'textarea', visibleWhen: { key: 'hasDescente', value: true } },
       { key: 'descente_base', label: 'Description avec variables {var} (Descente)', type: 'textarea', visibleWhen: { key: 'hasDescente', value: true } },
       { key: 'descente_vars', label: 'Variables par niveau (Descente)', type: 'objectArray', fields: [
           { key: 'niveau', label: 'Niveau (1, 2...)', type: 'text' },
           { key: 'variable', label: 'Variable (ex: degats)', type: 'text' },
           { key: 'valeur', label: 'Valeur (ex: 10%)', type: 'text' }
         ], visibleWhen: { key: 'hasDescente', value: true } },
+    ],
+  },
+
+  talentsAutres: {
+    comment: "// Talent spécifique Descente — The Division 2",
+    fields: [
+      { key: 'nom', label: 'Nom', type: 'text', required: true, isIdentity: true },
+      { key: 'icon', label: 'Icône (slug)', type: 'text', placeholder: 'nom_fichier_sans_extension' },
+
+      // --- MODE DESCENTE (Toujours activé pour cette catégorie) ---
+      { key: 'descente_boucles', label: 'Boucles (Descente)', type: 'array', required: true },
+      { key: 'descente_categorie', label: 'Catégorie (Descente)', type: 'radioGroup', required: true, options: [
+          { value: 'offensif', label: 'Offensif' },
+          { value: 'defensif', label: 'Défensif' },
+          { value: 'utilitaire', label: 'Utilitaire' },
+          { value: 'exotique', label: 'Exotique' },
+        ]},
+      { key: 'descente_notes', label: 'Notes (Descente)', type: 'textarea' },
+      { key: 'descente_base', label: 'Description avec variables {var} (Descente)', type: 'textarea', required: true },
+      { key: 'descente_vars', label: 'Variables par niveau (Descente)', type: 'objectArray', fields: [
+          { key: 'niveau', label: 'Niveau (1, 2...)', type: 'text' },
+          { key: 'variable', label: 'Variable (ex: degats)', type: 'text' },
+          { key: 'valeur', label: 'Valeur (ex: 10%)', type: 'text' }
+        ]},
     ],
   },
 
@@ -233,10 +263,34 @@ export const FIELDS = {
         ]},
       { key: 'icon', label: 'Logo (fichier)', type: 'text', placeholder: 'nom-du-icon.png' },
       { key: 'attributsEssentiels', label: 'Attributs essentiels', type: 'tagSelect', dynamicOptions: 'attributsTypes' },
-      { key: 'bonus1piece', label: 'Bonus 1 pièce', type: 'text', hiddenWhen: { key: 'type', value: 'gear_set' } },
-      { key: 'bonus2pieces', label: 'Bonus 2 pièces', type: 'text' },
-      { key: 'bonus3pieces', label: 'Bonus 3 pièces', type: 'text' },
-      { key: 'bonus4pieces', label: 'Bonus 4 pièces (gear set)', type: 'textarea', hiddenWhen: { key: 'type', value: 'marque' } },
+      { key: 'bonus1piece', label: 'Bonus 1 pièce', type: 'objectGroup', hiddenWhen: { key: 'type', value: 'gear_set' }, fields: [
+          { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
+              { key: 'slug', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'attributs' },
+              { key: 'value', label: 'Valeur', type: 'number' },
+            ]},
+          { key: 'talent', label: 'Talent', type: 'autocomplete', suggestionsKey: 'talentsEquipements' },
+        ]},
+      { key: 'bonus2pieces', label: 'Bonus 2 pièces', type: 'objectGroup', fields: [
+          { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
+              { key: 'slug', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'attributs' },
+              { key: 'value', label: 'Valeur', type: 'number' },
+            ]},
+          { key: 'talent', label: 'Talent', type: 'autocomplete', suggestionsKey: 'talentsEquipements' },
+        ]},
+      { key: 'bonus3pieces', label: 'Bonus 3 pièces', type: 'objectGroup', fields: [
+          { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
+              { key: 'slug', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'attributs' },
+              { key: 'value', label: 'Valeur', type: 'number' },
+            ]},
+          { key: 'talent', label: 'Talent', type: 'autocomplete', suggestionsKey: 'talentsEquipements' },
+        ]},
+      { key: 'bonus4pieces', label: 'Bonus 4 pièces (gear set)', type: 'objectGroup', hiddenWhen: { key: 'type', value: 'marque' }, fields: [
+          { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
+              { key: 'slug', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'attributs' },
+              { key: 'value', label: 'Valeur', type: 'number' },
+            ]},
+          { key: 'talent', label: 'Talent', type: 'autocomplete', suggestionsKey: 'talentsEquipements' },
+        ]},
       { key: 'talentTorse', label: 'Talent Torse (gear set)', type: 'autocomplete', suggestionsKey: 'talentsEquipements', hiddenWhen: { key: 'type', value: 'marque' } },
       { key: 'talentSac', label: 'Talent Sac (gear set)', type: 'autocomplete', suggestionsKey: 'talentsEquipements', hiddenWhen: { key: 'type', value: 'marque' } },
     ],
@@ -674,10 +728,11 @@ export function cleanOutput(data, categoryKey) {
   }
 
   // --- TRAITEMENT SPÉCIFIQUE POUR LE MODE DESCENTE ---
-  if (data.hasDescente) {
+  if (data.hasDescente || categoryKey === 'talentsAutres') {
     result.descente = {
       boucles: data.descente_boucles || [],
       categorie: data.descente_categorie || 'offensif',
+      notes: data.descente_notes || '',
       levels: {
         base: data.descente_base || ''
       }
@@ -701,6 +756,7 @@ export function cleanOutput(data, categoryKey) {
   delete result.hasDescente
   delete result.descente_boucles
   delete result.descente_categorie
+  delete result.descente_notes
   delete result.descente_base
   delete result.descente_vars
 
@@ -830,6 +886,7 @@ export function itemToFormData(categoryKey, item) {
     data.hasDescente = true
     data.descente_boucles = item.descente.boucles || []
     data.descente_categorie = item.descente.categorie || 'offensif'
+    data.descente_notes = item.descente.notes || ''
     data.descente_base = item.descente.levels?.base || ''
     data.descente_vars = []
 

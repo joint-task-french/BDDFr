@@ -218,7 +218,7 @@ function FilterField({ filter, value, onChange }) {
               'text-gray-500'
             }`}>
               {filter.label}
-              <span className="ml-1.5 text-[10px] opacity-60 font-normal normal-case tracking-normal">
+              <span className="ml-1.5 text-xs opacity-60 font-normal normal-case tracking-normal">
                 {status === 'true' && `(${filter.trueLabel || 'oui'})`}
                 {status === 'false' && `(${filter.falseLabel || 'non'})`}
                 {status === 'null' && '(tous)'}

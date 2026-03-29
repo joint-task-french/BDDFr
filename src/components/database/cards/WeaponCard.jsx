@@ -5,6 +5,7 @@ import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon, resolveIcon } from '
 import { formatModAttributs } from '../../../utils/modCompatibility'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
+import MarkdownText from '../../common/MarkdownText'
 import {InfoToolTip} from "../../common/InfoToolTip.jsx";
 
 function hasContent(v) {
@@ -35,7 +36,7 @@ function resolveTalents(item, talentsArmes) {
   })
 }
 
-export default function WeaponCard({ item, talentsArmes, allAttributs, armesType, modsArmes }) {
+export default function WeaponCard({ item, talentsArmes, allAttributs, armesType, modsArmes, isStatic }) {
   const params = useParams()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
@@ -51,12 +52,14 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
   const [isPrototype, setIsPrototype] = useState((isUrlPrototype || forcePrototype) && !isExotic && !isSpecific)
 
   useEffect(() => {
-    if (params.slug === item.slug) {
+    if (isStatic) {
+      setIsPrototype(forcePrototype && !isExotic && !isSpecific)
+    } else if (params.slug === item.slug) {
       setIsPrototype((params.modifier === 'prototype' || forcePrototype) && !isExotic && !isSpecific)
     } else if (forcePrototype && !isExotic && !isSpecific) {
       setIsPrototype(true)
     }
-  }, [params.modifier, params.slug, item.slug, forcePrototype, isExotic, isSpecific])
+  }, [params.modifier, params.slug, item.slug, forcePrototype, isExotic, isSpecific, isStatic])
 
   const togglePrototype = (e) => {
     e.preventDefault()
@@ -66,6 +69,8 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
 
     const nextState = !isPrototype
     setIsPrototype(nextState)
+
+    if (isStatic) return
 
     const category = params.category || 'armes'
     const itemSlug = item.slug || item.nom
@@ -99,7 +104,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
   const headshot = isPrototype && item.prototypeHeadshot !== undefined ? item.prototypeHeadshot : item.headshot
 
   return (
-      <div className={`bg-tactical-panel border ${borderColor || 'border-tactical-border'} rounded-lg overflow-hidden hover:border-tactical-border/80 transition-colors`}>
+      <div className={`bg-tactical-panel border ${borderColor || 'border-tactical-border'} rounded-lg overflow-hidden hover:border-tactical-border/80 transition-colors flex flex-col h-full`}>
         {/* Header : Nom + Type + Fabricant */}
         <div className={`px-4 py-3 border-b ${isPrototype ? 'border-cyan-500/30 bg-cyan-500/5' : 'border-tactical-border/50'} flex flex-col gap-1`}>
           <div className="flex flex-row gap-2">
@@ -115,7 +120,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                   {!isExotic && !isSpecific && (
                       <button
                           onClick={togglePrototype}
-                          className={`flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border transition-all ${
+                          className={`flex items-center gap-1 text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border transition-all ${
                               isPrototype
                                   ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/40'
                                   : 'bg-tactical-bg text-gray-500 border-tactical-border hover:border-gray-500'
@@ -145,7 +150,11 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
               </div>
             </div>
           </div>
-          { item.description && <span className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">{item.description}</span> }
+          { item.description && (
+            <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
+              {item.description}
+            </MarkdownText>
+          ) }
         </div>
 
         {/* Stats grid */}
@@ -167,7 +176,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                 const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.value
                 const pMax = attr.maxPrototype ?? attr.prototypeMax ?? attr.max
                 const pMin = attr.minPrototype ?? attr.prototypeMin ?? attr.min
-                const range = isPrototype ? `${pMin}--${pMax}` : `${attr.min}--${attr.max}`
+                const range = isPrototype ? `${pMin} à ${pMax}` : `${attr.min} à ${attr.max}`
                 return (
                   <div key={i} className="flex items-center justify-between text-xs">
               <span className="flex items-center gap-1.5 text-gray-400">
@@ -203,7 +212,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                 </span>
                       <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
                   {val}{ref?.unite || ''}
-                        {isOverMax && <span className="ml-1 text-[8px] text-yellow-500">(max {max}{ref.unite})</span>}
+                        {isOverMax && <span className="ml-1 text-xs text-yellow-500">(max {max}{ref.unite})</span>}
                 </span>
                     </div>
                 )
@@ -237,9 +246,9 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                         {stats && <span className="text-emerald-400/80">{stats}</span>}
                       </div>
                       {hasContent(mod.notes) && (
-                          <div className="mt-0.5 text-[10px] text-gray-500 italic leading-relaxed whitespace-pre-line border-l border-tactical-border/30 pl-2 ml-1">
+                          <MarkdownText className="mt-0.5 text-xs text-gray-500 italic leading-relaxed border-l border-tactical-border/30 pl-2 ml-1">
                             {mod.notes}
-                          </div>
+                          </MarkdownText>
                       )}
                     </div>
                 )
@@ -248,17 +257,18 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
         )}
 
         {/* Obtention */}
+        <div className="flex-1" />
         <ObtentionDisplay obtention={item.obtention} />
 
         {/* Notes */}
         {(hasContent(item.notes) || item.armePoing) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
-              <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
-              <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+              <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
+              <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
                 {hasContent(item.notes) && item.notes}
                 {hasContent(item.notes) && item.armePoing && '\n'}
                 {item.armePoing && "Cette arme s'équipe dans l'emplacement Arme de poing."}
-              </div>
+              </MarkdownText>
             </div>
         )}
       </div>

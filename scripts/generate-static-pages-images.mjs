@@ -15,8 +15,10 @@ const DEV_SERVER_URL = 'http://localhost:5173/BDDFr';
 const repoFullName = process.env.GITHUB_REPOSITORY || 'localhost/BDDFr';
 const [owner, repo] = repoFullName.split('/');
 
-const BASE_URL = process.env.PUBLIC_URL || (process.env.GITHUB_ACTIONS ? `https://${owner}.github.io/${repo}` : 'http://localhost:5173/BDDFr');
-const BASE_PATH = process.env.PUBLIC_PATH || (process.env.GITHUB_ACTIONS ? `/${repo}` : '/BDDFr');
+const DOMAIN = process.env.DOMAIN;
+const VITE_BASE_PATH = process.env.VITE_BASE_PATH ? process.env.VITE_BASE_PATH.replace(/\/$/, '') : null;
+const BASE_URL = VITE_BASE_PATH ? (DOMAIN ? (DOMAIN.startsWith('http') ? DOMAIN : `https://${DOMAIN}`) + VITE_BASE_PATH : VITE_BASE_PATH) : (DOMAIN ? (DOMAIN.startsWith('http') ? DOMAIN : `https://${DOMAIN}`) : (process.env.PUBLIC_URL || (process.env.GITHUB_ACTIONS ? `https://${owner}.github.io/${repo}` : 'http://localhost:5173/BDDFr')));
+const BASE_PATH = VITE_BASE_PATH || (DOMAIN ? '' : (process.env.PUBLIC_PATH || (process.env.GITHUB_ACTIONS ? `/${repo}` : '/BDDFr')));
 const DIVISION_ORANGE = "#ff8000";
 
 const WATERMARK_URL = `${BASE_PATH}/favicon_150x150.png`;

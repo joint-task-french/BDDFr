@@ -287,6 +287,10 @@
     "nom": "Bombes supplémentaires",
     "description": "Augmente le nombre de bombes"
   },
+  "munitions_mortier_supplementaires": {
+    "nom": "mortier supplémentaires",
+    "description": "Augmente le nombre de munitions de mortier"
+  },
   "mines_a_sous_munitions": {
     "nom": "Mines à sous-munitions",
     "description": "Augmente le nombre de mines à sous-munitions"

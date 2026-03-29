@@ -1089,6 +1089,22 @@
       "recup_competence"
     ]
   },
+  "recup_de_competence_mod_comp_tourelle": {
+    "nom": "Récup de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Réduit le temps de recharge de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "recup_competence"
+    ]
+  },
   "recup_de_competence_mod_comp_luciole": {
     "nom": "Récup de compétence",
     "categorie": "utilitaire",
@@ -1386,6 +1402,22 @@
     "unite": "%",
     "min": 1,
     "max": 7.5,
+    "description": "Augmente les dégâts de la compétence.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_competence"
+    ]
+  },
+  "degats_mod_comp_tourelle": {
+    "nom": "Dégâts",
+    "categorie": "offensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
     "description": "Augmente les dégâts de la compétence.",
     "estEssentiel": false,
     "selectionable": false,
@@ -2120,6 +2152,21 @@
     "selectionable": false,
     "statistiques": [
       "mines_a_sous_munitions"
+    ]
+  },
+  "munitions_mortier_mod_comp": {
+    "nom": "Munitions mortier supplémentaires",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "",
+    "min": 1,
+    "description": "Augmente le nombres de munitions de mortier",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "munitions_mortier_supplementaires"
     ]
   },
   "regeneration_active_mod_comp": {

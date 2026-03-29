@@ -54,23 +54,52 @@
       { "attribut": "sante_mod_comp_impulsion" }
     ]
   },
-  "tourelle_mecanisme_de_tir": {
-    "nom": "Mécanisme de tir de tourelle",
+  "tourelle_degats": {
+    "nom": "Dégâts",
     "competence": "tourelle",
     "emplacement": "MÉCANISME DE TIR",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "duree_de_competence_mod" }
+      { "attribut": "degats_mod_comp_tourelle" }
     ]
   },
-  "tourelle_demolisseur_mecanisme_de_tir": {
-    "nom": "Mécanisme de tir de tourelle (Démolisseur)",
+  "tourelle_sante": {
+  "nom": "Santé",
+  "competence": "tourelle",
+  "emplacement": "LOGEMENT",
+  "attributs": [
+    { "attribut": "sante_mod_comp" }
+  ]
+},
+  "tourelle_recup_de_competence": {
+    "nom": "Récup de compétence",
+    "competence": "tourelle",
+    "emplacement": "DÉSIGNATION",
+    "attributs": [
+      { "attribut": "recup_de_competence_mod_comp_tourelle" }
+    ]
+  },
+  "tourelle_demolisseur_degats": {
+    "nom": "Dégâts",
     "competence": "tourelle",
     "emplacement": "MÉCANISME DE TIR",
     "prerequis": "demolisseur",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "duree_de_competence_mod" }
+      { "attribut": "degats_mod_comp_tourelle",
+        "valeur":  10
+      }
+
+    ]
+  },
+  "tourelle_demolisseur_munitions_mortier": {
+    "nom": "Munitions mortier supplémentaires",
+    "competence": "tourelle",
+    "emplacement": "LOGEMENT",
+    "prerequis": "demolisseur",
+    "attributs": [
+      { "attribut": "munitions_mortier_mod_comp",
+        "valeur":  1
+      }
+
     ]
   },
   "ruche_degats_drones": {

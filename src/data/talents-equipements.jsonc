@@ -2211,7 +2211,7 @@
   },
   "elimination_confirmee": {
     "nom": "Élimination confirmée",
-    "description": "Les ennemis éliminés génèrent un trophée. La récupération des trophées fournit à la fois un buff à court terme et à long terme.\nLe premier buff dépend du nombre d'attributs essentiels équipés et dure 10s :\n- Offensif : +5% de dégâts d'arme\n- Défensif : +10% de protection bonus\n- Utilitaire : +5% d'efficacité de compétence\nPour chaque trophée récupéré, vous obtenez en plus +1% de dégâts d'arme, +1% d'efficacité de compétence et 0,1% de régénération de protection pendant 300s.\nEffet cumulable 30 fois.",
+    "description": "Les ennemis éliminés génèrent un trophée. La récupération des trophées fournit à la fois un buff à court terme et à long terme.\nLe premier buff dépend du nombre d'attributs essentiels équipés et dure 10s :\n- ![offensif](slug:offensif)Offensif : +5% de dégâts d'arme\n- ![défensif](slug:defensif)Défensif : +10% de protection bonus\n- ![Utilitaire](slug:utilitaire)Utilitaire : +5% d'efficacité de compétence\nPour chaque trophée récupéré, vous obtenez en plus +1% de dégâts d'arme, +1% d'efficacité de compétence et 0,1% de régénération de protection pendant 300s.\nEffet cumulable 30 fois.",
     "emplacement": "sac_a_dos",
     "estExotique": true
   },

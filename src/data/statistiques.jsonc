@@ -199,6 +199,10 @@
     "nom": "Durée effet",
     "description": "Augmente la durée de l'effet"
   },
+  "duree_entrave": {
+    "nom": "Durée entrave",
+    "description": "Augmente la durée de l'entrave"
+  },
   "duree_de_la_deviation": {
     "nom": "Durée de la déviation",
     "description": "Augmente la durée de la déviation"
@@ -215,9 +219,17 @@
     "nom": "Santé de compétence",
     "description": "Augmente la santé des objets de compétence"
   },
+  "soin": {
+    "nom": "Soin",
+    "description": "Augmente les soins"
+  },
   "effets_etat": {
     "nom": "Effets d'état",
     "description": "Augmente la durée des effets d'état infligés"
+  },
+  "intensite_brulure": {
+    "nom": "Intensité de brûlure",
+    "description": "Augmente l'intensité de brûlure"
   },
   "portee_optimale_eqp": {
     "nom": "Portée optimale",

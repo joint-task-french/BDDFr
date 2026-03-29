@@ -1,7 +1,7 @@
 // Mods de compétences — The Division 2
 {
   "impulsion_rayon": {
-    "nom": "Câble nickel-chrome",
+    "nom": "Rayon",
     "competence": "impulsion",
     "emplacement": "BOBINE",
     "attributs": [
@@ -9,7 +9,7 @@
     ]
   },
   "impulsion_artilleur_rayon": {
-    "nom": "Transmission directionnelle",
+    "nom": "Rayon",
     "competence": "impulsion",
     "emplacement": "BOBINE",
     "prerequis": "artilleur",
@@ -20,7 +20,7 @@
     ]
   },
   "impulsion_artilleur_duree_effet": {
-    "nom": "Amplification de micro-ondes",
+    "nom": "Durée effet",
     "competence": "impulsion",
     "emplacement": "LOGEMENT",
     "prerequis": "artilleur",
@@ -31,7 +31,7 @@
     ]
   },
   "impulsion_taille_cone": {
-    "nom": "Oscillateur instable",
+    "nom": "Taille cône",
     "competence": "impulsion",
     "emplacement": "BOBINE",
     "attributs": [
@@ -39,7 +39,7 @@
     ]
   },
   "impulsion_duree_effet": {
-    "nom": "Super colle",
+    "nom": "Durée effet",
     "competence": "impulsion",
     "emplacement": "LOGEMENT",
     "attributs": [
@@ -47,7 +47,7 @@
     ]
   },
   "impulsion_sante": {
-    "nom": "Schéma éclaté",
+    "nom": "Santé",
     "competence": "impulsion",
     "emplacement": "LOGEMENT",
     "attributs": [
@@ -92,13 +92,62 @@
       { "attribut": "recup_de_competence_mod" }
     ]
   },
-  "lanceur_chimique_agitateur": {
-    "nom": "Agitateur de lanceur chimique",
+  "lanceur_chimique_munitions": {
+    "nom": "Munitions",
+    "competence": "lanceur_chimique",
+    "emplacement": "PNEUMATIQUE",
+    "attributs": [
+      { "attribut": "munitions_mod_comp",
+        "valeur":1
+      }
+    ]
+  },
+  "lanceur_chimique_duree": {
+    "nom": "durée",
+    "competence": "lanceur_chimique",
+    "emplacement": "PNEUMATIQUE",
+    "attributs": [
+      { "attribut": "duree_mod_comp_lanceur_chimique"}
+    ]
+  },
+  "lanceur_chimique_rayon": {
+    "nom": "Rayon",
+    "competence": "lanceur_chimique",
+    "emplacement": "PNEUMATIQUE",
+    "attributs": [
+      { "attribut": "rayon_mod_comp_lanceur_chimique"}
+    ]
+  },
+  "lanceur_chimique_duree_entrave": {
+    "nom": "Durée entrave",
     "competence": "lanceur_chimique",
     "emplacement": "AGITATEUR",
     "attributs": [
-      { "attribut": "duree_de_competence_mod" },
-      { "attribut": "degats_de_competence_mod" }
+      { "attribut": "duree_entrave_mod_comp"}
+    ]
+  },
+  "lanceur_chimique_soin": {
+    "nom": "Soin",
+    "competence": "lanceur_chimique",
+    "emplacement": "AGITATEUR",
+    "attributs": [
+      { "attribut": "soin_mod_comp"}
+    ]
+  },
+  "lanceur_chimique_resistance_entrave": {
+    "nom": "Resistance entrave",
+    "competence": "lanceur_chimique",
+    "emplacement": "AGITATEUR",
+    "attributs": [
+      { "attribut": "resistance_entrave_mod_comp_lanceur"}
+    ]
+  },
+  "lanceur_chimique_intensite_brulure": {
+    "nom": "Intensité de brûlure",
+    "competence": "lanceur_chimique",
+    "emplacement": "AGITATEUR",
+    "attributs": [
+      { "attribut": "intensite_brulure_mod_comp"}
     ]
   },
   "luciole_charge_utile": {
@@ -130,7 +179,7 @@
     ]
   },
   "drone_portee_scan": {
-    "nom": "Analyseur balistique",
+    "nom": "Portée scan",
     "competence": "drone",
     "emplacement": "COQUE",
     "attributs": [
@@ -138,7 +187,7 @@
     ]
   },
   "drone_duree": {
-    "nom": "Amortissement vibratoire à cardan",
+    "nom": "Durée",
     "competence": "drone",
     "emplacement": "BATTERIE",
     "attributs": [
@@ -146,7 +195,7 @@
     ]
   },
   "drone_duree_de_la_deviation": {
-    "nom": "Poudre explosive blitzkrieg",
+    "nom": "Durée de la déviation",
     "competence": "drone",
     "emplacement": "BATTERIE",
     "attributs": [
@@ -154,7 +203,7 @@
     ]
   },
   "drone_bombes_supplementaires": {
-    "nom": "Réquisition d'explosifs",
+    "nom": "Bombes supplémentaires",
     "competence": "drone",
     "emplacement": "COQUE",
     "attributs": [
@@ -162,7 +211,7 @@
     ]
   },
   "drone_sante": {
-    "nom": "Santé supplémentaire",
+    "nom": "Santé",
     "competence": "drone",
     "emplacement": "COQUE",
     "attributs": [
@@ -170,7 +219,7 @@
     ]
   },
   "drone_degats": {
-    "nom": "Munitions supplémentaires",
+    "nom": "Dégâts",
     "competence": "drone",
     "emplacement": "APPROVISIONNEMENT",
     "attributs": [
@@ -178,7 +227,7 @@
     ]
   },
   "drone_portee_scan_tireur_d_elite": {
-    "nom": "Châssis fibre de carbone",
+    "nom": "Portée scan",
     "competence": "drone",
     "emplacement": "COQUE",
     "prerequis": "tireur_elite",
@@ -189,7 +238,7 @@
     ]
   },
   "drone_duree_tireur_d_elite": {
-    "nom": "Batterie au graphène",
+    "nom": "Durée",
     "competence": "drone",
     "emplacement": "BATTERIE",
     "prerequis": "tireur_elite",
@@ -200,7 +249,7 @@
     ]
   },
   "bouclier_sante_de_bouclier": {
-    "nom": "Lexique UHMPE intelligent",
+    "nom": "Santé de bouclier",
     "competence": "bouclier",
     "emplacement": "CIRCUIT IMPRIMÉ",
     "attributs": [
@@ -208,7 +257,7 @@
     ]
   },
   "bouclier_incendiaire_sante_de_bouclier": {
-    "nom": "Châssis résistant aux chocs",
+    "nom": "Santé de bouclier",
     "competence": "bouclier",
     "emplacement": "CIRCUIT IMPRIMÉ",
     "prerequis": "incendiaire",
@@ -220,7 +269,7 @@
     ]
   },
   "bouclier_degats_du_deflecteur": {
-    "nom": "Matériau dérivé du ciment",
+    "nom": "Dégâts du déflecteur",
     "competence": "bouclier",
     "emplacement": "REVÊTEMENT DUR",
     "attributs": [
@@ -228,7 +277,7 @@
     ]
   },
   "bouclier_regeneration_active": {
-    "nom": "Renfort en titane",
+    "nom": "Régénération active",
     "competence": "bouclier",
     "emplacement": "REVÊTEMENT DUR",
     "attributs": [
@@ -236,7 +285,7 @@
     ]
   },
   "bouclier_incendiaire_regeneration_active": {
-    "nom": "Revêtement macromoléculaire",
+    "nom": "Régénération active",
     "competence": "bouclier",
     "emplacement": "REVÊTEMENT DUR",
     "prerequis": "incendiaire",
@@ -248,7 +297,7 @@
     ]
   },
   "bouclier_regeneration_en_etui": {
-    "nom": "Élastomères diélectriques",
+    "nom": "Régénération en étui",
     "competence": "bouclier",
     "emplacement": "GYRO",
     "attributs": [
@@ -256,7 +305,7 @@
     ]
   },
   "bouclier_bonus_de_degats_circuit": {
-    "nom": "Matériau magnétorestrictif",
+    "nom": "Bonus de dégâts",
     "competence": "bouclier",
     "emplacement": "CIRCUIT IMPRIMÉ",
     "attributs": [
@@ -266,7 +315,7 @@
     ]
   },
   "bouclier_bonus_de_degats_gyro": {
-    "nom": "Fibre aramide tissée",
+    "nom": "Bonus de dégâts",
     "competence": "bouclier",
     "emplacement": "GYRO",
     "attributs": [
@@ -283,7 +332,7 @@
     ]
   },
   "bombe_adhesive_lanceur_rayon_souffle": {
-    "nom": "Charge adhésive améliorée",
+    "nom": "Rayon de souffle",
     "competence": "bombe_adhesive",
     "emplacement": "CHARGE UTILE",
     "attributs": [
@@ -291,7 +340,7 @@
     ]
   },
   "bombe_adhesive_lanceur_recup_de_competence": {
-    "nom": "Lanceur d'adhésif amélioré",
+    "nom": "Récup de compétence",
     "competence": "bombe_adhesive",
     "emplacement": "LANCEUR",
     "attributs": [
@@ -299,7 +348,7 @@
     ]
   },
   "bombe_adhesive_lanceur_degats": {
-    "nom": "Charge adhésive améliorée",
+    "nom": "Dégâts",
     "competence": "bombe_adhesive",
     "emplacement": "CHARGE UTILE",
     "attributs": [
@@ -316,7 +365,7 @@
     ]
   },
   "abri_intelligent_lanceur_recharge": {
-    "nom": "Lanceur d'abri intelligent amélioré",
+    "nom": "Recharge",
     "competence": "abri_intelligent",
     "emplacement": "LANCEUR INTELLIGENT",
     "attributs": [
@@ -324,7 +373,7 @@
     ]
   },
   "abri_intelligent_lanceur_protection_bonus": {
-    "nom": "Éclat de placage réactif",
+    "nom": "Protection bonus",
     "competence": "abri_intelligent",
     "emplacement": "PROJECTILE INTELLIGENT",
     "attributs": [
@@ -332,7 +381,7 @@
     ]
   },
   "abri_intelligent_lanceur_resistance_explo": {
-    "nom": "Éclat de placage réactif",
+    "nom": "Résistance explosion",
     "competence": "abri_intelligent",
     "emplacement": "PROJECTILE INTELLIGENT",
     "attributs": [
@@ -340,7 +389,7 @@
     ]
   },
   "abri_intelligent_lanceur_resistance_impulsion": {
-    "nom": "Membrane de brouilleur de fréquences",
+    "nom": "Protection impulsion",
     "competence": "abri_intelligent",
     "emplacement": "PROJECTILE INTELLIGENT",
     "attributs": [
@@ -348,7 +397,7 @@
     ]
   },
   "abri_intelligent_lanceur_maniement_arme": {
-    "nom": "Noeud de relai balistique",
+    "nom": "Maniement d'arme",
     "competence": "abri_intelligent",
     "emplacement": "PROJECTILE INTELLIGENT",
     "attributs": [
@@ -356,7 +405,7 @@
     ]
   },
   "abri_intelligent_lanceur_rayon": {
-    "nom": "Lanceur d'abri intelligent amélioré",
+    "nom": "Rayon",
     "competence": "abri_intelligent",
     "emplacement": "LANCEUR INTELLIGENT",
     "attributs": [
@@ -364,7 +413,7 @@
     ]
   },
   "abri_intelligent_lanceur_dcna": {
-    "nom": "Noeud de relai balistique",
+    "nom": "Dégâts sur cible non abritées",
     "competence": "abri_intelligent",
     "emplacement": "PROJECTILE INTELLIGENT",
     "attributs": [

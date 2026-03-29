@@ -845,6 +845,38 @@
       "degats_corps_a_corps"
     ]
   },
+  "resistance_entrave_mod_comp_lanceur": {
+    "nom": "Résistance entrave",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 20,
+    "description": "Résistance à l'entrave",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_entrave"
+    ]
+  },
+  "intensite_brulure_mod_comp": {
+    "nom": "Intensité de brûlure",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Intensité de brûlure augmenté",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "intensite_brulure"
+    ]
+  },
   "sante_eqp": {
     "nom": "Santé",
     "categorie": "defensif",
@@ -1137,6 +1169,22 @@
       "taille_chargeur"
     ]
   },
+  "munitions_mod_comp": {
+    "nom": "munitions",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 2,
+    "description": "Augmente le nombre de munitions dans le chargeur.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "capacite_munitions"
+    ]
+  },
   "munitions_eqp": {
     "nom": "Capacité Munitions",
     "categorie": "offensif",
@@ -1210,6 +1258,22 @@
     "unite": "%",
     "min": 1,
     "max": 10,
+    "description": "Augmente le rayon de la compétence.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "rayon"
+    ]
+  },
+  "rayon_mod_comp_lanceur_chimique": {
+    "nom": "Rayon",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
     "description": "Augmente le rayon de la compétence.",
     "estEssentiel": false,
     "selectionable": false,
@@ -1392,6 +1456,38 @@
     "selectionable": false,
     "statistiques": [
       "duree_competence"
+    ]
+  },
+  "duree_mod_comp_lanceur_chimique": {
+    "nom": "Durée",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente la durée de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_competence"
+    ]
+  },
+  "duree_entrave_mod_comp": {
+    "nom": "Durée entrave",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la durée de l'entrave",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_entrave"
     ]
   },
   "duree_effet_mod_comp": {
@@ -1674,6 +1770,22 @@
     "selectionable": false,
     "statistiques": [
       "sante_bouclier"
+    ]
+  },
+  "soin_mod_comp": {
+    "nom": "Soin",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente les soins.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "soin"
     ]
   },
   "degat_du_deflecteur_mod_comp": {

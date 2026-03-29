@@ -94,42 +94,148 @@
       { "attribut": "recup_de_competence_mod" }
     ]
   },
-  "drone_batterie": {
-    "nom": "Batterie de drone",
+  "drone_portee_scan": {
+    "nom": "Analyseur balistique",
+    "competence": "drone",
+    "emplacement": "COQUE",
+    "attributs": [
+      { "attribut": "portee_scan_mod_comp" }
+    ]
+  },
+  "drone_duree": {
+    "nom": "Amortissement vibratoire à cardan",
     "competence": "drone",
     "emplacement": "BATTERIE",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "duree_de_competence_mod" }
+      { "attribut": "duree_mod_comp" }
     ]
   },
-  "drone_tireur_d_elite_batterie": {
-    "nom": "Batterie de drone (Tireur d'élite)",
+  "drone_duree_de_la_deviation": {
+    "nom": "Poudre explosive blitzkrieg",
     "competence": "drone",
     "emplacement": "BATTERIE",
-    "prerequis": "tireur_d_elite",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "duree_de_competence_mod" }
+      { "attribut": "duree_de_la_deviation_mod_comp" }
     ]
   },
-  "bouclier_circuit_imprime": {
-    "nom": "Circuit imprimé de bouclier",
+  "drone_bombes_supplementaires": {
+    "nom": "Réquisition d'explosifs",
+    "competence": "drone",
+    "emplacement": "COQUE",
+    "attributs": [
+      { "attribut": "bombes_supplementaires_mod_comp" }
+    ]
+  },
+  "drone_sante": {
+    "nom": "Santé supplémentaire",
+    "competence": "drone",
+    "emplacement": "COQUE",
+    "attributs": [
+      { "attribut": "sante_mod_comp" }
+    ]
+  },
+  "drone_degats": {
+    "nom": "Munitions supplémentaires",
+    "competence": "drone",
+    "emplacement": "APPROVISIONNEMENT",
+    "attributs": [
+      { "attribut": "degats_mod_comp" }
+    ]
+  },
+  "drone_portee_scan_tireur_d_elite": {
+    "nom": "Châssis fibre de carbone",
+    "competence": "drone",
+    "emplacement": "COQUE",
+    "prerequis": "tireur_elite",
+    "attributs": [
+      { "attribut": "portee_scan_mod_comp",
+        "valeur": 20
+      }
+    ]
+  },
+  "drone_duree_tireur_d_elite": {
+    "nom": "Batterie au graphène",
+    "competence": "drone",
+    "emplacement": "BATTERIE",
+    "prerequis": "tireur_elite",
+    "attributs": [
+      { "attribut": "duree_mod_comp",
+        "valeur": 15
+      }
+    ]
+  },
+  "bouclier_sante_de_bouclier": {
+    "nom": "Lexique UHMPE intelligent",
     "competence": "bouclier",
     "emplacement": "CIRCUIT IMPRIMÉ",
     "attributs": [
-      { "attribut": "santee_de_competence_mod" },
-      { "attribut": "duree_de_competence_mod" }
+      { "attribut": "sante_de_bouclier_mod_comp" }
     ]
   },
-  "bouclier_incendiaire_revetement_dur": {
-    "nom": "Revêtement dur de bouclier (Incendiaire)",
+  "bouclier_incendiaire_sante_de_bouclier": {
+    "nom": "Châssis résistant aux chocs",
+    "competence": "bouclier",
+    "emplacement": "CIRCUIT IMPRIMÉ",
+    "prerequis": "incendiaire",
+    "attributs": [
+      {
+        "attribut": "sante_de_bouclier_mod_comp",
+        "valeur": 8
+      }
+    ]
+  },
+  "bouclier_degats_du_deflecteur": {
+    "nom": "Matériau dérivé du ciment",
+    "competence": "bouclier",
+    "emplacement": "REVÊTEMENT DUR",
+    "attributs": [
+      { "attribut": "degat_du_deflecteur_mod_comp" }
+    ]
+  },
+  "bouclier_regeneration_active": {
+    "nom": "Renfort en titane",
+    "competence": "bouclier",
+    "emplacement": "REVÊTEMENT DUR",
+    "attributs": [
+      { "attribut": "regeneration_active_mod_comp" }
+    ]
+  },
+  "bouclier_incendiaire_regeneration_active": {
+    "nom": "Revêtement macromoléculaire",
     "competence": "bouclier",
     "emplacement": "REVÊTEMENT DUR",
     "prerequis": "incendiaire",
     "attributs": [
-      { "attribut": "santee_de_competence_mod" },
-      { "attribut": "duree_de_competence_mod" }
+      {
+        "attribut": "regeneration_active_mod_comp",
+        "valeur": 8
+      }
+    ]
+  },
+  "bouclier_regeneration_en_etui": {
+    "nom": "Élastomères diélectriques",
+    "competence": "bouclier",
+    "emplacement": "GYRO",
+    "attributs": [
+      { "attribut": "regeneration_en_etui_mod_comp" }
+    ]
+  },
+  "bouclier_bonus_de_degats_circuit": {
+    "nom": "Matériau magnétorestrictif",
+    "competence": "bouclier",
+    "emplacement": "CIRCUIT IMPRIMÉ",
+    "attributs": [
+      { "attribut": "bonus_de_degats_mod_comp",
+        "valeur": 1
+      }
+    ]
+  },
+  "bouclier_bonus_de_degats_gyro": {
+    "nom": "Fibre aramide tissée",
+    "competence": "bouclier",
+    "emplacement": "GYRO",
+    "attributs": [
+      { "attribut": "bonus_de_degats_mod_comp" }
     ]
   },
   "piege_electronique": {
@@ -141,13 +247,28 @@
       { "attribut": "recup_de_competence_mod" }
     ]
   },
-  "bombe_adhesive_lanceur": {
-    "nom": "Lanceur de bombe adhésive",
+  "bombe_adhesive_lanceur_rayon_souffle": {
+    "nom": "Charge adhésive améliorée",
+    "competence": "bombe_adhesive",
+    "emplacement": "CHARGE UTILE",
+    "attributs": [
+      { "attribut": "rayon_souffle_mod_comp" }
+    ]
+  },
+  "bombe_adhesive_lanceur_recup_de_competence": {
+    "nom": "Lanceur d'adhésif amélioré",
     "competence": "bombe_adhesive",
     "emplacement": "LANCEUR",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "recup_de_competence_mod" }
+      { "attribut": "recup_de_competence_mod_comp" }
+    ]
+  },
+  "bombe_adhesive_lanceur_degats": {
+    "nom": "Charge adhésive améliorée",
+    "competence": "bombe_adhesive",
+    "emplacement": "CHARGE UTILE",
+    "attributs": [
+      { "attribut": "degats_mod_comp" }
     ]
   },
   "leurre_logement": {
@@ -159,13 +280,60 @@
       { "attribut": "recup_de_competence_mod" }
     ]
   },
-  "abri_intelligent_lanceur_intelligent": {
-    "nom": "Lanceur d'abri intelligent",
+  "abri_intelligent_lanceur_recharge": {
+    "nom": "Lanceur d'abri intelligent amélioré",
     "competence": "abri_intelligent",
     "emplacement": "LANCEUR INTELLIGENT",
     "attributs": [
-      { "attribut": "duree_de_competence_mod" },
-      { "attribut": "competences_de_reparation_mod" }
+      { "attribut": "recharge_mod_comp" }
+    ]
+  },
+  "abri_intelligent_lanceur_protection_bonus": {
+    "nom": "Éclat de placage réactif",
+    "competence": "abri_intelligent",
+    "emplacement": "PROJECTILE INTELLIGENT",
+    "attributs": [
+      { "attribut": "protection_bonus_mod_comp" }
+    ]
+  },
+  "abri_intelligent_lanceur_resistance_explo": {
+    "nom": "Éclat de placage réactif",
+    "competence": "abri_intelligent",
+    "emplacement": "PROJECTILE INTELLIGENT",
+    "attributs": [
+      { "attribut": "resistance_explosions_mod_comp" }
+    ]
+  },
+  "abri_intelligent_lanceur_resistance_impulsion": {
+    "nom": "Membrane de brouilleur de fréquences",
+    "competence": "abri_intelligent",
+    "emplacement": "PROJECTILE INTELLIGENT",
+    "attributs": [
+      { "attribut": "protection_impulsion_mod_comp" }
+    ]
+  },
+  "abri_intelligent_lanceur_maniement_arme": {
+    "nom": "Noeud de relai balistique",
+    "competence": "abri_intelligent",
+    "emplacement": "PROJECTILE INTELLIGENT",
+    "attributs": [
+      { "attribut": "maniement_d_arme_mod_comp" }
+    ]
+  },
+  "abri_intelligent_lanceur_rayon": {
+    "nom": "Lanceur d'abri intelligent amélioré",
+    "competence": "abri_intelligent",
+    "emplacement": "LANCEUR INTELLIGENT",
+    "attributs": [
+      { "attribut": "rayon_mod_comp" }
+    ]
+  },
+  "abri_intelligent_lanceur_dcna": {
+    "nom": "Noeud de relai balistique",
+    "competence": "abri_intelligent",
+    "emplacement": "PROJECTILE INTELLIGENT",
+    "attributs": [
+      { "attribut": "degats_cible_non_abritees_mod_comp" }
     ]
   }
 }

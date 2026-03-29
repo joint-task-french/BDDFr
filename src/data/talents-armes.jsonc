@@ -262,11 +262,56 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Vous gagnez {bonus_dgt_crit} aux dégâts de coup critique toutes les {frequence} pendant que vous tirez.\nPeut se cumuler jusqu'à {cumul_max} fois.",
+        "base": "Vous gagnez +{bonus_dgt_crit}% aux dégâts de coup critique toutes les {frequence}s pendant que vous tirez.\nPeut se cumuler jusqu'à {cumul_max} fois.",
         "1": {
-          "bonus_dgt_crit": "+10%",
-          "frequence": "0.5s",
-          "cumul_max": "5"
+          "bonus_dgt_crit": 5,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "2": {
+          "bonus_dgt_crit": 10,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "3": {
+          "bonus_dgt_crit": 15,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "4": {
+          "bonus_dgt_crit": 20,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "5": {
+          "bonus_dgt_crit": 25,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "6": {
+          "bonus_dgt_crit": 30,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "7": {
+          "bonus_dgt_crit": 35,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "8": {
+          "bonus_dgt_crit": 40,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "9": {
+          "bonus_dgt_crit": 45,
+          "frequence": 0.5,
+          "cumul_max": 5
+        },
+        "10": {
+          "bonus_dgt_crit": 50,
+          "frequence": 0.5,
+          "cumul_max": 5
         }
       }
     }
@@ -368,10 +413,46 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Les coups critiques améliorent la vitesse de rechargement d'arme de {bonus_rechargement}.\nPeut se cumuler jusqu'à {cumul_max} fois.",
+        "base": "Les coups critiques améliorent la vitesse de rechargement d'arme de {bonus_rechargement}%.\nPeut se cumuler jusqu'à {cumul_max} fois.",
         "1": {
-          "bonus_rechargement": "3%",
-          "cumul_max": "40"
+          "bonus_rechargement": 3,
+          "cumul_max": 40
+        },
+        "2": {
+          "bonus_rechargement": 6,
+          "cumul_max": 41
+        },
+        "3": {
+          "bonus_rechargement": 9,
+          "cumul_max": 42
+        },
+        "4": {
+          "bonus_rechargement": 12,
+          "cumul_max": 43
+        },
+        "5": {
+          "bonus_rechargement": 15,
+          "cumul_max": 44
+        },
+        "6": {
+          "bonus_rechargement": 18,
+          "cumul_max": 45
+        },
+        "7": {
+          "bonus_rechargement": 21,
+          "cumul_max": 46
+        },
+        "8": {
+          "bonus_rechargement": 24,
+          "cumul_max": 47
+        },
+        "9": {
+          "bonus_rechargement": 27,
+          "cumul_max": 48
+        },
+        "10": {
+          "bonus_rechargement": 30,
+          "cumul_max": 49
         }
       }
     }
@@ -392,13 +473,49 @@
     "descente": {
       "boucles": [
         "Envie"
-      ],
+      ],//TODO valeurs de 20% additionnelle à la valeurs bonus de dégâts.
       "categorie": "utilitaire",
       "levels": {
-        "base": "Dégâts d'arme accrus de {bonus_degats} contre les ennemis affectés par un saignement.\nAu bout de {elims_requises} éliminations, inflige un saignement au prochain ennemi touché.",
+        "base": "Dégâts d'arme accrus de {bonus_degats}% contre les ennemis affectés par un saignement.\nAu bout de {elims_requises} éliminations, inflige un saignement au prochain ennemi touché.",
         "1": {
-          "bonus_degats": "30% (+20%)",
-          "elims_requises": "4"
+          "bonus_degats": 20,
+          "elims_requises": 4
+        },
+        "2": {
+          "bonus_degats": 25,
+          "elims_requises": 4
+        },
+        "3": {
+          "bonus_degats": 30,
+          "elims_requises": 4
+        },
+        "4": {
+          "bonus_degats": 35,
+          "elims_requises": 4
+        },
+        "5": {
+          "bonus_degats": 40,
+          "elims_requises": 4
+        },
+        "6": {
+          "bonus_degats": 45,
+          "elims_requises": 4
+        },
+        "7": {
+          "bonus_degats": 50,
+          "elims_requises": 4
+        },
+        "8": {
+          "bonus_degats": 55,
+          "elims_requises": 4
+        },
+        "9": {
+          "bonus_degats": 60,
+          "elims_requises": 4
+        },
+        "10": {
+          "bonus_degats": 65,
+          "elims_requises": 4
         }
       }
     }
@@ -422,12 +539,66 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Éliminer un ennemi touché par un effet d'état vous confère à vous ainsi qu'aux alliés à moins de {rayon} :\n{bonus_chc} à la probabilité de coup critique et {bonus_chd} aux dégâts de coup critique pendant {duree}.",
+        "base": "Éliminer un ennemi touché par un effet d'état vous confère à vous ainsi qu'aux alliés à moins de {rayon}m :\n{bonus_chc}% à la probabilité de coup critique et {bonus_chd}% aux dégâts de coup critique pendant {duree}s.",
         "1": {
-          "rayon": "15m",
-          "bonus_chc": "16%",
-          "bonus_chd": "16%",
-          "duree": "20s"
+          "rayon": 5,
+          "bonus_chc": 3,
+          "bonus_chd": 7,
+          "duree": 20
+        },
+        "2": {
+          "rayon": 6,
+          "bonus_chc": 6,
+          "bonus_chd": 14,
+          "duree": 20
+        },
+        "3": {
+          "rayon": 7,
+          "bonus_chc": 9,
+          "bonus_chd": 21,
+          "duree": 20
+        },
+        "4": {
+          "rayon": 8,
+          "bonus_chc": 12,
+          "bonus_chd": 28,
+          "duree": 20
+        },
+        "5": {
+          "rayon": 9,
+          "bonus_chc": 15,
+          "bonus_chd": 35,
+          "duree": 20
+        },
+        "6": {
+          "rayon": 10,
+          "bonus_chc": 18,
+          "bonus_chd": 42,
+          "duree": 20
+        },
+        "7": {
+          "rayon": 11,
+          "bonus_chc": 21,
+          "bonus_chd": 49,
+          "duree": 20
+        },
+        "8": {
+          "rayon": 12,
+          "bonus_chc": 24,
+          "bonus_chd": 56,
+          "duree": 20
+        },
+        "9": {
+          "rayon": 13,
+          "bonus_chc": 27,
+          "bonus_chd": 63,
+          "duree": 20
+        },
+        "10": {
+          "rayon": 14,
+          "bonus_chc": 30,
+          "bonus_chd": 70,
+          "duree": 20
         }
       }
     }
@@ -469,10 +640,46 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Les tirs réussis confèrent un bonus de {bonus_stats} à la précision et à la stabilité.\nAu bout de {cumul_max} bonus cumulés, l'effet est consommé pour remplir le chargeur.",
+        "base": "Les tirs réussis confèrent un bonus de {bonus_stats}% à la précision et à la stabilité.\nAu bout de {cumul_max} bonus cumulés, l'effet est consommé pour remplir le chargeur.",
         "1": {
-          "bonus_stats": "1%",
-          "cumul_max": "100"
+          "bonus_stats": 1,
+          "cumul_max": 99
+        },
+        "2": {
+          "bonus_stats": 2,
+          "cumul_max": 98
+        },
+        "3": {
+          "bonus_stats": 3,
+          "cumul_max": 97
+        },
+        "4": {
+          "bonus_stats": 4,
+          "cumul_max": 96
+        },
+        "5": {
+          "bonus_stats": 5,
+          "cumul_max": 95
+        },
+        "6": {
+          "bonus_stats": 6,
+          "cumul_max": 94
+        },
+        "7": {
+          "bonus_stats": 7,
+          "cumul_max": 93
+        },
+        "8": {
+          "bonus_stats": 8,
+          "cumul_max": 92
+        },
+        "9": {
+          "bonus_stats": 9,
+          "cumul_max": 91
+        },
+        "10": {
+          "bonus_stats": 10,
+          "cumul_max": 90
         }
       }
     }
@@ -570,10 +777,46 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Dégâts d'arme accrus de {bonus_degats} contre les ennemis aveuglés.\nAu bout de {elims_requises} éliminations, inflige aveuglement au prochain ennemi touché.",
+        "base": "Dégâts d'arme accrus de {bonus_degats}% contre les ennemis aveuglés.\nAu bout de {elims_requises} éliminations, inflige aveuglement au prochain ennemi touché.",
         "1": {
-          "bonus_degats": "30%",
-          "elims_requises": "4"
+          "bonus_degats": 20,
+          "elims_requises": 2
+        },
+        "2": {
+          "bonus_degats": 25,
+          "elims_requises": 2
+        },
+        "3": {
+          "bonus_degats": 30,
+          "elims_requises": 2
+        },
+        "4": {
+          "bonus_degats": 35,
+          "elims_requises": 2
+        },
+        "5": {
+          "bonus_degats": 40,
+          "elims_requises": 2
+        },
+        "6": {
+          "bonus_degats": 45,
+          "elims_requises": 2
+        },
+        "7": {
+          "bonus_degats": 50,
+          "elims_requises": 2
+        },
+        "8": {
+          "bonus_degats": 55,
+          "elims_requises": 2
+        },
+        "9": {
+          "bonus_degats": 60,
+          "elims_requises": 2
+        },
+        "10": {
+          "bonus_degats": 65,
+          "elims_requises": 2
         }
       }
     }
@@ -601,10 +844,46 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Dégâts d'arme accrus de {bonus_degats} contre les ennemis affectés par une brûlure.\nAu bout de {elims_requises} éliminations, inflige un effet de brûlure au prochain ennemi touché.",
+        "base": "Dégâts d'arme accrus de {bonus_degats}% contre les ennemis affectés par une brûlure.\nAu bout de {elims_requises} éliminations, inflige un effet de brûlure au prochain ennemi touché.",
         "1": {
-          "bonus_degats": "25%",
-          "elims_requises": "4"
+          "bonus_degats": 25,
+          "elims_requises": 4
+        },
+        "2": {
+          "bonus_degats": 30,
+          "elims_requises": 4
+        },
+        "3": {
+          "bonus_degats": 35,
+          "elims_requises": 4
+        },
+        "4": {
+          "bonus_degats": 35,
+          "elims_requises": 4
+        },
+        "5": {
+          "bonus_degats": 40,
+          "elims_requises": 4
+        },
+        "6": {
+          "bonus_degats": 45,
+          "elims_requises": 4
+        },
+        "7": {
+          "bonus_degats": 50,
+          "elims_requises": 4
+        },
+        "8": {
+          "bonus_degats": 55,
+          "elims_requises": 4
+        },
+        "9": {
+          "bonus_degats": 60,
+          "elims_requises": 4
+        },
+        "10": {
+          "bonus_degats": 65,
+          "elims_requises": 4
         }
       }
     }
@@ -632,10 +911,46 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Les headshots confèrent {bonus_effets} aux dégâts des effets d'état et à la durée du prochain effet d'état que vous infligez.\nTemps de recharge : {temps_recharge}.",
+        "base": "Les headshots confèrent {bonus_effets}% aux dégâts des effets d'état et à la durée du prochain effet d'état que vous infligez.\nTemps de recharge : {temps_recharge}s.",
         "1": {
-          "bonus_effets": "+50%",
-          "temps_recharge": "20s"
+          "bonus_effets": 25,
+          "temps_recharge": 20
+        },
+        "2": {
+          "bonus_effets": 30,
+          "temps_recharge": 18.5
+        },
+        "3": {
+          "bonus_effets": 35,
+          "temps_recharge": 17
+        },
+        "4": {
+          "bonus_effets": 40,
+          "temps_recharge": 15.5
+        },
+        "5": {
+          "bonus_effets": 45,
+          "temps_recharge": 14
+        },
+        "6": {
+          "bonus_effets": 50,
+          "temps_recharge": 12.5
+        },
+        "7": {
+          "bonus_effets": 55,
+          "temps_recharge": 11
+        },
+        "8": {
+          "bonus_effets": 60,
+          "temps_recharge": 9.5
+        },
+        "9": {
+          "bonus_effets": 65,
+          "temps_recharge": 8
+        },
+        "10": {
+          "bonus_effets": 70,
+          "temps_recharge": 6.5
         }
       }
     }
@@ -846,10 +1161,46 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Augmente la capacité du chargeur de {bonus_capacite}.\nLes tirs ratés effectués depuis un abri ont une probabilité de {proba_retour} de retourner dans le chargeur.",
+        "base": "Augmente la capacité du chargeur de {bonus_capacite}%.\nLes tirs ratés effectués depuis un abri ont une probabilité de {proba_retour}% de retourner dans le chargeur.",
         "1": {
-          "bonus_capacite": "20%",
-          "proba_retour": "100%"
+          "bonus_capacite": 10,
+          "proba_retour": 10
+        },
+        "2": {
+          "bonus_capacite": 20,
+          "proba_retour": 20
+        },
+        "3": {
+          "bonus_capacite": 30,
+          "proba_retour": 30
+        },
+        "4": {
+          "bonus_capacite": 40,
+          "proba_retour": 40
+        },
+        "5": {
+          "bonus_capacite": 50,
+          "proba_retour": 50
+        },
+        "6": {
+          "bonus_capacite": 60,
+          "proba_retour": 60
+        },
+        "7": {
+          "bonus_capacite": 70,
+          "proba_retour": 70
+        },
+        "8": {
+          "bonus_capacite": 80,
+          "proba_retour": 80
+        },
+        "9": {
+          "bonus_capacite": 90,
+          "proba_retour": 90
+        },
+        "10": {
+          "bonus_capacite": 100,
+          "proba_retour": 100
         }
       }
     }
@@ -1107,11 +1458,56 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Confère {bonus_degats} de dégâts d'arme\naux prix de {malus_stabilite} de stabilité et de {malus_precision} de précision.",
+        "base": "Confère +{bonus_degats}% de dégâts d'arme\naux prix de -{malus_stabilite}% de stabilité et de -{malus_precision}% de précision.",
         "1": {
-          "bonus_degats": "+18%",
-          "malus_stabilite": "-25%",
-          "malus_precision": "-25%"
+          "bonus_degats": 18,
+          "malus_stabilite": 25,
+          "malus_precision": 25
+        },
+        "2": {
+          "bonus_degats": 36,
+          "malus_stabilite": 35,
+          "malus_precision": 35
+        },
+        "3": {
+          "bonus_degats": 54,
+          "malus_stabilite": 45,
+          "malus_precision": 45
+        },
+        "4": {
+          "bonus_degats": 72,
+          "malus_stabilite": 55,
+          "malus_precision": 55
+        },
+        "5": {
+          "bonus_degats": 90,
+          "malus_stabilite": 65,
+          "malus_precision": 65
+        },
+        "6": {
+          "bonus_degats": 108,
+          "malus_stabilite": 75,
+          "malus_precision": 75
+        },
+        "7": {
+          "bonus_degats": 126,
+          "malus_stabilite": 85,
+          "malus_precision": 85
+        },
+        "8": {
+          "bonus_degats": 144,
+          "malus_stabilite": 95,
+          "malus_precision": 95
+        },
+        "9": {
+          "bonus_degats": 162,
+          "malus_stabilite": 105,
+          "malus_precision": 105
+        },
+        "10": {
+          "bonus_degats": 180,
+          "malus_stabilite": 115,
+          "malus_precision": 115
         }
       }
     }
@@ -1153,11 +1549,46 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Fixer un ennemi qui n'est actuellement pas fixé confère {bonus_degats} aux dégâts des armes pendant {duree}.\nPeut se cumuler un maximum de {cumul_max} fois.",
+        "base": "Fixer un ennemi qui n'est actuellement pas fixé confère +{bonus_degats}% aux dégâts des armes pendant {duree}s.",
         "1": {
-          "bonus_degats": "+10%",
-          "duree": "12s",
-          "cumul_max": "4"
+          "bonus_degats": 15,
+          "duree": 15
+        },
+        "2": {
+          "bonus_degats": 20,
+          "duree": 15
+        },
+        "3": {
+          "bonus_degats": 25,
+          "duree": 15
+        },
+        "4": {
+          "bonus_degats": 30,
+          "duree": 15
+        },
+        "5": {
+          "bonus_degats": 35,
+          "duree": 15
+        },
+        "6": {
+          "bonus_degats": 40,
+          "duree": 15
+        },
+        "7": {
+          "bonus_degats": 45,
+          "duree": 15
+        },
+        "8": {
+          "bonus_degats": 50,
+          "duree": 15
+        },
+        "9": {
+          "bonus_degats": 55,
+          "duree": 15
+        },
+        "10": {
+          "bonus_degats": 60,
+          "duree": 15
         }
       }
     }

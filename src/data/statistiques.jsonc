@@ -91,6 +91,14 @@
     "nom": "Santé de bouclier",
     "description": "Valeur totale de la santé de bouclier"
   },
+  "degats_du_deflecteur": {
+    "nom": "Dégâts du déflecteur",
+    "description": "Augmente les dégâts du déflecteur"
+  },
+  "bonus_de_degats": {
+    "nom": "Bonus de dégâts (par ennemi)",
+    "description": "Augmente les dégâts en fonction du nombre d'ennemi"
+  },
   "regeneration_protection": {
     "nom": "Régénération de protection",
     "description": "Régénération d'armure par seconde"
@@ -99,13 +107,45 @@
     "nom": "Régénération de protection",
     "description": "Régénération d'armure par seconde"
   },
+  "regeneration_active": {
+    "nom": "Régénération active",
+    "description": "Régénération du bouclier lors de son déploiement"
+  },
+  "regeneration_en_etui": {
+    "nom": "Régénération en étui",
+    "description": "Régénération du bouclier lorsqu'il est rangé"
+  },
   "protection_alterations_etat": {
     "nom": "Protection contre altérations d'état",
     "description": "Réduit la durée des effets d'état subis"
   },
+  "protection_electrocution": {
+    "nom": "Protection contre les électrocutions",
+    "description": "Résistance aux électrocutions"
+  },
+  "resistance_desactivation": {
+    "nom": "Protection contre les désactivations",
+    "description": "Résistance aux désactivations"
+  },
+  "resistance_impulsion": {
+    "nom": "Protection contre l'impulsion",
+    "description": "Résistance à l'impulsion"
+  },
+  "resistance_entrave": {
+    "nom": "Protection contre l'entrave",
+    "description": "Résistance à l'entrave"
+  },
   "resistance_explosions": {
     "nom": "Résistance aux explosions",
     "description": "Réduit les dégâts subis par les explosions"
+  },
+  "rayon": {
+    "nom": "Rayon de compétence",
+    "description": "Augmente le rayon de compétence"
+  },
+  "rayon_de_souffle": {
+    "nom": "Rayon de souffle",
+    "description": "Augmente le rayon de souffle de la compétence"
   },
   "protection_elite": {
     "nom": "Protection contre ennemi d'élite",
@@ -151,6 +191,18 @@
     "nom": "Durée de compétence",
     "description": "Augmente la durée des compétences"
   },
+  "duree_de_la_deviation": {
+    "nom": "Durée de la déviation",
+    "description": "Augmente la durée de la déviation"
+  },
+  "temps_rechargement_comp": {
+    "nom": "Temps de rechargement compétence",
+    "description": "Réduit le temps de rechargement de la compétence"
+  },
+  "protection_bonus_comp": {
+    "nom": "Protection bonus",
+    "description": "Donne de la protection bonus"
+  },
   "sante_pour_competence": {
     "nom": "Santé de compétence",
     "description": "Augmente la santé des objets de compétence"
@@ -175,6 +227,10 @@
     "nom": "Portée optimale",
     "description": "Augmente la portée optimale de l'arme"
   },
+  "portee_scan": {
+    "nom": "Portée scan",
+    "description": "Augmente la portée du scan"
+  },
   "vitesse_rechargement": {
     "nom": "Vitesse de rechargement",
     "description": "Réduit le temps de rechargement"
@@ -194,6 +250,10 @@
   "menace": {
     "nom": "Menace",
     "description": "Augmente ou réduit la menace"
+  },
+  "bombes_supplementaires": {
+    "nom": "Bombes supplémentaires",
+    "description": "Augmente le nombre de bombes"
   }
 }
 

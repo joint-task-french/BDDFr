@@ -569,15 +569,62 @@
     "perfectDescription": "Les coups critiques augmentent le total de dégâts d'arme de 1% pendant 10s.\nPeut se cumuler jusqu'à 24 fois.",
     "descente": {
       "boucles": [
-        "Envie"
+        "Envie",
+        "Colère"
       ],
       "categorie": "offensif",
       "levels": {
         "1": {
-          "damage_per_crit": 1,
-          "duration": 10,
-          "max_stacks": 20
+          "damage_per_crit": 1.5,
+          "duration": 5,
+          "max_stacks": 30
         },
+        "2": {
+          "damage_per_crit": 2,
+          "duration": 6,
+          "max_stacks": 30
+        },
+        "3": {
+          "damage_per_crit": 2.5,
+          "duration": 7,
+          "max_stacks": 30
+        },
+        "4": {
+          "damage_per_crit": 3,
+          "duration": 8,
+          "max_stacks": 30
+        },
+        "5": {
+          "damage_per_crit": 3.5,
+          "duration": 9,
+          "max_stacks": 30
+        },
+        "6": {
+          "damage_per_crit": 4,
+          "duration": 10,
+          "max_stacks": 30
+        },
+        "7": {
+          "damage_per_crit": 4.5,
+          "duration": 11,
+          "max_stacks": 30
+        },
+        "8": {
+          "damage_per_crit": 5,
+          "duration": 12,
+          "max_stacks": 30
+        },
+        "9": {
+          "damage_per_crit": 5.5,
+          "duration": 13,
+          "max_stacks": 30
+        },
+        "10": {
+          "damage_per_crit": 6,
+          "duration": 14,
+          "max_stacks": 30
+        },
+
         "base": "Les coups critiques augmentent le total de dégâts d'arme de {damage_per_crit}% pendant {duration}s.\nPeut se cumuler jusqu'à {max_stacks} fois."
       }
     }
@@ -600,6 +647,42 @@
         "1": {
           "cooldown_blind": 30,
           "cooldown_bleed": 30
+        },
+        "2": {
+          "cooldown_blind": 28,
+          "cooldown_bleed": 28
+        },
+        "3": {
+          "cooldown_blind": 26,
+          "cooldown_bleed": 26
+        },
+        "4": {
+          "cooldown_blind": 24,
+          "cooldown_bleed": 24
+        },
+        "5": {
+          "cooldown_blind": 22,
+          "cooldown_bleed": 22
+        },
+        "6": {
+          "cooldown_blind": 20,
+          "cooldown_bleed": 20
+        },
+        "7": {
+          "cooldown_blind": 18,
+          "cooldown_bleed": 18
+        },
+        "8": {
+          "cooldown_blind": 16,
+          "cooldown_bleed": 16
+        },
+        "9": {
+          "cooldown_blind": 14,
+          "cooldown_bleed": 14
+        },
+        "10": {
+          "cooldown_blind": 12,
+          "cooldown_bleed": 12
         },
         "base": "Inflige aveuglement à un ennemi touché à la tête. Temps de recharge : {cooldown_blind}s.\nInflige saignement à un ennemi touché à la poitrine. Temps de recharge : {cooldown_bleed}s."
       }
@@ -625,8 +708,44 @@
       "categorie": "utilitaire",
       "levels": {
         "1": {
-          "radius_bonus": 50,
+          "radius_bonus": 20,
           "bonus_armor": 15
+        },
+        "2": {
+          "radius_bonus": 40,
+          "bonus_armor": 30
+        },
+        "3": {
+          "radius_bonus": 60,
+          "bonus_armor": 45
+        },
+        "4": {
+          "radius_bonus": 80,
+          "bonus_armor": 60
+        },
+        "5": {
+          "radius_bonus": 100,
+          "bonus_armor": 75
+        },
+        "6": {
+          "radius_bonus": 120,
+          "bonus_armor": 90
+        },
+        "7": {
+          "radius_bonus": 140,
+          "bonus_armor": 105
+        },
+        "8": {
+          "radius_bonus": 160,
+          "bonus_armor": 120
+        },
+        "9": {
+          "radius_bonus": 18,
+          "bonus_armor": 135
+        },
+        "10": {
+          "radius_bonus": 200,
+          "bonus_armor": 150
         },
         "base": "Le rayon d'effet des grenades est accru +{radius_bonus}%.\nLes grenades sont récupérées si elles tuent l'ennemi.\nIl est désormais possible d'ajuster le lancer des grenades en maintenant le bouton de tir enfoncé pour les faires exploser plus tôt.\nConfère +{bonus_armor}% de protection bonus lorsque vous visez avec les grenades."
       }
@@ -892,8 +1011,53 @@
       "categorie": "utilitaire",
       "levels": {
         "1": {
-          "skill_damage": 20,
-          "skill_repair": 20,
+          "skill_damage": 15,
+          "skill_repair": 15,
+          "duration": 20
+        },
+        "2": {
+          "skill_damage": 25,
+          "skill_repair": 25,
+          "duration": 20
+        },
+        "3": {
+          "skill_damage": 35,
+          "skill_repair": 35,
+          "duration": 20
+        },
+        "4": {
+          "skill_damage": 45,
+          "skill_repair": 45,
+          "duration": 20
+        },
+        "5": {
+          "skill_damage": 55,
+          "skill_repair": 55,
+          "duration": 20
+        },
+        "6": {
+          "skill_damage": 65,
+          "skill_repair": 65,
+          "duration": 20
+        },
+        "7": {
+          "skill_damage": 75,
+          "skill_repair": 75,
+          "duration": 20
+        },
+        "8": {
+          "skill_damage": 85,
+          "skill_repair": 85,
+          "duration": 20
+        },
+        "9": {
+          "skill_damage": 95,
+          "skill_repair": 95,
+          "duration": 20
+        },
+        "10": {
+          "skill_damage": 105,
+          "skill_repair": 105,
           "duration": 20
         },
         "base": "Infliger un effet d'état à un ennemi augmente les totaux de dégâts et de réparation des compétences de {skill_damage}% pendant {duration}s."

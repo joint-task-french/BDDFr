@@ -218,7 +218,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                             {isSkillTier ? (
                                 `+${val}`
                             ) : (
-                                `${formatNumber(min)}${ref?.unite || ''} - ${formatNumber(val)}${ref?.unite || ''}`
+                                `${formatNumber(min)}${ref?.unite || ''} à ${formatNumber(val)}${ref?.unite || ''}`
                             )}
                           </span>
                         </div>

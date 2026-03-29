@@ -1,23 +1,44 @@
 import { formatModAttributs } from '../../../utils/modCompatibility'
+import { getSpecialisations } from '../../../utils/formatters'
 import MarkdownText from '../../common/MarkdownText'
+import { Link } from 'react-router-dom'
+import {GameIcon, resolveIcon} from "../../../utils/gameAssets.jsx";
 
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function ModCompetencesCard({ item, allAttributs, competencesGrouped }) {
+export default function ModCompetencesCard({ item, allAttributs, competencesGrouped, classSpe }) {
   const statsText = formatModAttributs(item, allAttributs)
 
   const parentCompetence = competencesGrouped?.[item.competence]
   const nomCompetence = parentCompetence ? parentCompetence.competence : item.competence;
+
+  // Récupération de la spécialisation si le mod a un prerequis
+  let specialisation = null
+  if (item.prerequis && classSpe) {
+    const specialisations = getSpecialisations(classSpe)
+    specialisation = specialisations[item.prerequis] || null
+  }
 
   return (
     <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden flex">
       <div className="w-1.5 shrink-0 bg-shd/30" />
       <div className="px-3 py-2.5 flex-1 min-w-0">
         <div className="flex flex-col gap-1 font-bold text-xs uppercase tracking-widest">
-          <span className="text-xs self-start font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">{ nomCompetence }</span>
+          <div className='flex flex-row gap-1'>
+            <span className="text-xs self-start font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">{ nomCompetence }</span>
+            { specialisation && (
+                <div className='flex flex-row gap-1 text-xs self-start font-bold text-shd bg-shd-dark/15 px-1.5 py-0.5 rounded uppercase tracking-widest'>
+                  <GameIcon src={resolveIcon(specialisation.icon)} />
+                  {specialisation.label}
+                </div>
+            ) }
+            { !specialisation && item.prerequis && (
+              <span className="text-xs self-start font-bold text-shd bg-shd-dark/15 px-1.5 py-0.5 rounded uppercase tracking-widest">{item.prerequis}</span>
+            ) }
+          </div>
           <div className={"text-shd"}>
             <span className='truncate'>{item.nom || item.slug}</span>
           </div>

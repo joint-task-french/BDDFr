@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import MarkdownText from '../common/MarkdownText'
 
 // Human-readable labels for known keys
 const COLUMN_LABELS = {
@@ -21,11 +22,33 @@ const COLUMN_LABELS = {
 // Columns to skip in display
 const SKIP_COLS = ['tier1','tier2','tier3','tier4','tier5','tier6']
 
-function formatValue(val, col) {
+function formatValue(val, col, allAttributs, statistiques) {
   if (val === null || val === undefined || val === '') return '—'
   if (typeof val === 'boolean') return val ? '✔' : '✕'
   if (typeof val === 'object') {
     if (Array.isArray(val)) return val.join(', ')
+    // Nouvel objet bonus
+    if (val.attributs || val.talent) {
+      const parts = []
+      if (val.attributs && Array.isArray(val.attributs)) {
+        val.attributs.forEach(a => {
+          let name = a.slug
+          if (allAttributs) {
+            const attrList = Array.isArray(allAttributs) ? allAttributs : Object.values(allAttributs)
+            const attr = attrList.find(x => x.slug === a.slug) || allAttributs[a.slug]
+            if (attr) name = attr.nom
+          }
+          if (name === a.slug && statistiques) {
+            const statList = Array.isArray(statistiques) ? statistiques : Object.values(statistiques)
+            const stat = statList.find(x => x.slug === a.slug) || statistiques[a.slug]
+            if (stat) name = stat.nom
+          }
+          parts.push(`${a.value} ${name}`)
+        })
+      }
+      if (val.talent) parts.push(`Talent: ${val.talent}`)
+      return parts.length > 0 ? parts.join(' | ') : '—'
+    }
     // obtention object
     if (col === 'obtention') {
       const parts = []
@@ -57,7 +80,7 @@ function formatValue(val, col) {
   return s
 }
 
-export default function DataTable({ items }) {
+export default function DataTable({ items, allAttributs, statistiques }) {
   const [sortCol, setSortCol] = useState(null)
   const [sortDir, setSortDir] = useState(1)
 
@@ -112,7 +135,9 @@ export default function DataTable({ items }) {
             <tr key={i} className="hover:bg-tactical-hover transition-colors border-b border-tactical-border/30">
               {columns.map(col => (
                 <td key={col} className="px-3 py-2.5 text-sm text-gray-300 align-top max-w-xs">
-                  <span className="whitespace-pre-line break-words">{formatValue(item[col], col)}</span>
+                  <MarkdownText className="break-words">
+                    {formatValue(item[col], col, allAttributs, statistiques)}
+                  </MarkdownText>
                 </td>
               ))}
             </tr>

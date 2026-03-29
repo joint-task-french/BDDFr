@@ -68,7 +68,7 @@ export function InfoToolTip({ text, icon }) {
                 <div className="
             fixed -translate-y-full w-56 p-2.5
             bg-tactical-bg border border-gray-700 shadow-2xl rounded-sm
-            text-gray-200 text-[11px] font-normal leading-relaxed normal-case tracking-normal
+            text-gray-200 text-xs font-normal leading-relaxed normal-case tracking-normal
             whitespace-pre-line z-[99999] pointer-events-none animate-in fade-in duration-100
           "
                     style={{ left: coords.left, top: coords.top }}

@@ -31,6 +31,8 @@ const INITIAL_STATE = {
   skills: [null, null],
   // Mods de compétences : [mod_object, mod_object]
   skillMods: [null, null],
+  // Valeurs utilisateur des mods (curseurs) : { gearMods: { slot: { modIndex: { attrSlug: val } } }, skillMods: { slotIndex: { attrSlug: val } } }
+  modValues: { gearMods: {}, skillMods: {} },
   // Expertise : niveaux 0-20 par slot
   expertise: {
       weapon0: 0, weapon1: 0, sidearm: 0,
@@ -118,7 +120,9 @@ function buildReducer(state, action) {
       delete gearMods[action.slot]
       const prototypes = { ...state.prototypes, [action.slot]: false }
       const prototypeTalents = { ...state.prototypeTalents, [action.slot]: null }
-      return { ...state, gear, gearTalents, gearAttributes, gearMods, prototypes, prototypeTalents }
+      const gmvSet = { ...state.modValues.gearMods }
+      delete gmvSet[action.slot]
+      return { ...state, gear, gearTalents, gearAttributes, gearMods, prototypes, prototypeTalents, modValues: { ...state.modValues, gearMods: gmvSet } }
     }
     case 'REMOVE_GEAR': {
       const gear = { ...state.gear, [action.slot]: null }
@@ -132,7 +136,9 @@ function buildReducer(state, action) {
       delete gearMods[action.slot]
       const prototypes = { ...state.prototypes, [action.slot]: false }
       const prototypeTalents = { ...state.prototypeTalents, [action.slot]: null }
-      return { ...state, gear, gearTalents, gearAttributes, gearMods, prototypes, prototypeTalents }
+      const gmvRm = { ...state.modValues.gearMods }
+      delete gmvRm[action.slot]
+      return { ...state, gear, gearTalents, gearAttributes, gearMods, prototypes, prototypeTalents, modValues: { ...state.modValues, gearMods: gmvRm } }
     }
     case 'SET_GEAR_TALENT': {
       const gearTalents = { ...state.gearTalents, [action.slot]: action.talent }
@@ -143,14 +149,18 @@ function buildReducer(state, action) {
       skills[action.slot] = action.skill
       const skillMods = [...state.skillMods]
       skillMods[action.slot] = null
-      return { ...state, skills, skillMods }
+      const smvSet = { ...state.modValues.skillMods }
+      delete smvSet[action.slot]
+      return { ...state, skills, skillMods, modValues: { ...state.modValues, skillMods: smvSet } }
     }
     case 'REMOVE_SKILL': {
       const skills = [...state.skills]
       skills[action.slot] = null
       const skillMods = [...state.skillMods]
       skillMods[action.slot] = null
-      return { ...state, skills, skillMods }
+      const smvRm = { ...state.modValues.skillMods }
+      delete smvRm[action.slot]
+      return { ...state, skills, skillMods, modValues: { ...state.modValues, skillMods: smvRm } }
     }
     // ---- Attributs d'arme (1 personnalisable par arme) ----
     case 'SET_WEAPON_ATTRIBUTE': {
@@ -191,13 +201,36 @@ function buildReducer(state, action) {
       const newMods = [...currentMods]
       newMods[action.modIndex || 0] = action.mod
       const gearMods = { ...state.gearMods, [action.slot]: newMods }
-      return { ...state, gearMods }
+      // Reset mod values for this slot+index when mod changes
+      const gmv = { ...state.modValues.gearMods }
+      if (gmv[action.slot]) {
+        const slotVals = { ...gmv[action.slot] }
+        delete slotVals[action.modIndex || 0]
+        gmv[action.slot] = slotVals
+      }
+      return { ...state, gearMods, modValues: { ...state.modValues, gearMods: gmv } }
     }
     // ---- Mods de compétence ----
     case 'SET_SKILL_MOD': {
       const skillMods = [...state.skillMods]
       skillMods[action.slot] = action.mod
-      return { ...state, skillMods }
+      // Reset mod values for this skill slot when mod changes
+      const smv = { ...state.modValues.skillMods }
+      delete smv[action.slot]
+      return { ...state, skillMods, modValues: { ...state.modValues, skillMods: smv } }
+    }
+    case 'SET_GEAR_MOD_VALUE': {
+      // action: { slot, modIndex, attrSlug, valeur }
+      const gmv2 = { ...state.modValues.gearMods }
+      gmv2[action.slot] = { ...(gmv2[action.slot] || {}) }
+      gmv2[action.slot][action.modIndex] = { ...(gmv2[action.slot][action.modIndex] || {}), [action.attrSlug]: action.valeur }
+      return { ...state, modValues: { ...state.modValues, gearMods: gmv2 } }
+    }
+    case 'SET_SKILL_MOD_VALUE': {
+      // action: { slot, attrSlug, valeur }
+      const smv2 = { ...state.modValues.skillMods }
+      smv2[action.slot] = { ...(smv2[action.slot] || {}), [action.attrSlug]: action.valeur }
+      return { ...state, modValues: { ...state.modValues, skillMods: smv2 } }
     }
     case 'SET_EXPERTISE_LEVEL': {
       const expertise = { ...state.expertise, [action.slot]: Math.max(0, Math.min(20, action.level)) }

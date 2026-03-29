@@ -1,5 +1,6 @@
 import { getSpecialisations } from '../../../utils/formatters'
 import {GameIcon, resolveIcon} from "../../../utils/gameAssets.jsx";
+import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {
     return v && v !== '' && v !== 'n/a' && v !== '-' && v !== 'N/A'
@@ -45,9 +46,9 @@ export default function SkillCard({ item }) {
 
             <div className="px-4 py-2.5 space-y-1.5">
                 {hasContent(item.statistiques) && (
-                    <div className="text-xs text-gray-400 leading-relaxed whitespace-pre-line">
-                        {formatText(item.statistiques)}
-                    </div>
+                    <MarkdownText className="text-xs text-gray-400 leading-relaxed">
+                        {item.statistiques}
+                    </MarkdownText>
                 )}
                 {hasContent(item.effetEtat) && (
                     <div className="text-xs">
@@ -77,9 +78,9 @@ export default function SkillCard({ item }) {
                                     <div className="text-shd font-bold uppercase tracking-tighter mb-1">
                                         Tier {n}
                                     </div>
-                                    <div className="text-gray-400 whitespace-pre-line text-xs">
+                                    <MarkdownText className="text-gray-400 text-xs">
                                         {val}
-                                    </div>
+                                    </MarkdownText>
                                 </div>
                             );
                         })}
@@ -89,9 +90,9 @@ export default function SkillCard({ item }) {
         <span className="text-rogue font-bold uppercase tracking-widest block mb-0.5">
           Surcharge :
         </span>
-                            <span className="text-gray-400 whitespace-pre-line">
-          {item.surcharge}
-        </span>
+                            <MarkdownText className="text-gray-400">
+                                {item.surcharge}
+                            </MarkdownText>
                         </div>
                     )}
                 </div>
@@ -100,17 +101,17 @@ export default function SkillCard({ item }) {
             {/* Notes */}
             {(hasContent(item.notes) || hasContent(item.notesType)) && (
                 <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
-                    <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
+                    <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
                     <div className="flex flex-col gap-2">
                         {hasContent(item.notes) && (
-                            <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+                            <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
                                 {item.notes}
-                            </div>
+                            </MarkdownText>
                         )}
                         {hasContent(item.notesType) && (
-                            <div className="text-[11px] text-gray-500 italic leading-relaxed whitespace-pre-line border-t border-tactical-border/30 pt-1">
-                                <span className="not-italic font-bold text-[9px] text-yellow-500/50 mr-1 uppercase">{item.competence}:</span>
-                                {item.notesType}
+                            <div className="text-xs text-gray-500 italic leading-relaxed border-t border-tactical-border/30 pt-1">
+                                <span className="not-italic font-bold text-xs text-yellow-500/50 mr-1 uppercase">{item.competence}:</span>
+                                <MarkdownText className="inline-block">{item.notesType}</MarkdownText>
                             </div>
                         )}
                     </div>

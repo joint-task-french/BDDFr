@@ -51,7 +51,8 @@
       {
         "nom": "protection_pour_eliminations_eqp",
         "valeur": 10
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -191,7 +192,8 @@
       {
         "nom": "sante_pour_competence_eqp",
         "valeur": 25
-      }
+      },
+      {}
     ]
   },
   "saccoche_de_jambe": {
@@ -276,7 +278,8 @@
       {
         "nom": "munitions_eqp",
         "valeur": 10
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -427,7 +430,8 @@
       {
         "nom": "degats_arme_eqp",
         "valeur": 10
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -596,7 +600,8 @@
       {
         "nom": "degats_de_headshot_eqp",
         "valeur": 20
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -889,7 +894,8 @@
       {
         "nom": "recup_impulsion_scanner_eqp",
         "valeur": 100
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -1308,7 +1314,8 @@
       {
         "nom": "portee_optimale_eqp",
         "valeur": 50
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -1431,7 +1438,8 @@
       {
         "nom": "poucentage_regeneration_de_protection_eqp",
         "valeur": 1
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -1499,7 +1507,8 @@
       {
         "nom": "degats_sur_cible_non_abritee_eqp",
         "valeur": 8
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -1623,7 +1632,8 @@
       {
         "nom": "degats_aux_protections_eqp",
         "valeur": 8
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -1781,7 +1791,8 @@
       {
         "nom": "sante_bouclier_eqp",
         "valeur": 50
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -1841,7 +1852,8 @@
       {
         "nom": "effets_d_etat_eqp",
         "valeur": 16
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -2072,8 +2084,8 @@
       {
         "nom": "degats_pistolet_eqp",
         "valeur": 11
-      }
-
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -2110,7 +2122,8 @@
       {
         "nom": "degats_a_la_sante_es",
         "valeur": 14
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -2213,7 +2226,8 @@
       {
         "nom": "maniement_d_arme_eqp",
         "valeur": 15
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -2825,7 +2839,8 @@
       {
         "nom": "cadence_de_tir_eqp",
         "valeur": 5
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -2901,7 +2916,8 @@
       {
         "nom": "precision_arm_eqp",
         "valeur": 38
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -2985,7 +3001,8 @@
       {
         "nom": "menace_reduite_eqp",
         "valeur": -50
-      }
+      },
+      {}
     ],
     "type": "standard"
   },
@@ -3061,7 +3078,8 @@
       {
         "nom": "effets_d_etat_eqp",
         "valeur": 16
-      }
+      },
+      {}
     ],
     "type": "standard"
   },

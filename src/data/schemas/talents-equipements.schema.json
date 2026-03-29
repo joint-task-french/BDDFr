@@ -38,9 +38,15 @@
             "masque",
             "holster",
             "gants",
-            "genouilleres"
+            "genouilleres",
+            "gear_set"
           ],
           "description": "Sur quel emplacement le talent peut être utilisé"
+        },
+        "gearSet": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Slug de l'ensemble (si talent de gear set)"
         },
         "perfectDescription": {
           "type": "string",

@@ -2,12 +2,11 @@
 {
   "titre": "Base de données française — The Division 2",
   "version": "TU : Y7S3.3",
-  "derniereMiseAJour": "2026-03-02",
+  "derniereMiseAJour": "2026-03-31",
   "maxExpertiseLevel": 30,
   "credits": [
     "Raven",
     "Major45-FR",
-    "marco888",
     "Squal_fr",
     "Franck-FR",
     "Saiyanns",
@@ -16,27 +15,62 @@
     "Titi-FT-70",
     "PP.1974-fr",
     "Captain77",
-    "ocelus_ftnl"
+    "marco888",
+    "ocelus_ftnl",
+    "NicoLeFourbe",
+    "Mastoroz"
   ],
   "changelog": [
     {
-      "date": "Le 02/03/2026",
+      "date": "2026-03-31",
       "patch": "Refonte total BDDFr",
       "changements": [
-        "Utilisation de **Github Pages** pour la base de donnée",
+        "Utilisation de Github Pages pour la base de donnée",
         "Projet open-source permettant a tout le monde de proposer des modifications",
         {
-          "titre": "Changement structuration des données",
-          "description": "Passage vers un format JSONC plus lisible et [commentable](https://code.visualstudio.com/docs/languages/json#_json-with-comments).\n\n- Support des commentaires\n- Compatibilité avec les outils de validation"
+          "titre": "Ajout des marques",
+          "description": [
+            "Concentrated Company",
+            "Unit Alloys",
+            "Urban Lookout"
+          ]
         },
         {
-          "titre": "Validation automatique",
-          "description": "Ajout de scripts permettant de valider les fichiers de données avec `ajv`.\n\nLes erreurs sont reportées lors du script `npm run validate-schemas`."
-        }
+          "titre": "Ajout des équipements",
+          "description": [
+            "Égalisatrice",
+            "Salve",
+            "Dans le mille",
+            "Élan",
+            "Fierté Harrier"
+          ]
+        },
+        {
+          "titre": "Ajout des armes",
+          "description": [
+            "Vitesse supérieure",
+            "Quickstep",
+            "Big Alejandro",
+            "Confinement",
+            "Écume"
+          ]
+        },
+        {
+          "titre": "Ajout des talents",
+          "description": [
+            "Tireur à couvert *(Big Alejandro)*",
+            "Mesure parfaite *(Vitesse supérieure)*",
+            "Mode vitesse *(Quickstep)*",
+            "Immobilisation parfaite *(Confinement + Écume)*",
+            "Rééquilibre *(Fierté Harrier)*"
+          ]
+        },
+        "Ajout de la gestion des équipements de qualité prototypes",
+        "Ajout des talents prototypes"
       ]
     },
     {
-      "date": "Le 25/02/2026",
+      "date": "2026-02-25",
       "patch": "",
       "changements": [
         {
@@ -54,7 +88,7 @@
       ]
     },
     {
-      "date": "Le 23/02/2026",
+      "date": "2026-02-23",
       "patch": "",
       "changements": [
         {
@@ -68,7 +102,7 @@
       ]
     },
     {
-      "date": "Le 21/02/2026",
+      "date": "2026-02-21",
       "patch": "",
       "changements": [
         {
@@ -82,7 +116,7 @@
       ]
     },
     {
-      "date": "Le 20/02/2026",
+      "date": "2026-02-20",
       "patch": "Remise à jour de la BDDFR",
       "changements": [
         {
@@ -92,7 +126,7 @@
       ]
     },
     {
-      "date": "Le 20/11/2024",
+      "date": "2024-11-20",
       "patch": "Patch TU22 Warlords of New York",
       "changements": [
         {
@@ -118,14 +152,14 @@
       ]
     },
     {
-      "date": "Le 29/09/2024",
+      "date": "2024-09-29",
       "patch": "Patch TU21 Warlords of New York",
       "changements": [
         "Ajout de l'arme nommée \"Le Moissonneur\""
       ]
     },
     {
-      "date": "Le 08/09/2024",
+      "date": "2024-09-08",
       "patch": "Patch TU21 Warlords of New York",
       "changements": [
         {
@@ -151,7 +185,7 @@
       ]
     },
     {
-      "date": "Le 20/01/2024",
+      "date": "2024-01-20",
       "patch": "TU20 Warlords Of New York",
       "changements": [
         "Ajout de l'ensemble de set \"Aegis\"",
@@ -165,7 +199,7 @@
       ]
     },
     {
-      "date": "Le 03/10/2023",
+      "date": "2023-10-03",
       "patch": "Patch TU19 Warlords of New York",
       "changements": [
         "Ajout de l'ensemble de set \"Ortiz\"",
@@ -177,7 +211,7 @@
       ]
     },
     {
-      "date": "Le 21/05/2023",
+      "date": "2023-05-21",
       "patch": "Patch TU18 Warlords of New York",
       "changements": [
         "Ajout de l'ensemble de set \"Cavalier\"",
@@ -189,14 +223,14 @@
       ]
     },
     {
-      "date": "Le 18/04/2023",
+      "date": "2023-04-18",
       "patch": "Patch TU17,2 Warlords of New York",
       "changements": [
         "Up du talent du Sacrum Imperium"
       ]
     },
     {
-      "date": "Le 06/03/2023",
+      "date": "2023-03-06",
       "patch": "Patch TU 17 Warlords of New York",
       "changements": [
         "Ajout de la marque \"Habsburg Guard\"",
@@ -210,7 +244,7 @@
       ]
     },
     {
-      "date": "Le 29/09/2022",
+      "date": "2022-09-29",
       "patch": "Patch PTS TU 16.1 Warlords of New York",
       "changements": [
         "Buff du set striker",
@@ -218,7 +252,7 @@
       ]
     },
     {
-      "date": "Le 05/09/2022",
+      "date": "2022-09-05",
       "patch": "Patch PTS TU 16 Warlords of New York",
       "changements": [
         "Traduction des talents",
@@ -237,7 +271,7 @@
       ]
     },
     {
-      "date": "Du 01/04/2022 au 15/04/2022",
+      "date": { "from": "2022-04-01", "to": "2022-04-15" },
       "patch": "Patch TU 15 Warlords of New York",
       "changements": [
         "Ajout du torse nommé \"Closer\"",
@@ -252,7 +286,7 @@
       ]
     },
     {
-      "date": "Le 16/12/2021",
+      "date": "2021-12-16",
       "patch": "Patch TU 14 Warlords of New York",
       "changements": [
         "Ajout du masque nommé Chill Out",
@@ -260,7 +294,7 @@
       ]
     },
     {
-      "date": "Le 27/11/2020",
+      "date": "2020-11-27",
       "patch": "Patch TU 12 Warlords of New York",
       "changements": [
         "Ajout du nouveau set d'équipement \"Rigger\"",
@@ -273,7 +307,7 @@
       ]
     },
     {
-      "date": "Le 06/11/2020",
+      "date": "2020-11-06",
       "patch": "Patch TU11.1 Warlords of New York",
       "changements": [
         "Mise à jour des moyens d'obtention des exotiques",
@@ -283,21 +317,21 @@
       ]
     },
     {
-      "date": "Le 20/10/2020",
+      "date": "2020-10-20",
       "patch": "Patch TU11.1 Warlords of New York",
       "changements": [
         "Mise à jour du Torse exotique Fierté de Ridgeway (buff)"
       ]
     },
     {
-      "date": "Le 22/09/2020",
+      "date": "2020-09-22",
       "patch": "Patch TU11 Warlords of New York",
       "changements": [
         "Mise à jour du Gdoc Patch TU11"
       ]
     },
     {
-      "date": "Le 11/09/2020",
+      "date": "2020-09-11",
       "patch": "PTS Patch TU11 V2 Warlords of New York",
       "changements": [
         "Buff La serpillière",
@@ -307,7 +341,7 @@
       ]
     },
     {
-      "date": "Le 08/09/2020",
+      "date": "2020-09-08",
       "patch": "PTS Patch TU11 V1 Warlords of New York",
       "changements": [
         "Ajout de la compétence \"Piège Réparation\" (récompense traque saison 2)",
@@ -315,7 +349,7 @@
       ]
     },
     {
-      "date": "Le 07/09/2020",
+      "date": "2020-09-07",
       "patch": "PTS Patch TU11 V1 Warlords of New York",
       "changements": [
         "Ajout de la smg exotique Backfire",
@@ -323,26 +357,26 @@
         "Ajout du set Fureur du chasseur",
         "Ajout de la marque Belstone Armory",
         "Ajout des équipements nommés Ingénieur et Transporteur",
-        "Ajout des armes nommés La Serpillière et TDI \"Kard\" personnalisé",
+        "Ajout des armes nommées La Serpillière et TDI \"Kard\" personnalisé",
         "Ajout des armes SIX12 et KARD-45"
       ]
     },
     {
-      "date": "Le 15/08/2020",
+      "date": "2020-08-15",
       "patch": "Patch TU10.1 Warlords of New York",
       "changements": [
         "Création de l'onglet \"Tier de compétence\""
       ]
     },
     {
-      "date": "Le 29/07/2020",
+      "date": "2020-07-29",
       "patch": "Patch TU10.1 Warlords of New York",
       "changements": [
         "Ajout des mods d'arme et d'équipement dans l'onglet \"Exotique\""
       ]
     },
     {
-      "date": "Le 23/07/2020",
+      "date": "2020-07-23",
       "patch": "Patch TU10.1 Warlords of New York",
       "changements": [
         "Mise à jour du Holster nommé Forge (buff santé de bouclier)",
@@ -350,7 +384,7 @@
       ]
     },
     {
-      "date": "Du 16/06/2020 au 18/06/2020",
+      "date": "2020-06-16",
       "patch": "Patch TU10 Warlords of New York",
       "changements": [
         "Ajout des futurs exotiques lié à la saison 2 et au raid \"Cheval de Fer\" \"Mantis, La vorace, Regulus\"",
@@ -366,14 +400,14 @@
       ]
     },
     {
-      "date": "Le 24/04/2020",
+      "date": "2020-04-24",
       "patch": "Patch TU9 Warlords of New York",
       "changements": [
         "Mise à jour du m1a classique (annulation du nerf)"
       ]
     },
     {
-      "date": "Le 21/04/2020",
+      "date": "2020-04-21",
       "patch": "Patch TU9 Warlords of New York",
       "changements": [
         "Mise à jour du veilleur de nuit (rework)",
@@ -390,7 +424,7 @@
       ]
     },
     {
-      "date": "Entre le 18/03 et le 20/03/2020",
+      "date": { "from": "2020-03-18", "to": "2020-03-20" },
       "patch": "Patch TU8 Warlords of New York",
       "changements": [
         "Mise à jour des équipements nommés",
@@ -399,7 +433,7 @@
       ]
     },
     {
-      "date": "Entre le 04/03 et le 17/03/2020",
+      "date": { "from": "2020-03-04", "to": "2020-03-17" },
       "patch": "Patch TU8 Warlords of New York",
       "changements": [
         "Ajout des exotiques de Warlords of New York",
@@ -410,7 +444,7 @@
       ]
     },
     {
-      "date": "Le 04/03/2020",
+      "date": "2020-03-04",
       "patch": "Patch TU8 Warlords Of New York",
       "changements": [
         "Mise à jour partielle de la page des Exotiques",
@@ -418,7 +452,7 @@
       ]
     },
     {
-      "date": "Le 03/03/2020",
+      "date": "2020-03-03",
       "patch": "Patch TU8 Warlords of New York",
       "changements": [
         "Mise à jour de la page \"Ensemble de marques\" — Rajout des 4 nouvelles marques",
@@ -426,7 +460,7 @@
       ]
     },
     {
-      "date": "Le 21/02/2020",
+      "date": "2020-02-21",
       "patch": "Patch TU7",
       "changements": [
         "Ajout du Caméléon (vector) dans l'onglet exotique",
@@ -440,7 +474,7 @@
       ]
     },
     {
-      "date": "Du 27/10/2019 au 13/12/2019",
+      "date": { "from": "2019-10-27", "to": "2019-12-13" },
       "patch": "",
       "changements": [
         "Ajout de l'enneigeur dans plage de dégâts des armes et armes nommées",
@@ -452,7 +486,7 @@
       ]
     },
     {
-      "date": "Le 27/10/2019",
+      "date": "2019-10-27",
       "patch": "",
       "changements": [
         "Ajout des Équipement nommés",
@@ -461,49 +495,49 @@
       ]
     },
     {
-      "date": "Le 25/10/2019",
+      "date": "2019-10-25",
       "patch": "",
       "changements": [
         "Mise à jour de la page \"Roll des valeurs d'attributs\""
       ]
     },
     {
-      "date": "Le 23/10/2019",
+      "date": "2019-10-23",
       "patch": "",
       "changements": [
         "Ajout des Armes nommées"
       ]
     },
     {
-      "date": "Le 19/10/2019",
+      "date": "2019-10-19",
       "patch": "Reprise et mise à jour de la base de donnée",
       "changements": [
         "Mise à jour des Talents d'armure / Talents d'arme / Exotiques / Ensemble de marque"
       ]
     },
     {
-      "date": "Le 07/06/2019",
+      "date": "2019-06-07",
       "patch": "",
       "changements": [
         "Ajout : Roll des valeurs d'attributs"
       ]
     },
     {
-      "date": "Le 18/04/2019",
+      "date": "2019-04-18",
       "patch": "",
       "changements": [
         "Ajout : Road map des dev's"
       ]
     },
     {
-      "date": "Le 17/04/2019",
+      "date": "2019-04-17",
       "patch": "",
       "changements": [
         "Update : Talents par ensemble de marque"
       ]
     },
     {
-      "date": "Le 12/04/2019",
+      "date": "2019-04-12",
       "patch": "",
       "changements": [
         "Ajout : Corrélation Ensemble de marque/Talent/Attribut/Mod",
@@ -511,14 +545,14 @@
       ]
     },
     {
-      "date": "Le 09/04/2019",
+      "date": "2019-04-09",
       "patch": "",
       "changements": [
         "Ajout : Builds (liste)"
       ]
     },
     {
-      "date": "Le 08/04/2019",
+      "date": "2019-04-08",
       "patch": "",
       "changements": [
         "Update : Attributs (armure) + Attributs par ensemble de marque (armure)",
@@ -526,7 +560,7 @@
       ]
     },
     {
-      "date": "Le 05/04/2019",
+      "date": "2019-04-05",
       "patch": "",
       "changements": [
         "Ajout de l'obtention de l'exotique Pestilence",
@@ -534,21 +568,21 @@
       ]
     },
     {
-      "date": "Le 02/04/2019",
+      "date": "2019-04-02",
       "patch": "",
       "changements": [
         "Update : Armure — Attributs par ensemble de marque"
       ]
     },
     {
-      "date": "Le 01/04/2019",
+      "date": "2019-04-01",
       "patch": "",
       "changements": [
         "Update : Arme — Mods + Armure — Talents par ensemble de marque + Armure — Attributs"
       ]
     },
     {
-      "date": "Le 31/03/2019",
+      "date": "2019-03-31",
       "patch": "",
       "changements": [
         "Update : Armure — Talents, Armure — ensemble de marque + Arme — Talents",
@@ -556,56 +590,56 @@
       ]
     },
     {
-      "date": "Le 30/03/2019",
+      "date": "2019-03-30",
       "patch": "",
       "changements": [
         "Ajout : Statistique — Cap maximum + update et amélioration diverse"
       ]
     },
     {
-      "date": "Le 29/03/2019",
+      "date": "2019-03-29",
       "patch": "",
       "changements": [
         "Ajout : Talents par ensemble de marque + Arme — Exotique"
       ]
     },
     {
-      "date": "Le 28/03/2019",
+      "date": "2019-03-28",
       "patch": "",
       "changements": [
         "Ajout : Type d'attributs par ensemble de marque"
       ]
     },
     {
-      "date": "Le 27/03/2019",
+      "date": "2019-03-27",
       "patch": "",
       "changements": [
         "Ajout : Arme — Mods"
       ]
     },
     {
-      "date": "Le 26/03/2019",
+      "date": "2019-03-26",
       "patch": "",
       "changements": [
         "Ajout : Arme — Talents & Armure — Ensemble de marque"
       ]
     },
     {
-      "date": "Le 25/03/2019",
+      "date": "2019-03-25",
       "patch": "",
       "changements": [
         "Ajout : Armure — Attributs"
       ]
     },
     {
-      "date": "Le 24/03/2019",
+      "date": "2019-03-24",
       "patch": "",
       "changements": [
         "Ajout : Armure — Talents"
       ]
     },
     {
-      "date": "Le 23/03/2019",
+      "date": "2019-03-23",
       "patch": "Début de la BDDFr",
       "changements": [
         "Création du doc pour la télémétrie du jeu"

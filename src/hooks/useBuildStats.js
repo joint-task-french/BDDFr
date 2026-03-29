@@ -52,7 +52,7 @@ export function useBuildStats(data) {
   // Helper: résoudre unité + nom depuis le référentiel d'attributs ou statistiques
   const resolveAttrInfo = (attrSlug) => {
     const def = data.attributs?.[attrSlug]
-    if (def) return { nom: def.nom, unite: def.unite || '%', categorie: def.categorie || '' }
+    if (def) return { nom: def.nom, unite: def.unite || '%', categorie: def.categorie || '', min: def.min, max: def.max }
     const stat = data.statistiques?.[attrSlug]
     if (stat) return { nom: stat.nom, unite: '%', categorie: '' }
     return { nom: attrSlug.replace(/_arm$|_eqp$|_mod$/, '').replace(/_/g, ' '), unite: '%', categorie: '' }
@@ -143,32 +143,56 @@ export function useBuildStats(data) {
     const brandSets = []
     const setTotals = {}
 
-    const parseAndAddBonus = (text) => {
-      if (!text) return
-      const match = text.match(/^\+?([0-9.,]+)(%?)\s+(.+)$/)
-      if (match) {
-        const val = parseFloat(match[1].replace(',', '.'))
-        const hasPercent = match[2] === '%'
-        const label = match[3].trim().toLowerCase()
-        let foundSlug = null
-        if (data.attributs) {
-          const attrMatch = Object.entries(data.attributs).find(([slug, def]) => 
-            def.nom.toLowerCase() === label || label.includes(def.nom.toLowerCase())
-          )
-          if (attrMatch) foundSlug = attrMatch[0]
-        }
-        if (!foundSlug && data.statistiques) {
-          const statMatch = Object.entries(data.statistiques).find(([slug, def]) => 
-            def.nom.toLowerCase() === label || label.includes(def.nom.toLowerCase())
-          )
-          if (statMatch) foundSlug = statMatch[0]
-        }
-        if (foundSlug) {
-          const info = resolveAttrInfo(foundSlug)
-          if (!setTotals[foundSlug]) {
-            setTotals[foundSlug] = { nom: info.nom, total: 0, unite: hasPercent ? '%' : info.unite, categorie: info.categorie, slug: foundSlug }
+    const parseAndAddBonus = (bonus) => {
+      if (!bonus) return
+      
+      if (typeof bonus === 'string') {
+        const match = bonus.match(/^\+?([0-9.,]+)(%?)\s+(.+)$/)
+        if (match) {
+          const val = parseFloat(match[1].replace(',', '.'))
+          const hasPercent = match[2] === '%'
+          const label = match[3].trim().toLowerCase()
+          let foundSlug = null
+          if (data.attributs) {
+            const attrMatch = Object.entries(data.attributs).find(([slug, def]) => 
+              def.nom.toLowerCase() === label || label.includes(def.nom.toLowerCase())
+            )
+            if (attrMatch) foundSlug = attrMatch[0]
           }
-          setTotals[foundSlug].total += val
+          if (!foundSlug && data.statistiques) {
+            const statMatch = Object.entries(data.statistiques).find(([slug, def]) => 
+              def.nom.toLowerCase() === label || label.includes(def.nom.toLowerCase())
+            )
+            if (statMatch) foundSlug = statMatch[0]
+          }
+          if (foundSlug) {
+            const info = resolveAttrInfo(foundSlug)
+            if (!setTotals[foundSlug]) {
+              setTotals[foundSlug] = { nom: info.nom, total: 0, unite: hasPercent ? '%' : info.unite, categorie: info.categorie, slug: foundSlug }
+            }
+            setTotals[foundSlug].total += val
+          }
+        }
+      } else if (bonus.attributs) {
+        // Nouveau format: objet avec liste d'attributs
+        for (const attr of bonus.attributs) {
+          const val = attr.value
+          const foundSlug = attr.slug
+          if (foundSlug) {
+            const info = resolveAttrInfo(foundSlug)
+            if (!setTotals[foundSlug]) {
+              // Déterminer l'unité (pourcentage par défaut, sauf exceptions connues)
+              const hasPercent = !(
+                foundSlug.includes('taille_chargeur') ||
+                foundSlug.includes('capacite_munitions') ||
+                foundSlug.includes('utilitaire') ||
+                foundSlug.includes('menace') ||
+                foundSlug.includes('portee_optimale')
+              )
+              setTotals[foundSlug] = { nom: info.nom, total: 0, unite: hasPercent ? '%' : info.unite, categorie: info.categorie, slug: foundSlug }
+            }
+            setTotals[foundSlug].total += val
+          }
         }
       }
     }
@@ -177,10 +201,10 @@ export function useBuildStats(data) {
       const ensemble = ensemblesMap[marqueSlug]
       if (!ensemble) continue
       const bonuses = []
-      const checkBonus = (pieces, text) => {
+      const checkBonus = (pieces, bonus) => {
         const active = count >= pieces
-        bonuses.push({ pieces, text, active })
-        if (active) parseAndAddBonus(text)
+        bonuses.push({ pieces, text: bonus, active })
+        if (active) parseAndAddBonus(bonus)
       }
       if (ensemble.bonus1piece) checkBonus(1, ensemble.bonus1piece)
       if (ensemble.bonus2pieces) checkBonus(2, ensemble.bonus2pieces)
@@ -277,21 +301,27 @@ export function useBuildStats(data) {
   // Bonus de mods d'équipement (affectent le joueur globalement → s'appliquent à toutes les armes)
   const gearModTotals = useMemo(() => {
     const totals = {}
-    for (const slotMods of Object.values(build.gearMods || {})) {
+    const gmv = build.modValues?.gearMods || {}
+    for (const [slot, slotMods] of Object.entries(build.gearMods || {})) {
       const modArray = Array.isArray(slotMods) ? slotMods : [slotMods]
-      for (const mod of modArray) {
+      for (let modIdx = 0; modIdx < modArray.length; modIdx++) {
+        const mod = modArray[modIdx]
         if (!mod?.attributs || !Array.isArray(mod.attributs)) continue
         for (const entry of mod.attributs) {
-          if (!entry.attribut || entry.valeur == null) continue
+          if (!entry.attribut) continue
           const info = resolveAttrInfo(entry.attribut)
+          // Utiliser la valeur fixe si présente, sinon la valeur utilisateur du curseur, sinon le max de l'attribut
+          const userVal = gmv[slot]?.[modIdx]?.[entry.attribut]
+          const val = entry.valeur != null ? entry.valeur : (userVal != null ? userVal : (info.max != null ? info.max : null))
+          if (val == null) continue
           const key = entry.attribut
           if (!totals[key]) totals[key] = { nom: info.nom, total: 0, unite: info.unite, categorie: info.categorie }
-          totals[key].total += entry.valeur
+          totals[key].total += val
         }
       }
     }
     return totals
-  }, [build.gearMods, data.attributs])
+  }, [build.gearMods, build.modValues, data.attributs])
 
   /**
    * Statistiques PAR ARME : chaque arme a ses propres mods d'arme + les mods d'équipement +

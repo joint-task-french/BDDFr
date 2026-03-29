@@ -17,17 +17,17 @@
         "emoji": "🦺",
         "protectionBase": 158000
     },
-    "holster": {
-        "nom": "Holster",
-        "icon": "holster",
-        "emoji": "🔧",
-        "protectionBase": 112000
-    },
     "gants": {
         "nom": "Gants",
         "icon": "gants",
         "emoji": "🧤",
         "protectionBase": 80000
+    },
+    "holster": {
+        "nom": "Holster",
+        "icon": "holster",
+        "emoji": "🔧",
+        "protectionBase": 112000
     },
     "genouilleres": {
         "nom": "Genouillères",

@@ -39,16 +39,28 @@
           }
         },
         "bonus1piece": {
-          "type": "string"
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/definitions/bonusObject" }
+          ]
         },
         "bonus2pieces": {
-          "type": "string"
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/definitions/bonusObject" }
+          ]
         },
         "bonus3pieces": {
-          "type": "string"
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/definitions/bonusObject" }
+          ]
         },
         "bonus4pieces": {
-          "type": "string"
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/definitions/bonusObject" }
+          ]
         },
         "talentTorse": {
           "type": "string",
@@ -62,6 +74,28 @@
           "type": "string",
           "description": "Notes libres sur l'ensemble"
         }
+      }
+    }
+  },
+  "definitions": {
+    "bonusObject": {
+      "type": "object",
+      "required": ["attributs"],
+      "additionalProperties": false,
+      "properties": {
+        "attributs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["slug", "value"],
+            "additionalProperties": false,
+            "properties": {
+              "slug": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+              "value": { "type": "number" }
+            }
+          }
+        },
+        "talent": { "type": "string", "pattern": "^[a-z0-9_]+$" }
       }
     }
   }

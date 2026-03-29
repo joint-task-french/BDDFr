@@ -34,6 +34,7 @@ import {
   SKILL_SORT_OPTIONS, SKILL_DEFAULT_SORT, applySortSkills,
   DESCENTE_SORT_OPTIONS, DESCENTE_DEFAULT_SORT, applySortDescente
 } from '../config/filterConfigs'
+import ScrollToTopButton from '../components/common/ScrollToTopButton'
 
 const CATEGORIES = [
   { key: 'armes', label: 'Armes', icon: '🔫' },
@@ -397,6 +398,8 @@ export default function DatabasePage() {
             allData={data}
             isCompactMode={isCompactMode}
         />
+        {console.log('DatabasePage: rendu ScrollToTopButton')}
+        <ScrollToTopButton />
       </div>
   )
 }

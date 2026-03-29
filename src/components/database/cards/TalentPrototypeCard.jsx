@@ -1,4 +1,5 @@
 import { resolveIcon, GameIcon } from '../../../utils/gameAssets'
+import MarkdownText from '../../common/MarkdownText'
 
 export default function TalentPrototypeCard({ item }) {
   const nameColor = 'text-cyan-400'
@@ -19,13 +20,13 @@ export default function TalentPrototypeCard({ item }) {
       </div>
 
       {item.description && (
-        <div className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed whitespace-pre-line flex-1">
+        <MarkdownText className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed flex-1">
           {item.description}
-        </div>
+        </MarkdownText>
       )}
 
       <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10 flex justify-between items-center mt-auto">
-        <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Statistique</div>
+        <div className="text-xs text-gray-500 font-bold uppercase tracking-widest">Statistique</div>
         <div className="flex gap-2 items-center">
           <span className="text-xs font-mono text-cyan-400">{item.statMin}</span>
           <span className="text-gray-600">→</span>

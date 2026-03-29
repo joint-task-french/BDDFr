@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react'
-import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
+import { useParams, useSearchParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import Badge from '../../common/Badge'
 import { getGearSlotLabel } from '../../../utils/formatters'
 import { GEAR_SLOT_ICONS_IMG, resolveIcon, GameIcon } from '../../../utils/gameAssets'
+import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function TalentEquipCard({ item, equipements, equipementsType }) {
+export default function TalentEquipCard({ item, equipements, equipementsType, isStatic }) {
   const params = useParams()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
@@ -28,10 +29,12 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
   const [showPerfect, setShowPerfect] = useState(isUrlPerfect || forcePerfect)
 
   useEffect(() => {
-    if (params.slug === item.slug) {
+    if (isStatic) {
+      setShowPerfect(forcePerfect)
+    } else if (params.slug === item.slug) {
       setShowPerfect(params.modifier === 'parfait')
     }
-  }, [params.modifier, params.slug, item.slug])
+  }, [params.modifier, params.slug, item.slug, isStatic])
 
   const togglePerfect = (e) => {
     e.preventDefault()
@@ -39,6 +42,8 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
 
     const nextState = !showPerfect
     setShowPerfect(nextState)
+
+    if (isStatic) return
 
     const category = params.category || 'talentsEquipements'
     const basePath = `/db/${category}/${item.slug}`
@@ -94,33 +99,44 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
         </div>
 
         {description && (
-            <div className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed whitespace-pre-line flex-1">
+            <MarkdownText className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed flex-1">
               {description}
-            </div>
+            </MarkdownText>
         )}
 
         {/* Équipement(s) nommé(s) portant la version parfaite */}
         {showPerfect && item.equipementsParfaits?.length > 0 && (
             <div className="px-4 pb-2 text-xs text-yellow-500/70 flex flex-col items-start gap-1 ">
               <span className="text-yellow-400 font-bold uppercase tracking-widest">Équipement :</span>
-              <span className='whitespace-pre-line text-xs'>
-            - {item.equipementsParfaits.map(slug => {
-                const eq = (equipements && !Array.isArray(equipements))
-                    ? equipements[slug]
-                    : equipements?.find(e => e.slug === slug)
-                return eq?.nom || slug
-              }).join('\n- ')}
-          </span>
+              <ul className="text-xs list-disc list-inside">
+                {item.equipementsParfaits.map(slug => {
+                  const eq = (equipements && !Array.isArray(equipements))
+                      ? equipements[slug]
+                      : equipements?.find(e => e.slug === slug)
+                  const nom = eq?.nom || slug
+                  return (
+                    <li key={slug}>
+                      <Link
+                        to={`/db/equipements/${slug}`}
+                        className="text-yellow-300 hover:underline hover:text-yellow-400 transition-colors"
+                        onClick={e => e.stopPropagation()}
+                      >
+                        {nom}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
             </div>
         )}
 
         {/* Notes */}
         {hasContent(item.notes) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
-              <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
-              <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+              <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
+              <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
                 {item.notes}
-              </div>
+              </MarkdownText>
             </div>
         )}
       </div>

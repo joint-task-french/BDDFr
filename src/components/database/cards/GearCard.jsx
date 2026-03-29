@@ -4,6 +4,7 @@ import {getAttrCategoryLabel, getGearSlotLabel, formatNumber} from '../../../uti
 import {GameIcon, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveIcon} from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
+import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-' && v !== 'FALSE' && v !== 'TRUE'
@@ -27,7 +28,7 @@ function resolveTalents(item, talentsEquipements) {
   })
 }
 
-export default function GearCard({ item, ensembles, talentsEquipements, allAttributs, equipementsType, attributsType }) {
+export default function GearCard({ item, ensembles, talentsEquipements, allAttributs, equipementsType, attributsType, isStatic }) {
   const params = useParams()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
@@ -41,12 +42,14 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
   const [isPrototype, setIsPrototype] = useState(isUrlPrototype || forcePrototype)
 
   useEffect(() => {
-    if (params.slug === item.slug) {
+    if (isStatic) {
+      setIsPrototype(forcePrototype)
+    } else if (params.slug === item.slug) {
       setIsPrototype(params.modifier === 'prototype' || forcePrototype)
     } else if (forcePrototype) {
       setIsPrototype(true)
     }
-  }, [params.modifier, params.slug, item.slug, forcePrototype])
+  }, [params.modifier, params.slug, item.slug, forcePrototype, isStatic])
 
   const togglePrototype = (e) => {
     e.preventDefault()
@@ -56,6 +59,8 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
 
     const nextState = !isPrototype
     setIsPrototype(nextState)
+
+    if (isStatic) return
 
     const category = params.category || 'equipements'
     const itemSlug = item.slug || item.nom
@@ -157,7 +162,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                   {(!isExotic && !isImprovised) && (
                       <button
                           onClick={togglePrototype}
-                          className={`flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border transition-all ${
+                          className={`flex items-center gap-1 text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border transition-all ${
                               isPrototype
                                   ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/40'
                                   : 'bg-tactical-bg text-gray-500 border-tactical-border hover:border-gray-500'
@@ -183,7 +188,11 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
 
 
           </div>
-          { item.description && <span className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">{item.description}</span> }
+          { item.description && (
+            <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
+              {item.description}
+            </MarkdownText>
+          ) }
         </div>
 
         {/* Attributs */}
@@ -209,7 +218,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                             {isSkillTier ? (
                                 `+${val}`
                             ) : (
-                                `${formatNumber(min)}${ref?.unite || ''} - ${formatNumber(val)}${ref?.unite || ''}`
+                                `${formatNumber(min)}${ref?.unite || ''} à ${formatNumber(val)}${ref?.unite || ''}`
                             )}
                           </span>
                         </div>
@@ -244,7 +253,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                   </span>
                         <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
                     {typeof val === 'number' ? formatNumber(val) : val}{ref?.unite || ''}
-                          {isOverMax && <span className="ml-1 text-[8px] text-yellow-500">(max {formatNumber(max)}{ref.unite})</span>}
+                          {isOverMax && <span className="ml-1 text-xs text-yellow-500">(max {formatNumber(max)}{ref.unite})</span>}
                   </span>
                       </div>
                   )
@@ -282,9 +291,9 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
         {/* Notes */}
         {hasContent(item.notes) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
-              <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
-              <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
-                {item.notes}
+              <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
+              <div className="text-xs text-gray-400 italic leading-relaxed">
+                <MarkdownText>{item.notes}</MarkdownText>
               </div>
             </div>
         )}

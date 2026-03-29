@@ -103,6 +103,16 @@ export function serializeBuild(state) {
   }
   if (Object.keys(wev).length > 0) b.wev = wev
 
+  // Valeurs utilisateur des mods (curseurs)
+  if (state.modValues) {
+    const mv = {}
+    const gmv = state.modValues.gearMods || {}
+    if (Object.keys(gmv).length > 0) mv.g = gmv
+    const smv = state.modValues.skillMods || {}
+    if (Object.keys(smv).length > 0) mv.s = smv
+    if (Object.keys(mv).length > 0) b.mv = mv
+  }
+
   return b
 }
 
@@ -315,6 +325,13 @@ export function resolveBuild(compact, data) {
     for (const [slotKey, vals] of Object.entries(compact.wev)) {
       build.weaponEssentialValues[slotKey] = vals || {}
     }
+  }
+
+  // Valeurs utilisateur des mods (curseurs)
+  build.modValues = { gearMods: {}, skillMods: {} }
+  if (compact.mv) {
+    if (compact.mv.g) build.modValues.gearMods = compact.mv.g
+    if (compact.mv.s) build.modValues.skillMods = compact.mv.s
   }
 
   return build

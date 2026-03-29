@@ -28,13 +28,14 @@
         },
         "prerequis": {
           "type": "string",
+          "pattern": "^[a-z0-9_]+$",
           "description": "Clé de spécialisation requise pour utiliser ce mod (optionnel)"
         },
         "attributs": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["attribut", "valeur"],
+            "required": ["attribut"],
             "properties": {
               "attribut": {
                 "type": "string",

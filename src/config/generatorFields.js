@@ -263,10 +263,34 @@ export const FIELDS = {
         ]},
       { key: 'icon', label: 'Logo (fichier)', type: 'text', placeholder: 'nom-du-icon.png' },
       { key: 'attributsEssentiels', label: 'Attributs essentiels', type: 'tagSelect', dynamicOptions: 'attributsTypes' },
-      { key: 'bonus1piece', label: 'Bonus 1 pièce', type: 'text', hiddenWhen: { key: 'type', value: 'gear_set' } },
-      { key: 'bonus2pieces', label: 'Bonus 2 pièces', type: 'text' },
-      { key: 'bonus3pieces', label: 'Bonus 3 pièces', type: 'text' },
-      { key: 'bonus4pieces', label: 'Bonus 4 pièces (gear set)', type: 'textarea', hiddenWhen: { key: 'type', value: 'marque' } },
+      { key: 'bonus1piece', label: 'Bonus 1 pièce', type: 'objectGroup', hiddenWhen: { key: 'type', value: 'gear_set' }, fields: [
+          { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
+              { key: 'slug', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'attributs' },
+              { key: 'value', label: 'Valeur', type: 'number' },
+            ]},
+          { key: 'talent', label: 'Talent', type: 'autocomplete', suggestionsKey: 'talentsEquipements' },
+        ]},
+      { key: 'bonus2pieces', label: 'Bonus 2 pièces', type: 'objectGroup', fields: [
+          { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
+              { key: 'slug', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'attributs' },
+              { key: 'value', label: 'Valeur', type: 'number' },
+            ]},
+          { key: 'talent', label: 'Talent', type: 'autocomplete', suggestionsKey: 'talentsEquipements' },
+        ]},
+      { key: 'bonus3pieces', label: 'Bonus 3 pièces', type: 'objectGroup', fields: [
+          { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
+              { key: 'slug', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'attributs' },
+              { key: 'value', label: 'Valeur', type: 'number' },
+            ]},
+          { key: 'talent', label: 'Talent', type: 'autocomplete', suggestionsKey: 'talentsEquipements' },
+        ]},
+      { key: 'bonus4pieces', label: 'Bonus 4 pièces (gear set)', type: 'objectGroup', hiddenWhen: { key: 'type', value: 'marque' }, fields: [
+          { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
+              { key: 'slug', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'attributs' },
+              { key: 'value', label: 'Valeur', type: 'number' },
+            ]},
+          { key: 'talent', label: 'Talent', type: 'autocomplete', suggestionsKey: 'talentsEquipements' },
+        ]},
       { key: 'talentTorse', label: 'Talent Torse (gear set)', type: 'autocomplete', suggestionsKey: 'talentsEquipements', hiddenWhen: { key: 'type', value: 'marque' } },
       { key: 'talentSac', label: 'Talent Sac (gear set)', type: 'autocomplete', suggestionsKey: 'talentsEquipements', hiddenWhen: { key: 'type', value: 'marque' } },
     ],

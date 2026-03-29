@@ -1,4 +1,5 @@
 import { formatModAttributs } from '../../../utils/modCompatibility'
+import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
@@ -33,7 +34,9 @@ export default function ModArmeCard({ item, allAttributs, modsArmesType }) {
           </span>
         </div>
         {statsText && (
-          <div className="mt-1.5 text-xs text-emerald-400 whitespace-pre-line">{statsText}</div>
+          <MarkdownText className="mt-1.5 text-xs text-emerald-400">
+            {statsText}
+          </MarkdownText>
         )}
         {item.compatible && item.compatible.length > 0 && (
           <div className="flex flex-wrap gap-1 mt-1.5">
@@ -47,10 +50,10 @@ export default function ModArmeCard({ item, allAttributs, modsArmesType }) {
         {/* Notes */}
         {hasContent(item.notes) && (
           <div className="mt-2 pt-2 border-t border-tactical-border/50">
-            <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Notes</div>
-            <div className="text-[11px] text-gray-400 italic leading-relaxed whitespace-pre-line">
+            <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-0.5">Notes</div>
+            <MarkdownText className="text-xs text-gray-400 italic leading-relaxed">
               {item.notes}
-            </div>
+            </MarkdownText>
           </div>
         )}
       </div>

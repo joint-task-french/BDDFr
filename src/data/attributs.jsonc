@@ -424,6 +424,22 @@
       "portee_optimale"
     ]
   },
+  "portee_scan_mod_comp": {
+    "nom": "Portée scan",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la portée du scan",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "portee_scan"
+    ]
+  },
   "cadence_de_tir_arm": {
     "nom": "Cadence de tir",
     "categorie": "utilitaire",
@@ -1362,6 +1378,38 @@
       "duree_competence"
     ]
   },
+  "duree_mod_comp": {
+    "nom": "Durée",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
+    "description": "Augmente la durée de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_competence"
+    ]
+  },
+  "duree_de_la_deviation_mod_comp": {
+    "nom": "Durée de la déviation",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente la durée de la déviation",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_de_la_deviation"
+    ]
+  },
   "recharge_mod_comp": {
     "nom": "Recharge",
     "categorie": "utilitaire",
@@ -1376,6 +1424,22 @@
     "selectionable": false,
     "statistiques": [
       "temps_rechargement_comp"
+    ]
+  },
+  "bombes_supplementaires_mod_comp": {
+    "nom": "Bombes supplémentaires",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 2,
+    "description": "Augmente le nombre de bombes",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "bombes supplementaires"
     ]
   },
   "degats_corps_a_corps_mod": {
@@ -1544,6 +1608,22 @@
     "description": "Bonus à la santé des objets de compétence",
     "estEssentiel": false,
     "selectionable": true,
+    "statistiques": [
+      "santee_competence"
+    ]
+  },
+  "sante_mod_comp": {
+    "nom": "Santé",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la santé de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
     "statistiques": [
       "santee_competence"
     ]

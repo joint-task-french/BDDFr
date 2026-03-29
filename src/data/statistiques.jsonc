@@ -191,6 +191,10 @@
     "nom": "Durée de compétence",
     "description": "Augmente la durée des compétences"
   },
+  "duree_de_la_deviation": {
+    "nom": "Durée de la déviation",
+    "description": "Augmente la durée de la déviation"
+  },
   "temps_rechargement_comp": {
     "nom": "Temps de rechargement compétence",
     "description": "Réduit le temps de rechargement de la compétence"
@@ -223,6 +227,10 @@
     "nom": "Portée optimale",
     "description": "Augmente la portée optimale de l'arme"
   },
+  "portee_scan": {
+    "nom": "Portée scan",
+    "description": "Augmente la portée du scan"
+  },
   "vitesse_rechargement": {
     "nom": "Vitesse de rechargement",
     "description": "Réduit le temps de rechargement"
@@ -242,6 +250,10 @@
   "menace": {
     "nom": "Menace",
     "description": "Augmente ou réduit la menace"
+  },
+  "bombes supplementaires": {
+    "nom": "Bombes supplémentaires",
+    "description": "Augmente le nombre de bombes"
   }
 }
 

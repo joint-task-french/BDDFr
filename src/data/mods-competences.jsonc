@@ -94,23 +94,74 @@
       { "attribut": "recup_de_competence_mod" }
     ]
   },
-  "drone_batterie": {
-    "nom": "Batterie de drone",
+  "drone_portee_scan": {
+    "nom": "Analyseur balistique",
+    "competence": "drone",
+    "emplacement": "COQUE",
+    "attributs": [
+      { "attribut": "portee_scan_mod_comp" }
+    ]
+  },
+  "drone_duree": {
+    "nom": "Amortissement vibratoire à cardan",
     "competence": "drone",
     "emplacement": "BATTERIE",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "duree_de_competence_mod" }
+      { "attribut": "duree_mod_comp" }
     ]
   },
-  "drone_tireur_d_elite_batterie": {
-    "nom": "Batterie de drone (Tireur d'élite)",
+  "drone_duree_de_la_deviation": {
+    "nom": "Poudre explosive blitzkrieg",
+    "competence": "drone",
+    "emplacement": "BATTERIE",
+    "attributs": [
+      { "attribut": "duree_de_la_deviation_mod_comp" }
+    ]
+  },
+  "drone_bombes_supplementaires": {
+    "nom": "Réquisition d'explosifs",
+    "competence": "drone",
+    "emplacement": "COQUE",
+    "attributs": [
+      { "attribut": "bombes_supplementaires_mod_comp" }
+    ]
+  },
+  "drone_sante": {
+    "nom": "Santé supplémentaire",
+    "competence": "drone",
+    "emplacement": "COQUE",
+    "attributs": [
+      { "attribut": "sante_mod_comp" }
+    ]
+  },
+  "drone_degats": {
+    "nom": "Munitions supplémentaires",
+    "competence": "drone",
+    "emplacement": "APPROVISIONNEMENT",
+    "attributs": [
+      { "attribut": "degats_mod_comp" }
+    ]
+  },
+  "drone_portee_scan_tireur_d_elite": {
+    "nom": "Châssis fibre de carbone",
+    "competence": "drone",
+    "emplacement": "COQUE",
+    "prerequis": "tireur_elite",
+    "attributs": [
+      { "attribut": "portee_scan_mod_comp",
+        "valeur": 20
+      }
+    ]
+  },
+  "drone_duree_tireur_d_elite": {
+    "nom": "Batterie au graphène",
     "competence": "drone",
     "emplacement": "BATTERIE",
     "prerequis": "tireur_elite",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "duree_de_competence_mod" }
+      { "attribut": "duree_mod_comp",
+        "valeur": 15
+      }
     ]
   },
   "bouclier_sante_de_bouclier": {

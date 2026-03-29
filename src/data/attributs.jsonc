@@ -1548,24 +1548,9 @@
       "santee_competence"
     ]
   },
-  "sante_de_bouclier_mod_comp_incendiaire": {
-    "nom": "Santé de bouclier",
-    "categorie": "defensif",
-    "cible": [
-      "mod_equipement"
-    ],
-    "unite": "%",
-    "max": 8,
-    "description": "Augmente la santé du bouclier",
-    "estEssentiel": false,
-    "selectionable": true,
-    "statistiques": [
-      "sante_bouclier"
-    ]
-  },
   "sante_de_bouclier_mod_comp": {
     "nom": "Santé de bouclier",
-    "categorie": "defensif",
+    "categorie": "utilitaire",
     "cible": [
       "mod_equipement"
     ],
@@ -1574,9 +1559,73 @@
     "max": 6,
     "description": "Augmente la santé du bouclier",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "sante_bouclier"
+    ]
+  },
+  "degat_du_deflecteur_mod_comp": {
+    "nom": "Dégâts du déflecteur",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
+    "description": "Augmente les dégâts du déflecteur",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_du_deflecteur"
+    ]
+  },
+  "regeneration_active_mod_comp": {
+    "nom": "Régénération active",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max":6,
+    "description": "Augmente la régénération active du bouclier",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "regeneration_active"
+    ]
+  },
+  "regeneration_en_etui_mod_comp": {
+    "nom": "Régénération en étui",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max":5,
+    "description": "Augmente la régénération en étui du bouclier",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "regeneration_en_etui"
+    ]
+  },
+  "bonus_de_degats_mod_comp": {
+    "nom": "Bonus de dégâts (par ennemi)",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max":5,
+    "description": "Augmente les dégâts par ennemi",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "bonus_de_degats"
     ]
   },
   "reparation_subies_eqp": {

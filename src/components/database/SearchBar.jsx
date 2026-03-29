@@ -10,7 +10,7 @@ export default function SearchBar({ value, onChange }) {
             if (localValue !== value) {
                 onChange(localValue)
             }
-        }, 250)
+        }, 500)
 
         return () => clearTimeout(timeoutId)
     }, [localValue, onChange, value])

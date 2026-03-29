@@ -13,7 +13,7 @@
     "nom": "Bobine d'impulsion (Artilleur)",
     "competence": "impulsion",
     "emplacement": "BOBINE",
-    "prerequis": "Artilleur",
+    "prerequis": "artilleur",
     "attributs": [
       { "attribut": "duree_de_competence_mod" },
       { "attribut": "recup_de_competence_mod" }
@@ -32,7 +32,7 @@
     "nom": "Mécanisme de tir de tourelle (Démolisseur)",
     "competence": "tourelle",
     "emplacement": "MÉCANISME DE TIR",
-    "prerequis": "Démolisseur",
+    "prerequis": "demolisseur",
     "attributs": [
       { "attribut": "degats_de_competence_mod" },
       { "attribut": "duree_de_competence_mod" }
@@ -51,7 +51,7 @@
     "nom": "Lanceur de ruche (Technicien)",
     "competence": "ruche",
     "emplacement": "LANCEUR",
-    "prerequis": "Technicien",
+    "prerequis": "technicien",
     "attributs": [
       { "attribut": "competences_de_reparation_mod" },
       { "attribut": "recup_de_competence_mod" }
@@ -88,7 +88,7 @@
     "nom": "Désignation de mine (Survivaliste)",
     "competence": "mine_teleguide",
     "emplacement": "DÉSIGNATION",
-    "prerequis": "Survivaliste",
+    "prerequis": "survivaliste",
     "attributs": [
       { "attribut": "degats_de_competence_mod" },
       { "attribut": "recup_de_competence_mod" }
@@ -107,7 +107,7 @@
     "nom": "Batterie de drone (Tireur d'élite)",
     "competence": "drone",
     "emplacement": "BATTERIE",
-    "prerequis": "Tireur d'élite",
+    "prerequis": "tireur_d_elite",
     "attributs": [
       { "attribut": "degats_de_competence_mod" },
       { "attribut": "duree_de_competence_mod" }
@@ -125,7 +125,7 @@
     "nom": "Châssis résistant aux chocs (Incendiaire)",
     "competence": "bouclier",
     "emplacement": "CIRCUIT IMPRIMÉ",
-    "prerequis": "Incendiaire",
+    "prerequis": "incendiaire",
     "attributs": [
       { "attribut": "sante_de_bouclier_mod_comp_incendiaire" }
     ]

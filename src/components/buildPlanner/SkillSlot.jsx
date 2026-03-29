@@ -87,7 +87,7 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
               </div>
             )}
             {skill.statistiques && (
-              <MarkdownText className="text-xs text-gray-400 mt-2 leading-relaxed whitespace-pre-line">
+              <MarkdownText className="text-xs text-gray-400 mt-2 leading-relaxed">
                 {skill.statistiques}
               </MarkdownText>
             )}

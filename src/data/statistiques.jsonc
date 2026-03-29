@@ -251,7 +251,7 @@
     "nom": "Menace",
     "description": "Augmente ou réduit la menace"
   },
-  "bombes supplementaires": {
+  "bombes_supplementaires": {
     "nom": "Bombes supplémentaires",
     "description": "Augmente le nombre de bombes"
   }

@@ -1,9 +1,40 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { useDataLoader } from '../hooks/useDataLoader'
 import Loader from '../components/common/Loader'
 import { ChevronDown, ChevronRight } from 'lucide-react'
 import MarkdownText from "../components/common/MarkdownText.jsx";
 
+function parseDate(dateObj) {
+  // Accepte soit une string (YYYY-MM-DD), soit un objet {from, to}
+  if (!dateObj) return null
+  if (typeof dateObj === 'string') {
+    const [year, month, day] = dateObj.split('-').map(Number)
+    if (!year || !month || !day) return null
+    return new Date(year, month - 1, day)
+  }
+  if (typeof dateObj === 'object' && dateObj.from) {
+    const [year, month, day] = dateObj.from.split('-').map(Number)
+    if (!year || !month || !day) return null
+    return new Date(year, month - 1, day)
+  }
+  return null
+}
+
+function formatDateFr(dateObj) {
+  if (!dateObj) return ''
+  if (typeof dateObj === 'string') {
+    const d = parseDate(dateObj)
+    if (!d) return dateObj
+    return d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })
+  }
+  if (typeof dateObj === 'object' && dateObj.from && dateObj.to) {
+    const dFrom = parseDate(dateObj.from)
+    const dTo = parseDate(dateObj.to)
+    if (!dFrom || !dTo) return `${dateObj.from} - ${dateObj.to}`
+    return `${dFrom.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })} au ${dTo.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })}`
+  }
+  return ''
+}
 
 export default function ChangelogPage() {
   const { data, loading, error, progress } = useDataLoader()
@@ -16,8 +47,18 @@ export default function ChangelogPage() {
     </div>
   )
 
-  const changelog = data.changelog || []
+  let changelog = data.changelog || []
   const meta = data.metadata || {}
+
+  // Trie le changelog par date décroissante (plus récente en premier)
+  changelog = changelog.slice().sort((a, b) => {
+    const da = parseDate(a.date)
+    const db = parseDate(b.date)
+    if (!da && !db) return 0
+    if (!da) return 1
+    if (!db) return -1
+    return db - da
+  })
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 max-w-5xl mx-auto">
@@ -35,11 +76,16 @@ export default function ChangelogPage() {
       {/* Timeline */}
       <div className="relative">
         {/* Ligne verticale */}
-        <div className="absolute left-[15px] top-0 bottom-0 w-px bg-tactical-border" />
+        <div className="absolute left-3.75 top-0 bottom-0 w-px bg-tactical-border" />
 
         <div className="space-y-6">
           {changelog.map((entry, index) => (
-            <ChangelogEntry key={index} entry={entry} isFirst={index === 0} />
+            <ChangelogEntry
+              key={index}
+              entry={entry}
+              isFirst={index === 0}
+              isLatest={index === 0}
+            />
           ))}
         </div>
       </div>
@@ -63,14 +109,14 @@ export default function ChangelogPage() {
   )
 }
 
-function ChangelogEntry({ entry, isFirst }) {
+function ChangelogEntry({ entry, isFirst, isLatest }) {
   const hasPatch = entry.patch && entry.patch.trim() !== ''
   const [open, setOpen] = useState(true)
 
   return (
     <div className="relative pl-10 fade-in">
       {/* Point sur la timeline */}
-      <div className={`absolute left-[9px] top-1 w-[13px] h-[13px] rounded-full border-2 ${
+      <div className={`absolute left-2.25 top-1 w-3.25 h-3.25 rounded-full border-2 ${
         isFirst
           ? 'bg-shd border-shd shadow-[0_0_8px_#ff9000]'
           : 'bg-tactical-panel border-tactical-border'
@@ -92,9 +138,7 @@ function ChangelogEntry({ entry, isFirst }) {
             >
               {open ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
             </button>
-            <span className={`text-sm font-bold uppercase tracking-wide ${isFirst ? 'text-shd' : 'text-gray-300'}`}>
-              📅 {entry.date}
-            </span>
+            <span className={`text-sm font-bold uppercase tracking-wide ${isFirst ? 'text-shd' : 'text-gray-300'}`}>📅 {formatDateFr(entry.date)}</span>
           </div>
           {hasPatch && (
             <span className="text-xs font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded uppercase tracking-widest">
@@ -107,7 +151,7 @@ function ChangelogEntry({ entry, isFirst }) {
         {open && entry.changements && entry.changements.length > 0 && (
           <ul className="px-4 py-3 space-y-1.5">
             {entry.changements.map((change, i) => (
-              <ChangeItem key={i} change={change} />
+              <ChangeItem key={i} change={change} defaultOpen={!!isLatest} />
             ))}
           </ul>
         )}
@@ -117,9 +161,9 @@ function ChangelogEntry({ entry, isFirst }) {
 }
 
 
-function ChangeItem({ change }) {
+function ChangeItem({ change, defaultOpen }) {
   const isObject = typeof change === 'object' && change !== null
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(!!defaultOpen)
 
   if (!isObject) {
     const raw = String(change || '').trim()
@@ -131,7 +175,12 @@ function ChangeItem({ change }) {
   }
 
   const title = change.titre || change.title || 'Détail'
-  const description = change.description || ''
+  let description = change.description || ''
+
+  // Si description est un tableau, on le transforme en liste markdown
+  if (Array.isArray(description)) {
+    description = description.map(item => `- ${item}`).join('\n')
+  }
 
   return (
     <li className="flex flex-col gap-1 text-sm text-gray-400 leading-relaxed">

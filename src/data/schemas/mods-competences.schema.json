@@ -28,6 +28,7 @@
         },
         "prerequis": {
           "type": "string",
+          "pattern": "^[a-z0-9_]+$",
           "description": "Clé de spécialisation requise pour utiliser ce mod (optionnel)"
         },
         "attributs": {

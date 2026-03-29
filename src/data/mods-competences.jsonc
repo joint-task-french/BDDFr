@@ -107,7 +107,7 @@
     "nom": "Batterie de drone (Tireur d'élite)",
     "competence": "drone",
     "emplacement": "BATTERIE",
-    "prerequis": "tireur_d_elite",
+    "prerequis": "tireur_elite",
     "attributs": [
       { "attribut": "degats_de_competence_mod" },
       { "attribut": "duree_de_competence_mod" }

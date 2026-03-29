@@ -1202,17 +1202,17 @@
     ]
   },
   "rayon_mod_comp": {
-    "nom": "Maniement d'arme",
-    "categorie": "offensif",
+    "nom": "Rayon",
+    "categorie": "utilitaire",
     "cible": [
       "mod_competence"
     ],
     "unite": "%",
     "min": 1,
-    "max": 8,
-    "description": "Améliore la vitesse de rechargement, la vitesse de changement, la précision et la stabilité des armes.",
+    "max": 10,
+    "description": "Augmente le rayon de la compétence.",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "rayon"
     ]
@@ -1392,6 +1392,22 @@
     "selectionable": false,
     "statistiques": [
       "duree_competence"
+    ]
+  },
+  "duree_effet_mod_comp": {
+    "nom": "Durée effet",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la durée de l'effet",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_effet"
     ]
   },
   "duree_de_la_deviation_mod_comp": {
@@ -1628,6 +1644,22 @@
       "santee_competence"
     ]
   },
+  "sante_mod_comp_impulsion": {
+    "nom": "Santé",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 20,
+    "description": "Augmente la santé de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "santee_competence"
+    ]
+  },
   "sante_de_bouclier_mod_comp": {
     "nom": "Santé de bouclier",
     "categorie": "utilitaire",
@@ -1762,6 +1794,22 @@
     "selectionable": true,
     "statistiques": [
       "tiers_competence"
+    ]
+  },
+  "taille_cone_mod_comp": {
+    "nom": "Taille cône",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
+    "description": "Augmente la taille du cône de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "taille_cone"
     ]
   },
   "degats_de_fusil": {

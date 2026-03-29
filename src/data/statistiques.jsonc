@@ -75,6 +75,10 @@
     "nom": "Taille du chargeur",
     "description": "Augmente la capacité du chargeur"
   },
+  "taille_cone": {
+    "nom": "Taille cône",
+    "description": "Augmente la taille du cône de la compétence"
+  },
   "munitions_supplementaires": {
     "nom": "Munitions supplémentaires",
     "description": "Nombre de munitions supplémentaires dans le chargeur"
@@ -190,6 +194,10 @@
   "duree_competence": {
     "nom": "Durée de compétence",
     "description": "Augmente la durée des compétences"
+  },
+  "duree_effet": {
+    "nom": "Durée effet",
+    "description": "Augmente la durée de l'effet"
   },
   "duree_de_la_deviation": {
     "nom": "Durée de la déviation",

@@ -1,22 +1,57 @@
 // Mods de compétences — The Division 2
 {
-  "impulsion_bobine": {
-    "nom": "Bobine d'impulsion",
+  "impulsion_rayon": {
+    "nom": "Câble nickel-chrome",
     "competence": "impulsion",
     "emplacement": "BOBINE",
     "attributs": [
-      { "attribut": "duree_de_competence_mod" },
-      { "attribut": "recup_de_competence_mod" }
+      { "attribut": "rayon_mod_comp" }
     ]
   },
-  "impulsion_artilleur_bobine": {
-    "nom": "Bobine d'impulsion (Artilleur)",
+  "impulsion_artilleur_rayon": {
+    "nom": "Transmission directionnelle",
     "competence": "impulsion",
     "emplacement": "BOBINE",
     "prerequis": "artilleur",
     "attributs": [
-      { "attribut": "duree_de_competence_mod" },
-      { "attribut": "recup_de_competence_mod" }
+      { "attribut": "rayon_mod_comp",
+        "valeur": 15
+      }
+    ]
+  },
+  "impulsion_artilleur_duree_effet": {
+    "nom": "Amplification de micro-ondes",
+    "competence": "impulsion",
+    "emplacement": "LOGEMENT",
+    "prerequis": "artilleur",
+    "attributs": [
+      { "attribut": "duree_effet_mod_comp",
+        "valeur": 15
+      }
+    ]
+  },
+  "impulsion_taille_cone": {
+    "nom": "Oscillateur instable",
+    "competence": "impulsion",
+    "emplacement": "BOBINE",
+    "attributs": [
+      { "attribut": "taille_cone_mod_comp" }
+    ]
+  },
+  "impulsion_duree_effet": {
+    "nom": "Super colle",
+    "competence": "impulsion",
+    "emplacement": "LOGEMENT",
+    "attributs": [
+      { "attribut": "duree_effet_mod_comp" }
+    ]
+  },
+  "impulsion_sante": {
+    "nom": "Schéma éclaté",
+    "competence": "impulsion",
+    "emplacement": "LOGEMENT",
+    "attributs": [
+      { "attribut": "sante_mod_comp_impulsion" }
     ]
   },
   "tourelle_mecanisme_de_tir": {

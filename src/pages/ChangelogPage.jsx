@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { useDataLoader } from '../hooks/useDataLoader'
 import Loader from '../components/common/Loader'
 import { ChevronDown, ChevronRight } from 'lucide-react'
@@ -35,7 +35,7 @@ export default function ChangelogPage() {
       {/* Timeline */}
       <div className="relative">
         {/* Ligne verticale */}
-        <div className="absolute left-[15px] top-0 bottom-0 w-px bg-tactical-border" />
+        <div className="absolute left-3.75 top-0 bottom-0 w-px bg-tactical-border" />
 
         <div className="space-y-6">
           {changelog.map((entry, index) => (
@@ -70,7 +70,7 @@ function ChangelogEntry({ entry, isFirst }) {
   return (
     <div className="relative pl-10 fade-in">
       {/* Point sur la timeline */}
-      <div className={`absolute left-[9px] top-1 w-[13px] h-[13px] rounded-full border-2 ${
+      <div className={`absolute left-2.25 top-1 w-3.25 h-3.25 rounded-full border-2 ${
         isFirst
           ? 'bg-shd border-shd shadow-[0_0_8px_#ff9000]'
           : 'bg-tactical-panel border-tactical-border'

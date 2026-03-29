@@ -1011,8 +1011,53 @@
       "categorie": "utilitaire",
       "levels": {
         "1": {
-          "skill_damage": 20,
-          "skill_repair": 20,
+          "skill_damage": 15,
+          "skill_repair": 15,
+          "duration": 20
+        },
+        "2": {
+          "skill_damage": 25,
+          "skill_repair": 25,
+          "duration": 20
+        },
+        "3": {
+          "skill_damage": 35,
+          "skill_repair": 35,
+          "duration": 20
+        },
+        "4": {
+          "skill_damage": 45,
+          "skill_repair": 45,
+          "duration": 20
+        },
+        "5": {
+          "skill_damage": 55,
+          "skill_repair": 55,
+          "duration": 20
+        },
+        "6": {
+          "skill_damage": 65,
+          "skill_repair": 65,
+          "duration": 20
+        },
+        "7": {
+          "skill_damage": 75,
+          "skill_repair": 75,
+          "duration": 20
+        },
+        "8": {
+          "skill_damage": 85,
+          "skill_repair": 85,
+          "duration": 20
+        },
+        "9": {
+          "skill_damage": 95,
+          "skill_repair": 95,
+          "duration": 20
+        },
+        "10": {
+          "skill_damage": 105,
+          "skill_repair": 105,
           "duration": 20
         },
         "base": "Infliger un effet d'état à un ennemi augmente les totaux de dégâts et de réparation des compétences de {skill_damage}% pendant {duration}s."

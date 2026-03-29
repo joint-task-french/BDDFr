@@ -39,7 +39,12 @@ export default function ChangelogPage() {
 
         <div className="space-y-6">
           {changelog.map((entry, index) => (
-            <ChangelogEntry key={index} entry={entry} isFirst={index === 0} />
+            <ChangelogEntry
+              key={index}
+              entry={entry}
+              isFirst={index === 0}
+              isLatest={index === 0}
+            />
           ))}
         </div>
       </div>
@@ -63,7 +68,7 @@ export default function ChangelogPage() {
   )
 }
 
-function ChangelogEntry({ entry, isFirst }) {
+function ChangelogEntry({ entry, isFirst, isLatest }) {
   const hasPatch = entry.patch && entry.patch.trim() !== ''
   const [open, setOpen] = useState(true)
 
@@ -92,9 +97,7 @@ function ChangelogEntry({ entry, isFirst }) {
             >
               {open ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
             </button>
-            <span className={`text-sm font-bold uppercase tracking-wide ${isFirst ? 'text-shd' : 'text-gray-300'}`}>
-              📅 {entry.date}
-            </span>
+            <span className={`text-sm font-bold uppercase tracking-wide ${isFirst ? 'text-shd' : 'text-gray-300'}`}>📅 {entry.date}</span>
           </div>
           {hasPatch && (
             <span className="text-xs font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded uppercase tracking-widest">
@@ -107,7 +110,7 @@ function ChangelogEntry({ entry, isFirst }) {
         {open && entry.changements && entry.changements.length > 0 && (
           <ul className="px-4 py-3 space-y-1.5">
             {entry.changements.map((change, i) => (
-              <ChangeItem key={i} change={change} />
+              <ChangeItem key={i} change={change} defaultOpen={!!isLatest} />
             ))}
           </ul>
         )}
@@ -117,9 +120,9 @@ function ChangelogEntry({ entry, isFirst }) {
 }
 
 
-function ChangeItem({ change }) {
+function ChangeItem({ change, defaultOpen }) {
   const isObject = typeof change === 'object' && change !== null
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(!!defaultOpen)
 
   if (!isObject) {
     const raw = String(change || '').trim()
@@ -131,7 +134,12 @@ function ChangeItem({ change }) {
   }
 
   const title = change.titre || change.title || 'Détail'
-  const description = change.description || ''
+  let description = change.description || ''
+
+  // Si description est un tableau, on le transforme en liste markdown
+  if (Array.isArray(description)) {
+    description = description.map(item => `- ${item}`).join('\n')
+  }
 
   return (
     <li className="flex flex-col gap-1 text-sm text-gray-400 leading-relaxed">

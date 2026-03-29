@@ -2,7 +2,7 @@
 {
   "titre": "Base de données française — The Division 2",
   "version": "TU : Y7S3.3",
-  "derniereMiseAJour": "2026-03-02",
+  "derniereMiseAJour": "2026-03-31",
   "maxExpertiseLevel": 30,
   "credits": [
     "Raven",
@@ -25,8 +25,33 @@
       "date": "Le 31/03/2026",
       "patch": "Refonte total BDDFr",
       "changements": [
-        "Utilisation de **Github Pages** pour la base de donnée",
-        "Projet open-source permettant a tout le monde de proposer des modifications"
+        "Utilisation de Github Pages pour la base de donnée",
+        "Projet open-source permettant a tout le monde de proposer des modifications",
+        {
+          "titre": "Ajout des marques",
+          "description": ""
+        },
+        {
+          "titre": "Ajout des équipements",
+          "description": ""
+        },
+        {
+          "titre": "Ajout des armes",
+          "description": [
+            "Vitesse supérieure",
+            "Quickstep",
+            "Big Alejandro"
+          ]
+        },
+        {
+          "titre": "Ajout des talents",
+          "description": [
+            "Tireur à couvert *(Big Alejandro)*",
+            "Mesure parfaite *(Vitesse supérieure)*",
+            "Mode vitesse *(Quickstep)*"
+          ]
+        },
+        "Ajout de la gestion des équipements de qualité prototypes"
       ]
     },
     {

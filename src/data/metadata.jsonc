@@ -22,19 +22,11 @@
   ],
   "changelog": [
     {
-      "date": "Le 02/03/2026",
+      "date": "Le 31/03/2026",
       "patch": "Refonte total BDDFr",
       "changements": [
         "Utilisation de **Github Pages** pour la base de donnée",
-        "Projet open-source permettant a tout le monde de proposer des modifications",
-        {
-          "titre": "Changement structuration des données",
-          "description": "Passage vers un format JSONC plus lisible et [commentable](https://code.visualstudio.com/docs/languages/json#_json-with-comments).\n\n- Support des commentaires\n- Compatibilité avec les outils de validation"
-        },
-        {
-          "titre": "Validation automatique",
-          "description": "Ajout de scripts permettant de valider les fichiers de données avec `ajv`.\n\nLes erreurs sont reportées lors du script `npm run validate-schemas`."
-        }
+        "Projet open-source permettant a tout le monde de proposer des modifications"
       ]
     },
     {

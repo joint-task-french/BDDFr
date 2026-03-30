@@ -39,6 +39,9 @@
   "gadget": {
     "nom": "Gadget"
   },
+  "lateral": {
+    "nom": "latéral"
+  },
 
   "rail_optique_court": {
     "nom": "Rail optique court"

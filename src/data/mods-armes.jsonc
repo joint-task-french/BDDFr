@@ -3,8 +3,6 @@
     "nom": "Charg. .45 ACP étendu",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556",
-      "chargeur_762"
     ],
     "attributs": [
       {
@@ -17,8 +15,6 @@
     "nom": "Charg. .45 ACP approv. précision",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556",
-      "chargeur_762"
     ],
     "attributs": [
       {
@@ -31,8 +27,6 @@
     "nom": "Charg. .45 ACP approv. forcée",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556",
-      "chargeur_762"
     ],
     "attributs": [
       {
@@ -45,8 +39,6 @@
     "nom": "Charg. .45 ACP ressort court",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556",
-      "chargeur_762"
     ],
     "attributs": [
       {
@@ -59,8 +51,6 @@
     "nom": "Charg. .45 ACP surdimensionné",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556",
-      "chargeur_762"
     ],
     "attributs": [
       {
@@ -77,7 +67,6 @@
     "nom": "Charg. étendu léger 5.56",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556"
     ],
     "attributs": [
       {
@@ -89,7 +78,9 @@
   "charg_5_56_tactique": {
     "nom": "Charg. 5.56 tactique",
     "type": "chargeur",
-    "compatible": [],
+    "compatible": [
+      "chargeur_556"
+    ],
     "attributs": [
       {
         "attribut": "degats_de_coup_critique_arm",
@@ -101,7 +92,6 @@
     "nom": "Charg. 5.56 ressort équilibré",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556"
     ],
     "attributs": [
       {
@@ -114,7 +104,6 @@
     "nom": "Charg. 5.56 infanterie",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556"
     ],
     "attributs": [
       {
@@ -127,7 +116,6 @@
     "nom": "Charg. étendu solide 5.56",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556"
     ],
     "attributs": [
       {
@@ -188,7 +176,6 @@
     "nom": "Charg. étendu léger 7.62",
     "type": "chargeur",
     "compatible": [
-      "chargeur_762_precision"
     ],
     "attributs": [
       {
@@ -201,7 +188,6 @@
     "nom": "Charg. 7.62 pondéré",
     "type": "chargeur",
     "compatible": [
-      "chargeur_762_precision"
     ],
     "attributs": [
       {
@@ -214,7 +200,6 @@
     "nom": "Charg. 7.62 mince",
     "type": "chargeur",
     "compatible": [
-      "chargeur_762_precision"
     ],
     "attributs": [
       {
@@ -227,7 +212,6 @@
     "nom": "Charg. 7.62 précision",
     "type": "chargeur",
     "compatible": [
-      "chargeur_762_precision"
     ],
     "attributs": [
       {
@@ -464,7 +448,6 @@
     "nom": "Petit silencieux .45",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -477,7 +460,6 @@
     "nom": "Silencieux Osprey .45",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -490,7 +472,6 @@
     "nom": "Frein ventilé bruyant .45",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -503,7 +484,6 @@
     "nom": "Frein de bouche .45",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -516,7 +496,6 @@
     "nom": "Compensateur .45",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -529,7 +508,6 @@
     "nom": "Cache-flamme .45",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -542,7 +520,6 @@
     "nom": "Grand silencieux 5.56",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -555,7 +532,6 @@
     "nom": "Compensateur 5.56",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -568,7 +544,6 @@
     "nom": "Silencieux de fusil Omega 5.56",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -585,7 +560,6 @@
     "nom": "Frein de bouche 5.56",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -598,7 +572,6 @@
     "nom": "Frein ventilé bruyant 5.56",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -611,7 +584,6 @@
     "nom": "Cache-flamme 5.56",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -624,7 +596,6 @@
     "nom": "Grand silencieux 7.62",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -637,7 +608,6 @@
     "nom": "Silencieux de fusil Omega 7.62",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -654,7 +624,6 @@
     "nom": "Cache-flamme 7.62",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -667,7 +636,6 @@
     "nom": "Frein de bouche 7.62",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -680,7 +648,6 @@
     "nom": "Compensateur 7.62",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -693,7 +660,6 @@
     "nom": "Frein ventilé bruyant 7.62",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -706,8 +672,6 @@
     "nom": "Petit silencieux 9mm",
     "type": "canon",
     "compatible": [
-      "gadget",
-      "rail_sous_canon_court"
     ],
     "attributs": [
       {
@@ -720,8 +684,6 @@
     "nom": "Silencieux Osprey 9mm",
     "type": "canon",
     "compatible": [
-      "gadget",
-      "rail_sous_canon_court"
     ],
     "attributs": [
       {
@@ -734,8 +696,6 @@
     "nom": "Compensateur 9mm",
     "type": "canon",
     "compatible": [
-      "gadget",
-      "rail_sous_canon_court"
     ],
     "attributs": [
       {
@@ -748,8 +708,6 @@
     "nom": "Cache-flamme 9mm",
     "type": "canon",
     "compatible": [
-      "gadget",
-      "rail_sous_canon_court"
     ],
     "attributs": [
       {
@@ -762,8 +720,6 @@
     "nom": "Frein de bouche 9mm",
     "type": "canon",
     "compatible": [
-      "gadget",
-      "rail_sous_canon_court"
     ],
     "attributs": [
       {
@@ -776,8 +732,6 @@
     "nom": "Frein ventilé bruyant 9mm",
     "type": "canon",
     "compatible": [
-      "gadget",
-      "rail_sous_canon_court"
     ],
     "attributs": [
       {
@@ -1040,7 +994,9 @@
   "pointeur_laser": {
     "nom": "Pointeur laser",
     "type": "bouche",
-    "compatible": [],
+    "compatible": [
+      "lateral"
+    ],
     "attributs": [
       {
         "attribut": "probabilite_de_coup_critique_arm",
@@ -1081,8 +1037,6 @@
     "type": "bouche",
     "bonus": "Éclaire en face de vous",
     "compatible": [
-      "bouche_9mm",
-      "bouche_45_acp"
     ]
   },
   "viseur_a_point_de_diamondback": {
@@ -2117,7 +2071,7 @@
     "estExotique": true,
     "compatible": []
   },
-  "baiser_de_la_mort": { //TODO stats pas bon
+  "baiser_de_la_mort": {
     "nom": "Baiser de la mort",
     "type": "canon",
     "attributs": [
@@ -2172,6 +2126,138 @@
       {
         "attribut": "degats_de_coup_critique_arm",
         "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "visee_infinity": {
+    "nom": "Visée Infinity",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "degats_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_serpent": {
+    "nom": "Chargeur Serpent",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "vitesse_de_rechargement_arm",
+        "valeur": 25
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "poignee_resistante_legere": {
+    "nom": "Poignée résistante légère",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_resistante_aux_intemperies": {
+    "nom": "Bouche résistante aux intempéries",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "cadence_de_tir_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "optique_d_oxpecker": {
+    "nom": "Optique d'Oxpecker",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "portee_optimale_arm",
+        "valeur": 50
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "accessoire_sous_canon_d_oxpecker": {
+    "nom": "Accessoire sous canon d'Oxpecker",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_d_oxpecker": {
+    "nom": "Bouche d'Oxpecker",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "munitions_mod",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "eclat_du_jugement": {
+    "nom": "Éclat du jugement",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "degats_de_headshot_arm",
+        "valeur": 40
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "ressort_a_tension_optimisee": {
+    "nom": "Ressort à tension optimisée",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "maniement_d_arme_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chassis_inflexible": {
+    "nom": "Châssis inflexible",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "stabilite_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "canon_perfore": {
+    "nom": "Canon perforé",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 10
       }
     ],
     "estExotique": true,

@@ -54,15 +54,6 @@
       }
     ]
   },
-  "protection_contre_alterations_d_etat": {
-    "categorie": "defensif",
-    "nom": "PROTOCOLE DÉFENSIF : RÉSILIENCE",
-    "attributs": [
-      {
-        "attribut": "protection_contre_alterations_d_etat_mod"
-      }
-    ]
-  },
   "protection_contre_electrocution": {
     "categorie": "defensif",
     "nom": "PROTOCOLE DÉFENSIF : RÉSILIENCE",

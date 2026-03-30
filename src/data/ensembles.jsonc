@@ -222,8 +222,10 @@
     "nom": "Corruption Système",
     "type": "gear_set",
     "icon": "corruption_systeme",
+    "notes": "L'attribut essentiel varie en fonction de la piece d'équipement.",
     "attributsEssentiels": [
-      "offensif"
+      "offensif",
+      "defensif"
     ],
     "bonus2pieces": {
       "attributs": [
@@ -236,11 +238,11 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "protection_contre_alterations_d_etat_eqp",
+          "slug": "protection_impulsion_eqp",
           "value": 40
         },
         {
-          "slug": "protection_contre_alterations_d_etat_eqp",
+          "slug": "protection_contre_desactivation_eqp",
           "value": 40
         }
       ]
@@ -691,7 +693,9 @@
     "nom": "Refactor",
     "type": "gear_set",
     "icon": "refactor",
+    "notes": "L'attribut essentiel varie en fonction de la piece d'équipement.",
     "attributsEssentiels": [
+      "defensif",
       "utilitaire"
     ],
     "bonus2pieces": {

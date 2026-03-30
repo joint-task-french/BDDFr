@@ -619,17 +619,17 @@
     "portee": 32,
     "rpm": 900,
     "chargeur": 30,
-    "rechargement": 2.17,
+    "rechargement": 2.39, //ok
     "headshot": 55,
     "degatsBase": 44800,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": { //ok
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_court",
+      "canon": "lateral"
     }
   },
   "le_fendoir": {
@@ -779,7 +779,7 @@
     }
   },
   "mg5": {
-    "nom": "MG5",
+    "nom": "MG5",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -798,7 +798,7 @@
     }
   },
   "big_show": {
-    "nom": "BIG SHOW",
+    "nom": "Big Show",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -817,7 +817,7 @@
     }
   },
   "sleipnir": {
-    "nom": "SLEIPNIR",
+    "nom": "Sleipnir",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -836,7 +836,7 @@
     }
   },
   "mg5_infanterie": {
-    "nom": "MG5 INFANTERIE",
+    "nom": "MG5 infanterie",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -855,7 +855,7 @@
     }
   },
   "stoner_lamg": {
-    "nom": "STONER LAMG",
+    "nom": "Stoner LAMG",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "KNIGHT'S ARMEMENT",
     "portee": 40,
@@ -874,7 +874,7 @@
     }
   },
   "grondement": {
-    "nom": "GRONDEMENT",
+    "nom": "Grondement",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "KNIGHT'S ARMEMENT",
     "portee": 40,
@@ -893,31 +893,31 @@
     }
   },
   "ecran_bleu": {
-    "nom": "Écran bleu",
+    "nom": "Écran bleu",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "KNIGHT'S ARMEMENT",
     "portee": 40,
-    "rpm": 580,
+    "rpm": 720,
     "chargeur": 200,
-    "rechargement": 5,
+    "rechargement": 2.22,
     "headshot": 65,
-    "degatsBase": 62347,
+    "degatsBase": 62400,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "description": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True sons, Fin de mission.",
+      "description": "Le schéma est une récompense de Traque :\nJeffersin Trade Center : Capitaine Lewis.\nSon obtention permet de l'avoir en butin ciblé."
     },
     "estNomme": false,
     "talents": [
       "munitions_desactivatrices"
     ],
-    "emplacementsMods": {
-      "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    }
+    "emplacementsMods": {}
   },
-  "m249b": {
-    "nom": "M249B",
+  "m249_b": {
+    "nom": "M249 B",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -936,7 +936,7 @@
     }
   },
   "black_friday": {
-    "nom": "BLACK FRIDAY",
+    "nom": "Black Friday",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -955,7 +955,7 @@
     }
   },
   "stinger": {
-    "nom": "STINGER",
+    "nom": "Stinger",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -974,7 +974,7 @@
     }
   },
   "m249_para_tactique": {
-    "nom": "M249 PARA TACTIQUE",
+    "nom": "M249 Para tactique",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -993,7 +993,7 @@
     }
   },
   "mk46_militaire": {
-    "nom": "MK46 MILITAIRE",
+    "nom": "MK46 militaire",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -1012,7 +1012,7 @@
     }
   },
   "m60_classique": {
-    "nom": "M60 CLASSIQUE",
+    "nom": "M60 classique",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "SACO DEFENSE",
     "portee": 40,
@@ -1031,7 +1031,7 @@
     }
   },
   "m60_e4_militaire": {
-    "nom": "M60 E4 MILITAIRE",
+    "nom": "M60 E4 militaire",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "SACO DEFENSE",
     "portee": 40,
@@ -1049,8 +1049,8 @@
       "canon": "rail_sous_canon_long"
     }
   },
-  "m60_e6_du_marche_noire": {
-    "nom": "M60 E6 DU MARCHÉ NOIRE",
+  "m60_e6_marche_noire": {
+    "nom": "M60 E6 marché noir",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "SACO DEFENSE",
     "portee": 40,
@@ -1069,7 +1069,7 @@
     }
   },
   "belle_epoque": {
-    "nom": "BELLE ÉPOQUE",
+    "nom": "Belle époque",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "SACO DEFENSE",
     "portee": 40,
@@ -1088,7 +1088,7 @@
     }
   },
   "rpk_74_classique": {
-    "nom": "RPK-74 CLASSIQUE",
+    "nom": "RPK-74 classique",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "KALASHNIKOV",
     "portee": 30,
@@ -1106,8 +1106,8 @@
       "canon": "rail_sous_canon_long"
     }
   },
-  "rpk_74_militaire": {
-    "nom": "RPK-74 MILITAIRE",
+  "rpk_74_m_militaire": {
+    "nom": "RPK-74 M militaire",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "KALASHNIKOV",
     "portee": 30,
@@ -1125,8 +1125,8 @@
       "canon": "rail_sous_canon_long"
     }
   },
-  "rpk_74_du_marche_noire": {
-    "nom": "RPK-74 DU MARCHÉ NOIRE",
+  "rpk_74_e_marche_noire": {
+    "nom": "RPK-74 E marché noir",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "KALASHNIKOV",
     "portee": 30,
@@ -1145,7 +1145,7 @@
     }
   },
   "nouveau_et_fiable": {
-    "nom": "NOUVEAU ET FIABLE",
+    "nom": "Nouveau & fiable",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "KALASHNIKOV",
     "portee": 30,
@@ -1164,7 +1164,7 @@
     }
   },
   "l86_lsw_militaire": {
-    "nom": "L86 LSW MILITAIRE",
+    "nom": "L86 LSW militaire",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "ENFIELD",
     "portee": 30,
@@ -1183,7 +1183,7 @@
     }
   },
   "l86_a2_personnalise": {
-    "nom": "L86 A2 PERSONNALISÉ",
+    "nom": "L86 A2 personnalisé",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "ENFIELD",
     "portee": 30,
@@ -1202,7 +1202,7 @@
     }
   },
   "tabula_rasa": {
-    "nom": "TABULA RASA",
+    "nom": "Tabula Rasa",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "ENFIELD",
     "portee": 30,
@@ -1221,7 +1221,7 @@
     }
   },
   "iwi_negev": {
-    "nom": "IWI NEGEV",
+    "nom": "IWI NEGEV",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "IMI",
     "portee": 40,
@@ -1240,7 +1240,7 @@
     }
   },
   "carnage": {
-    "nom": "CARNAGE",
+    "nom": "Carnage",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "IMI",
     "portee": 40,
@@ -1259,7 +1259,7 @@
     }
   },
   "gr9": {
-    "nom": "GR9",
+    "nom": "GR9",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 35,
@@ -1278,7 +1278,7 @@
     }
   },
   "defi": {
-    "nom": "DÉFI",
+    "nom": "Défi",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 35,
@@ -1297,7 +1297,7 @@
     }
   },
   "cricket": {
-    "nom": "CRICKET",
+    "nom": "Cricket",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 35,
@@ -1642,25 +1642,24 @@
     "nom": "Petite abeille ouvrière",
     "type": "pistolet",
     "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "portee": 18,
+    "rpm": 400,
+    "chargeur": 10,
+    "rechargement": 1.61,
+    "headshot": 100,
+    "degatsBase": 94000,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "description": "Dégâts de pistolet"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True sons, Escouade d'extermination."
     },
     "estNomme": false,
     "talents": [
       "petite_abeille_ouvriere"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
-    }
+    "emplacementsMods": {}
   },
   "subnosed_diceros": {
     "nom": "SUBNOSED DICEROS",
@@ -2445,29 +2444,24 @@
     "description": "\"Par la lumière sacrée, donnez-moi la force d'exécuter la volonté divine.\" Le prêtre",
     "type": "fusil_precision",
     "fabricant": "Exotique",
-    "portee": 50,
+    "portee": 60,
     "rpm": 180,
     "chargeur": 10,
-    "rechargement": 3.27,
-    "headshot": 0,
+    "rechargement": 3.60,
+    "headshot": 30,
     "degatsBase": 206400,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "mission": true,
+      "cachesExotiques": true,
       "butinCible": true,
-      "represailles": "Hyène, Escouade d'extermination",
-      "description": ""
+      "represailles": "Hyène, Escouade d'extermination"
     },
     "estNomme": false,
     "talents": [
       "le_piege"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_762_precision",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique_long",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "visee_du_medecin",
       "chargeur_home",
@@ -2704,25 +2698,30 @@
     "description": "\"Quand viendra ta sentence, tu ne sauras pas combien de mots ont été prononcés, mais tu sauras quel est le dernier d'entre eux.\"",
     "type": "fusil_precision",
     "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "portee": 50,
+    "rpm": 260,
+    "chargeur": 10,
+    "rechargement": 2.48,
+    "headshot": 40,
+    "degatsBase": 156700,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "description": "Dégâts de fusil de précision Dégâts de headshot"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True sons, Escouade d'extermination"
     },
     "estNomme": false,
     "talents": [
       "point_final"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_762_precision",
-      "viseur": "rail_optique_long",
-      "canon": "rail_sous_canon_long"
-    }
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "eclat_du_jugement",
+      "ressort_a_tension_optimisee",
+      "chassis_inflexible",
+      "canon_perfore"
+    ]
   },
   "srs_furtif": {
     "nom": "SRS furtif",
@@ -3772,25 +3771,22 @@
     "portee": 60,
     "rpm": 320,
     "chargeur": 10,
-    "rechargement": 1.78,
+    "rechargement": 1.93,
     "headshot": 60,
     "degatsBase": 129200,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "butinCible": true,
       "cachesExotiques": true,
-      "represailles": "True sons, Escouade d'extermination"
+      "represailles": "True sons, Escouade d'extermination",
+      "description": "Le schéma est une récompense de Traque :\nCentrale de Pentco Fairview : Général Anderson.\nSon obtention permet de l'avoir en butin ciblé."
     },
     "estNomme": false,
     "talents": [
       "medecin_de_famille"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "vision_du_medecin",
       "chargeur_de_famille",
@@ -3904,13 +3900,14 @@
     "nom": "Vindicator",
     "type": "fusil",
     "fabricant": "Exotique",
-    "portee": 60,
+    "portee": 66,
     "rpm": 380,
-    "chargeur": 20,
-    "rechargement": 2.59,
+    "chargeur": 25,
+    "rechargement": 2.85,
     "headshot": 60,
     "degatsBase": 103000,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "description": "Boutique du mode Descent\nCoût : 350 crédits NSA"
     },
@@ -3918,12 +3915,7 @@
     "talents": [
       "interface_d_assaut_ortiz"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "lunette_ra",
       "chargeur_de_simulation",
@@ -4143,28 +4135,20 @@
     "rpm": 240,
     "chargeur": 60,
     "rechargement": 2,
-    "notes": "Le mod est inclus dans la temps de rechargement",
+    "notes": "Les mods sont inclus dans les stats.",
     "headshot": 60,
     "degatsBase": 134400,
     "estExotique": true,
     "obtention": {
       "raid": "raid 2 : Cheval de fer",
       "darkZone": true,
-      "butinCible": false,
-      "mission": false,
-      "cachesExotiques": false,
       "description": "1% en tuant un boss du raid et 10% coffre final"
     },
     "estNomme": false,
     "talents": [
       "geri_et_freki"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "optique_du_predateur",
       "chargeurs_gloutons",
@@ -4199,7 +4183,7 @@
     "portee": 13,
     "rpm": 70,
     "chargeur": 8,
-    "rechargement": 4.53,
+    "rechargement": 4.78,
     "notes": "Les mods sont inclus dans les stats de l'arme",
     "headshot": 25,
     "degatsBase": 716000,
@@ -4207,18 +4191,14 @@
     "obtention": {
       "represailles": "Parias,Excouade d'extermination",
       "butinCible": true,
-      "mission": true,
+      "cachesExotiques": true,
       "description": "Tuer un boss Parias, 1/3/5/7% normal/difficile/défi/héroïque"
     },
     "estNomme": false,
     "talents": [
       "marchand_de_sable"
     ],
-    "emplacementsMods": {
-      "chargeur": "magasin_tubulaire",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "optique_parias",
       "systeme_de_chargement_modifie",
@@ -4232,7 +4212,7 @@
     "portee": 13,
     "rpm": 70,
     "chargeur": 8,
-    "rechargement": 4.53,
+    "rechargement": 4.78,
     "notes": "Les mods sont inclus dans les stats de l'arme",
     "headshot": 25,
     "degatsBase": 716000,
@@ -4244,11 +4224,7 @@
     "talents": [
       "marchand_de_sable"
     ],
-    "emplacementsMods": {
-      "chargeur": "magasin_tubulaire",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "optique_endommagee",
       "systeme_de_chargement_modifie",
@@ -4263,14 +4239,14 @@
     "portee": 14,
     "rpm": 130,
     "chargeur": 7,
-    "rechargement": 3,
+    "rechargement": 2.50,
     "headshot": 45,
     "degatsBase": 409600,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "represailles": "Hyènes, Fin de mission",
       "butinCible": true,
-      "mission": true,
       "cachesExotiques": true
     },
     "estNomme": false,
@@ -4301,19 +4277,17 @@
     "headshot": 45,
     "degatsBase": 678900,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "mission": true,
-      "description": "Récompense de traque :\nUnited Ironworks : le général Anderson\n Maître - 100% (La 1er fois)"
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Hyène, Escouade d'extermination."
     },
     "estNomme": false,
     "talents": [
       "capitulation"
     ],
-    "emplacementsMods": {
-      "chargeur": "magasin_tubulaire",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "chargeur_antiemeute",
       "rail_balistique",
@@ -4328,10 +4302,11 @@
     "portee": 100,
     "rpm": 70,
     "chargeur": 8,
-    "rechargement": 3.32,
+    "rechargement": 3.65,
     "headshot": 45,
     "degatsBase": 526400,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "mission": true,
       "description": "Récompense de Traque :\nUnited Ironworks : le général Anderson\nMaître - 100% (la 1er fois)."
@@ -4349,23 +4324,22 @@
     "portee": 35,
     "rpm": 400,
     "chargeur": 30,
-    "rechargement": 1.61,
+    "rechargement": 1.74,
     "headshot": 60,
     "degatsBase": 102300,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Hyène, Escouade d'extermination.",
       "description": "Tuer un boss Hyène, 1/3/5/7% normal/difficile/défi/héroïque"
     },
     "estNomme": false,
     "talents": [
       "detente_binaire"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "optique_impitoyable",
       "chargeur_impitoyable",
@@ -4380,7 +4354,7 @@
     "portee": 35,
     "rpm": 400,
     "chargeur": 30,
-    "rechargement": 1.61,
+    "rechargement": 1.74,
     "notes": "Les mods sont inclus dans la vitesse de rechargement.",
     "headshot": 60,
     "degatsBase": 102300,
@@ -4392,12 +4366,7 @@
     "talents": [
       "detente_binaire"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "visee_russe_personnalisee_non_identifiee",
       "chargeur_inflexible",
@@ -4412,10 +4381,11 @@
     "portee": 35,
     "rpm": 100,
     "chargeur": 8,
-    "rechargement": 2.89,
+    "rechargement": 3.15,
     "headshot": 60,
     "degatsBase": 387000,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "mission": true,
       "cachesExotiques": true,
@@ -4426,12 +4396,7 @@
     "talents": [
       "morsure_fatale"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "viseur_a_point_de_diamondback",
       "levier_de_diamondback",
@@ -4446,11 +4411,12 @@
     "fabricant": "Exotique",
     "portee": 60,
     "rpm": 180,
-    "chargeur": 10,
-    "rechargement": 2.36,
+    "chargeur": 20,
+    "rechargement": 2.60,
     "headshot": 70,
     "degatsBase": 231300,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "butinCible": true,
       "cachesExotiques": true
@@ -4459,11 +4425,7 @@
     "talents": [
       "transfusion"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "lunette_de_bittersweet",
       "chargeur_de_bittersweet",
@@ -4478,29 +4440,22 @@
     "portee": 26,
     "rpm": 850,
     "chargeur": 60,
-    "rechargement": 1.95,
+    "rechargement": 2.13,
     "headshot": 55,
     "degatsBase": 47400,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "raid": "raid 1 : Opération Heures Sombres",
       "darkZone": true,
-      "cachesExotiques": false,
-      "mission": false,
-      "butinCible": false,
-      "description": "1% en tuant un boss du raid et 10% coffre final"
+      "description": "1% en tuant un boss du raid et 10% coffre final."
     },
     "estNomme": false,
     "talents": [
       "frappe_de_l_aigle",
       "tenacite"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "visee_oeil_d_aigle",
       "aire_balistique",
@@ -4515,13 +4470,14 @@
     "fabricant": "TDI",
     "portee": 20,
     "rpm": 900,
-    "chargeur": 30,
-    "rechargement": 2.18,
+    "chargeur": 50,
+    "rechargement": 2.40,
     "headshot": 50,
     "degatsBase": 44700,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "mission": true,
+      "cachesExotiques": true,
       "butinCible": true,
       "represailles": "Hyènes, Fin de mission",
       "description": "Récompense de prime 1/3/5/7% normal/difficile/défi/héroïque"
@@ -4530,12 +4486,7 @@
     "talents": [
       "instinct_d_adaptation"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "optique_de_cameleon",
       "processeur_activcamo_de_cameleon",
@@ -4551,24 +4502,20 @@
     "portee": 40,
     "rpm": 800,
     "chargeur": 42,
-    "rechargement": 1.66,
-    "headshot": 55,
+    "rechargement": 1.80,
+    "headshot": 95,
     "degatsBase": 57200,
     "estExotique": true,
     "obtention": {
       "darkZone": true,
+      "mission": true,
       "description": "Uniquement en difficulté légendaire 5%, boss nommé en forteresse ou summit"
     },
     "estNomme": false,
     "talents": [
       "chasseur_de_gros_gibier"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "lunette_de_selection_de_tir",
       "chargeur_a_ressort_ajuste",
@@ -4583,26 +4530,22 @@
     "fabricant": "MAGPUL",
     "portee": 31,
     "rpm": 700,
-    "chargeur": 30,
-    "rechargement": 1.7,
+    "chargeur": 41,
+    "rechargement": 1.85,
     "headshot": 55,
     "degatsBase": 57600,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "butinCible": true,
-      "mission": true,
+      "cachesExotiques": true,
       "description": "Finir 5 défis de Summit en une ascension."
     },
     "estNomme": false,
     "talents": [
       "capacite"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "visee_condutrice",
       "generateur_de_tension",
@@ -4617,27 +4560,22 @@
     "fabricant": "COLT",
     "portee": 31,
     "rpm": 850,
-    "chargeur": 40,
-    "rechargement": 1.87,
+    "chargeur": 70,
+    "rechargement": 2.04,
     "headshot": 55,
     "degatsBase": 46900,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "mission": true,
+      "cachesExotiques": true,
       "butinCible": true,
-      "represailles": "True sons, Escouade d'extermination",
-      "description": ""
+      "represailles": "True sons, Escouade d'extermination"
     },
     "estNomme": false,
     "talents": [
       "actum_est"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "rail_conducteur",
       "chargeur_isolee",
@@ -4652,27 +4590,23 @@
     "fabricant": "FN HERSTAL",
     "portee": 35,
     "rpm": 700,
-    "chargeur": 20,
-    "rechargement": 1.78,
+    "chargeur": 40,
+    "rechargement": 1.95,
     "headshot": 55,
     "degatsBase": 57600,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "butinCible": true,
+      "cachesExotiques": true,
       "represailles": "Hyène, Escouade d'extermination",
-      "mission": true,
-      "description": ""
+      "mission": true
     },
     "estNomme": false,
     "talents": [
       "pertubation"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "optique_strega",
       "chargeur_strega",
@@ -4681,100 +4615,99 @@
     ]
   },
   "pestilence": {
-    "nom": "Pestilence",
+    "nom": "Pestilence",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
-    "rpm": 850,
+    "rpm": 935,
     "chargeur": 100,
-    "rechargement": 5.11,
+    "rechargement": 4.54,
     "headshot": 65,
-    "degatsBase": 48289,
+    "degatsBase": 48300,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "description": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, Escouade d'extermination",
+      "darkZone": true,
+      "description": "Récompense lors de l'élimination d'un ennemi nommé en DZ\n1/2/3% pour les points de repère en normal/difficile/défi + héroique."
     },
     "estNomme": false,
     "talents": [
       "fleau_des_parias"
     ],
-    "emplacementsMods": {
-      "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    }
+    "emplacementsMods": {}
   },
   "bullet_king": {
-    "nom": "Bullet King",
+    "nom": "Bullet King",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "IMI",
     "portee": 40,
-    "rpm": 850,
+    "rpm": 750,
     "chargeur": 100,
-    "rechargement": 5.8,
+    "notes": "Les mods sont inclus dans les stats.\nLe chargeur est fixé à 100 pour le bon fonctionnement de certain set (ongoing) ou bonus (taille du chargeur).",
+    "rechargement": 4.76,
     "headshot": 65,
-    "degatsBase": 45132,
+    "degatsBase": 54600,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Rikers, Escouade d'extermination",
+      "description": "Récompense lors de l'élimination d'un boss Rikers mission/summit\n1/3/5/7% normal/difficile/défi/héroique."
     },
     "estNomme": false,
     "talents": [
       "deluge_de_feu"
     ],
-    "emplacementsMods": {
-      "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    }
+    "emplacementsMods": {}
   },
   "dragon_de_fer": {
-    "nom": "Dragon de Fer",
+    "nom": "Dragon de fer",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
     "rpm": 800,
-    "chargeur": 50,
-    "rechargement": 3.26,
+    "chargeur": 85,
+    "rechargement": 2.96,
     "headshot": 65,
-    "degatsBase": 54310,
+    "degatsBase": 54300,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "description": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Nettoyeurs, Escouade d'extermination"
     },
     "estNomme": false,
     "talents": [
       "ardent"
     ],
-    "emplacementsMods": {
-      "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    }
+    "emplacementsMods": {}
   },
   "pakhan": {
-    "nom": "Pakhan",
+    "nom": "Pakhan",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 45,
-    "degatsBase": 526400,
+    "portee": 30,
+    "rpm": 600,
+    "chargeur": 60,
+    "rechargement": 3.64,
+    "headshot": 65,
+    "degatsBase": 71500,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "description": "Dégâts Fusil-mitrailleurDégâts sur cible non abritée"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True sons, Escouade d'extermination."
     },
     "estNomme": false,
     "talents": [
       "pakhan"
     ],
-    "emplacementsMods": {
-      "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    }
+    "emplacementsMods": {}
   },
   "nemesis": {
     "nom": "Nemesis",
@@ -4784,9 +4717,9 @@
     "portee": 60,
     "rpm": 50,
     "chargeur": 5,
-    "rechargement": 2.56,
-    "notes": "Les mods sont inclus dans le temps de rechargement",
-    "headshot": 0,
+    "rechargement": 2.78,
+    "notes": "Les mods sont inclus dans les stats.",
+    "headshot": 45,
     "degatsBase": 940200,
     "estExotique": true,
     "obtention": {
@@ -4798,12 +4731,7 @@
     "talents": [
       "accelerateur_electromagnetique"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_762_precision",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique_long",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "lunette_numerique_nemesis",
       "culasse_nemesis",
@@ -4819,28 +4747,21 @@
     "portee": 60,
     "rpm": 60,
     "chargeur": 7,
-    "rechargement": 3.58,
-    "notes": "Le mod est inclus dans le temps de rechargement.",
-    "headshot": 0,
+    "rechargement": 3.90,
+    "notes": "Les mods sont inclus dans les stats.",
+    "headshot": 40,
     "degatsBase": 409400,
     "estExotique": true,
     "obtention": {
       "cachesExotiques": true,
       "butinCible": true,
-      "mission": true,
-      "represailles": "Hyène, Fin de mission",
-      "description": ""
+      "represailles": "Hyène, Fin de mission"
     },
     "estNomme": false,
     "talents": [
       "visee_analytique"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_762_precision",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique_long",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "visee_a_revetement_antireflet",
       "machine_bien_huilee",
@@ -4855,27 +4776,21 @@
     "portee": 50,
     "rpm": 55,
     "chargeur": 7,
-    "rechargement": 3.06,
-    "notes": "Le mod est inclus dans le temps de rechargement.",
-    "headshot": 0,
+    "rechargement": 3.32,
+    "notes": "Les mods sont inclus dans les stats.",
+    "headshot": 45,
     "degatsBase": 412500,
     "estExotique": true,
     "obtention": {
       "butinCible": true,
       "cachesExotiques": true,
-      "represailles": "Parias, Excouade d'extermination",
-      "description": ""
+      "represailles": "Parias, Excouade d'extermination"
     },
     "estNomme": false,
     "talents": [
       "cible_de_priorite_elevee"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_762_precision",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique_long",
-      "canon": "rail_sous_canon_long"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "lunette_de_linceul",
       "chargeur_de_linceul",
@@ -4888,14 +4803,17 @@
     "type": "pistolet",
     "fabricant": "MAGNUM/IMI",
     "portee": 18,
-    "rpm": 200,
+    "rpm": 230,
     "chargeur": 8,
     "rechargement": 2.55,
-    "headshot": 100,
-    "degatsBase": 189126,
+    "headshot": 105,
+    "degatsBase": 189200,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "description": "Dégâts de pistolet"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": "il faut réunir les 4 parties puis se rendre à l'établi de fabrication.\nLes pièces doivent s'obtenir dans l'ordre suivant.\n\n1ère partie : Le « Dispositif de détente » peut être obtenu sur le  boss du Capitole Capitaine Ken Nelson.\n2nd partie : Le « Châssis et Peinture » peut être obtenu sur le boss \" Capitaine Briggs\" de la mission Musée de l'histoire Américaine.\n3ème partie : Le « Visée et Rail » peut être obtenu sur le boss  \"Sergent Clark Wade\" de la mission Musée Viewpoint.\n4ème partie : Le « Crosse et Plaques » peut être obtenu sur le boss \" Sergent-maitre Steve Quiroz\" de la mission Siège de l'Administration spatiale."
     },
     "estNomme": false,
     "talents": [
@@ -4915,22 +4833,19 @@
     "portee": 16,
     "rpm": 160,
     "chargeur": 6,
-    "rechargement": 2.78,
+    "rechargement": 2.31,
     "headshot": 100,
-    "degatsBase": 282072,
+    "degatsBase": 282100,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "description": "Terminer le raid 2 « Cheval de fer » une première fois pour obtenir deux projets à réaliser.\nCompléter les différents projets pour obtenir celui permettant l'obtention du schéma (blueprint) du Regulus. Une fois le dernier projet débloqué, vous pourrez terminer une deuxième fois le raid pour obtenir :\n\n- le châssis sur le lieutenant Gray\n- la poignée incurvée sur le capitaine Fieser\n- le barillet gravé sur le major Williams\n- la bouche gravée sur la colonelle Morozova\n- le lingot d'or dans le coffre de butin à la fin du raid.\n\nUne fois les composants obtenus, vous pourrez fabriquer le Regulus sur l'établi."
+      "description": "Terminer le raid 2 « Cheval de fer » une première fois pour obtenir deux projets à réaliser.\nCompléter les différents projets pour obtenir celui permettant l'obtention du schéma du Regulus. Une fois le dernier projet débloqué, vous pourrez terminer une deuxième fois le raid pour obtenir :\n\n- le châssis sur le lieutenant Gray\n- la poignée incurvée sur le capitaine Fieser\n- le barillet gravé sur le major Williams\n- la bouche gravée sur la colonelle Morozova\n- le lingot d'or dans le coffre de butin à la fin du raid.\n\nUne fois les composants obtenus, vous pourrez fabriquer le Regulus sur l'établi avec une réplique de Police 686 Magnum."
     },
     "estNomme": false,
     "talents": [
       "regicide"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
-    }
+    "emplacementsMods": {}
   },
   "mosquito": {
     "nom": "Mosquito",
@@ -4939,46 +4854,43 @@
     "portee": 16,
     "rpm": 350,
     "chargeur": 15,
-    "rechargement": 2.24,
+    "rechargement": 1.65,
     "headshot": 100,
-    "degatsBase": 102563,
+    "degatsBase": 102600,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "description": "Dégâts de pistolet"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Hyène, Fin de mission"
     },
     "estNomme": false,
     "talents": [
-      "chanson_du_mosquito"
+      "chanson_du_moustique"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
-    }
+    "emplacementsMods": {}
   },
   "tempest": {
     "nom": "Tempest",
     "type": "pistolet",
     "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
+    "portee": 12,
+    "rpm": 700,
+    "chargeur": 30,
     "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "headshot": 100,
+    "degatsBase": 62700,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "description": "Dégâts de pistolet"
+      "mission": true,
+      "description": "Récompense de Traque :\nTidal Basin : Le pacte\nMaître - 100% (la 1er fois)."
     },
     "estNomme": false,
     "talents": [
       "mesure"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
-    }
+    "emplacementsMods": {}
   },
   "flux_continu": {
     "nom": "Flux continu",
@@ -4987,11 +4899,12 @@
     "fabricant": "FN HERSTAL",
     "portee": 21,
     "rpm": 850,
-    "chargeur": 50,
+    "chargeur": 60,
     "rechargement": 1.43,
     "headshot": 50,
     "degatsBase": 39500,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "butinCible": true,
       "cachesExotiques": true,
@@ -5001,12 +4914,7 @@
     "talents": [
       "conversation_ininterrompue"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court",
-      "bouche": "bouche"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "bouche_flux_continu",
       "optique_modifiee",
@@ -5026,6 +4934,7 @@
     "headshot": 50,
     "degatsBase": 35400,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "butinCible": true,
       "cachesExotiques": true,
@@ -5036,12 +4945,7 @@
     "talents": [
       "souffle_ultime"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court",
-      "bouche": "bouche"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "regard_de_la_mort",
       "visage_de_la_mort",
@@ -5054,10 +4958,10 @@
     "description": "\"Car seuls ceux qui ont souffert peuvent ordonner la souffrance des autres !\"\n- Credo des Parias",
     "type": "pistolet_mitrailleur",
     "fabricant": "Exotique",
-    "notes": "#BackfireForever",
+    "notes": "#BackfireForever\nLes mods sont inclus dans les stats.",
     "portee": 22,
     "rpm": 850,
-    "chargeur": 30,
+    "chargeur": 50,
     "rechargement": 2.09,
     "headshot": 50,
     "degatsBase": 51000,
@@ -5065,19 +4969,13 @@
     "obtention": {
       "cachesExotiques": true,
       "represailles": "Parias, Escouade d'extermination",
-      "butinCible": true,
-      "description": ""
+      "butinCible": true
     },
     "estNomme": false,
     "talents": [
       "paiement_en_nature"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court",
-      "bouche": "bouche"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "visee_rapide",
       "chargeur_a_prise_barbelee",
@@ -5086,53 +4984,61 @@
     ]
   },
   "ouroboros": {
-    "nom": "Ouroboros",//TODO
+    "nom": "Ouroboros",
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
     "portee": 15,
-    "rpm": 1250,
+    "rpm": 1403,
     "chargeur": 50,
-    "rechargement": 2.06,
+    "rechargement": 1.65,
     "headshot": 50,
     "degatsBase": 38300,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "incursion": true,
+      "represailles": "Black Tusk, Fin de mission",
       "description": "1% de chance de loot sur les boss du mode incursion\n10% de chance dans le coffre de butin en récompense de la complétion de l'incursion (1x/semaine/personnage)"
     },
     "estNomme": false,
     "talents": [
       "lien_des_tenebres"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
-    }
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "visee_infinity",
+      "chargeur_serpent",
+      "poignee_resistante_legere",
+      "bouche_resistante_aux_intemperies"
+    ]
   },
   "oxpecker": {
-    "nom": "Oxpecker",//TODO
+    "nom": "Oxpecker",
     "type": "pistolet_mitrailleur",
     "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "portee": 32,
+    "notes": "Les mods sont inclus dans les stats.",
+    "rpm": 950,
+    "chargeur": 50,
+    "rechargement": 1.6,
+    "headshot": 50,
+    "degatsBase": 46400,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de pistolet-mitrailleurProbabilité de coup critique"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Hyène, Escouade d'extermination"
     },
     "estNomme": false,
     "talents": [
       "symbiose"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
-    }
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "optique_d_oxpecker",
+      "accessoire_sous_canon_d_oxpecker",
+      "bouche_d_oxpecker"
+    ]
   },
   "achille": {
     "nom": "Achille",
@@ -5599,5 +5505,68 @@
       "viseur": "rail_optique_court",
       "canon": "rail_sous_canon_court"
     }
+  },
+  "big_alejandro": {
+    "nom": "Big Alejandro",//TODO
+    "type": "fusil_mitrailleur",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": true,
+    "estNomme": false,
+    "talents": [],
+    "obtention": {
+      "description": "Evenement 10 ans de The division"
+    },
+    "emplacementsMods": {}
+  },
+  "rusty": {
+    "nom": "Rusty",
+    "type": "fusil_mitrailleur",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [],
+    "emplacementsMods": {}
+  },
+  "sonneur_de_cloches": {
+    "nom": "Sonneur de cloches",//TODO
+    "type": "fusil_mitrailleur",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [],
+    "emplacementsMods": {}
+  },
+  "vitesse_superieure": {
+    "nom": "Vitesse supérieure",//TODO
+    "type": "fusil_mitrailleur",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [],
+    "emplacementsMods": {}
   }
 }

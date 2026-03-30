@@ -875,6 +875,9 @@
     "marque": "gila_guard",
     "mod": 2,
     "estNomme": true,
+    "attributs": [
+      {}
+    ],
     "attributEssentiel": [
       "defensif"
     ],
@@ -2581,7 +2584,10 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "masque_remodele": {
     "nom": "Masque remodelé",
@@ -2589,7 +2595,10 @@
     "emplacement": "masque",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "utilitaire"
+    ]
   },
   "sac_a_dos_reorganise": {
     "nom": "Sac à dos réorganisé",
@@ -2597,7 +2606,10 @@
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "gilet_optimise": {
     "nom": "Gilet optimisé",
@@ -2605,7 +2617,10 @@
     "emplacement": "torse",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "utilitaire"
+    ]
   },
   "gants_revisite": {
     "nom": "Gants revisités",
@@ -2613,7 +2628,10 @@
     "emplacement": "gants",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "holster_corrige": {
     "nom": "Holster corrigé",
@@ -2621,7 +2639,10 @@
     "emplacement": "holster",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "utilitaire"
+    ]
   },
   "genouilleres_remodelees": {
     "nom": "Genouillères remodelées",
@@ -2629,7 +2650,10 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "masque_final": {
     "nom": "Masque Final",
@@ -3569,7 +3593,10 @@
     "emplacement": "masque",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "offensif"
+    ]
   },
   "conteneur_de_surcharge": {
     "nom": "Conteneur de surcharge",
@@ -3577,7 +3604,10 @@
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "armure_menace_combinee": {
     "nom": "Armure menace combinée",
@@ -3585,7 +3615,10 @@
     "emplacement": "torse",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "gants_de_controle_haptique": {
     "nom": "Gants de contrôle Haptique",
@@ -3593,7 +3626,10 @@
     "emplacement": "gants",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "offensif"
+    ]
   },
   "holster_moule": {
     "nom": "Holster moulé",
@@ -3601,7 +3637,10 @@
     "emplacement": "holster",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "offensif"
+    ]
   },
   "genouilliere_zero_day": {
     "nom": "Genouillière Zero-day",
@@ -3609,7 +3648,10 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "masque_cavalier": {
     "nom": "Masque Cavalier",
@@ -3766,6 +3808,17 @@
       "mission": true,
       "represailles": "True sons, Escouade d'extermination"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "reparation_subies_eqp"
+      },
+      {
+        "nom": "regeneration_de_protection_eqp"
+      }
+    ],
     "talents": [
       "cercle_vicieux"
     ],
@@ -3780,6 +3833,17 @@
       "mission": "Army Terminal"
 
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      },
+      {
+        "nom": "effets_d_etat_eqp"
+      }
+    ],
     "talents": [
       "agent_chimique"
     ],
@@ -3796,6 +3860,17 @@
       "mission": true,
       "represailles": "Hyènes, Escouade d'extermination"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "instinct_de_meute"
     ],
@@ -3811,6 +3886,17 @@
       "cachesExotiques": true,
       "represailles": "Parias, Escouade d'extermination"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "hoarder"
     ],
@@ -3825,6 +3911,7 @@
       "utilitaire",
       "defensif"
     ],
+    "attributs": [],
     "mod": true,
     "obtention": {
       "butinCible": true,
@@ -3845,6 +3932,12 @@
       "butinCible": true,
       "cachesExotiques": true
     },
+    "attributEssentiel": [
+      "offensif",
+      "defensif",
+      "utilitaire"
+    ],
+    "attributs": [],
     "talents": [
       "reequilibre"
     ],
@@ -3858,6 +3951,17 @@
     "obtention": {
      "mission": "Traque Fardeau de la vérité <Alani Kelso> Mission Roosevelt Island"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_de_competence_eqp"
+      },
+      {
+        "nom": "competences_de_reparation_eqp"
+      }
+    ],
     "talents": [
       "medecin_de_combat"
     ],
@@ -3873,6 +3977,17 @@
       "butinCible": true,
       "represailles": "Parias, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_de_competence_eqp"
+      },
+      {
+        "nom": "degats_de_competence_eqp"
+      }
+    ],
     "talents": [
       "un_tiens_vaut_mieux",
       "que_deux_tu_l_auras"
@@ -3889,6 +4004,7 @@
       "utilitaire",
       "defensif"
     ],
+    "attributs": [],
     "mod": true,
     "obtention": {
       "butinCible": true,
@@ -3909,6 +4025,17 @@
       "cachesExotiques": true,
       "butinCible": true
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "lien"
     ],
@@ -3922,6 +4049,17 @@
     "obtention": {
       "mission": "Traque Crossroads <Le Directeur> Mission Potomac Event Center"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "abrege"
     ],
@@ -3935,6 +4073,17 @@
     "obtention": {
       "mission": "Projet du Summit"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "avantage_sanglant"
     ],
@@ -3948,6 +4097,17 @@
     "obtention": {
       "mission": "Traque Nuances de rouge <Théo Parnell> Mission Siège de l'administration spatiale"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "regeneration_de_protection_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
     "talents": [
       "challenger"
     ],
@@ -3963,6 +4123,17 @@
       "butinCible": true,
       "represailles": "True Sons, fin de mission"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "resistance_explosions_eqp"
+      },
+      {
+        "nom": "regeneration_de_protection_eqp"
+      }
+    ],
     "talents": [
       "nano_plaquage_ablatif"
     ],
@@ -3978,6 +4149,17 @@
       "cachesExotiques": true,
       "represailles": "Parias, fin de mission"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "effets_d_etat_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
     "talents": [
       "charge_toxique"
     ],
@@ -3993,6 +4175,17 @@
       "butinCible": true,
       "represailles": "Hyènes, fin de mission"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "maillon_faible"
     ],
@@ -4008,6 +4201,17 @@
       "butinCible": true,
       "represailles": "True Sons, fin de mission"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "ecran_de_fumee"
     ],
@@ -4023,6 +4227,17 @@
       "cachesExotiques": true,
       "represailles": "Parias, fin de mission"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "poigne_de_fer"
     ],
@@ -4038,6 +4253,17 @@
       "butinCible": true,
       "represailles": "True Sons, fin de mission"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_de_competence_eqp"
+      },
+      {
+        "nom": "competences_de_reparation_eqp"
+      }
+    ],
     "talents": [
       "optimisation_de_transfert"
     ],
@@ -4053,6 +4279,17 @@
       "cachesExotiques": true,
       "represailles": "Rikers, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "exuberant"
     ],
@@ -4068,6 +4305,17 @@
       "butinCible": true,
       "represailles": "Nettoyeurs, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "effets_d_etat_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
     "talents": [
       "eclat_du_dragon"
     ],
@@ -4083,6 +4331,17 @@
       "cachesExotiques": true,
       "represailles": "True Sons, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "resistance_explosions_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
     "talents": [
       "defibrillateur"
     ],
@@ -4098,6 +4357,17 @@
       "butinCible": true,
       "represailles": "Parias, fin de mission"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_de_competence_eqp"
+      },
+      {
+        "nom": "recup_de_competence_eqp"
+      }
+    ],
     "talents": [
       "courant_alternatif"
     ],
@@ -4113,6 +4383,17 @@
       "cachesExotiques": true,
       "represailles": "Hyènes, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "maniement_d_arme_eqp"
+      }
+    ],
     "talents": [
       "contre"
     ],
@@ -4128,6 +4409,17 @@
       "butinCible": true,
       "represailles": "Parias, fin de mission"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "esquive_reparatrice"
     ],
@@ -4141,6 +4433,17 @@
     "obtention": {
       "mission": "Project donné par le vendeur de schéma"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_de_headshot_eqp"
+      },
+      {
+        "nom": "maniement_d_arme_eqp"
+      }
+    ],
     "talents": [
       "gachette_facile"
     ],
@@ -4154,6 +4457,17 @@
     "obtention": {
       "mission": "Traque Le pacte <Le sommet> Tidal Basin "
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "ostracisation"
     ],
@@ -4169,6 +4483,17 @@
       "cachesExotiques": true,
       "represailles": "Parias, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "maniement_d_arme_eqp"
+      },
+      {
+        "nom": "sante_eqp"
+      }
+    ],
     "talents": [
       "plan_de_fuite"
     ],
@@ -4184,6 +4509,17 @@
       "butinCible": true,
       "represailles": "Hyènes, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "resistance_explosions_eqp"
+      },
+      {
+        "nom": "sante_eqp"
+      }
+    ],
     "talents": [
       "inflexibilite"
     ],
@@ -4194,9 +4530,15 @@
     "description": "\"Parkour ! Parkour !\"- Un messager NinjaBike enthousiaste",
     "emplacement": "genouilleres",
     "attributEssentiel": [
-      "offensif",
-      "defensif",
-      "utilitaire"
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
     ],
     "mod": false,
     "obtention": {

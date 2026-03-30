@@ -251,6 +251,10 @@
     "nom": "Portée scan",
     "description": "Augmente la portée du scan"
   },
+  "portee_ruche": {
+    "nom": "Portée de la ruche",
+    "description": "Augmente la portée de la ruche"
+  },
   "vitesse_rechargement": {
     "nom": "Vitesse de rechargement",
     "description": "Réduit le temps de rechargement"
@@ -282,6 +286,22 @@
   "bombes_supplementaires": {
     "nom": "Bombes supplémentaires",
     "description": "Augmente le nombre de bombes"
+  },
+  "munitions_mortier_supplementaires": {
+    "nom": "mortier supplémentaires",
+    "description": "Augmente le nombre de munitions de mortier"
+  },
+  "mines_a_sous_munitions": {
+    "nom": "Mines à sous-munitions",
+    "description": "Augmente le nombre de mines à sous-munitions"
+  },
+  "reparation_ruche": {
+    "nom": "Réparation par ruches",
+    "description": "Augmente les réparations de la ruche"
+  },
+  "charges": {
+    "nom": "charges",
+    "description": "Augmente le nombre de charges de la ruche"
   }
 }
 

@@ -247,7 +247,8 @@
               "enum": [
                 "rail_sous_canon_long",
                 "rail_sous_canon_court",
-                "gadget"
+                "gadget",
+                "lateral"
               ]
             },
             "viseur": {

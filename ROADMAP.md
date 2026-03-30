@@ -1,9 +1,7 @@
 A Faire :
-- Pistolet mitrailleurs
 - Fusil mitrailleurs
 - Pistolet
-- descritpion exo + nommé (pas prioritaire)
-- Talent descente (pas prio)
+- description exo + nommé (pas prioritaire)
 - Talent proto
 - Marque new season
 - Gear set new season
@@ -13,9 +11,9 @@ Check mise en forme :
 - Talent equipement
 
 Check :
-- Obtention Exotic
 - Les version pvp de tout
-- Obtention exo represaille
+
+Ocelus :
 
 Images :
 - Talent
@@ -26,3 +24,5 @@ Revoir :
 - La Totalite des temps de rechargement
 - Mod arme sous canon court/long
 - Mod arme en general
+- Mod selectionnable build planner
+- Mod d'altération d'etat pas bon ou inexistant

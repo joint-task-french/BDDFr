@@ -4,6 +4,7 @@ import path from 'path';
 const DIST_DIR = './dist';
 const DATA_DIR = './src/data';
 const ASSETS_DIR = './src/img/game_assets';
+const PAGES_DIR = './src/content/pages';
 
 const repoFullName = process.env.GITHUB_REPOSITORY || 'localhost/BDDFr';
 const [owner, repo] = repoFullName.split('/');
@@ -34,6 +35,27 @@ function parseJsonc(filePath) {
         const stripped = content.replace(/\\"|"(?:\\"|[^"])*"|(\/\/.*|\/\*[\s\S]*?\*\/)/g, (m, g) => g ? "" : m);
         return JSON.parse(stripped);
     } catch (e) { return null; }
+}
+
+function parseFrontmatter(rawContent) {
+    const regex = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/;
+    const match = rawContent.match(regex);
+    if (!match) return { metadata: {}, content: rawContent };
+
+    const metadata = {};
+    match[1].split('\n').forEach(line => {
+        const [key, ...rest] = line.split(':');
+        if (key && rest.length) {
+            let value = rest.join(':').trim();
+            if (value.startsWith('[') && value.endsWith(']')) {
+                value = value.slice(1, -1).split(',').map(s => s.trim().replace(/^['"]|['"]$/g, ''));
+            } else {
+                value = value.replace(/^['"]|['"]$/g, '');
+            }
+            metadata[key.trim()] = value;
+        }
+    });
+    return { metadata, content: match[2] };
 }
 
 function getAllFiles(dirPath, arrayOfFiles = []) {
@@ -119,7 +141,8 @@ const categoryFormatters = {
 const pages_fixes = [
     { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez et partagez vos configurations d\'équipement.' },
     { path: 'changelog', title: 'Mises à jour — BDDFr', description: 'Historique des changements.' },
-    { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' }
+    { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' },
+    { path: 'pages', title: 'Bibliothèque de Documents — BDDFr', description: 'Consultez nos guides et documents du réseau SHD.' }
 ];
 
 const categoryMap = {
@@ -257,7 +280,6 @@ async function generate() {
                     fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(title, description, publicImageUrl, pagePath));
                     sitemapEntries.push(`${BASE_URL}/${pagePath}`);
 
-                    // Création de la page par défaut (niveau 1)
                     if (level === levels[0]) {
                         const defaultPath = `db/descente/${itemSlug}`;
                         const defaultDir = path.join(DIST_DIR, defaultPath);
@@ -295,6 +317,28 @@ async function generate() {
                     sitemapEntries.push(`${BASE_URL}/${prototypePath}`);
                 }
             }
+        }
+    }
+
+    if (fs.existsSync(PAGES_DIR)) {
+        const mdFiles = fs.readdirSync(PAGES_DIR).filter(f => f.endsWith('.md'));
+        for (const file of mdFiles) {
+            const pageId = file.replace('.md', '');
+            const rawContent = fs.readFileSync(path.join(PAGES_DIR, file), 'utf-8');
+            const { metadata } = parseFrontmatter(rawContent);
+
+            const title = (metadata.title || pageId) + ' — BDDFr';
+            const description = metadata.description || `Document: ${metadata.title || pageId}`;
+            const pagePath = `pages/${pageId}`;
+
+            const targetDirPage = path.join(DIST_DIR, pagePath);
+            if (!fs.existsSync(targetDirPage)) fs.mkdirSync(targetDirPage, { recursive: true });
+
+            fs.writeFileSync(
+                path.join(targetDirPage, 'index.html'),
+                stubTemplate(title, description, 'favicon_150x150.png', pagePath)
+            );
+            sitemapEntries.push(`${BASE_URL}/${pagePath}`);
         }
     }
 

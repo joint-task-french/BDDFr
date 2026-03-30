@@ -54,42 +54,138 @@
       { "attribut": "sante_mod_comp_impulsion" }
     ]
   },
-  "tourelle_mecanisme_de_tir": {
-    "nom": "Mécanisme de tir de tourelle",
+  "tourelle_degats": {
+    "nom": "Dégâts",
     "competence": "tourelle",
     "emplacement": "MÉCANISME DE TIR",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "duree_de_competence_mod" }
+      { "attribut": "degats_mod_comp_tourelle" }
     ]
   },
-  "tourelle_demolisseur_mecanisme_de_tir": {
-    "nom": "Mécanisme de tir de tourelle (Démolisseur)",
+  "tourelle_sante": {
+  "nom": "Santé",
+  "competence": "tourelle",
+  "emplacement": "LOGEMENT",
+  "attributs": [
+    { "attribut": "sante_mod_comp" }
+  ]
+},
+  "tourelle_recup_de_competence": {
+    "nom": "Récup de compétence",
+    "competence": "tourelle",
+    "emplacement": "DÉSIGNATION",
+    "attributs": [
+      { "attribut": "recup_de_competence_mod_comp_tourelle" }
+    ]
+  },
+  "tourelle_demolisseur_degats": {
+    "nom": "Dégâts",
     "competence": "tourelle",
     "emplacement": "MÉCANISME DE TIR",
     "prerequis": "demolisseur",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "duree_de_competence_mod" }
+      { "attribut": "degats_mod_comp_tourelle",
+        "valeur":  10
+      }
+
     ]
   },
-  "ruche_drones": {
-    "nom": "Drones de ruche",
+  "tourelle_demolisseur_munitions_mortier": {
+    "nom": "Munitions mortier supplémentaires",
+    "competence": "tourelle",
+    "emplacement": "LOGEMENT",
+    "prerequis": "demolisseur",
+    "attributs": [
+      { "attribut": "munitions_mortier_mod_comp",
+        "valeur":  1
+      }
+
+    ]
+  },
+  "ruche_degats_drones": {
+    "nom": "Dégâts",
     "competence": "ruche",
     "emplacement": "DRONES",
     "attributs": [
-      { "attribut": "competences_de_reparation_mod" },
-      { "attribut": "recup_de_competence_mod" }
+      { "attribut": "degat_mod_comp_ruche" }
     ]
   },
-  "ruche_technicien_lanceur": {
-    "nom": "Lanceur de ruche (Technicien)",
+  "ruche_reparation_par_ruche": {
+    "nom": "Réparation par ruche ranimation",
+    "competence": "ruche",
+    "emplacement": "DRONES",
+    "attributs": [
+      { "attribut": "reparation_par_ruche_mod_comp" }
+    ]
+  },
+  "ruche_soins": {
+    "nom": "Soins",
+    "competence": "ruche",
+    "emplacement": "DRONES",
+    "attributs": [
+      { "attribut": "soins_mod_comp_ruche" }
+    ]
+  },
+  "ruche_charges_reparation": {
+    "nom": "Charges de réparation",
+    "competence": "ruche",
+    "emplacement": "LANCEUR",
+    "attributs": [
+      { "attribut": "charges_reparation_mod_comp" }
+    ]
+  },
+  "ruche_charges_stimulant": {
+    "nom": "Charges de stimulant",
+    "competence": "ruche",
+    "emplacement": "LANCEUR",
+    "attributs": [
+      { "attribut": "charges_stimulant_mod_comp" }
+    ]
+  },
+  "ruche_charges_aiguillon": {
+    "nom": "Charges d'aiguillon",
+    "competence": "ruche",
+    "emplacement": "LANCEUR",
+    "attributs": [
+      { "attribut": "charges_aiguillon_mod_comp" }
+    ]
+  },
+  "ruche_duree": {
+    "nom": "Durée",
+    "competence": "ruche",
+    "emplacement": "SYSTEME",
+    "attributs": [
+      { "attribut": "duree_mod_comp_ruche" }
+    ]
+  },
+  "ruche_sante": {
+    "nom": "Santé",
+    "competence": "ruche",
+    "emplacement": "SYSTEME",
+    "attributs": [
+      { "attribut": "sante_mod_comp" }
+    ]
+  },
+  "ruche_technicien_portee": {
+    "nom": "Portée",
     "competence": "ruche",
     "emplacement": "LANCEUR",
     "prerequis": "technicien",
     "attributs": [
-      { "attribut": "competences_de_reparation_mod" },
-      { "attribut": "recup_de_competence_mod" }
+      { "attribut": "portee_ruche_mod_comp",
+        "valeur": 10
+      }
+    ]
+  },
+  "ruche_technicien_duree": {
+    "nom": "Durée",
+    "competence": "ruche",
+    "emplacement": "SYSTME",
+    "prerequis": "technicien",
+    "attributs": [
+      { "attribut": "duree_mod_comp_ruche",
+        "valeur": 10
+      }
     ]
   },
   "lanceur_chimique_munitions": {
@@ -192,23 +288,68 @@
       }
     ]
   },
-  "mine_teleguidee_entrainement": {
-    "nom": "Entraînement de mine téléguidée",
+  "mine_teleguidee_degats_entrainement": {
+    "nom": "Dégâts",
     "competence": "mine_teleguide",
     "emplacement": "ENTRAÎNEMENT",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "recup_de_competence_mod" }
+      { "attribut": "degat_mod_comp_mine" }
     ]
   },
-  "mine_teleguidee_survivaliste_designation": {
-    "nom": "Désignation de mine (Survivaliste)",
+  "mine_teleguidee_degats_charge_utile": {
+    "nom": "Dégâts",
+    "competence": "mine_teleguide",
+    "emplacement": "CHARGE UTILE",
+    "attributs": [
+      { "attribut": "degat_mod_comp_mine" }
+    ]
+  },
+  "mine_teleguidee_mines_a_sous_munitions": {
+    "nom": "Mines à sous-munitions",
+    "competence": "mine_teleguide",
+    "emplacement": "DÉSIGNATION",
+    "attributs": [
+      { "attribut": "mines_a_sous_munitions_mod_comp",
+        "valeur": 1
+      }
+    ]
+  },
+  "mine_teleguidee_sante": {
+    "nom": "Santé",
+    "competence": "mine_teleguide",
+    "emplacement": "DÉSIGNATION",
+    "attributs": [
+      { "attribut": "sante_mod_comp_mines_teleguidees" }
+    ]
+  },
+  "mine_teleguidee_recup_de_competence": {
+    "nom": "Récup de compétence",
+    "competence": "mine_teleguide",
+    "emplacement": "CHARGE UTILE",
+    "attributs": [
+      { "attribut": "recup_de_competence_mod_comp" }
+    ]
+  },
+  "mine_teleguidee_survivaliste_sante": {
+    "nom": "Santé",
     "competence": "mine_teleguide",
     "emplacement": "DÉSIGNATION",
     "prerequis": "survivaliste",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "recup_de_competence_mod" }
+      { "attribut": "sante_mod_comp_mines_teleguidees",
+        "valeur": 15
+      }
+    ]
+  },
+  "mine_teleguidee_survivaliste_soins": {
+    "nom": "Soins",
+    "competence": "mine_teleguide",
+    "emplacement": "CHARGE UTILE",
+    "prerequis": "survivaliste",
+    "attributs": [
+      { "attribut": "soin_mod_comp",
+        "valeur": 15
+      }
     ]
   },
   "drone_portee_scan": {
@@ -355,13 +496,20 @@
       { "attribut": "bonus_de_degats_mod_comp" }
     ]
   },
-  "piege_electronique": {
-    "nom": "Électronique de piège",
+  "piege_duree": {
+    "nom": "Durée",
+    "competence": "piege",
+    "emplacement": "CHARGE",
+    "attributs": [
+      { "attribut": "duree_mod_comp_piege" }
+    ]
+  },
+  "piege_rayon_electrocution": {
+    "nom": "Rayon d'électrocution",
     "competence": "piege",
     "emplacement": "ÉLECTRONIQUE",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "recup_de_competence_mod" }
+      { "attribut": "rayon_electrocution_mod_comp" }
     ]
   },
   "bombe_adhesive_lanceur_rayon_souffle": {

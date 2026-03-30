@@ -979,7 +979,10 @@
     "mod": true,
     "talents": ["intimidation"],
     "type": "standard",
-    "estNomme": true
+    "estNomme": true,
+    "obtention": {
+      "description": "Coffre Blanchâtre via Hunter New York\nDisponible ensuite chez Cassie Mendoza"
+    }
   },
   "sac_a_dos_chemar": {
     "nom": "Sac à dos Chemar",
@@ -1969,7 +1972,10 @@
     "mod": true,
     "talents": ["poussee_d_adrenaline"],
     "type": "standard",
-    "estNomme": true
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    }
   },
   "gilet_balistique": {
     "nom": "Gilet balistique",

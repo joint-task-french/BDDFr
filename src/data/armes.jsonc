@@ -87,6 +87,9 @@
     "degatsBase": 49100,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Coffre Ivoire via Hunter Washington\nDisponible ensuite chez Cassie Mendoza"
+    },
     "talents": [
       "optimiste"
     ],
@@ -190,6 +193,9 @@
     "degatsBase": 64700,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "surcapacite"
     ],
@@ -644,6 +650,9 @@
     "degatsBase": 44800,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "precis"
     ],
@@ -969,6 +978,9 @@
     "degatsBase": 48300,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "desequilibre"
     ],
@@ -1113,6 +1125,9 @@
     "degatsBase": 65200,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "mains_rapides"
     ],
@@ -1825,6 +1840,9 @@
     "degatsBase": 233223,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
@@ -1921,6 +1939,9 @@
     "degatsBase": 114300,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
@@ -1999,6 +2020,9 @@
     "degatsBase": 180800,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "extra"
     ],
@@ -2849,6 +2873,9 @@
     "degatsBase": 409400,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "premier_sang"
     ],
@@ -3384,6 +3411,9 @@
     "degatsBase": 38300,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "tueur"
     ],
@@ -3650,6 +3680,9 @@
     "degatsBase": 51000,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "mesure"
     ],
@@ -4050,6 +4083,9 @@
     "degatsBase": 145900,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "perpetuation"
     ],
@@ -4151,6 +4187,9 @@
     "degatsBase": 387000,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "boomerang"
     ],
@@ -4190,6 +4229,9 @@
     "degatsBase": 124900,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "synchro"
     ],
@@ -5264,6 +5306,9 @@
     "degatsBase": 45300,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Coffre de cendres via Hunter Brooklyn\nDisponible ensuite chez Cassie Mendoza"
+    },
     "talents": [
       "frenesie"
     ],
@@ -5282,16 +5327,20 @@
     "portee": 31,
     "rpm": 850,
     "chargeur": 30,
-    "rechargement": 2.04,
+    "rechargement": 2.24,
     "headshot": 55,
     "degatsBase": 48700,
+    "obtention": {
+      "butinCible": false,
+      "description": "Lors d'évenement"
+    },
     "estExotique": false,
     "estNomme": true,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
-      "viseur": "rail_optique",
+      "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
     },
     "attributs_essentiels": [
@@ -5365,6 +5414,9 @@
     "degatsBase": 52600,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Event berger"
+    },
     "talents": [
       "tueur"
     ],

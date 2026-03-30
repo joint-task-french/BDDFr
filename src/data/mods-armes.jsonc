@@ -1378,6 +1378,7 @@
   "rail_conducteur": {
     "nom": "Rail conducteur",
     "type": "viseur",
+    "description": "Offre une vue électrisante.",
     "attributs": [
       {
         "attribut": "degats_de_coup_critique_arm",
@@ -1390,6 +1391,7 @@
   "chargeur_isolee": {
     "nom": "Chargeur isolée",
     "type": "chargeur",
+    "description": "L'équipe de sécu l'a validé.",
     "attributs": [
       {
         "attribut": "munitions_mod",
@@ -1400,8 +1402,9 @@
     "compatible": []
   },
   "poignee_isolee": {
-    "nom": "Poignée_isolée",
+    "nom": "Poignée isolée",
     "type": "canon",
+    "description": "Ne pas utiliser sans les gants.",
     "attributs": [
       {
         "attribut": "maniement_d_arme_arm",
@@ -1414,6 +1417,7 @@
   "bouche_surchargee": {
     "nom": "Bouche surchargée",
     "type": "bouche",
+    "description": "Une puissance illimitée.",
     "attributs": [
       {
         "attribut": "probabilite_de_coup_critique_arm",

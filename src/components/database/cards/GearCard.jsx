@@ -237,7 +237,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
           {item.attributs?.length > 0 && (
               <div className="space-y-1 mt-1">
                 <span className="text-purple-400 font-bold uppercase tracking-widest text-xs">Attributs</span>
-                {item.attributs.map((attr, i) => {
+                {item.attributs.filter(attr => !!attr.nom).map((attr, i) => {
                   const ref = allAttributs && !Array.isArray(allAttributs)
                     ? allAttributs[attr.nom]
                     : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())

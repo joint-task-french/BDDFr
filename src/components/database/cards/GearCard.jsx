@@ -244,18 +244,27 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                   const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
                   const pMax = ref?.maxPrototype ?? ref?.prototypeMax ?? ref?.max
                   const max = isPrototype ? pMax : ref?.max
+                  const min = ref?.min || 0;
                   const isOverMax = ref && val > max
                   return (
-                      <div key={i} className="flex items-center justify-between text-xs">
-                  <span className="flex items-center gap-1.5 text-shd">
-                    <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
-                    {ref?.nom || attr.nom}
-                  </span>
-                        <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
-                    {typeof val === 'number' ? formatNumber(val) : val}{ref?.unite || ''}
-                          {isOverMax && <span className="ml-1 text-xs text-yellow-500">(max {formatNumber(max)}{ref.unite})</span>}
-                  </span>
-                      </div>
+                    <div key={i} className="flex items-center justify-between text-xs">
+          <span className="flex items-center gap-1.5 text-shd">
+            <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
+            {ref?.nom || attr.nom}
+          </span>
+          <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
+            {val !== undefined && val !== null ? (
+              <>
+                {typeof val === 'number' ? formatNumber(val) : val}{ref?.unite || ''}
+                {isOverMax && <span className="ml-1 text-xs text-yellow-500">(max {formatNumber(max)}{ref.unite})</span>}
+              </>
+            ) : (
+              <>
+                {formatNumber(min)}{ref?.unite || ''} à {formatNumber(max)}{ref?.unite || ''}
+              </>
+            )}
+          </span>
+                    </div>
                   )
                 })}
               </div>

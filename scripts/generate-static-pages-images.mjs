@@ -22,7 +22,7 @@ const BASE_URL = VITE_BASE_PATH ? (DOMAIN ? (DOMAIN.startsWith('http') ? DOMAIN 
 const BASE_PATH = VITE_BASE_PATH || (DOMAIN ? '' : (process.env.PUBLIC_PATH || (process.env.GITHUB_ACTIONS ? `/${repo}` : '/BDDFr')));
 const DIVISION_ORANGE = "#ff8000";
 
-const WATERMARK_URL = `${BASE_PATH}/favicon_150x150.png`;
+const WATERMARK_URL = `${DEV_SERVER_URL}/favicon_150x150.png`;
 const WATERMARK_OPACITY = 0.15;
 const WATERMARK_SIZE = '60px';
 
@@ -267,7 +267,32 @@ async function generate() {
                             }
                         `
                     });
-                    await new Promise(r => setTimeout(r, 5000));
+
+                    await page.evaluate(() => {
+                        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                            img.setAttribute('loading', 'eager');
+                        });
+                    });
+
+                    await page.evaluate(async () => {
+                        await new Promise((resolve) => {
+                            let totalHeight = 0;
+                            const distance = 300;
+                            const timer = setInterval(() => {
+                                const scrollHeight = document.documentElement.scrollHeight;
+                                window.scrollBy(0, distance);
+                                totalHeight += distance;
+
+                                if (totalHeight >= scrollHeight - window.innerHeight) {
+                                    clearInterval(timer);
+                                    window.scrollTo(0, 0);
+                                    resolve();
+                                }
+                            }, 50);
+                        });
+                    });
+
+                    await new Promise(r => setTimeout(r, 2000));
 
                     const cards = await page.$$('.og-target-card');
                     for (const card of cards) {
@@ -288,7 +313,7 @@ async function generate() {
                             if (!hasPrototypeBtn) continue;
                         }
 
-                        let levelsToProcess = ['']; // Chaîne vide pour les cartes standards
+                        let levelsToProcess = [''];
                         if (isDescente) {
                             levelsToProcess = await page.evaluate(el => {
                                 const select = el.querySelector('select');
@@ -298,7 +323,6 @@ async function generate() {
 
                         for (const level of levelsToProcess) {
                             if (isDescente) {
-                                // Simulation d'un événement React pour changer de niveau
                                 await page.evaluate((el, lvl) => {
                                     const select = el.querySelector('select');
                                     if (select && select.value !== lvl) {
@@ -307,13 +331,25 @@ async function generate() {
                                         select.dispatchEvent(new Event('change', { bubbles: true }));
                                     }
                                 }, card, level);
-                                await new Promise(r => setTimeout(r, 150)); // Attendre le re-render React
+                                await new Promise(r => setTimeout(r, 150));
                             }
 
                             const levelSuffix = isDescente ? `-${level}` : suffix;
                             const levelSuffixLog = isDescente ? ` (Niv. ${level})` : suffixLog;
 
-                            const cardHtml = await page.evaluate(el => el.innerHTML, card);
+                            const cardHtml = await page.evaluate(el => {
+                                const clone = el.cloneNode(true);
+                                const allElements = clone.getElementsByTagName('*');
+                                for (let i = 0; i < allElements.length; i++) {
+                                    const node = allElements[i];
+                                    if (node.id && /^:r/.test(node.id)) node.removeAttribute('id');
+                                    Array.from(node.attributes).forEach(attr => {
+                                        if (attr.value && /^:r/.test(attr.value)) node.removeAttribute(attr.name);
+                                    });
+                                }
+                                return clone.innerHTML;
+                            }, card);
+
                             const currentHash = crypto.createHash('md5').update(cardHtml).digest('hex');
                             const hashKey = `${categoryKey}_${slug}${levelSuffix}`;
                             const imageOutputPath = path.join(categoryOgDir, `${slug}${levelSuffix}.jpg`);

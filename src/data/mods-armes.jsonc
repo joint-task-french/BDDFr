@@ -3,8 +3,6 @@
     "nom": "Charg. .45 ACP étendu",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556",
-      "chargeur_762"
     ],
     "attributs": [
       {
@@ -17,8 +15,6 @@
     "nom": "Charg. .45 ACP approv. précision",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556",
-      "chargeur_762"
     ],
     "attributs": [
       {
@@ -31,8 +27,6 @@
     "nom": "Charg. .45 ACP approv. forcée",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556",
-      "chargeur_762"
     ],
     "attributs": [
       {
@@ -45,8 +39,6 @@
     "nom": "Charg. .45 ACP ressort court",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556",
-      "chargeur_762"
     ],
     "attributs": [
       {
@@ -59,8 +51,6 @@
     "nom": "Charg. .45 ACP surdimensionné",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556",
-      "chargeur_762"
     ],
     "attributs": [
       {
@@ -77,7 +67,6 @@
     "nom": "Charg. étendu léger 5.56",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556"
     ],
     "attributs": [
       {
@@ -101,7 +90,6 @@
     "nom": "Charg. 5.56 ressort équilibré",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556"
     ],
     "attributs": [
       {
@@ -114,7 +102,6 @@
     "nom": "Charg. 5.56 infanterie",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556"
     ],
     "attributs": [
       {
@@ -127,7 +114,6 @@
     "nom": "Charg. étendu solide 5.56",
     "type": "chargeur",
     "compatible": [
-      "chargeur_556"
     ],
     "attributs": [
       {
@@ -188,7 +174,6 @@
     "nom": "Charg. étendu léger 7.62",
     "type": "chargeur",
     "compatible": [
-      "chargeur_762_precision"
     ],
     "attributs": [
       {
@@ -201,7 +186,6 @@
     "nom": "Charg. 7.62 pondéré",
     "type": "chargeur",
     "compatible": [
-      "chargeur_762_precision"
     ],
     "attributs": [
       {
@@ -214,7 +198,6 @@
     "nom": "Charg. 7.62 mince",
     "type": "chargeur",
     "compatible": [
-      "chargeur_762_precision"
     ],
     "attributs": [
       {
@@ -227,7 +210,6 @@
     "nom": "Charg. 7.62 précision",
     "type": "chargeur",
     "compatible": [
-      "chargeur_762_precision"
     ],
     "attributs": [
       {
@@ -464,7 +446,6 @@
     "nom": "Petit silencieux .45",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -477,7 +458,6 @@
     "nom": "Silencieux Osprey .45",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -490,7 +470,6 @@
     "nom": "Frein ventilé bruyant .45",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -503,7 +482,6 @@
     "nom": "Frein de bouche .45",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -516,7 +494,6 @@
     "nom": "Compensateur .45",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -529,7 +506,6 @@
     "nom": "Cache-flamme .45",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -542,7 +518,6 @@
     "nom": "Grand silencieux 5.56",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -555,7 +530,6 @@
     "nom": "Compensateur 5.56",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -568,7 +542,6 @@
     "nom": "Silencieux de fusil Omega 5.56",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -585,7 +558,6 @@
     "nom": "Frein de bouche 5.56",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -598,7 +570,6 @@
     "nom": "Frein ventilé bruyant 5.56",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -611,7 +582,6 @@
     "nom": "Cache-flamme 5.56",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -624,7 +594,6 @@
     "nom": "Grand silencieux 7.62",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -637,7 +606,6 @@
     "nom": "Silencieux de fusil Omega 7.62",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -654,7 +622,6 @@
     "nom": "Cache-flamme 7.62",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -667,7 +634,6 @@
     "nom": "Frein de bouche 7.62",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -680,7 +646,6 @@
     "nom": "Compensateur 7.62",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -693,7 +658,6 @@
     "nom": "Frein ventilé bruyant 7.62",
     "type": "canon",
     "compatible": [
-      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -706,8 +670,6 @@
     "nom": "Petit silencieux 9mm",
     "type": "canon",
     "compatible": [
-      "gadget",
-      "rail_sous_canon_court"
     ],
     "attributs": [
       {
@@ -720,8 +682,6 @@
     "nom": "Silencieux Osprey 9mm",
     "type": "canon",
     "compatible": [
-      "gadget",
-      "rail_sous_canon_court"
     ],
     "attributs": [
       {
@@ -734,8 +694,6 @@
     "nom": "Compensateur 9mm",
     "type": "canon",
     "compatible": [
-      "gadget",
-      "rail_sous_canon_court"
     ],
     "attributs": [
       {
@@ -748,8 +706,6 @@
     "nom": "Cache-flamme 9mm",
     "type": "canon",
     "compatible": [
-      "gadget",
-      "rail_sous_canon_court"
     ],
     "attributs": [
       {
@@ -762,8 +718,6 @@
     "nom": "Frein de bouche 9mm",
     "type": "canon",
     "compatible": [
-      "gadget",
-      "rail_sous_canon_court"
     ],
     "attributs": [
       {
@@ -776,8 +730,6 @@
     "nom": "Frein ventilé bruyant 9mm",
     "type": "canon",
     "compatible": [
-      "gadget",
-      "rail_sous_canon_court"
     ],
     "attributs": [
       {
@@ -1081,8 +1033,6 @@
     "type": "bouche",
     "bonus": "Éclaire en face de vous",
     "compatible": [
-      "bouche_9mm",
-      "bouche_45_acp"
     ]
   },
   "viseur_a_point_de_diamondback": {

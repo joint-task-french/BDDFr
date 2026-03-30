@@ -2621,5 +2621,101 @@
     ],
     "estExotique": true,
     "compatible": []
+  },
+  "chargeur_de_tempete": {
+    "nom": "Chargeur de Tempête",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "stabilite_arm",
+        "valeur": 50
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_de_tempete": {
+    "nom": "Bouche de Tempête",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "visee_liberte": {
+    "nom": "Visée Liberté",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "degats_de_headshot_arm",
+        "valeur": 5
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "poignee_liberte": {
+    "nom": "Poignée Liberté",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "maniement_d_arme_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "mecanisme_de_detente": {
+    "nom": "Mécanisme de détente",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "cadence_de_tir_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "personnalisations_liberte": {
+    "nom": "Personnalisations Liberté",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 5
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_de_mosquito": {
+    "nom": "Chargeur de Mosquito",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "vitesse_de_rechargement_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_de_mosquito": {
+    "nom": "Bouche de Mosquito",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "precision_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
   }
 }

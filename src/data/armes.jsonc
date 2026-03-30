@@ -87,6 +87,9 @@
     "degatsBase": 49100,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Coffre Ivoire via Hunter Washington\nDisponible ensuite chez Cassie Mendoza"
+    },
     "talents": [
       "optimiste"
     ],
@@ -190,6 +193,9 @@
     "degatsBase": 64700,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "surcapacite"
     ],
@@ -644,6 +650,9 @@
     "degatsBase": 44800,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "precis"
     ],
@@ -969,6 +978,9 @@
     "degatsBase": 48300,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "desequilibre"
     ],
@@ -992,6 +1004,9 @@
     "degatsBase": 48300,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Programme de parrainage"
+    },
     "talents": [
       "vif"
     ],
@@ -1113,6 +1128,9 @@
     "degatsBase": 65200,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "mains_rapides"
     ],
@@ -1383,7 +1401,7 @@
     ]
   },
   "px4_storm_type_f": {
-    "nom": "Px4 STORM TYPE F",
+    "nom": "Px4 Storm Type F",//TODO
     "type": "pistolet",
     "fabricant": "BERETTA",
     "portee": 12,
@@ -1402,7 +1420,7 @@
     }
   },
   "px4_storm_type_t": {
-    "nom": "Px4 STORM TYPE T",
+    "nom": "Px4 Storm Type T",//TODO
     "type": "pistolet",
     "fabricant": "BERETTA",
     "portee": 12,
@@ -1421,7 +1439,7 @@
     }
   },
   "x_45": {
-    "nom": "X-45",
+    "nom": "X-45",//TODO
     "type": "pistolet",
     "fabricant": "FN HERSTAL",
     "portee": 16,
@@ -1440,7 +1458,7 @@
     }
   },
   "x_45_tactique": {
-    "nom": "X-45 TACTIQUE",
+    "nom": "X-45 tactique",//TODO
     "type": "pistolet",
     "fabricant": "FN HERSTAL",
     "portee": 16,
@@ -1459,41 +1477,21 @@
     }
   },
   "m9_militaire": {
-    "nom": "M9 MILITAIRE",
+    "nom": "M9 militaire",
     "type": "pistolet",
     "fabricant": "BERETTA",
     "portee": 16,
     "rpm": 350,
     "chargeur": 15,
-    "rechargement": 2.24,
+    "rechargement": 1.90,
     "headshot": 100,
-    "degatsBase": 102563,
+    "degatsBase": 102600,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
-    }
-  },
-  "m9a1_d_officer": {
-    "nom": "M9A1 D'OFFICER",
-    "type": "pistolet",
-    "fabricant": "BERETTA",
-    "portee": 16,
-    "rpm": 350,
-    "chargeur": 15,
-    "rechargement": 2.24,
-    "headshot": 100,
-    "degatsBase": 95675,
-    "estExotique": false,
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": {
-      "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "bouche": "bouche_9mm"
     }
   },
   "93r": {
@@ -1503,35 +1501,51 @@
     "portee": 12,
     "rpm": 700,
     "chargeur": 20,
-    "rechargement": 1.91,
+    "rechargement": 1.71,
     "headshot": 100,
-    "degatsBase": 52965,
+    "degatsBase": 53000,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "bouche": "bouche_9mm"
     }
   },
-  "93r_de_tireur_d_elite": {
-    "nom": "93R DE TIREUR D'ÉLITE",
+  "93r_tireur_d_elite": {
+    "nom": "93R tireur d'élite",
     "type": "pistolet",
     "fabricant": "BERETTA",
     "portee": 12,
     "rpm": 700,
     "chargeur": 20,
-    "rechargement": 1.91,
+    "rechargement": 1.56,
+    "notes": "L'attribut est inclus dans la stat",
     "headshot": 100,
-    "degatsBase": 52965,
+    "degatsBase": 53000,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "indefectible"
+    ],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "bouche": "bouche_9mm"
+    },
+    "attributs_essentiels": [
+      {
+        "nom": "degats_pistolet_es",
+        "valeur": 11.6
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "vitesse_de_rechargement_arm",
+        "valeur": 9.3
+      }
+    ],
+    "obtention": {
+      "description": "Spécialisation : Tireur d'élite"
     }
   },
   "d50": {
@@ -1541,35 +1555,48 @@
     "portee": 18,
     "rpm": 200,
     "chargeur": 8,
-    "rechargement": 2.55,
+    "rechargement": 2.24,
     "headshot": 100,
-    "degatsBase": 189126,
+    "degatsBase": 189200,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
-      "chargeur": "barillet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "viseur": "rail_optique_court"
     }
   },
   "d50_de_survivaliste": {
-    "nom": "D50 DE SURVIVALISTE",
+    "nom": "D50 de Survivaliste",
     "type": "pistolet",
     "fabricant": "MAGNUM/IMI",
     "portee": 18,
     "rpm": 200,
     "chargeur": 8,
-    "rechargement": 2.55,
+    "rechargement": 2.24,
     "headshot": 100,
-    "degatsBase": 189126,
+    "degatsBase": 189200,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "sadique"
+    ],
+    "attributs_essentiels": [
+      {
+        "nom": "degats_pistolet_es",
+        "valeur": 11.6
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "degats_sur_cible_non_abritee_arm",
+        "valeur": 8
+      }
+    ],
     "emplacementsMods": {
-      "chargeur": "barillet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "viseur": "rail_optique_court"
+    },
+    "obtention": {
+      "description": "Spécialisation : Survivaliste"
     }
   },
   "m1911": {
@@ -1579,16 +1606,14 @@
     "portee": 12,
     "rpm": 310,
     "chargeur": 7,
-    "rechargement": 2.33,
+    "rechargement": 2.24,
     "headshot": 100,
-    "degatsBase": 129854,
+    "degatsBase": 129900,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
-      "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "chargeur": "chargeur_pistolet"
     }
   },
   "m45a1": {
@@ -1600,18 +1625,18 @@
     "chargeur": 7,
     "rechargement": 2.33,
     "headshot": 100,
-    "degatsBase": 117409,
-    "estExotique": false,
+    "degatsBase": 117400,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_45",
       "viseur": "micro_rail_optique",
       "canon": "gadget"
     }
   },
   "m1911_tactique": {
-    "nom": "M1911 TACTIQUE",
+    "nom": "M1911 tactique",
     "type": "pistolet",
     "fabricant": "COLT",
     "portee": 12,
@@ -1619,18 +1644,18 @@
     "chargeur": 7,
     "rechargement": 2.33,
     "headshot": 100,
-    "degatsBase": 117409,
-    "estExotique": false,
+    "degatsBase": 117400,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_45",
       "viseur": "micro_rail_optique",
       "canon": "gadget"
     }
   },
   "mozambique_special": {
-    "nom": "MOZAMBIQUE SPÉCIAL",
+    "nom": "Mozambique Spécial",//TODO
     "type": "pistolet",
     "fabricant": "COLT",
     "portee": 12,
@@ -1638,18 +1663,18 @@
     "chargeur": 7,
     "rechargement": 2.33,
     "headshot": 100,
-    "degatsBase": 117409,
-    "estExotique": false,
+    "degatsBase": 117400,
     "estNomme": true,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_45",
       "viseur": "micro_rail_optique",
       "canon": "gadget"
     }
   },
   "first_wave_pf45": {
-    "nom": "FIRST WAVE PF45",
+    "nom": "First Wave PF45",//TODO
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 14,
@@ -1668,7 +1693,7 @@
     }
   },
   "pf45_personnalise": {
-    "nom": "PF45 PERSONNALISÉ",
+    "nom": "PF45 personnalisé",//TODO
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 14,
@@ -1687,7 +1712,7 @@
     }
   },
   "paratonnerre": {
-    "nom": "PARATONNERRE",
+    "nom": "Paratonnerre",//TODO
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 14,
@@ -1706,7 +1731,7 @@
     }
   },
   "petite_abeille_ouvriere": {
-    "nom": "Petite abeille ouvrière",
+    "nom": "Petite abeille ouvrière",//TODO
     "type": "pistolet",
     "fabricant": "Exotique",
     "portee": 18,
@@ -1728,8 +1753,8 @@
     ],
     "emplacementsMods": {}
   },
-  "subnosed_diceros": {
-    "nom": "SUBNOSED DICEROS",
+  "snubnosed_diceros": {
+    "nom": "Snubnosed Diceros",//TODO
     "type": "pistolet",
     "fabricant": "CHIAPPA FIREARMS",
     "portee": 18,
@@ -1748,7 +1773,7 @@
     }
   },
   "diceros": {
-    "nom": "DICEROS",
+    "nom": "Diceros",//TODO
     "type": "pistolet",
     "fabricant": "CHIAPPA FIREARMS",
     "portee": 18,
@@ -1767,7 +1792,7 @@
     }
   },
   "diceros_special": {
-    "nom": "DICEROS SPÉCIAL",
+    "nom": "Diceros Special",//TODO
     "description": "Un revolver .357 Magnum très puissant. Le canon inhabituellement bas tirant depuis la partie inférieure du cylindre lui confère un équilibre rare pour une arme de cette catégorie.",
     "type": "pistolet",
     "fabricant": "CHIAPPA FIREARMS",
@@ -1787,7 +1812,7 @@
     }
   },
   "586_magnum": {
-    "nom": "586 MAGNUM",
+    "nom": "586 Magnum",//TODO
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
@@ -1806,7 +1831,7 @@
     }
   },
   "orbite": {
-    "nom": "Orbite",
+    "nom": "Orbite",//TODO
     "description": "Une fois en mouvement, la balle poursuit sa trajectoire jusqu'à sa cible, puis tout mouvement cesse brusquement.",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -1818,6 +1843,9 @@
     "degatsBase": 233223,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
@@ -1825,8 +1853,8 @@
       "canon": "gadget"
     }
   },
-  "police_686_magnum": {
-    "nom": "POLICE 686 MAGNUM",
+  "686_magnum_police": {
+    "nom": "686_Magnum_Police",//TODO
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
@@ -1845,7 +1873,7 @@
     }
   },
   "prophete": {
-    "nom": "PROPHÈTE",
+    "nom": "Prophète",//TODO
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
@@ -1864,7 +1892,7 @@
     }
   },
   "le_moissonneur": {
-    "nom": "LE MOISSONNEUR",
+    "nom": "Le Moissonneur",//TODO
     "description": "\"Rien ne vaut la récompense a la fin de la récolte.\"",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -1876,6 +1904,9 @@
     "degatsBase": 256545,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Évènement limité"
+    },
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
@@ -1884,7 +1915,7 @@
     }
   },
   "kard_45": {
-    "nom": "KARD-45",
+    "nom": "KARD-45",//TODO
     "type": "pistolet",
     "fabricant": "TDI",
     "portee": 16,
@@ -1903,7 +1934,7 @@
     }
   },
   "tdi_kard_personnalise": {
-    "nom": "TDI \"KARD\" PERSONNALISÉ",
+    "nom": "TDI \"KARD\" personnalisé",//TODO
     "type": "pistolet",
     "fabricant": "TDI",
     "portee": 16,
@@ -1914,6 +1945,9 @@
     "degatsBase": 114300,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
@@ -1922,26 +1956,26 @@
     }
   },
   "maxim_9": {
-    "nom": "MAXIM 9",
+    "nom": "Maxim 9",
     "type": "pistolet",
     "fabricant": "SILENCERCO",
     "portee": 16,
     "rpm": 280,
     "chargeur": 17,
-    "rechargement": 1.92,
+    "rechargement": 1.39,
     "headshot": 100,
-    "degatsBase": 125385,
+    "degatsBase": 125400,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
-    "emplacementsMods": {
+    "talents": [],//TODO
+    "emplacementsMods": {//TODO
       "chargeur": "chargeur_pistolet",
       "viseur": "micro_rail_optique",
       "canon": "gadget"
     }
   },
-  "p320": {
-    "nom": "P320",
+  "p320_xcompact": {
+    "nom": "P320 Xcompact",
     "type": "pistolet",
     "fabricant": "SIG-SAUER",
     "portee": 12,
@@ -1951,7 +1985,7 @@
     "headshot": 100,
     "degatsBase": 87522,
     "estExotique": false,
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
@@ -1992,6 +2026,9 @@
     "degatsBase": 180800,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "extra"
     ],
@@ -2186,6 +2223,9 @@
     "degatsBase": 389900,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Évènement limité"
+    },
     "talents": [
       "martelement"
     ],
@@ -2842,6 +2882,9 @@
     "degatsBase": 409400,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "premier_sang"
     ],
@@ -2954,6 +2997,9 @@
     "degatsBase": 433600,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Eliminations de Lutins"
+    },
     "talents": [
       "lumieres_scintillantes"
     ],
@@ -3377,6 +3423,9 @@
     "degatsBase": 38300,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "tueur"
     ],
@@ -3568,6 +3617,9 @@
     "degatsBase": 93000,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Eliminations de Lutins"
+    },
     "talents": [
       "pierre_cachee"
     ],
@@ -3643,6 +3695,9 @@
     "degatsBase": 51000,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "mesure"
     ],
@@ -4043,6 +4098,9 @@
     "degatsBase": 145900,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "perpetuation"
     ],
@@ -4144,6 +4202,9 @@
     "degatsBase": 387000,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "boomerang"
     ],
@@ -4183,6 +4244,9 @@
     "degatsBase": 124900,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": [
       "synchro"
     ],
@@ -4893,7 +4957,7 @@
     "portee": 18,
     "rpm": 230,
     "chargeur": 8,
-    "rechargement": 2.55,
+    "rechargement": 1.95,
     "headshot": 105,
     "degatsBase": 189200,
     "estExotique": true,
@@ -4907,14 +4971,16 @@
     "talents": [
       "la_liberte_ou_la_mort"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
-    }
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "visee_liberte",
+      "poignee_liberte",
+      "mecanisme_de_detente",
+      "personnalisations_liberte"
+    ]
   },
   "regulus": {
-    "nom": "Regulus",
+    "nom": "Regulus",//TODO
     "description": "\"Vous pouvez poignarder les puissants dans le dos mais au jugement dernier les rats rongeront vos os.\"\n- Javier Kajika",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -4956,16 +5022,20 @@
     "talents": [
       "chanson_du_moustique"
     ],
-    "emplacementsMods": {}
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "chargeur_de_mosquito",
+      "bouche_de_mosquito"
+    ]
   },
-  "tempest": {
-    "nom": "Tempest",
+  "tempete": {
+    "nom": "Tempête",
     "type": "pistolet",
     "fabricant": "Exotique",
     "portee": 12,
     "rpm": 700,
     "chargeur": 30,
-    "rechargement": 0,
+    "rechargement": 2.38,
     "headshot": 100,
     "degatsBase": 62700,
     "estExotique": true,
@@ -4976,9 +5046,13 @@
     },
     "estNomme": false,
     "talents": [
-      "mesure"
+      "mesure_exo"
     ],
-    "emplacementsMods": {}
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "chargeur_de_tempete",
+      "bouche_de_tempete"
+    ]
   },
   "flux_continu": {
     "nom": "Flux continu",
@@ -5247,6 +5321,9 @@
     "degatsBase": 45300,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Coffre de cendres via Hunter Brooklyn\nDisponible ensuite chez Cassie Mendoza"
+    },
     "talents": [
       "frenesie"
     ],
@@ -5265,16 +5342,19 @@
     "portee": 31,
     "rpm": 850,
     "chargeur": 30,
-    "rechargement": 2.04,
+    "rechargement": 2.24,
     "headshot": 55,
     "degatsBase": 48700,
+    "obtention": {
+      "description": "Évènement limité"
+    },
     "estExotique": false,
     "estNomme": true,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
-      "viseur": "rail_optique",
+      "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
     },
     "attributs_essentiels": [
@@ -5330,6 +5410,9 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
+    "obtention": {
+      "description": "Évènement limité"
+    },
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "viseur": "rail_optique",
@@ -5348,6 +5431,9 @@
     "degatsBase": 52600,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Event berger"
+    },
     "talents": [
       "tueur"
     ],
@@ -5423,21 +5509,22 @@
     "portee": 12,
     "rpm": 310,
     "chargeur": 7,
-    "rechargement": 2.12,
+    "rechargement": 2.33,
     "headshot": 100,
     "degatsBase": 117400,
     "estNomme": true,
+
     "talents": [
       "mode_vitesse"
     ],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
-      "bouche": "bouche_9mm",
+      "bouche": "bouche_45",
       "viseur": "micro_rail_optique",
       "canon": "gadget"
     },
     "obtention": {
-      "description": "Évènement uniquement"
+      "description": "Évènement limité/Prime \"Houndsman\""
     }
   },
   "confinement": {
@@ -5523,6 +5610,9 @@
     "degatsBase": 63700,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Évènement limité"
+    },
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_45_acp",
@@ -5682,6 +5772,26 @@
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long",
       "bouche": "bouche_556"
+    }
+  },
+  "m9_a1_officier": {
+    "nom": "M9 A1 officier",//TODO
+    "type": "pistolet",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": {
+      "viseur": "micro_rail_optique",
+      "canon": "lateral",
+      "chargeur": "bande_munitions",
+      "bouche":"bouche"
     }
   }
 }

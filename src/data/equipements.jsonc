@@ -727,7 +727,10 @@
     "mod": false,
     "talents": ["rafale"],
     "estNomme": true,
-    "type": "standard"
+    "type": "standard",
+    "obtention": {
+      "description": "Eliminations de lutins"
+    }
   },
   "respirateur_new_face": {
     "nom": "Respirateur \"New Face\"",
@@ -875,6 +878,9 @@
     "marque": "gila_guard",
     "mod": 2,
     "estNomme": true,
+    "obtention": {
+      "description": "Eliminations de lutins"
+    },
     "attributs": [
       {}
     ],
@@ -979,7 +985,10 @@
     "mod": true,
     "talents": ["intimidation"],
     "type": "standard",
-    "estNomme": true
+    "estNomme": true,
+    "obtention": {
+      "description": "Coffre Blanchâtre via Hunter New York\nDisponible ensuite chez Cassie Mendoza"
+    }
   },
   "sac_a_dos_chemar": {
     "nom": "Sac à dos Chemar",
@@ -1069,7 +1078,10 @@
     "mod": true,
     "talents": ["spectacle_pyrotechnique"],
     "type": "standard",
-    "estNomme": true
+    "estNomme": true,
+    "obtention": {
+      "description": "Eliminations de lutins"
+    }
   },
   "gants_d_attaque_dusk": {
     "nom": "Gants d'attaque Dusk",
@@ -1969,7 +1981,10 @@
     "mod": true,
     "talents": ["poussee_d_adrenaline"],
     "type": "standard",
-    "estNomme": true
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    }
   },
   "gilet_balistique": {
     "nom": "Gilet balistique",

@@ -1,13 +1,29 @@
 import { useState, useEffect } from 'react'
-import { loadJsonc } from '../utils/dataLoader'
 import { flattenCompetences } from '../utils/competenceUtils'
 import { getSpecialisations } from '../utils/formatters'
 import { buildLookupMaps } from '../utils/lookupMaps'
-import {slugify} from "../utils/slugify.js";
+import { slugify } from "../utils/slugify.js";
 
-const BASE = import.meta.env.BASE_URL
+const jsoncFiles = import.meta.glob('../data/*.jsonc', { query: '?raw', eager: true, import: 'default' })
 
-const DATA_FILES = {
+function stripJsonComments(text) {
+  let cleanText = text.replace(/^\uFEFF/, '');
+  return cleanText.replace(/("(?:\\.|[^\\"])*")|(\/\*[\s\S]*?\*\/)|(\/\/(?:.*)$)/gm, (match, string) => {
+    if (string) return string;
+    return '';
+  });
+}
+
+function parseJsoncContent(rawText) {
+  try {
+    return JSON.parse(stripJsonComments(rawText));
+  } catch (e) {
+    console.error("Erreur de parsing JSONC", e);
+    return null;
+  }
+}
+
+const DATA_FILES_MAP = {
   armes: 'armes.jsonc',
   armes_type: 'armes-type.jsonc',
   attributs: 'attributs.jsonc',
@@ -29,20 +45,12 @@ const DATA_FILES = {
   talentsPrototypes: 'talents-prototypes.jsonc',
 }
 
-/**
- * Fichiers de données qui sont des objets à clé slug.
- * Ils seront convertis en arrays (avec le slug réinjecté) pour les consommateurs.
- * Les fichiers de types (*_type) et metadata restent tels quels (déjà des objets simples).
- */
 const SLUG_KEYED_FILES = new Set([
   'armes', 'attributs', 'classSpe', 'competences', 'ensembles',
   'equipements', 'modsArmes', 'modsCompetences', 'modsEquipements',
   'statistiques', 'talentsArmes', 'talentsAutres', 'talentsEquipements', 'talentsPrototypes',
 ])
 
-/**
- * Injecte le slug dans chaque valeur de l'objet (si c'est un objet).
- */
 function injectSlugs(obj) {
   if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return obj
   Object.entries(obj).forEach(([slug, value]) => {
@@ -60,81 +68,79 @@ export function useDataLoader() {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    let cancelled = false
-    async function loadAll() {
-      try {
-        const entries = Object.entries(DATA_FILES)
-        const result = {}
-        for (let i = 0; i < entries.length; i++) {
-          const [key, file] = entries[i]
-          const raw = await loadJsonc(`${BASE}data/${file}`)
+    try {
+      const result = {}
+      const entries = Object.entries(DATA_FILES_MAP)
 
-          // Injecter les slugs mais garder la structure objet
-          if (SLUG_KEYED_FILES.has(key)) {
-            result[key] = injectSlugs(raw)
-          } else {
-            result[key] = raw
-          }
+      for (let i = 0; i < entries.length; i++) {
+        const [key, filename] = entries[i]
+        const filePath = `../data/${filename}`
+        const rawText = jsoncFiles[filePath]
 
-          if (!cancelled) setProgress(Math.round(((i + 1) / entries.length) * 100))
+        if (!rawText) {
+          console.error(`Fichier introuvable dans le bundle : ${filePath}`);
+          continue;
         }
-        if (!cancelled) {
-          // Post-process: flatten competences for consumers, keep grouped for generator
-          if (result.competences) {
-            result.competencesGrouped = result.competences
-            result.competences = flattenCompetences(Object.values(result.competences))
-          }
-          // Extract changelog from metadata
-          if (result.metadata?.changelog) {
-            result.changelog = result.metadata.changelog
-          } else {
-            result.changelog = []
-          }
-          // Merge specific weapons from classSpe into armes for display
-          if (result.classSpe && result.armes) {
-            const specWeapons = Object.values(result.classSpe).map(spec => ({
-              nom: spec.arme.nom,
-              slug: slugify(spec.arme.nom),
-              type: 'arme_specifique',
-              fabricant: spec.nom,
-              portee: spec.arme.portee,
-              rpm: spec.arme.rpm,
-              chargeur: spec.arme.chargeur,
-              rechargement: spec.arme.rechargement,
-              headshot: spec.arme.headshot,
-              degatsBase: spec.arme.degatsBase,
-              icon: spec.arme.icon,
-              estExotique: false,
-              estNomme: false,
-              talents: [],
-              specialisation: spec.nom,
-            }))
-            
-            // Injecter les armes de spé dans l'objet armes
-            specWeapons.forEach(sw => {
-              result.armes[sw.slug] = sw
-            })
-          }
-          // Initialize specialisations cache for components outside BuildProvider
-          if (result.classSpe) {
-            getSpecialisations(Object.values(result.classSpe))
-          }
-          // Build slug → object lookup maps
-          result.lookups = buildLookupMaps(result)
-          setData(result)
-          setLoading(false)
+
+        const rawData = parseJsoncContent(rawText)
+
+        if (SLUG_KEYED_FILES.has(key)) {
+          result[key] = injectSlugs(rawData)
+        } else {
+          result[key] = rawData
         }
-      } catch (e) {
-        if (!cancelled) {
-          setError(e.message)
-          setLoading(false)
-        }
+
+        setProgress(Math.round(((i + 1) / entries.length) * 100))
       }
+
+      if (result.competences) {
+        result.competencesGrouped = result.competences
+        result.competences = flattenCompetences(Object.values(result.competences))
+      }
+
+      if (result.metadata?.changelog) {
+        result.changelog = result.metadata.changelog
+      } else {
+        result.changelog = []
+      }
+
+      if (result.classSpe && result.armes) {
+        const specWeapons = Object.values(result.classSpe).map(spec => ({
+          nom: spec.arme.nom,
+          slug: slugify(spec.arme.nom),
+          type: 'arme_specifique',
+          fabricant: spec.nom,
+          portee: spec.arme.portee,
+          rpm: spec.arme.rpm,
+          chargeur: spec.arme.chargeur,
+          rechargement: spec.arme.rechargement,
+          headshot: spec.arme.headshot,
+          degatsBase: spec.arme.degatsBase,
+          icon: spec.arme.icon,
+          estExotique: false,
+          estNomme: false,
+          talents: [],
+          specialisation: spec.nom,
+        }))
+
+        specWeapons.forEach(sw => {
+          result.armes[sw.slug] = sw
+        })
+      }
+
+      if (result.classSpe) {
+        getSpecialisations(Object.values(result.classSpe))
+      }
+
+      result.lookups = buildLookupMaps(result)
+
+      setData(result)
+      setLoading(false)
+    } catch (e) {
+      setError(e.message)
+      setLoading(false)
     }
-    loadAll()
-    return () => { cancelled = true }
   }, [])
 
   return { data, loading, error, progress }
 }
-

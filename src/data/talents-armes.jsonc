@@ -466,7 +466,8 @@
     "description": "Dégâts d'arme accrus de +30%  contre les ennemis affectés par un saignement.\nAu bout de 4 éliminations, inflige un saignement au prochain ennemi touché.",
     "perfectDescription": "Dégâts d'arme accrus de +35%  contre les ennemis affectés par un saignement.\nAu bout de 3 éliminations, inflige un saignement au prochain ennemi touché.",
     "armesParfaites": [
-      "carnage"
+      "carnage",
+      "d50_de_survivaliste"
     ],
     "notes": "PVP : 20/25% normal/parfait",
     "icon": "sadique",
@@ -1494,7 +1495,8 @@
     "icon": "indefectible",
     "perfectDescription": "Changer d'arme pour celle-ci confère +400% au maniement d'arme pendant 5s.\nLes éliminations renouvellent ce buff.\nChanger une nouvelle fois d'arme désactive cet effet pour toutes les armes pendant 5s.",
     "armesParfaites": [
-      "echangeur"
+      "echangeur",
+      "93r_tireur_d_elite"
     ],
     "compatibilite": {
       "fusil": false,
@@ -2241,7 +2243,7 @@
   "la_liberte_ou_la_mort": {
     "nom": "La Liberté ou la Mort",
     "icon": "la_liberte_ou_la_mort",
-    "description": "Les tirs réussis confèrent +2% aux dégâts d'arme (max 30).\nLes headshots consomment les effets pour réparer votre bouclier de 3% par effet.",
+    "description": "Les tirs réussis confèrent +2% aux dégâts d'arme. Cet effet est cumulable jusqu'à 30.\nLes headshots consomment tous les effets pour réparer votre bouclier de 3% par effet.",
     "estExotique": true,
     "descente": {
       "boucles": [
@@ -2714,6 +2716,11 @@
   "tireur_a_couvert": {
     "nom": "Tireur à couvert",
     "description": "Toutes les balles tirées depuis une position à couvert augmentent les dégâts d'arme de 1% jusqu'à 100% dure 15s.\nRéaliser une élimination avec cette arme en étant à couvert réinitialise la durée.\nLe bonus de dégâts est annulé par le rechargement, le changement d'arme ou la fin du combat.",
+    "estExotique": true
+  },
+  "mesure_exo": {
+    "nom": "Mesure",
+    "description": "Vous infligez 25% de dégâts accrus pendant 20s aprés que votre bouclier a été détruit.",
     "estExotique": true
   }
 }

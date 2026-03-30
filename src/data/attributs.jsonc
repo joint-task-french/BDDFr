@@ -1743,7 +1743,7 @@
     "statistiques": [
       "vitesse_rechargement"
     ]
-  },
+  }, // TODO : manque valeurs
   "taille_chargeur_eqp": {
     "nom": "Taille du chargeur",
     "categorie": "utilitaire",
@@ -1757,7 +1757,7 @@
     "statistiques": [
       "taille_chargeur"
     ]
-  },
+  }, // TODO : manque valeurs
   "degats_fusil_precision_eqp": {
     "nom": "Dégâts Fusil de précision",
     "categorie": "offensif",
@@ -1771,7 +1771,7 @@
     "statistiques": [
       "degats_fusil_precision"
     ]
-  },
+  }, // TODO : manque valeurs
   "degats_fusil_eqp": {
     "nom": "Dégâts Fusil",
     "categorie": "offensif",
@@ -1785,7 +1785,7 @@
     "statistiques": [
       "degats_fusil"
     ]
-  },
+  }, // TODO : manque valeurs
   "degats_arme_specifique_eqp": {
     "nom": "Dégâts d'arme spécialisée",
     "categorie": "offensif",
@@ -1799,7 +1799,7 @@
     "statistiques": [
       "degats_arme_specifique"
     ]
-  },
+  }, // TODO : manque valeurs
   "duree_competence_eqp": {
     "nom": "Durée de compétence",
     "categorie": "utilitaire",
@@ -1813,7 +1813,7 @@
     "statistiques": [
       "duree_competence"
     ]
-  },
+  }, // TODO : manque valeurs
   "degats_fusil_calibre_12_eqp": {
     "nom": "Dégâts Calibre 12",
     "categorie": "offensif",
@@ -1827,7 +1827,7 @@
     "statistiques": [
       "degats_calibre_12"
     ]
-  },
+  }, // TODO : manque valeurs
   "degats_pm_eqp": {
     "nom": "Dégâts PM",
     "categorie": "offensif",
@@ -1841,7 +1841,7 @@
     "statistiques": [
       "degats_pm"
     ]
-  },
+  }, // TODO : manque valeurs
   "degats_fusil_assaut_eqp": {
     "nom": "Dégâts Fusil d'assaut",
     "categorie": "offensif",
@@ -1855,7 +1855,7 @@
     "statistiques": [
       "degats_fusil_assaut"
     ]
-  },
+  }, // TODO : manque valeurs
   "degats_fusil_mitrailleur_eqp": {
     "nom": "Dégâts Fusil-mitrailleur",
     "categorie": "offensif",
@@ -1869,7 +1869,7 @@
     "statistiques": [
       "degats_fusil_mitrailleur"
     ]
-  },
+  }, // TODO : manque valeurs
   "sante_competence_eqp": {
     "nom": "Santé de compétence",
     "categorie": "defensif",
@@ -1883,7 +1883,7 @@
     "statistiques": [
       "santee_competence"
     ]
-  },
+  }, // TODO : manque valeurs
   "sante_mod_comp": {
     "nom": "Santé",
     "categorie": "utilitaire",
@@ -2207,7 +2207,7 @@
     "cible": [
       "equipement"
     ],
-    "unite": "%",
+    "unite": "%", // TODO : manque valeurs
     "description": "Augmente les réparations d'armure reçues",
     "estEssentiel": false,
     "selectionable": true,
@@ -2221,7 +2221,7 @@
     "cible": [
       "equipement"
     ],
-    "unite": "%",
+    "unite": "%", // TODO : manque valeurs
     "description": "Réduit le recul de l'arme",
     "estEssentiel": false,
     "selectionable": true,
@@ -2235,7 +2235,7 @@
     "cible": [
       "equipement"
     ],
-    "unite": "%",
+    "unite": "%", // TODO : manque valeurs
     "description": "Bonus de dégâts à la santé de l'ennemi",
     "estEssentiel": false,
     "selectionable": true,
@@ -2249,7 +2249,7 @@
     "cible": [
       "equipement"
     ],
-    "unite": "",
+    "unite": "", // TODO : manque valeurs
     "description": "Augmente le tiers de compétence",
     "estEssentiel": false,
     "selectionable": true,
@@ -2279,7 +2279,7 @@
     "cible": [
       "equipement"
     ],
-    "unite": "%",
+    "unite": "%", // TODO : manque valeurs
     "description": "Bonus aux dégâts des fusils",
     "estEssentiel": false,
     "selectionable": true,

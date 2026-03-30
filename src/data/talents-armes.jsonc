@@ -2198,7 +2198,7 @@
   "point_final": {
     "nom": "Point Final",
     "icon": "point_final",
-    "description": "Les tirs génèrent un cumul (max 20). Les headshots accumulent 2 effets.\nChaque effet confère +2% de dégâts d'arme et +5% de dégâts d'headshot.\nAu rechargement, le cumul est consommé pour gagner +5% de protection temporaire par effet pendant 10s.\nLes éliminations par headshot réapprovisionnent intégralement le chargeur.",
+    "description": "Les tirs sur vos ennemis génèrent un cumul d'effets pouvant atteindre 20. Les headshots confèrent 2 effets.\nChaque effet confère +2% de dégâts d'arme et +5% de dégâts d'headshot.\nAu rechargement, le cumul est consommé pour gagner +5% de votre protection max comme protection temporaire pendant 10s pour chaque effet supprimé.\nLes éliminations par headshot avec Effroyable sentence réapprovisionnent intégralement le chargeur.\nCet effet ne compte pas comme un rechargement.",
     "estExotique": true
   },
   "le_piege": {
@@ -2273,8 +2273,8 @@
       }
     }
   },
-  "chanson_du_mosquito": {
-    "nom": "Chanson du Mosquito",
+  "chanson_du_moustique": {
+    "nom": "Chanson du moustique",
     "icon": "chanson_du_mosquito",
     "description": "Toucher un ennemi lui attribue une marque cumulable.\nAu bout de 5 marques, l'ennemi est contraint de cibler le dernier joueur ayant marqué pendant 5s et subit +25% de dégâts à la protection.\nLes marques se dissipent toutes les 5s.",
     "estExotique": true

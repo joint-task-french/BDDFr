@@ -875,6 +875,9 @@
     "marque": "gila_guard",
     "mod": 2,
     "estNomme": true,
+    "attributs": [
+      {}
+    ],
     "attributEssentiel": [
       "defensif"
     ],
@@ -2581,7 +2584,10 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "masque_remodele": {
     "nom": "Masque remodelé",
@@ -2589,7 +2595,10 @@
     "emplacement": "masque",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "utilitaire"
+    ]
   },
   "sac_a_dos_reorganise": {
     "nom": "Sac à dos réorganisé",
@@ -2597,7 +2606,10 @@
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "gilet_optimise": {
     "nom": "Gilet optimisé",
@@ -2605,7 +2617,10 @@
     "emplacement": "torse",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "utilitaire"
+    ]
   },
   "gants_revisite": {
     "nom": "Gants revisités",
@@ -2613,7 +2628,10 @@
     "emplacement": "gants",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "holster_corrige": {
     "nom": "Holster corrigé",
@@ -2621,7 +2639,10 @@
     "emplacement": "holster",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "utilitaire"
+    ]
   },
   "genouilleres_remodelees": {
     "nom": "Genouillères remodelées",
@@ -2629,7 +2650,10 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "masque_final": {
     "nom": "Masque Final",
@@ -3569,7 +3593,10 @@
     "emplacement": "masque",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "offensif"
+    ]
   },
   "conteneur_de_surcharge": {
     "nom": "Conteneur de surcharge",
@@ -3577,7 +3604,10 @@
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "armure_menace_combinee": {
     "nom": "Armure menace combinée",
@@ -3585,7 +3615,10 @@
     "emplacement": "torse",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "gants_de_controle_haptique": {
     "nom": "Gants de contrôle Haptique",
@@ -3593,7 +3626,10 @@
     "emplacement": "gants",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "offensif"
+    ]
   },
   "holster_moule": {
     "nom": "Holster moulé",
@@ -3601,7 +3637,10 @@
     "emplacement": "holster",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "offensif"
+    ]
   },
   "genouilliere_zero_day": {
     "nom": "Genouillière Zero-day",
@@ -3609,7 +3648,10 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "masque_cavalier": {
     "nom": "Masque Cavalier",

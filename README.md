@@ -67,12 +67,12 @@ Un grand merci à tous les contributeurs :
 |          |            |            |            |           |           |
 |:--------:|:----------:|:----------:|:----------:|:---------:|:---------:|
 |  Raven   | Major45-FR | Titi-FT-70 | PP.1974-fr | Squal_fr  | Franck-FR |
-| Saiyanns | Captain77  |  V0ldeen   |  Ben3and   | marco888  |           |
+| Saiyanns | Captain77  |  V0ldeen   |  Ben3and   | marcoo888 |           |
 
 ### Contribution GitHub :
-|             |          |          |              |
-|:-----------:|:--------:|:--------:|:------------:|
-| ocelus_ftnl | marco888 | MastoroZ | NicoLeFourbe |
+|             |           |          |              |
+|:-----------:|:---------:|:--------:|:------------:|
+| ocelus_ftnl | marcoo888 | MastoroZ | NicoLeFourbe |
 
 
 ---

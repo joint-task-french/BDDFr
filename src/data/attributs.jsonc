@@ -709,23 +709,7 @@
     ],
     "unite": "%",
     "min": 1,
-    "max": 10,
-    "description": "Réduit la durée des effets d'état subis",
-    "estEssentiel": false,
-    "selectionable": true,
-    "statistiques": [
-      "protection_alterations_etat"
-    ]
-  },
-  "protection_contre_alterations_d_etat_mod": { //TODO n'existe pas
-    "nom": "Protection contre altérations d'état",
-    "categorie": "defensif",
-    "cible": [
-      "mod_equipement"
-    ],
-    "unite": "%",
-    "min": 1,
-    "max": 10,
+    "max": 30,
     "description": "Réduit la durée des effets d'état subis",
     "estEssentiel": false,
     "selectionable": true,
@@ -2301,6 +2285,38 @@
     "selectionable": true,
     "statistiques": [
       "degats_fusil"
+    ]
+  },
+  "protection_impulsion_eqp": {
+    "nom": "Protection contre l'impulsion",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 40,
+    "description": "Résistance à l'impulsion",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_impulsion"
+    ]
+  },
+  "protection_contre_desactivation_eqp": {
+    "nom": "Protection contre les désactivations",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 40,
+    "description": "Résistance aux désactivations",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_desactivation"
     ]
   }
 }

@@ -2214,5 +2214,53 @@
     ],
     "estExotique": true,
     "compatible": []
+  },
+  "eclat_du_jugement": {
+    "nom": "Éclat du jugement",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "degats_de_headshot_arm",
+        "valeur": 40
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "ressort_a_tension_optimisee": {
+    "nom": "Ressort à tension optimisée",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "maniement_d_arme_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chassis_inflexible": {
+    "nom": "Châssis inflexible",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "stabilite_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "canon_perfore": {
+    "nom": "Canon perforé",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
   }
 }

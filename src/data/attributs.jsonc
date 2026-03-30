@@ -368,10 +368,10 @@
     ],
     "unite": "%",
     "min": 1,
-    "max": 12,
+    "max": 30,
     "description": "Augmente la stabilité de l'arme",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "stabilite"
     ]
@@ -1481,7 +1481,7 @@
     ],
     "unite": " points",
     "min": 10000,
-    "max": 20000,
+    "max": 18935,
     "description": "Apporte de la protection lors de l'éliminations d'un ennemi",
     "estEssentiel": false,
     "selectionable": false,
@@ -1509,12 +1509,11 @@
     "nom": "Durée de compétences",
     "categorie": "utilitaire",
     "cible": [
-      "mod_equipement",
-      "mod_arme"
+      "mod_equipement"
     ],
     "unite": "%",
     "min": 1,
-    "max": 12, // TODO
+    "max": 10,
     "description": "Augmente la durée des compétences",
     "estEssentiel": false,
     "selectionable": false,

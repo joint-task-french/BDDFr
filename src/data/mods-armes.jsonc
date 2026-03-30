@@ -75,6 +75,19 @@
       }
     ]
   },
+  "charg_etendu_robuste_5_56": {
+    "nom": "Charg. étendu robuste 5.56",
+    "type": "chargeur",
+    "compatible": [
+      "chargeur_556"
+    ],
+    "attributs": [
+      {
+        "attribut": "munitions_mod",
+        "valeur": 15
+      }
+    ]
+  },
   "charg_5_56_tactique": {
     "nom": "Charg. 5.56 tactique",
     "type": "chargeur",
@@ -92,6 +105,7 @@
     "nom": "Charg. 5.56 ressort équilibré",
     "type": "chargeur",
     "compatible": [
+      "chargeur_556"
     ],
     "attributs": [
       {
@@ -103,7 +117,9 @@
   "charg_5_56_infanterie": {
     "nom": "Charg. 5.56 infanterie",
     "type": "chargeur",
+    "prerequis": "survivaliste",
     "compatible": [
+      "chargeur_556"
     ],
     "attributs": [
       {
@@ -176,6 +192,7 @@
     "nom": "Charg. étendu léger 7.62",
     "type": "chargeur",
     "compatible": [
+      "chargeur_556"
     ],
     "attributs": [
       {
@@ -271,7 +288,9 @@
   "charg_pistolet_etendu": {
     "nom": "Charg. pistolet étendu",
     "type": "chargeur",
-    "compatible": [],
+    "compatible": [
+      "chargeur_pistolet"
+    ],
     "attributs": [
       {
         "attribut": "munitions_mod",
@@ -282,7 +301,9 @@
   "charg_pistolet_de_terrain": {
     "nom": "Charg. pistolet de terrain",
     "type": "chargeur",
-    "compatible": [],
+    "compatible": [
+      "chargeur_pistolet"
+    ],
     "attributs": [
       {
         "attribut": "portee_optimale_mod",
@@ -293,7 +314,9 @@
   "charg_pistolet_police": {
     "nom": "Charg. pistolet Police",
     "type": "chargeur",
-    "compatible": [],
+    "compatible": [
+      "chargeur_pistolet"
+    ],
     "attributs": [
       {
         "attribut": "vitesse_de_rechargement_arm",
@@ -392,7 +415,9 @@
   "fixation_de_ceinture_agile": {
     "nom": "Fixation de ceinture agile",
     "type": "chargeur",
-    "compatible": [],
+    "compatible": [
+      "bande_munitions"
+    ],
     "attributs": [
       {
         "attribut": "cadence_de_tir_arm",
@@ -403,7 +428,9 @@
   "fixation_sans_perturbation": {
     "nom": "Fixation sans perturbation",
     "type": "chargeur",
-    "compatible": [],
+    "compatible": [
+      "bande_munitions"
+    ],
     "attributs": [
       {
         "attribut": "degats_de_coup_critique_arm",
@@ -414,7 +441,9 @@
   "fixation_etalonnee": {
     "nom": "Fixation étalonnée",
     "type": "chargeur",
-    "compatible": [],
+    "compatible": [
+      "bande_munitions"
+    ],
     "attributs": [
       {
         "attribut": "stabilite_arm",
@@ -425,7 +454,9 @@
   "petite_sacoche_tactique": {
     "nom": "Petite sacoche tactique",
     "type": "chargeur",
-    "compatible": [],
+    "compatible": [
+      "bande_munitions"
+    ],
     "attributs": [
       {
         "attribut": "vitesse_de_rechargement_arm",
@@ -433,10 +464,13 @@
       }
     ]
   },
-  "grande_sacoche": {
+  "grande_sacoche_artilleur": {
     "nom": "Grande sacoche",
     "type": "chargeur",
-    "compatible": [],
+    "prerequis": "artilleur",
+    "compatible": [
+      "bande_munitions"
+    ],
     "attributs": [
       {
         "attribut": "munitions_mod",
@@ -444,9 +478,22 @@
       }
     ]
   },
+  "grande_sacoche": {
+    "nom": "Grande sacoche",
+    "type": "chargeur",
+    "compatible": [
+      "bande_munitions"
+    ],
+    "attributs": [
+      {
+        "attribut": "munitions_mod",
+        "valeur": 35
+      }
+    ]
+  },
   "petit_silencieux_45": {
     "nom": "Petit silencieux .45",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -458,7 +505,7 @@
   },
   "silencieux_osprey_45": {
     "nom": "Silencieux Osprey .45",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -470,7 +517,7 @@
   },
   "frein_ventile_bruyant_45": {
     "nom": "Frein ventilé bruyant .45",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -482,8 +529,9 @@
   },
   "frein_de_bouche_45": {
     "nom": "Frein de bouche .45",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
+      "bouche_45"
     ],
     "attributs": [
       {
@@ -494,7 +542,7 @@
   },
   "compensateur_45": {
     "nom": "Compensateur .45",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -506,7 +554,7 @@
   },
   "cache_flamme_45": {
     "nom": "Cache-flamme .45",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -518,7 +566,7 @@
   },
   "grand_silencieux_5_56": {
     "nom": "Grand silencieux 5.56",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -530,7 +578,7 @@
   },
   "compensateur_5_56": {
     "nom": "Compensateur 5.56",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -542,7 +590,7 @@
   },
   "silencieux_de_fusil_omega_5_56": {
     "nom": "Silencieux de fusil Omega 5.56",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -558,7 +606,7 @@
   },
   "frein_de_bouche_5_56": {
     "nom": "Frein de bouche 5.56",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -570,7 +618,7 @@
   },
   "frein_ventile_bruyant_5_56": {
     "nom": "Frein ventilé bruyant 5.56",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -582,7 +630,7 @@
   },
   "cache_flamme_5_56": {
     "nom": "Cache-flamme 5.56",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -594,8 +642,9 @@
   },
   "grand_silencieux_7_62": {
     "nom": "Grand silencieux 7.62",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
+      "bouche_762"
     ],
     "attributs": [
       {
@@ -606,8 +655,9 @@
   },
   "silencieux_de_fusil_omega_7_62": {
     "nom": "Silencieux de fusil Omega 7.62",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
+      "bouche_762"
     ],
     "attributs": [
       {
@@ -622,8 +672,9 @@
   },
   "cache_flamme_7_62": {
     "nom": "Cache-flamme 7.62",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
+      "bouche_762"
     ],
     "attributs": [
       {
@@ -634,8 +685,9 @@
   },
   "frein_de_bouche_7_62": {
     "nom": "Frein de bouche 7.62",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
+      "bouche_762"
     ],
     "attributs": [
       {
@@ -646,8 +698,9 @@
   },
   "compensateur_7_62": {
     "nom": "Compensateur 7.62",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
+      "bouche_762"
     ],
     "attributs": [
       {
@@ -658,8 +711,9 @@
   },
   "frein_ventile_bruyant_7_62": {
     "nom": "Frein ventilé bruyant 7.62",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
+      "bouche_762"
     ],
     "attributs": [
       {
@@ -670,7 +724,7 @@
   },
   "petit_silencieux_9mm": {
     "nom": "Petit silencieux 9mm",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -682,7 +736,7 @@
   },
   "silencieux_osprey_9mm": {
     "nom": "Silencieux Osprey 9mm",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -694,7 +748,7 @@
   },
   "compensateur_9mm": {
     "nom": "Compensateur 9mm",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -706,7 +760,7 @@
   },
   "cache_flamme_9mm": {
     "nom": "Cache-flamme 9mm",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -718,7 +772,7 @@
   },
   "frein_de_bouche_9mm": {
     "nom": "Frein de bouche 9mm",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -730,7 +784,7 @@
   },
   "frein_ventile_bruyant_9mm": {
     "nom": "Frein ventilé bruyant 9mm",
-    "type": "canon",
+    "type": "bouche",
     "compatible": [
     ],
     "attributs": [
@@ -743,7 +797,9 @@
   "petite_lunette_rds": {
     "nom": "Petite lunette RDS",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "rail_optique_long"
+    ],
     "attributs": [
       {
         "attribut": "stabilite_arm",
@@ -758,7 +814,9 @@
   "lunette_acog_4x": {
     "nom": "Lunette ACOG (4x)",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "rail_optique_long"
+    ],
     "attributs": [
       {
         "attribut": "portee_optimale_mod",
@@ -769,7 +827,9 @@
   "lunette_c79_3_4x": {
     "nom": "Lunette C79 (3,4x)",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "rail_optique_long"
+    ],
     "attributs": [
       {
         "attribut": "probabilite_de_coup_critique_arm",
@@ -777,10 +837,12 @@
       }
     ]
   },
-  "lunette_ccqbs_8x": {
-    "nom": "Lunette CCQBS (8x)",
+  "lunette_ccqbss_8x": {
+    "nom": "Lunette CCQBSS (8x)",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "rail_optique_long"
+    ],
     "attributs": [
       {
         "attribut": "degats_de_headshot_arm",
@@ -791,7 +853,9 @@
   "lunette_vx1_12x": {
     "nom": "Lunette VX1 (12x)",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "rail_optique_long"
+    ],
     "attributs": [
       {
         "attribut": "degats_de_headshot_arm",
@@ -806,7 +870,9 @@
   "lunette_numerique": {
     "nom": "Lunette numérique",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "rail_optique_long"
+    ],
     "attributs": [
       {
         "attribut": "degats_de_headshot_arm",
@@ -858,7 +924,9 @@
   "visee_holo_552": {
     "nom": "Visée holo 552",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "rail_optique_long"
+    ],
     "attributs": [
       {
         "attribut": "precision_arm",
@@ -869,7 +937,9 @@
   "visee_point_rouge_t2_micro": {
     "nom": "Visée point rouge T2 Micro",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "rail_optique_long"
+    ],
     "attributs": [
       {
         "attribut": "precision_arm",
@@ -880,7 +950,9 @@
   "visee_point_rouge_pro": {
     "nom": "Visée point rouge PRO",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "rail_optique_long"
+    ],
     "attributs": [
       {
         "attribut": "stabilite_arm",
@@ -891,7 +963,9 @@
   "visee_holo_exps3": {
     "nom": "Visée holo EXPS3",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "rail_optique_long"
+    ],
     "attributs": [
       {
         "attribut": "degats_de_headshot_arm",
@@ -902,7 +976,9 @@
   "visee_reflex": {
     "nom": "Visée reflex",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "rail_optique_long"
+    ],
     "attributs": [
       {
         "attribut": "maniement_d_arme_arm",
@@ -913,7 +989,9 @@
   "visee_reflex_basse": {
     "nom": "Visée reflex basse",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "micro_rail_optique"
+    ],
     "attributs": [
       {
         "attribut": "degats_de_headshot_arm",
@@ -928,7 +1006,9 @@
   "visee_point_rouge_russe": {
     "nom": "Visée point rouge russe",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "rail_optique_long"
+    ],
     "attributs": [
       {
         "attribut": "degats_de_coup_critique_arm",
@@ -939,7 +1019,10 @@
   "visee_reflex_mini_rustique": {
     "nom": "Visée reflex mini rustique",
     "type": "viseur",
-    "compatible": [],
+    "compatible": [
+      "micro_rail_optique",
+      "rail_optique_long"
+    ],
     "attributs": [
       {
         "attribut": "probabilite_de_coup_critique_arm",
@@ -949,8 +1032,11 @@
   },
   "poignee_incline": {
     "nom": "Poignée incliné",
-    "type": "bouche",
-    "compatible": [],
+    "type": "canon",
+    "compatible": [
+      "rail_sous_canon_court",
+      "rail_sous_canon_long"
+    ],
     "attributs": [
       {
         "attribut": "stabilite_arm",
@@ -960,8 +1046,11 @@
   },
   "poignee_verticale": {
     "nom": "Poignée verticale",
-    "type": "bouche",
-    "compatible": [],
+    "type": "canon",
+    "compatible": [
+      "rail_sous_canon_court",
+      "rail_sous_canon_long"
+    ],
     "attributs": [
       {
         "attribut": "precision_arm",
@@ -971,8 +1060,10 @@
   },
   "poignee_courte": {
     "nom": "Poignée courte",
-    "type": "bouche",
-    "compatible": [],
+    "type": "canon",
+    "compatible": [
+      "rail_sous_canon_long"
+    ],
     "attributs": [
       {
         "attribut": "degats_de_coup_critique_arm",
@@ -982,8 +1073,11 @@
   },
   "poignee_courte_tactique": {
     "nom": "Poignée courte tactique",
-    "type": "bouche",
-    "compatible": [],
+    "type": "canon",
+    "prerequis": "incendiaire",
+    "compatible": [
+      "rail_sous_canon_long"
+    ],
     "attributs": [
       {
         "attribut": "degats_de_coup_critique_arm",
@@ -993,9 +1087,11 @@
   },
   "pointeur_laser": {
     "nom": "Pointeur laser",
-    "type": "bouche",
+    "type": "canon",
     "compatible": [
-      "lateral"
+      "lateral",
+      "rail_sous_canon_court",
+      "rail_sous_canon_long"
     ],
     "attributs": [
       {
@@ -1004,10 +1100,27 @@
       }
     ]
   },
+  "pointeur_laser_couple_compact": {
+    "nom": "Pointeur laser couplé compact",
+    "type": "canon",
+    "compatible": [
+      "gadget"
+    ],
+    "attributs": [
+      {
+        "attribut": "degats_de_headshot_arm",
+        "valeur": 10
+      }
+    ]
+  },
   "petit_pointeur_laser": {
     "nom": "Petit pointeur laser",
-    "type": "bouche",
-    "compatible": [],
+    "type": "canon",
+    "prerequis": "demolisseur",
+    "compatible": [
+      "rail_sous_canon_court",
+      "rail_sous_canon_long"
+    ],
     "attributs": [
       {
         "attribut": "probabilite_de_coup_critique_arm",
@@ -1015,16 +1128,34 @@
       }
     ]
   },
+  "petit_pointeur_laser_couple_compact": {
+    "nom": "Petit pointeur laser couplé compact",
+    "type": "canon",
+    "compatible": [
+      "gadget"
+    ],
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ]
+  },
   "pointeur_laser_lie": {
     "nom": "Pointeur laser lié",
-    "type": "bouche",
+    "type": "canon",
+    "prerequis": "technicien",
     "bonus": "Applique une impulsion sur les cibles visées",
-    "compatible": []
+    "compatible": [
+      "rail_sous_canon_long"
+    ]
   },
   "protege_rail": {
     "nom": "Protège-rail",
-    "type": "bouche",
-    "compatible": [],
+    "type": "canon",
+    "compatible": [
+      "rail_sous_canon_long"
+    ],
     "attributs": [
       {
         "attribut": "vitesse_de_rechargement_arm",
@@ -1032,11 +1163,12 @@
       }
     ]
   },
-  "lampe_torche": {
-    "nom": "Lampe torche",
-    "type": "bouche",
+  "lampe_pour_pistolet": {
+    "nom": "Lampe pour pistolet",
+    "type": "canon",
     "bonus": "Éclaire en face de vous",
     "compatible": [
+      "gadget"
     ]
   },
   "viseur_a_point_de_diamondback": {
@@ -1378,6 +1510,7 @@
   "rail_conducteur": {
     "nom": "Rail conducteur",
     "type": "viseur",
+    "description": "Offre une vue électrisante.",
     "attributs": [
       {
         "attribut": "degats_de_coup_critique_arm",
@@ -1390,6 +1523,7 @@
   "chargeur_isolee": {
     "nom": "Chargeur isolée",
     "type": "chargeur",
+    "description": "L'équipe de sécu l'a validé.",
     "attributs": [
       {
         "attribut": "munitions_mod",
@@ -1400,8 +1534,9 @@
     "compatible": []
   },
   "poignee_isolee": {
-    "nom": "Poignée_isolée",
+    "nom": "Poignée isolée",
     "type": "canon",
+    "description": "Ne pas utiliser sans les gants.",
     "attributs": [
       {
         "attribut": "maniement_d_arme_arm",
@@ -1414,6 +1549,7 @@
   "bouche_surchargee": {
     "nom": "Bouche surchargée",
     "type": "bouche",
+    "description": "Une puissance illimitée.",
     "attributs": [
       {
         "attribut": "probabilite_de_coup_critique_arm",
@@ -1614,6 +1750,20 @@
     ],
     "estExotique": true,
     "compatible": []
+  },
+  "silencieux_qdc": {
+    "nom": "Silencieux QDC",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "stabilite_arm",
+        "valeur": 30
+      }
+    ],
+    "estExotique": false,
+    "compatible": [
+      "bouche"
+    ]
   },
   "lunette_de_linceul": {
     "nom": "Lunette de Linceul",
@@ -2253,11 +2403,220 @@
   },
   "canon_perfore": {
     "nom": "Canon perforé",
-    "type": "bouche",
+    "type": "canon",
     "attributs": [
       {
         "attribut": "probabilite_de_coup_critique_arm",
         "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "visee_eclair": {
+    "nom": "Visée éclair",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "vitesse_de_rechargement_arm",
+        "valeur": 20
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chassis_de_desauthentification": {
+    "nom": "Châssis de désauthentification",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "maniement_d_arme_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "poignee_dropkick": {
+    "nom": "Poignée dropkick",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "stabilite_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_optimisee": {
+    "nom": "Bouche optimisée",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "cadence_de_tir_arm",
+        "valeur": 20
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "lunette_integree_8x": {
+    "nom": "Lunette intégrée (8x)",
+    "type": "viseur",
+    "compatible": [],
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 5
+      }
+    ]
+  },
+  "chargeur_fleau": {
+    "nom": "Chargeur Fléau",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "cadence_de_tir_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "ruban_de_mise_en_garde": {
+    "nom": "Ruban de mise en garde",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "stabilite_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_fleau": {
+    "nom": "Bouche Fléau",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "precision_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_de_contenance": {
+    "nom": "Chargeur de contenance",
+    "type": "chargeur",
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_en_plaque_or": {
+    "nom": "Bouche en plaqué or",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bipied_solid_gold": {
+    "nom": "Bipied Solid Gold",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "stabilite_arm",
+        "valeur": 20
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "soufflet": {
+    "nom": "Soufflet",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "munitions_mod",
+        "valeur": 35
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "ecailles": {
+    "nom": "Écailles",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "degats_de_coup_critique_arm",
+        "valeur": 20
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "cornes_de_dragon": {
+    "nom": "Cornes de dragon",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "optique_pakhan": {
+    "nom": "Optique Pakhan",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "degats_armes",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_pakhan": {
+    "nom": "Chargeur Pakhan",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "munitions_mod",
+        "valeur": 20
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "accessoire_sous_canon_pakhan": {
+    "nom": "Accessoire sous canon Pakhan",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "vitesse_de_rechargement_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_pakhan": {
+    "nom": "Bouche Pakhan",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 15
       }
     ],
     "estExotique": true,

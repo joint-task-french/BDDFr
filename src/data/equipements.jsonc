@@ -3805,7 +3805,6 @@
     "obtention": {
       "butinCible": true,
       "cachesExotiques": true,
-      "mission": true,
       "represailles": "True sons, Escouade d'extermination"
     },
     "attributEssentiel": [
@@ -3830,8 +3829,8 @@
     "emplacement": "masque",
     "mod": true,
     "obtention": {
-      "mission": "Army Terminal"
-
+      "mission": true,
+      "description": "Tuer l'un des boss nommés de Brooklyn ou dans la mission \"Army Terminal\""
     },
     "attributEssentiel": [
       "offensif"
@@ -3858,7 +3857,8 @@
       "butinCible": true,
       "cachesExotiques": true,
       "mission": true,
-      "represailles": "Hyènes, Escouade d'extermination"
+      "represailles": "Hyènes, Escouade d'extermination",
+      "description": "Tuer Coyote, boss de la mission Jefferson Trade Center"
     },
     "attributEssentiel": [
       "offensif"
@@ -3949,7 +3949,8 @@
     "emplacement": "sac_a_dos",
     "mod": true,
     "obtention": {
-     "mission": "Traque Fardeau de la vérité <Alani Kelso> Mission Roosevelt Island"
+      "mission": true,
+      "description": "Traque Fardeau de la vérité <Alani Kelso> Mission Roosevelt Island"
     },
     "attributEssentiel": [
       "utilitaire"
@@ -4047,7 +4048,8 @@
     "emplacement": "masque",
     "mod": true,
     "obtention": {
-      "mission": "Traque Crossroads <Le Directeur> Mission Potomac Event Center"
+      "mission": true,
+      "description": "Traque Crossroads <Le Directeur> Mission Potomac Event Center"
     },
     "attributEssentiel": [
       "offensif"
@@ -4071,7 +4073,9 @@
     "emplacement": "torse",
     "mod": true,
     "obtention": {
-      "mission": "Projet du Summit"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": "Obtenir 5 pièces lors de votre ascencion du summit dans les coffres à ouvrir avec une clef.\n\n33% de chance d'obtenir la pièce \"Protection corporelle 120\" lors des niveaux 1-20\n33% de chance d'obtenir la pièce \"Épaulières 2140\" lors des niveaux 21-40\n33% de chance d'obtenir \"Couteau de chasse 4160\" lors des niveaux 41-60\n33% de chance d'obtenir la pièce \"Drapeau 6180\" lors des niveaux 61-80\n33% de chance d'obtenir la pièce \"Plaques d'identité 81100\" lors des niveaux 81-100\nRendez-vous à l'étage 100 du summit, tuez les hunters pour valider le projet.\n\nComplétez le nouveau projet (prévoir un torse nommé Rien à foutre) pour obtenir le blueprint du torse"
     },
     "attributEssentiel": [
       "offensif"
@@ -4095,7 +4099,8 @@
     "emplacement": "torse",
     "mod": true,
     "obtention": {
-      "mission": "Traque Nuances de rouge <Théo Parnell> Mission Siège de l'administration spatiale"
+      "mission": true,
+      "description": "Traque Nuances de rouge <Théo Parnell> Mission Siège de l'administration spatiale"
     },
     "attributEssentiel": [
       "defensif"
@@ -4303,7 +4308,9 @@
     "obtention": {
       "cachesExotiques": true,
       "butinCible": true,
-      "represailles": "Nettoyeurs, Escouade D'extermination"
+      "represailles": "Nettoyeurs, Escouade D'extermination",
+      "mission": true,
+      "description": "Récompense lors de l'élimination d'un boss Nettoyeurs, mission/summit"
     },
     "attributEssentiel": [
       "utilitaire"
@@ -4431,7 +4438,9 @@
     "emplacement": "holster",
     "mod": false,
     "obtention": {
-      "mission": "Project donné par le vendeur de schéma"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": "Achetez le projet à la vendeuse Inaya al-khaliq à côté de l'établi de fabrication [projet Holster: va vers l'ouest, Jeune Agent.]\n\nSe rendre au point contrôle \"station-service Riverside\" (situé à l'extrême ouest de la carte). Récuperez la \"Ceinture en cuir à blocage  rapide\" dans la caisse jaune de la réserve.\nDonnez la pièce à Inaya pour obtenir la suite.\n\n100% d'obtenir la pièce \"Holster en cuir travaillé\" sur un point de contrôle hyène de niveau 4.\n100% de chance d'obtenir la pièce \"Holster en cuir inversé\" sur un point de contrôle True sons de niveau 4.\n100% d'obtenir la pièce \"Protection antichoc huilé\" sur un point de contrôle Paria de niveau 4.\nDonnez les pièces à Inaya pour avoir la suite.\n\n100% de chance d'obtenir la pièce \"Rind\" sur un nommé Black Tusk.\nRendez vous dans le bar situé à l'est de la maison blanche. Le bar se situe sur la 15th St NW (il y a un ECHO dans le bar). Allez y après 12h00 ingame pour faire apparaitre le nommé en question (l'heure est dispo dans le mode photo. Echap -> maintenir F pour activer le mode)"
     },
     "attributEssentiel": [
       "offensif"
@@ -4455,7 +4464,8 @@
     "emplacement": "genouilleres",
     "mod": false,
     "obtention": {
-      "mission": "Traque Le pacte <Le sommet> Tidal Basin "
+      "mission": true,
+      "description": "Traque Le pacte <Le sommet> Tidal Basin "
     },
     "attributEssentiel": [
       "offensif"

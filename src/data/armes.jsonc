@@ -779,121 +779,136 @@
     }
   },
   "mg5": {
-    "nom": "MG5",//TODO
+    "nom": "MG5",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
     "rpm": 800,
     "chargeur": 50,
-    "rechargement": 3.26,
+    "rechargement": 2.96,
     "headshot": 65,
-    "degatsBase": 54310,
+    "degatsBase": 54300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": { //OK
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
     }
   },
   "big_show": {
-    "nom": "Big Show",//TODO
+    "nom": "Big Show",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
     "rpm": 800,
     "chargeur": 50,
-    "rechargement": 3.26,
+    "rechargement": 2.96,
     "headshot": 65,
-    "degatsBase": 54310,
+    "degatsBase": 54300,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
-    "emplacementsMods": {
+    "talents": [
+      "coup_de_tonnerre"
+    ],
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
     }
   },
   "sleipnir": {
-    "nom": "Sleipnir",//TODO
+    "nom": "Sleipnir",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
     "rpm": 800,
     "chargeur": 50,
-    "rechargement": 3.26,
+    "rechargement": 2.96,
     "headshot": 65,
-    "degatsBase": 54310,
+    "degatsBase": 54300,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
-    "emplacementsMods": {
+    "talents": [
+      "frenesie"
+    ],
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
     }
   },
   "mg5_infanterie": {
-    "nom": "MG5 infanterie",//TODO
+    "nom": "MG5 infanterie",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
     "rpm": 800,
     "chargeur": 50,
-    "rechargement": 3.26,
+    "rechargement": 3.01,
     "headshot": 65,
-    "degatsBase": 52322,
+    "degatsBase": 52300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_762"
     }
   },
   "stoner_lamg": {
-    "nom": "Stoner LAMG",//TODO
+    "nom": "Stoner LAMG",
     "type": "fusil_mitrailleur",
     "fabricant": "KNIGHT'S ARMEMENT",
     "portee": 40,
     "rpm": 580,
     "chargeur": 200,
-    "rechargement": 5,
+    "rechargement": 3,
     "headshot": 65,
-    "degatsBase": 62347,
+    "degatsBase": 62400,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    }
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    },
+    "modsPredefinis": [
+      "silencieux_qdc"
+    ]
   },
   "grondement": {
-    "nom": "Grondement",//TODO
+    "nom": "Grondement",
     "type": "fusil_mitrailleur",
     "fabricant": "KNIGHT'S ARMEMENT",
     "portee": 40,
     "rpm": 580,
     "chargeur": 200,
-    "rechargement": 5,
+    "rechargement": 3,
     "headshot": 65,
-    "degatsBase": 62347,
+    "degatsBase": 62400,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "accablement"
+    ],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    }
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    },
+    "modsPredefinis": [
+      "silencieux_qdc"
+    ]
   },
   "ecran_bleu": {
-    "nom": "Écran bleu",//TODO
+    "nom": "Écran bleu",
     "type": "fusil_mitrailleur",
     "fabricant": "KNIGHT'S ARMEMENT",
     "portee": 40,
@@ -914,124 +929,140 @@
     "talents": [
       "munitions_desactivatrices"
     ],
-    "emplacementsMods": {}
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "visee_eclair",
+      "chassis_de_desauthentification",
+      "poignee_dropkick",
+      "bouche_optimisee"
+    ]
   },
   "m249_b": {
-    "nom": "M249 B",//TODO
+    "nom": "M249 B",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
     "rpm": 850,
     "chargeur": 100,
-    "rechargement": 5.11,
+    "rechargement": 4.54,
     "headshot": 65,
-    "degatsBase": 48289,
+    "degatsBase": 48300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
     }
   },
   "black_friday": {
-    "nom": "Black Friday",//TODO
+    "nom": "Black Friday",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
     "rpm": 850,
     "chargeur": 100,
-    "rechargement": 5.11,
+    "rechargement": 4.54,
     "headshot": 65,
-    "degatsBase": 48289,
+    "degatsBase": 48300,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "desequilibre"
+    ],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
     }
   },
   "stinger": {
-    "nom": "Stinger",//TODO
+    "nom": "Stinger",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
+    "description": "Quand quelque chose vous manque au-delà du supportable. Il est souvent tentant de chercher du réconfort dans la destruction et les mauvaises habitudes.",
     "portee": 35,
     "rpm": 850,
     "chargeur": 100,
-    "rechargement": 5.11,
+    "rechargement": 4.54,
     "headshot": 65,
-    "degatsBase": 48289,
+    "degatsBase": 48300,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "vif"
+    ],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
     }
   },
   "m249_para_tactique": {
-    "nom": "M249 Para tactique",//TODO
+    "nom": "M249 Para tactique",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
     "rpm": 850,
     "chargeur": 100,
-    "rechargement": 5.11,
+    "rechargement": 4.54,
     "headshot": 65,
-    "degatsBase": 48289,
+    "degatsBase": 48300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
     }
   },
   "mk46_militaire": {
-    "nom": "MK46 militaire",//TODO
+    "nom": "MK46 militaire",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
     "rpm": 850,
     "chargeur": 100,
-    "rechargement": 5.11,
+    "rechargement": 4.54,
     "headshot": 65,
-    "degatsBase": 48289,
+    "degatsBase": 48300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
     }
   },
   "m60_classique": {
-    "nom": "M60 classique",//TODO
+    "nom": "M60 classique",
     "type": "fusil_mitrailleur",
     "fabricant": "SACO DEFENSE",
     "portee": 40,
     "rpm": 600,
     "chargeur": 100,
-    "rechargement": 4.8,
+    "rechargement": 3.75,
     "headshot": 65,
-    "degatsBase": 67698,
+    "degatsBase": 67700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
+      "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
     }
   },
   "m60_e4_militaire": {
-    "nom": "M60 E4 militaire",//TODO
+    "nom": "M60 E4 militaire",
     "type": "fusil_mitrailleur",
     "fabricant": "SACO DEFENSE",
     "portee": 40,
@@ -1039,18 +1070,19 @@
     "chargeur": 100,
     "rechargement": 4.8,
     "headshot": 65,
-    "degatsBase": 65220,
+    "degatsBase": 65200,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
     }
   },
   "m60_e6_marche_noire": {
-    "nom": "M60 E6 marché noir",//TODO
+    "nom": "M60 E6 marché noir",
     "type": "fusil_mitrailleur",
     "fabricant": "SACO DEFENSE",
     "portee": 40,
@@ -1058,113 +1090,123 @@
     "chargeur": 100,
     "rechargement": 4.8,
     "headshot": 65,
-    "degatsBase": 65220,
+    "degatsBase": 65200,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
     }
   },
   "belle_epoque": {
-    "nom": "Belle époque",//TODO
+    "nom": "Belle époque",
     "type": "fusil_mitrailleur",
     "fabricant": "SACO DEFENSE",
     "portee": 40,
     "rpm": 600,
     "chargeur": 100,
-    "rechargement": 4.8,
+    "rechargement": 3.85,
     "headshot": 65,
-    "degatsBase": 65220,
+    "degatsBase": 65200,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "mains_rapides"
+    ],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
     }
   },
   "rpk_74_classique": {
-    "nom": "RPK-74 classique",//TODO
+    "nom": "RPK-74 classique",
     "type": "fusil_mitrailleur",
     "fabricant": "KALASHNIKOV",
     "portee": 30,
     "rpm": 600,
     "chargeur": 40,
-    "rechargement": 4.18,
+    "rechargement": 4.00,
     "headshot": 65,
-    "degatsBase": 71524,
+    "degatsBase": 71500,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
     }
   },
   "rpk_74_m_militaire": {
-    "nom": "RPK-74 M militaire",//TODO
+    "nom": "RPK-74 M militaire",
     "type": "fusil_mitrailleur",
     "fabricant": "KALASHNIKOV",
     "portee": 30,
     "rpm": 600,
     "chargeur": 40,
-    "rechargement": 4.18,
+    "rechargement": 4.00,
     "headshot": 65,
-    "degatsBase": 71524,
+    "degatsBase": 71500,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
     }
   },
   "rpk_74_e_marche_noire": {
-    "nom": "RPK-74 E marché noir",//TODO
+    "nom": "RPK-74 E marché noir",
     "type": "fusil_mitrailleur",
     "fabricant": "KALASHNIKOV",
     "portee": 30,
     "rpm": 600,
     "chargeur": 40,
-    "rechargement": 4.18,
+    "rechargement": 4.00,
     "headshot": 65,
-    "degatsBase": 71524,
+    "degatsBase": 71500,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
     }
   },
   "nouveau_et_fiable": {
-    "nom": "Nouveau & fiable",//TODO
+    "nom": "Nouveau & fiable",
     "type": "fusil_mitrailleur",
     "fabricant": "KALASHNIKOV",
     "portee": 30,
     "rpm": 600,
     "chargeur": 40,
-    "rechargement": 4.18,
+    "rechargement": 2.86,
     "headshot": 65,
-    "degatsBase": 71524,
+    "degatsBase": 71500,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "optimise"
+    ],
     "emplacementsMods": {
-      "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
     }
   },
   "l86_lsw_militaire": {
-    "nom": "L86 LSW militaire",//TODO
+    "nom": "L86 LSW militaire",
     "type": "fusil_mitrailleur",
     "fabricant": "ENFIELD",
     "portee": 30,
@@ -1172,18 +1214,19 @@
     "chargeur": 30,
     "rechargement": 3.18,
     "headshot": 65,
-    "degatsBase": 61084,
+    "degatsBase": 61100,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
     }
   },
   "l86_a2_personnalise": {
-    "nom": "L86 A2 personnalisé",//TODO
+    "nom": "L86 A2 personnalisé",
     "type": "fusil_mitrailleur",
     "fabricant": "ENFIELD",
     "portee": 30,
@@ -1191,18 +1234,19 @@
     "chargeur": 30,
     "rechargement": 3.18,
     "headshot": 65,
-    "degatsBase": 61084,
+    "degatsBase": 61100,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
     }
   },
   "tabula_rasa": {
-    "nom": "Tabula Rasa",//TODO
+    "nom": "Tabula Rasa",
     "type": "fusil_mitrailleur",
     "fabricant": "ENFIELD",
     "portee": 30,
@@ -1210,110 +1254,133 @@
     "chargeur": 30,
     "rechargement": 3.18,
     "headshot": 65,
-    "degatsBase": 61084,
+    "degatsBase": 61100,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "main_ferme"
+    ],
     "emplacementsMods": {
-      "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
     }
   },
   "iwi_negev": {
-    "nom": "IWI NEGEV",//TODO
+    "nom": "IWI NEGEV",
     "type": "fusil_mitrailleur",
     "fabricant": "IMI",
     "portee": 40,
     "rpm": 750,
     "chargeur": 100,
-    "rechargement": 4.76,
+    "rechargement": 4.00,
     "headshot": 65,
-    "degatsBase": 57595,
+    "degatsBase": 57600,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
     }
   },
   "carnage": {
-    "nom": "Carnage",//TODO
+    "nom": "Carnage",
     "type": "fusil_mitrailleur",
     "fabricant": "IMI",
     "portee": 40,
     "rpm": 750,
     "chargeur": 100,
-    "rechargement": 4.76,
+    "rechargement": 4.00,
     "headshot": 65,
-    "degatsBase": 57595,
+    "degatsBase": 57600,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "sadique"
+    ],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
     }
   },
   "gr9": {
-    "nom": "GR9",//TODO
+    "nom": "GR9",
     "type": "fusil_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 35,
     "rpm": 750,
     "chargeur": 200,
-    "rechargement": 5.19,
+    "rechargement": 3.63,
     "headshot": 65,
-    "degatsBase": 49469,
+    "degatsBase": 49500,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
       "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    }
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_762"
+    },
+    "modsPredefinis": [
+      "lunette_integree_8x"
+    ]
   },
   "defi": {
-    "nom": "Défi",//TODO
+    "nom": "Défi",
     "type": "fusil_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 35,
     "rpm": 750,
     "chargeur": 200,
-    "rechargement": 5.19,
+    "rechargement": 3.63,
     "headshot": 65,
-    "degatsBase": 49469,
+    "degatsBase": 49500,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "ligne_plate"
+    ],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
       "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    }
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    },
+    "modsPredefinis": [
+      "lunette_integree_8x"
+    ]
   },
   "cricket": {
-    "nom": "Cricket",//TODO
+    "nom": "Cricket",
     "type": "fusil_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 35,
     "rpm": 750,
     "chargeur": 200,
-    "rechargement": 5.19,
+    "rechargement": 3.63,
     "headshot": 65,
-    "degatsBase": 49469,
+    "degatsBase": 49500,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "frappe_de_precision"
+    ],
     "emplacementsMods": {
       "chargeur": "bande_munitions",
       "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    }
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_762"
+    },
+    "modsPredefinis": [
+      "lunette_integree_8x"
+    ]
   },
   "px4_storm_type_f": {
     "nom": "Px4 STORM TYPE F",
@@ -4615,7 +4682,7 @@
     ]
   },
   "pestilence": {
-    "nom": "Pestilence",//TODO
+    "nom": "Pestilence",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -4637,10 +4704,15 @@
     "talents": [
       "fleau_des_parias"
     ],
-    "emplacementsMods": {}
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "chargeur_fleau",
+      "ruban_de_mise_en_garde",
+      "bouche_fleau"
+    ]
   },
   "bullet_king": {
-    "nom": "Bullet King",//TODO
+    "nom": "Bullet King",
     "type": "fusil_mitrailleur",
     "fabricant": "IMI",
     "portee": 40,
@@ -4661,10 +4733,15 @@
     "talents": [
       "deluge_de_feu"
     ],
-    "emplacementsMods": {}
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "chargeur_de_contenance",
+      "bouche_en_plaque_or",
+      "bipied_solid_gold"
+    ]
   },
   "dragon_de_fer": {
-    "nom": "Dragon de fer",//TODO
+    "nom": "Dragon de fer",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -4684,10 +4761,15 @@
     "talents": [
       "ardent"
     ],
-    "emplacementsMods": {}
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "soufflet",
+      "ecailles",
+      "cornes_de_dragon"
+    ]
   },
   "pakhan": {
-    "nom": "Pakhan",//TODO
+    "nom": "Pakhan",
     "type": "fusil_mitrailleur",
     "fabricant": "Exotique",
     "portee": 30,
@@ -4707,7 +4789,13 @@
     "talents": [
       "pakhan"
     ],
-    "emplacementsMods": {}
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "optique_pakhan",
+      "chargeur_pakhan",
+      "accessoire_sous_canon_pakhan",
+      "bouche_pakhan"
+    ]
   },
   "nemesis": {
     "nom": "Nemesis",
@@ -5510,63 +5598,90 @@
     "nom": "Big Alejandro",//TODO
     "type": "fusil_mitrailleur",
     "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "portee": 35,
+    "rpm": 1100,
+    "chargeur": 200,
+    "rechargement": 4.03,
+    "headshot": 65,
+    "degatsBase": 39300,
     "estExotique": true,
     "estNomme": false,
-    "talents": [],
+    "talents": [
+      "tireur_a_couvert"
+    ],
     "obtention": {
       "description": "Evenement 10 ans de The division"
     },
-    "emplacementsMods": {}
+    "emplacementsMods": {},
+    "modsPredefinis": []
   },
   "rusty": {
     "nom": "Rusty",
     "type": "fusil_mitrailleur",
-    "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "fabricant": "KALASHNIKOV",
+    "portee": 30,
+    "rpm": 600,
+    "chargeur": 40,
+    "rechargement": 4.00,
+    "headshot": 65,
+    "degatsBase": 71500,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
-    "emplacementsMods": {}
+    "talents": [
+      "point_de_pression"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
   },
   "sonneur_de_cloches": {
-    "nom": "Sonneur de cloches",//TODO
+    "nom": "Sonneur de cloches",
     "type": "fusil_mitrailleur",
-    "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 800,
+    "chargeur": 50,
+    "rechargement": 3.01,
+    "headshot": 65,
+    "degatsBase": 52300,
     "estExotique": false,
     "estNomme": true,
+    "description": "Fait sonner les cloches",
+    "obtention": {
+      "description": "Primes Houndsman, évenement"
+    },
     "talents": [],
-    "emplacementsMods": {}
-  },
+    "emplacementsMods": {
+      //OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_762"
+      }
+    },
   "vitesse_superieure": {
-    "nom": "Vitesse supérieure",//TODO
+    "nom": "Vitesse supérieure",
     "type": "fusil_mitrailleur",
-    "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 850,
+    "chargeur": 100,
+    "rechargement": 4.54,
+    "headshot": 65,
+    "degatsBase": 48300,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
-    "emplacementsMods": {}
+    "talents": [
+      "mesure"
+    ],
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
+    }
   }
 }

@@ -143,6 +143,22 @@
     "nom": "Résistance aux explosions",
     "description": "Réduit les dégâts subis par les explosions"
   },
+  "resistance_aveuglement_assourdissement": {
+    "nom": "Protection contre les aveuglements et assourdissements",
+    "description": "Résistance aux aveuglements et assourdissements"
+  },
+  "resistance_brulure": {
+    "nom": "Protection contre les brûlures",
+    "description": "Résistance aux brûlures"
+  },
+  "resistance_desorientation": {
+    "nom": "Protection contre les désorientations",
+    "description": "Résistance aux désorientations"
+  },
+  "resistance_saignement": {
+    "nom": "Protection contre les saignements",
+    "description": "Résistance aux saignements"
+  },
   "rayon": {
     "nom": "Rayon de compétence",
     "description": "Augmente le rayon de compétence"

@@ -12,7 +12,7 @@
     "prototypeMax": 22.5,
     "description": "Augmente les dégâts infligés par les fusils d'assaut",
     "estEssentiel": true,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_fusil_assaut"
     ]
@@ -28,7 +28,7 @@
     "max": 21,
     "description": "Augmente les dégâts infligés à la santé de l'ennemi",
     "estEssentiel": true,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_sante"
     ]
@@ -45,7 +45,7 @@
     "prototypeMax": 22.5,
     "description": "Augmente les dégâts infligés par les fusils",
     "estEssentiel": true,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_fusil"
     ]
@@ -61,7 +61,7 @@
     "max": 17,
     "description": "Augmente les dégâts infligés lors d'un coup critique",
     "estEssentiel": true,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_coup_critique"
     ]
@@ -78,7 +78,7 @@
     "prototypeMax": 22.5,
     "description": "Augmente les dégâts infligés par les fusils de précision",
     "estEssentiel": true,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_fusil_precision"
     ]
@@ -94,7 +94,7 @@
     "max": 111,
     "description": "Augmente les dégâts infligés lors d'un tir à la tête",
     "estEssentiel": true,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_headshot"
     ]
@@ -111,7 +111,7 @@
     "prototypeMax": 22.5,
     "description": "Augmente les dégâts infligés par les pistolets-mitrailleurs",
     "estEssentiel": true,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_pm"
     ]
@@ -127,7 +127,7 @@
     "max": 21,
     "description": "Augmente la probabilité de déclencher un coup critique",
     "estEssentiel": true,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "probabilite_coup_critique"
     ]
@@ -144,7 +144,7 @@
     "prototypeMax": 22.5,
     "description": "Augmente les dégâts infligés par les fusils-mitrailleurs",
     "estEssentiel": true,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_fusil_mitrailleur"
     ]
@@ -160,7 +160,7 @@
     "max": 12,
     "description": "Augmente les dégâts infligés aux cibles non abritées",
     "estEssentiel": true,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_cible_non_abritee"
     ]
@@ -177,7 +177,7 @@
     "prototypeMax": 22.5,
     "description": "Augmente les dégâts infligés par les armes de calibre 12",
     "estEssentiel": true,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_calibre_12"
     ]
@@ -194,7 +194,7 @@
     "prototypeMax": 18,
     "description": "Augmente les dégâts infligés aux protections de l'ennemi",
     "estEssentiel": true,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_protections"
     ]
@@ -211,7 +211,7 @@
     "prototypeMax": 22.5,
     "description": "Augmente les dégâts infligés par les pistolets",
     "estEssentiel": true,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_pistolet"
     ]
@@ -368,10 +368,10 @@
     ],
     "unite": "%",
     "min": 1,
-    "max": 30,
+    "max": 12,
     "description": "Augmente la stabilité de l'arme",
     "estEssentiel": false,
-    "selectionable": false,
+    "selectionable": true,
     "statistiques": [
       "stabilite"
     ]
@@ -490,7 +490,7 @@
     ]
   },
   "tiers_de_competence": {
-    "nom": "Tiers de compétence",
+    "nom": "Tier de compétence",
     "categorie": "utilitaire",
     "cible": [
       "equipement"
@@ -546,10 +546,10 @@
     ],
     "unite": "%",
     "min": 1,
-    "max": 38,
+    "max": 50,
     "description": "Augmente la précision de l'arme",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "precision"
     ]
@@ -629,7 +629,7 @@
     ],
     "unite": "%",
     "min": 1,
-    "max": 11,
+    "max": 60,
     "description": "Augmente les dégâts du pistolet.",
     "estEssentiel": false,
     "selectionable": false,
@@ -647,7 +647,7 @@
     "min": 1,
     "max": 8,
     "description": "Augmente les dégâts infligés aux cibles non abritées",
-    "estEssentiel": true,
+    "estEssentiel": false,
     "selectionable": false,
     "statistiques": [
       "degats_cible_non_abritee"
@@ -663,7 +663,7 @@
     "min": -50,
     "max": 100,
     "description": "Réduit la menace.",
-    "estEssentiel": true,
+    "estEssentiel": false,
     "selectionable": false,
     "statistiques": [
       "menace"
@@ -685,7 +685,7 @@
       "regeneration_protection"
     ]
   },
-  "poucentage_regeneration_de_protection_eqp": {
+  "pourcentage_regeneration_de_protection_eqp": {
     "nom": "Régénération de protection",
     "categorie": "defensif",
     "cible": [
@@ -709,7 +709,7 @@
     ],
     "unite": "%",
     "min": 1,
-    "max": 30,
+    "max": 10,
     "description": "Réduit la durée des effets d'état subis",
     "estEssentiel": false,
     "selectionable": true,
@@ -728,7 +728,7 @@
     "max": 10,
     "description": "Résistance électrique",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "protection_electrocution"
     ]
@@ -744,7 +744,7 @@
     "max": 10,
     "description": "Résistance aux désactivations",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "resistance_desactivation"
     ]
@@ -760,7 +760,7 @@
     "max": 10,
     "description": "Résistance à l'impulsion",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "resistance_impulsion"
     ]
@@ -776,7 +776,7 @@
     "max": 6,
     "description": "Résistance à l'impulsion",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "resistance_impulsion"
     ]
@@ -792,7 +792,7 @@
     "max": 10,
     "description": "Résistance à l'entrave",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "resistance_entrave"
     ]
@@ -808,7 +808,7 @@
     "max": 6,
     "description": "Protection bonus",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "protection_bonus_comp"
     ]
@@ -824,7 +824,7 @@
     "max": 20,
     "description": "Augmente les réparations d'armure reçues",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "reparation_subies"
     ]
@@ -904,7 +904,7 @@
     "max": 50,
     "description": "Augmente la valeur totale de la santé de bouclier",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "sante_bouclier"
     ]
@@ -936,7 +936,7 @@
     "max": 8,
     "description": "Réduit les dégâts subis par les explosions",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "resistance_explosions"
     ]
@@ -970,7 +970,7 @@
     "prototypeMax": 15,
     "description": "Augmente les dégâts infligés par les compétences",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_competence"
     ]
@@ -1116,7 +1116,7 @@
     "max": 25,
     "description": "Santé pour les compétences",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "sante_pour_competence"
     ]
@@ -1132,7 +1132,7 @@
     "max": 100,
     "description": "Réduit le temps de recharge de l'impulsion de scanner",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "recup_impulsion_scanner"
     ]
@@ -1164,7 +1164,7 @@
     "max": 50,
     "description": "Augmente la portée optimale.",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "portee_optimale_eqp"
     ]
@@ -1180,7 +1180,7 @@
     "max": 5,
     "description": "Augmente la cadence de tir de l'arme",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "cadence_tir"
     ]
@@ -1196,7 +1196,7 @@
     "max": 30,
     "description": "Augmente le nombre de munitions dans le chargeur.",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "taille_chargeur"
     ]
@@ -1228,7 +1228,7 @@
     "max": 10,
     "description": "Augmente la capacité de munitions.",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "capacite_munitions"
     ]
@@ -1260,7 +1260,7 @@
     "max": 6,
     "description": "Améliore la vitesse de rechargement, la vitesse de changement, la précision et la stabilité des armes.",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "maniement_arme"
     ]
@@ -1276,7 +1276,7 @@
     "max": 8,
     "description": "Améliore la vitesse de rechargement, la vitesse de changement, la précision et la stabilité des armes.",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "maniement_arme"
     ]
@@ -1340,7 +1340,7 @@
     "max": 6,
     "description": "Augmente le rayon de souffle de la compétence.",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "rayon_de_souffle"
     ]
@@ -1356,7 +1356,7 @@
     "max": 6,
     "description": "Augmente les dégâts sur les cibles non abritées.",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_cible_non_abritee"
     ]
@@ -1372,7 +1372,7 @@
     "max": 8,
     "description": "Augmente les dégâts de la compétence.",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_competence"
     ]
@@ -1420,7 +1420,7 @@
     "max": 6,
     "description": "Augmente les dégâts infligés aux protections de l'ennemi",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_protections"
     ]
@@ -1436,7 +1436,7 @@
     "max": 10,
     "description": "Apporte de la protection lors de l'éliminations d'un ennemi",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "protection_elimination"
     ]
@@ -1468,7 +1468,7 @@
     "max": 10,
     "description": "Apporte de la protection lors de l'éliminations d'un ennemi",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "protection_elimination"
     ]
@@ -1688,8 +1688,8 @@
       "mod_competence"
          ],
     "unite": "%",
-    "min": 2,//TODO
-    "max": 5,//TODO
+    "min": 1,
+    "max": 5,
     "description": "Réduit la durée de rechargement",
     "estEssentiel": false,
     "selectionable": false,
@@ -1738,11 +1738,13 @@
     "unite": "%",
     "description": "Réduit le temps de rechargement",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "vitesse_rechargement"
-    ]
-  }, // TODO : manque valeurs
+    ],
+    "min": 30,
+    "max": 30
+  },
   "taille_chargeur_eqp": {
     "nom": "Taille du chargeur",
     "categorie": "utilitaire",
@@ -1752,11 +1754,13 @@
     "unite": "%",
     "description": "Augmente la capacité du chargeur",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "taille_chargeur"
-    ]
-  }, // TODO : manque valeurs
+    ],
+    "min": 15,
+    "max": 50
+  },
   "degats_fusil_precision_eqp": {
     "nom": "Dégâts Fusil de précision",
     "categorie": "offensif",
@@ -1766,11 +1770,13 @@
     "unite": "%",
     "description": "Bonus aux dégâts des fusils de précision",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_fusil_precision"
-    ]
-  }, // TODO : manque valeurs
+    ],
+    "min": 10,
+    "max": 30
+  },
   "degats_fusil_eqp": {
     "nom": "Dégâts Fusil",
     "categorie": "offensif",
@@ -1780,11 +1786,13 @@
     "unite": "%",
     "description": "Bonus aux dégâts des fusils",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_fusil"
-    ]
-  }, // TODO : manque valeurs
+    ],
+    "min": 15,
+    "max": 25
+  },
   "degats_arme_specifique_eqp": {
     "nom": "Dégâts d'arme spécialisée",
     "categorie": "offensif",
@@ -1794,11 +1802,13 @@
     "unite": "%",
     "description": "Bonus aux dégâts de l'arme spécialisée",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_arme_specifique"
-    ]
-  }, // TODO : manque valeurs
+    ],
+    "min": 20,
+    "max": 20
+  },
   "duree_competence_eqp": {
     "nom": "Durée de compétence",
     "categorie": "utilitaire",
@@ -1808,11 +1818,13 @@
     "unite": "%",
     "description": "Augmente la durée des compétences",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "duree_competence"
-    ]
-  }, // TODO : manque valeurs
+    ],
+    "min": 15,
+    "max": 45
+  },
   "degats_fusil_calibre_12_eqp": {
     "nom": "Dégâts Calibre 12",
     "categorie": "offensif",
@@ -1822,11 +1834,13 @@
     "unite": "%",
     "description": "Bonus aux dégâts des armes de calibre 12",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_calibre_12"
-    ]
-  }, // TODO : manque valeurs
+    ],
+    "min": 10,
+    "max": 15
+  },
   "degats_pm_eqp": {
     "nom": "Dégâts PM",
     "categorie": "offensif",
@@ -1836,11 +1850,13 @@
     "unite": "%",
     "description": "Bonus aux dégâts des pistolets-mitrailleurs",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_pm"
-    ]
-  }, // TODO : manque valeurs
+    ],
+    "min": 10,
+    "max": 30
+  },
   "degats_fusil_assaut_eqp": {
     "nom": "Dégâts Fusil d'assaut",
     "categorie": "offensif",
@@ -1850,11 +1866,13 @@
     "unite": "%",
     "description": "Bonus aux dégâts des fusils d'assaut",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_fusil_assaut"
-    ]
-  }, // TODO : manque valeurs
+    ],
+    "min": 10,
+    "max": 20
+  },
   "degats_fusil_mitrailleur_eqp": {
     "nom": "Dégâts Fusil-mitrailleur",
     "categorie": "offensif",
@@ -1864,11 +1882,13 @@
     "unite": "%",
     "description": "Bonus aux dégâts des fusils-mitrailleurs",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_fusil_mitrailleur"
-    ]
-  }, // TODO : manque valeurs
+    ],
+    "min": 10,
+    "max": 30
+  },
   "sante_competence_eqp": {
     "nom": "Santé de compétence",
     "categorie": "defensif",
@@ -1878,11 +1898,13 @@
     "unite": "%",
     "description": "Bonus à la santé des objets de compétence",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "santee_competence"
-    ]
-  }, // TODO : manque valeurs
+    ],
+    "min": 10,
+    "max": 20
+  },
   "sante_mod_comp": {
     "nom": "Santé",
     "categorie": "utilitaire",
@@ -2206,13 +2228,15 @@
     "cible": [
       "equipement"
     ],
-    "unite": "%", // TODO : manque valeurs
+    "unite": "%",
     "description": "Augmente les réparations d'armure reçues",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "reparation_subies"
-    ]
+    ],
+    "min": 15,
+    "max": 45
   },
   "stabilite_eqp": {
     "nom": "Stabilité",
@@ -2220,13 +2244,15 @@
     "cible": [
       "equipement"
     ],
-    "unite": "%", // TODO : manque valeurs
+    "unite": "%",
     "description": "Réduit le recul de l'arme",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "stabilite"
-    ]
+    ],
+    "min": 30,
+    "max": 50
   },
   "degats_sante_eqp": {
     "nom": "Dégâts à la santé",
@@ -2234,13 +2260,15 @@
     "cible": [
       "equipement"
     ],
-    "unite": "%", // TODO : manque valeurs
+    "unite": "%",
     "description": "Bonus de dégâts à la santé de l'ennemi",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_sante"
-    ]
+    ],
+    "min": 10,
+    "max": 10
   },
   "utilitaire": {
     "nom": "Tiers de compétence",
@@ -2248,13 +2276,15 @@
     "cible": [
       "equipement"
     ],
-    "unite": "", // TODO : manque valeurs
+    "unite": "",
     "description": "Augmente le tiers de compétence",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "tiers_competence"
-    ]
+    ],
+    "min": 1,
+    "max": 1
   },
   "taille_cone_mod_comp": {
     "nom": "Taille cône",
@@ -2278,13 +2308,15 @@
     "cible": [
       "equipement"
     ],
-    "unite": "%", // TODO : manque valeurs
+    "unite": "%",
     "description": "Bonus aux dégâts des fusils",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_fusil"
-    ]
+    ],
+    "min": 10,
+    "max": 20
   },
   "protection_impulsion_eqp": {
     "nom": "Protection contre l'impulsion",
@@ -2316,6 +2348,70 @@
     "selectionable": false,
     "statistiques": [
       "resistance_desactivation"
+    ]
+  },
+  "protection_aveuglement_assourdissement_mod": {
+    "nom": "Protection contre les désactivations",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance aux aveuglements et assourdissements",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_aveuglement_assourdissement"
+    ]
+  },
+  "protection_brulure_mod": {
+    "nom": "Protection contre les désactivations",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance aux brûlures",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_brulure"
+    ]
+  },
+  "protection_desorientation_mod": {
+    "nom": "Protection contre les désorientation",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance aux désorientations",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_desorientation"
+    ]
+  },
+  "protection_saignement_mod": {
+    "nom": "Protection contre les saignements",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance aux saignements",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_saignement"
     ]
   }
 }

@@ -2,7 +2,7 @@
 {
   "duree_de_competence": {
     "categorie": "utilitaire",
-    "nom": "PROTOCOLE UTILITAIRE : INTENSITÉ",
+    "nom": "PROTOCOLE UTILITAIRE",
     "attributs": [
       {
         "attribut": "duree_de_competence_mod"
@@ -11,7 +11,7 @@
   },
   "recup_de_competence": {
     "categorie": "utilitaire",
-    "nom": "PROTOCOLE UTILITAIRE : INTENSITÉ",
+    "nom": "PROTOCOLE UTILITAIRE",
     "attributs": [
       {
         "attribut": "recup_de_competence_eqp"
@@ -20,7 +20,7 @@
   },
   "competence_de_reparation": {
     "categorie": "utilitaire",
-    "nom": "PROTOCOLE UTILITAIRE : INTENSITÉ",
+    "nom": "PROTOCOLE UTILITAIRE",
     "attributs": [
       {
         "attribut": "competences_de_reparation_eqp"
@@ -29,7 +29,7 @@
   },
   "protection_contre_ennemi_d_elite": {
     "categorie": "defensif",
-    "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
+    "nom": "PROTOCOLE DÉFENSIF",
     "attributs": [
       {
         "attribut": "protection_contre_ennemi_elite_mod"
@@ -38,7 +38,7 @@
   },
   "protection_pour_elimination": {
     "categorie": "defensif",
-    "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
+    "nom": "PROTOCOLE DÉFENSIF",
     "attributs": [
       {
         "attribut": "protection_pour_elimination_mod"
@@ -47,7 +47,7 @@
   },
   "reparation_subies": {
     "categorie": "defensif",
-    "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
+    "nom": "PROTOCOLE DÉFENSIF",
     "attributs": [
       {
         "attribut": "reparation_subies_mod"
@@ -56,7 +56,7 @@
   },
   "protection_contre_electrocution": {
     "categorie": "defensif",
-    "nom": "PROTOCOLE DÉFENSIF : RÉSILIENCE",
+    "nom": "PROTOCOLE DÉFENSIF",
     "attributs": [
       {
         "attribut": "protection_contre_electrocution_mod"
@@ -65,7 +65,7 @@
   },
   "protection_contre_desactivation": {
     "categorie": "defensif",
-    "nom": "PROTOCOLE DÉFENSIF : RÉSILIENCE",
+    "nom": "PROTOCOLE DÉFENSIF",
     "attributs": [
       {
         "attribut": "protection_contre_desactivation_mod"
@@ -74,7 +74,7 @@
   },
   "protection_contre_impulsion": {
     "categorie": "defensif",
-    "nom": "PROTOCOLE DÉFENSIF : RÉSILIENCE",
+    "nom": "PROTOCOLE DÉFENSIF",
     "attributs": [
       {
         "attribut": "protection_impulsion_mod"
@@ -83,7 +83,7 @@
   },
   "protection_contre_entrave": {
     "categorie": "defensif",
-    "nom": "PROTOCOLE DÉFENSIF : RÉSILIENCE",
+    "nom": "PROTOCOLE DÉFENSIF",
     "attributs": [
       {
         "attribut": "protection_entrave_mod"
@@ -92,7 +92,7 @@
   },
   "probabilite_de_coup_critique": {
     "categorie": "offensif",
-    "nom": "SYSTÈME OFFENSIF : ARME À FEU",
+    "nom": "SYSTÈME OFFENSIF",
     "attributs": [
       {
         "attribut": "probabilite_de_coup_critique_eqp"
@@ -101,7 +101,7 @@
   },
   "degats_coup_critique": {
     "categorie": "offensif",
-    "nom": "SYSTÈME OFFENSIF : ARME À FEU",
+    "nom": "SYSTÈME OFFENSIF",
     "attributs": [
       {
         "attribut": "degats_de_coup_critique_eqp"
@@ -110,10 +110,46 @@
   },
   "degats_aux_headshot": {
     "categorie": "offensif",
-    "nom": "SYSTÈME OFFENSIF : ARME À FEU",
+    "nom": "SYSTÈME OFFENSIF",
     "attributs": [
       {
         "attribut": "degats_de_headshot_eqp"
+      }
+    ]
+  },
+  "protection_contre_brulure": {
+    "categorie": "defensif",
+    "nom": "PROTOCOLE DÉFENSIF",
+    "attributs": [
+      {
+        "attribut": "protection_brulure_mod"
+      }
+    ]
+  },
+  "protection_contre_desorientations": {
+    "categorie": "defensif",
+    "nom": "PROTOCOLE DÉFENSIF",
+    "attributs": [
+      {
+        "attribut": "protection_desorientation_mod"
+      }
+    ]
+  },
+  "protection_contre_aveuglement_assourdissement": {
+    "categorie": "defensif",
+    "nom": "PROTOCOLE DÉFENSIF",
+    "attributs": [
+      {
+        "attribut": "protection_aveuglement_assourdissement_mod"
+      }
+    ]
+  },
+  "protection_contre_saignement": {
+    "categorie": "defensif",
+    "nom": "PROTOCOLE DÉFENSIF",
+    "attributs": [
+      {
+        "attribut": "protection_saignement_mod"
       }
     ]
   }

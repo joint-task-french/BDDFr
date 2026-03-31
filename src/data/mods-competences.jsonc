@@ -67,7 +67,7 @@
   "competence": "tourelle",
   "emplacement": "LOGEMENT",
   "attributs": [
-    { "attribut": "sante_mod_comp" }
+    { "attribut": "sante_mod_comp" }//TODO modifier le slug
   ]
 },
   "tourelle_recup_de_competence": {
@@ -163,7 +163,7 @@
     "competence": "ruche",
     "emplacement": "SYSTEME",
     "attributs": [
-      { "attribut": "sante_mod_comp" }
+      { "attribut": "sante_mod_comp" }//TODO modifier le slug
     ]
   },
   "ruche_technicien_portee": {
@@ -389,7 +389,7 @@
     "competence": "drone",
     "emplacement": "COQUE",
     "attributs": [
-      { "attribut": "sante_mod_comp" }
+      { "attribut": "sante_mod_comp" }//TODO modifier le slug
     ]
   },
   "drone_degats": {

@@ -1451,7 +1451,7 @@
     ],
     "attributs": [
       {
-        "nom": "poucentage_regeneration_de_protection_eqp",
+        "nom": "pourcentage_regeneration_de_protection_eqp",
         "valeur": 1
       },
       {}

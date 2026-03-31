@@ -47,7 +47,7 @@ function getCompatibleSkillMods(competenceSlug, emplacement, modsCompetences, sp
       if (normalize(m.emplacement) !== empNorm) return false
     }
     // Vérifier prerequis de spécialisation
-    if (m.prerequis && m.prerequis !== specialisation) return false
+    if (m.prerequis) return m.prerequis === specialisation
     return true
   })
 }
@@ -67,7 +67,12 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
   // Emplacements de mods pour cette compétence (filtrés par spécialisation)
   const modSlots = useMemo(() => {
     const slots = getSkillModSlots(skill)
-    return slots.filter(s => !s.prerequis || s.prerequis === specialisation)
+    return slots.flatMap(slot => {
+      if (Array.isArray(slot.emplacement)) {
+        return slot.emplacement.map(type => ({ ...slot, emplacement: type }))
+      }
+      return slot
+    }).filter(s => !s.prerequis || s.prerequis === specialisation)
   }, [skill, specialisation])
 
   return (

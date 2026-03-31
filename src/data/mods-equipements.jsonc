@@ -131,7 +131,7 @@
     "nom": "PROTOCOLE DÉFENSIF",
     "attributs": [
       {
-        "attribut": "protection_desorientations_mod"
+        "attribut": "protection_desorientation_mod"
       }
     ]
   },

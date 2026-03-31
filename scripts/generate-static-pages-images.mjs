@@ -262,7 +262,7 @@ async function generate() {
         console.log("📸 Début des captures d'écran...");
         const categoriesToProcess = Object.keys(categoryTitles);
 
-        const capturePromises = categoriesToProcess.map(async (categoryKey) => {
+        for (const categoryKey of categoriesToProcess) {
             const categoryOgDir = path.join(exportOgImagesDir, categoryKey);
             if (!fs.existsSync(categoryOgDir)) fs.mkdirSync(categoryOgDir, { recursive: true });
 
@@ -355,7 +355,7 @@ async function generate() {
                                         select.dispatchEvent(new Event('change', { bubbles: true }));
                                     }
                                 }, card, level);
-                                await new Promise(r => setTimeout(r, 500));
+                                await new Promise(r => setTimeout(r, 400));
                             }
 
                             const levelSuffix = isDescente ? `-${level}` : suffix;
@@ -368,11 +368,18 @@ async function generate() {
                                     const node = allElements[i];
                                     if (node.id) node.removeAttribute('id');
                                     if (node.getAttribute('for')) node.removeAttribute('for');
+
                                     Array.from(node.attributes).forEach(attr => {
                                         if (attr.name.startsWith('data-') || attr.name.startsWith('aria-')) {
                                             node.removeAttribute(attr.name);
                                         }
+                                        if (attr.value && attr.value.includes(':r')) {
+                                            node.removeAttribute(attr.name);
+                                        }
                                     });
+
+                                    if (node.tagName === 'IMG') node.removeAttribute('style');
+                                    if (node.tagName === 'OPTION') node.removeAttribute('selected');
                                 }
                                 return clone.innerHTML;
                             }, card);
@@ -446,9 +453,8 @@ async function generate() {
                 }
 
             } finally { await page.close(); }
-        });
+        }
 
-        await Promise.all(capturePromises);
         fs.writeFileSync(hashFilePath, JSON.stringify(imageHashes, null, 2));
 
         console.log("\n🔗 Génération des fichiers HTML et du Sitemap...");

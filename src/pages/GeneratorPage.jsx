@@ -26,7 +26,7 @@ function persistSaved(saved) {
 }
 
 export default function GeneratorPage() {
-  const { data: loadedData, loading } = useDataLoader()
+  const { data: loadedData, loading, error } = useDataLoader()
   const [activeCategory, setActiveCategory] = useState('armes')
   const [allData, setAllData] = useState(() => {
     const init = {}
@@ -40,7 +40,7 @@ export default function GeneratorPage() {
   const [viewMode, setViewMode] = useState('card') // 'card' | 'json'
   const editLoadedRef = useRef(false)
 
-  const config = FIELDS[activeCategory]
+  const config = FIELDS[activeCategory] || { fields: [] }
   const data = allData[activeCategory] || {}
 
   const currentIdentity = useMemo(
@@ -51,7 +51,6 @@ export default function GeneratorPage() {
   const handleIdentitySelect = useCallback((fieldKey, value) => {
     if (!value || !loadedData) return
 
-    // Nettoyer la valeur de suggestion qui contient le "(slug)"
     const slugMatch = value.match(/\(([^)]+)\)$/)
     const actualValue = slugMatch ? value.replace(/\s\([^)]+\)$/, '') : value
     const hintSlug = slugMatch ? slugMatch[1] : null
@@ -142,12 +141,18 @@ export default function GeneratorPage() {
     if (editMode || !data.slug) return null
     const dk = DATA_KEY[activeCategory]
     const slugLower = data.slug.toLowerCase()
-    const loaded = loadedData?.[dk] || []
+
+    const loadedRaw = loadedData?.[dk] || {}
+    const loadedArray = Array.isArray(loadedRaw) ? loadedRaw : Object.values(loadedRaw)
+
     const saved = savedItems?.[activeCategory] || []
+
     const inSaved = saved.find(item => (item.slug || '').toLowerCase() === slugLower)
     if (inSaved) return { source: 'saved', nom: inSaved.nom || inSaved.slug }
-    const inLoaded = loaded.find(item => (item.slug || '').toLowerCase() === slugLower)
+
+    const inLoaded = loadedArray.find(item => (item.slug || '').toLowerCase() === slugLower)
     if (inLoaded) return { source: 'loaded', nom: inLoaded.nom || inLoaded.slug }
+
     return null
   }, [data.slug, editMode, activeCategory, loadedData, savedItems])
 
@@ -230,7 +235,8 @@ export default function GeneratorPage() {
         continue
       }
 
-      const baseData = [...(loadedData[dk] || [])]
+      const rawLoaded = loadedData[dk] || {}
+      const baseData = Array.isArray(rawLoaded) ? [...rawLoaded] : Object.values(rawLoaded)
       let merged = [...baseData]
 
       if (cat.key === 'armes') {
@@ -277,6 +283,7 @@ export default function GeneratorPage() {
   }
 
   if (loading) return <Loader progress={0} />
+  if (error) return <div className="p-8 text-center text-red-500 font-bold uppercase mt-20">Erreur critique : {error}</div>
 
   return (
       <div className="min-h-screen bg-tactical-bg text-white fade-in">
@@ -335,7 +342,7 @@ export default function GeneratorPage() {
                     {slugConflict && <p className="text-xs text-yellow-400">⚠ Conflit : correspond à « {slugConflict.nom} »</p>}
                   </div>
               )}
-              <GeneratorForm fields={config.fields} data={data} onChange={handleChange} suggestions={suggestions} onIdentitySelect={handleIdentitySelect} />
+              <GeneratorForm fields={config?.fields || []} data={data} onChange={handleChange} suggestions={suggestions} onIdentitySelect={handleIdentitySelect} />
             </div>
           </div>
           <div className="space-y-4 max-h-[calc(100vh-200px)] flex flex-col">

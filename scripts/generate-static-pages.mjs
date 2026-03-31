@@ -15,10 +15,19 @@ const BASE_URL = VITE_BASE_PATH ? (DOMAIN ? (DOMAIN.startsWith('http') ? DOMAIN 
 const BASE_PATH = VITE_BASE_PATH || (DOMAIN ? '' : (process.env.GITHUB_ACTIONS ? `/${repo}` : '/BDDFr'));
 const DIVISION_ORANGE = "#ff8000";
 
+function parseJsonc(filePath) {
+    try {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        const stripped = content.replace(/\\"|"(?:\\"|[^"])*"|(\/\/.*|\/\*[\s\S]*?\*\/)/g, (m, g) => g ? "" : m);
+        return JSON.parse(stripped);
+    } catch (e) { return null; }
+}
+
 const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes-type.jsonc')) || {};
 const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements-type.jsonc')) || {};
 const ensembles = parseJsonc(path.join(DATA_DIR, 'ensembles.jsonc')) || {};
 const classSpe = parseJsonc(path.join(DATA_DIR, 'class-spe.jsonc')) || {};
+const metadata = parseJsonc(path.join(DATA_DIR, 'metadata.jsonc')) || {};
 
 const getWpnType = (t) => weaponTypes[t] || { nom: t?.replace('_', ' ') };
 const getGearType = (e) => gearTypes[e] || { nom: e };
@@ -27,14 +36,6 @@ const getBrandName = (slug) => ensembles[slug]?.nom || slug;
 function slugify(name) {
     if (!name) return '';
     return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
-}
-
-function parseJsonc(filePath) {
-    try {
-        const content = fs.readFileSync(filePath, 'utf-8');
-        const stripped = content.replace(/\\"|"(?:\\"|[^"])*"|(\/\/.*|\/\*[\s\S]*?\*\/)/g, (m, g) => g ? "" : m);
-        return JSON.parse(stripped);
-    } catch (e) { return null; }
 }
 
 function parseFrontmatter(rawContent) {
@@ -138,9 +139,32 @@ const categoryFormatters = {
     })
 };
 
+let changelogDesc = 'Historique des changements.';
+if (metadata.changelog && metadata.changelog.length > 0) {
+    const latest = metadata.changelog.reduce((prev, current) => {
+        const getDateStr = (entry) => typeof entry.date === 'string' ? entry.date : (entry.date?.to || entry.date?.from || '');
+        const prevDate = getDateStr(prev);
+        const currDate = getDateStr(current);
+        return (currDate > prevDate) ? current : prev;
+    });
+
+    let rawText = '';
+    if (latest.patch) rawText += latest.patch + " - ";
+    latest.changements.forEach(ch => {
+        if (typeof ch === 'string') rawText += ch + " ";
+        else if (typeof ch === 'object') {
+            if (ch.titre) rawText += ch.titre + " ";
+            if (Array.isArray(ch.description)) rawText += ch.description.join(" ") + " ";
+            else if (typeof ch.description === 'string') rawText += ch.description + " ";
+        }
+    });
+    changelogDesc = rawText.replace(/[*_~`#\[\]]/g, '').replace(/-\s/g, '').replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim();
+    if (changelogDesc.length > 250) changelogDesc = changelogDesc.substring(0, 247) + '...';
+}
+
 const pages_fixes = [
     { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez et partagez vos configurations d\'équipement.' },
-    { path: 'changelog', title: 'Mises à jour — BDDFr', description: 'Historique des changements.' },
+    { path: 'changelog', title: 'Mises à jour — BDDFr', description: changelogDesc },
     { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' },
     { path: 'pages', title: 'Bibliothèque de Documents — BDDFr', description: 'Consultez nos guides et documents du réseau SHD.' }
 ];

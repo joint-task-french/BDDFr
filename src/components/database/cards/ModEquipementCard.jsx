@@ -1,5 +1,5 @@
 import React from 'react'
-import {GameIcon, resolveAttributeIcon} from "../../../utils/gameAssets.jsx";
+import {GameIcon, resolveAttributeIcon} from "../../common/gameAssets.jsx";
 import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {

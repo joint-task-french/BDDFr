@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { GameIcon, WEAPON_TYPE_ICONS, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveIcon } from '../../utils/gameAssets'
+import { GameIcon, WEAPON_TYPE_ICONS, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveIcon } from '../common/gameAssets.jsx'
 import {getWeaponTypeLabel, getGearSlotLabel, getAttrCategoryLabel, formatNumber, calculateMaxDamage, buildGearSlotLabels} from '../../utils/formatters'
 import { slugify } from "../../utils/slugify.js"
 import { useParams, useNavigate, useLocation } from 'react-router-dom'

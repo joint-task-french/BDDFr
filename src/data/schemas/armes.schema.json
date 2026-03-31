@@ -226,8 +226,11 @@
           "description": "Détail des emplacements spécifiques disponibles sur l'arme",
           "properties": {
             "chargeur": {
-              "type": "string",
-              "description": "Ex: chargeur_556",
+              "oneOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } }
+              ],
+              "description": "Ex: chargeur_556 ou [chargeur_556, chargeur_762]",
               "enum": [
                 "chargeur_556",
                 "chargeur_762",
@@ -242,8 +245,11 @@
               ]
             },
             "canon": {
-              "type": "string",
-              "description": "Ex: rail_sous_canon_long",
+              "oneOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } }
+              ],
+              "description": "Ex: rail_sous_canon_long ou [rail_sous_canon_long, rail_sous_canon_court]",
               "enum": [
                 "rail_sous_canon_long",
                 "rail_sous_canon_court",
@@ -252,8 +258,11 @@
               ]
             },
             "viseur": {
-              "type": "string",
-              "description": "Ex: rail_optique_court",
+              "oneOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } }
+              ],
+              "description": "Ex: rail_optique_court ou [rail_optique_court, rail_optique_long]",
               "enum": [
                 "rail_optique_court",
                 "rail_optique_long",
@@ -262,8 +271,11 @@
               ]
             },
             "bouche": {
-              "type": "string",
-              "description": "Ex: bouche_556",
+              "oneOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } }
+              ],
+              "description": "Ex: bouche_556 ou [bouche_556, bouche_762]",
               "enum": [
                 "bouche_45_acp",
                 "bouche_45",

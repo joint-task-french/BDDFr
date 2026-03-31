@@ -1,7 +1,7 @@
 import {useMemo, useState, useEffect} from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
 import {getAttrCategoryLabel, getGearSlotLabel, formatNumber} from '../../../utils/formatters'
-import {GameIcon, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveIcon} from '../../../utils/gameAssets'
+import {GameIcon, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveIcon} from '../../common/gameAssets.jsx'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
 import MarkdownText from '../../common/MarkdownText'

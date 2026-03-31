@@ -2,7 +2,7 @@ import { formatModAttributs } from '../../../utils/modCompatibility'
 import { getSpecialisations } from '../../../utils/formatters'
 import MarkdownText from '../../common/MarkdownText'
 import { Link } from 'react-router-dom'
-import {GameIcon, resolveIcon} from "../../../utils/gameAssets.jsx";
+import {GameIcon, resolveIcon} from "../../common/gameAssets.jsx";
 
 
 function hasContent(v) {

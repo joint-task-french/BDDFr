@@ -1,4 +1,4 @@
-import { resolveAttributeIcon, GameIcon } from '../../utils/gameAssets'
+import { resolveAttributeIcon, GameIcon } from '../common/gameAssets.jsx'
 
 const CAT_COLORS = {
   offensif: 'text-red-400',

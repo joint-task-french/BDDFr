@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { resolveIcon, WEAPON_TYPE_ICONS, GameIcon } from '../../../utils/gameAssets'
+import { resolveIcon, WEAPON_TYPE_ICONS, GameIcon } from '../../common/gameAssets.jsx'
 import MarkdownText from '../../common/MarkdownText'
 
 /**

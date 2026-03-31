@@ -2,7 +2,7 @@ import { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'
-import {resolveIcon} from "../../utils/gameAssets.jsx";
+import {resolveIcon} from "./gameAssets.jsx";
 
 export default function MarkdownText({ children, className = "" }) {
     const [zoomedImage, setZoomedImage] = useState(null);

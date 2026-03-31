@@ -1,4 +1,4 @@
-import { resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
+import { resolveAttributeIcon, GameIcon } from '../../common/gameAssets.jsx'
 import { getAttrCategoryLabel } from '../../../utils/formatters'
 import MarkdownText from '../../common/MarkdownText'
 

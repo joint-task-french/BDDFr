@@ -13,13 +13,13 @@
 // ================================================================
 // ICÔNES TYPE D'ARME (fixes, peu nombreux)
 // ================================================================
-import arme_fusil_assaut from '../img/game_assets/armes/fusil_assaut.png'
-import arme_fusil from '../img/game_assets/armes/fusil.png'
-import arme_sniper from '../img/game_assets/armes/sniper.png'
-import arme_pistolet_mitrailleur from '../img/game_assets/armes/pistolet_mitrailleur.png'
-import arme_lmg from '../img/game_assets/armes/fusil_mitrailleur.png'
-import arme_calibre12 from '../img/game_assets/armes/calibre12.png'
-import arme_pistolet from '../img/game_assets/armes/pistolet.png'
+import arme_fusil_assaut from '../../img/game_assets/armes/fusil_assaut.png'
+import arme_fusil from '../../img/game_assets/armes/fusil.png'
+import arme_sniper from '../../img/game_assets/armes/sniper.png'
+import arme_pistolet_mitrailleur from '../../img/game_assets/armes/pistolet_mitrailleur.png'
+import arme_lmg from '../../img/game_assets/armes/fusil_mitrailleur.png'
+import arme_calibre12 from '../../img/game_assets/armes/calibre12.png'
+import arme_pistolet from '../../img/game_assets/armes/pistolet.png'
 
 export const WEAPON_TYPE_ICONS = {
   fusil_assaut: arme_fusil_assaut,
@@ -34,12 +34,12 @@ export const WEAPON_TYPE_ICONS = {
 // ================================================================
 // ICÔNES TYPE D'ÉQUIPEMENT (fixes, peu nombreux)
 // ================================================================
-import equip_masque from '../img/game_assets/equipements-type/masque.png'
-import equip_torse from '../img/game_assets/equipements-type/torse.png'
-import equip_holster from '../img/game_assets/equipements-type/holster.png'
-import equip_sac from '../img/game_assets/equipements-type/sac.png'
-import equip_gants from '../img/game_assets/equipements-type/gants.png'
-import equip_genouilleres from '../img/game_assets/equipements-type/genouilleres.png'
+import equip_masque from '../../img/game_assets/equipements-type/masque.png'
+import equip_torse from '../../img/game_assets/equipements-type/torse.png'
+import equip_holster from '../../img/game_assets/equipements-type/holster.png'
+import equip_sac from '../../img/game_assets/equipements-type/sac.png'
+import equip_gants from '../../img/game_assets/equipements-type/gants.png'
+import equip_genouilleres from '../../img/game_assets/equipements-type/genouilleres.png'
 
 export const GEAR_SLOT_ICONS_IMG = {
   masque: equip_masque,
@@ -53,9 +53,9 @@ export const GEAR_SLOT_ICONS_IMG = {
 // ================================================================
 // ICÔNES ATTRIBUTS (offensif / défensif / compétences)
 // ================================================================
-import attr_offensif from '../img/game_assets/equipements/attribute/offensif.png'
-import attr_defensif from '../img/game_assets/equipements/attribute/defensif.png'
-import attr_competences from '../img/game_assets/equipements/attribute/utilitaire.png'
+import attr_offensif from '../../img/game_assets/equipements/attribute/offensif.png'
+import attr_defensif from '../../img/game_assets/equipements/attribute/defensif.png'
+import attr_competences from '../../img/game_assets/equipements/attribute/utilitaire.png'
 
 export const ATTRIBUTE_ICONS = {
   offensif: attr_offensif,

@@ -31,7 +31,7 @@ export default function CardPreview({ category, data, loadedData }) {
 
   switch (category) {
     case 'armes':
-      return <WeaponCard {...commonProps} talentsArmes={loadedData?.talentsArmes} armesType={loadedData?.armes_type} modsArmes={loadedData?.modsArmes} />
+      return <WeaponCard {...commonProps} talentsArmes={loadedData?.talentsArmes} armesType={loadedData?.armes_type} modsArmes={loadedData?.modsArmes} modsArmesType={loadedData?.modsArmesType} />
     
     case 'equipements':
       return <GearCard {...commonProps} ensembles={loadedData?.ensembles} talentsEquipements={loadedData?.talentsEquipements} equipementsType={loadedData?.equipements_type} />

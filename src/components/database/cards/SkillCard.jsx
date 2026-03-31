@@ -1,5 +1,5 @@
 import { getSpecialisations } from '../../../utils/formatters'
-import {GameIcon, resolveIcon} from "../../../utils/gameAssets.jsx";
+import {GameIcon, resolveIcon} from "../../common/gameAssets.jsx";
 import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {

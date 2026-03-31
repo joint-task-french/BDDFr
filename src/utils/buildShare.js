@@ -298,8 +298,6 @@ export function resolveBuild(compact, data) {
 export function generateShareUrl(state) {
   const encoded = encodeBuild(state)
   if (!encoded) return null
-
-  const origin = window.location.origin
-  const base = import.meta.env.BASE_URL
-  return `${origin}${base}build?b=${encoded}`
+  const baseUrl = window.location.origin + window.location.pathname;
+  return `${baseUrl}#/build?b=${encoded}`
 }

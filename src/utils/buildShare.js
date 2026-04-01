@@ -73,7 +73,7 @@ export function decodeBuild(encoded) {
   if (!encoded) return null
   try {
     if (encoded.startsWith('~')) {
-      const json = decompressFromEncodedURIComponent(encoded.slice(3))
+      const json = decompressFromEncodedURIComponent(encoded.slice(1))
       const arr = JSON.parse(json)
       const compact = {}
 
@@ -298,6 +298,6 @@ export function resolveBuild(compact, data) {
 export function generateShareUrl(state) {
   const encoded = encodeBuild(state)
   if (!encoded) return null
-  const baseUrl = window.location.origin + window.location.pathname;
-  return `${baseUrl}#/build?b=${encoded}`
+  const base = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '')
+  return `${window.location.origin}${base}/build?b=${encoded}`
 }

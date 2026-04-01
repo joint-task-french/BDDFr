@@ -110,7 +110,7 @@ function buildIndex(globResult) {
 }
 
 // Talents d'armes (classiques + exotiques)
-const _allAssets = import.meta.glob('../img/game_assets/**/*.{png,jpg,jpeg,webp}', { eager: true })
+const _allAssets = import.meta.glob('../../img/game_assets/**/*.{png,jpg,jpeg,webp}', { eager: true })
 export const ALL_ASSETS = buildIndex(_allAssets)
 
 /**

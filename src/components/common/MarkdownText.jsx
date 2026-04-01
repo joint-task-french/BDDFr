@@ -90,14 +90,15 @@ export default function MarkdownText({ children, className = "" }) {
                             ? "h-[1.2em] w-auto inline-block align-middle mx-1 -mt-1 rounded-sm object-contain"
                             : "max-w-full h-auto rounded border border-tactical-border my-4 block mx-auto cursor-zoom-in hover:border-shd transition-colors";
 
+                        const { src: _origSrc, alt: _origAlt, ...safeProps } = props;
                         return (
                             <img
+                                {...safeProps}
                                 className={classes}
                                 loading="lazy"
                                 alt={alt || ''}
                                 src={imageUrl}
                                 onClick={isInline ? undefined : () => setZoomedImage(imageUrl)}
-                                {...props}
                             />
                         );
                     },

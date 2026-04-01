@@ -260,13 +260,43 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
             </div>
         )}
 
-        {(!item.modsPredefinis || item.modsPredefinis.length === 0) && item.emplacementsMods && Object.values(item.emplacementsMods).filter(Boolean).length > 0 && (
+        {/* Emplacements de mods sans valeur par défaut */}
+        {(() => {
+          const slots = item.emplacementsMods
+          if (!slots || Object.values(slots).filter(Boolean).length === 0) return null
+
+          // Compter combien de mods prédéfinis remplissent chaque catégorie d'emplacement
+          const filledCount = {}
+          if (item.modsPredefinis?.length > 0 && modsArmes) {
+            item.modsPredefinis.forEach(slug => {
+              const mod = modsArmes && !Array.isArray(modsArmes) ? modsArmes[slug] : modsArmes?.find(m => m.slug === slug)
+              if (mod?.type) {
+                filledCount[mod.type] = (filledCount[mod.type] || 0) + 1
+              }
+            })
+          }
+
+          // Déterminer les emplacements restants (non couverts par les mods prédéfinis)
+          const remaining = {}
+          const usedCount = {}
+          Object.keys(slots).forEach(key => {
+            if (!slots[key]) return
+            const category = key
+            usedCount[category] = (usedCount[category] || 0) + 1
+            const alreadyFilled = filledCount[category] || 0
+            if (usedCount[category] > alreadyFilled) {
+              remaining[key] = slots[key]
+            }
+          })
+
+          if (Object.keys(remaining).length === 0) return null
+
+          return (
             <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1.5">
               <div className="text-xs text-gray-600 uppercase tracking-widest font-bold">Emplacements de mods</div>
               <div className="flex flex-col gap-2 mt-1">
-                {Object.keys(item.emplacementsMods).map((key, i) => {
-                  const slotSlug = item.emplacementsMods[key]
-                  if (!slotSlug) return null
+                {Object.keys(remaining).map((key, i) => {
+                  const slotSlug = remaining[key]
                   const slotDef = modsArmesType && !Array.isArray(modsArmesType) ? modsArmesType[slotSlug] : (modsArmesType || []).find(m => m.slug === slotSlug)
                   const slotName = slotDef?.nom || (slotSlug ? slotSlug.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : '')
                   const slotTypeLabel = key ? String(key).replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : ''
@@ -279,7 +309,8 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                 })}
               </div>
             </div>
-        )}
+          )
+        })()}
 
         {/* Obtention */}
         <div className="flex-1" />

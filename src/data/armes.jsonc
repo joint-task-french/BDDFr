@@ -1731,9 +1731,10 @@
     }
   },
   "petite_abeille_ouvriere": {
-    "nom": "Petite abeille ouvrière",//TODO
+    "nom": "Petite abeille ouvrière",
     "type": "pistolet",
     "fabricant": "Exotique",
+    "description": "\"Presque parfait sur tous les plans.\nTant que vous ne ratez pas.\" 13",
     "portee": 18,
     "rpm": 400,
     "chargeur": 10,
@@ -1751,7 +1752,13 @@
     "talents": [
       "petite_abeille_ouvriere"
     ],
-    "emplacementsMods": {}
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "concentration_d_abeille",
+      "vitesse_d_abeille",
+      "force_d_abeille",
+      "objectif_d_abeille"
+    ]
   },
   "snubnosed_diceros": {
     "nom": "Snubnosed Diceros",
@@ -1929,7 +1936,7 @@
     }
   },
   "kard_45": {
-    "nom": "KARD-45",//TODO
+    "nom": "KARD-45",
     "type": "pistolet",
     "fabricant": "TDI",
     "portee": 16,
@@ -1941,7 +1948,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "viseur": "micro_rail_optique",
       "canon": "gadget",
@@ -1964,7 +1971,7 @@
       "darkZone": true
     },
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "viseur": "micro_rail_optique",
       "canon": "gadget",
@@ -4979,6 +4986,7 @@
     "nom": "Liberté",
     "type": "pistolet",
     "fabricant": "MAGNUM/IMI",
+    "description": "\"Il m'a offert la liberté, et à d'autres, la mort. Si on le respecte, il est respectueux.\"\nGénéral Ridgeway, en remettant son arme d'appoint à un subordonné.",
     "portee": 18,
     "rpm": 230,
     "chargeur": 8,
@@ -5005,7 +5013,7 @@
     ]
   },
   "regulus": {
-    "nom": "Regulus",//TODO
+    "nom": "Regulus",
     "description": "\"Vous pouvez poignarder les puissants dans le dos mais au jugement dernier les rats rongeront vos os.\"\n- Javier Kajika",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -5024,12 +5032,17 @@
     "talents": [
       "regicide"
     ],
-    "emplacementsMods": {}
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "barillet_grave",
+      "bouche_gravee"
+    ]
   },
   "mosquito": {
     "nom": "Mosquito",
     "type": "pistolet",
     "fabricant": "BERETTA",
+    "description": "\"Il est temps de sortir d'hibernation, agent. On a du pain sur la planche\"\n- Calvain McManus",
     "portee": 16,
     "rpm": 350,
     "chargeur": 15,
@@ -5057,6 +5070,7 @@
     "nom": "Tempête",
     "type": "pistolet",
     "fabricant": "Exotique",
+    "description": "\"Semi-auto ? Je n'ai pas ce genre de faiblesse.\"",
     "portee": 12,
     "rpm": 700,
     "chargeur": 30,

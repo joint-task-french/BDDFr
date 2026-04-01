@@ -286,8 +286,10 @@ async function generate() {
                             }
                             .watermark-overlay {
                                 position: absolute !important; bottom: 15px !important; right: 15px !important;
-                                width: ${WATERMARK_SIZE} !important; opacity: ${WATERMARK_OPACITY} !important;
+                                width: ${WATERMARK_SIZE} !important; height: auto !important;
+                                opacity: ${WATERMARK_OPACITY} !important;
                                 z-index: 1000000 !important; pointer-events: none !important;
+                                display: block !important;
                             }
                         `
                     });
@@ -297,6 +299,16 @@ async function generate() {
                             img.setAttribute('loading', 'eager');
                         });
                     });
+
+                    await page.evaluate((wmUrl) => {
+                        const link = document.createElement('link');
+                        link.rel = 'preload';
+                        link.as = 'image';
+                        link.href = wmUrl;
+                        document.head.appendChild(link);
+                        const preImg = new Image();
+                        preImg.src = wmUrl;
+                    }, WATERMARK_URL);
 
                     await page.evaluate(async () => {
                         await new Promise((resolve) => {
@@ -366,20 +378,23 @@ async function generate() {
                                 const allElements = clone.getElementsByTagName('*');
                                 for (let i = 0; i < allElements.length; i++) {
                                     const node = allElements[i];
-                                    if (node.id) node.removeAttribute('id');
-                                    if (node.getAttribute('for')) node.removeAttribute('for');
+                                    node.removeAttribute('id');
+                                    node.removeAttribute('for');
+                                    node.removeAttribute('style');
+                                    node.removeAttribute('class');
+                                    node.removeAttribute('tabindex');
 
                                     Array.from(node.attributes).forEach(attr => {
                                         if (attr.name.startsWith('data-') || attr.name.startsWith('aria-')) {
                                             node.removeAttribute(attr.name);
                                         }
-                                        if (attr.value && attr.value.includes(':r')) {
+                                        if (attr.value && /:[a-z0-9]+:/i.test(attr.value)) {
                                             node.removeAttribute(attr.name);
                                         }
                                     });
 
-                                    if (node.tagName === 'IMG') node.removeAttribute('style');
                                     if (node.tagName === 'OPTION') node.removeAttribute('selected');
+                                    if (node.tagName === 'SELECT') node.removeAttribute('value');
                                 }
                                 return clone.innerHTML;
                             }, card);
@@ -388,7 +403,9 @@ async function generate() {
                             const hashKey = `${categoryKey}_${slug}${levelSuffix}`;
                             const imageOutputPath = path.join(categoryOgDir, `${slug}${levelSuffix}.jpg`);
 
-                            if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) continue;
+                            if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) {
+                                continue;
+                            }
 
                             let attempts = 3;
                             let success = false;
@@ -406,6 +423,16 @@ async function generate() {
                                         }
                                     }, card, WATERMARK_URL);
 
+                                    await page.evaluate(el => {
+                                        return new Promise((resolve) => {
+                                            const wm = el.querySelector('.watermark-overlay');
+                                            if (!wm) return resolve();
+                                            if (wm.complete && wm.naturalWidth > 0) return resolve();
+                                            wm.onload = resolve;
+                                            wm.onerror = resolve;
+                                            setTimeout(resolve, 3000);
+                                        });
+                                    }, card);
                                     await new Promise(r => setTimeout(r, 300));
                                     await card.screenshot({ path: imageOutputPath, type: 'jpeg', quality: 85 });
 

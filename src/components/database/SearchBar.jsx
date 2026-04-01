@@ -1,16 +1,23 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function SearchBar({ value, onChange }) {
     const [localValue, setLocalValue] = useState(value || '')
+    const lastSentValue = useRef(value || '')
+
     useEffect(() => {
-        setLocalValue(value || '')
+        if (value !== lastSentValue.current) {
+            setLocalValue(value || '')
+        }
+        lastSentValue.current = value || ''
     }, [value])
+
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             if (localValue !== value) {
+                lastSentValue.current = localValue
                 onChange(localValue)
             }
-        }, 500)
+        }, 100)
 
         return () => clearTimeout(timeoutId)
     }, [localValue, onChange, value])
@@ -31,6 +38,7 @@ export default function SearchBar({ value, onChange }) {
                 <button
                     onClick={() => {
                         setLocalValue('')
+                        lastSentValue.current = ''
                         onChange('')
                     }}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-shd"

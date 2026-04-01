@@ -25,7 +25,13 @@
       "changements": [
         "### Changements BDDFr :",
         {
-          "titre": "Correction de bugs",
+          "titre": "Ajouts :",
+          "description": [
+            "Ajout du support de la syntaxe mermaid dans les elements markdown"
+          ]
+        },
+        {
+          "titre": "Correction de bugs :",
           "description": [
             "Correction de l'URL de partage dans le build planner",
             "Correction page blanche dans les outils de contributeurs : [Générateur Jsonc](/generator)",

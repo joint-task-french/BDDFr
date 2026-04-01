@@ -906,7 +906,7 @@
     "talents": [
       "accablement"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_court",
@@ -959,7 +959,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long",
@@ -984,7 +984,7 @@
     "talents": [
       "desequilibre"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long",
@@ -1010,7 +1010,7 @@
     "talents": [
       "vif"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long",
@@ -1030,7 +1030,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long",
@@ -1050,7 +1050,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long",
@@ -1070,7 +1070,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
@@ -1089,7 +1089,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long",
@@ -1109,7 +1109,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long",
@@ -1134,7 +1134,7 @@
     "talents": [
       "mains_rapides"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long",
@@ -1298,7 +1298,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_court",
       "canon": "rail_sous_canon_long",
@@ -1320,7 +1320,7 @@
     "talents": [
       "sadique"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_court",
       "canon": "rail_sous_canon_long",
@@ -1340,7 +1340,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique",
       "canon": "rail_sous_canon_court",
@@ -1365,7 +1365,7 @@
     "talents": [
       "ligne_plate"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique",
       "canon": "rail_sous_canon_court",
@@ -1390,7 +1390,7 @@
     "talents": [
       "frappe_de_precision"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique",
       "canon": "rail_sous_canon_court",
@@ -1401,78 +1401,78 @@
     ]
   },
   "px4_storm_type_f": {
-    "nom": "Px4 Storm Type F",//TODO
+    "nom": "Px4 Storm Type F",
     "type": "pistolet",
     "fabricant": "BERETTA",
     "portee": 12,
     "rpm": 380,
     "chargeur": 14,
-    "rechargement": 1.9,
+    "rechargement": 1.63,
     "headshot": 100,
-    "degatsBase": 91760,
+    "degatsBase": 91700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
+      "bouche": "bouche_45",
       "canon": "gadget"
     }
   },
   "px4_storm_type_t": {
-    "nom": "Px4 Storm Type T",//TODO
+    "nom": "Px4 Storm Type T",
     "type": "pistolet",
     "fabricant": "BERETTA",
     "portee": 12,
     "rpm": 380,
     "chargeur": 14,
-    "rechargement": 1.9,
+    "rechargement": 1.63,
     "headshot": 100,
-    "degatsBase": 91760,
+    "degatsBase": 91700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
+      "bouche": "bouche_45",
       "canon": "gadget"
     }
   },
   "x_45": {
-    "nom": "X-45",//TODO
+    "nom": "X-45",
     "type": "pistolet",
     "fabricant": "FN HERSTAL",
     "portee": 16,
     "rpm": 400,
     "chargeur": 15,
-    "rechargement": 2.25,
+    "rechargement": 1.99,
     "headshot": 100,
-    "degatsBase": 88301,
+    "degatsBase": 88300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
+      "bouche": "bouche_45",
       "canon": "gadget"
     }
   },
   "x_45_tactique": {
-    "nom": "X-45 tactique",//TODO
+    "nom": "X-45 tactique",
     "type": "pistolet",
     "fabricant": "FN HERSTAL",
     "portee": 16,
     "rpm": 400,
     "chargeur": 15,
-    "rechargement": 2.25,
+    "rechargement": 1.99,
     "headshot": 100,
-    "degatsBase": 88301,
+    "degatsBase": 88300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
+      "bouche": "bouche_45",
       "canon": "gadget"
     }
   },
@@ -1612,7 +1612,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet"
     }
   },
@@ -1628,7 +1628,7 @@
     "degatsBase": 117400,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_45",
       "viseur": "micro_rail_optique",
@@ -1647,7 +1647,7 @@
     "degatsBase": 117400,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_45",
       "viseur": "micro_rail_optique",
@@ -1655,7 +1655,7 @@
     }
   },
   "mozambique_special": {
-    "nom": "Mozambique Spécial",//TODO
+    "nom": "Mozambique Spécial",
     "type": "pistolet",
     "fabricant": "COLT",
     "portee": 12,
@@ -1666,7 +1666,7 @@
     "degatsBase": 117400,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_45",
       "viseur": "micro_rail_optique",
@@ -1680,9 +1680,9 @@
     "portee": 14,
     "rpm": 370,
     "chargeur": 10,
-    "rechargement": 1.91,
+    "rechargement": 1.74,
     "headshot": 100,
-    "degatsBase": 100704,
+    "degatsBase": 100700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -1731,9 +1731,10 @@
     }
   },
   "petite_abeille_ouvriere": {
-    "nom": "Petite abeille ouvrière",//TODO
+    "nom": "Petite abeille ouvrière",
     "type": "pistolet",
     "fabricant": "Exotique",
+    "description": "\"Presque parfait sur tous les plans.\nTant que vous ne ratez pas.\" 13",
     "portee": 18,
     "rpm": 400,
     "chargeur": 10,
@@ -1751,65 +1752,85 @@
     "talents": [
       "petite_abeille_ouvriere"
     ],
-    "emplacementsMods": {}
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "concentration_d_abeille",
+      "vitesse_d_abeille",
+      "force_d_abeille",
+      "objectif_d_abeille"
+    ]
   },
   "snubnosed_diceros": {
-    "nom": "Snubnosed Diceros",//TODO
+    "nom": "Snubnosed Diceros",
     "type": "pistolet",
     "fabricant": "CHIAPPA FIREARMS",
     "portee": 18,
     "rpm": 180,
     "chargeur": 6,
-    "rechargement": 2.23,
+    "rechargement": 1.98,
     "headshot": 100,
-    "degatsBase": 211246,
+    "degatsBase": 211300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
-      "chargeur": "barillet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "chargeur": "barillet"
     }
   },
   "diceros": {
-    "nom": "Diceros",//TODO
+    "nom": "Diceros",
     "type": "pistolet",
     "fabricant": "CHIAPPA FIREARMS",
     "portee": 18,
     "rpm": 180,
     "chargeur": 6,
-    "rechargement": 2.23,
+    "rechargement": 2.00,
     "headshot": 100,
-    "degatsBase": 204752,
+    "degatsBase": 204800,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "barillet",
-      "viseur": "micro_rail_optique",
       "canon": "gadget"
     }
   },
   "diceros_special": {
-    "nom": "Diceros Special",//TODO
+    "nom": "Diceros Special",
     "description": "Un revolver .357 Magnum très puissant. Le canon inhabituellement bas tirant depuis la partie inférieure du cylindre lui confère un équilibre rare pour une arme de cette catégorie.",
     "type": "pistolet",
     "fabricant": "CHIAPPA FIREARMS",
     "portee": 18,
     "rpm": 180,
     "chargeur": 6,
-    "rechargement": 2.23,
+    "rechargement": 1.93,
     "headshot": 100,
-    "degatsBase": 198258,
+    "degatsBase": 198300,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
-    "emplacementsMods": {
+    "talents": [
+      "optimiste"
+    ],
+    "emplacementsMods": {//OK
       "chargeur": "barillet",
       "viseur": "micro_rail_optique",
       "canon": "gadget"
-    }
+    },
+    "obtention": {
+      "description": "Spécialisation : Démolisseur"
+    },
+    "attributs_essentiels": [
+      {
+        "nom": "degats_pistolet_es",
+        "valeur": 11.6
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "stabilite_arm",
+        "valeur": 9.3
+      }
+    ]
   },
   "586_magnum": {
     "nom": "586 Magnum",//TODO
@@ -1915,32 +1936,33 @@
     }
   },
   "kard_45": {
-    "nom": "KARD-45",//TODO
+    "nom": "KARD-45",
     "type": "pistolet",
     "fabricant": "TDI",
     "portee": 16,
     "rpm": 310,
     "chargeur": 10,
-    "rechargement": 1.91,
+    "rechargement": 1.71,
     "headshot": 100,
     "degatsBase": 114300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "canon": "gadget",
+      "bouche":  "bouche_9mm"
     }
   },
   "tdi_kard_personnalise": {
-    "nom": "TDI \"KARD\" personnalisé",//TODO
+    "nom": "TDI \"KARD\" personnalisé",
     "type": "pistolet",
     "fabricant": "TDI",
     "portee": 16,
     "rpm": 310,
     "chargeur": 10,
-    "rechargement": 1.91,
+    "rechargement": 1.71,
     "headshot": 100,
     "degatsBase": 114300,
     "estExotique": false,
@@ -1949,11 +1971,21 @@
       "darkZone": true
     },
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "viseur": "micro_rail_optique",
-      "canon": "gadget"
-    }
+      "canon": "gadget",
+      "bouche":  "bouche_9mm"
+    },
+    "attributs_essentiels": [
+      {
+        "nom": "degats_pistolet_es"
+      },
+      {
+        "nom": "tiers_de_competence",
+        "valeur": 1
+      }
+    ]
   },
   "maxim_9": {
     "nom": "Maxim 9",
@@ -2837,17 +2869,17 @@
     "portee": 60,
     "rpm": 60,
     "chargeur": 7,
-    "rechargement": 3.9,
+    "rechargement": 4.29,//OK
     "headshot": 0,
     "degatsBase": 409400,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_762_precision",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique_long",
-      "canon": "rail_sous_canon_long"
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_court"
     }
   },
   "srs_a1": {
@@ -3715,17 +3747,17 @@
     "portee": 21,
     "rpm": 900,
     "chargeur": 32,
-    "rechargement": 1.92,
+    "rechargement": 1.92,//OK
     "headshot": 50,
     "degatsBase": 47800,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
       "canon": "rail_sous_canon_court",
-      "bouche": "bouche"
+      "bouche": "bouche_9mm"
     }
   },
   "rancune": {
@@ -4052,7 +4084,7 @@
     "portee": 55,
     "rpm": 275,
     "chargeur": 10,
-    "rechargement": 2.23,
+    "rechargement": 2.45,//OK
     "headshot": 60,
     "degatsBase": 145900,
     "estExotique": false,
@@ -4061,7 +4093,7 @@
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
-      "viseur": "rail_optique",
+      "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
     }
   },
@@ -4877,7 +4909,7 @@
     "obtention": {
       "butinCible": true,
       "cachesExotiques": true,
-      "description": "Obtention : \nIl faut réunir plusieurs parties (dont son schéma) de l'arme puis se rendre à l'établi de fabrication.\n1ère partie : Peut être obtenu dans le coffre de Tidal Bassin derrière la porte sécurisé (une fois sur l'aéroglisseur). La porte peut être ouverte grâce à la clef obtenu au niveau des baraquements après avoir hacké l'ordinateur. Détruire le SR1 nommé Adrestia pour récupérer la première pièce.\n2ème partie : Peut être obtenu en tuant le dernier boss de la forteresse Capitole en mode invasion (peu importe la difficulté)\n3ème partie : Peut être obtenu en tuant le dernier boss de la forteresse Roosevelt Island en mode invasion (peu importe la difficulté)\n4ème partie : Peut être obtenu en tuant le dernier boss de la forteresse District Union Arena en mode invasion (peu importe la difficulté)\n5ème partie : (schéma) Peut être obtenu en tuant le boss Phaedra \"Puck\" de la mission Grand Washington Hotel en mode invasion (peu importe la difficulté)."
+      "description": "Obtention : \nIl faut réunir plusieurs parties (dont son schéma) de l'arme puis se rendre à l'établi de fabrication.\n1ère partie : Peut être obtenu dans le coffre de Tidal Bassin derrière la porte sécurisé (une fois sur l'aéroglisseur). La porte peut être ouverte grâce à la clef obtenu au niveau des baraquements après avoir hacké l'ordinateur. Détruire le SR1 nommé Adrestia pour récupérer la première pièce.\n2ème partie : Peut être obtenu en tuant le dernier boss de la forteresse Capitole/Manning Zoo en mode invasion (peu importe la difficulté)\n3ème partie : Peut être obtenu en tuant le dernier boss de la forteresse Roosevelt Island en mode invasion (peu importe la difficulté)\n4ème partie : Peut être obtenu en tuant le dernier boss de la forteresse District Union Arena en mode invasion (peu importe la difficulté)\n5ème partie : (schéma) Peut être obtenu en tuant le boss Phaedra \"Puck\" de la mission Grand Washington Hotel en mode invasion (peu importe la difficulté)."
     },
     "estNomme": false,
     "talents": [
@@ -4954,6 +4986,7 @@
     "nom": "Liberté",
     "type": "pistolet",
     "fabricant": "MAGNUM/IMI",
+    "description": "\"Il m'a offert la liberté, et à d'autres, la mort. Si on le respecte, il est respectueux.\"\nGénéral Ridgeway, en remettant son arme d'appoint à un subordonné.",
     "portee": 18,
     "rpm": 230,
     "chargeur": 8,
@@ -4980,7 +5013,7 @@
     ]
   },
   "regulus": {
-    "nom": "Regulus",//TODO
+    "nom": "Regulus",
     "description": "\"Vous pouvez poignarder les puissants dans le dos mais au jugement dernier les rats rongeront vos os.\"\n- Javier Kajika",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -4999,12 +5032,17 @@
     "talents": [
       "regicide"
     ],
-    "emplacementsMods": {}
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "barillet_grave",
+      "bouche_gravee"
+    ]
   },
   "mosquito": {
     "nom": "Mosquito",
     "type": "pistolet",
     "fabricant": "BERETTA",
+    "description": "\"Il est temps de sortir d'hibernation, agent. On a du pain sur la planche\"\n- Calvain McManus",
     "portee": 16,
     "rpm": 350,
     "chargeur": 15,
@@ -5032,6 +5070,7 @@
     "nom": "Tempête",
     "type": "pistolet",
     "fabricant": "Exotique",
+    "description": "\"Semi-auto ? Je n'ai pas ce genre de faiblesse.\"",
     "portee": 12,
     "rpm": 700,
     "chargeur": 30,
@@ -5381,7 +5420,7 @@
     "portee": 31,
     "rpm": 650,
     "chargeur": 30,
-    "rechargement": 1.84,
+    "rechargement": 2.02,//OK
     "headshot": 55,
     "degatsBase": 59200,
     "estExotique": false,
@@ -5389,7 +5428,7 @@
     "talents": [
       "rationalisation"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
       "viseur": "rail_optique",
@@ -5517,7 +5556,7 @@
     "talents": [
       "mode_vitesse"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_45",
       "viseur": "micro_rail_optique",
@@ -5685,7 +5724,7 @@
     }
   },
   "big_alejandro": {
-    "nom": "Big Alejandro",//TODO
+    "nom": "Big Alejandro",
     "type": "fusil_mitrailleur",
     "fabricant": "",
     "portee": 35,
@@ -5744,8 +5783,7 @@
       "description": "Primes Houndsman, évenement"
     },
     "talents": [],
-    "emplacementsMods": {
-      //OK
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_court",
@@ -5767,7 +5805,7 @@
     "talents": [
       "mesure"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long",

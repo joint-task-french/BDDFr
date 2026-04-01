@@ -1,5 +1,4 @@
 A Faire :
-- Fusil mitrailleurs
 - Pistolet
 - description exo + nommé (pas prioritaire)
 - Talent proto
@@ -22,7 +21,4 @@ Images :
 
 Revoir :
 - La Totalite des temps de rechargement
-- Mod arme sous canon court/long
 - Mod arme en general
-- Mod selectionnable build planner
-- Mod d'altération d'etat pas bon ou inexistant

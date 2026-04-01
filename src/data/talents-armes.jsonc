@@ -176,7 +176,8 @@
     "icon": "optimiste",
     "perfectDescription": "Les dégâts d'arme augmentent de **+4,5%** pour chaque tranche de **10%** de munitions manquantes dans le chargeur.",
     "armesParfaites": [
-      "shield_splinterer"
+      "shield_splinterer",
+      "diceros_special"
     ],
     "compatibilite": {
       "fusil": true,

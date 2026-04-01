@@ -2717,5 +2717,77 @@
     ],
     "estExotique": true,
     "compatible": []
+  },
+  "concentration_d_abeille": {
+    "nom": "Concentration d'abeille",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "portee_optimale_arm",
+        "valeur": 25
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "vitesse_d_abeille": {
+    "nom": "Vitesse d'abeille",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "vitesse_de_rechargement_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "force_d_abeille": {
+    "nom": "Force d'abeille",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 5
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "objectif_d_abeille": {
+    "nom": "Objectif d'abeille",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "stabilite_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "barillet_grave": {
+    "nom": "Barillet gravé",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "vitesse_de_rechargement_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_gravee": {
+    "nom": "Bouche gravée",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "precision_arm",
+        "valeur": 20
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
   }
 }

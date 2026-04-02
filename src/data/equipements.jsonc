@@ -4735,7 +4735,6 @@
     "type": "standard",
     "notes": "",
     "obtention": {
-      "butinCible": true
     }
   },
   "bulldog": {
@@ -4749,7 +4748,72 @@
     "type": "standard",
     "notes": "",
     "obtention": {
-      "butinCible": true
+    }
+  },
+  "masque_de_lin": {
+    "nom": "Masque de lin",
+    "marque": "style_royal",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "plaque_de_la_jacobee": {
+    "nom": "Plaque de la Jacobée",
+    "marque": "style_royal",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "sacs_a_dos_du_chardon": {
+    "nom": "Sacs à dos du chardon",
+    "marque": "style_royal",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "gants_du_lion": {
+    "nom": "Gants du lion",
+    "marque": "style_royal",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "holster_de_la_jonquille": {
+    "nom": "Holster de la jonquille",
+    "marque": "style_royal",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "genouilleres_de_la_rose": {
+    "nom": "Genouillères de la rose",
+    "marque": "style_royal",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
     }
   }
 }

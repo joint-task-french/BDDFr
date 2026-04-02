@@ -147,6 +147,13 @@
               ],
               "description": "Disponible via un raid — true/false ou string décrivant les conditions"
             },
+            "craft": {
+              "oneOf": [
+                { "type": "boolean" },
+                { "type": "string", "minLength": 1 }
+              ],
+              "description": "Disponible au craft — true/false ou string décrivant les conditions"
+            },
             "incursion": {
               "oneOf": [
                 { "type": "boolean" },

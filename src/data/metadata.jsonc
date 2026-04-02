@@ -37,7 +37,8 @@
             "Correction page blanche dans les outils de contributeurs : [Générateur Jsonc](/generator)",
             "Correction de la génération d'images pour les embeds de réseaux sociaux",
             "Correction de la barre de recherche qui perdait certains caractères écrit",
-            "Correction de l'affichage des armes avec des emplacement de mods pré-remplis ET emplacement de mods libres"
+            "Correction de l'affichage des armes avec des emplacement de mods pré-remplis ET emplacement de mods libres",
+            "Correction du générateur Jsonc"
           ]
         },
         "### Changements saisonniers :",

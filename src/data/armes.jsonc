@@ -5835,7 +5835,7 @@
   "agitateur": {
     "nom": "Agitateur",//TODO a vérifier
     "type": "fusil_assaut",
-    "fabricant": "",
+    "fabricant": "FN HERSTAL",
     "portee": 31,
     "rpm": 850,
     "chargeur": 70,

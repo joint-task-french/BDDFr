@@ -1942,7 +1942,7 @@
       "attributs": [
         {
           "slug": "maniement_d_arme_eqp",
-          "value": "10"
+          "value": 10
         }
       ]
     },
@@ -1950,15 +1950,15 @@
       "attributs": [
         {
           "slug": "degats_arme_eqp",
-          "value": "5"
+          "value": 5
         },
         {
           "slug": "protection_total",
-          "value": "5"
+          "value": 5
         },
         {
           "slug": "efficacite_de_competence",
-          "value": "5"
+          "value": 5
         }
       ]
     },

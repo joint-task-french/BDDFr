@@ -5833,13 +5833,13 @@
     }
   },
   "agitateur": {
-    "nom": "Agitateur",//TODO a vérifier
+    "nom": "Agitateur",
     "type": "fusil_assaut",
-    "fabricant": "FN HERSTAL",
+    "fabricant": "",
     "portee": 31,
     "rpm": 850,
     "chargeur": 50,
-    "rechargement": 1.69,
+    "rechargement": 1.69,//TODO a verif
     "headshot": 88,
     "degatsBase": 49100,
     "estExotique": true,
@@ -5854,13 +5854,13 @@
     ]
   },
   "interchange": {
-    "nom": "Agitateur",//TODO a vérifier
+    "nom": "Interchange",
     "type": "pistolet_mitrailleur",
     "fabricant": "",
     "portee": 22,
     "rpm": 725,
-    "chargeur": 27,
-    "rechargement": 1.83,
+    "chargeur": 24,
+    "rechargement": 1.83,//TODO a verif
     "headshot": 83,
     "degatsBase": 58700,
     "estExotique": false,

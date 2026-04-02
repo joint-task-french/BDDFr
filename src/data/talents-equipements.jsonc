@@ -408,6 +408,10 @@
     "nom": "Dégaineur",
     "description": "Changer d'arme augmente le total de dégâts d'arme de 23% pendant 5s.\nCe buff se dissipe pendant 5s si vous changez d'arme pendant qu'il est actif.",
     "emplacement": "torse",
+    "perfectDescription": "Changer d'arme augmente le total de dégâts d'arme de 28% pendant 5s.\nCe buff se dissipe pendant 5s si vous changez d'arme pendant qu'il est actif.",
+    "equipementsParfaits": [
+      "robin"
+    ],
     "descente": {
       "boucles": [
         "Paresse"
@@ -651,7 +655,6 @@
           "duration": 14,
           "max_stacks": 30
         },
-
         "base": "Les coups critiques augmentent le total de dégâts d'arme de {damage_per_crit}% pendant {duration}s.\nPeut se cumuler jusqu'à {max_stacks} fois."
       }
     }
@@ -1756,6 +1759,10 @@
   "maitrise_de_soi": {
     "nom": "Maîtrise de soi",
     "description": "À couvert, augmente le total de dégâts d'arme de +15%.",
+    "perfectDescription": "À couvert, augmente le total de dégâts d'arme de +20%.",
+    "equipementsParfaits": [
+      "bulldog"
+    ],
     "emplacement": "sac_a_dos",
     "descente": {
       "boucles": [
@@ -2950,5 +2957,10 @@
     "nom": "Coeur externe",
     "description": "Ce talent ne modifie pas directement le talent **Exercice cordial**. Ce sac à dos comprend trois attributs essentiels",
     "emplacement": "sac_a_dos"
+  },
+  "coeur_interne": {
+    "nom": "Coeur interne",
+    "description": "Augmente le pourcentage des bonus que vous recevez des autres coeurs de 40% à 75%.",
+    "emplacement": "torse"
   }
 }

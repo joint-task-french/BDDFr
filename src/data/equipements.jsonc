@@ -4723,5 +4723,33 @@
     "obtention": {
       "description": "Fabriqué dans l'établis"
     }
+  },
+  "robin": {
+    "nom": "Robin",
+    "marque": "style_royal",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [
+      "degaineur"
+    ],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+      "butinCible": true
+    }
+  },
+  "bulldog": {
+    "nom": "Bulldog",
+    "marque": "style_royal",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [
+      "maitrise_de_soi"
+    ],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+      "butinCible": true
+    }
   }
 }

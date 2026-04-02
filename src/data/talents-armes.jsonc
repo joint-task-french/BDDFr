@@ -2155,7 +2155,7 @@
     "estExotique": true
   },
   "pertubation": {
-    "nom": "Pertubation",
+    "nom": "Perturbation",
     "icon": "pertubation",
     "description": "Abattre un ennemi applique une marque à tous les ennemis situés à moins de 20m de lui.\nIl est possible d'appliquer plusieurs marques au même ennemi (max 5).\nToutes les marques disparaissent 10s après la dernière application.\nVous infligez +15% de dégâts par marque aux ennemis marqués.",
     "estExotique": true

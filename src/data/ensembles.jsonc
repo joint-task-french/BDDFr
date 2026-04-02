@@ -1966,7 +1966,8 @@
       "attributs": [],
       "talent": "exercice_cordial"
     },
-    "talentSac": "coeur_externe"
+    "talentSac": "coeur_externe",
+    "talentTorse": "coeur_interne"
   },
   "improvise": {
     "nom": "Improvisé",
@@ -1978,5 +1979,36 @@
       "utilitaire"
     ],
     "notes": "Les équipements improvisé ont la particularité de pouvoir porté un mod sur toutes de leurs pieces."
+  },
+  "style_royal": {
+    "nom": "Style Royal",
+    "type": "marque",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+        "slug": "maniement_d_arme_eqp",
+        "value": 5
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "taille_chargeur_eqp",
+          "value": 32
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_coup_critique_eqp",
+          "value": 15
+        }
+      ]
+    }
   }
 }

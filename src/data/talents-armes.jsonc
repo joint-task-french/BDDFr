@@ -2731,7 +2731,7 @@
   },
   "aller_retour": {
     "nom": "Aller-retour",
-    "description": "Version parfaite uniquement",
+    "description": "Changer d'arme pour celle-ci confère **+10% de cadence de tir** et **+9% de dégâts d'arme** pendant **10s.**\n\nChanger d'arme quand vous utilisez celle-ci confère **+5% de cadence de tir** et **+4,5% de dégâts d'arme** pendant **10s.**\n\nRecevoir l'un des ensembles de bonus annule l'autre si ce dernier est actif.\n\nDeux instances de ce talent ne peuvent pas fonctionner simultanément.",
     "estExotique": false,
     "perfectDescription": "Changer d'arme pour celle-ci confère **+13% de cadence de tir** et **+12% de dégâts d'arme** pendant **10s.**\n\nChanger d'arme quand vous utilisez celle-ci confère **+5% de cadence de tir** et **+4,5% de dégâts d'arme** pendant **10s.**\n\nRecevoir l'un des ensembles de bonus annule l'autre si ce dernier est actif.\n\nDeux instances de ce talent ne peuvent pas fonctionner simultanément.",
     "armesParfaites": [

@@ -56,13 +56,16 @@
         {
           "titre": "Ajout des armes",
           "description": [
-            "Agitateur"
+            "Agitateur",
+            "Interchange"
           ]
         },
         {
           "titre": "Ajout des talents",
           "description": [
-            "Perturbation *(Agitateur)*"
+            "Perturbation *(Agitateur)*",
+            "Aller-retour",
+            "Aller-retour parfait *(Interchange)*"
           ]
         }
       ]

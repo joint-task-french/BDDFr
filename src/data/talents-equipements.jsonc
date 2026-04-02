@@ -2940,5 +2940,15 @@
     "description": "Tirer sur un ennemi le marque pendant 7s.\nQuand un ennemi marqué meurt, vous recevez +3% de dégâts d'arme et +2% de dégâts de coup critique pour chaque allié ou compétence, y compris vous-même, ayant participé à l'élimination de cet ennemi.\nCumul maximum : 35.\nLes effets se dissipent toutes les 10s.\nMaximum de marques pouvant être appliquées : 4.",
     "emplacement": "gear_set",
     "gearSet": "concentrated_company"
+  },
+  "exercice_cordial": {
+    "nom": "Exercice cordial",
+    "description": "Pour chaque coeur sur vos pièces d'équipement, vous recevez **+40%** des deux autres bonus de doeur. Les Tiers de compétence comptent pour **15% d'efficacité de compétence** quand ces bonus sont appliqués.",
+    "emplacement": "gear_set"
+  },
+  "coeur_externe": {
+    "nom": "Coeur externe",
+    "description": "Ce talent ne modifie pas directement le talent **Exercice cordial**. Ce sac à dos comprend trois attributs essentiels",
+    "emplacement": "sac_a_dos"
   }
 }

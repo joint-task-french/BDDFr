@@ -4636,6 +4636,82 @@
       "description": "Fabriqué dans l'établis"
     }
   },
+  "masque_core_strength": {
+    "nom": "Masque Core Strength",
+    "marque": "core_strength",
+    "emplacement": "masque",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "mod": true,
+    "type": "gear_set"
+  },
+  "sac_a_dos_core_strength": {
+    "nom": "Sac à dos Core Strength",
+    "marque": "core_strength",
+    "emplacement": "sac_a_dos",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "mod": true,
+    "type": "gear_set"
+  },
+  "torse_core_strength": {
+    "nom": "Torse Core Strength",
+    "marque": "core_strength",
+    "emplacement": "torse",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "mod": true,
+    "type": "gear_set"
+  },
+  "gants_core_strength": {
+    "nom": "Gants Core Strength",
+    "marque": "core_strength",
+    "emplacement": "gants",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "mod": false,
+    "type": "gear_set"
+  },
+  "holster_core_strength": {
+    "nom": "Holster Core Strength",
+    "marque": "core_strength",
+    "emplacement": "holster",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "mod": false,
+    "type": "gear_set"
+  },
+  "genouilleres_core_strength": {
+    "nom": "Genouillères Core Strength",
+    "marque": "core_strength",
+    "emplacement": "genouilleres",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "mod": false,
+    "type": "gear_set"
+  },
   "genouilleres_improvisees": {
     "nom": "Genouillères improvisées",
     "marque": "improvise",

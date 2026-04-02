@@ -2414,5 +2414,33 @@
     "statistiques": [
       "resistance_saignement"
     ]
+  },
+  "protection_total_eqp": {
+    "nom": "Protection total",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 5,
+    "max": 5,
+    "description": "Augmente la protection total",
+    "statistiques": [
+      "protection"
+    ]
+  },
+  "efficacite_de_competence": {
+    "nom": "Efficacité de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 5,
+    "max": 5,
+    "description": "Améliore l'efficacité des compétences",
+    "statistiques": [
+      // TODO : Ajouté toutes les stats de l'efficacité de compétences
+    ]
   }
 }

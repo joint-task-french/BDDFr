@@ -1930,6 +1930,44 @@
       ]
     }
   },
+  "core_strength": {
+    "nom": "Core Strength",
+    "type": "gear_set",
+    "attributsEssentiels": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "maniement_d_arme_eqp",
+          "value": "10"
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_arme_eqp",
+          "value": "5"
+        },
+        {
+          "slug": "protection_total",
+          "value": "5"
+        },
+        {
+          "slug": "efficacite_de_competence",
+          "value": "5"
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "exercice_cordial"
+    },
+    "talentSac": "coeur_externe"
+  },
   "improvise": {
     "nom": "Improvisé",
     "type": "improvise",

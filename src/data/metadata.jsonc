@@ -44,13 +44,13 @@
         {
           "titre": "Ajout des marques",
           "description": [
-            ""
+            "Core Strength"
           ]
         },
         {
           "titre": "Ajout des équipements",
           "description": [
-            ""
+            "Masque, Sac, Torse, Gants, Holster et Genouillères Core Strength"
           ]
         },
         {
@@ -65,7 +65,9 @@
           "description": [
             "Perturbation *(Agitateur)*",
             "Aller-retour",
-            "Aller-retour parfait *(Interchange)*"
+            "Aller-retour parfait *(Interchange)*",
+            "Exercice cordial *(Core Strength)*",
+            "Coeur externe *(Sac Core Strength)*"
           ]
         }
       ]

@@ -4734,6 +4734,7 @@
     ],
     "type": "standard",
     "notes": "",
+    "estNomme": true,
     "obtention": {
     }
   },
@@ -4747,6 +4748,7 @@
     ],
     "type": "standard",
     "notes": "",
+    "estNomme": true,
     "obtention": {
     }
   },

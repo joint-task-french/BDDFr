@@ -27,7 +27,8 @@
         {
           "titre": "Ajouts :",
           "description": [
-            "Ajout du support de la syntaxe mermaid dans les elements markdown"
+            "Ajout du support de la syntaxe mermaid dans les elements markdown",
+            "Ajout du champ \"craft\" pour l'obtention des armes et équiements"
           ]
         },
         {
@@ -45,13 +46,17 @@
         {
           "titre": "Ajout des marques",
           "description": [
-            "Core Strength"
+            "Core Strength",
+            "Style Royal"
           ]
         },
         {
           "titre": "Ajout des équipements",
           "description": [
-            "Masque, Sac, Torse, Gants, Holster et Genouillères Core Strength"
+            "Masque, Sac, Torse, Gants, Holster et Genouillères Core Strength",
+            "Masque, Sac, Torse, Gants, Holster et Genouillères Style Royal",
+            "Investisseur",
+            "Bulldog"
           ]
         },
         {
@@ -68,7 +73,9 @@
             "Aller-retour",
             "Aller-retour parfait *(Interchange)*",
             "Exercice cordial *(Core Strength)*",
-            "Coeur externe *(Sac Core Strength)*"
+            "Coeur externe *(Sac Core Strength)*",
+            "Triple emplacement *(Investisseur)*",
+            "Maîtrise de soi parfait *(Bulldog)*"
           ]
         }
       ]

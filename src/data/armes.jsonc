@@ -1852,26 +1852,27 @@
     }
   },
   "orbite": {
-    "nom": "Orbite",//TODO
+    "nom": "Orbite",
     "description": "Une fois en mouvement, la balle poursuit sa trajectoire jusqu'à sa cible, puis tout mouvement cesse brusquement.",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
     "rpm": 160,
     "chargeur": 6,
-    "rechargement": 2.78,
+    "rechargement": 2.54,
     "headshot": 100,
-    "degatsBase": 233223,
+    "degatsBase": 233300,
     "estExotique": false,
     "estNomme": true,
     "obtention": {
       "darkZone": true
     },
-    "talents": [],
+    "talents": [
+      "finisseur"
+    ],
     "emplacementsMods": {
-      "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "chargeur": "barillet",
+      "viseur": "rail_optique_court"
     }
   },
   "686_magnum_police": {
@@ -1894,22 +1895,23 @@
     }
   },
   "prophete": {
-    "nom": "Prophète",//TODO
+    "nom": "Prophète",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
     "rpm": 160,
     "chargeur": 6,
-    "rechargement": 2.78,
+    "rechargement": 2.54,
     "headshot": 100,
-    "degatsBase": 233223,
+    "degatsBase": 233300,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "resolu"
+    ],
     "emplacementsMods": {
-      "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "chargeur": "barillet",
+      "viseur": "rail_optique_court"
     }
   },
   "le_moissonneur": {

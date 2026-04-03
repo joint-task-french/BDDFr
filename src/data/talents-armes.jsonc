@@ -1730,7 +1730,11 @@
   },
   "finisseur": {
     "nom": "Finisseur",
-    "description": "Prendre une arme autre que celle-ci dans les 10s suivant l'élimination d'un ennemi augmente de 30% la probabilité de coup critique et de 30% les dégâts de coup critique pendant 15s.",
+    "description": "Prendre une arme autre que celle-ci dans les **10s** suivant l'élimination d'un ennemi augmente de **30% la probabilité de coup critique** et de **30% les dégâts de coup critique** pendant **15s**.",
+    "perfectDescription": "Prendre une arme autre que celle-ci dans les **10s** suivant l'élimination d'un ennemi augmente de **35% la probabilité de coup critique** et de **40% les dégâts de coup critique** pendant **15s**.",
+    "armesParfaites": [
+      "orbite"
+    ],
     "icon": "finisseur",
     "compatibilite": {
       "fusil": false,
@@ -1767,7 +1771,8 @@
     "icon": "resolu",
     "perfectDescription": "Après avoir tué un ennemi avec un headshot, le tir suivant qui touche un ennemi est un headshot critique garanti.\nMême si le talent est actif, le fait de tuer un ennemi ne déclenchera pas à nouveau le talent.",
     "armesParfaites": [
-      "relique"
+      "relique",
+      "prophete"
     ],
     "compatibilite": {
       "fusil": true,

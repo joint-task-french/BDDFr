@@ -1,4 +1,4 @@
-import {resolveAttributeIcon, GameIcon, resolveIcon} from '../../common/gameAssets.jsx'
+import {resolveAttributeIcon, GameIcon, resolveAsset} from '../../common/GameAssets.jsx'
 import TalentInline from './TalentInline'
 import MarkdownText from '../../common/MarkdownText'
 
@@ -52,8 +52,8 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques, a
         <div className="px-4 py-3 border-b border-tactical-border/50">
           <div className="flex items-start gap-3">
             {/* Logo */}
-            {resolveIcon(item.icon) ? (
-                <GameIcon src={resolveIcon(item.icon)} alt="" size="w-10 h-10" className="rounded" />
+            {resolveAsset(item.icon) ? (
+                <GameIcon src={resolveAsset(item.icon)} alt="" size="w-10 h-10" className="rounded" />
             ) : (
                 <div className={`w-10 h-10 shrink-0 rounded flex items-center justify-center text-lg ${isGearSet ? 'bg-emerald-500/10' : isImprovised ? 'bg-indigo-500/10' : 'bg-shd/10'}`}>
                   {isGearSet ? '🔗' : isImprovised ? '🛠️' : '🏷️'}

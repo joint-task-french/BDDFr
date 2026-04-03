@@ -1,8 +1,7 @@
 // Métadonnées — The Division 2
 {
   "titre": "Base de données française — The Division 2",
-  "version": "TU : Y7S3.3",
-  "derniereMiseAJour": "2026-03-31",
+  "version": "TU : Y8S1",
   "maxExpertiseLevel": 30,
   "credits": [
     "Raven",
@@ -21,6 +20,69 @@
     "Mastoroz"
   ],
   "changelog": [
+    {
+      "date": "2026-04-02",
+      "changements": [
+        "### Changements BDDFr :",
+        {
+          "titre": "Ajouts :",
+          "description": [
+            "Ajout du support de la syntaxe mermaid dans les elements markdown",
+            "Ajout du champ \"craft\" pour l'obtention des armes et équiements",
+            "Ajout de l'affichage du nombre d'attributs aléatoires sur les armes et équipements"
+          ]
+        },
+        {
+          "titre": "Correction de bugs :",
+          "description": [
+            "Correction de l'URL de partage dans le build planner",
+            "Correction page blanche dans les outils de contributeurs : [Générateur Jsonc](/generator)",
+            "Correction de la génération d'images pour les embeds de réseaux sociaux",
+            "Correction de la barre de recherche qui perdait certains caractères écrit",
+            "Correction de l'affichage des armes avec des emplacement de mods pré-remplis ET emplacement de mods libres",
+            "Correction du générateur Jsonc",
+            "Correction attribut secondaire manquant dans le build planner pour les armes exotiques"
+          ]
+        },
+        "### Changements saisonniers :",
+        {
+          "titre": "Ajout des marques",
+          "description": [
+            "Core Strength",
+            "Style Royal"
+          ]
+        },
+        {
+          "titre": "Ajout des équipements",
+          "description": [
+            "Masque, Sac, Torse, Gants, Holster et Genouillères Core Strength",
+            "Masque, Sac, Torse, Gants, Holster et Genouillères Style Royal",
+            "Investisseur",
+            "Bulldog"
+          ]
+        },
+        {
+          "titre": "Ajout des armes",
+          "description": [
+            "Agitateur",
+            "Interchange"
+          ]
+        },
+        {
+          "titre": "Ajout des talents",
+          "description": [
+            "Perturbation *(Agitateur)*",
+            "Aller-retour",
+            "Aller-retour parfait *(Interchange)*",
+            "Exercice cordial *(Core Strength)*",
+            "Coeur externe *(Sac Core Strength)*",
+            "Coeur interne *(Torse Core Strength)",
+            "Triple emplacement *(Investisseur)*",
+            "Maîtrise de soi parfait *(Bulldog)*"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-03-31",
       "patch": "Refonte total BDDFr",

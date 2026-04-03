@@ -408,6 +408,10 @@
     "nom": "Dégaineur",
     "description": "Changer d'arme augmente le total de dégâts d'arme de 23% pendant 5s.\nCe buff se dissipe pendant 5s si vous changez d'arme pendant qu'il est actif.",
     "emplacement": "torse",
+    "perfectDescription": "Changer d'arme augmente le total de dégâts d'arme de 28% pendant 5s.\nCe buff se dissipe pendant 5s si vous changez d'arme pendant qu'il est actif.",
+    "equipementsParfaits": [
+      "robin"
+    ],
     "descente": {
       "boucles": [
         "Paresse"
@@ -651,7 +655,6 @@
           "duration": 14,
           "max_stacks": 30
         },
-
         "base": "Les coups critiques augmentent le total de dégâts d'arme de {damage_per_crit}% pendant {duration}s.\nPeut se cumuler jusqu'à {max_stacks} fois."
       }
     }
@@ -1756,6 +1759,10 @@
   "maitrise_de_soi": {
     "nom": "Maîtrise de soi",
     "description": "À couvert, augmente le total de dégâts d'arme de +15%.",
+    "perfectDescription": "À couvert, augmente le total de dégâts d'arme de +20%.",
+    "equipementsParfaits": [
+      "bulldog"
+    ],
     "emplacement": "sac_a_dos",
     "descente": {
       "boucles": [
@@ -2940,5 +2947,27 @@
     "description": "Tirer sur un ennemi le marque pendant 7s.\nQuand un ennemi marqué meurt, vous recevez +3% de dégâts d'arme et +2% de dégâts de coup critique pour chaque allié ou compétence, y compris vous-même, ayant participé à l'élimination de cet ennemi.\nCumul maximum : 35.\nLes effets se dissipent toutes les 10s.\nMaximum de marques pouvant être appliquées : 4.",
     "emplacement": "gear_set",
     "gearSet": "concentrated_company"
+  },
+  "exercice_cordial": {
+    "nom": "Exercice cordial",
+    "description": "Pour chaque coeur sur vos pièces d'équipement, vous recevez **+40%** des deux autres bonus de doeur. Les Tiers de compétence comptent pour **15% d'efficacité de compétence** quand ces bonus sont appliqués.",
+    "emplacement": "gear_set"
+  },
+  "coeur_externe": {
+    "nom": "Coeur externe",
+    "description": "Ce talent ne modifie pas directement le talent **Exercice cordial**. Ce sac à dos comprend trois attributs essentiels",
+    "emplacement": "sac_a_dos"
+  },
+  "coeur_interne": {
+    "nom": "Coeur interne",
+    "description": "Augmente le pourcentage des bonus que vous recevez des autres coeurs de 40% à 75%.",
+    "emplacement": "torse"
+  },
+  "triple_emplacement": {
+    "nom": "Triple emplacement",
+    "description": "Vous recevez des bonus pour **chaque attribut non essentiel** de cet objet, selon la couleur :\n![offensif](slug:offensif)Offensif : **+10% de dégâts de coup critique**\n![Utilitaire](slug:utilitaire)Utilitaire : **+5% d'efficacité de compétence**\n![défensif](slug:defensif)Défensif : **+1% de régénération de protection**\n\nCet objet peut posséder n'importe quel attribut essentiel. Cet objet possède un troisième attribut aléatoire à la place d'un emplacement de mod d'équipement.\nCet objet ne peut pas posséder les attributs Dégâts de headshot, Santé ou Réparation de compétence.",
+    "notes": "PVP :\n![défensif](slug:defensif)Défensif : **+0.5% de régénération de protection**",
+    "emplacement": "masque",
+    "estExotique": true
   }
 }

@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
-import { resolveAttributeIcon, GameIcon } from '../common/gameAssets.jsx'
+import { resolveAttributeIcon, GameIcon } from '../common/GameAssets.jsx'
 
 const CAT_COLORS = {
   offensif: 'text-red-400',

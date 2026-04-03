@@ -4583,7 +4583,7 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "obtention": {
       "description": "Fabriqué dans l'établis"
     }
@@ -4595,7 +4595,7 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "obtention": {
       "description": "Fabriqué dans l'établis"
     }
@@ -4607,7 +4607,7 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "obtention": {
       "description": "Fabriqué dans l'établis"
     }
@@ -4619,7 +4619,7 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "obtention": {
       "description": "Fabriqué dans l'établis"
     }
@@ -4631,10 +4631,86 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "obtention": {
       "description": "Fabriqué dans l'établis"
     }
+  },
+  "masque_core_strength": {
+    "nom": "Masque Core Strength",
+    "marque": "core_strength",
+    "emplacement": "masque",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "mod": true,
+    "type": "gear_set"
+  },
+  "sac_a_dos_core_strength": {
+    "nom": "Sac à dos Core Strength",
+    "marque": "core_strength",
+    "emplacement": "sac_a_dos",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "mod": true,
+    "type": "gear_set"
+  },
+  "torse_core_strength": {
+    "nom": "Torse Core Strength",
+    "marque": "core_strength",
+    "emplacement": "torse",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "mod": true,
+    "type": "gear_set"
+  },
+  "gants_core_strength": {
+    "nom": "Gants Core Strength",
+    "marque": "core_strength",
+    "emplacement": "gants",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "mod": false,
+    "type": "gear_set"
+  },
+  "holster_core_strength": {
+    "nom": "Holster Core Strength",
+    "marque": "core_strength",
+    "emplacement": "holster",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "mod": false,
+    "type": "gear_set"
+  },
+  "genouilleres_core_strength": {
+    "nom": "Genouillères Core Strength",
+    "marque": "core_strength",
+    "emplacement": "genouilleres",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "mod": false,
+    "type": "gear_set"
   },
   "genouilleres_improvisees": {
     "nom": "Genouillères improvisées",
@@ -4643,9 +4719,129 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "obtention": {
       "description": "Fabriqué dans l'établis"
     }
+  },
+  "robin": {
+    "nom": "Robin",
+    "marque": "style_royal",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [
+      "degaineur"
+    ],
+    "type": "standard",
+    "notes": "",
+    "estNomme": true,
+    "obtention": {
+    }
+  },
+  "bulldog": {
+    "nom": "Bulldog",
+    "marque": "style_royal",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [
+      "maitrise_de_soi"
+    ],
+    "type": "standard",
+    "notes": "",
+    "estNomme": true,
+    "obtention": {
+    }
+  },
+  "masque_de_lin": {
+    "nom": "Masque de lin",
+    "marque": "style_royal",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "plaque_de_la_jacobee": {
+    "nom": "Plaque de la Jacobée",
+    "marque": "style_royal",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "sacs_a_dos_du_chardon": {
+    "nom": "Sacs à dos du chardon",
+    "marque": "style_royal",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "gants_du_lion": {
+    "nom": "Gants du lion",
+    "marque": "style_royal",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "holster_de_la_jonquille": {
+    "nom": "Holster de la jonquille",
+    "marque": "style_royal",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "genouilleres_de_la_rose": {
+    "nom": "Genouillères de la rose",
+    "marque": "style_royal",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "investisseur": {
+    "nom": "Investisseur",
+    "emplacement": "masque",
+    "mod": false,
+    "talents": [
+      "triple_emplacement"
+    ],
+    "type": "exotique",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "description": "Quand ils s'y attendent le moins.",
+
+    "obtention": {
+      "description": "Passe de saison Mobilisation : Niveau 1 (payant), Niveau 69 (gratuit)."
+    },
+    "attributEssentiel": [
+      "offensif",
+      "utilitaire",
+      "defensif"
+    ],
+    "attributs": [
+      {},
+      {},
+      {}
+    ]
   }
+
 }

@@ -513,7 +513,8 @@
     ],
     "unite": "pts",
     "min": 1,
-    "max": 170001,
+    "max": 170000,
+    "prototypeMax": 255000,
     "description": "Augmente la valeur totale d'armure",
     "estEssentiel": true,
     "selectionable": true,
@@ -2412,6 +2413,34 @@
     "selectionable": false,
     "statistiques": [
       "resistance_saignement"
+    ]
+  },
+  "protection_total_eqp": {
+    "nom": "Protection total",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 5,
+    "max": 5,
+    "description": "Augmente la protection total",
+    "statistiques": [
+      "protection"
+    ]
+  },
+  "efficacite_de_competence": {
+    "nom": "Efficacité de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 5,
+    "max": 5,
+    "description": "Améliore l'efficacité des compétences",
+    "statistiques": [
+      // TODO : Ajouté toutes les stats de l'efficacité de compétences
     ]
   }
 }

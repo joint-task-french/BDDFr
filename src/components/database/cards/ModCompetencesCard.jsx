@@ -2,7 +2,7 @@ import { formatModAttributs } from '../../../utils/modCompatibility'
 import { getSpecialisations } from '../../../utils/formatters'
 import MarkdownText from '../../common/MarkdownText'
 import { Link } from 'react-router-dom'
-import {GameIcon, resolveIcon} from "../../common/gameAssets.jsx";
+import {GameIcon, resolveAsset} from "../../common/GameAssets.jsx";
 
 
 function hasContent(v) {
@@ -31,7 +31,7 @@ export default function ModCompetencesCard({ item, allAttributs, competencesGrou
             <span className="text-xs self-start font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">{ nomCompetence }</span>
             { specialisation && (
                 <div className='flex flex-row gap-1 text-xs self-start font-bold text-shd bg-shd-dark/15 px-1.5 py-0.5 rounded uppercase tracking-widest'>
-                  <GameIcon src={resolveIcon(specialisation.icon)} />
+                  <GameIcon src={resolveAsset(specialisation.icon)} />
                   {specialisation.label}
                 </div>
             ) }

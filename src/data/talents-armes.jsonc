@@ -176,7 +176,8 @@
     "icon": "optimiste",
     "perfectDescription": "Les dégâts d'arme augmentent de **+4,5%** pour chaque tranche de **10%** de munitions manquantes dans le chargeur.",
     "armesParfaites": [
-      "shield_splinterer"
+      "shield_splinterer",
+      "diceros_special"
     ],
     "compatibilite": {
       "fusil": true,
@@ -1729,7 +1730,11 @@
   },
   "finisseur": {
     "nom": "Finisseur",
-    "description": "Prendre une arme autre que celle-ci dans les 10s suivant l'élimination d'un ennemi augmente de 30% la probabilité de coup critique et de 30% les dégâts de coup critique pendant 15s.",
+    "description": "Prendre une arme autre que celle-ci dans les **10s** suivant l'élimination d'un ennemi augmente de **30% la probabilité de coup critique** et de **30% les dégâts de coup critique** pendant **15s**.",
+    "perfectDescription": "Prendre une arme autre que celle-ci dans les **10s** suivant l'élimination d'un ennemi augmente de **35% la probabilité de coup critique** et de **40% les dégâts de coup critique** pendant **15s**.",
+    "armesParfaites": [
+      "orbite"
+    ],
     "icon": "finisseur",
     "compatibilite": {
       "fusil": false,
@@ -1766,7 +1771,8 @@
     "icon": "resolu",
     "perfectDescription": "Après avoir tué un ennemi avec un headshot, le tir suivant qui touche un ennemi est un headshot critique garanti.\nMême si le talent est actif, le fait de tuer un ennemi ne déclenchera pas à nouveau le talent.",
     "armesParfaites": [
-      "relique"
+      "relique",
+      "prophete"
     ],
     "compatibilite": {
       "fusil": true,
@@ -2154,7 +2160,7 @@
     "estExotique": true
   },
   "pertubation": {
-    "nom": "Pertubation",
+    "nom": "Perturbation",
     "icon": "pertubation",
     "description": "Abattre un ennemi applique une marque à tous les ennemis situés à moins de 20m de lui.\nIl est possible d'appliquer plusieurs marques au même ennemi (max 5).\nToutes les marques disparaissent 10s après la dernière application.\nVous infligez +15% de dégâts par marque aux ennemis marqués.",
     "estExotique": true
@@ -2722,5 +2728,19 @@
     "nom": "Mesure",
     "description": "Vous infligez 25% de dégâts accrus pendant 20s aprés que votre bouclier a été détruit.",
     "estExotique": true
+  },
+  "perturbation": {
+    "nom": "Perturbation",
+    "description": "Lorsque cette arme est **en étui**, vous générez **50% de menace en moins** quand vous tirez. Garder l'arme rangée pendant **10s** vous permet de l'armer. Une fois armée, le fait de prendre cette arme vous confère **+25% de cadence de tir**, **+30% de dégâts** et vous générez **+100% de menace en plus** pendant **20s**.\n\nChanger d'arme avant la fin de cet effet annule les bonus.",
+    "estExotique": true
+  },
+  "aller_retour": {
+    "nom": "Aller-retour",
+    "description": "Changer d'arme pour celle-ci confère **+10% de cadence de tir** et **+9% de dégâts d'arme** pendant **10s.**\n\nChanger d'arme quand vous utilisez celle-ci confère **+5% de cadence de tir** et **+4,5% de dégâts d'arme** pendant **10s.**\n\nRecevoir l'un des ensembles de bonus annule l'autre si ce dernier est actif.\n\nDeux instances de ce talent ne peuvent pas fonctionner simultanément.",
+    "estExotique": false,
+    "perfectDescription": "Changer d'arme pour celle-ci confère **+13% de cadence de tir** et **+12% de dégâts d'arme** pendant **10s.**\n\nChanger d'arme quand vous utilisez celle-ci confère **+5% de cadence de tir** et **+4,5% de dégâts d'arme** pendant **10s.**\n\nRecevoir l'un des ensembles de bonus annule l'autre si ce dernier est actif.\n\nDeux instances de ce talent ne peuvent pas fonctionner simultanément.",
+    "armesParfaites": [
+      "interchange"
+    ]
   }
 }

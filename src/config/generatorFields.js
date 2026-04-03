@@ -101,19 +101,29 @@ export const FIELDS = {
           { key: 'valeur', label: 'Valeur', type: 'number' },
           { key: 'prototypeValue', label: 'Valeur (Prototype)', type: 'number', visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'valeur', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
         ]},
-      { key: 'emplacementsMods', label: 'Emplacements Mods', type: 'tagSelect', options: [
-          { value: 'chargeur', label: 'Chargeur', color: 'yellow' },
-          { value: 'canon', label: 'Canon', color: 'red' },
-          { value: 'viseur', label: 'Viseur', color: 'blue' },
-          { value: 'bouche', label: 'Bouche', color: 'yellow' },
+      { key: 'emplacementsMods', label: 'Emplacements Mods', type: 'objectGroup', fields: [
+          { key: 'chargeur', label: 'Chargeur (slug mod)', type: 'autocomplete', suggestionsKey: 'modsArmes' },
+          { key: 'canon', label: 'Canon (slug mod)', type: 'autocomplete', suggestionsKey: 'modsArmes' },
+          { key: 'viseur', label: 'Viseur (slug mod)', type: 'autocomplete', suggestionsKey: 'modsArmes' },
+          { key: 'bouche', label: 'Bouche (slug mod)', type: 'autocomplete', suggestionsKey: 'modsArmes' },
         ]},
       { key: 'modsPredefinis', label: 'Mods prédéfinis (exotiques)', type: 'autocomplete_array', suggestionsKey: 'modsArmes', placeholder: 'Rechercher un mod...', visibleWhen: { key: '_rarity', value: 'exo' } },
+      { key: 'attributs_essentiels', label: 'Attributs essentiels', type: 'objectArray', fields: [
+          { key: 'nom', label: 'Nom', type: 'autocomplete', suggestionsKey: 'attributs' },
+          { key: 'valeur', label: 'Valeur', type: 'number' },
+          { key: 'prototypeValue', label: 'Valeur (Prototype)', type: 'number', visibleWhen: [{ key: 'type', notEmpty: true }, { key: 'valeur', notEmpty: true }], hiddenWhen: { key: '_rarity', value: 'exo' } },
+        ]},
+      { key: 'armePoing', label: 'Arme de poing', type: 'boolean' },
+      { key: 'description', label: 'Description', type: 'textarea' },
+      { key: 'notes', label: 'Notes', type: 'textarea' },
       { key: 'obtention', label: 'Obtention', type: 'objectGroup', fields: [
           { key: 'description', label: 'Description', type: 'textarea' },
           { key: 'butinCible', label: 'Butin ciblé', type: 'triState' },
           { key: 'cachesExotiques', label: 'Caches exotiques', type: 'triState' },
+          { key: 'darkZone', label: 'Dark Zone', type: 'triState' },
           { key: 'mission', label: 'Mission', type: 'triState' },
           { key: 'raid', label: 'Raid', type: 'triState' },
+          { key: 'craft', label: 'Craft', type: 'triState' },
           { key: 'incursion', label: 'Incursion', type: 'triState' },
           { key: 'represailles', label: 'Schémas représailles (faction)', type: 'text', placeholder: 'Nom de la faction (optionnel)' },
         ]},
@@ -142,12 +152,16 @@ export const FIELDS = {
           { value: 'gear_set', label: 'Gear Set', color: 'green' },
         ]},
       { key: 'estNomme', label: 'Nommé', type: 'boolean', hiddenWhen: { key: 'type', value: 'exotique' } },
+      { key: 'description', label: 'Description', type: 'textarea' },
+      { key: 'notes', label: 'Notes', type: 'textarea' },
       { key: 'obtention', label: 'Obtention', type: 'objectGroup', fields: [
           { key: 'description', label: 'Description', type: 'textarea' },
           { key: 'butinCible', label: 'Butin ciblé', type: 'triState' },
           { key: 'cachesExotiques', label: 'Caches exotiques', type: 'triState' },
+          { key: 'darkZone', label: 'Dark Zone', type: 'triState' },
           { key: 'mission', label: 'Mission', type: 'triState' },
           { key: 'raid', label: 'Raid', type: 'triState' },
+          { key: 'craft', label: 'Craft', type: 'triState' },
           { key: 'incursion', label: 'Incursion', type: 'triState' },
           { key: 'represailles', label: 'Schémas représailles (faction)', type: 'text', placeholder: 'Nom de la faction (optionnel)' },
         ]},
@@ -166,6 +180,7 @@ export const FIELDS = {
       { key: 'compatibilite', label: 'Compatibilité', type: 'tagSelect', hiddenWhen: { key: 'estExotique', value: true }, dynamicOptions: 'armesTypesCompat', outputAsObject: true },
       { key: 'perfectDescription', label: 'Description parfaite', type: 'textarea', hiddenWhen: { key: 'estExotique', value: true } },
       { key: 'armesParfaites', label: 'Armes parfaites', type: 'autocomplete_array', suggestionsKey: 'armesNommees', placeholder: "Rechercher une arme nommée...", hiddenWhen: { key: 'estExotique', value: true } },
+      { key: 'notes', label: 'Notes', type: 'textarea' },
 
       // --- MODE DESCENTE ---
       { key: 'hasDescente', label: 'Disponible en mode Descente', type: 'boolean' },
@@ -197,6 +212,8 @@ export const FIELDS = {
       { key: 'emplacement', label: 'Emplacement', type: 'tagSelect', required: true, singleSelect: true, dynamicOptions: 'talentEquipEmplacements' },
       { key: 'perfectDescription', label: 'Description parfaite', type: 'textarea', hiddenWhen: { key: 'estExotique', value: true } },
       { key: 'equipementsParfaits', label: 'Équipements parfaits', type: 'autocomplete_array', suggestionsKey: 'equipementsNommes', placeholder: "Rechercher un équipement nommé...", hiddenWhen: { key: 'estExotique', value: true } },
+      { key: 'gearSet', label: 'Gear Set (slug)', type: 'autocomplete', suggestionsKey: 'nomsEnsembles' },
+      { key: 'notes', label: 'Notes', type: 'textarea' },
 
       // --- MODE DESCENTE ---
       { key: 'hasDescente', label: 'Disponible en mode Descente', type: 'boolean' },
@@ -293,6 +310,7 @@ export const FIELDS = {
         ]},
       { key: 'talentTorse', label: 'Talent Torse (gear set)', type: 'autocomplete', suggestionsKey: 'talentsEquipements', hiddenWhen: { key: 'type', value: 'marque' } },
       { key: 'talentSac', label: 'Talent Sac (gear set)', type: 'autocomplete', suggestionsKey: 'talentsEquipements', hiddenWhen: { key: 'type', value: 'marque' } },
+      { key: 'notes', label: 'Notes', type: 'textarea' },
     ],
   },
 
@@ -331,6 +349,7 @@ export const FIELDS = {
       { key: 'prototypeMax', label: 'Maximum (Prototype)', type: 'number', step: 0.1, min: 0, visibleWhen: [{ key: 'categorie', notEmpty: true }, { key: 'max', notEmpty: true }] },
       { key: 'description', label: 'Description', type: 'text' },
       { key: 'estEssentiel', label: 'Attribut essentiel', type: 'boolean' },
+      { key: 'selectionable', label: 'Sélectionable', type: 'boolean' },
       { key: 'statistiques', label: 'Statistiques affectées', type: 'autocomplete_array', suggestionsKey: 'statistiques', placeholder: 'Rechercher une statistique...' },
     ],
   },
@@ -361,6 +380,8 @@ export const FIELDS = {
         ]},
       { key: 'estExotique', label: 'Mod exotique', type: 'boolean' },
       { key: 'bonus', label: 'Bonus texte (optionnel)', type: 'text', placeholder: 'Effet non lié à un attribut...' },
+      { key: 'description', label: 'Description', type: 'textarea' },
+      { key: 'prerequis', label: 'Prérequis (spécialisation)', type: 'text' },
     ],
   },
 

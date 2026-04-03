@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import Badge from '../../common/Badge'
 import { getGearSlotLabel } from '../../../utils/formatters'
-import { GEAR_SLOT_ICONS_IMG, resolveIcon, GameIcon } from '../../common/gameAssets.jsx'
+import { GEAR_SLOT_ICONS_IMG, resolveAsset, GameIcon } from '../../common/GameAssets.jsx'
 import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {
@@ -20,7 +20,7 @@ export default function TalentEquipCard({ item, equipements, equipementsType, is
   const hasPerfect = !isExotic && !!item.perfectDescription
   const nameColor = isExotic ? 'text-red-400' : isGearSet ? 'text-emerald-400' : 'text-shd'
   const borderColor = isExotic ? 'border-l-red-500' : isGearSet ? 'border-l-emerald-500' : ''
-  const talentIcon = resolveIcon(item.icon)
+  const talentIcon = resolveAsset(item.icon)
   const slotIcon = GEAR_SLOT_ICONS_IMG[item.emplacement]
 
   const isUrlPerfect = params.slug === item.slug && params.modifier === 'parfait'

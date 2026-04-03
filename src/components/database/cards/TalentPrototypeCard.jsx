@@ -1,9 +1,9 @@
-import { resolveIcon, GameIcon } from '../../common/gameAssets.jsx'
+import { resolveAsset, GameIcon } from '../../common/GameAssets.jsx'
 import MarkdownText from '../../common/MarkdownText'
 
 export default function TalentPrototypeCard({ item }) {
   const nameColor = 'text-cyan-400'
-  const talentIcon = resolveIcon(item.icon)
+  const talentIcon = resolveAsset(item.icon)
 
   return (
     <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 border-l-cyan-500 flex flex-col h-full">

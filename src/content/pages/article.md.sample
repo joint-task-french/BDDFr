@@ -22,3 +22,112 @@ tags: [tags, appliquer, aux, articles, et, aux, pages]
 Image par defaut ![Calibre 12](slug:calibre12)inline
 image affiché ![Calibre 12](slug:calibre12#block)afficher en grand
 image affiché ![Calibre 12](slug:calibre12#inline)inline de force
+
+![Calibre 12](https://cdn.discordapp.com/attachments/1477727697269559407/1489025592434102303/Countdown.png?ex=69ceeaa5&is=69cd9925&hm=ba556946c952344c9444d55c8203d5c69100aaef788afd519f47aead54ca6940)
+
+
+```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+  flowchart:
+    curve: linear
+  elk:
+    mergeEdges: true
+    nodePlacementStrategy: NETWORK_SIMPLEX
+    crossingMinimizationStrategy: LAYER_SWEEP
+    nodeNode: 40
+    nodeNodeBetweenLayers: 80
+---
+graph LR
+    FT["Field Testing<br/>(Start/Boss)"]
+
+    FT <--> 3DPL["3D Printing LAB"]
+    FT <--> SRV["Servers"]
+    FT <--> SEC["Security"]
+
+    3DPL <--> EMP["EMP LAB"]
+    SRV <--> EMP
+    SEC <--> EMP
+
+    3DPL <--> CHEM["Chemical LAB"]
+    SRV <--> CHEM
+    SEC <--> CHEM
+
+    EMP <--> ELEC["Electricity LAB"]
+    CHEM <--> ELEC
+
+    EMP <--> COMB["Combustion LAB"]
+    CHEM <--> COMB
+
+    ELEC <--> VENT["Ventilation"]
+    COMB <--> VENT
+
+    ELEC <--> WS["Workshop"]
+    COMB <--> WS
+
+    ELEC <--> BOIL["Boilers"]
+    COMB <--> BOIL
+
+    VENT <--> WTL["Wind Testing LAB<br/>(Start/Boss)"]
+    WS <--> WTL
+    BOIL <--> WTL
+
+
+```
+
+```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+  flowchart:
+    curve: linear
+  elk:
+    mergeEdges: true
+    nodePlacementStrategy: NETWORK_SIMPLEX
+    crossingMinimizationStrategy: LAYER_SWEEP
+    nodeNode: 40
+    nodeNodeBetweenLayers: 80
+---
+graph LR
+    PBC["Potomac Bunker Complex<br/>(Start)"]
+
+    PBC <--> CR["Control Room"]
+    PBC <--> CAF["Cafetaria"]
+
+    CR --> SRVR["Server Room"]
+    CAF --> SRVR
+
+    CR --> OL["Officier Lounge"]
+    CAF --> OL
+
+    SRVR --> SS["Supply Station"]
+    SRVR --> BS["Broadcast Station"]
+
+    OL --> WH["Warehouse"]
+    OL --> WT["Water Treatment"]
+
+    SS --> TT["Transit Tunnel"]
+    SS --> MAINT["Maintenance"]
+
+    BS --> MAINT
+    BS --> GEN["Generator"]
+
+    WH --> TT
+    WH --> MU["Medical Unit"]
+
+    WT --> MU
+    WT --> GEN
+
+    TT --> MS["Missile Silo (Boss)"]
+    MAINT --> MS
+
+    MU --> CS["Construction site (Boss)"]
+    GEN --> CS
+
+
+```

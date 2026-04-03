@@ -1,5 +1,5 @@
 import { getSpecialisations } from '../../../utils/formatters'
-import {GameIcon, resolveIcon} from "../../common/gameAssets.jsx";
+import {GameIcon, resolveAsset} from "../../common/GameAssets.jsx";
 import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {
@@ -23,8 +23,8 @@ export default function SkillCard({ item }) {
     return (
         <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden flex flex-col h-full">
             <div className='flex flex-row gap-2 text-start items-center px-4 py-3 border-b border-tactical-border/50'>
-                {resolveIcon(item.icon) && (
-                    <GameIcon src={resolveIcon(item.icon)} alt="" size="w-10 h-10" className="rounded" />
+                {resolveAsset(item.icon) && (
+                    <GameIcon src={resolveAsset(item.icon)} alt="" size="w-10 h-10" className="rounded" />
                 )}
 
                 <div>

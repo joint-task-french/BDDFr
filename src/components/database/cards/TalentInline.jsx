@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { resolveIcon, WEAPON_TYPE_ICONS, GameIcon } from '../../common/gameAssets.jsx'
+import { resolveAsset, WEAPON_TYPE_ICONS, GameIcon } from '../../common/GameAssets.jsx'
 import MarkdownText from '../../common/MarkdownText'
 
 /**
@@ -10,7 +10,7 @@ import MarkdownText from '../../common/MarkdownText'
 export default function TalentInline({ talent, isExotic = false, allArmes, allEquipements, isNamed }) {
 
   if (!talent) return null
-  const icon = resolveIcon(talent.icon)
+  const icon = resolveAsset(talent.icon)
   const nameColor = talent.estExotique ? 'text-red-400' : 'text-shd'
   const isPerfectNamed = isNamed && talent.perfectDescription
 

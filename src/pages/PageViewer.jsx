@@ -28,7 +28,9 @@ function parseFrontmatter(rawContent) {
     return { metadata, content: match[2] };
 }
 
-const availablePages = Object.entries(markdownFiles).map(([path, rawContent]) => {
+const availablePages = Object.entries(markdownFiles)
+    .filter(([path]) => import.meta.env.DEV || !path.includes('.wip.'))
+    .map(([path, rawContent]) => {
     const id = path.split('/').pop().replace('.md', '');
     const { metadata, content } = parseFrontmatter(rawContent);
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { GameIcon, WEAPON_TYPE_ICONS, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveIcon } from '../common/gameAssets.jsx'
+import { GameIcon, WEAPON_TYPE_ICONS, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveAsset } from '../common/GameAssets.jsx'
 import {getWeaponTypeLabel, getGearSlotLabel, getAttrCategoryLabel, formatNumber, calculateMaxDamage, buildGearSlotLabels} from '../../utils/formatters'
 import { slugify } from "../../utils/slugify.js"
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
@@ -186,7 +186,7 @@ function EnsembleRow({ item, attributsType }) {
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">
-        <GameIcon src={resolveIcon(item.icon)} alt="" size="w-8 h-8" />
+        <GameIcon src={resolveAsset(item.icon)} alt="" size="w-8 h-8" />
       </div>
       <div className="flex flex-col min-w-0 w-48 md:w-80 flex-shrink-0">
         <div className={`font-bold text-sm uppercase truncate ${nameColor}`}>{item.nom}</div>
@@ -208,7 +208,7 @@ function SkillRow({ item }) {
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">
-        <GameIcon src={resolveIcon(item.icon)} alt="" size="w-8 h-8" />
+        <GameIcon src={resolveAsset(item.icon)} alt="" size="w-8 h-8" />
       </div>
       <div className="flex flex-col min-w-0 w-48 md:w-80 flex-shrink-0">
         <div className="font-bold text-sm uppercase truncate text-yellow-400">{item.variante}</div>
@@ -239,7 +239,7 @@ function TalentRow({ item }) {
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">
-        <GameIcon src={resolveIcon(item.icon)} alt="" size="w-8 h-8" />
+        <GameIcon src={resolveAsset(item.icon)} alt="" size="w-8 h-8" />
       </div>
       <div className={`font-bold text-sm uppercase truncate w-48 md:w-80 flex-shrink-0 ${nameColor}`}>{item.nom}</div>
     </>
@@ -265,7 +265,7 @@ function ModArmeRow({ item, armesType }) {
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">
-        <GameIcon src={resolveIcon(item.icon)} alt="" size="w-8 h-8" />
+        <GameIcon src={resolveAsset(item.icon)} alt="" size="w-8 h-8" />
       </div>
       <div className="flex flex-col min-w-0 w-48 md:w-80 flex-shrink-0">
         <div className={`font-bold text-sm uppercase truncate ${nameColor}`}>{item.nom}</div>
@@ -288,7 +288,7 @@ function ModEquipRow({ item }) {
 
 function ModSkillRow({ item, competencesGrouped }) {
   const skillName = competencesGrouped?.[item.competence]?.competence || item.competence
-  const skillIcon = resolveIcon(item.competence) || resolveIcon(item.icon)
+  const skillIcon = resolveAsset(item.competence) || resolveAsset(item.icon)
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">

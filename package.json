@@ -27,6 +27,7 @@
     "jszip": "^3.10.1",
     "lucide-react": "^1.7.0",
     "lz-string": "^1.5.0",
+    "mermaid": "^11.14.0",
     "puppeteer": "^24.40.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",

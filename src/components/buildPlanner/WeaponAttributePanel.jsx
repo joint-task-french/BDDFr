@@ -85,8 +85,8 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
           )
         })}
 
-        {/* Attribut classique libre (si pas exotique et si l'arme le permet) */}
-        {!isExotic && (
+        {/* Attribut classique libre (si l'arme le permet — y compris exotiques sans attributs prédéfinis) */}
+        {(!isExotic || !isClassicFixed) && (
             <AttributeSlider
                 attribute={attribute}
                 readOnly={isClassicFixed}

@@ -252,8 +252,10 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                 <span className={`italic ${isPrototype ? 'text-cyan-400' : 'text-shd'}`}>{item.attributUnique}</span>
               </div>
           )}
+
+
           {/* Attributs fixés (référençant attributs.jsonc) */}
-          {item.attributs?.length > 0 && item.attributs.some(attr => !!attr.nom) && (
+          {item.attributs?.length > 0 && (
               <div className="space-y-1 mt-1">
                 <span className="text-purple-400 font-bold uppercase tracking-widest text-xs">Attributs</span>
                 {item.attributs.filter(attr => !!attr.nom).map((attr, i) => {
@@ -288,23 +290,29 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                     </div>
                   )
                 })}
+                {/* Attributs aléatoires possibles */}
+                {(() => {
+                  const classicCount = getClassicSlotCount(item)
+                  const fixedCount = item.attributs?.filter(a => !!a.nom).length || 0
+                  const randomSlots = classicCount - fixedCount
+                  if (randomSlots <= 0) return null
+
+                  return (
+                      <div className="flex items-center text-xs mt-1">
+                  <span className="text-gray-500 italic">
+                    + {randomSlots} attribut{randomSlots > 1 ? 's' : ''} aléatoire{randomSlots > 1 ? 's' : ''}
+                  </span>
+                      </div>
+                  )
+                })()}
               </div>
           )}
-          {/* Attributs aléatoires possibles */}
-          {(() => {
-            const classicCount = getClassicSlotCount(item)
-            const fixedCount = item.attributs?.filter(a => !!a.nom).length || 0
-            const randomSlots = classicCount - fixedCount
-            if (randomSlots <= 0) return null
 
-            return (
-                <div className="flex items-center text-xs mt-1">
-                  <span className="text-gray-500 italic">
-                    {randomSlots} attribut{randomSlots > 1 ? 's' : ''} aléatoire{randomSlots > 1 ? 's' : ''}
-                  </span>
-                </div>
-            )
-          })()}
+
+
+
+        </div>
+        <div className="px-4 py-2.5 space-y-1 border-t border-tactical-border/50">
           {item.mod !== undefined && (
               <div className="flex items-start gap-2 text-xs">
                 <span className="text-gray-500 font-bold shrink-0 tracking-widest text-xs">Emplacement de mods: </span>

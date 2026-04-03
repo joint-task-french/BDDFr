@@ -254,23 +254,32 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
           )}
 
 
-          {/* Attributs fixés (référençant attributs.jsonc) */}
-          {item.attributs?.length > 0 && (
-              <div className="space-y-1 mt-1">
-                <span className="text-purple-400 font-bold uppercase tracking-widest text-xs">Attributs</span>
-                {item.attributs.filter(attr => !!attr.nom).map((attr, i) => {
-                  const ref = allAttributs && !Array.isArray(allAttributs)
-                    ? allAttributs[attr.nom]
-                    : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
-                  const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
-                  const pMax = ref?.prototypeMax ?? ref?.prototypeMax ?? ref?.max
-                  const max = isPrototype ? pMax : ref?.max
+          {/* Attributs (fixés + aléatoires) */}
+          {(() => {
+            const fixedAttrs = item.attributs?.filter(attr => !!attr.nom) || []
+            const fixedCount = fixedAttrs.length
+            const classicCount = getClassicSlotCount(item)
+            const randomSlots = classicCount - fixedCount
+            const hasFixed = fixedCount > 0
+            const hasRandom = randomSlots > 0
+            if (!hasFixed && !hasRandom) return null
 
-                  const pMin = ref?.prototypeMin ?? ref?.prototypeMin ?? ref?.max
-                  const min = isPrototype ? pMin : ref?.min || 0;
-                  const isOverMax = ref && val > max
-                  return (
-                    <div key={i} className="flex items-center justify-between text-xs">
+            return (
+                <div className="space-y-1 mt-1">
+                  <span className="text-purple-400 font-bold uppercase tracking-widest text-xs">Attributs</span>
+                  {fixedAttrs.map((attr, i) => {
+                    const ref = allAttributs && !Array.isArray(allAttributs)
+                      ? allAttributs[attr.nom]
+                      : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
+                    const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
+                    const pMax = ref?.prototypeMax ?? ref?.prototypeMax ?? ref?.max
+                    const max = isPrototype ? pMax : ref?.max
+
+                    const pMin = ref?.prototypeMin ?? ref?.prototypeMin ?? ref?.max
+                    const min = isPrototype ? pMin : ref?.min || 0;
+                    const isOverMax = ref && val > max
+                    return (
+                      <div key={i} className="flex items-center justify-between text-xs">
           <span className="flex items-center gap-1.5 text-shd">
             <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
             {ref?.nom || attr.nom}
@@ -287,26 +296,19 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
               </>
             )}
           </span>
-                    </div>
-                  )
-                })}
-                {/* Attributs aléatoires possibles */}
-                {(() => {
-                  const classicCount = getClassicSlotCount(item)
-                  const fixedCount = item.attributs?.filter(a => !!a.nom).length || 0
-                  const randomSlots = classicCount - fixedCount
-                  if (randomSlots <= 0) return null
-
-                  return (
-                      <div className="flex items-center text-xs mt-1">
-                  <span className="text-gray-500 italic">
-                    + {randomSlots} attribut{randomSlots > 1 ? 's' : ''} aléatoire{randomSlots > 1 ? 's' : ''}
-                  </span>
                       </div>
-                  )
-                })()}
-              </div>
-          )}
+                    )
+                  })}
+                  {hasRandom && (
+                    <div className="flex items-center text-xs">
+                      <span className="text-gray-400 italic">
+                        + {randomSlots} attribut{randomSlots > 1 ? 's' : ''} aléatoire{randomSlots > 1 ? 's' : ''}
+                      </span>
+                    </div>
+                  )}
+                </div>
+            )
+          })()}
 
 
 

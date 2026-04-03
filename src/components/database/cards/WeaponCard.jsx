@@ -191,34 +191,45 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
             </div>
         )}
 
-        {/* Attributs fixés */}
-        {item.attributs?.length > 0 && (
-            <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1">
-              {item.attributs.map((attr, i) => {
-                const ref = allAttributs && !Array.isArray(allAttributs) 
-                  ? allAttributs[attr.nom] 
-                  : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
-                const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
-                const pMax = ref?.maxPrototype ?? ref?.prototypeMax ?? ref?.max
-                const max = isPrototype ? pMax : ref?.max
-                const isOverMax = ref && val > max
-                const displayName = ref?.nom || attr.nom
+        {/* Attributs fixés + attributs aléatoires */}
+        {(() => {
+          const fixedAttrs = item.attributs?.length > 0 ? item.attributs : []
+          const randomSlots = Math.max(0, 1 - fixedAttrs.length)
+          if (fixedAttrs.length === 0 && randomSlots === 0) return null
 
-                return (
-                    <div key={i} className="flex items-center justify-between text-xs">
-                <span className="flex items-center gap-1.5 text-gray-400">
-                  <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
-                  {displayName}
-                </span>
-                      <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
-                  {val}{ref?.unite || ''}
-                        {isOverMax && <span className="ml-1 text-xs text-yellow-500">(max {max}{ref.unite})</span>}
-                </span>
+          return (
+              <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1">
+                {fixedAttrs.map((attr, i) => {
+                  const ref = allAttributs && !Array.isArray(allAttributs)
+                      ? allAttributs[attr.nom]
+                      : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
+                  const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
+                  const pMax = ref?.maxPrototype ?? ref?.prototypeMax ?? ref?.max
+                  const max = isPrototype ? pMax : ref?.max
+                  const isOverMax = ref && val > max
+                  const displayName = ref?.nom || attr.nom
+
+                  return (
+                      <div key={i} className="flex items-center justify-between text-xs">
+                        <span className="flex items-center gap-1.5 text-gray-400">
+                          <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
+                          {displayName}
+                        </span>
+                        <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
+                          {val}{ref?.unite || ''}
+                          {isOverMax && <span className="ml-1 text-xs text-yellow-500">(max {max}{ref.unite})</span>}
+                        </span>
+                      </div>
+                  )
+                })}
+                {randomSlots > 0 && (
+                    <div className="flex items-center text-xs">
+                      <span className="text-gray-500 italic">{randomSlots} attribut{randomSlots > 1 ? 's' : ''} aléatoire{randomSlots > 1 ? 's' : ''}</span>
                     </div>
-                )
-              })}
-            </div>
-        )}
+                )}
+              </div>
+          )
+        })()}
 
         {/* Talents résolus */}
         {resolvedTalents.length > 0 && (

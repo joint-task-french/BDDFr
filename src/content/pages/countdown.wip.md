@@ -2,13 +2,14 @@
 title: COMPTE À REBOURS
 description: Briefing tactique sur l'Opération Compte à Rebours (Centrale Pentco).
 tags: [guide]
+authors: [ocelus_ftnl]
 ---
 
 # RAPPORT D'OPÉRATION : COMPTE À REBOURS (Centrale Pentco)
 
 À l'attention de tous les agents de la Division. Voici votre briefing avant le déploiement.
 
-## 1.SITREP (Point de Situation)
+## 1. SITREP (Point de Situation)
 
 **Cible :** Centrale électrique de Pentco.
 **La Menace :** Une faction ennemie (Hyènes, True Sons, Nettoyeurs) a pris le contrôle du site. Pire encore, des "Chasseurs" d'élite (Hunters) supervisent l'opération.
@@ -22,7 +23,7 @@ Cette mission est une véritable course contre la montre. L'action est intense e
 - **Le Compte à Rebours :** Vous avez exactement 15 minutes. Pas une de plus.
 - **Le Butin _("Loot")_ :** Avant de lancer la mission, vous pouvez choisir sur votre carte quel type d'équipement vous voulez trouver en priorité (fusils d'assaut, sacs à dos, etc.). Les ennemis auront plus de chances de laisser tomber ce type d'équipement.
 
-Étapes de la mission :
+### Étapes de la mission :
 
 1. **Atterrissage :** À peine posés, vous tomberez nez à nez avec les premiers Chasseurs. Éliminez-les en équipe.
 2. **Objectifs de zone :** La centrale abrite 3 missions secondaires (ex: protéger un VIP, détruire des serveurs...). Vous devez en réussir au moins 2 pour débloquer la suite.
@@ -78,15 +79,15 @@ Ces contre-mesures enemies vous affecte de différentes façons, vous devez les 
 
 **Liste des contre-mesures :**
 
-| Nom                 | Effet actif                  | Effet désactivé                 |
-|---------------------|------------------------------|---------------------------------|
-| nom contre-mesure 1 | effet contre-mesure 1 activé | effet contre-mesure 1 désactivé |
-| nom contre-mesure 2 | effet contre-mesure 2 activé | effet contre-mesure 2 désactivé |
-| nom contre-mesure 3 | effet contre-mesure 3 activé | effet contre-mesure 3 désactivé |
-| nom contre-mesure 4 | effet contre-mesure 4 activé | effet contre-mesure 4 désactivé |
-| nom contre-mesure 5 | effet contre-mesure 5 activé | effet contre-mesure 5 désactivé |
-| nom contre-mesure 6 | effet contre-mesure 6 activé | effet contre-mesure 6 désactivé |
-| nom contre-mesure 7 | effet contre-mesure 7 activé | effet contre-mesure 7 désactivé |
+| icon                                  | Contre mesure active      | Description                          | icon                                 | Contre mesure désactivé          | description                              |
+|---------------------------------------|---------------------------|--------------------------------------|--------------------------------------|----------------------------------|------------------------------------------|
+| ![icon contremesure](slug:calibre12)  | Hostil Hazard Resistance  | Enemies gain 100% Hazard Resistance  | ![icon contremesure](slug:calibre12) | Status Effect Incrased           | Agents gain +25% status effects duration |
+| ![icon contremesure](slug:calibre12)  | nom contre-mesure 2       | effet contre-mesure 2 activé         | ![icon contremesure](slug:calibre12) | effet contre-mesure 2 désactivé  |                                          |
+| ![icon contremesure](slug:calibre12)  | nom contre-mesure 3       | effet contre-mesure 3 activé         | ![icon contremesure](slug:calibre12) | effet contre-mesure 3 désactivé  |                                          |
+| ![icon contremesure](slug:calibre12)  | nom contre-mesure 4       | effet contre-mesure 4 activé         | ![icon contremesure](slug:calibre12) | effet contre-mesure 4 désactivé  |                                          |
+| ![icon contremesure](slug:calibre12)  | nom contre-mesure 5       | effet contre-mesure 5 activé         | ![icon contremesure](slug:calibre12) | effet contre-mesure 5 désactivé  |                                          |
+| ![icon contremesure](slug:calibre12)  | nom contre-mesure 6       | effet contre-mesure 6 activé         | ![icon contremesure](slug:calibre12) | effet contre-mesure 6 désactivé  |                                          |
+| ![icon contremesure](slug:calibre12)  | nom contre-mesure 7       | effet contre-mesure 7 activé         | ![icon contremesure](slug:calibre12) | effet contre-mesure 7 désactivé  |                                          |
 
 Il est extrêmement recommandé de désactiver les terminaux affin de continuer la mission dans des conditions optimales.
 

@@ -39,6 +39,7 @@ const availablePages = Object.entries(markdownFiles)
         title: metadata.title || id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
         description: metadata.description || '',
         tags: metadata.tags || [],
+        authors: metadata.authors || [],
         content
     };
 });
@@ -86,15 +87,36 @@ export default function PageViewer() {
                             {currentPage.description}
                         </p>
                     )}
-                    {currentPage.tags.length > 0 && (
-                        <div className="flex flex-wrap gap-2 mt-4">
-                            {currentPage.tags.map(tag => (
-                                <span key={tag} className="px-2.5 py-1 bg-tactical-hover text-shd text-xs font-bold uppercase tracking-widest rounded border border-shd/30">
+
+
+                    <div className="flex flex-row py-1 text-xs font-bold mt-4 gap-4 items-center">
+                        <p className="text-sm">Tags :</p>
+                        {currentPage.tags.length > 0 && (
+                            <div className="flex flex-wrap gap-2">
+                                {currentPage.tags.map(tag => (
+                                    <span key={tag} className="px-2.5 py-1 bg-tactical-hover text-shd text-xs font-bold uppercase tracking-widest rounded border border-shd/30">
                                     {tag}
                                 </span>
-                            ))}
-                        </div>
-                    )}
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="flex flex-row py-1 text-xs font-bold gap-4 items-center">
+                        <p className="text-sm">Auteurs :</p>
+                        {currentPage.authors.length > 0 && (
+                            <div className="flex flex-wrap gap-2">
+                                {currentPage.authors.map(author => (
+                                    <span key={author} className="px-2.5 py-1 bg-tactical-hover text-shd text-xs font-bold uppercase tracking-widest rounded border border-shd/30">
+                                    {author}
+                                </span>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+
+
                 </div>
 
                 <MarkdownText className="w-full">
@@ -170,7 +192,7 @@ export default function PageViewer() {
                             </h3>
 
                             {page.description && (
-                                <p className="text-sm text-gray-500 line-clamp-3 flex-grow mb-4">
+                                <p className="text-sm text-gray-500 line-clamp-3 grow mb-4">
                                     {page.description}
                                 </p>
                             )}

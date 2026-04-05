@@ -27,30 +27,134 @@
         "arme": {
           "type": "object",
           "required": [
-            "nom"
+            "nom",
+            "type"
           ],
           "properties": {
             "nom": {
-              "type": "string"
+              "type": "string",
+              "description": "Nom de l'arme"
+            },
+            "description": {
+              "type": "string",
+              "description": "Texte de lore lié à l'arme"
+            },
+            "icon": {
+              "type": "string",
+              "pattern": "^[a-z0-9_]+$",
+              "description": "Slug du fichier icône dans game_assets/armes/specialisations/ (sans .png)"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "arme_specifique"
+              ],
+              "description": "Type/catégorie de l'arme (toujours arme_specifique pour les spécialisations)"
+            },
+            "fabricant": {
+              "type": "string",
+              "description": "Fabricant de l'arme"
             },
             "portee": {
-              "type": "number"
+              "type": "number",
+              "description": "Portée optimale en mètres"
             },
             "rpm": {
-              "type": "number"
+              "type": "integer",
+              "description": "Coups par minute"
             },
             "chargeur": {
-              "type": "number"
+              "type": "integer",
+              "description": "Taille du chargeur"
             },
             "rechargement": {
-              "type": "number"
+              "type": "number",
+              "description": "Temps de rechargement en secondes"
             },
             "headshot": {
               "type": "number",
-              "description": "Multiplicateur de headshot en pourcentage"
+              "description": "Multiplicateur de headshot en pourcentage (ex: 60 pour 60%)"
+            },
+            "attributs": {
+              "type": "array",
+              "description": "Attributs fixés par défaut sur cette arme, avec leur valeur spécifique. Le nom référence un attribut dans attributs.jsonc.",
+              "items": {
+                "type": "object",
+                "required": [
+                  "nom"
+                ],
+                "properties": {
+                  "nom": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9_]+$",
+                    "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)"
+                  },
+                  "valeur": {
+                    "type": "number",
+                    "description": "Valeur de l'attribut sur cette arme"
+                  }
+                }
+              }
+            },
+            "attributs_essentiels": {
+              "type": "array",
+              "description": "Écrase les attributs essentiels fixés par défaut sur cette arme, avec leur valeur spécifique. Le nom référence un attribut dans attributs.jsonc.",
+              "items": {
+                "type": "object",
+                "required": [
+                  "nom"
+                ],
+                "properties": {
+                  "nom": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9_]+$",
+                    "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)"
+                  },
+                  "valeur": {
+                    "type": "number",
+                    "description": "Valeur de l'attribut sur cette arme"
+                  }
+                }
+              }
             },
             "degatsBase": {
-              "type": "number"
+              "type": "integer",
+              "description": "Dégâts de base"
+            },
+            "estExotique": {
+              "type": "boolean",
+              "description": "True si arme exotique"
+            },
+            "estNomme": {
+              "type": "boolean",
+              "description": "True si arme nommée"
+            },
+            "talents": {
+              "type": "array",
+              "description": "Liste de slugs de talents",
+              "items": {
+                "pattern": "^[a-z0-9_]+$",
+                "type": "string"
+              }
+            },
+            "obtention": {
+              "type": "object",
+              "description": "Comment obtenir l'arme",
+              "properties": {
+                "description": {
+                  "type": "string",
+                  "description": "Description de comment obtenir l'objet"
+                }
+              }
+            },
+            "emplacementsMods": {
+              "type": "object",
+              "description": "Détail des emplacements spécifiques disponibles sur l'arme",
+              "additionalProperties": false
+            },
+            "notes": {
+              "type": "string",
+              "description": "Notes libres sur l'arme"
             }
           }
         }

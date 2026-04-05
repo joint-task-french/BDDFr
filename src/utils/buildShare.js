@@ -129,9 +129,9 @@ export function resolveBuild(compact, data) {
     for (const spec of specs) {
       if (spec.cle === id || spec.slug === id || spec.arme?.nom?.toLowerCase() === id.toLowerCase()) {
         return {
-          nom: spec.arme.nom, slug: spec.slug || spec.cle, type: 'arme_specifique',
-          portee: spec.arme.portee, rpm: spec.arme.rpm, chargeur: spec.arme.chargeur,
-          rechargement: spec.arme.rechargement, headshot: spec.arme.headshot, degatsBase: spec.arme.degatsBase,
+          ...spec.arme,
+          slug: spec.slug || spec.cle,
+          specialisation: spec.nom,
         }
       }
     }

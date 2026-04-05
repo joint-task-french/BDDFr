@@ -193,8 +193,8 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
 
         {/* Attributs fixés + attributs aléatoires */}
         {(() => {
-          const fixedAttrs = item.attributs?.length > 0 ? item.attributs : []
-          const randomSlots = Math.max(0, 1 - fixedAttrs.length)
+          const fixedAttrs = Array.isArray(item.attributs) ? item.attributs : []
+          const randomSlots = Array.isArray(item.attributs) ? 0 : 1
           if (fixedAttrs.length === 0 && randomSlots === 0) return null
 
           return (

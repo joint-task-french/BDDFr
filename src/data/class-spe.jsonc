@@ -7,12 +7,19 @@
     "arme": {
       "nom": "LANCE-GRENADES MULTIPLE M32A1",
       "icon": "m32a1",
+      "type": "arme_specifique",
+      "fabricant": "Milkor",
       "portee": 60,
       "rpm": 98,
       "chargeur": 6,
       "rechargement": 6.2,
       "headshot": 75,
-      "degatsBase": 1700000
+      "degatsBase": 1700000,
+      "estExotique": false,
+      "estNomme": false,
+      "talents": [],
+      "attributs": [],
+      "attributs_essentiels": []
     }
   },
   "survivaliste": {
@@ -22,12 +29,19 @@
     "arme": {
       "nom": "CARREAUX",
       "icon": "carreaux",
+      "type": "arme_specifique",
+      "fabricant": "DIVISION",
       "portee": 30,
       "rpm": 98,
       "chargeur": 1,
       "rechargement": 3,
       "headshot": 25,
-      "degatsBase": 3600000
+      "degatsBase": 3600000,
+      "estExotique": false,
+      "estNomme": false,
+      "talents": [],
+      "attributs": [],
+      "attributs_essentiels": []
     }
   },
   "tireur_elite": {
@@ -37,12 +51,19 @@
     "arme": {
       "nom": "FUSIL TAC-50",
       "icon": "tac50",
+      "type": "arme_specifique",
+      "fabricant": "McMillan",
       "portee": 70,
       "rpm": 41,
       "chargeur": 6,
       "rechargement": 3.2,
       "headshot": 200,
-      "degatsBase": 1400000
+      "degatsBase": 1400000,
+      "estExotique": false,
+      "estNomme": false,
+      "talents": [],
+      "attributs": [],
+      "attributs_essentiels": []
     }
   },
   "artilleur": {
@@ -52,12 +73,19 @@
     "arme": {
       "nom": "MINIGUN",
       "icon": "minigun",
+      "type": "arme_specifique",
+      "fabricant": "DIVISION",
       "portee": 35,
       "rpm": 100,
       "chargeur": 150,
       "rechargement": 1.7,
       "headshot": 65,
-      "degatsBase": 84600
+      "degatsBase": 84600,
+      "estExotique": false,
+      "estNomme": false,
+      "talents": [],
+      "attributs": [],
+      "attributs_essentiels": []
     }
   },
   "technicien": {
@@ -67,12 +95,19 @@
     "arme": {
       "nom": "LANCEUR P-017",
       "icon": "p017",
+      "type": "arme_specifique",
+      "fabricant": "DIVISION",
       "portee": 60,
       "rpm": 98,
       "chargeur": 6,
       "rechargement": 3.5,
       "headshot": 75,
-      "degatsBase": 1800000
+      "degatsBase": 1800000,
+      "estExotique": false,
+      "estNomme": false,
+      "talents": [],
+      "attributs": [],
+      "attributs_essentiels": []
     }
   },
   "incendiaire": {
@@ -82,12 +117,19 @@
     "arme": {
       "nom": "LANCE-FLAMMES K8-JETSTREAM",
       "icon": "k8_jetstream",
+      "type": "arme_specifique",
+      "fabricant": "DIVISION",
       "portee": 35,
       "rpm": 500,
       "chargeur": 50,
       "rechargement": 3.3,
       "headshot": 65,
-      "degatsBase": 303600
+      "degatsBase": 303600,
+      "estExotique": false,
+      "estNomme": false,
+      "talents": [],
+      "attributs": [],
+      "attributs_essentiels": []
     }
   }
 }

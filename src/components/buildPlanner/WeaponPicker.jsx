@@ -34,14 +34,8 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
         const rawClassSpe = data.classSpe || {}
         const classSpeList = Array.isArray(rawClassSpe) ? rawClassSpe : Object.values(rawClassSpe)
         return classSpeList.map(spec => ({
-          nom: spec.arme.nom,
-          type: 'arme_specifique',
-          portee: spec.arme.portee,
-          rpm: spec.arme.rpm,
-          chargeur: spec.arme.chargeur,
-          rechargement: spec.arme.rechargement,
-          headshot: spec.arme.headshot,
-          degatsBase: spec.arme.degatsBase,
+          ...spec.arme,
+          specialisation: spec.nom,
           _specCle: spec.cle,
           _specNom: spec.nom,
           _specIcone: spec.icon,

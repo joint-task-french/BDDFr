@@ -7,6 +7,9 @@ authors: [ocelus_ftnl]
 
 # Tout savoir sur le Mode Escalade et l'Équipement Prototype (Mise à jour TU28 - Y8S1)
 
+> **Attention :** A l'heure actuel, il est peu conseillé d'améliorer les équipements avec un tiers de compétences.
+> Économisez vos composants en attendant une mise à jour du jeu, les développeurs travaillent dessus !
+
 Avec l'arrivée de la mise à jour TU28 (Année 8, Saison 1), de nouvelles mécaniques de jeu font leur apparition, apportant leur lot de défis et de récompenses inédites. Si vous vous demandez comment fonctionne le nouveau mode **Escalade** ou comment optimiser le tout nouvel **Équipement Prototype**, vous êtes au bon endroit.
 
 Voici un guide complet et détaillé rassemblant toutes les statistiques, probabilités et coûts de ces nouveautés.

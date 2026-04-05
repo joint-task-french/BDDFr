@@ -108,7 +108,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
         {/* Header : Nom + Type + Fabricant */}
         <div className={`px-4 py-3 border-b ${isPrototype ? 'border-cyan-500/30 bg-cyan-500/5' : 'border-tactical-border/50'} flex flex-col gap-1`}>
           <div className="flex flex-row gap-2">
-            <GameIcon src={typeIcon} alt={item.type} size="w-10 h-10" className={ isSpecific ? '' : 'opacity-60' } />
+            <GameIcon src={typeIcon} alt={item.type} size="w-10 h-10" className={ isSpecific ? '' : 'opacity-60' }  color={ isSpecific ? 'text-shd' : ''} />
             <div className="w-full">
               <div className={`font-bold text-base uppercase tracking-wide ${nameColor} flex items-center gap-2 justify-between`}>
             <span>

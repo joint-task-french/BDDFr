@@ -1,4 +1,4 @@
-import { resolveAttributeIcon, GameIcon } from '../../common/GameAssets.jsx'
+import { resolveAttribut, resolveAsset, GameIcon } from '../../common/GameAssets.jsx'
 import { getAttrCategoryLabel } from '../../../utils/formatters'
 import MarkdownText from '../../common/MarkdownText'
 
@@ -19,7 +19,7 @@ const CIBLE_LABELS = {
 
 export default function AttributCard({ item, attributsType }) {
   const catColor = CATEGORIE_COLORS[item.categorie] || 'text-gray-400 bg-gray-500/10 border-gray-500/30'
-  const icon = resolveAttributeIcon(item.categorie)
+  const icon = resolveAsset(resolveAttribut(item))
   const essentialColor = item.estEssentiel ? 'text-shd' : 'text-white'
 
 

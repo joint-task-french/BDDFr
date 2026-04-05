@@ -1,8 +1,8 @@
-import { resolveAttributeIcon, GameIcon } from '../common/GameAssets.jsx'
+import { resolveAttribut, resolveAsset, GameIcon } from '../common/GameAssets.jsx'
 
 const CAT_COLORS = {
   offensif: 'text-red-400',
-  'défensif': 'text-blue-400',
+  defensif: 'text-blue-400',
   utilitaire: 'text-yellow-400',
 }
 
@@ -26,7 +26,7 @@ export default function AttributeSlider({ attribute, onChange, onPick, onRemove,
     )
   }
 
-  const icon = resolveAttributeIcon(attribute.categorie || attribute.nom)
+  const icon = resolveAsset(resolveAttribut(attribute))
   const color = isPrototype ? 'text-cyan-400' : (CAT_COLORS[attribute.categorie] || 'text-gray-400')
 
   // La valeur est ajustable sauf en readOnly

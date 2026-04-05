@@ -187,7 +187,7 @@ export const FIELDS = {
       { key: 'descente_boucles', label: 'Boucles (Descente)', type: 'array', visibleWhen: { key: 'hasDescente', value: true } },
       { key: 'descente_categorie', label: 'Catégorie (Descente)', type: 'radioGroup', options: [
           { value: 'offensif', label: 'Offensif' },
-          { value: 'défensif', label: 'Défensif' },
+          { value: 'defensif', label: 'Défensif' },
           { value: 'utilitaire', label: 'Utilitaire' },
           { value: 'exotique', label: 'Exotique' },
         ], visibleWhen: { key: 'hasDescente', value: true } },
@@ -220,7 +220,7 @@ export const FIELDS = {
       { key: 'descente_boucles', label: 'Boucles (Descente)', type: 'array', visibleWhen: { key: 'hasDescente', value: true } },
       { key: 'descente_categorie', label: 'Catégorie (Descente)', type: 'radioGroup', options: [
           { value: 'offensif', label: 'Offensif' },
-          { value: 'défensif', label: 'Défensif' },
+          { value: 'defensif', label: 'Défensif' },
           { value: 'utilitaire', label: 'Utilitaire' },
           { value: 'exotique', label: 'Exotique' },
         ], visibleWhen: { key: 'hasDescente', value: true } },
@@ -791,7 +791,7 @@ export function generateEquipmentSet(ensembleData, equipementsType) {
   const attrs = ensembleData.attributsEssentiels || []
   const attrEss = attrs.map(a => {
     const n = a.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    return n === 'offensif' ? 'offensif' : n === 'defensif' ? 'défensif' : 'utilitaire'
+    return n === 'offensif' ? 'offensif' : n === 'defensif' ? 'defensif' : 'utilitaire'
   })
 
   const SLOTS = equipementsType ? Object.keys(equipementsType) : ['masque', 'torse', 'holster', 'sac_a_dos', 'gants', 'genouilleres']

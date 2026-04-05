@@ -90,6 +90,13 @@ export function useDataLoader() {
           result[key] = rawData
         }
 
+        // Enrichissement data-driven : les items issus de mods-equipements.jsonc sont des mods
+        if (key === 'modsEquipements' && result[key] && typeof result[key] === 'object') {
+          Object.values(result[key]).forEach(item => {
+            if (item && typeof item === 'object') item.estMod = true
+          })
+        }
+
         setProgress(Math.round(((i + 1) / entries.length) * 100))
       }
 
@@ -106,20 +113,8 @@ export function useDataLoader() {
 
       if (result.classSpe && result.armes) {
         const specWeapons = Object.values(result.classSpe).map(spec => ({
-          nom: spec.arme.nom,
+          ...spec.arme,
           slug: slugify(spec.arme.nom),
-          type: 'arme_specifique',
-          fabricant: spec.nom,
-          portee: spec.arme.portee,
-          rpm: spec.arme.rpm,
-          chargeur: spec.arme.chargeur,
-          rechargement: spec.arme.rechargement,
-          headshot: spec.arme.headshot,
-          degatsBase: spec.arme.degatsBase,
-          icon: spec.arme.icon,
-          estExotique: false,
-          estNomme: false,
-          talents: [],
           specialisation: spec.nom,
         }))
 

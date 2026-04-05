@@ -71,10 +71,28 @@ export default function MarkdownText({ children, className = "" }) {
                     img: ({node, src, alt, ...props}) => {
                         if (!src) return null;
 
-                        const forceInline = src.includes('#inline');
+                        let multiplier = 1;
+
+                        // Capture #inline, #inline-2, ou #inline-[1.5]
+                        const inlineRegex = /#inline(?:-(?:\[([0-9.]+)]|([0-9.]+)))?/;
+                        const inlineMatch = src.match(inlineRegex);
+                        const forceInline = !!inlineMatch;
                         const forceBlock = src.includes('#block');
 
-                        const cleanSrc = src.replace('#inline', '').replace('#block', '');
+                        // Extraction du multiplicateur
+                        if (inlineMatch) {
+                            // Match 1 = entre crochets [], Match 2 = chiffre direct
+                            const val = inlineMatch[1] || inlineMatch[2];
+                            if (val) {
+                                const parsed = parseFloat(val);
+                                if (!isNaN(parsed)) {
+                                    multiplier = parsed;
+                                }
+                            }
+                        }
+
+                        // Nettoyage de l'URL
+                        const cleanSrc = src.replace(inlineRegex, '').replace('#block', '');
 
                         let isInline = forceInline || (cleanSrc.startsWith('slug:') && !forceBlock);
                         let imageUrl = cleanSrc;
@@ -86,15 +104,21 @@ export default function MarkdownText({ children, className = "" }) {
                             if (!imageUrl) return null;
                         }
 
+                        // Suppression de h-[1.2em] des classes pour pouvoir gérer la taille via l'attribut style
                         const classes = isInline
-                            ? "h-[1.2em] w-auto inline-block align-middle mx-1 -mt-1 rounded-sm object-contain"
+                            ? "w-auto inline-block align-middle mx-1 -mt-1 rounded-sm object-contain"
                             : "max-w-full h-auto rounded border border-tactical-border my-4 block mx-auto cursor-zoom-in hover:border-shd transition-colors";
 
                         const { src: _origSrc, alt: _origAlt, ...safeProps } = props;
+
+                        // Calcul et application du multiplicateur sur la hauteur de base (1.2em)
+                        const styles = isInline ? { height: `${1.2 * multiplier}em` } : {};
+
                         return (
                             <img
                                 {...safeProps}
                                 className={classes}
+                                style={styles}
                                 loading="lazy"
                                 alt={alt || ''}
                                 src={imageUrl}

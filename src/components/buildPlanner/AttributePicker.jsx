@@ -1,9 +1,9 @@
 import { useState, useMemo, useEffect } from 'react'
-import { resolveAttributeIcon, GameIcon } from '../common/GameAssets.jsx'
+import { resolveAttribut, resolveAsset, GameIcon } from '../common/GameAssets.jsx'
 
 const CAT_COLORS = {
   offensif: 'text-red-400',
-  'défensif': 'text-blue-400',
+  defensif: 'text-blue-400',
   utilitaire: 'text-yellow-400',
 }
 
@@ -77,7 +77,7 @@ export default function AttributePicker({ attributs, cible, categorie, essentiel
               onClick={() => onSelect({ ...attr, valeur: attr.max })}
               className="w-full text-left px-3 py-2.5 rounded hover:bg-shd/10 transition-colors flex items-center gap-3 group"
             >
-              <GameIcon src={resolveAttributeIcon(attr.categorie)} alt="" size="w-4 h-4" className="opacity-60" />
+              <GameIcon src={resolveAsset(resolveAttribut(attr))} alt="" size="w-4 h-4" className="opacity-60" />
               <div className="flex-1 min-w-0">
                 <div className="text-sm text-white group-hover:text-shd transition-colors">{attr.nom}</div>
                 <div className="text-xs text-gray-600">

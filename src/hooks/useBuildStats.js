@@ -13,13 +13,12 @@ function resolveCoreCategory(essentialName, attributs) {
   const slugMap = {
     'degats_arme': 'offensif',
     'degats_armes': 'offensif',
-    'protection': 'défensif',
+    'protection': 'defensif',
     'tiers_de_competence': 'utilitaire',
     'tier_de_competence': 'utilitaire',
     'offensif': 'offensif',
-    'defensif': 'défensif',
-    'utilitaire': 'utilitaire',
-    'défensif': 'défensif'
+    'defensif': 'defensif',
+    'utilitaire': 'utilitaire'
   }
   if (slugMap[norm] || slugMap[essentialName]) return slugMap[norm] || slugMap[essentialName]
 

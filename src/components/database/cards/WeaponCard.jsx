@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
 import { getWeaponTypeLabel, getWeaponEssentialAttributes, formatNumber, calculateMaxDamage } from '../../../utils/formatters'
-import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon, resolveAsset } from '../../common/GameAssets.jsx'
+import { WEAPON_TYPE_ICONS, resolveAttribut, GameIcon, resolveAsset } from '../../common/GameAssets.jsx'
 import { formatModAttributs } from '../../../utils/modCompatibility'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
@@ -180,7 +180,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                 return (
                   <div key={i} className="flex items-center justify-between text-xs">
               <span className="flex items-center gap-1.5 text-gray-400">
-                <GameIcon src={resolveAttributeIcon(attr.categorie)} alt="" size="w-3 h-3" />
+                <GameIcon src={resolveAsset(resolveAttribut(attr))} alt="" size="w-3 h-3" />
                 {attr.nom}
               </span>
                     <span className={`font-bold ${isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
@@ -193,8 +193,8 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
 
         {/* Attributs fixés + attributs aléatoires */}
         {(() => {
-          const fixedAttrs = item.attributs?.length > 0 ? item.attributs : []
-          const randomSlots = Math.max(0, 1 - fixedAttrs.length)
+          const fixedAttrs = Array.isArray(item.attributs) ? item.attributs : []
+          const randomSlots = Array.isArray(item.attributs) ? 0 : 1
           if (fixedAttrs.length === 0 && randomSlots === 0) return null
 
           return (
@@ -212,7 +212,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                   return (
                       <div key={i} className="flex items-center justify-between text-xs">
                         <span className="flex items-center gap-1.5 text-gray-400">
-                          <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
+                          <GameIcon src={resolveAsset(resolveAttribut(ref || { categorie: attr.nom }))} alt="" size="w-3 h-3" />
                           {displayName}
                         </span>
                         <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>

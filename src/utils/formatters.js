@@ -40,7 +40,7 @@ export function getGearSlotEmoji(eqType, key) {
  * Retourne le label d'une catégorie d'attribut depuis attributs_type.
  * Gère les variantes avec/sans accent (défensif → defensif).
  * @param {Object} attrType - Le contenu de attributs-type.jsonc (clé slug → objet)
- * @param {string} key - La clé de la catégorie (ex: 'offensif', 'défensif' ou 'defensif')
+ * @param {string} key - La clé de la catégorie (ex: 'offensif', 'defensif' ou 'defensif')
  * @returns {string}
  */
 export function getAttrCategoryLabel(attrType, key) {

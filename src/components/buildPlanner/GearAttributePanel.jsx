@@ -71,19 +71,19 @@ function mapEssentialNames(names) {
     // Slugs utilisés dans ensembles.jsonc
     'degats_arme': 'offensif',
     'degats_armes': 'offensif',
-    'protection': 'défensif',
+    'protection': 'defensif',
     'tiers_de_competence': 'utilitaire',
     'tier_de_competence': 'utilitaire',
     // Noms textuels
     "Dégâts d'armes": 'offensif',
     "Dégâts d'arme": 'offensif',
-    'Protection': 'défensif',
+    'Protection': 'defensif',
     'Tier de compétence': 'utilitaire',
     'Tiers de compétence': 'utilitaire',
     // Valeurs directes
     'offensif': 'offensif',
-    'defensif': 'défensif',
-    'défensif': 'défensif',
+    'defensif': 'defensif',
+    'défensif': 'defensif',
     'utilitaire': 'utilitaire'
   }
   return names.map(n => map[n] || n).filter(Boolean)

@@ -1,7 +1,7 @@
 import {useMemo, useState, useEffect} from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
 import {getAttrCategoryLabel, getGearSlotLabel, formatNumber} from '../../../utils/formatters'
-import {GameIcon, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveAsset} from '../../common/GameAssets.jsx'
+import {GameIcon, GEAR_SLOT_ICONS_IMG, resolveAttribut, resolveAsset} from '../../common/GameAssets.jsx'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
 import MarkdownText from '../../common/MarkdownText'
@@ -230,7 +230,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                     return (
                         <div key={i} className="text-xs flex items-center gap-1.5 justify-between">
                           <div className="flex items-center gap-1.5 text-shd">
-                            <GameIcon src={resolveAttributeIcon(attr.slug)} alt="" size="w-3.5 h-3.5" />
+                            <GameIcon src={resolveAsset(resolveAttribut(attr.ref || { categorie: attr.slug, estEssentiel: true }))} alt="" size="w-3.5 h-3.5" />
                             <span className="opacity-80">{attr.label} :</span>
                           </div>
                           <span className={`font-bold ${isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
@@ -252,25 +252,36 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                 <span className={`italic ${isPrototype ? 'text-cyan-400' : 'text-shd'}`}>{item.attributUnique}</span>
               </div>
           )}
-          {/* Attributs fixés (référençant attributs.jsonc) */}
-          {item.attributs?.length > 0 && item.attributs.some(attr => !!attr.nom) && (
-              <div className="space-y-1 mt-1">
-                <span className="text-purple-400 font-bold uppercase tracking-widest text-xs">Attributs</span>
-                {item.attributs.filter(attr => !!attr.nom).map((attr, i) => {
-                  const ref = allAttributs && !Array.isArray(allAttributs)
-                    ? allAttributs[attr.nom]
-                    : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
-                  const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
-                  const pMax = ref?.prototypeMax ?? ref?.prototypeMax ?? ref?.max
-                  const max = isPrototype ? pMax : ref?.max
 
-                  const pMin = ref?.prototypeMin ?? ref?.prototypeMin ?? ref?.max
-                  const min = isPrototype ? pMin : ref?.min || 0;
-                  const isOverMax = ref && val > max
-                  return (
-                    <div key={i} className="flex items-center justify-between text-xs">
+
+          {/* Attributs (fixés + aléatoires) */}
+          {(() => {
+            const fixedAttrs = item.attributs?.filter(attr => !!attr.nom) || []
+            const fixedCount = fixedAttrs.length
+            const classicCount = getClassicSlotCount(item)
+            const randomSlots = classicCount - fixedCount
+            const hasFixed = fixedCount > 0
+            const hasRandom = randomSlots > 0
+            if (!hasFixed && !hasRandom) return null
+
+            return (
+                <div className="space-y-1 mt-1">
+                  <span className="text-purple-400 font-bold uppercase tracking-widest text-xs">Attributs</span>
+                  {fixedAttrs.map((attr, i) => {
+                    const ref = allAttributs && !Array.isArray(allAttributs)
+                      ? allAttributs[attr.nom]
+                      : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
+                    const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
+                    const pMax = ref?.prototypeMax ?? ref?.prototypeMax ?? ref?.max
+                    const max = isPrototype ? pMax : ref?.max
+
+                    const pMin = ref?.prototypeMin ?? ref?.prototypeMin ?? ref?.max
+                    const min = isPrototype ? pMin : ref?.min || 0;
+                    const isOverMax = ref && val > max
+                    return (
+                      <div key={i} className="flex items-center justify-between text-xs">
           <span className="flex items-center gap-1.5 text-shd">
-            <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
+            <GameIcon src={resolveAsset(resolveAttribut(ref || { categorie: attr.nom }))} alt="" size="w-3 h-3" />
             {ref?.nom || attr.nom}
           </span>
           <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
@@ -285,26 +296,25 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
               </>
             )}
           </span>
+                      </div>
+                    )
+                  })}
+                  {hasRandom && (
+                    <div className="flex items-center text-xs">
+                      <span className="text-gray-400 italic">
+                        + {randomSlots} attribut{randomSlots > 1 ? 's' : ''} aléatoire{randomSlots > 1 ? 's' : ''}
+                      </span>
                     </div>
-                  )
-                })}
-              </div>
-          )}
-          {/* Attributs aléatoires possibles */}
-          {(() => {
-            const classicCount = getClassicSlotCount(item)
-            const fixedCount = item.attributs?.filter(a => !!a.nom).length || 0
-            const randomSlots = classicCount - fixedCount
-            if (randomSlots <= 0) return null
-
-            return (
-                <div className="flex items-center text-xs mt-1">
-                  <span className="text-gray-500 italic">
-                    {randomSlots} attribut{randomSlots > 1 ? 's' : ''} aléatoire{randomSlots > 1 ? 's' : ''}
-                  </span>
+                  )}
                 </div>
             )
           })()}
+
+
+
+
+        </div>
+        <div className="px-4 py-2.5 space-y-1 border-t border-tactical-border/50">
           {item.mod !== undefined && (
               <div className="flex items-start gap-2 text-xs">
                 <span className="text-gray-500 font-bold shrink-0 tracking-widest text-xs">Emplacement de mods: </span>

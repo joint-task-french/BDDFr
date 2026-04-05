@@ -21,7 +21,7 @@ export default function Sidebar({ open, onClose }) {
         <div className="p-4 sm:p-6 border-b border-tactical-border flex justify-between items-center shrink-0">
           <div className="flex items-center gap-2">
             <JTFrLogo className="w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12" />
-            <h1 className="text-xl sm:text-2xl font-bold text-white tracking-widest uppercase">
+            <h1 className="text-xl sm:text-2xl font-bold text-white tracking-widest">
               Réseau <span className="text-shd">SHD</span>: <span className='text-blue-700'>JT</span><span className='text-white'>F</span><span className='text-red-500'>r</span>
             </h1>
           </div>

@@ -1,4 +1,4 @@
-import {resolveAttributeIcon, GameIcon, resolveAsset} from '../../common/GameAssets.jsx'
+import {resolveAttribut, resolveAsset, GameIcon} from '../../common/GameAssets.jsx'
 import TalentInline from './TalentInline'
 import MarkdownText from '../../common/MarkdownText'
 
@@ -71,12 +71,16 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques, a
               {/* Attributs essentiels */}
               {item.attributsEssentiels && item.attributsEssentiels.length > 0 && (
                   <div className="flex flex-wrap gap-1 mt-1.5">
-                    {item.attributsEssentiels.map((attr, i) => (
+                    {item.attributsEssentiels.map((attrSlug, i) => {
+                      const attrList = Array.isArray(allAttributs) ? allAttributs : Object.values(allAttributs || {})
+                      const attrObj = attrList.find(a => a.slug === attrSlug)
+                      return (
                         <span key={i} className="text-xs font-bold uppercase tracking-widest bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded flex items-center gap-1">
-                    <GameIcon src={resolveAttributeIcon(attr)} alt="" size="w-3 h-3" />
-                          {resolveAttrName(attr)}
-                  </span>
-                    ))}
+                          <GameIcon src={resolveAsset(resolveAttribut(attrObj || { categorie: attrSlug, estEssentiel: true }))} alt="" size="w-3 h-3" />
+                          {resolveAttrName(attrSlug)}
+                        </span>
+                      )
+                    })}
                   </div>
               )}
             </div>

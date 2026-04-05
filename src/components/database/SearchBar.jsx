@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-export default function SearchBar({ value, onChange }) {
+export default function SearchBar({ value, onChange, placeholder = "Rechercher dans la catégorie..." }) {
     const [localValue, setLocalValue] = useState(value || '')
     const lastSentValue = useRef(value || '')
 
@@ -31,7 +31,7 @@ export default function SearchBar({ value, onChange }) {
                 type="text"
                 value={localValue}
                 onChange={e => setLocalValue(e.target.value)}
-                placeholder="Rechercher dans la catégorie..."
+                placeholder={placeholder}
                 className="w-full pl-10 pr-4 py-2.5 bg-tactical-panel border border-tactical-border rounded text-gray-200 placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-shd text-sm uppercase tracking-wide"
             />
             {localValue && (

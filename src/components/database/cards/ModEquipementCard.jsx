@@ -1,5 +1,5 @@
 import React from 'react'
-import {GameIcon, resolveAttributeIcon} from "../../common/GameAssets.jsx";
+import {GameIcon, resolveAttribut, resolveAsset} from '../../common/GameAssets.jsx'
 import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {
@@ -7,7 +7,7 @@ function hasContent(v) {
 }
 
 export default function ModEquipementCard({ item, allAttributs }) {
-  const icon = resolveAttributeIcon(item.categorie)
+  const icon = resolveAsset(resolveAttribut(item))
 
   const attributs = Array.isArray(item.attributs) ? item.attributs.map(entry => {
     let attrDef = null

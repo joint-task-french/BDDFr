@@ -279,7 +279,7 @@ function ModEquipRow({ item }) {
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">
-        <GameIcon src={resolveAsset(resolveAttribut({ categorie: item.attribut, cible: ['mod_equipement'] }))} alt="" size="w-8 h-8" />
+        <GameIcon src={resolveAsset(resolveAttribut(item))} alt="" size="w-8 h-8" />
       </div>
       <div className="font-bold text-sm uppercase truncate text-shd w-48 md:w-80 flex-shrink-0">{item.nom}</div>
     </>

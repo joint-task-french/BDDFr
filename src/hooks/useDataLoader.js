@@ -90,6 +90,13 @@ export function useDataLoader() {
           result[key] = rawData
         }
 
+        // Enrichissement data-driven : les items issus de mods-equipements.jsonc sont des mods
+        if (key === 'modsEquipements' && result[key] && typeof result[key] === 'object') {
+          Object.values(result[key]).forEach(item => {
+            if (item && typeof item === 'object') item.estMod = true
+          })
+        }
+
         setProgress(Math.round(((i + 1) / entries.length) * 100))
       }
 

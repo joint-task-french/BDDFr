@@ -62,7 +62,7 @@ export const GEAR_SLOT_ICONS_IMG = {
  *  - Attribut mod               → "mod_{categorie}"       (ex: mod_utilitaire)
  *  - Attribut classique         → "attribut_{categorie}"  (ex: attribut_defensif)
  *
- * @param {{ categorie?: string, estEssentiel?: boolean, cible?: string[] }} attr
+ * @param {{ categorie?: string, estEssentiel?: boolean, estMod?: boolean }} attr
  * @returns {string|null} slug utilisable avec resolveAsset()
  */
 export function resolveAttribut(attr) {
@@ -71,8 +71,7 @@ export function resolveAttribut(attr) {
   if (!cat) return null
   const normalizedCat = cat.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
   if (attr.estEssentiel) return `essentiel_${normalizedCat}`
-  const isMod = Array.isArray(attr.cible) && attr.cible.length > 0 && attr.cible.every(c => c.startsWith('mod_'))
-  if (isMod) return `mod_${normalizedCat}`
+  if (attr.estMod) return `mod_${normalizedCat}`
   return `attribut_${normalizedCat}`
 }
 

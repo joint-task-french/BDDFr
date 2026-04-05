@@ -215,50 +215,51 @@ export default function PageViewer() {
                     <SearchBar value={searchTerm} onChange={setSearchTerm} />
                 </div>
 
-                <div className="flex flex-wrap items-center gap-2">
-                    {allTags.length > 0 && (
-                        <>
-                            <span className="text-xs font-bold uppercase tracking-widest text-gray-400">Tags :</span>
-                            {selectedTags.length > 0 && (
-                                <button
-                                    onClick={() => setSelectedTags([])}
-                                    className="px-2 py-1.5 text-xs font-bold uppercase tracking-widest rounded border transition-all duration-200 bg-red-500/10 text-red-400 border-red-500/30 hover:bg-red-500/20"
-                                    title="Réinitialiser les filtres"
-                                >
-                                    ✕
-                                </button>
-                            )}
-                            {allTags.map(tag => {
-                                const isSelected = selectedTags.includes(tag);
-                                const count = dynamicTagCounts[tag] || 0;
-                                const isDisabled = !isSelected && count === 0;
-
-                                return (
+                <div className="flex flex-col gap-3">
+                    <div className="flex flex-wrap items-center gap-2">
+                        {allTags.length > 0 && (
+                            <>
+                                <span className="text-xs font-bold uppercase tracking-widest text-gray-400 w-10 shrink-0">Tags :</span>
+                                {selectedTags.length > 0 && (
                                     <button
-                                        key={tag}
-                                        onClick={() => !isDisabled && setSelectedTags(prev =>
-                                            prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
-                                        )}
-                                        className={`px-3 py-1.5 text-xs font-bold uppercase tracking-widest rounded border transition-all duration-200 ${
-                                            isSelected
-                                                ? 'bg-shd/20 text-shd border-shd/40'
-                                                : isDisabled
-                                                    ? 'bg-tactical-panel/50 text-gray-600 border-tactical-border/50 cursor-not-allowed opacity-50'
-                                                    : 'bg-tactical-panel text-gray-400 border-tactical-border hover:border-gray-500 hover:text-gray-300'
-                                        }`}
-                                        disabled={isDisabled}
+                                        onClick={() => setSelectedTags([])}
+                                        className="px-2 py-1.5 text-xs font-bold uppercase tracking-widest rounded border transition-all duration-200 bg-red-500/10 text-red-400 border-red-500/30 hover:bg-red-500/20"
+                                        title="Réinitialiser les filtres"
                                     >
-                                        {tag} <span className="text-[10px] opacity-60">({count})</span>
+                                        ✕
                                     </button>
-                                );
-                            })}
-                        </>
-                    )}
-                </div>
+                                )}
+                                {allTags.map(tag => {
+                                    const isSelected = selectedTags.includes(tag);
+                                    const count = dynamicTagCounts[tag] || 0;
+                                    const isDisabled = !isSelected && count === 0;
 
-                <div className="flex items-center gap-2 mt-3">
-                    <span className="text-xs font-bold uppercase tracking-widest text-gray-400">Tri :</span>
-                    <div className="relative">
+                                    return (
+                                        <button
+                                            key={tag}
+                                            onClick={() => !isDisabled && setSelectedTags(prev =>
+                                                prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
+                                            )}
+                                            className={`px-3 py-1.5 text-xs font-bold uppercase tracking-widest rounded border transition-all duration-200 ${
+                                                isSelected
+                                                    ? 'bg-shd/20 text-shd border-shd/40'
+                                                    : isDisabled
+                                                        ? 'bg-tactical-panel/50 text-gray-600 border-tactical-border/50 cursor-not-allowed opacity-50'
+                                                        : 'bg-tactical-panel text-gray-400 border-tactical-border hover:border-gray-500 hover:text-gray-300'
+                                            }`}
+                                            disabled={isDisabled}
+                                        >
+                                            {tag} <span className="text-[10px] opacity-60">({count})</span>
+                                        </button>
+                                    );
+                                })}
+                            </>
+                        )}
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold uppercase tracking-widest text-gray-400 w-10 shrink-0">Tri :</span>
+                        <div className="relative">
                         <button
                             onClick={() => setSortOpen(!sortOpen)}
                             className={`flex items-center gap-2 px-3 py-1.5 rounded text-xs font-bold uppercase tracking-widest border transition-all duration-200 ${
@@ -294,6 +295,7 @@ export default function PageViewer() {
                                 ))}
                             </div>
                         )}
+                    </div>
                     </div>
                 </div>
             </div>

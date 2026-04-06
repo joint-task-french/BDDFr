@@ -43,12 +43,14 @@ const DATA_FILES_MAP = {
   talentsAutres: 'talents-autres.jsonc',
   talentsEquipements: 'talents-equipements.jsonc',
   talentsPrototypes: 'talents-prototypes.jsonc',
+  missions: 'missions.jsonc',
 }
 
 const SLUG_KEYED_FILES = new Set([
   'armes', 'attributs', 'classSpe', 'competences', 'ensembles',
   'equipements', 'modsArmes', 'modsCompetences', 'modsEquipements',
-  'statistiques', 'talentsArmes', 'talentsAutres', 'talentsEquipements', 'talentsPrototypes',
+  'statistiques', 'talentsArmes', 'talentsAutres', 'talentsEquipements',
+  'talentsPrototypes', 'missions',
 ])
 
 function injectSlugs(obj) {

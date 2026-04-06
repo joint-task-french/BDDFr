@@ -20,6 +20,7 @@ import {
   getAttributFilters, getAttributDefaults, applyAttributFilters,
   getCompetenceFilters, getCompetenceDefaults, applyCompetenceFilters,
   getDescenteFilters, getDescenteDefaults, applyDescenteFilters,
+  getMissionFilters, getMissionDefaults, applyMissionFilters,
 
   WEAPON_SORT_OPTIONS, WEAPON_DEFAULT_SORT, applySortWeapons,
   GEAR_SORT_OPTIONS, GEAR_DEFAULT_SORT, applySortGear,
@@ -32,7 +33,8 @@ import {
   MOD_COMP_SORT_OPTIONS, MOD_COMP_DEFAULT_SORT, applySortModsComp,
   ATTRIBUT_SORT_OPTIONS, ATTRIBUT_DEFAULT_SORT, applySortAttributs,
   SKILL_SORT_OPTIONS, SKILL_DEFAULT_SORT, applySortSkills,
-  DESCENTE_SORT_OPTIONS, DESCENTE_DEFAULT_SORT, applySortDescente
+  DESCENTE_SORT_OPTIONS, DESCENTE_DEFAULT_SORT, applySortDescente,
+  MISSION_SORT_OPTIONS, MISSION_DEFAULT_SORT, applySortMissions
 } from '../config/filterConfigs'
 import ScrollToTopButton from '../components/common/ScrollToTopButton'
 
@@ -48,13 +50,14 @@ const CATEGORIES = [
   { key: 'modsEquipements', label: "Mods d'Équipements", icon: '⚙️' },
   { key: 'modsCompetences', label: 'Mods de Compétences', icon: '💎' },
   { key: 'descente', label: 'Descente', icon: '🧬' },
+  { key: 'missions', label: 'Missions', icon: '🗺️' },
 ]
 
 // Catégories qui ont des filtres avancés
 const FILTER_CATEGORIES = new Set([
   'armes', 'equipements', 'talentsArmes', 'talentsEquipements', 'talentsPrototypes',
   'modsArmes', 'ensembles', 'attributs', 'competences',
-  'modsEquipements', 'modsCompetences', 'descente'
+  'modsEquipements', 'modsCompetences', 'descente', 'missions'
 ])
 
 // Catégories avec options de tri multi-couches
@@ -71,6 +74,7 @@ const SORT_CATEGORIES = {
   modsEquipements:    { options: MOD_EQUIP_SORT_OPTIONS, default: MOD_EQUIP_DEFAULT_SORT, apply: applySortModsEquip },
   modsCompetences:    { options: MOD_COMP_SORT_OPTIONS, default: MOD_COMP_DEFAULT_SORT, apply: applySortModsComp },
   descente:           { options: DESCENTE_SORT_OPTIONS, default: DESCENTE_DEFAULT_SORT, apply: applySortDescente },
+  missions:           { options: MISSION_SORT_OPTIONS, default: MISSION_DEFAULT_SORT, apply: applySortMissions },
 }
 
 function getFiltersConfig(category, data, values) {
@@ -87,6 +91,7 @@ function getFiltersConfig(category, data, values) {
     case 'modsEquipements':   return { filters: getModEquipementFilters(data), defaults: getModEquipementDefaults(), apply: applyModEquipementFilters }
     case 'modsCompetences':   return { filters: getModCompetenceFilters(data, values), defaults: getModCompetenceDefaults(), apply: applyModCompetenceFilters }
     case 'descente':          return { filters: getDescenteFilters(data), defaults: getDescenteDefaults(), apply: applyDescenteFilters }
+    case 'missions':          return { filters: getMissionFilters(data), defaults: getMissionDefaults(), apply: applyMissionFilters }
     default:                  return null
   }
 }

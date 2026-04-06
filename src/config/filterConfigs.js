@@ -849,3 +849,102 @@ export function applyDescenteFilters(items, filters) {
     return true
   })
 }
+
+// ================================================================
+// MISSIONS FILTERS
+// ================================================================
+
+// Extracteur sécurisé pour obtenir les données de base de la mission
+const getMissionBaseData = (item) => {
+  if (item.default) return item.default;
+  const firstVariantKey = Object.keys(item).filter(k => k !== 'slug')[0];
+  return item[firstVariantKey] || {};
+}
+
+export const MISSION_SORT_OPTIONS = [
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'salles', label: 'Salles', ascLabel: '↑', descLabel: '↓' }
+]
+
+export const MISSION_DEFAULT_SORT = [
+  { id: 'alpha', desc: false }
+]
+
+const missionGetters = {
+  alpha: (item) => getMissionBaseData(item).nom || '',
+  salles: (item) => {
+    const base = getMissionBaseData(item);
+    if (!base.difficulte) return 0;
+    const diffs = Object.values(base.difficulte);
+    return diffs.length > 0 ? (diffs[0].salles || 0) : 0;
+  }
+}
+
+export function applySortMissions(items, sortLayers) {
+  return multiSort(items, sortLayers, missionGetters)
+}
+
+export function getMissionFilters(data) {
+  return [
+    {
+      key: 'faction', type: 'select', label: 'Faction',
+      options: [
+        { value: 'Hyènes', label: 'Hyènes' },
+        { value: 'Parias', label: 'Parias' },
+        { value: 'Vrais Fils', label: 'Vrais Fils' },
+        { value: 'Black Tusks', label: 'Black Tusks' },
+        { value: 'Nettoyeurs', label: 'Nettoyeurs' },
+        { value: 'Rikers', label: 'Rikers' }
+      ]
+    },
+    {
+      key: 'difficulte', type: 'checkboxes', label: 'Difficulté',
+      options: [
+        { value: 'Histoire', label: 'Histoire' },
+        { value: 'Normal', label: 'Normal' },
+        { value: 'Difficile', label: 'Difficile' },
+        { value: 'Défi', label: 'Défi' },
+        { value: 'Héroïque', label: 'Héroïque' },
+        { value: 'Légendaire', label: 'Légendaire' }
+      ]
+    }
+  ]
+}
+
+export function getMissionDefaults() {
+  return { faction: '', difficulte: [] }
+}
+
+export function applyMissionFilters(items, filters) {
+  const list = Array.isArray(items) ? items : Object.values(items || {})
+
+  return list.filter(item => {
+    // On extrait toutes les variantes de la mission (default, invasion...)
+    const variants = Object.keys(item)
+        .filter(k => k !== 'slug')
+        .map(k => item[k]);
+
+    // Filtre : Faction
+    if (filters.faction) {
+      const hasFaction = variants.some(v => v.faction === filters.faction);
+      if (!hasFaction) return false;
+    }
+
+    // Filtre : Difficulté
+    if (filters.difficulte && filters.difficulte.length > 0) {
+      // Nettoie les chaines pour la comparaison ("Héroïque" -> "heroique")
+      const normalize = (str) => str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      const filterDiffsLower = filters.difficulte.map(normalize);
+
+      const hasDiff = variants.some(v => {
+        if (!v.difficulte) return false;
+        const availableDiffs = Object.keys(v.difficulte).map(normalize);
+        return filterDiffsLower.some(fd => availableDiffs.includes(fd));
+      });
+
+      if (!hasDiff) return false;
+    }
+
+    return true;
+  })
+}

@@ -9,10 +9,11 @@ import ModArmeCard from './cards/ModArmeCard'
 import ModCompetencesCard from "./cards/ModCompetencesCard.jsx";
 import ModEquipementCard from "./cards/ModEquipementCard.jsx";
 import DescentTalentCard from './cards/DescentTalentCard.jsx';
+import MissionCard from './cards/MissionCard.jsx';
 import CompactListView from './CompactListView'
 import MarkdownText from '../common/MarkdownText'
-import {useLocation, useNavigate} from "react-router-dom";
-import {slugify} from "../../utils/slugify.js";
+import { useLocation, useNavigate } from "react-router-dom";
+import { slugify } from "../../utils/slugify.js";
 
 // Layout grids par catégorie
 const GRID_CONFIG = {
@@ -27,6 +28,7 @@ const GRID_CONFIG = {
   modsEquipements:   'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
   modsCompetences:   'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4',
   descente:          'grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3',
+  missions:          'grid-cols-1 lg:grid-cols-2 3xl:grid-cols-3',
 }
 
 // Quel composant card pour chaque catégorie
@@ -41,37 +43,46 @@ const CARD_COMPONENTS = {
   modsArmes: ModArmeCard,
   modsCompetences: ModCompetencesCard,
   modsEquipements: ModEquipementCard,
-  descente: DescentTalentCard
+  descente: DescentTalentCard,
+  missions: MissionCard
 }
-
 
 // Fallback card générique pour mods équipement / compétences
 function GenericCard({ item }) {
   return (
-    <div className="bg-tactical-panel border border-tactical-border rounded-lg px-4 py-3 space-y-1">
-      {Object.entries(item).map(([key, val]) => {
-        if (val === null || val === undefined || val === '' || val === '-' || (Array.isArray(val) && val.length === 0)) return null
-        const display = Array.isArray(val) ? val.join(', ') : typeof val === 'object' ? JSON.stringify(val) : String(val)
-        if (typeof val === 'boolean') return null
-        return (
-          <div key={key} className="flex items-start gap-2 text-xs">
-            <span className="text-gray-500 font-bold uppercase tracking-widest text-xs shrink-0">{key}</span>
-            <MarkdownText className="text-gray-300">{display}</MarkdownText>
-          </div>
-        )
-      })}
-    </div>
+      <div className="bg-tactical-panel border border-tactical-border rounded-lg px-4 py-3 space-y-1">
+        {Object.entries(item).map(([key, val]) => {
+          if (val === null || val === undefined || val === '' || val === '-' || (Array.isArray(val) && val.length === 0)) return null
+          const display = Array.isArray(val) ? val.join(', ') : typeof val === 'object' ? JSON.stringify(val) : String(val)
+          if (typeof val === 'boolean') return null
+          return (
+              <div key={key} className="flex items-start gap-2 text-xs">
+                <span className="text-gray-500 font-bold uppercase tracking-widest text-xs shrink-0">{key}</span>
+                <MarkdownText className="text-gray-300">{display}</MarkdownText>
+              </div>
+          )
+        })}
+      </div>
   )
+}
+
+// Extracteur robuste du nom pour compenser les objets imbriqués (Missions)
+const getItemName = (item) => {
+  if (item.nom) return item.nom;
+  if (item.default && item.default.nom) return item.default.nom;
+  const firstVariant = Object.keys(item).filter(k => k !== 'slug')[0];
+  if (firstVariant && item[firstVariant] && item[firstVariant].nom) return item[firstVariant].nom;
+  return 'Inconnu';
 }
 
 export default function CategorySection({ category, items, searchTerm, allData, isCompactMode }) {
   if (!items || items.length === 0) {
     return (
-      <div className="text-center py-16">
-        <p className="text-gray-600 text-sm uppercase tracking-widest">
-          {searchTerm ? 'Aucun résultat trouvé' : 'Aucune donnée disponible'}
-        </p>
-      </div>
+        <div className="text-center py-16">
+          <p className="text-gray-600 text-sm uppercase tracking-widest">
+            {searchTerm ? 'Aucun résultat trouvé' : 'Aucune donnée disponible'}
+          </p>
+        </div>
     )
   }
 
@@ -81,7 +92,6 @@ export default function CategorySection({ category, items, searchTerm, allData, 
   // Props supplémentaires pour certaines cards
   const extraProps = {}
 
-  // Type data disponibles pour toutes les catégories qui en ont besoin
   if (allData?.armes_type) extraProps.armesType = allData.armes_type
   if (allData?.equipements_type) extraProps.equipementsType = allData.equipements_type
   if (allData?.attributs_type) extraProps.attributsType = allData.attributs_type
@@ -125,7 +135,9 @@ export default function CategorySection({ category, items, searchTerm, allData, 
   const location = useLocation();
 
   const handleItemClick = (item) => {
-    const itemSlug = item.slug || item.nom;
+    const itemName = getItemName(item);
+    const itemSlug = item.slug || slugify(itemName);
+
     const pathParts = location.pathname.split('/');
     const currentSlug = pathParts[3];
     const currentModifier = pathParts[4];
@@ -140,6 +152,25 @@ export default function CategorySection({ category, items, searchTerm, allData, 
 
   if (isCompactMode) {
     return (
+        <div className="fade-in">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-bold text-white uppercase tracking-widest">
+              <span className="mr-2">{category?.icon}</span>
+              {category?.label}
+            </h3>
+            <span className="text-xs text-gray-500 font-bold">{items.length} entrées</span>
+          </div>
+          <CompactListView
+              items={items}
+              category={category}
+              CardComponent={CardComponent}
+              extraProps={extraProps}
+          />
+        </div>
+    )
+  }
+
+  return (
       <div className="fade-in">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-bold text-white uppercase tracking-widest">
@@ -148,39 +179,23 @@ export default function CategorySection({ category, items, searchTerm, allData, 
           </h3>
           <span className="text-xs text-gray-500 font-bold">{items.length} entrées</span>
         </div>
-        <CompactListView
-          items={items}
-          category={category}
-          CardComponent={CardComponent}
-          extraProps={extraProps}
-        />
+        <div className={`grid ${gridClass} gap-3`}>
+          {items.map((item, i) => {
+            const itemName = getItemName(item);
+            const computedSlug = item.slug || slugify(itemName);
+            return (
+                <div
+                    key={computedSlug}
+                    id={`item-${computedSlug}`}
+                    className="h-full grid cursor-pointer transition-all hover:ring-2 hover:ring-shd/50 rounded-lg og-target-card"
+                    onClick={() => handleItemClick(item)}
+                    data-slug={computedSlug}
+                >
+                  <CardComponent item={item} {...extraProps} />
+                </div>
+            )
+          })}
+        </div>
       </div>
-    )
-  }
-
-  return (
-    <div className="fade-in">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-bold text-white uppercase tracking-widest">
-          <span className="mr-2">{category?.icon}</span>
-          {category?.label}
-        </h3>
-        <span className="text-xs text-gray-500 font-bold">{items.length} entrées</span>
-      </div>
-      <div className={`grid ${gridClass} gap-3`}>
-        {items.map((item, i) => (
-          <div
-              key={item.slug || slugify(item.nom)}
-              id={`item-${item.slug || slugify(item.nom)}`}
-              className="h-full grid cursor-pointer transition-all hover:ring-2 hover:ring-shd/50 rounded-lg og-target-card"
-              onClick={() => handleItemClick(item)}
-              data-slug={item.slug || slugify(item.nom)}
-          >
-            <CardComponent item={item} {...extraProps} />
-          </div>
-
-        ))}
-      </div>
-    </div>
   )
 }

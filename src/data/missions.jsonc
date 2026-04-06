@@ -1,0 +1,250 @@
+{
+    "jefferson-trade-center": {
+        "default": {
+            "nom": "Jefferson Trade Center",
+            "faction": "Hyènes",
+            "typeMission": "mission principale",
+            "typeVariante": "base",
+            "description": "Réactiver le nœud ISAC.",
+            "difficulte": {
+                "histoire": {
+                    "salles": 12,
+                    "ennemisMoyen": 85,
+                    "tempsContreLaMontre": 900,
+                    "recompenses": [
+                        { "nom": "**150 000** EXP", "unique": false },
+                        { "nom": "**1 200** Crédits", "unique": false },
+                        { "nom": "Point de compétence", "unique": true, "note": "Première complétion uniquement" }
+                    ]
+                },
+                "normal": {
+                    "salles": 12,
+                    "ennemisMoyen": 95,
+                    "tempsContreLaMontre": 900,
+                    "recompenses": [
+                        { "nom": "**180 000** EXP", "unique": false },
+                        { "nom": "**1 500** Crédits", "unique": false }
+                    ]
+                },
+                "difficile": {
+                    "salles": 12,
+                    "ennemisMoyen": 120,
+                    "tempsContreLaMontre": 1020,
+                    "recompenses": [
+                        { "nom": "**250 000** EXP", "unique": false },
+                        { "nom": "**2 000** Crédits", "unique": false }
+                    ]
+                },
+                "defi": {
+                    "salles": 12,
+                    "ennemisMoyen": 150,
+                    "tempsContreLaMontre": 1200,
+                    "recompenses": [
+                        { "nom": "**350 000** EXP", "unique": false },
+                        { "nom": "**2 500** Crédits", "unique": false }
+                    ]
+                },
+                "heroique": {
+                    "salles": 12,
+                    "ennemisMoyen": 180,
+                    "tempsContreLaMontre": 1500,
+                    "recompenses": [
+                        { "nom": "**500 000** EXP", "unique": false },
+                        { "nom": "**3 000** Crédits", "unique": false },
+                        { "nom": "Masque de Coyote (Exotique)", "unique": false, "taux": "7%", "note": "Sur le boss final" }
+                    ]
+                }
+            },
+            "notes": "Boss final: Coyote."
+        },
+        "invasion": {
+            "nom": "Jefferson Trade Center (Invasion)",
+            "faction": "Black Tusk",
+            "typeMission": "mission principale",
+            "typeVariante": "invasion",
+            "description": "Repoussez les Black Tusks qui tentent de pirater le nœud ISAC.",
+            "difficulte": {
+                "normal": {
+                    "salles": 14,
+                    "ennemisMoyen": 105,
+                    "tempsContreLaMontre": 960,
+                    "recompenses": [
+                        { "nom": "**200 000** EXP", "unique": false },
+                        { "nom": "**1 500** Crédits", "unique": false }
+                    ]
+                },
+                "difficile": {
+                    "salles": 14,
+                    "ennemisMoyen": 130,
+                    "tempsContreLaMontre": 1080,
+                    "recompenses": [
+                        { "nom": "**275 000** EXP", "unique": false },
+                        { "nom": "**2 000** Crédits", "unique": false }
+                    ]
+                },
+                "defi": {
+                    "salles": 14,
+                    "ennemisMoyen": 160,
+                    "tempsContreLaMontre": 1260,
+                    "recompenses": [
+                        { "nom": "**380 000** EXP", "unique": false },
+                        { "nom": "**2 500** Crédits", "unique": false }
+                    ]
+                },
+                "heroique": {
+                    "salles": 14,
+                    "ennemisMoyen": 190,
+                    "tempsContreLaMontre": 1560,
+                    "recompenses": [
+                        { "nom": "**550 000** EXP", "unique": false },
+                        { "nom": "**3 000** Crédits", "unique": false }
+                    ]
+                }
+            },
+            "notes": "Apparition possible de Chiens de guerre."
+        },
+        "traque_coyote": {
+            "nom": "Traque : Coyote",
+            "faction": "Hyènes",
+            "typeMission": "mission principale",
+            "typeVariante": "traque",
+            "description": "Traquez et éliminez la cible VIP Coyote.",
+            "difficulte": {
+                "normal": {
+                    "salles": 12,
+                    "ennemisMoyen": 100,
+                    "recompenses": [
+                        { "nom": "**200 000** EXP", "unique": false }
+                    ]
+                },
+                "difficile": {
+                    "salles": 12,
+                    "ennemisMoyen": 125,
+                    "recompenses": [
+                        { "nom": "**280 000** EXP", "unique": false }
+                    ]
+                },
+                "defi": {
+                    "salles": 12,
+                    "ennemisMoyen": 155,
+                    "recompenses": [
+                        { "nom": "**390 000** EXP", "unique": false }
+                    ]
+                },
+                "heroique": {
+                    "salles": 12,
+                    "ennemisMoyen": 185,
+                    "recompenses": [
+                        { "nom": "**560 000** EXP", "unique": false },
+                        { "nom": "Masque de Coyote (Exotique)", "unique": false, "taux": "100%", "note": "Drop garanti à la première élimination" }
+                    ]
+                }
+            }
+        }
+    },
+    "district-union-arena": {
+        "default": {
+            "nom": "District Union Arena",
+            "faction": "Hyènes",
+            "typeMission": "forteresse",
+            "typeVariante": "base",
+            "description": "Prenez d'assaut la forteresse des Hyènes.",
+            "difficulte": {
+                "histoire": {
+                    "salles": 25,
+                    "ennemisMoyen": 200,
+                    "recompenses": [
+                        { "nom": "**300 000** EXP", "unique": false },
+                        { "nom": "Déblocage Tier 1", "unique": true }
+                    ]
+                },
+                "normal": {
+                    "salles": 25,
+                    "ennemisMoyen": 220,
+                    "recompenses": [
+                        { "nom": "**350 000** EXP", "unique": false }
+                    ]
+                },
+                "difficile": {
+                    "salles": 25,
+                    "ennemisMoyen": 250,
+                    "recompenses": [
+                        { "nom": "**450 000** EXP", "unique": false }
+                    ]
+                },
+                "defi": {
+                    "salles": 25,
+                    "ennemisMoyen": 280,
+                    "recompenses": [
+                        { "nom": "**600 000** EXP", "unique": false }
+                    ]
+                },
+                "heroique": {
+                    "salles": 25,
+                    "ennemisMoyen": 320,
+                    "recompenses": [
+                        { "nom": "**800 000** EXP", "unique": false }
+                    ]
+                }
+            }
+        },
+        "invasion": {
+            "nom": "District Union Arena (Invasion)",
+            "faction": "Black Tusk",
+            "typeMission": "forteresse",
+            "typeVariante": "invasion",
+            "description": "Les Black Tusks ont repris la forteresse.",
+            "difficulte": {
+                "normal": {
+                    "salles": 28,
+                    "ennemisMoyen": 230,
+                    "recompenses": [
+                        { "nom": "**380 000** EXP", "unique": false }
+                    ]
+                },
+                "difficile": {
+                    "salles": 28,
+                    "ennemisMoyen": 260,
+                    "recompenses": [
+                        { "nom": "**480 000** EXP", "unique": false }
+                    ]
+                },
+                "defi": {
+                    "salles": 28,
+                    "ennemisMoyen": 300,
+                    "recompenses": [
+                        { "nom": "**650 000** EXP", "unique": false }
+                    ]
+                },
+                "heroique": {
+                    "salles": 28,
+                    "ennemisMoyen": 350,
+                    "recompenses": [
+                        { "nom": "**850 000** EXP", "unique": false },
+                        { "nom": "Composant Nemesis", "unique": true, "taux": "100%", "note": "Si vous n'avez pas encore l'arme" }
+                    ]
+                }
+            }
+        },
+        "legendaire": {
+            "nom": "District Union Arena (Légendaire)",
+            "faction": "White Tusk",
+            "typeMission": "forteresse",
+            "typeVariante": "legendaire",
+            "description": "Affrontez l'élite des Black Tusks, la faction White Tusk.",
+            "difficulte": {
+                "legendaire": {
+                    "salles": 30,
+                    "ennemisMoyen": 400,
+                    "recompenses": [
+                        { "nom": "**1 500 000** EXP", "unique": false },
+                        { "nom": "Vêtement exclusif White Tusk", "unique": true },
+                        { "nom": "Le Bighorn (Fusil d'assaut Exotique)", "unique": false, "taux": "5%", "note": "Boss de fin uniquement" },
+                        { "nom": "Cache Exotique hebdomadaire", "unique": true, "note": "1 par semaine et par personnage" }
+                    ]
+                }
+            },
+            "notes": "Les ennemis n'ont pas de points faibles évidents et utilisent un équipement avancé."
+        }
+    }
+}

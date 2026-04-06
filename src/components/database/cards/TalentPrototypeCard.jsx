@@ -42,8 +42,8 @@ export default function TalentPrototypeCard({ item }) {
                 const val = +(item.statMin + i * item.pas).toFixed(4)
                 return (
                   <div key={val} className="flex flex-col items-center py-1 bg-cyan-500/5 rounded">
-                    <span className="text-[9px] text-gray-600 font-bold leading-none">Niv.{i + 1}</span>
-                    <span className="text-[11px] font-mono text-cyan-400 font-bold leading-tight mt-0.5">{val}</span>
+                    <span className="text-xs text-gray-600 font-bold leading-none">Niv.{i + 1}</span>
+                    <span className="text-xs font-mono text-cyan-400 font-bold leading-tight mt-0.5">{val}</span>
                   </div>
                 )
               })}

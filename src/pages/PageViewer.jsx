@@ -135,7 +135,7 @@ export default function PageViewer() {
 
 
                     <div className="flex flex-row py-1 text-xs font-bold mt-4 gap-4 items-center">
-                        <p className="text-sm">Tags :</p>
+                        <p className="text-sm w-20 shrink-0">Tags :</p>
                         {currentPage.tags.length > 0 && (
                             <div className="flex flex-wrap gap-2">
                                 {currentPage.tags.map(tag => (
@@ -148,7 +148,7 @@ export default function PageViewer() {
                     </div>
 
                     <div className="flex flex-row py-1 text-xs font-bold gap-4 items-center">
-                        <p className="text-sm">Auteurs :</p>
+                        <p className="text-sm w-20 shrink-0">Auteurs :</p>
                         {currentPage.authors.length > 0 && (
                             <div className="flex flex-wrap gap-2">
                                 {currentPage.authors.map(author => (
@@ -162,7 +162,7 @@ export default function PageViewer() {
 
                     {currentPage.date && (
                         <div className="flex flex-row py-1 text-xs font-bold gap-4 items-center">
-                            <p className="text-sm">Date :</p>
+                            <p className="text-sm w-20 shrink-0">Date :</p>
                             <span className="px-2.5 py-1 bg-tactical-hover text-gray-300 text-xs font-bold uppercase tracking-widest rounded border border-tactical-border">
                                 {formatDate(currentPage.date)}
                             </span>

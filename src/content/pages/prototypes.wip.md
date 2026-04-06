@@ -23,19 +23,19 @@ Le mode Escalade porte bien son nom : à chaque Tier franchi, la difficulté gri
 
 En contrepartie, ce mode utilise un système de jetons à déposer pour démarrer la mission, générant un profit de groupe et un bonus pour l'hôte de la session. Voici l'évolution exacte de la difficulté et des gains par Tier :
 
-| Tier        | Dégâts Ennemi | Santé Ennemi | Protection Ennemi | Dépôt de jetons | Profit Hôte | Profit Groupe | Données de terrain | Étalonnage SHD | Composants exotiques |
-|:------------|:--------------|:-------------|:------------------|:----------------|:------------|:--------------|--------------------|----------------|----------------------|
-| **Tier 0**  | 100 %         | 100 %        | 100 %             | 0               | 2           | 2             | 0                  | 0              | 0                    |
-| **Tier 1**  | 150 %         | 160 %        | 160 %             | 1               | 3           | 2             | 0                  | 0              | 0                    |
-| **Tier 2**  | 200 %         | 200 %        | 200 %             | 3               | 6           | 3             | 5                  | 0              | 0                    |
-| **Tier 3**  | 250 %         | 250 %        | 250 %             | 7               | 10          | 4             | 5                  | 2              | 0                    |
-| **Tier 4**  | 300 %         | 300 %        | 300 %             | 12              | 16          | 5             | 7                  | 2              | 0                    |
-| **Tier 5**  | 350 %         | 350 %        | 350 %             | 20              | 24          | 7             | 7                  | 3              | 0                    |
-| **Tier 6**  | 400 %         | 450 %        | 450 %             | 29              | 34          | 10            | 10                 | 3              | 1                    |
-| **Tier 7**  | 450 %         | 530 %        | 530 %             | 41              | 46          | 13            | 10                 | 4              | 1                    |
-| **Tier 8**  | 500 %         | 650 %        | 650 %             | 54              | 60          | 16            | 10                 | 4              | 2                    |
-| **Tier 9**  | 550 %         | 700 %        | 700 %             | 70              | 76          | 20            |                    |                |                      |
-| **Tier 10** | 550 %         | 800 %        | 800 %             | 87              | 94          | 25            |                    |                |                      |
+| Tier        | Dégâts Ennemi | Santé Ennemi | Protection Ennemi |
+|:------------|:--------------|:-------------|:------------------|
+| **Tier 0**  | 100 %         | 100 %        | 100 %             |
+| **Tier 1**  | 150 %         | 160 %        | 160 %             |
+| **Tier 2**  | 200 %         | 200 %        | 200 %             |
+| **Tier 3**  | 250 %         | 250 %        | 250 %             |
+| **Tier 4**  | 300 %         | 300 %        | 300 %             |
+| **Tier 5**  | 350 %         | 350 %        | 350 %             |
+| **Tier 6**  | 400 %         | 450 %        | 450 %             |
+| **Tier 7**  | 450 %         | 530 %        | 530 %             |
+| **Tier 8**  | 500 %         | 650 %        | 650 %             |
+| **Tier 9**  | 550 %         | 700 %        | 700 %             |
+| **Tier 10** | 550 %         | 800 %        | 800 %             |
 
 ### Les Mutateurs : Un défi supplémentaire
 Augmenter les statistiques des ennemis ne suffisait pas. L'Escalade introduit 2 mutateurs globaux (*Imperturbable* et *Jambes en feu*) et 4 mutateurs spécifiques aux ennemis. Plus vous montez dans les Tiers, plus vous avez de chances de croiser des adversaires dotés de ces modificateurs :
@@ -67,7 +67,9 @@ Augmenter les statistiques des ennemis ne suffisait pas. L'Escalade introduit 2 
 
 ---
 
-## 2. Le Butin : Comment obtenir l'Équipement Prototype ?
+## 2. Ressources et récompenses
+
+###  Comment obtenir l'Équipement Prototype ?
 
 Actuellement, le mode Escalade est l'unique moyen de mettre la main sur l'équipement Prototype. Oubliez le butin ciblé : ici, tout est question de hasard. Chaque ennemi éliminé possède une petite chance de faire tomber une pièce d'équipement ou une arme Prototype. Naturellement, cette probabilité augmente avec la difficulté :
 
@@ -82,6 +84,22 @@ Actuellement, le mode Escalade est l'unique moyen de mettre la main sur l'équip
 * **Tier 9 :** 1,30 % par ennemi
 * **Tier 10 :** 1,50 % par ennemi
 
+### Récompenses de fin de mission :
+| Tier        | Dépôt de jetons | Profit Hôte | Profit Groupe | Données de terrain | Étalonnage SHD | Composants exotiques |
+|:------------|:----------------|:------------|:--------------|--------------------|----------------|----------------------|
+| **Tier 0**  | 0               | 2           | 2             | 0                  | 0              | 0                    |
+| **Tier 1**  | 1               | 3           | 2             | 0                  | 0              | 0                    |
+| **Tier 2**  | 3               | 6           | 3             | 5                  | 0              | 0                    |
+| **Tier 3**  | 7               | 10          | 4             | 5                  | 2              | 0                    |
+| **Tier 4**  | 12              | 16          | 5             | 7                  | 2              | 0                    |
+| **Tier 5**  | 20              | 24          | 7             | 7                  | 3              | 0                    |
+| **Tier 6**  | 29              | 34          | 10            | 10                 | 3              | 1                    |
+| **Tier 7**  | 41              | 46          | 13            | 10                 | 4              | 1                    |
+| **Tier 8**  | 54              | 60          | 16            | 10                 | 4              | 2                    |
+| **Tier 9**  | 70              | 76          | 20            |                    |                |                      |
+| **Tier 10** | 87              | 94          | 25            |                    |                |                      |
+
+
 ---
 
 ## 3. L'Équipement Prototype
@@ -95,7 +113,7 @@ Pour les plus chanceux, il est même possible d'avoir plusieurs statistiques max
 * **3 statistiques au maximum :** 1,0 %
 * **4 statistiques au maximum :** 0,1 %
 
-> **L'astuce à retenir :** Les attributs nommés (comme les dégâts de tir à la tête sur le *Mort blanche* ou les dégâts sur cible non abritée sur les *Genouillères astucieuses*) sont toujours générés à leur valeur maximale, sans dépendre de ces probabilités.
+> **L'astuce à retenir :** Les attributs nommés (comme les dégâts de tir à la tête sur le [*Mort blanche*](/db/armes/mort_blanche) ou les dégâts sur cible non abritée sur les [*Genouillères astucieuses*](/db/equipements/genouilleres_astucieuses)) sont toujours générés à leur valeur maximale, sans dépendre de ces probabilités.
 
 ### Les Augmentations (Augments)
 Chaque pièce d'équipement Prototype est dotée d'un mini-talent unique appelée "Augmentation". Celle-ci commence à une valeur de base et peut être améliorée jusqu'au niveau 10 en jouant avec la pièce équipée.

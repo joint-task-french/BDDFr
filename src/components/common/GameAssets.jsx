@@ -110,9 +110,45 @@ export function resolveAsset(slug) {
 
 /**
  * Composant image réutilisable avec fallback transparent si l'image n'est pas trouvée.
+ *
+ * @param {string}  src        — URL de l'image
+ * @param {string}  [alt]      — texte alternatif
+ * @param {string}  [size]     — classes Tailwind de taille (ex: 'w-5 h-5')
+ * @param {string}  [className] — classes CSS supplémentaires
+ * @param {string}  [color]    — filtre de couleur appliqué à l'icône :
+ *                                 • classe Tailwind (ex: 'text-red-500', 'text-amber-300')
+ *                                 • couleur hex arbitraire (ex: '#ff6600', '#fff')
+ *                                Utilise CSS mask-image : l'image sert de masque,
+ *                                la couleur remplit la forme visible.
  */
-export function GameIcon({ src, alt = '', size = 'w-5 h-5', className = '' }) {
+export function GameIcon({ src, alt = '', size = 'w-5 h-5', className = '', color }) {
   if (!src) return null
+
+  if (color) {
+    const isHex = color.startsWith('#')
+    // Classe Tailwind : on convertit text-* en bg-* pour le background
+    const colorClass = !isHex ? color.replace(/^text-/, 'bg-') : ''
+
+    return (
+        <span
+            role="img"
+            aria-label={alt}
+            className={`${size} shrink-0 inline-block ${colorClass} ${className}`}
+            style={{
+              maskImage: `url(${src})`,
+              WebkitMaskImage: `url(${src})`,
+              maskSize: 'contain',
+              WebkitMaskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              WebkitMaskRepeat: 'no-repeat',
+              maskPosition: 'center',
+              WebkitMaskPosition: 'center',
+              ...(isHex ? { backgroundColor: color } : {}),
+            }}
+        />
+    )
+  }
+
   return (
       <img
           src={src}

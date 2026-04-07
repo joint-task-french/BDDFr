@@ -2,6 +2,7 @@
 {
   "titre": "Base de données française — The Division 2",
   "version": "TU : Y8S1",
+  "buildLibraryApiUrl": "https://buildotheque.ftnl.workers.dev",
   "maxExpertiseLevel": 30,
   "credits": [
     "Raven",
@@ -20,6 +21,37 @@
     "Mastoroz"
   ],
   "changelog": [
+    {
+      "date": "2026-04-07",
+      "changements": [
+        "### Changements BDDFr :",
+        {
+          "titre": "Ajouts :",
+          "description": [
+            "Ajout de la Buildothèque"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-06",
+      "changements": [
+        "### Changements BDDFr :",
+        {
+          "titre": "Ajouts :",
+          "description": [
+            "Article sur le fonctionnement des prototypes"
+          ]
+        },
+        {
+          "titre": "Corrections :",
+          "description": [
+            "Mise a jour des valeurs de talents pour les prototypes",
+            "Application du pas dans le build planner pour les niveaux de prototypes"
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-04-02",
       "changements": [

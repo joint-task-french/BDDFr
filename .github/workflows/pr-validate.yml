@@ -19,7 +19,7 @@ jobs:
           node-version: 24
           cache: npm
 
-      - run: npm ci
+      - run: npm install
 
       - name: Valider les JSONC avec les schémas
         run: npm run validate
@@ -36,7 +36,7 @@ jobs:
           node-version: 24
           cache: npm
 
-      - run: npm ci
+      - run: npm install
 
       - name: Build de vérification
         run: npm run build

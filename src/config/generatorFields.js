@@ -20,6 +20,8 @@ export const GENERATOR_CATEGORIES = [
   { key: 'modsArmes', label: "Mods d'Armes", icon: '🔧' },
   { key: 'modsEquipements', label: "Mods d'Équipements", icon: '⚙️' },
   { key: 'modsCompetences', label: 'Mods de Compétences', icon: '💎' },
+  { key: 'builds', label: 'Builds Prédéfinis', icon: '🏗️' },
+  { key: 'buildsTags', label: 'Tags de Build', icon: '🏷️' },
 ]
 
 export const IDENTITY_KEY = {
@@ -36,6 +38,8 @@ export const IDENTITY_KEY = {
   modsArmes: 'slug',
   modsEquipements: 'slug',
   modsCompetences: 'slug',
+  builds: 'nom',
+  buildsTags: 'id',
 }
 
 export const DATA_KEY = {
@@ -52,22 +56,26 @@ export const DATA_KEY = {
   modsArmes: 'modsArmes',
   modsEquipements: 'modsEquipements',
   modsCompetences: 'modsCompetences',
+  builds: 'builds',
+  buildsTags: 'buildsTags',
 }
 
 export const FILE_MAP = {
-  armes: 'armes.jsonc',
-  equipements: 'equipements.jsonc',
-  talentsArmes: 'talents-armes.jsonc',
-  talentsEquipements: 'talents-equipements.jsonc',
+  armes: 'armes/armes.jsonc',
+  equipements: 'equipements/equipements.jsonc',
+  talentsArmes: 'armes/talents-armes.jsonc',
+  talentsEquipements: 'equipements/talents-equipements.jsonc',
   talentsAutres: 'talents-autres.jsonc',
   talentsPrototypes: 'talents-prototypes.jsonc',
-  ensembles: 'ensembles.jsonc',
+  ensembles: 'equipements/ensembles.jsonc',
   competences: 'competences.jsonc',
-  attributs: 'attributs.jsonc',
-  statistiques: 'statistiques.jsonc',
-  modsArmes: 'mods-armes.jsonc',
-  modsEquipements: 'mods-equipements.jsonc',
+  attributs: 'attributs/attributs.jsonc',
+  statistiques: 'attributs/statistiques.jsonc',
+  modsArmes: 'armes/mods-armes.jsonc',
+  modsEquipements: 'equipements/mods-equipements.jsonc',
   modsCompetences: 'mods-competences.jsonc',
+  builds: 'builds/builds.jsonc',
+  buildsTags: 'builds/tags.jsonc',
 }
 
 export const FIELDS = {
@@ -413,6 +421,25 @@ export const FIELDS = {
       { key: 'bonus', label: 'Bonus texte (optionnel)', type: 'text', placeholder: 'Effet non lié à une statistique...' },
     ],
   },
+
+  builds: {
+    comment: '// Build Prédéfini — The Division 2',
+    fields: [
+      { key: 'nom', label: 'Nom', type: 'text', required: true, isIdentity: true },
+      { key: 'description', label: 'Description', type: 'textarea' },
+      { key: 'encoded', label: 'Code Partage (Base64)', type: 'text', required: true },
+      { key: 'tags', label: 'Tags', type: 'tagSelect', dynamicOptions: 'buildTags' },
+    ],
+  },
+
+  buildsTags: {
+    comment: '// Tags de Build — The Division 2',
+    fields: [
+      { key: 'id', label: 'ID (slug)', type: 'text', required: true, isIdentity: true },
+      { key: 'label', label: 'Libellé', type: 'text', required: true },
+      { key: 'color', label: 'Couleur Tailwind', type: 'text', placeholder: 'red, blue, green...' },
+    ],
+  },
 }
 
 /** Construit les listes de suggestions. */
@@ -469,9 +496,14 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   s.nomsModsArmes = extractUniqueWithSlugs(merged.modsArmes)
   s.nomsModsEquipements = extractUniqueWithSlugs(merged.modsEquipements)
   s.nomsStatistiques = extractUniqueWithSlugs(merged.statistiques)
+  s.nomsBuilds = extractUniqueWithSlugs(merged.builds)
+  s.nomsBuildsTags = extractUniqueWithSlugs(merged.buildsTags)
 
   s.statistiques = (merged.statistiques || []).filter(st => st.slug && st.nom).map(st => ({ value: st.slug, label: st.nom }))
   s.statistiques.sort((a, b) => a.label.localeCompare(b.label))
+
+  s.buildTags = (merged.buildsTags || []).filter(t => t.id && t.label).map(t => ({ value: t.id, label: t.label }))
+  s.buildTags.sort((a, b) => a.label.localeCompare(b.label))
 
   s.allAttributsSlugs = (merged.attributs || []).filter(a => a.slug && a.nom).map(a => ({ value: a.slug, label: a.nom }))
   s.allAttributsSlugs.sort((a, b) => a.label.localeCompare(b.label))

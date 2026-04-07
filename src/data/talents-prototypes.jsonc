@@ -34,8 +34,8 @@
         "statMax": 2.3,
         "pas": 0.2
     },
-    "piegeur": {
-        "nom": "Piégeur", // Traqueur ?
+    "traqueur": {
+        "nom": "Traqueur",
         "description": "La durée des effets de contrôle de foule appliqués est augmentée de **{value}%**.",
         "statMin": 5,
         "statMax": 14,

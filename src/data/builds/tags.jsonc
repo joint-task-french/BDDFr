@@ -1,0 +1,12 @@
+[
+  { "id": "dps", "label": "DPS", "color": "red" },
+  { "id": "tank", "label": "Tank", "color": "blue" },
+  { "id": "support", "label": "Support", "color": "yellow" },
+  { "id": "hybrid", "label": "Hybride", "color": "green" },
+  { "id": "pve", "label": "PvE", "color": "gray" },
+  { "id": "pvp", "label": "PvP", "color": "orange" },
+  { "id": "raid", "label": "Raid", "color": "purple" },
+  { "id": "legendary", "label": "Légendaire", "color": "indigo" },
+  { "id": "incursion", "label": "Incursion", "color": "pink" },
+  { "id": "countdown", "label": "Compte à rebours", "color": "cyan" }
+]

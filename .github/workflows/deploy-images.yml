@@ -36,7 +36,7 @@ jobs:
           cache: 'npm'
 
       - name: 📦 Installation des dépendances
-        run: npm ci
+        run: npm install
 
       - name: 🌐 Installation des dépendances Chrome/Puppeteer
         run: npx puppeteer browsers install chrome

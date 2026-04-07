@@ -158,7 +158,8 @@ const pages_fixes = [
     { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez et partagez vos configurations d\'équipement.' },
     { path: 'changelog', title: 'Mises à jour — BDDFr', description: changelogDesc },
     { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' },
-    { path: 'pages', title: 'Bibliothèque de Documents — BDDFr', description: 'Consultez nos guides et documents du réseau SHD.' }
+    { path: 'pages', title: 'Bibliothèque de Documents — BDDFr', description: 'Consultez nos guides et documents du réseau SHD.' },
+    { path: 'library', title: 'Bibliothèque de builds — BDDFr', description: 'Liste de builds partagé par la communauté.' }
 ];
 
 const categoryMap = {

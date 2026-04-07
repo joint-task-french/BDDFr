@@ -5,7 +5,10 @@ export default function SearchBar({ value, onChange, placeholder = "Rechercher d
     const lastSentValue = useRef(value || '')
 
     useEffect(() => {
-        if (value !== lastSentValue.current) {
+        // On ne met à jour localValue depuis value que si value a changé DEPUIS L'EXTÉRIEUR
+        // (ex: changement de catégorie ou reset des filtres)
+        // Si localValue est déjà identique à value, on ne fait rien pour éviter de casser le curseur
+        if (value !== localValue && value !== lastSentValue.current) {
             setLocalValue(value || '')
         }
         lastSentValue.current = value || ''
@@ -17,7 +20,7 @@ export default function SearchBar({ value, onChange, placeholder = "Rechercher d
                 lastSentValue.current = localValue
                 onChange(localValue)
             }
-        }, 100)
+        }, 300)
 
         return () => clearTimeout(timeoutId)
     }, [localValue, onChange, value])

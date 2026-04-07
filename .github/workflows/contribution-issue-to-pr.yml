@@ -30,7 +30,7 @@ jobs:
           cache: 'npm'
 
       - name: Installer les dépendances
-        run: npm ci
+        run: npm install
 
       - name: Appliquer le patch JSONC
         id: apply-patch

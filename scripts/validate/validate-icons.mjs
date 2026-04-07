@@ -90,18 +90,26 @@ availableImagesPaths.forEach(filepath => {
     if (!identifierToPathMap.has(baseNameNoExt)) identifierToPathMap.set(baseNameNoExt, relPath);
 });
 
-const jsoncFiles = []
-if (existsSync(DATA_DIR)) {
-    const files = readdirSync(DATA_DIR);
+/**
+ * Récupère récursivement tous les fichiers .jsonc dans un dossier donné.
+ */
+function getAllJsonc(dir, fileList = []) {
+    if (!existsSync(dir)) return fileList;
+    const files = readdirSync(dir);
     for (const file of files) {
-        if (file.endsWith('.jsonc')) {
-            jsoncFiles.push(file);
+        const filepath = join(dir, file);
+        if (statSync(filepath).isDirectory()) {
+            if (file !== 'schemas') { // On ignore le dossier des schémas
+                getAllJsonc(filepath, fileList);
+            }
+        } else if (file.endsWith('.jsonc')) {
+            fileList.push(filepath);
         }
     }
-} else {
-    console.error(`❌ Le dossier de données est introuvable : ${DATA_DIR}`);
-    process.exit(1);
+    return fileList;
 }
+
+const jsoncFilesPaths = getAllJsonc(DATA_DIR)
 
 // -----------------------------------------------------------------------------
 // EXÉCUTION DE LA VALIDATION
@@ -112,9 +120,9 @@ let passedFiles = 0
 let totalIconsChecked = 0
 const usedImages = new Set();
 
-for (const filename of jsoncFiles) {
+for (const filepath of jsoncFilesPaths) {
+    const filename = relative(DATA_DIR, filepath).replace(/\\/g, '/');
     totalFiles++;
-    const filepath = join(DATA_DIR, filename);
 
     let dataContent, data;
     try {

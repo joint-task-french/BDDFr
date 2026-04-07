@@ -1,7 +1,7 @@
 ---
 title: Escalade et équipement Prototypes
 description: Introduction aux nouveaux équipements de qualité prototype.
-date: 2026-04-05
+date: 2026-04-06
 tags: [guide, prototypes]
 authors: [ocelus_ftnl, marcoo888]
 ---
@@ -120,15 +120,15 @@ Chaque pièce d'équipement Prototype est dotée d'un mini-talent unique appelé
 
 Voici les 9 Augmentations disponibles, avec leur évolution par niveau :
 
-* **Amalgame :** Chaque balle a une chance d'appliquer un effet d'état aléatoire. *(Base : 0,5 % | Max : 2,3 % | +0,2 % par niveau)*
-* **Anomalie :** Vous soigne d'un pourcentage des dégâts infligés par vos compétences. *(Base : 2,0 % | Max : 4,7 % | +0,3 % par niveau)*
-* **Atomisation :** Augmente le rayon et les dégâts de vos grenades. *(Base : 12,5 % | Max : 21,5 % | +1,0 % par niveau)*
-* **Écho :** Chaque balle tirée a une chance de doubler ses dégâts. *(Base : 1,2 % | Max : 3,0 % | +0,2 % par niveau)*
-* **Entropie :** Votre santé maximale augmente d'un pourcentage de votre armure de base. *(Base : 5,0 % | Max : 14,0 % | +1,0 % par niveau)*
-* **Paradoxe :** Chance de récupérer 2 balles dans le chargeur à chaque tir. *(Base : 1,5 % | Max : 6,0 % | +0,5 % par niveau)*
-* **Quantum :** Chance de devenir immunisé aux dégâts pendant 2 secondes (non rafraichissable tant qu'actif). *(Base : 1,0 % | Max : 2,8 % | +0,2 % par niveau)*
-* **Synesthésie :** Chaque tir réussi a une chance de réduire le temps de recharge de vos compétences de 0,2s. *(Base : 2,5 % | Max : 4,3 % | +0,2 % par niveau)*
-* **Traqueur :** Augmente la durée des effets d'état que vous appliquez. *(Base : 5,0 % | Max : 14,0 % | +1,0 % par niveau)*
+* [**Amalgame :**](/db/talentsPrototypes/amalgame) Chaque balle a une chance d'appliquer un effet d'état aléatoire. *(Base : 0,5 % | Max : 2,3 % | +0,2 % par niveau)*
+* [**Anomalie :**](/db/talentsPrototypes/anomalie) Vous soigne d'un pourcentage des dégâts infligés par vos compétences. *(Base : 2,0 % | Max : 4,7 % | +0,3 % par niveau)*
+* [**Atomisation :**](/db/talentsPrototypes/atomisation) Augmente le rayon et les dégâts de vos grenades. *(Base : 12,5 % | Max : 21,5 % | +1,0 % par niveau)*
+* [**Écho :**](/db/talentsPrototypes/echo) Chaque balle tirée a une chance de doubler ses dégâts. *(Base : 1,2 % | Max : 3,0 % | +0,2 % par niveau)*
+* [**Entropie :**](/db/talentsPrototypes/entropie) Votre santé maximale augmente d'un pourcentage de votre armure de base. *(Base : 5,0 % | Max : 14,0 % | +1,0 % par niveau)*
+* [**Paradoxe :**](/db/talentsPrototypes/paradoxe) Chance de récupérer 2 balles dans le chargeur à chaque tir. *(Base : 1,5 % | Max : 6,0 % | +0,5 % par niveau)*
+* [**Quantum :**](/db/talentsPrototypes/quantum) Chance de devenir immunisé aux dégâts pendant 2 secondes (non rafraichissable tant qu'actif). *(Base : 1,0 % | Max : 2,8 % | +0,2 % par niveau)*
+* [**Synesthésie :**](/db/talentsPrototypes/synesthesie) Chaque tir réussi a une chance de réduire le temps de recharge de vos compétences de 0,2s. *(Base : 2,5 % | Max : 4,3 % | +0,2 % par niveau)*
+* [**Traqueur :**](/db/talentsPrototypes/traqueur) Augmente la durée des effets d'état que vous appliquez. *(Base : 5,0 % | Max : 14,0 % | +1,0 % par niveau)*
 
 ---
 

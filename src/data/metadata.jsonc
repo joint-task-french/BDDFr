@@ -2,6 +2,7 @@
 {
   "titre": "Base de données française — The Division 2",
   "version": "TU : Y8S1",
+  "buildLibraryApiUrl": "https://buildotheque.ftnl.workers.dev",
   "maxExpertiseLevel": 30,
   "credits": [
     "Raven",

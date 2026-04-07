@@ -4,6 +4,7 @@ import { useDataLoader } from '../hooks/useDataLoader'
 import { decodeBuild, resolveBuild } from '../utils/buildShare'
 import Loader from '../components/common/Loader'
 import { GameIcon, resolveAsset, GEAR_SLOT_ICONS_IMG, WEAPON_TYPE_ICONS } from '../components/common/GameAssets'
+import { apiBuildotheque } from '../utils/apiBuildotheque'
 
 function ItemMini({ item, ensemble, slot }) {
   const isWeapon = slot === 'w1' || slot === 'w2' || slot === 'sa'
@@ -106,22 +107,126 @@ export default function BuildLibraryPage() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedTags, setSelectedTags] = useState([])
   const [sortBy, setSortBy] = useState('default')
+  
+  // API Integration states
+  const [apiUrl, setApiUrl] = useState(localStorage.getItem('buildLibraryApiUrl_override') || '')
+  const [showSettings, setShowSettings] = useState(false)
+  const [remoteBuilds, setRemoteBuilds] = useState([])
+  const [user, setUser] = useState(apiBuildotheque.user)
+  const [isApiLoading, setIsApiLoading] = useState(false)
+
+  const effectiveApiUrl = apiUrl || data.metadata?.buildLibraryApiUrl || 'https://api.buildotheque.com'
 
   useEffect(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
-      setLocalBuilds(Array.isArray(saved) ? saved : [])
-    } catch (e) {
-      console.error("Erreur de lecture du localStorage", e)
-      setLocalBuilds([])
+    const saved = localStorage.getItem('div2_builds_v2')
+    if (saved) {
+      try {
+        setLocalBuilds(JSON.parse(saved))
+      } catch (e) {
+        console.error("Erreur lors du chargement des builds locaux", e)
+      }
     }
   }, [])
+
+  useEffect(() => {
+    // Handle OAuth callback
+    const params = new URLSearchParams(window.location.search)
+    const token = params.get('token')
+    const userData = params.get('user')
+    if (token && userData) {
+      try {
+        const parsedUser = JSON.parse(decodeURIComponent(userData))
+        localStorage.setItem('buildLibrary_token', token)
+        localStorage.setItem('buildLibrary_user', JSON.stringify(parsedUser))
+        apiBuildotheque.token = token
+        apiBuildotheque.user = parsedUser
+        setUser(parsedUser)
+        // Clean URL
+        window.history.replaceState({}, document.title, window.location.pathname)
+      } catch (e) {
+        console.error("Erreur login Discord", e)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (data.metadata?.buildLibraryApiUrl) {
+      loadRemoteBuilds()
+    }
+  }, [data.metadata, apiUrl])
+
+  const loadRemoteBuilds = async () => {
+    setIsApiLoading(true)
+    const builds = await apiBuildotheque.fetchBuilds(effectiveApiUrl)
+    setRemoteBuilds(Array.isArray(builds) ? builds : [])
+    setIsApiLoading(false)
+  }
+
+  const handleLoginDiscord = () => {
+    apiBuildotheque.loginDiscord(effectiveApiUrl)
+  }
+
+  const handleLogout = () => {
+    apiBuildotheque.logout()
+    setUser(null)
+  }
+
+  const handleSaveApiUrl = (newUrl) => {
+    const trimmed = newUrl.trim()
+    if (trimmed) {
+      localStorage.setItem('buildLibraryApiUrl_override', trimmed)
+    } else {
+      localStorage.removeItem('buildLibraryApiUrl_override')
+    }
+    setApiUrl(trimmed)
+    setShowSettings(false)
+  }
 
   const handleDeleteLocal = (encoded) => {
     if (window.confirm('Supprimer ce build de votre bibliothèque locale ?')) {
       const newBuilds = localBuilds.filter(b => b.encoded !== encoded)
       setLocalBuilds(newBuilds)
       localStorage.setItem('div2_builds_v2', JSON.stringify(newBuilds))
+    }
+  }
+
+  const handleEdit = (encoded) => {
+    navigate(`/build?b=${encoded}`)
+  }
+
+  const handlePublish = async (build) => {
+    if (!apiBuildotheque.isAuthenticated()) {
+      alert("Connectez-vous via Discord pour publier un build.")
+      return
+    }
+
+    if (window.confirm(`Publier "${build.nom}" sur la Buildothèque communautaire ?`)) {
+      const result = await apiBuildotheque.publishBuild({
+        nom: build.nom,
+        description: build.description,
+        tags: build.tags,
+        encoded: build.encoded,
+        auteur: user?.username || 'Anonyme'
+      }, effectiveApiUrl)
+
+      if (result) {
+        alert("Build publié avec succès !")
+        loadRemoteBuilds()
+      } else {
+        alert("Erreur lors de la publication.")
+      }
+    }
+  }
+
+  const handleDeleteRemote = async (buildId) => {
+    if (window.confirm('Supprimer ce build de la Buildothèque communautaire ?')) {
+      const success = await apiBuildotheque.deleteBuild(buildId, effectiveApiUrl)
+      if (success) {
+        alert("Build supprimé.")
+        loadRemoteBuilds()
+      } else {
+        alert("Erreur lors de la suppression. Vérifiez que vous êtes bien l'auteur.")
+      }
     }
   }
 
@@ -161,8 +266,13 @@ export default function BuildLibraryPage() {
   }, [localBuilds, searchTerm, selectedTags, sortBy])
 
   const filteredPredefinedBuilds = useMemo(() => {
-    if (!data.builds) return []
-    const filtered = data.builds.filter(build => {
+    // On combine les builds du fichier statique et ceux de l'API
+    const combined = [
+      ...(data.builds || []),
+      ...remoteBuilds
+    ]
+    
+    const filtered = combined.filter(build => {
       const matchesSearch = !searchTerm || 
         build.nom?.toLowerCase().includes(searchTerm.toLowerCase()) || 
         build.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -174,7 +284,7 @@ export default function BuildLibraryPage() {
       return matchesSearch && matchesTags
     })
     return sortBuilds(filtered)
-  }, [data.builds, searchTerm, selectedTags, sortBy])
+  }, [data.builds, remoteBuilds, searchTerm, selectedTags, sortBy])
 
   const isSearching = !!(searchTerm || selectedTags.length > 0)
 
@@ -209,8 +319,8 @@ export default function BuildLibraryPage() {
 
       {/* Barre de recherche et filtres */}
       <div className="mb-10 space-y-6">
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="relative flex-1">
+        <div className="flex flex-col md:flex-row gap-4 items-center">
+          <div className="relative flex-1 w-full">
             <input 
               type="text"
               placeholder="Rechercher un build par nom, description ou auteur..."
@@ -235,11 +345,11 @@ export default function BuildLibraryPage() {
             )}
           </div>
 
-          <div className="shrink-0">
+          <div className="flex gap-2 w-full md:w-auto">
             <select 
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-full md:w-auto bg-tactical-panel/50 border border-tactical-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-shd transition-all focus:ring-1 focus:ring-shd/20 font-bold text-sm"
+              className="flex-1 md:flex-initial bg-tactical-panel/50 border border-tactical-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-shd transition-all focus:ring-1 focus:ring-shd/20 font-bold text-sm"
             >
               <option value="default">Tri par défaut</option>
               <option value="recent">Plus récents</option>
@@ -247,8 +357,83 @@ export default function BuildLibraryPage() {
               <option value="likes_desc">Plus likés</option>
               <option value="likes_asc">Moins likés</option>
             </select>
+
+            <button 
+              onClick={() => setShowSettings(!showSettings)}
+              className="p-3 bg-tactical-panel/50 border border-tactical-border rounded-lg text-gray-400 hover:text-shd hover:border-shd/50 transition-all"
+              title="Paramètres de l'API"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </button>
+
+            {user ? (
+              <div className="flex items-center gap-3 pl-2 border-l border-tactical-border ml-2">
+                {user.avatar && (
+                  <img src={user.avatar} alt={user.username} className="w-8 h-8 rounded-full border border-shd/50" />
+                )}
+                <div className="hidden lg:block">
+                  <div className="text-[10px] text-gray-500 uppercase font-black">Connecté en tant que</div>
+                  <div className="text-xs text-white font-bold">{user.username}</div>
+                </div>
+                <button 
+                  onClick={handleLogout}
+                  className="p-2 text-gray-500 hover:text-red-500 transition-colors"
+                  title="Déconnexion"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  </svg>
+                </button>
+              </div>
+            ) : (
+              <button 
+                onClick={handleLoginDiscord}
+                className="flex items-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] text-white px-4 py-3 rounded-lg font-bold text-sm transition-colors ml-2"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.076.076 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.086 2.157 2.419c0 1.334-.966 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.086 2.157 2.419c0 1.334-.946 2.419-2.157 2.419z"/>
+                </svg>
+                Connexion
+              </button>
+            )}
           </div>
         </div>
+
+        {/* API Settings Modal */}
+        {showSettings && (
+          <div className="p-4 bg-tactical-panel/80 border border-shd/30 rounded-lg animate-fade-in">
+            <h4 className="text-xs font-black text-shd uppercase tracking-widest mb-3">Configuration de l'API</h4>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input 
+                type="text" 
+                defaultValue={effectiveApiUrl}
+                placeholder="URL de l'API (ex: https://api.buildotheque.com)"
+                className="flex-1 bg-black/40 border border-tactical-border rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-shd"
+                id="api-url-input"
+              />
+              <div className="flex gap-2">
+                <button 
+                  onClick={() => handleSaveApiUrl(document.getElementById('api-url-input').value)}
+                  className="px-4 py-2 bg-shd text-white rounded text-xs font-bold uppercase"
+                >
+                  Enregistrer
+                </button>
+                <button 
+                  onClick={() => setShowSettings(false)}
+                  className="px-4 py-2 bg-tactical-border text-gray-300 rounded text-xs font-bold uppercase"
+                >
+                  Annuler
+                </button>
+              </div>
+            </div>
+            <p className="mt-2 text-[10px] text-gray-500 italic">
+              Laissez vide pour utiliser l'API par défaut : {data.metadata?.buildLibraryApiUrl}
+            </p>
+          </div>
+        )}
 
         {data.buildsTags && (
           <div className="flex flex-wrap items-center gap-2">
@@ -297,12 +482,14 @@ export default function BuildLibraryPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {allFilteredBuilds.map((b, i) => (
                   <BuildCard 
-                    key={b.encoded || i} 
+                    key={b.id || b.encoded || i} 
                     build={b} 
                     data={data} 
                     onView={() => navigate(`/build?b=${b.encoded}`)}
+                    onPublish={b.isLocal ? () => handlePublish(b) : undefined}
                     onDelete={b.isLocal ? () => handleDeleteLocal(b.encoded) : undefined}
                     isLocal={b.isLocal}
+                    currentUser={user}
                   />
                 ))}
               </div>
@@ -332,8 +519,10 @@ export default function BuildLibraryPage() {
                       build={b} 
                       data={data} 
                       onView={() => navigate(`/build?b=${b.encoded}`)}
+                      onPublish={() => handlePublish(b)}
                       onDelete={() => handleDeleteLocal(b.encoded)}
                       isLocal
+                      currentUser={user}
                     />
                   ))}
                 </div>
@@ -341,24 +530,33 @@ export default function BuildLibraryPage() {
             </section>
 
             {/* Section Prédéfinis */}
-            {data.builds && data.builds.length > 0 && (
+            {(data.builds?.length > 0 || remoteBuilds.length > 0) && (
               <section>
-                <h3 className="text-sm font-bold text-blue-400 uppercase tracking-widest mb-6 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-blue-400 rounded-full" />
-                  Builds Recommandés ({filteredPredefinedBuilds.length})
-                </h3>
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-sm font-bold text-blue-400 uppercase tracking-widest flex items-center gap-2">
+                    <span className="w-2 h-2 bg-blue-400 rounded-full" />
+                    Builds de la communauté ({filteredPredefinedBuilds.length})
+                  </h3>
+                  {isApiLoading && (
+                    <div className="flex items-center gap-2 text-[10px] text-blue-400 font-bold uppercase animate-pulse">
+                      Chargement API...
+                    </div>
+                  )}
+                </div>
                 {filteredPredefinedBuilds.length === 0 ? (
                   <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
-                    Aucun build recommandé ne correspond à vos critères.
+                    Aucun build communautaire ne correspond à vos critères.
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredPredefinedBuilds.map((b, i) => (
                       <BuildCard 
-                        key={i} 
+                        key={b.id || b.encoded || i} 
                         build={b} 
                         data={data} 
                         onView={() => navigate(`/build?b=${b.encoded}`)}
+                        apiUrl={effectiveApiUrl}
+                        currentUser={user}
                       />
                     ))}
                   </div>
@@ -372,7 +570,28 @@ export default function BuildLibraryPage() {
   )
 }
 
-function BuildCard({ build, data, onView, onDelete, isLocal }) {
+function BuildCard({ build, data, onView, onEdit, onPublish, onDelete, isLocal, apiUrl, currentUser }) {
+  const [likes, setLikes] = useState(build.likes || 0)
+  const [isLiking, setIsLiking] = useState(false)
+
+  const isAuthor = build.auteurId === currentUser?.id || (build.isLocal && !build.id)
+
+  const handleLike = async (e) => {
+    e.stopPropagation()
+    if (!apiBuildotheque.isAuthenticated()) {
+      alert("Connectez-vous via Discord pour liker un build.")
+      return
+    }
+    if (isLocal || !build.id) return // Ne peut pas liker un build local ou sans ID API
+
+    setIsLiking(true)
+    const result = await apiBuildotheque.toggleLike(build.id, apiUrl)
+    if (result && result.likes !== undefined) {
+      setLikes(result.likes)
+    }
+    setIsLiking(false)
+  }
+
   const resolved = useMemo(() => {
     const compact = decodeBuild(build.encoded)
     return resolveBuild(compact, data)
@@ -463,13 +682,21 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
                 <h4 className="text-lg font-bold text-white tracking-wider group-hover:text-shd transition-colors line-clamp-1">
                   {build.nom}
                 </h4>
-                {build.likes !== undefined && (
-                  <div className="flex items-center gap-1 text-shd/80 bg-shd/5 px-1.5 py-0.5 rounded border border-shd/20 text-[10px] font-black">
+                {likes !== undefined && (
+                  <button 
+                    onClick={handleLike}
+                    disabled={isLiking}
+                    className={`flex items-center gap-1 px-1.5 py-0.5 rounded border text-[10px] font-black transition-all ${
+                      isLiking ? 'opacity-50 cursor-wait' : 'hover:scale-110'
+                    } ${
+                      isLocal ? 'text-gray-500 bg-gray-500/5 border-gray-500/20 cursor-default' : 'text-shd/80 bg-shd/5 border-shd/20'
+                    }`}
+                  >
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                     </svg>
-                    {build.likes}
-                  </div>
+                    {likes}
+                  </button>
                 )}
               </div>
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -515,17 +742,32 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
               )}
             </div>
           </div>
-          {isLocal && (
-            <button 
-              onClick={(e) => { e.stopPropagation(); onDelete(); }}
-              className="text-gray-600 hover:text-red-500 p-1 transition-colors"
-              title="Supprimer"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-              </svg>
-            </button>
-          )}
+          
+          <div className="flex gap-2">
+            {isLocal && onPublish && (
+              <button 
+                onClick={(e) => { e.stopPropagation(); onPublish(); }}
+                className="text-gray-600 hover:text-emerald-500 p-1 transition-colors"
+                title="Publier sur la Buildothèque"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                </svg>
+              </button>
+            )}
+
+            {onDelete && isAuthor && (
+              <button 
+                onClick={(e) => { e.stopPropagation(); onDelete(); }}
+                className="text-gray-600 hover:text-red-500 p-1 transition-colors"
+                title={isLocal ? "Supprimer de la bibliothèque locale" : "Supprimer de la Buildothèque communautaire"}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </button>
+            )}
+          </div>
         </div>
 
         <p className="text-sm text-gray-400 mb-6 line-clamp-2 h-10 italic">

@@ -18,7 +18,7 @@ function ItemMini({ item, ensemble, slot }) {
   let icon = null
   
   if (isWeapon) {
-    icon = resolveAsset(item?.icon) || resolveAsset(item?.slug) || WEAPON_TYPE_ICONS[item?.type]
+    icon = resolveAsset(item?.icon) || WEAPON_TYPE_ICONS[item?.type]
   } else if (isSkill) {
     icon = resolveAsset(item?.icon) || resolveAsset(item?.slug)
   } else {
@@ -682,15 +682,13 @@ function BuildCard({ build, data, onView, onEdit, onPublish, onDelete, isLocal, 
                 <h4 className="text-lg font-bold text-white tracking-wider group-hover:text-shd transition-colors line-clamp-1">
                   {build.nom}
                 </h4>
-                {likes !== undefined && (
+                {likes !== undefined && !isLocal && build.id && (
                   <button 
                     onClick={handleLike}
                     disabled={isLiking}
                     className={`flex items-center gap-1 px-1.5 py-0.5 rounded border text-[10px] font-black transition-all ${
                       isLiking ? 'opacity-50 cursor-wait' : 'hover:scale-110'
-                    } ${
-                      isLocal ? 'text-gray-500 bg-gray-500/5 border-gray-500/20 cursor-default' : 'text-shd/80 bg-shd/5 border-shd/20'
-                    }`}
+                    } text-shd/80 bg-shd/5 border-shd/20`}
                   >
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />

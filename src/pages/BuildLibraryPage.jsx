@@ -306,27 +306,6 @@ export default function BuildLibraryPage() {
             </h2>
             <p className="text-sm text-gray-500">Retrouvez vos configurations et les builds de la communauté</p>
           </div>
-
-          <div className="flex items-center gap-4">
-            {user ? (
-                <div className="flex items-center gap-3 bg-tactical-panel/50 px-4 py-2 rounded-lg border border-shd/30">
-                  <span className="text-sm text-white font-bold tracking-widest">{user.username}</span>
-                  <button
-                      onClick={handleLogout}
-                      className="text-xs text-red-400 hover:text-red-300 font-black uppercase tracking-wider transition-colors"
-                  >
-                    Déconnexion
-                  </button>
-                </div>
-            ) : (
-                <button
-                    onClick={handleLoginDiscord}
-                    className="flex items-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] text-white px-4 py-2 rounded-lg font-bold text-sm uppercase tracking-widest transition-colors"
-                >
-                  Connexion Discord
-                </button>
-            )}
-          </div>
         </div>
 
         <div className="mb-10 space-y-6">

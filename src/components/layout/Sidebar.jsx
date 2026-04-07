@@ -31,8 +31,7 @@ export default function Sidebar({ open, onClose }) {
       setUser(e.detail?.user || null)
     }
     window.addEventListener('auth-change', handleAuthChange)
-    
-    // Synchronisation initiale au cas où l'événement a été raté ou l'état a changé
+
     const checkAuth = () => {
       const currentUser = apiBuildotheque.user;
       if (JSON.stringify(currentUser) !== JSON.stringify(user)) {
@@ -42,7 +41,8 @@ export default function Sidebar({ open, onClose }) {
     checkAuth();
 
     return () => window.removeEventListener('auth-change', handleAuthChange)
-  }, [])
+  }, [user])
+
   const linkClass = ({ isActive }) =>
       `flex items-center gap-3 px-3 py-2.5 rounded text-sm font-bold uppercase tracking-widest transition-all duration-200 border ${
           isActive
@@ -56,7 +56,6 @@ export default function Sidebar({ open, onClose }) {
         absolute md:relative shadow-[4px_0_24px_rgba(0,0,0,0.8)]
         ${open ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}
       >
-        {/* Logo */}
         <div className="p-4 sm:p-6 border-b border-tactical-border flex justify-between items-center shrink-0">
           <div className="flex items-center gap-2">
             <JTFrLogo className="w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12" />
@@ -71,7 +70,6 @@ export default function Sidebar({ open, onClose }) {
           </button>
         </div>
 
-        {/* Navigation */}
         <nav className="px-3 py-4 space-y-1">
           <NavLink to="/" end className={linkClass} onClick={onClose}>
             <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,13 +80,13 @@ export default function Sidebar({ open, onClose }) {
           </NavLink>
 
           <div className="pt-2">
-            <NavLink 
-              to="/build"
-              className={nav => `${linkClass(nav)} flex justify-between items-center group`}
-              onClick={(e) => {
-                e.preventDefault();
-                setBuildsExpanded(!buildsExpanded);
-              }}
+            <NavLink
+                to="/build"
+                className={nav => `${linkClass(nav)} flex justify-between items-center group`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setBuildsExpanded(!buildsExpanded);
+                }}
             >
               <div className="flex items-center gap-3">
                 <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -96,40 +94,40 @@ export default function Sidebar({ open, onClose }) {
                 </svg>
                 Builds
               </div>
-              <svg 
-                className={`w-4 h-4 transition-transform duration-200 ${buildsExpanded ? 'rotate-180' : ''}`} 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
+              <svg
+                  className={`w-4 h-4 transition-transform duration-200 ${buildsExpanded ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </NavLink>
 
             <div className={`mt-1 space-y-1 overflow-hidden transition-all duration-300 ${buildsExpanded ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-              <NavLink 
-                to="/library" 
-                className={({ isActive }) => 
-                  `flex items-center gap-3 px-3 py-2 rounded text-[11px] font-bold uppercase tracking-widest transition-all duration-200 border ml-6 ${
-                    isActive
-                        ? 'bg-shd/5 text-shd border-shd/20'
-                        : 'text-gray-500 hover:bg-tactical-hover hover:text-gray-300 border-transparent'
-                  }`
-                } 
-                onClick={onClose}
+              <NavLink
+                  to="/library"
+                  className={({ isActive }) =>
+                      `flex items-center gap-3 px-3 py-2 rounded text-[11px] font-bold uppercase tracking-widest transition-all duration-200 border ml-6 ${
+                          isActive
+                              ? 'bg-shd/5 text-shd border-shd/20'
+                              : 'text-gray-500 hover:bg-tactical-hover hover:text-gray-300 border-transparent'
+                      }`
+                  }
+                  onClick={onClose}
               >
                 Buildothèque
               </NavLink>
-              <NavLink 
-                to="/build"
-                className={({ isActive }) => 
-                  `flex items-center gap-3 px-3 py-2 rounded text-[11px] font-bold uppercase tracking-widest transition-all duration-200 border ml-6 ${
-                    isActive
-                        ? 'bg-shd/5 text-shd border-shd/20'
-                        : 'text-gray-500 hover:bg-tactical-hover hover:text-gray-300 border-transparent'
-                  }`
-                } 
-                onClick={onClose}
+              <NavLink
+                  to="/build"
+                  className={({ isActive }) =>
+                      `flex items-center gap-3 px-3 py-2 rounded text-[11px] font-bold uppercase tracking-widest transition-all duration-200 border ml-6 ${
+                          isActive
+                              ? 'bg-shd/5 text-shd border-shd/20'
+                              : 'text-gray-500 hover:bg-tactical-hover hover:text-gray-300 border-transparent'
+                      }`
+                  }
+                  onClick={onClose}
               >
                 Build Planner
               </NavLink>
@@ -155,10 +153,8 @@ export default function Sidebar({ open, onClose }) {
           </div>
         </nav>
 
-        {/* Spacer pushes outils + footer to bottom */}
         <div className="flex-1" />
 
-        {/* Outils — en bas de la sidebar */}
         <div className="px-3 pb-2">
           <div className="text-xs text-gray-500 uppercase tracking-widest px-3 mb-1.5 flex flex-row">
             Outils de contribution
@@ -173,47 +169,46 @@ export default function Sidebar({ open, onClose }) {
           </NavLink>
         </div>
 
-        {/* Footer */}
         <div className="p-4 border-t border-tactical-border flex flex-col gap-4 shrink-0">
           {user ? (
-            <div 
-              className="flex items-center justify-between bg-black/20 p-2 rounded-lg border border-white/5 hover:border-red-500/30 group transition-all cursor-pointer"
-              onClick={() => {
-                if(window.confirm('Voulez-vous vous déconnecter ?')) {
-                  apiBuildotheque.logout();
-                }
-              }}
-              title="Cliquer pour se déconnecter"
-            >
-              <div className="flex items-center gap-2 min-w-0">
-                {user.avatar ? (
-                  <img src={user.avatar} alt={user.username} className="w-8 h-8 rounded-full border border-shd/50 group-hover:border-red-500/50 transition-colors" />
-                ) : (
-                  <div className="w-8 h-8 rounded-full bg-shd/20 border border-shd/50 flex items-center justify-center text-[10px] font-black text-shd group-hover:border-red-500/50 group-hover:text-red-500 transition-colors">
-                    {user.username?.substring(0, 2).toUpperCase()}
+              <div
+                  className="flex items-center justify-between bg-black/20 p-2 rounded-lg border border-white/5 hover:border-red-500/30 group transition-all cursor-pointer"
+                  onClick={() => {
+                    if(window.confirm('Voulez-vous vous déconnecter ?')) {
+                      apiBuildotheque.logout();
+                    }
+                  }}
+                  title="Cliquer pour se déconnecter"
+              >
+                <div className="flex items-center gap-2 min-w-0">
+                  {user.avatar && user.avatar.startsWith('http') ? (
+                      <img src={user.avatar} alt={user.username} className="w-8 h-8 rounded-full border border-shd/50 group-hover:border-red-500/50 transition-colors" />
+                  ) : (
+                      <div className="w-8 h-8 rounded-full bg-shd/20 border border-shd/50 flex items-center justify-center text-[10px] font-black text-shd group-hover:border-red-500/50 group-hover:text-red-500 transition-colors">
+                        {user.username?.substring(0, 2).toUpperCase()}
+                      </div>
+                  )}
+                  <div className="flex flex-col min-w-0 leading-tight">
+                    <span className="text-[10px] text-gray-500 uppercase font-black truncate group-hover:text-red-400">Connecté</span>
+                    <span className="text-xs text-white font-bold truncate group-hover:text-red-500 transition-colors">{user.username}</span>
                   </div>
-                )}
-                <div className="flex flex-col min-w-0 leading-tight">
-                  <span className="text-[10px] text-gray-500 uppercase font-black truncate group-hover:text-red-400">Connecté</span>
-                  <span className="text-xs text-white font-bold truncate group-hover:text-red-500 transition-colors">{user.username}</span>
+                </div>
+                <div className="p-2 text-gray-500 group-hover:text-red-500 transition-colors">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  </svg>
                 </div>
               </div>
-              <div className="p-2 text-gray-500 group-hover:text-red-500 transition-colors">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                </svg>
-              </div>
-            </div>
           ) : (
-            <button 
-              onClick={() => apiBuildotheque.loginDiscord(apiBuildotheque.baseUrl || DEFAULT_API_URL)}
-              className="flex items-center justify-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] text-white py-2 rounded font-bold text-[11px] uppercase transition-colors"
-            >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.076.076 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.086 2.157 2.419c0 1.334-.966 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.086 2.157 2.419c0 1.334-.946 2.419-2.157 2.419z"/>
-              </svg>
-              Connexion Discord
-            </button>
+              <button
+                  onClick={() => apiBuildotheque.loginDiscord(apiBuildotheque.baseUrl || DEFAULT_API_URL)}
+                  className="flex items-center justify-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] text-white py-2 rounded font-bold text-[11px] uppercase transition-colors"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.076.076 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.086 2.157 2.419c0 1.334-.966 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.086 2.157 2.419c0 1.334-.946 2.419-2.157 2.419z"/>
+                </svg>
+                Connexion Discord
+              </button>
           )}
 
           <div className="text-[10px] text-gray-600 flex justify-between items-center">

@@ -1,4 +1,3 @@
-
 /**
  * Service pour interagir avec l'API Buildotheque.
  */
@@ -7,7 +6,57 @@ class ApiBuildotheque {
   constructor() {
     this.baseUrl = localStorage.getItem('buildLibraryApiUrl_override') || null;
     this.token = localStorage.getItem('buildLibrary_token') || null;
-    this.user = JSON.parse(localStorage.getItem('buildLibrary_user') || 'null');
+
+    try {
+      const rawUser = localStorage.getItem('buildLibrary_user');
+      // Protection contre les vieilles données corrompues dans le cache
+      if (rawUser && rawUser !== 'undefined' && rawUser !== '[object Object]') {
+        this.user = JSON.parse(rawUser);
+      } else {
+        this.user = null;
+      }
+    } catch (e) {
+      console.warn("Données utilisateur invalides nettoyées.");
+      this.user = null;
+      localStorage.removeItem('buildLibrary_user');
+    }
+
+    // Si le token est présent mais l'utilisateur est vide, on force le décodage du JWT.
+    if (this.token && !this.user) {
+      this.decodeAndSetUser(this.token);
+    }
+  }
+
+  decodeAndSetUser(token) {
+    try {
+      const base64Url = token.split('.')[1];
+      if (!base64Url) return false;
+
+      let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const pad = base64.length % 4;
+      if (pad) {
+        base64 += new Array(5 - pad).join('=');
+      }
+
+      const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+
+      const userData = JSON.parse(jsonPayload);
+
+      this.user = {
+        id: userData.sub,
+        username: userData.username,
+        avatar: userData.avatar
+      };
+
+      localStorage.setItem('buildLibrary_user', JSON.stringify(this.user));
+      return true;
+    } catch (e) {
+      console.error("Erreur critique lors du décodage du JWT:", e);
+      this.user = null;
+      return false;
+    }
   }
 
   setBaseUrl(url, metadataBaseUrl) {
@@ -34,7 +83,6 @@ class ApiBuildotheque {
         throw new Error('Erreur lors de la récupération des builds');
       }
       const data = await response.json();
-      // L'API renvoie {"builds": [...], "total": 1, "limit": 50, "offset": 0}
       return data && data.builds ? data.builds : (Array.isArray(data) ? data : []);
     } catch (e) {
       console.error("API Fetch Error:", e);
@@ -42,38 +90,20 @@ class ApiBuildotheque {
     }
   }
 
-  async hashId(id) {
-    if (!id) return null;
-    const msgUint8 = new TextEncoder().encode(id);
-    const hashBuffer = await crypto.subtle.digest('SHA-512', msgUint8);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-  }
-
   async loginDiscord(metadataBaseUrl) {
     const url = this.getBaseUrl(metadataBaseUrl);
     console.log(`Redirecting to Discord login at: ${url}/auth/discord`);
-    // Redirection vers l'auth Discord de l'API
     window.location.href = `${url}/auth/discord`;
   }
 
-  handleAuthCallback(token, user) {
-    console.log("Handling auth callback...", { hasToken: !!token, hasUser: !!user });
+  handleAuthCallback(token) {
+    console.log("Handling auth callback...", { hasToken: !!token });
     if (token) {
       this.token = token;
       localStorage.setItem('buildLibrary_token', token);
+      this.decodeAndSetUser(token);
     }
-    if (user) {
-      try {
-        const decodedUser = decodeURIComponent(user);
-        const userData = typeof decodedUser === 'string' ? JSON.parse(decodedUser) : decodedUser;
-        this.user = userData;
-        localStorage.setItem('buildLibrary_user', JSON.stringify(userData));
-        console.log("User data parsed and saved:", userData);
-      } catch (e) {
-        console.error("Erreur lors du parsing de l'utilisateur:", e, "Raw data:", user);
-      }
-    }
+
     console.log("Dispatching auth-change event...");
     window.dispatchEvent(new CustomEvent('auth-change', { detail: { user: this.user } }));
   }

@@ -10,10 +10,9 @@ const BuildPlannerPage = lazy(() => import('./pages/BuildPlannerPage'))
 const BuildLibraryPage = lazy(() => import('./pages/BuildLibraryPage'))
 const ChangelogPage = lazy(() => import('./pages/ChangelogPage'))
 const GeneratorPage = lazy(() => import('./pages/GeneratorPage'))
-const MarkdownViewerPage = lazy(() => import('./pages/PageViewer'))
 
 function SuspensePage({ children }) {
-  return <Suspense fallback={<Loader />}>{children}</Suspense>
+    return <Suspense fallback={<Loader />}>{children}</Suspense>
 }
 
 export default function App() {
@@ -23,15 +22,13 @@ export default function App() {
     useEffect(() => {
         const params = new URLSearchParams(location.search)
         const token = params.get('token')
-        const userParam = params.get('user')
 
         if (token) {
             console.log("App: Auth parameters found in URL");
-            apiBuildotheque.handleAuthCallback(token, userParam)
-            
+            apiBuildotheque.handleAuthCallback(token)
+
             // Nettoyer l'URL
             params.delete('token')
-            params.delete('user')
             const newSearch = params.toString()
             const cleanUrl = `${location.pathname}${newSearch ? `?${newSearch}` : ''}`;
             console.log("App: Cleaning URL to", cleanUrl);
@@ -54,7 +51,6 @@ export default function App() {
             setTimeout(preloadPages, 2000);
         }
     }, []);
-
 
     return (
         <Routes>

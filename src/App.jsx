@@ -26,15 +26,18 @@ export default function App() {
         const userParam = params.get('user')
 
         if (token) {
+            console.log("App: Auth parameters found in URL");
             apiBuildotheque.handleAuthCallback(token, userParam)
             
             // Nettoyer l'URL
             params.delete('token')
             params.delete('user')
             const newSearch = params.toString()
-            navigate(`${location.pathname}${newSearch ? `?${newSearch}` : ''}`, { replace: true })
+            const cleanUrl = `${location.pathname}${newSearch ? `?${newSearch}` : ''}`;
+            console.log("App: Cleaning URL to", cleanUrl);
+            navigate(cleanUrl, { replace: true })
         }
-    }, [location, navigate])
+    }, [location.search, location.pathname, navigate])
 
     useEffect(() => {
         const preloadPages = () => {

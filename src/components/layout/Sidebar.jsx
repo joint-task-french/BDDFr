@@ -27,9 +27,20 @@ export default function Sidebar({ open, onClose }) {
 
   useEffect(() => {
     const handleAuthChange = (e) => {
+      console.log("Sidebar: Auth change detected", e.detail?.user);
       setUser(e.detail?.user || null)
     }
     window.addEventListener('auth-change', handleAuthChange)
+    
+    // Synchronisation initiale au cas où l'événement a été raté ou l'état a changé
+    const checkAuth = () => {
+      const currentUser = apiBuildotheque.user;
+      if (JSON.stringify(currentUser) !== JSON.stringify(user)) {
+        setUser(currentUser);
+      }
+    };
+    checkAuth();
+
     return () => window.removeEventListener('auth-change', handleAuthChange)
   }, [])
   const linkClass = ({ isActive }) =>
@@ -165,29 +176,33 @@ export default function Sidebar({ open, onClose }) {
         {/* Footer */}
         <div className="p-4 border-t border-tactical-border flex flex-col gap-4 shrink-0">
           {user ? (
-            <div className="flex items-center justify-between bg-black/20 p-2 rounded-lg border border-white/5">
+            <div 
+              className="flex items-center justify-between bg-black/20 p-2 rounded-lg border border-white/5 hover:border-red-500/30 group transition-all cursor-pointer"
+              onClick={() => {
+                if(window.confirm('Voulez-vous vous déconnecter ?')) {
+                  apiBuildotheque.logout();
+                }
+              }}
+              title="Cliquer pour se déconnecter"
+            >
               <div className="flex items-center gap-2 min-w-0">
                 {user.avatar ? (
-                  <img src={user.avatar} alt={user.username} className="w-8 h-8 rounded-full border border-shd/50" />
+                  <img src={user.avatar} alt={user.username} className="w-8 h-8 rounded-full border border-shd/50 group-hover:border-red-500/50 transition-colors" />
                 ) : (
-                  <div className="w-8 h-8 rounded-full bg-shd/20 border border-shd/50 flex items-center justify-center text-[10px] font-black text-shd">
+                  <div className="w-8 h-8 rounded-full bg-shd/20 border border-shd/50 flex items-center justify-center text-[10px] font-black text-shd group-hover:border-red-500/50 group-hover:text-red-500 transition-colors">
                     {user.username?.substring(0, 2).toUpperCase()}
                   </div>
                 )}
                 <div className="flex flex-col min-w-0 leading-tight">
-                  <span className="text-[10px] text-gray-500 uppercase font-black truncate">Connecté</span>
-                  <span className="text-xs text-white font-bold truncate">{user.username}</span>
+                  <span className="text-[10px] text-gray-500 uppercase font-black truncate group-hover:text-red-400">Connecté</span>
+                  <span className="text-xs text-white font-bold truncate group-hover:text-red-500 transition-colors">{user.username}</span>
                 </div>
               </div>
-              <button 
-                onClick={() => apiBuildotheque.logout()}
-                className="p-2 text-gray-500 hover:text-red-500 transition-colors"
-                title="Déconnexion"
-              >
+              <div className="p-2 text-gray-500 group-hover:text-red-500 transition-colors">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                 </svg>
-              </button>
+              </div>
             </div>
           ) : (
             <button 

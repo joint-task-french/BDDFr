@@ -698,7 +698,7 @@ function BuildCard({ build, data, onView, onEdit, onPublish, onDelete, isLocal, 
           </div>
           
           <div className="flex gap-2">
-            {isLocal && onPublish && (
+            {isLocal && onPublish && apiBuildotheque.isAuthenticated() && (
               <button 
                 onClick={(e) => { e.stopPropagation(); onPublish(); }}
                 className="text-gray-600 hover:text-emerald-500 p-1 transition-colors"

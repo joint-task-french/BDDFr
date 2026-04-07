@@ -3,43 +3,89 @@ import { useNavigate } from 'react-router-dom'
 import { useDataLoader } from '../hooks/useDataLoader'
 import { decodeBuild, resolveBuild } from '../utils/buildShare'
 import Loader from '../components/common/Loader'
-import { GameIcon, resolveAsset, GEAR_SLOT_ICONS_IMG } from '../components/common/GameAssets'
+import { GameIcon, resolveAsset, GEAR_SLOT_ICONS_IMG, WEAPON_TYPE_ICONS } from '../components/common/GameAssets'
 
 function ItemMini({ item, ensemble, slot }) {
-  const isWeapon = slot.startsWith('w') || slot === 'sa'
+  const isWeapon = slot === 'w1' || slot === 'w2' || slot === 'sa'
+  const isSkill = slot === 's1' || slot === 's2'
   
   // Résolution d'icône
   let icon = null
   if (isWeapon) {
-    icon = resolveAsset(item?.slug) || resolveAsset(item?.type?.replace(' ', '_').toLowerCase())
+    // Priorité absolue au type d'arme pour les icônes (comme dans la DB)
+    icon = WEAPON_TYPE_ICONS[item?.type] || resolveAsset(item?.slug)
+  } else if (isSkill) {
+    icon = resolveAsset(item?.icon)
   } else {
-    icon = resolveAsset(ensemble?.icon) || GEAR_SLOT_ICONS_IMG[slot]
+    // Équipement : Priorité à l'icône de la marque/set (comme dans la DB)
+    icon = resolveAsset(ensemble?.icon) || resolveAsset(item?.marque) || resolveAsset(item?.slug) || GEAR_SLOT_ICONS_IMG[slot]
   }
 
-  const name = item?.nom || ''
+  const name = isSkill ? item?.variante : item?.nom
   const isExotic = item?.qualite === 'exotique' || item?.type === 'exotique' || item?.estExotique
+  const isNamed = item?.estNomme
+  const isGearSet = item?.type === 'gear_set' || ensemble?.type === 'gear_set'
+  const isSkillItem = isSkill && item
   
+  // Détermination des couleurs unifiées selon la rareté
+  let colorClass = 'text-gray-400'
+  let borderColor = 'border-white/10'
+  let bgColor = 'bg-black/40'
+
+  if (item) {
+    if (isExotic) {
+      colorClass = 'text-red-500'
+      borderColor = 'border-red-500/50'
+      bgColor = 'bg-red-500/5'
+    } else if (isGearSet) {
+      colorClass = 'text-emerald-400'
+      borderColor = 'border-emerald-400/30'
+      bgColor = 'bg-emerald-400/5'
+    } else if (isNamed) {
+      colorClass = 'text-shd'
+      borderColor = 'border-shd/50'
+      bgColor = 'bg-shd/10'
+    } else if (isSkillItem) {
+      colorClass = 'text-blue-400'
+      borderColor = 'border-blue-400/30'
+      bgColor = 'bg-blue-400/5'
+    } else {
+      // Haut de gamme (High-end) par défaut
+      colorClass = 'text-amber-400'
+      borderColor = 'border-amber-400/20'
+      bgColor = 'bg-amber-400/5'
+    }
+  } else {
+    colorClass = 'text-gray-600'
+    borderColor = 'border-white/5 opacity-20'
+  }
+
   return (
     <div className="flex items-center gap-2 min-w-0" title={name || slot}>
-      <div className={`shrink-0 w-8 h-8 flex items-center justify-center rounded bg-black/40 border ${item ? (isExotic ? 'border-orange-500/50 bg-orange-500/5' : 'border-white/10') : 'border-white/5 opacity-20'}`}>
+      <div className={`shrink-0 w-8 h-8 flex items-center justify-center rounded border transition-colors ${bgColor} ${borderColor}`}>
         <GameIcon 
           src={icon} 
           size="w-5 h-5" 
-          color={isExotic ? 'text-orange-500' : 'text-gray-400'} 
+          color={colorClass} 
         />
       </div>
       <div className="flex flex-col min-w-0 leading-tight">
-        <span className={`text-[10px] font-bold uppercase truncate ${item ? (isExotic ? 'text-orange-400' : 'text-gray-200') : 'text-gray-600'}`}>
+        <span className={`text-[10px] font-bold uppercase truncate transition-colors ${colorClass}`}>
           {name || '-'}
         </span>
         {ensemble?.nom && !isWeapon && (
-           <span className="text-[8px] text-gray-500 truncate uppercase tracking-tighter">
+           <span className="text-xs text-gray-500 truncate uppercase tracking-tighter">
              {ensemble.nom}
            </span>
         )}
         {isWeapon && item?.type && (
-           <span className="text-[8px] text-gray-500 truncate uppercase tracking-tighter">
+           <span className="text-xs text-gray-500 truncate uppercase tracking-tighter">
              {item.type.replace('_', ' ')}
+           </span>
+        )}
+        {isSkill && item?.competence && (
+           <span className="text-xs text-gray-500 truncate uppercase tracking-tighter">
+             {item.competence}
            </span>
         )}
       </div>
@@ -106,7 +152,7 @@ export default function BuildLibraryPage() {
                   key={i} 
                   build={b} 
                   data={data} 
-                  onView={() => navigate(`/planner?b=${b.encoded}`)}
+                  onView={() => navigate(`/build?b=${b.encoded}`)}
                   onDelete={() => handleDeleteLocal(i)}
                   isLocal
                 />
@@ -128,7 +174,7 @@ export default function BuildLibraryPage() {
                   key={i} 
                   build={b} 
                   data={data} 
-                  onView={() => navigate(`/planner?b=${b.encoded}`)}
+                  onView={() => navigate(`/build?b=${b.encoded}`)}
                 />
               ))}
             </div>
@@ -157,20 +203,30 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
     const res = {}
     Object.entries(resolved.gear).forEach(([slot, item]) => {
       if (item?.marque) {
-        res[slot] = data.ensembles?.[item.marque] || 
-                    Object.values(data.ensembles || {}).find(e => e.slug === item.marque)
+        // Recherche robuste de l'ensemble (insensible à la casse, slug ou clé directe)
+        const brandKey = item.marque.toLowerCase()
+        res[slot] = data.ensembles?.[brandKey] || 
+                    Object.values(data.ensembles || {}).find(e => 
+                      (e.slug && e.slug.toLowerCase() === brandKey) || 
+                      (e.nom && e.nom.toLowerCase() === brandKey)
+                    )
       }
     })
     return res
   }, [resolved.gear, data.ensembles])
 
-  const brands = gearPieces.reduce((acc, item) => {
+  const brandsInfo = gearPieces.reduce((acc, item) => {
     const ensemble = resolvedEnsembles[item.emplacement]
-    const brandName = ensemble?.nom || item.nom
-    acc[brandName] = (acc[brandName] || 0) + 1
+    const key = ensemble?.slug || item.marque || item.nom
+    if (!acc[key]) {
+      acc[key] = { count: 0, ensemble, name: ensemble?.nom || item.nom }
+    }
+    acc[key].count += 1
     return acc
   }, {})
-  const mainBrand = Object.entries(brands).sort((a, b) => b[1] - a[1])[0]?.[0]
+  const mainBrandInfo = Object.values(brandsInfo).sort((a, b) => b.count - a.count)[0]
+  const mainBrand = mainBrandInfo?.name
+  const mainBrandIcon = resolveAsset(mainBrandInfo?.ensemble?.icon) || resolveAsset(mainBrandInfo?.ensemble?.slug)
 
   const statsCount = { offensif: 0, defensif: 0, utilitaire: 0 }
 
@@ -196,7 +252,7 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
             <h4 className="text-lg font-bold text-white uppercase tracking-wider group-hover:text-shd transition-colors line-clamp-1">
               {build.nom}
             </h4>
-            <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest flex items-center gap-2">
+            <div className="text-xs text-gray-500 font-bold uppercase tracking-widest flex items-center gap-2">
               <span className="text-blue-400">{spec}</span>
               <span className="text-gray-700">|</span>
               <div className="flex gap-1">
@@ -225,12 +281,12 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
 
         {/* Vue Rapide Elements */}
         <div className="bg-black/20 p-3 rounded border border-white/5 space-y-4">
-          {/* Ligne principale : Armes */}
-          <div className="grid grid-cols-2 gap-3">
+          {/* Ligne principale : Armes (Principal 1, 2 + Pistolet) */}
+          <div className="grid grid-cols-3 gap-2">
             <ItemMini item={resolved.weapons[0]} slot="w1" />
             <ItemMini item={resolved.weapons[1]} slot="w2" />
+            <ItemMini item={resolved.sidearm} slot="sa" />
           </div>
-
           {/* Grille d'équipement (2 colonnes, 3 lignes) */}
           <div className="grid grid-cols-2 gap-x-4 gap-y-3 border-t border-white/5 pt-3">
             <ItemMini item={resolved.gear.masque} ensemble={resolvedEnsembles.masque} slot="masque" />
@@ -242,15 +298,14 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
             <ItemMini item={resolved.gear.holster} ensemble={resolvedEnsembles.holster} slot="holster" />
             <ItemMini item={resolved.gear.genouilleres} ensemble={resolvedEnsembles.genouilleres} slot="genouilleres" />
           </div>
-          
-          <div className="flex items-center justify-between border-t border-white/5 pt-2">
-            <ItemMini item={resolved.sidearm} slot="sa" />
-            {mainBrand && (
-              <span className="text-[10px] font-bold text-shd uppercase tracking-widest bg-shd/10 px-2 py-0.5 rounded">
-                {mainBrand}
-              </span>
-            )}
+
+          {/* Ligne Compétences */}
+          <div className="grid grid-cols-2 gap-3 border-t border-white/5 pt-3">
+            <ItemMini item={resolved.skills[0]} slot="s1" />
+            <ItemMini item={resolved.skills[1]} slot="s2" />
           </div>
+
+
         </div>
       </div>
 

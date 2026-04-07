@@ -84,21 +84,21 @@ function ItemMini({ item, ensemble, slot }) {
         />
       </div>
       <div className="flex flex-col min-w-0 leading-tight">
-        <span className={`text-[10px] font-bold uppercase truncate transition-colors ${colorClass}`}>
+        <span className={`text-xs font-bold uppercase truncate transition-colors ${colorClass}`}>
           {name || '-'}
         </span>
         {ensemble?.nom && !isWeapon && (
-           <span className="text-[9px] text-gray-500 truncate uppercase tracking-tighter">
+           <span className="text-xs text-gray-500 truncate uppercase tracking-tighter">
              {ensemble.nom}
            </span>
         )}
         {isWeapon && item?.type && (
-           <span className="text-[9px] text-gray-500 truncate uppercase tracking-tighter">
+           <span className="text-xs text-gray-500 truncate uppercase tracking-tighter">
              {item.type.replace('_', ' ')}
            </span>
         )}
         {isSkill && item?.competence && (
-           <span className="text-[9px] text-gray-500 truncate uppercase tracking-tighter">
+           <span className="text-xs text-gray-500 truncate uppercase tracking-tighter">
              {item.competence}
            </span>
         )}
@@ -244,6 +244,11 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
 
   const statsCount = { offensif: 0, defensif: 0, utilitaire: 0 }
 
+  const buildTags = useMemo(() => {
+    if (!build.tags || !data.buildsTags) return []
+    return build.tags.map(tagId => data.buildsTags.find(t => t.id === tagId)).filter(Boolean)
+  }, [build.tags, data.buildsTags])
+
   // Utiliser les attributs résolus du build pour le compte des stats
   if (resolved.gearAttributes) {
     Object.values(resolved.gearAttributes).forEach(slotAttrs => {
@@ -289,6 +294,20 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
                   <span className="text-yellow-500">{statsCount.utilitaire}</span>
                 </div>
               </div>
+
+              {/* Tags display */}
+              {buildTags.length > 0 && (
+                <div className="flex flex-wrap gap-1 mt-2">
+                  {buildTags.map(tag => (
+                    <span 
+                      key={tag.id}
+                      className={`px-1.5 py-0.5 rounded-[2px] text-xs font-bold uppercase border bg-${tag.color}-500/10 text-${tag.color}-400 border-${tag.color}-500/30`}
+                    >
+                      {tag.label}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
           {isLocal && (

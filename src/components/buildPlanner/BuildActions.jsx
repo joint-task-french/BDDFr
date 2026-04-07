@@ -99,12 +99,14 @@ export default function BuildActions({ data }) {
     showPrompt('Sauvegarder le build', 'Donnez un nom et une description pour retrouver votre build plus tard.', 'Mon Build', (val) => {
       const name = typeof val === 'object' ? val.name?.trim() : val?.trim()
       const description = typeof val === 'object' ? val.description?.trim() : ''
+      const tags = typeof val === 'object' ? val.tags : []
       
       if (!name) return
 
       const buildToSave = {
         nom: name,
         description: description,
+        tags: tags,
         encoded: generateShareUrl(buildState).split('b=')[1],
         savedAt: new Date().toISOString()
       }
@@ -113,7 +115,7 @@ export default function BuildActions({ data }) {
       saves.push(buildToSave)
       localStorage.setItem('div2_builds_v2', JSON.stringify(saves))
       showAlert('Succès', `Build "${name}" sauvegardé dans la Buildothèque !`)
-    }, { showDescription: true })
+    }, { showDescription: true, showTags: true, availableTags: data?.buildsTags || [] })
   }
 
   const loadBuild = (index) => {

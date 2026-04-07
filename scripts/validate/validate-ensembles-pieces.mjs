@@ -54,8 +54,8 @@ let ensemblesData
 let equipementsData
 
 try {
-    ensemblesData = loadJsonc('ensembles.jsonc')
-    equipementsData = loadJsonc('equipements.jsonc')
+    ensemblesData = loadJsonc('equipements/ensembles.jsonc')
+    equipementsData = loadJsonc('equipements/equipements.jsonc')
 } catch (e) {
     console.log(`❌ Erreur fatale : ${e.message}`)
     process.exit(1)

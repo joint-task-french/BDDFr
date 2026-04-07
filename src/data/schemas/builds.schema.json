@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Builds de Référence",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["nom", "description", "encoded"],
+    "properties": {
+      "nom": {
+        "type": "string",
+        "description": "Nom du build"
+      },
+      "description": {
+        "type": "string",
+        "description": "Description détaillée du build"
+      },
+      "tags": {
+        "type": "array",
+        "description": "Liste d'identifiants de tags associés",
+        "items": {
+          "type": "string"
+        }
+      },
+      "encoded": {
+        "type": "string",
+        "description": "Chaîne de caractères encodée contenant la configuration du build"
+      }
+    }
+  }
+}

@@ -25,22 +25,24 @@ function stripComments(text) {
 
 // Mapping fichier JSONC → fichier schema
 const VALIDATIONS = [
-  { data: 'armes.jsonc', schema: 'armes.schema.json' },
-  { data: 'armes-type.jsonc', schema: 'armes-type.schema.json' },
-  { data: 'equipements.jsonc', schema: 'equipements.schema.json' },
-  { data: 'equipements-type.jsonc', schema: 'equipements-type.schema.json' },
-  { data: 'attributs.jsonc', schema: 'attributs.schema.json' },
-  { data: 'attributs-type.jsonc', schema: 'attributs-type.schema.json' },
-  { data: 'talents-armes.jsonc', schema: 'talents-armes.schema.json' },
-  { data: 'talents-equipements.jsonc', schema: 'talents-equipements.schema.json' },
-  { data: 'ensembles.jsonc', schema: 'ensembles.schema.json' },
+  { data: 'armes/armes.jsonc', schema: 'armes.schema.json' },
+  { data: 'armes/armes-type.jsonc', schema: 'armes-type.schema.json' },
+  { data: 'equipements/equipements.jsonc', schema: 'equipements.schema.json' },
+  { data: 'equipements/equipements-type.jsonc', schema: 'equipements-type.schema.json' },
+  { data: 'attributs/attributs.jsonc', schema: 'attributs.schema.json' },
+  { data: 'attributs/attributs-type.jsonc', schema: 'attributs-type.schema.json' },
+  { data: 'armes/talents-armes.jsonc', schema: 'talents-armes.schema.json' },
+  { data: 'equipements/talents-equipements.jsonc', schema: 'talents-equipements.schema.json' },
+  { data: 'equipements/ensembles.jsonc', schema: 'ensembles.schema.json' },
   { data: 'competences.jsonc', schema: 'competences.schema.json' },
   { data: 'class-spe.jsonc', schema: 'class-spe.schema.json' },
-  { data: 'mods-armes.jsonc', schema: 'mods-armes.schema.json' },
-  { data: 'mods-equipements.jsonc', schema: 'mods-equipements.schema.json' },
+  { data: 'armes/mods-armes.jsonc', schema: 'mods-armes.schema.json' },
+  { data: 'equipements/mods-equipements.jsonc', schema: 'mods-equipements.schema.json' },
   { data: 'mods-competences.jsonc', schema: 'mods-competences.schema.json' },
-  { data: 'mods-armes-type.jsonc', schema: 'mods-armes-type.schema.json' },
+  { data: 'armes/mods-armes-type.jsonc', schema: 'mods-armes-type.schema.json' },
   { data: 'metadata.jsonc', schema: 'metadata.schema.json' },
+  { data: 'builds/builds.jsonc', schema: 'builds.schema.json' },
+  { data: 'builds/tags.jsonc', schema: 'tags.schema.json' },
 ]
 
 const ajv = new Ajv({ allErrors: true, strict: false })

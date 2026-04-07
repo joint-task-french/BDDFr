@@ -13,7 +13,7 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/armes-type.jsonc" />
+                    <option name="path" value="src/data/armes/armes-type.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -30,7 +30,7 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/armes.jsonc" />
+                    <option name="path" value="src/data/armes/armes.jsonc" />
                   </Item>
                   <Item>
                     <option name="path" value="public/data/armes.jsonc" />
@@ -50,7 +50,7 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/attributs-type.jsonc" />
+                    <option name="path" value="src/data/attributs/attributs-type.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -67,7 +67,7 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/attributs.jsonc" />
+                    <option name="path" value="src/data/attributs/attributs.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -135,7 +135,7 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/ensembles.jsonc" />
+                    <option name="path" value="src/data/equipements/ensembles.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -152,7 +152,7 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/equipements-type.jsonc" />
+                    <option name="path" value="src/data/equipements/equipements-type.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -169,7 +169,7 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/equipements.jsonc" />
+                    <option name="path" value="src/data/equipements/equipements.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -203,7 +203,7 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/mods-armes-type.jsonc" />
+                    <option name="path" value="src/data/armes/mods-armes-type.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -220,7 +220,7 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/mods-armes.jsonc" />
+                    <option name="path" value="src/data/armes/mods-armes.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -254,7 +254,7 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/mods-equipements.jsonc" />
+                    <option name="path" value="src/data/equipements/mods-equipements.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -271,7 +271,7 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/statistiques.jsonc" />
+                    <option name="path" value="src/data/attributs/statistiques.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -305,7 +305,7 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/talents-armes.jsonc" />
+                    <option name="path" value="src/data/armes/talents-armes.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -322,7 +322,7 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/talents-equipements.jsonc" />
+                    <option name="path" value="src/data/equipements/talents-equipements.jsonc" />
                   </Item>
                 </list>
               </option>
@@ -340,6 +340,40 @@
                 <list>
                   <Item>
                     <option name="path" value="src/data/talents-prototypes.jsonc" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="builds.schema">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="builds.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/builds.schema.json" />
+              <option name="schemaVersion" value="JSON Schema 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/data/builds/builds.jsonc" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="tags.schema">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="tags.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/tags.schema.json" />
+              <option name="schemaVersion" value="JSON Schema 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/data/builds/tags.jsonc" />
                   </Item>
                 </list>
               </option>

@@ -4,7 +4,7 @@ import { getSpecialisations } from '../utils/formatters'
 import { buildLookupMaps } from '../utils/lookupMaps'
 import { slugify } from "../utils/slugify.js";
 
-const jsoncFiles = import.meta.glob('../data/*.jsonc', { query: '?raw', eager: true, import: 'default' })
+const jsoncFiles = import.meta.glob('../data/**/*.jsonc', { query: '?raw', eager: true, import: 'default' })
 
 function stripJsonComments(text) {
   let cleanText = text.replace(/^\uFEFF/, '');
@@ -24,26 +24,27 @@ function parseJsoncContent(rawText) {
 }
 
 const DATA_FILES_MAP = {
-  armes: 'armes.jsonc',
-  armes_type: 'armes-type.jsonc',
-  attributs: 'attributs.jsonc',
-  attributs_type: 'attributs-type.jsonc',
+  armes: 'armes/armes.jsonc',
+  armes_type: 'armes/armes-type.jsonc',
+  attributs: 'attributs/attributs.jsonc',
+  attributs_type: 'attributs/attributs-type.jsonc',
   classSpe: 'class-spe.jsonc',
   competences: 'competences.jsonc',
-  ensembles: 'ensembles.jsonc',
-  equipements: 'equipements.jsonc',
-  equipements_type: 'equipements-type.jsonc',
+  ensembles: 'equipements/ensembles.jsonc',
+  equipements: 'equipements/equipements.jsonc',
+  equipements_type: 'equipements/equipements-type.jsonc',
   metadata: 'metadata.jsonc',
-  modsArmes: 'mods-armes.jsonc',
-  modsArmesType: 'mods-armes-type.jsonc',
+  modsArmes: 'armes/mods-armes.jsonc',
+  modsArmesType: 'armes/mods-armes-type.jsonc',
   modsCompetences: 'mods-competences.jsonc',
-  modsEquipements: 'mods-equipements.jsonc',
-  statistiques: 'statistiques.jsonc',
-  talentsArmes: 'talents-armes.jsonc',
+  modsEquipements: 'equipements/mods-equipements.jsonc',
+  statistiques: 'attributs/statistiques.jsonc',
+  talentsArmes: 'armes/talents-armes.jsonc',
   talentsAutres: 'talents-autres.jsonc',
-  talentsEquipements: 'talents-equipements.jsonc',
+  talentsEquipements: 'equipements/talents-equipements.jsonc',
   talentsPrototypes: 'talents-prototypes.jsonc',
-  builds: 'builds.jsonc',
+  builds: 'builds/builds.jsonc',
+  buildsTags: 'builds/tags.jsonc',
 }
 
 const SLUG_KEYED_FILES = new Set([

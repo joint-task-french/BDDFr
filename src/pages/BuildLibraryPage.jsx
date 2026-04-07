@@ -114,8 +114,23 @@ export default function BuildLibraryPage() {
   const [remoteBuilds, setRemoteBuilds] = useState([])
   const [user, setUser] = useState(apiBuildotheque.user)
   const [isApiLoading, setIsApiLoading] = useState(false)
+  const [publishingBuild, setPublishingBuild] = useState(null)
+  const [publishAuteur, setPublishAuteur] = useState('')
+  const [userHash, setUserHash] = useState(null)
 
   const effectiveApiUrl = apiUrl || data.metadata?.buildLibraryApiUrl || 'https://buildotheque.ftnl.workers.dev'
+
+  useEffect(() => {
+    const updateHash = async () => {
+      if (user?.id) {
+        const hash = await apiBuildotheque.hashId(user.id)
+        setUserHash(hash)
+      } else {
+        setUserHash(null)
+      }
+    }
+    updateHash()
+  }, [user])
 
   useEffect(() => {
     const saved = localStorage.getItem('div2_builds_v2')
@@ -181,27 +196,33 @@ export default function BuildLibraryPage() {
     navigate(`/build?b=${encoded}`)
   }
 
-  const handlePublish = async (build) => {
+  const handlePublish = (build) => {
     if (!apiBuildotheque.isAuthenticated()) {
       alert("Connectez-vous via Discord pour publier un build.")
       return
     }
+    setPublishingBuild(build)
+    setPublishAuteur(user?.username || '')
+  }
 
-    if (window.confirm(`Publier "${build.nom}" sur la Buildothèque communautaire ?`)) {
-      const result = await apiBuildotheque.publishBuild({
-        nom: build.nom,
-        description: build.description,
-        tags: build.tags,
-        encoded: build.encoded,
-        auteur: user?.username || 'Anonyme'
-      }, effectiveApiUrl)
+  const confirmPublish = async () => {
+    if (!publishingBuild) return
+    
+    const result = await apiBuildotheque.publishBuild({
+      nom: publishingBuild.nom,
+      description: publishingBuild.description,
+      tags: publishingBuild.tags,
+      encoded: publishingBuild.encoded,
+      auteur: publishAuteur || 'Anonyme',
+      auteurId: userHash
+    }, effectiveApiUrl)
 
-      if (result) {
-        alert("Build publié avec succès !")
-        loadRemoteBuilds()
-      } else {
-        alert("Erreur lors de la publication.")
-      }
+    if (result) {
+      alert("Build publié avec succès !")
+      setPublishingBuild(null)
+      loadRemoteBuilds()
+    } else {
+      alert("Erreur lors de la publication.")
     }
   }
 
@@ -511,8 +532,10 @@ export default function BuildLibraryPage() {
                         build={b} 
                         data={data} 
                         onView={() => navigate(`/build?b=${b.encoded}`)}
+                        onDelete={b.id ? () => handleDeleteRemote(b.id) : null}
                         apiUrl={effectiveApiUrl}
                         currentUser={user}
+                        userHash={userHash}
                       />
                     ))}
                   </div>
@@ -522,15 +545,70 @@ export default function BuildLibraryPage() {
           </>
         )}
       </div>
+
+      {/* Modal de publication */}
+      {publishingBuild && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="bg-tactical-panel border border-shd/30 rounded-lg max-w-md w-full p-6 shadow-2xl">
+            <h3 className="text-xl font-bold text-white uppercase tracking-widest mb-4 flex items-center gap-2">
+              <span className="w-2 h-6 bg-shd" />
+              Publier le build
+            </h3>
+            
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">
+                  Nom du build
+                </label>
+                <div className="bg-black/20 border border-white/5 p-3 rounded text-white font-bold italic">
+                  {publishingBuild.nom}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">
+                  Pseudo de publication
+                </label>
+                <input 
+                  type="text"
+                  value={publishAuteur}
+                  onChange={(e) => setPublishAuteur(e.target.value)}
+                  placeholder="Votre pseudo..."
+                  className="w-full bg-tactical-bg border border-tactical-border rounded px-4 py-2 text-white focus:outline-none focus:border-shd transition-all"
+                  autoFocus
+                />
+                <p className="mt-1 text-[10px] text-gray-500 italic">
+                  Ce pseudo sera affiché publiquement sur la Buildothèque. Par défaut, votre pseudo Discord est utilisé.
+                </p>
+              </div>
+
+              <div className="flex gap-3 pt-4">
+                <button 
+                  onClick={() => setPublishingBuild(null)}
+                  className="flex-1 px-4 py-2 bg-tactical-bg border border-tactical-border text-gray-400 hover:text-white rounded font-bold uppercase text-xs tracking-widest transition-all"
+                >
+                  Annuler
+                </button>
+                <button 
+                  onClick={confirmPublish}
+                  className="flex-1 px-4 py-2 bg-shd text-white rounded font-bold uppercase text-xs tracking-widest hover:bg-shd/80 transition-all shadow-lg shadow-shd/20"
+                >
+                  Confirmer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
 
-function BuildCard({ build, data, onView, onEdit, onPublish, onDelete, isLocal, apiUrl, currentUser }) {
+function BuildCard({ build, data, onView, onEdit, onPublish, onDelete, isLocal, apiUrl, currentUser, userHash }) {
   const [likes, setLikes] = useState(build.likes || 0)
   const [isLiking, setIsLiking] = useState(false)
 
-  const isAuthor = build.auteurId === currentUser?.id || (build.isLocal && !build.id)
+  const isAuthor = isLocal ? true : (build.auteurId && userHash && build.auteurId === userHash)
 
   const handleLike = async (e) => {
     e.stopPropagation()

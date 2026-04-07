@@ -33,11 +33,21 @@ class ApiBuildotheque {
         console.error(`HTTP error! status: ${response.status}`);
         throw new Error('Erreur lors de la récupération des builds');
       }
-      return await response.json();
+      const data = await response.json();
+      // L'API renvoie {"builds": [...], "total": 1, "limit": 50, "offset": 0}
+      return data && data.builds ? data.builds : (Array.isArray(data) ? data : []);
     } catch (e) {
       console.error("API Fetch Error:", e);
       return [];
     }
+  }
+
+  async hashId(id) {
+    if (!id) return null;
+    const msgUint8 = new TextEncoder().encode(id);
+    const hashBuffer = await crypto.subtle.digest('SHA-512', msgUint8);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
   }
 
   async loginDiscord(metadataBaseUrl) {

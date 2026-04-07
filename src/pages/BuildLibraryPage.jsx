@@ -13,33 +13,21 @@ function ItemMini({ item, ensemble, slot }) {
   const isNamed = item?.estNomme
   const isGearSet = item?.type === 'gear_set' || ensemble?.type === 'gear_set'
   const isSkillItem = isSkill && item
-  const isClassic = item && !isExotic && !isNamed && !isGearSet && !isSkillItem
 
   let icon = null
-  let shouldColor = true
   
   if (isWeapon) {
-    icon = resolveAsset(item?.icon) || WEAPON_TYPE_ICONS[item?.type]
-    shouldColor = !!WEAPON_TYPE_ICONS[item?.type] && !resolveAsset(item?.icon) && !resolveAsset(item?.slug)
-    
-    // Pour les armes classiques, on ne force pas la coloration si c'est du blanc pour utiliser l'image d'origine
-    if (isClassic) shouldColor = false
+    icon = resolveAsset(item?.icon) || resolveAsset(item?.slug) || WEAPON_TYPE_ICONS[item?.type]
   } else if (isSkill) {
-    icon = resolveAsset(item?.icon)
-    shouldColor = false // Les icônes de compétences sont déjà colorées
+    icon = resolveAsset(item?.icon) || resolveAsset(item?.slug)
   } else {
     // Équipement : Priorité à l'icône de la marque/set (comme dans la DB)
     if (ensemble?.icon) {
-      icon = resolveAsset(ensemble.icon)
-      shouldColor = false
+      icon = resolveAsset(ensemble.icon) || resolveAsset(ensemble.slug)
     } else if (item?.marque) {
       icon = resolveAsset(item.marque)
-      shouldColor = false
     } else {
       icon = GEAR_SLOT_ICONS_IMG[slot]
-      shouldColor = true
-      // Idem pour l'équipement classique
-      if (isClassic) shouldColor = false
     }
   }
 
@@ -84,7 +72,7 @@ function ItemMini({ item, ensemble, slot }) {
         <GameIcon 
           src={icon} 
           size="w-5 h-5" 
-          color={shouldColor ? colorClass : null} 
+          color={isGearSet ? undefined : colorClass} 
         />
       </div>
       <div className="flex flex-col min-w-0 leading-tight">
@@ -115,6 +103,8 @@ export default function BuildLibraryPage() {
   const { data, loading, error, progress } = useDataLoader()
   const navigate = useNavigate()
   const [localBuilds, setLocalBuilds] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedTags, setSelectedTags] = useState([])
 
   useEffect(() => {
     try {
@@ -126,14 +116,60 @@ export default function BuildLibraryPage() {
     }
   }, [])
 
-  const handleDeleteLocal = (index) => {
+  const handleDeleteLocal = (encoded) => {
     if (window.confirm('Supprimer ce build de votre bibliothèque locale ?')) {
-      const newBuilds = [...localBuilds]
-      newBuilds.splice(index, 1)
+      const newBuilds = localBuilds.filter(b => b.encoded !== encoded)
       setLocalBuilds(newBuilds)
       localStorage.setItem('div2_builds_v2', JSON.stringify(newBuilds))
     }
   }
+
+  const toggleTag = (tagId) => {
+    setSelectedTags(prev => 
+      prev.includes(tagId) 
+        ? prev.filter(id => id !== tagId) 
+        : [...prev, tagId]
+    )
+  }
+
+  const filteredLocalBuilds = useMemo(() => {
+    return localBuilds.filter(build => {
+      const matchesSearch = !searchTerm || 
+        build.nom?.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        build.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        build.auteur?.toLowerCase().includes(searchTerm.toLowerCase())
+      
+      const matchesTags = selectedTags.length === 0 || 
+        selectedTags.every(tagId => build.tags?.includes(tagId))
+        
+      return matchesSearch && matchesTags
+    })
+  }, [localBuilds, searchTerm, selectedTags])
+
+  const filteredPredefinedBuilds = useMemo(() => {
+    if (!data.builds) return []
+    return data.builds.filter(build => {
+      const matchesSearch = !searchTerm || 
+        build.nom?.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        build.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        build.auteur?.toLowerCase().includes(searchTerm.toLowerCase())
+      
+      const matchesTags = selectedTags.length === 0 || 
+        selectedTags.every(tagId => build.tags?.includes(tagId))
+        
+      return matchesSearch && matchesTags
+    })
+  }, [data.builds, searchTerm, selectedTags])
+
+  const isSearching = !!(searchTerm || selectedTags.length > 0)
+
+  const allFilteredBuilds = useMemo(() => {
+    if (!isSearching) return []
+    return [
+      ...filteredLocalBuilds.map(b => ({ ...b, isLocal: true })),
+      ...filteredPredefinedBuilds.map(b => ({ ...b, isLocal: false }))
+    ]
+  }, [isSearching, filteredLocalBuilds, filteredPredefinedBuilds])
 
   if (loading) return <Loader progress={progress} />
   if (error) return (
@@ -152,51 +188,149 @@ export default function BuildLibraryPage() {
         <p className="text-sm text-gray-500">Retrouvez vos configurations et les builds de la communauté</p>
       </div>
 
-      <div className="space-y-12">
-        {/* Section Local */}
-        <section>
-          <h3 className="text-sm font-bold text-shd uppercase tracking-widest mb-6 flex items-center gap-2">
-            <span className="w-2 h-2 bg-shd rounded-full animate-pulse" />
-            Vos Builds Enregistrés
-          </h3>
-          {localBuilds.length === 0 ? (
-            <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
-              Aucun build enregistré localement. Utilisez le Build Planner pour en créer un !
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {localBuilds.map((b, i) => (
-                <BuildCard 
-                  key={i} 
-                  build={b} 
-                  data={data} 
-                  onView={() => navigate(`/build?b=${b.encoded}`)}
-                  onDelete={() => handleDeleteLocal(i)}
-                  isLocal
-                />
-              ))}
-            </div>
+      {/* Barre de recherche et filtres */}
+      <div className="mb-10 space-y-6">
+        <div className="relative">
+          <input 
+            type="text"
+            placeholder="Rechercher un build par nom, description ou auteur..."
+            className="w-full bg-tactical-panel/50 border border-tactical-border rounded-lg pl-11 pr-4 py-3 text-white focus:outline-none focus:border-shd transition-all focus:ring-1 focus:ring-shd/20"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+            </svg>
+          </div>
+          {searchTerm && (
+            <button 
+              onClick={() => setSearchTerm('')}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+              </svg>
+            </button>
           )}
-        </section>
+        </div>
 
-        {/* Section Prédéfinis */}
-        {data.builds && data.builds.length > 0 && (
+        {data.buildsTags && (
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mr-2">Filtrer par tags :</span>
+            {data.buildsTags.map(tag => {
+              const isSelected = selectedTags.includes(tag.id)
+              const colorBase = tag.color || 'gray'
+              return (
+                <button
+                  key={tag.id}
+                  onClick={() => toggleTag(tag.id)}
+                  className={`px-3 py-1.5 rounded text-xs font-black uppercase border transition-all duration-200 tracking-tighter ${
+                    isSelected 
+                      ? `bg-${colorBase}-500 text-white border-${colorBase}-500 shadow-lg shadow-${colorBase}-500/20 scale-105`
+                      : `bg-tactical-panel/40 text-gray-400 border-tactical-border hover:border-gray-600`
+                  }`}
+                >
+                  {tag.label}
+                </button>
+              )
+            })}
+            {(searchTerm || selectedTags.length > 0) && (
+              <button 
+                onClick={() => {setSearchTerm(''); setSelectedTags([])}}
+                className="ml-2 text-xs font-bold uppercase text-shd hover:text-shd-light transition-colors underline underline-offset-4"
+              >
+                Tout réinitialiser
+              </button>
+            )}
+          </div>
+        )}
+      </div>
+
+      <div className="space-y-12">
+        {isSearching ? (
           <section>
-            <h3 className="text-sm font-bold text-blue-400 uppercase tracking-widest mb-6 flex items-center gap-2">
-              <span className="w-2 h-2 bg-blue-400 rounded-full" />
-              Builds Recommandés
+            <h3 className="text-sm font-bold text-shd uppercase tracking-widest mb-6 flex items-center gap-2">
+              <span className="w-2 h-2 bg-shd rounded-full animate-pulse" />
+              Résultats de la recherche ({allFilteredBuilds.length})
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {data.builds.map((b, i) => (
-                <BuildCard 
-                  key={i} 
-                  build={b} 
-                  data={data} 
-                  onView={() => navigate(`/build?b=${b.encoded}`)}
-                />
-              ))}
-            </div>
+            {allFilteredBuilds.length === 0 ? (
+              <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
+                Aucun build ne correspond à vos critères.
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {allFilteredBuilds.map((b, i) => (
+                  <BuildCard 
+                    key={b.encoded || i} 
+                    build={b} 
+                    data={data} 
+                    onView={() => navigate(`/build?b=${b.encoded}`)}
+                    onDelete={b.isLocal ? () => handleDeleteLocal(b.encoded) : undefined}
+                    isLocal={b.isLocal}
+                  />
+                ))}
+              </div>
+            )}
           </section>
+        ) : (
+          <>
+            {/* Section Local */}
+            <section>
+              <h3 className="text-sm font-bold text-shd uppercase tracking-widest mb-6 flex items-center gap-2">
+                <span className="w-2 h-2 bg-shd rounded-full animate-pulse" />
+                Vos Builds Enregistrés ({filteredLocalBuilds.length})
+              </h3>
+              {localBuilds.length === 0 ? (
+                <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
+                  Aucun build enregistré localement. Utilisez le Build Planner pour en créer un !
+                </div>
+              ) : filteredLocalBuilds.length === 0 ? (
+                <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
+                  Aucun build local ne correspond à vos critères.
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {filteredLocalBuilds.map((b, i) => (
+                    <BuildCard 
+                      key={b.encoded || i} 
+                      build={b} 
+                      data={data} 
+                      onView={() => navigate(`/build?b=${b.encoded}`)}
+                      onDelete={() => handleDeleteLocal(b.encoded)}
+                      isLocal
+                    />
+                  ))}
+                </div>
+              )}
+            </section>
+
+            {/* Section Prédéfinis */}
+            {data.builds && data.builds.length > 0 && (
+              <section>
+                <h3 className="text-sm font-bold text-blue-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full" />
+                  Builds Recommandés ({filteredPredefinedBuilds.length})
+                </h3>
+                {filteredPredefinedBuilds.length === 0 ? (
+                  <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
+                    Aucun build recommandé ne correspond à vos critères.
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredPredefinedBuilds.map((b, i) => (
+                      <BuildCard 
+                        key={i} 
+                        build={b} 
+                        data={data} 
+                        onView={() => navigate(`/build?b=${b.encoded}`)}
+                      />
+                    ))}
+                  </div>
+                )}
+              </section>
+            )}
+          </>
         )}
       </div>
     </div>
@@ -245,6 +379,8 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
   const mainBrandInfo = Object.values(brandsInfo).sort((a, b) => b.count - a.count)[0]
   const mainBrand = mainBrandInfo?.name
   const mainBrandIcon = resolveAsset(mainBrandInfo?.ensemble?.icon) || resolveAsset(mainBrandInfo?.ensemble?.slug)
+  const isMainGearSet = mainBrandInfo?.ensemble?.type === 'gear_set'
+  const mainBrandColor = isMainGearSet ? 'text-emerald-400' : 'text-shd'
 
   const statsCount = { offensif: 0, defensif: 0, utilitaire: 0 }
 
@@ -278,20 +414,25 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
             {mainBrandIcon && (
               <GameIcon 
                 src={mainBrandIcon} 
-                size="w-10 h-10" 
-                className="rounded bg-black/20 p-1 border border-white/5" 
+                size="w-15 h-15"
+                color={isMainGearSet ? undefined : mainBrandColor}
               />
             )}
             <div>
-              <h4 className="text-lg font-bold text-white uppercase tracking-wider group-hover:text-shd transition-colors line-clamp-1">
+              <h4 className="text-lg font-bold text-white tracking-wider group-hover:text-shd transition-colors line-clamp-1">
                 {build.nom}
               </h4>
-              <div className="text-xs text-gray-500 font-bold uppercase tracking-widest flex items-center gap-2">
+              {build.auteur && (
+                <div className="text-xs text-shd/80 font-bold tracking-[0.2em] -mt-0.5 mb-1">
+                  Par {build.auteur}
+                </div>
+              )}
+              <div className="text-xs text-gray-500 font-bold tracking-widest flex items-center gap-2">
                 <span className="text-blue-400">{spec}</span>
                 {mainBrand && (
                   <>
                     <span className="text-gray-700">|</span>
-                    <span className="text-gray-400">{mainBrand}</span>
+                    <span className={mainBrandColor}>{mainBrand}</span>
                   </>
                 )}
                 <span className="text-gray-700">|</span>
@@ -308,7 +449,7 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
                   {buildTags.map(tag => (
                     <span 
                       key={tag.id}
-                      className={`px-1.5 py-0.5 rounded-[2px] text-xs font-bold uppercase border bg-${tag.color}-500/10 text-${tag.color}-400 border-${tag.color}-500/30`}
+                      className={`px-1.5 py-0.5 rounded-xs text-xs font-bold border bg-${tag.color}-500/10 text-${tag.color}-400 border-${tag.color}-500/30`}
                     >
                       {tag.label}
                     </span>

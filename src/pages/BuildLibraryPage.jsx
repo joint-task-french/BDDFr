@@ -10,7 +10,7 @@ function ItemMini({ item, ensemble, slot }) {
   const isWeapon = slot === 'w1' || slot === 'w2' || slot === 'sa'
   const isSkill = slot === 's1' || slot === 's2'
   
-  const isExotic = item?.qualite === 'exotique' || item?.type === 'exotique' || item?.estExotique
+  const isExotic = item?.type === 'exotique' || item?.estExotique
   const isNamed = item?.estNomme
   const isGearSet = item?.type === 'gear_set' || ensemble?.type === 'gear_set'
   const isSkillItem = isSkill && item

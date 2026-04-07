@@ -21,6 +21,18 @@
   ],
   "changelog": [
     {
+      "date": "2026-04-07",
+      "changements": [
+        "### Changements BDDFr :",
+        {
+          "titre": "Ajouts :",
+          "description": [
+            "Ajout de la Buildothèque"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-04-06",
       "changements": [
         "### Changements BDDFr :",

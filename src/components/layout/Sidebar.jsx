@@ -4,6 +4,22 @@ import { NavLink } from 'react-router-dom'
 import JTFrLogo from '../common/JTFrLogo.jsx'
 import {InfoToolTip} from "../common/InfoToolTip.jsx";
 import { apiBuildotheque } from '../../utils/apiBuildotheque'
+import metadata from '../../data/metadata.jsonc?raw'
+
+const parseMetadata = (raw) => {
+  try {
+    const clean = raw.replace(/^\uFEFF/, '').replace(/("(?:\\.|[^\\"])*")|(\/\*[\s\S]*?\*\/)|(\/\/(?:.*)$)/gm, (match, string) => {
+      if (string) return string;
+      return '';
+    });
+    return JSON.parse(clean);
+  } catch (e) {
+    return { buildLibraryApiUrl: 'https://api.buildotheque.com' };
+  }
+}
+
+const metadataObj = parseMetadata(metadata);
+const DEFAULT_API_URL = metadataObj.buildLibraryApiUrl || 'https://api.buildotheque.com';
 
 export default function Sidebar({ open, onClose }) {
   const [buildsExpanded, setBuildsExpanded] = useState(true)
@@ -175,7 +191,7 @@ export default function Sidebar({ open, onClose }) {
             </div>
           ) : (
             <button 
-              onClick={() => apiBuildotheque.loginDiscord(apiBuildotheque.baseUrl || 'https://api.buildotheque.com')}
+              onClick={() => apiBuildotheque.loginDiscord(apiBuildotheque.baseUrl || DEFAULT_API_URL)}
               className="flex items-center justify-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] text-white py-2 rounded font-bold text-[11px] uppercase transition-colors"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

@@ -115,7 +115,7 @@ export default function BuildLibraryPage() {
   const [user, setUser] = useState(apiBuildotheque.user)
   const [isApiLoading, setIsApiLoading] = useState(false)
 
-  const effectiveApiUrl = apiUrl || data.metadata?.buildLibraryApiUrl || 'https://api.buildotheque.com'
+  const effectiveApiUrl = apiUrl || data.metadata?.buildLibraryApiUrl || 'https://buildotheque.ftnl.workers.dev'
 
   useEffect(() => {
     const saved = localStorage.getItem('div2_builds_v2')
@@ -366,7 +366,7 @@ export default function BuildLibraryPage() {
               <input 
                 type="text" 
                 defaultValue={effectiveApiUrl}
-                placeholder="URL de l'API (ex: https://api.buildotheque.com)"
+                placeholder={`URL de l'API (ex: ${data.metadata?.buildLibraryApiUrl || 'https://buildotheque.ftnl.workers.dev'})`}
                 className="flex-1 bg-black/40 border border-tactical-border rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-shd"
                 id="api-url-input"
               />

@@ -108,7 +108,8 @@ export default function BuildActions({ data }) {
         description: description,
         tags: tags,
         encoded: generateShareUrl(buildState).split('b=')[1],
-        savedAt: new Date().toISOString()
+        timestamp: Date.now(),
+        likes: 0
       }
 
       const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')

@@ -24,6 +24,15 @@
       "encoded": {
         "type": "string",
         "description": "Chaîne de caractères encodée contenant la configuration du build"
+      },
+      "likes": {
+        "type": "number",
+        "description": "Nombre de likes du build",
+        "default": 0
+      },
+      "timestamp": {
+        "type": "number",
+        "description": "Date de création du build (timestamp Unix en ms)"
       }
     }
   }

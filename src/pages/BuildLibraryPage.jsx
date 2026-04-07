@@ -105,6 +105,7 @@ export default function BuildLibraryPage() {
   const [localBuilds, setLocalBuilds] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedTags, setSelectedTags] = useState([])
+  const [sortBy, setSortBy] = useState('default')
 
   useEffect(() => {
     try {
@@ -132,8 +133,20 @@ export default function BuildLibraryPage() {
     )
   }
 
+  const sortBuilds = (builds) => {
+    if (sortBy === 'default') return builds
+    
+    return [...builds].sort((a, b) => {
+      if (sortBy === 'recent') return (b.timestamp || 0) - (a.timestamp || 0)
+      if (sortBy === 'old') return (a.timestamp || 0) - (b.timestamp || 0)
+      if (sortBy === 'likes_desc') return (b.likes || 0) - (a.likes || 0)
+      if (sortBy === 'likes_asc') return (a.likes || 0) - (b.likes || 0)
+      return 0
+    })
+  }
+
   const filteredLocalBuilds = useMemo(() => {
-    return localBuilds.filter(build => {
+    const filtered = localBuilds.filter(build => {
       const matchesSearch = !searchTerm || 
         build.nom?.toLowerCase().includes(searchTerm.toLowerCase()) || 
         build.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -144,11 +157,12 @@ export default function BuildLibraryPage() {
         
       return matchesSearch && matchesTags
     })
-  }, [localBuilds, searchTerm, selectedTags])
+    return sortBuilds(filtered)
+  }, [localBuilds, searchTerm, selectedTags, sortBy])
 
   const filteredPredefinedBuilds = useMemo(() => {
     if (!data.builds) return []
-    return data.builds.filter(build => {
+    const filtered = data.builds.filter(build => {
       const matchesSearch = !searchTerm || 
         build.nom?.toLowerCase().includes(searchTerm.toLowerCase()) || 
         build.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -159,17 +173,22 @@ export default function BuildLibraryPage() {
         
       return matchesSearch && matchesTags
     })
-  }, [data.builds, searchTerm, selectedTags])
+    return sortBuilds(filtered)
+  }, [data.builds, searchTerm, selectedTags, sortBy])
 
   const isSearching = !!(searchTerm || selectedTags.length > 0)
 
   const allFilteredBuilds = useMemo(() => {
     if (!isSearching) return []
-    return [
+    const combined = [
       ...filteredLocalBuilds.map(b => ({ ...b, isLocal: true })),
       ...filteredPredefinedBuilds.map(b => ({ ...b, isLocal: false }))
     ]
-  }, [isSearching, filteredLocalBuilds, filteredPredefinedBuilds])
+    
+    // Si on a un tri spécifique, on trie globalement, sinon on garde l'ordre (local -> recommandé)
+    if (sortBy === 'default') return combined
+    return sortBuilds(combined)
+  }, [isSearching, filteredLocalBuilds, filteredPredefinedBuilds, sortBy])
 
   if (loading) return <Loader progress={progress} />
   if (error) return (
@@ -190,29 +209,45 @@ export default function BuildLibraryPage() {
 
       {/* Barre de recherche et filtres */}
       <div className="mb-10 space-y-6">
-        <div className="relative">
-          <input 
-            type="text"
-            placeholder="Rechercher un build par nom, description ou auteur..."
-            className="w-full bg-tactical-panel/50 border border-tactical-border rounded-lg pl-11 pr-4 py-3 text-white focus:outline-none focus:border-shd transition-all focus:ring-1 focus:ring-shd/20"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
-            </svg>
-          </div>
-          {searchTerm && (
-            <button 
-              onClick={() => setSearchTerm('')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white"
-            >
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="relative flex-1">
+            <input 
+              type="text"
+              placeholder="Rechercher un build par nom, description ou auteur..."
+              className="w-full bg-tactical-panel/50 border border-tactical-border rounded-lg pl-11 pr-4 py-3 text-white focus:outline-none focus:border-shd transition-all focus:ring-1 focus:ring-shd/20"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
               </svg>
-            </button>
-          )}
+            </div>
+            {searchTerm && (
+              <button 
+                onClick={() => setSearchTerm('')}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+              </button>
+            )}
+          </div>
+
+          <div className="shrink-0">
+            <select 
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="w-full md:w-auto bg-tactical-panel/50 border border-tactical-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-shd transition-all focus:ring-1 focus:ring-shd/20 font-bold text-sm"
+            >
+              <option value="default">Tri par défaut</option>
+              <option value="recent">Plus récents</option>
+              <option value="old">Moins récents</option>
+              <option value="likes_desc">Plus likés</option>
+              <option value="likes_asc">Moins likés</option>
+            </select>
+          </div>
         </div>
 
         {data.buildsTags && (
@@ -403,6 +438,11 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
     })
   }
 
+  const formatDate = (ts) => {
+    if (!ts) return null
+    return new Date(ts).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })
+  }
+
   return (
     <div 
       onClick={onView}
@@ -419,14 +459,31 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
               />
             )}
             <div>
-              <h4 className="text-lg font-bold text-white tracking-wider group-hover:text-shd transition-colors line-clamp-1">
-                {build.nom}
-              </h4>
-              {build.auteur && (
-                <div className="text-xs text-shd/80 font-bold tracking-[0.2em] -mt-0.5 mb-1">
-                  Par {build.auteur}
-                </div>
-              )}
+              <div className="flex items-center gap-2">
+                <h4 className="text-lg font-bold text-white tracking-wider group-hover:text-shd transition-colors line-clamp-1">
+                  {build.nom}
+                </h4>
+                {build.likes !== undefined && (
+                  <div className="flex items-center gap-1 text-shd/80 bg-shd/5 px-1.5 py-0.5 rounded border border-shd/20 text-[10px] font-black">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                    </svg>
+                    {build.likes}
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                {build.auteur && (
+                  <div className="text-[10px] text-shd/80 font-bold tracking-[0.2em] uppercase">
+                    Par {build.auteur}
+                  </div>
+                )}
+                {build.timestamp && (
+                  <div className="text-[10px] text-gray-500 font-bold tracking-widest uppercase">
+                    {formatDate(build.timestamp)}
+                  </div>
+                )}
+              </div>
               <div className="text-xs text-gray-500 font-bold tracking-widest flex items-center gap-2">
                 <span className="text-blue-400">{spec}</span>
                 {mainBrand && (

@@ -1,14 +1,15 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { useDataLoader } from '../hooks/useDataLoader'
-import { BuildProvider, useBuild } from '../context/BuildContext'
-import { decodeBuild, resolveBuild } from '../utils/buildShare'
-import Loader from '../components/common/Loader'
-import WeaponSection from '../components/buildPlanner/WeaponSection'
-import GearSection from '../components/buildPlanner/GearSection'
-import SkillSection from '../components/buildPlanner/SkillSection'
-import BuildActions from '../components/buildPlanner/BuildActions'
-import BuildStatsPanel from '../components/buildPlanner/BuildStatsPanel'
+import { useDataLoader } from '../../hooks/useDataLoader.js'
+import { BuildProvider, useBuild } from '../../context/BuildContext.jsx'
+import { decodeBuild, resolveBuild } from '../../utils/buildShare.js'
+import Loader from '../../components/common/Loader.jsx'
+import WeaponSection from '../../components/buildPlanner/WeaponSection.jsx'
+import GearSection from '../../components/buildPlanner/GearSection.jsx'
+import SkillSection from '../../components/buildPlanner/SkillSection.jsx'
+import BuildActions from '../../components/buildPlanner/BuildActions.jsx'
+import BuildStatsPanel from '../../components/buildPlanner/BuildStatsPanel.jsx'
+import { apiBuildotheque } from '../../utils/apiBuildotheque.js'
 
 export default function BuildPlannerPage() {
   const { data, loading, error, progress } = useDataLoader()
@@ -35,6 +36,24 @@ function BuildPlannerContent({ data }) {
   // Charger un build depuis l'URL au montage
   useEffect(() => {
     const params = new URLSearchParams(location.search)
+
+    const apiBuildId = params.get('build-id')
+    if (apiBuildId) {
+      const baseUrl = apiBuildotheque.getBaseUrl(data.metadata?.buildLibraryApiUrl)
+      ;(async () => {
+        const result = await apiBuildotheque.fetchBuildById(apiBuildId, baseUrl)
+        const encoded = result?.encoded || result?.build?.encoded
+        if (!encoded) return
+        const compact = decodeBuild(encoded)
+        if (!compact) return
+        const build = resolveBuild(compact, data)
+        if (build) {
+          dispatch({ type: 'LOAD_BUILD', build })
+        }
+      })()
+      return
+    }
+
     const encoded = params.get('b')
     if (!encoded) return
 

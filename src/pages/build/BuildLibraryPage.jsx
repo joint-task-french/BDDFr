@@ -544,7 +544,7 @@ export default function BuildLibraryPage() {
                     </button>
                   </div>
                 </div>
-                <p className="mt-2 text-[10px] text-gray-500 italic">
+                <p className="mt-2 text-xs text-gray-500 italic">
                   Laissez vide pour utiliser l'API par défaut : {data.metadata?.buildLibraryApiUrl}
                 </p>
               </div>
@@ -828,7 +828,7 @@ function BuildCard({ build, data, onView, onPublish, onDelete, isLocal, apiUrl, 
                       <button
                           onClick={handleLike}
                           disabled={isLiking}
-                          className={`flex items-center gap-1 px-1.5 py-0.5 rounded border text-[10px] font-black transition-all ${
+                          className={`flex items-center gap-1 px-1.5 py-0.5 rounded border text-xs font-black transition-all ${
                               isLiking ? 'opacity-50 cursor-wait' : 'hover:scale-110'
                           } text-shd/80 bg-shd/5 border-shd/20`}
                       >
@@ -841,12 +841,12 @@ function BuildCard({ build, data, onView, onPublish, onDelete, isLocal, apiUrl, 
                 </div>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                   {build.auteur && (
-                      <div className="text-[10px] text-shd/80 font-bold tracking-[0.2em] uppercase">
+                      <div className="text-xs text-shd/80 font-bold tracking-[0.2em] uppercase">
                         Par {build.auteur}
                       </div>
                   )}
                   {build.timestamp && (
-                      <div className="text-[10px] text-gray-500 font-bold tracking-widest uppercase">
+                      <div className="text-xs text-gray-500 font-bold tracking-widest uppercase">
                         {formatDate(build.timestamp)}
                       </div>
                   )}

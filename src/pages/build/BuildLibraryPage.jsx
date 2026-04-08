@@ -110,29 +110,11 @@ export default function BuildLibraryPage() {
   const [showSettings, setShowSettings] = useState(false)
   const [remoteBuilds, setRemoteBuilds] = useState([])
   const [localSearchTerm, setLocalSearchTerm] = useState('')
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setSearchTerm(localSearchTerm)
-    }, 300)
-    return () => clearTimeout(timeoutId)
-  }, [localSearchTerm])
+  const [topBuilds, setTopBuilds] = useState([])
+  const [recentBuilds, setRecentBuilds] = useState([])
+  const [searchResults, setSearchResults] = useState([])
+  const [isSearchingApi, setIsSearchingApi] = useState(false)
   const [user, setUser] = useState(apiBuildotheque.user)
-  const [isApiLoading, setIsApiLoading] = useState(false)
-  const [publishingBuild, setPublishingBuild] = useState(null)
-  const [dialog, setDialog] = useState({
-    open: false,
-    title: '',
-    message: '',
-    type: 'alert',
-    defaultValue: '',
-    defaultDescription: '',
-    defaultTags: [],
-    onConfirm: () => {},
-    onCancel: () => setDialog(prev => ({ ...prev, open: false }))
-  })
-
-  const effectiveApiUrl = apiUrl || data.metadata?.buildLibraryApiUrl || 'https://buildotheque.ftnl.workers.dev'
 
   useEffect(() => {
     const saved = localStorage.getItem('div2_builds_v2')
@@ -151,24 +133,91 @@ export default function BuildLibraryPage() {
     }
     window.addEventListener('auth-change', handleAuthChange)
 
-    if (JSON.stringify(user) !== JSON.stringify(apiBuildotheque.user)) {
-      setUser(apiBuildotheque.user)
-    }
-
     return () => window.removeEventListener('auth-change', handleAuthChange)
-  }, [user])
+  }, [])
+  const [isApiLoading, setIsApiLoading] = useState(false)
+  const [publishingBuild, setPublishingBuild] = useState(null)
+  const [dialog, setDialog] = useState({
+    open: false,
+    title: '',
+    message: '',
+    type: 'alert',
+    defaultValue: '',
+    defaultDescription: '',
+    defaultTags: [],
+    onConfirm: () => {},
+    onCancel: () => setDialog(prev => ({ ...prev, open: false }))
+  })
+
+  const effectiveApiUrl = apiUrl || data.metadata?.buildLibraryApiUrl || 'https://buildotheque.ftnl.workers.dev'
 
   useEffect(() => {
     if (data.metadata?.buildLibraryApiUrl) {
-      loadRemoteBuilds()
+      loadInitialBuilds()
     }
   }, [data.metadata, apiUrl])
 
-  const loadRemoteBuilds = async () => {
+  const loadInitialBuilds = async () => {
     setIsApiLoading(true)
-    const builds = await apiBuildotheque.fetchBuilds(effectiveApiUrl)
-    setRemoteBuilds(Array.isArray(builds) ? builds : [])
+    const [top, recent] = await Promise.all([
+      apiBuildotheque.fetchTopBuilds({ limit: 6 }, effectiveApiUrl),
+      apiBuildotheque.fetchRecentBuilds({ limit: 6 }, effectiveApiUrl)
+    ])
+    setTopBuilds(top?.builds || [])
+    setRecentBuilds(recent?.builds || [])
     setIsApiLoading(false)
+  }
+
+  const handleSearch = async (e) => {
+    if (e.key === 'Enter') {
+      const term = localSearchTerm.trim()
+      setSearchTerm(term)
+      
+      if (term || selectedTags.length > 0) {
+        setIsSearchingApi(true)
+        const result = await apiBuildotheque.fetchBuilds({
+          text: term,
+          tags: selectedTags,
+          limit: 50
+        }, effectiveApiUrl)
+        setSearchResults(result?.builds || [])
+        setIsSearchingApi(false)
+      } else {
+        setSearchResults([])
+      }
+    }
+  }
+
+  // Déclencher la recherche quand les tags changent
+  useEffect(() => {
+    if (selectedTags.length > 0 || searchTerm) {
+      const performSearch = async () => {
+        setIsSearchingApi(true)
+        const result = await apiBuildotheque.fetchBuilds({
+          text: searchTerm,
+          tags: selectedTags,
+          limit: 50
+        }, effectiveApiUrl)
+        setSearchResults(result?.builds || [])
+        setIsSearchingApi(false)
+      }
+      performSearch()
+    } else {
+      setSearchResults([])
+    }
+  }, [selectedTags, searchTerm])
+
+  const loadRemoteBuilds = async () => {
+    // Cette fonction est conservée pour la compatibilité avec confirmPublish qui l'appelle
+    loadInitialBuilds()
+    if (searchTerm || selectedTags.length > 0) {
+      const result = await apiBuildotheque.fetchBuilds({
+        text: searchTerm,
+        tags: selectedTags,
+        limit: 50
+      }, effectiveApiUrl)
+      setSearchResults(result?.builds || [])
+    }
   }
 
   const handleLoginDiscord = () => {
@@ -321,17 +370,6 @@ export default function BuildLibraryPage() {
 
   const isSearching = !!(searchTerm || selectedTags.length > 0)
 
-  const allFilteredBuilds = useMemo(() => {
-    if (!isSearching) return []
-    const combined = [
-      ...filteredLocalBuilds.map(b => ({ ...b, isLocal: true })),
-      ...filteredPredefinedBuilds.map(b => ({ ...b, isLocal: false }))
-    ]
-
-    if (sortBy === 'default') return combined
-    return sortBuilds(combined)
-  }, [isSearching, filteredLocalBuilds, filteredPredefinedBuilds, sortBy])
-
   if (loading) return <Loader progress={progress} />
   if (error) return (
       <div className="p-8 text-center">
@@ -356,10 +394,11 @@ export default function BuildLibraryPage() {
             <div className="relative flex-1 w-full">
               <input
                   type="text"
-                  placeholder="Rechercher un build par nom, description ou auteur..."
+                  placeholder="Rechercher un build par nom, description ou auteur (Entrée pour valider)..."
                   className="w-full bg-tactical-panel/50 border border-tactical-border rounded-lg pl-11 pr-4 py-3 text-white focus:outline-none focus:border-shd transition-all focus:ring-1 focus:ring-shd/20"
                   value={localSearchTerm}
                   onChange={(e) => setLocalSearchTerm(e.target.value)}
+                  onKeyDown={handleSearch}
               />
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -473,23 +512,40 @@ export default function BuildLibraryPage() {
               <section>
                 <h3 className="text-sm font-bold text-shd uppercase tracking-widest mb-6 flex items-center gap-2">
                   <span className="w-2 h-2 bg-shd rounded-full animate-pulse" />
-                  Résultats de la recherche ({allFilteredBuilds.length})
+                  Résultats de la recherche ({searchResults.length + filteredLocalBuilds.length})
                 </h3>
-                {allFilteredBuilds.length === 0 ? (
+                {isSearchingApi && (
+                    <div className="mb-4 text-center text-shd animate-pulse text-xs font-bold uppercase">
+                      Recherche en cours sur l'API...
+                    </div>
+                )}
+                {searchResults.length === 0 && filteredLocalBuilds.length === 0 ? (
                     <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
                       Aucun build ne correspond à vos critères.
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {allFilteredBuilds.map((b, i) => (
+                      {filteredLocalBuilds.map((b, i) => (
                           <BuildCard
-                              key={b.id || b.encoded || i}
+                              key={'local-' + (b.id || b.encoded || i)}
                               build={b}
                               data={data}
                               onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
-                              onPublish={b.isLocal ? () => handlePublish(b) : undefined}
-                              onDelete={b.isLocal ? () => handleDeleteLocal(b.encoded) : undefined}
-                              isLocal={b.isLocal}
+                              onPublish={() => handlePublish(b)}
+                              onDelete={() => handleDeleteLocal(b.encoded)}
+                              isLocal
+                              currentUser={user}
+                              userHash={user?.id}
+                          />
+                      ))}
+                      {searchResults.map((b, i) => (
+                          <BuildCard
+                              key={'api-' + (b.id || b.encoded || i)}
+                              build={b}
+                              data={data}
+                              onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
+                              onDelete={b.id ? () => handleDeleteRemote(b.id) : null}
+                              apiUrl={effectiveApiUrl}
                               currentUser={user}
                               userHash={user?.id}
                           />
@@ -499,6 +555,52 @@ export default function BuildLibraryPage() {
               </section>
           ) : (
               <>
+                {topBuilds.length > 0 && (
+                    <section>
+                      <h3 className="text-sm font-bold text-yellow-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-yellow-500 rounded-full" />
+                        Top Builds de la communauté
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {topBuilds.map((b, i) => (
+                            <BuildCard
+                                key={'top-' + (b.id || i)}
+                                build={b}
+                                data={data}
+                                onView={() => navigate(`/build?build-id=${b.id}`)}
+                                onDelete={() => handleDeleteRemote(b.id)}
+                                apiUrl={effectiveApiUrl}
+                                currentUser={user}
+                                userHash={user?.id}
+                            />
+                        ))}
+                      </div>
+                    </section>
+                )}
+
+                {recentBuilds.length > 0 && (
+                    <section>
+                      <h3 className="text-sm font-bold text-emerald-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-emerald-500 rounded-full" />
+                        Dernières publications
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {recentBuilds.map((b, i) => (
+                            <BuildCard
+                                key={'recent-' + (b.id || i)}
+                                build={b}
+                                data={data}
+                                onView={() => navigate(`/build?build-id=${b.id}`)}
+                                onDelete={() => handleDeleteRemote(b.id)}
+                                apiUrl={effectiveApiUrl}
+                                currentUser={user}
+                                userHash={user?.id}
+                            />
+                        ))}
+                      </div>
+                    </section>
+                )}
+
                 <section>
                   <h3 className="text-sm font-bold text-shd uppercase tracking-widest mb-6 flex items-center gap-2">
                     <span className="w-2 h-2 bg-shd rounded-full animate-pulse" />
@@ -516,7 +618,7 @@ export default function BuildLibraryPage() {
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {filteredLocalBuilds.map((b, i) => (
                             <BuildCard
-                                key={b.encoded || i}
+                                key={'local-' + (b.encoded || i)}
                                 build={b}
                                 data={data}
                                 onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
@@ -530,42 +632,6 @@ export default function BuildLibraryPage() {
                       </div>
                   )}
                 </section>
-
-                {(data.builds?.length > 0 || remoteBuilds.length > 0) && (
-                    <section>
-                      <div className="flex justify-between items-center mb-6">
-                        <h3 className="text-sm font-bold text-blue-400 uppercase tracking-widest flex items-center gap-2">
-                          <span className="w-2 h-2 bg-blue-400 rounded-full" />
-                          Builds de la communauté ({filteredPredefinedBuilds.length})
-                        </h3>
-                        {isApiLoading && (
-                            <div className="flex items-center gap-2 text-[10px] text-blue-400 font-bold uppercase animate-pulse">
-                              Chargement API...
-                            </div>
-                        )}
-                      </div>
-                      {filteredPredefinedBuilds.length === 0 ? (
-                          <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
-                            Aucun build communautaire ne correspond à vos critères.
-                          </div>
-                      ) : (
-                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {filteredPredefinedBuilds.map((b, i) => (
-                                <BuildCard
-                                    key={b.id || b.encoded || i}
-                                    build={b}
-                                    data={data}
-                                    onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
-                                    onDelete={b.id ? () => handleDeleteRemote(b.id) : null}
-                                    apiUrl={effectiveApiUrl}
-                                    currentUser={user}
-                                    userHash={user?.id}
-                                />
-                            ))}
-                          </div>
-                      )}
-                    </section>
-                )}
               </>
           )}
         </div>

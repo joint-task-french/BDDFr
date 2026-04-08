@@ -6,6 +6,8 @@ class ApiBuildotheque {
   constructor() {
     this.baseUrl = localStorage.getItem('buildLibraryApiUrl_override') || null;
     this.token = localStorage.getItem('buildLibrary_token') || null;
+    this.initialLoadPromise = null;
+    this.cachedInitialData = null;
 
     try {
       const rawUser = localStorage.getItem('buildLibrary_user');
@@ -67,11 +69,52 @@ class ApiBuildotheque {
     return this.baseUrl || metadataBaseUrl;
   }
 
-  async fetchBuilds(metadataBaseUrl) {
+  /**
+   * Précharge les builds "top" et "recent" pour une navigation plus rapide.
+   */
+  async preloadInitialBuilds(metadataBaseUrl) {
+    if (this.initialLoadPromise) return this.initialLoadPromise;
+
     const url = this.getBaseUrl(metadataBaseUrl);
+    if (!url) return null;
+
+    this.initialLoadPromise = (async () => {
+      try {
+        console.log("Preloading initial builds...");
+        const [top, recent] = await Promise.all([
+          this.fetchTopBuilds({ limit: 6 }, url),
+          this.fetchRecentBuilds({ limit: 6 }, url)
+        ]);
+
+        this.cachedInitialData = { top, recent };
+        return this.cachedInitialData;
+      } catch (e) {
+        console.error("Preload Error:", e);
+        this.initialLoadPromise = null;
+        this.cachedInitialData = null;
+        return null;
+      }
+    })();
+
+    return this.initialLoadPromise;
+  }
+
+  async fetchBuilds(params = {}, metadataBaseUrl) {
+    const url = this.getBaseUrl(metadataBaseUrl);
+    const queryParams = new URLSearchParams();
+    if (params.text) queryParams.append('text', params.text);
+    if (params.tags) queryParams.append('tags', Array.isArray(params.tags) ? params.tags.join(',') : params.tags);
+    if (params.auteurId) queryParams.append('auteurId', params.auteurId);
+    if (params.limit) queryParams.append('limit', params.limit);
+    if (params.offset) queryParams.append('offset', params.offset);
+    if (params.random !== undefined) queryParams.append('random', params.random);
+
+    const queryString = queryParams.toString();
+    const fullUrl = `${url}/builds${queryString ? `?${queryString}` : ''}`;
+
     try {
-      console.log(`Fetching builds from: ${url}/builds`);
-      const response = await fetch(`${url}/builds`, {
+      console.log(`Fetching builds from: ${fullUrl}`);
+      const response = await fetch(fullUrl, {
         method: 'GET',
         mode: 'cors',
         headers: {
@@ -83,10 +126,90 @@ class ApiBuildotheque {
         throw new Error('Erreur lors de la récupération des builds');
       }
       const data = await response.json();
-      return data && data.builds ? data.builds : (Array.isArray(data) ? data : []);
+      return data;
     } catch (e) {
       console.error("API Fetch Error:", e);
-      return [];
+      return { builds: [], total: 0 };
+    }
+  }
+
+  async fetchRecentBuilds(params = {}, metadataBaseUrl) {
+    const url = this.getBaseUrl(metadataBaseUrl);
+    const queryParams = new URLSearchParams();
+    if (params.text) queryParams.append('text', params.text);
+    if (params.tags) queryParams.append('tags', Array.isArray(params.tags) ? params.tags.join(',') : params.tags);
+    if (params.auteurId) queryParams.append('auteurId', params.auteurId);
+    if (params.limit) queryParams.append('limit', params.limit);
+    if (params.offset) queryParams.append('offset', params.offset);
+
+    const queryString = queryParams.toString();
+    const fullUrl = `${url}/builds/recent${queryString ? `?${queryString}` : ''}`;
+
+    try {
+      console.log(`Fetching recent builds from: ${fullUrl}`);
+      const response = await fetch(fullUrl, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json',
+        }
+      });
+      if (!response.ok) throw new Error('Erreur API Recent');
+      return await response.json();
+    } catch (e) {
+      console.error("API Recent Error:", e);
+      return { builds: [], total: 0 };
+    }
+  }
+
+  async fetchTopBuilds(params = {}, metadataBaseUrl) {
+    const url = this.getBaseUrl(metadataBaseUrl);
+    const queryParams = new URLSearchParams();
+    if (params.text) queryParams.append('text', params.text);
+    if (params.tags) queryParams.append('tags', Array.isArray(params.tags) ? params.tags.join(',') : params.tags);
+    if (params.auteurId) queryParams.append('auteurId', params.auteurId);
+    if (params.limit) queryParams.append('limit', params.limit);
+    if (params.offset) queryParams.append('offset', params.offset);
+
+    const queryString = queryParams.toString();
+    const fullUrl = `${url}/builds/top${queryString ? `?${queryString}` : ''}`;
+
+    try {
+      console.log(`Fetching top builds from: ${fullUrl}`);
+      const response = await fetch(fullUrl, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json',
+        }
+      });
+      if (!response.ok) throw new Error('Erreur API Top');
+      return await response.json();
+    } catch (e) {
+      console.error("API Top Error:", e);
+      return { builds: [], total: 0 };
+    }
+  }
+
+  async fetchBuildById(buildId, metadataBaseUrl) {
+    const url = this.getBaseUrl(metadataBaseUrl);
+    try {
+      console.log(`Fetching build by id: ${url}/builds/${buildId}`);
+      const response = await fetch(`${url}/builds/${buildId}`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json',
+        }
+      });
+      if (!response.ok) {
+        console.error(`HTTP error! status: ${response.status}`);
+        throw new Error('Erreur lors de la récupération du build');
+      }
+      return await response.json();
+    } catch (e) {
+      console.error("API Fetch By ID Error:", e);
+      return null;
     }
   }
 

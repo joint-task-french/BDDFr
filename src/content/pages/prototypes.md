@@ -136,7 +136,7 @@ Voici les 9 Augmentations disponibles, avec leur évolution par niveau :
 
 Pour faire évoluer vos Augmentations ou les modifier, il vous faudra une nouvelle ressource : les **Cœurs Prototypes**. Vous pouvez les obtenir de deux manières :
 1. En déconstruisant de l'équipement Prototype.
-2. Dans les caches hebdomadaires de Cœurs Prototypes (disponibles via les Raids et l'Incursion).
+2. Dans les caches de Cœurs Prototypes (disponibles via les Raids et l'Incursion).
 
 ### Le coût des améliorations (Niveaux d'Augmentation)
 Une fois votre pièce montée en expérience (en jouant avec), vous devez dépenser des Cœurs pour valider le passage au niveau supérieur :
@@ -152,7 +152,7 @@ Une fois votre pièce montée en expérience (en jouant avec), vous devez dépen
 * **Niveau 9 → Niveau 10 :** 6 Cœurs
 
 ### Le coût de Ré-attribution (Reroll)
-Si l'Augmentation présente sur votre pièce ne correspond pas à votre build, vous pouvez la relancer.
+Si l'Augmentation présente sur votre pièce ne correspond pas à votre build, vous pouvez la reroll.
 
 * **1er essai :** 2 Cœurs
 * **2ème essai :** 4 Cœurs

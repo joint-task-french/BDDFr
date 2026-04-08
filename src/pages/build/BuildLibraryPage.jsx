@@ -486,7 +486,7 @@ export default function BuildLibraryPage() {
                               key={b.id || b.encoded || i}
                               build={b}
                               data={data}
-                              onView={() => navigate(`/build?b=${b.encoded}`)}
+                              onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
                               onPublish={b.isLocal ? () => handlePublish(b) : undefined}
                               onDelete={b.isLocal ? () => handleDeleteLocal(b.encoded) : undefined}
                               isLocal={b.isLocal}
@@ -519,7 +519,7 @@ export default function BuildLibraryPage() {
                                 key={b.encoded || i}
                                 build={b}
                                 data={data}
-                                onView={() => navigate(`/build?b=${b.encoded}`)}
+                                onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
                                 onPublish={() => handlePublish(b)}
                                 onDelete={() => handleDeleteLocal(b.encoded)}
                                 isLocal
@@ -555,7 +555,7 @@ export default function BuildLibraryPage() {
                                     key={b.id || b.encoded || i}
                                     build={b}
                                     data={data}
-                                    onView={() => navigate(`/build?b=${b.encoded}`)}
+                                    onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
                                     onDelete={b.id ? () => handleDeleteRemote(b.id) : null}
                                     apiUrl={effectiveApiUrl}
                                     currentUser={user}

@@ -4,6 +4,7 @@ import Layout from './components/layout/Layout'
 import Loader from './components/common/Loader'
 import PageViewer from "./pages/PageViewer.jsx";
 import { apiBuildotheque } from './utils/apiBuildotheque'
+import { useDataLoader } from './hooks/useDataLoader'
 
 const DatabasePage = lazy(() => import('./pages/DatabasePage'))
 const BuildPlannerPage = lazy(() => import('./pages/build/BuildPlannerPage.jsx'))
@@ -18,6 +19,13 @@ function SuspensePage({ children }) {
 export default function App() {
     const location = useLocation()
     const navigate = useNavigate()
+    const { data } = useDataLoader()
+
+    useEffect(() => {
+        if (data.metadata?.buildLibraryApiUrl) {
+            apiBuildotheque.preloadInitialBuilds(data.metadata.buildLibraryApiUrl);
+        }
+    }, [data.metadata]);
 
     useEffect(() => {
         const params = new URLSearchParams(location.search)

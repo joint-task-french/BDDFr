@@ -6,6 +6,8 @@ class ApiBuildotheque {
   constructor() {
     this.baseUrl = localStorage.getItem('buildLibraryApiUrl_override') || null;
     this.token = localStorage.getItem('buildLibrary_token') || null;
+    this.initialLoadPromise = null;
+    this.cachedInitialData = null;
 
     try {
       const rawUser = localStorage.getItem('buildLibrary_user');
@@ -65,6 +67,36 @@ class ApiBuildotheque {
 
   getBaseUrl(metadataBaseUrl) {
     return this.baseUrl || metadataBaseUrl;
+  }
+
+  /**
+   * Précharge les builds "top" et "recent" pour une navigation plus rapide.
+   */
+  async preloadInitialBuilds(metadataBaseUrl) {
+    if (this.initialLoadPromise) return this.initialLoadPromise;
+
+    const url = this.getBaseUrl(metadataBaseUrl);
+    if (!url) return null;
+
+    this.initialLoadPromise = (async () => {
+      try {
+        console.log("Preloading initial builds...");
+        const [top, recent] = await Promise.all([
+          this.fetchTopBuilds({ limit: 6 }, url),
+          this.fetchRecentBuilds({ limit: 6 }, url)
+        ]);
+
+        this.cachedInitialData = { top, recent };
+        return this.cachedInitialData;
+      } catch (e) {
+        console.error("Preload Error:", e);
+        this.initialLoadPromise = null;
+        this.cachedInitialData = null;
+        return null;
+      }
+    })();
+
+    return this.initialLoadPromise;
   }
 
   async fetchBuilds(params = {}, metadataBaseUrl) {

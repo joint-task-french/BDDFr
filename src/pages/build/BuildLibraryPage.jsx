@@ -159,6 +159,21 @@ export default function BuildLibraryPage() {
 
   const loadInitialBuilds = async () => {
     setIsApiLoading(true)
+    
+    // On essaye de récupérer les données préchargées (cache ou promesse en cours)
+    let initialData = apiBuildotheque.cachedInitialData;
+    if (!initialData && apiBuildotheque.initialLoadPromise) {
+      initialData = await apiBuildotheque.initialLoadPromise;
+    }
+
+    if (initialData) {
+      setTopBuilds(initialData.top?.builds || [])
+      setRecentBuilds(initialData.recent?.builds || [])
+      setIsApiLoading(false)
+      return;
+    }
+
+    // Sinon chargement classique
     const [top, recent] = await Promise.all([
       apiBuildotheque.fetchTopBuilds({ limit: 6 }, effectiveApiUrl),
       apiBuildotheque.fetchRecentBuilds({ limit: 6 }, effectiveApiUrl)
@@ -235,6 +250,9 @@ export default function BuildLibraryPage() {
     } else {
       localStorage.removeItem('buildLibraryApiUrl_override')
     }
+    apiBuildotheque.baseUrl = trimmed || null;
+    apiBuildotheque.initialLoadPromise = null;
+    apiBuildotheque.cachedInitialData = null;
     setApiUrl(trimmed)
     setShowSettings(false)
   }
@@ -295,6 +313,7 @@ export default function BuildLibraryPage() {
     setPublishingBuild(null)
     if (result) {
       alert("Build publié avec succès !")
+      apiBuildotheque.initialLoadPromise = null;
       loadRemoteBuilds()
     } else {
       alert("Erreur lors de la publication.")
@@ -306,6 +325,7 @@ export default function BuildLibraryPage() {
       const success = await apiBuildotheque.deleteBuild(buildId, effectiveApiUrl)
       if (success) {
         alert("Build supprimé.")
+        apiBuildotheque.initialLoadPromise = null;
         loadRemoteBuilds()
       } else {
         alert("Erreur lors de la suppression. Vérifiez que vous êtes bien l'auteur.")

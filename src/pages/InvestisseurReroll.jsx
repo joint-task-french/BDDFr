@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { RefreshCw, Coins, Box, Cpu, Shirt, Star, ShieldAlert, Info, Settings, Target, Play, Square, Check, ChevronDown } from 'lucide-react';
+import { RefreshCw, Coins, Box, Cpu, Shirt, Star, Info, Settings, Target, Play, Square, Check, ChevronDown, RotateCcw } from 'lucide-react';
 import { GameIcon, resolveAsset, resolveAttribut, GEAR_SLOT_ICONS_IMG } from '../components/common/GameAssets.jsx';
 import MarkdownText from '../components/common/MarkdownText.jsx';
 
@@ -73,6 +73,7 @@ const InvestisseurReroll = ({ allAttributs, allEquipements, allTalents, onClose 
   const [isRerolling, setIsRerolling] = useState(false);
   const [cumulativeExotic, setCumulativeExotic] = useState(0);
   const [totalRerolls, setTotalRerolls] = useState(0);
+  const rerollTimerRef = React.useRef(null);
 
   // Auto-Reroll State
   const [targets, setTargets] = useState({ essential: null, secondaries: [] });
@@ -102,13 +103,22 @@ const InvestisseurReroll = ({ allAttributs, allEquipements, allTalents, onClose 
     setIsRerolling(true);
     
     // On simule un délai de reroll (plus court si auto)
-    setTimeout(() => {
+    if (rerollTimerRef.current) clearTimeout(rerollTimerRef.current);
+    rerollTimerRef.current = setTimeout(() => {
       setMaskStats(getRandomStats(essentialPool, secondaryPool));
       setIsRerolling(false);
       setCumulativeExotic(prev => prev + REROLL_COST.exotique);
       setTotalRerolls(prev => prev + 1);
+      rerollTimerRef.current = null;
     }, isAuto ? 300 : 600);
   }, [essentialPool, secondaryPool]);
+
+  // Nettoyage à la fermeture
+  useEffect(() => {
+    return () => {
+      if (rerollTimerRef.current) clearTimeout(rerollTimerRef.current);
+    };
+  }, []);
 
   // Auto-Reroll Loop
   useEffect(() => {
@@ -436,13 +446,31 @@ const InvestisseurReroll = ({ allAttributs, allEquipements, allTalents, onClose 
           </div>
 
           <div className="bg-tactical-panel border border-tactical-border rounded-xl p-6 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5">
+            <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
               <Coins className="w-24 h-24" />
             </div>
 
-            <h3 className="text-white font-black uppercase tracking-tighter mb-6 flex items-center gap-2 text-2xl border-b border-tactical-border pb-4">
-               DÉPENSE TOTALE
-            </h3>
+            <div className="flex items-center justify-between border-b border-tactical-border pb-4 mb-6 relative z-20">
+              <h3 className="text-white font-black uppercase tracking-tighter flex items-center gap-2 text-2xl">
+                 DÉPENSE TOTALE
+              </h3>
+              <button 
+                onClick={() => {
+                  if (rerollTimerRef.current) clearTimeout(rerollTimerRef.current);
+                  rerollTimerRef.current = null;
+                  setIsAutoRerolling(false);
+                  setIsRerolling(false);
+                  setCumulativeExotic(0);
+                  setTotalRerolls(0);
+                  setMaskStats(getRandomStats(essentialPool, secondaryPool));
+                  setTargets({ essential: null, secondaries: [] });
+                }}
+                className="p-2 text-zinc-600 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-all group z-30"
+                title="Réinitialiser les compteurs, les objectifs et le masque"
+              >
+                <RotateCcw className="w-5 h-5 group-hover:-rotate-90 transition-transform duration-300" />
+              </button>
+            </div>
 
             <div className="space-y-5 relative z-10">
                <div className="flex items-center justify-between group">

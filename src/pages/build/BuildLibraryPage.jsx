@@ -238,23 +238,26 @@ export default function BuildLibraryPage() {
     setIsApiLoading(false)
   }
 
+  const executeSearch = async (term = localSearchTerm.trim()) => {
+    setSearchTerm(term)
+    
+    if (term || selectedTags.length > 0) {
+      setIsSearchingApi(true)
+      const result = await apiBuildotheque.fetchBuilds({
+        text: term,
+        tags: selectedTags,
+        limit: 50
+      }, effectiveApiUrl)
+      setSearchResults(result?.builds || [])
+      setIsSearchingApi(false)
+    } else {
+      setSearchResults([])
+    }
+  }
+
   const handleSearch = async (e) => {
     if (e.key === 'Enter') {
-      const term = localSearchTerm.trim()
-      setSearchTerm(term)
-      
-      if (term || selectedTags.length > 0) {
-        setIsSearchingApi(true)
-        const result = await apiBuildotheque.fetchBuilds({
-          text: term,
-          tags: selectedTags,
-          limit: 50
-        }, effectiveApiUrl)
-        setSearchResults(result?.builds || [])
-        setIsSearchingApi(false)
-      } else {
-        setSearchResults([])
-      }
+      executeSearch()
     }
   }
 
@@ -474,6 +477,7 @@ export default function BuildLibraryPage() {
                   value={localSearchTerm}
                   onChange={(e) => setLocalSearchTerm(e.target.value)}
                   onKeyDown={handleSearch}
+                  onBlur={() => executeSearch()}
               />
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -482,7 +486,10 @@ export default function BuildLibraryPage() {
               </div>
               {localSearchTerm && (
                   <button
-                      onClick={() => setLocalSearchTerm('')}
+                      onClick={() => {
+                          setLocalSearchTerm('')
+                          executeSearch('')
+                      }}
                       className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

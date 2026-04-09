@@ -47,6 +47,13 @@
       ],
       "description": "Disponible au craft — true/false ou string décrivant les conditions"
     },
+    "reconstitue": {
+      "oneOf": [
+        { "type": "boolean" },
+        { "type": "string", "minLength": 1 }
+      ],
+      "description": "Schemas disponible dans les caches reconstitué — true/false ou string décrivant les conditions"
+    },
     "incursion": {
       "oneOf": [
         { "type": "boolean" },

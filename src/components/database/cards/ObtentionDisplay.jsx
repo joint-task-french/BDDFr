@@ -12,6 +12,7 @@ const OBTENTION_METHODS = [
   { key: 'darkZone', label: 'Dark Zone' },
   { key: 'raid', label: 'Raid' },
   { key: 'craft', label: 'Craft' },
+  { key: 'reconstitue', label: 'Caches reconstitué' },
   { key: 'incursion', label: 'Incursion' },
 ]
 

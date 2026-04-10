@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useMemo } from 'react'
 
 /**
  * Calcule si la couleur du texte doit être noire ou blanche selon la luminosité de l'arrière-plan.
@@ -87,6 +87,10 @@ export default function Dialog({
   }
 
 
+  const sortedAvailableTags = useMemo(() => {
+    return [...availableTags].sort((a, b) => (a.label || '').trim().localeCompare((b.label || '').trim()))
+  }, [availableTags])
+
   return (
     <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
       <div className="w-full max-w-md bg-tactical-panel border border-tactical-border rounded-lg shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
@@ -139,13 +143,13 @@ export default function Dialog({
                 </div>
               )}
 
-              {showTags && availableTags.length > 0 && (
+              {showTags && sortedAvailableTags.length > 0 && (
                 <div>
                   <label className="block text-xs text-gray-500 uppercase tracking-widest font-bold mb-2 ml-1">
                     Tags
                   </label>
                   <div className="flex flex-wrap gap-2">
-                    {availableTags.map(tag => {
+                    {sortedAvailableTags.map(tag => {
                       const isSelected = selectedTags.includes(tag.id);
                       const tagColor = tag.color || '#6b7280';
                       return (

@@ -337,6 +337,11 @@ export default function BuildLibraryPage() {
     }
   }
 
+  const sortedTags = useMemo(() => {
+    if (!data.buildsTags) return []
+    return [...data.buildsTags].sort((a, b) => (a.label || '').trim().localeCompare((b.label || '').trim()))
+  }, [data.buildsTags])
+
   const handlePublish = (build) => {
     if (!apiBuildotheque.isAuthenticated() || !user) {
       alert("Connectez-vous via Discord pour publier un build.")
@@ -358,7 +363,7 @@ export default function BuildLibraryPage() {
       showDescription: true,
       showTags: true,
       showAuthor: true,
-      availableTags: data?.buildsTags || [],
+      availableTags: sortedTags,
       onConfirm: (val) => {
         setDialog(p => ({ ...p, open: false }))
         confirmPublish(build, val)
@@ -571,10 +576,10 @@ export default function BuildLibraryPage() {
               </div>
           )}
 
-          {data.buildsTags && (
+          {sortedTags.length > 0 && (
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mr-2">Filtrer par tags :</span>
-                {data.buildsTags.map(tag => {
+                {sortedTags.map(tag => {
                   const isSelected = selectedTags.includes(tag.id)
                   const tagColor = tag.color || '#6b7280'
                   return (
@@ -808,7 +813,10 @@ function BuildCard({ build, data, onView, onPublish, onDelete, isLocal, apiUrl, 
 
   const buildTags = useMemo(() => {
     if (!build.tags || !data.buildsTags) return []
-    return build.tags.map(tagId => data.buildsTags.find(t => t.id === tagId)).filter(Boolean)
+    return build.tags
+        .map(tagId => data.buildsTags.find(t => t.id === tagId))
+        .filter(Boolean)
+        .sort((a, b) => (a.label || '').trim().localeCompare((b.label || '').trim()))
   }, [build.tags, data.buildsTags])
 
   if (resolved.gearAttributes) {

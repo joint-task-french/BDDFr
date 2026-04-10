@@ -23,9 +23,9 @@ function parseJsonc(filePath) {
     } catch (e) { return null; }
 }
 
-const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes-type.jsonc')) || {};
-const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements-type.jsonc')) || {};
-const ensembles = parseJsonc(path.join(DATA_DIR, 'ensembles.jsonc')) || {};
+const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes', 'armes-type.jsonc')) || {};
+const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements', 'equipements-type.jsonc')) || {};
+const ensembles = parseJsonc(path.join(DATA_DIR, 'equipements', 'ensembles.jsonc')) || {};
 const classSpe = parseJsonc(path.join(DATA_DIR, 'class-spe.jsonc')) || {};
 const metadata = parseJsonc(path.join(DATA_DIR, 'metadata.jsonc')) || {};
 
@@ -171,16 +171,16 @@ const pages_fixes = [
 ];
 
 const categoryMap = {
-    'armes': 'armes.jsonc',
-    'equipements': 'equipements.jsonc',
-    'ensembles': 'ensembles.jsonc',
+    'armes': 'armes/armes.jsonc',
+    'equipements': 'equipements/equipements.jsonc',
+    'ensembles': 'equipements/ensembles.jsonc',
     'competences': 'competences.jsonc',
-    'attributs': 'attributs.jsonc',
-    'talentsArmes': 'talents-armes.jsonc',
-    'talentsEquipements': 'talents-equipements.jsonc',
+    'attributs': 'attributs/attributs.jsonc',
+    'talentsArmes': 'armes/talents-armes.jsonc',
+    'talentsEquipements': 'equipements/talents-equipements.jsonc',
     'talentsPrototypes': 'talents-prototypes.jsonc',
-    'modsArmes': 'mods-armes.jsonc',
-    'modsEquipements': 'mods-equipements.jsonc',
+    'modsArmes': 'armes/mods-armes.jsonc',
+    'modsEquipements': 'equipements/mods-equipements.jsonc',
     'modsCompetences': 'mods-competences.jsonc'
 };
 

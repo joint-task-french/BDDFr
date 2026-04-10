@@ -1,67 +1,54 @@
-[
-  {
-    "id": "dps",
+{
+  "countdown": {
+    "label": "Compte à rebours",
+    "color": "#06b6d4"
+  },
+  "dps": {
     "label": "DPS",
     "color": "#ef4444"
   },
-  {
-    "id": "tank",
-    "label": "Tank",
-    "color": "#3b82f6"
-  },
-  {
-    "id": "support",
-    "label": "Support",
+  "healer": {
+    "label": "Healer",
     "color": "#eab308"
   },
-  {
-    "id": "healer ",
-    "label": "Healer ",
-    "color": "#eab308"
-  },
-  {
-    "id": "hybrid",
+  "hybrid": {
     "label": "Hybride",
     "color": "#22c55e"
   },
-  {
-    "id": "pve",
-    "label": "PvE",
-    "color": "#6b7280"
-  },
-  {
-    "id": "pvp",
-    "label": "PvP",
-    "color": "#f97316"
-  },
-  {
-    "id": "raid",
-    "label": "Raid",
-    "color": "#a855f7"
-  },
-  {
-    "id": "raid_1",
-    "label": "Raid 1 : Heures Sombres",
-    "color": "#a855f7"
-  },
-  {
-    "id": "raid_2",
-    "label": "Raid 2 : Cheval de fer",
-    "color": "#a855f7"
-  },
-  {
-    "id": "legendary",
-    "label": "Légendaire",
-    "color": "#6366f1"
-  },
-  {
-    "id": "incursion",
+  "incursion": {
     "label": "Incursion",
     "color": "#ec4899"
   },
-  {
-    "id": "countdown",
-    "label": "Compte à rebours",
-    "color": "#06b6d4"
+  "legendary": {
+    "label": "Légendaire",
+    "color": "#6366f1"
+  },
+  "pve": {
+    "label": "PvE",
+    "color": "#6b7280"
+  },
+  "pvp": {
+    "label": "PvP",
+    "color": "#f97316"
+  },
+  "raid": {
+    "label": "Raid",
+    "color": "#a855f7"
+  },
+  "raid_1": {
+    "label": "Raid 1 : Heures Sombres",
+    "color": "#a855f7"
+  },
+  "raid_2": {
+    "label": "Raid 2 : Cheval de fer",
+    "color": "#a855f7"
+  },
+  "support": {
+    "label": "Support",
+    "color": "#eab308"
+  },
+  "tank": {
+    "label": "Tank",
+    "color": "#3b82f6"
   }
-]
+}

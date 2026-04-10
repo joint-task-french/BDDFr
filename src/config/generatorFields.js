@@ -39,7 +39,7 @@ export const IDENTITY_KEY = {
   modsEquipements: 'slug',
   modsCompetences: 'slug',
   builds: 'nom',
-  buildsTags: 'id',
+  buildsTags: 'slug',
 }
 
 export const DATA_KEY = {
@@ -435,7 +435,7 @@ export const FIELDS = {
   buildsTags: {
     comment: '// Tags de Build — The Division 2',
     fields: [
-      { key: 'id', label: 'ID (slug)', type: 'text', required: true, isIdentity: true },
+      { key: 'slug', label: 'ID (slug)', type: 'text', required: true, isIdentity: true },
       { key: 'label', label: 'Libellé', type: 'text', required: true },
       { key: 'color', label: 'Couleur Tailwind', type: 'text', placeholder: 'red, blue, green...' },
     ],
@@ -502,7 +502,7 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   s.statistiques = (merged.statistiques || []).filter(st => st.slug && st.nom).map(st => ({ value: st.slug, label: st.nom }))
   s.statistiques.sort((a, b) => a.label.localeCompare(b.label))
 
-  s.buildTags = (merged.buildsTags || []).filter(t => t.id && t.label).map(t => ({ value: t.id, label: t.label }))
+  s.buildTags = (merged.buildsTags || []).filter(t => (t.slug || t.id) && t.label).map(t => ({ value: t.slug || t.id, label: t.label }))
   s.buildTags.sort((a, b) => a.label.localeCompare(b.label))
 
   s.allAttributsSlugs = (merged.attributs || []).filter(a => a.slug && a.nom).map(a => ({ value: a.slug, label: a.nom }))

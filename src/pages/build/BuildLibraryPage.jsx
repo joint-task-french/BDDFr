@@ -339,7 +339,8 @@ export default function BuildLibraryPage() {
 
   const sortedTags = useMemo(() => {
     if (!data.buildsTags) return []
-    return [...data.buildsTags].sort((a, b) => (a.label || '').trim().localeCompare((b.label || '').trim()))
+    const tagsArray = Object.values(data.buildsTags)
+    return [...tagsArray].sort((a, b) => (a.label || '').trim().localeCompare((b.label || '').trim()))
   }, [data.buildsTags])
 
   const handlePublish = (build) => {
@@ -580,12 +581,13 @@ export default function BuildLibraryPage() {
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mr-2">Filtrer par tags :</span>
                 {sortedTags.map(tag => {
-                  const isSelected = selectedTags.includes(tag.id)
+                  const tagId = tag.slug || tag.id
+                  const isSelected = selectedTags.includes(tagId)
                   const tagColor = tag.color || '#6b7280'
                   return (
                       <button
-                          key={tag.id}
-                          onClick={() => toggleTag(tag.id)}
+                          key={tagId}
+                          onClick={() => toggleTag(tagId)}
                           style={{
                               backgroundColor: isSelected ? `${tagColor}` : 'rgba(30, 41, 59, 0.4)',
                               color: isSelected ? getContrastColor(tagColor) : '#9ca3af',
@@ -814,7 +816,7 @@ function BuildCard({ build, data, onView, onPublish, onDelete, isLocal, apiUrl, 
   const buildTags = useMemo(() => {
     if (!build.tags || !data.buildsTags) return []
     return build.tags
-        .map(tagId => data.buildsTags.find(t => t.id === tagId))
+        .map(tagId => data.buildsTags[tagId])
         .filter(Boolean)
         .sort((a, b) => (a.label || '').trim().localeCompare((b.label || '').trim()))
   }, [build.tags, data.buildsTags])
@@ -902,19 +904,22 @@ function BuildCard({ build, data, onView, onPublish, onDelete, isLocal, apiUrl, 
 
                 {buildTags.length > 0 && (
                     <div className="flex flex-wrap gap-1 mt-2">
-                      {buildTags.map(tag => (
-                          <span
-                              key={tag.id}
-                              style={{
-                                  backgroundColor: tag.color || '#6b7280',
-                                  color: getContrastColor(tag.color || '#6b7280'),
-                                  borderColor: `${tag.color || '#6b7280'}4d`
-                              }}
-                              className="px-1.5 py-0.5 rounded-xs text-xs font-bold border"
-                          >
+                      {buildTags.map(tag => {
+                  const tagId = tag.slug || tag.id
+                  return (
+                      <span
+                          key={tagId}
+                          style={{
+                              backgroundColor: tag.color || '#6b7280',
+                              color: getContrastColor(tag.color || '#6b7280'),
+                              borderColor: `${tag.color || '#6b7280'}4d`
+                          }}
+                          className="px-1.5 py-0.5 rounded-xs text-xs font-bold border"
+                      >
                       {tag.label}
                     </span>
-                      ))}
+                  )
+                })}
                     </div>
                 )}
               </div>

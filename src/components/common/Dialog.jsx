@@ -150,13 +150,14 @@ export default function Dialog({
                   </label>
                   <div className="flex flex-wrap gap-2">
                     {sortedAvailableTags.map(tag => {
-                      const isSelected = selectedTags.includes(tag.id);
+                      const tagId = tag.slug || tag.id;
+                      const isSelected = selectedTags.includes(tagId);
                       const tagColor = tag.color || '#6b7280';
                       return (
                         <button
-                          key={tag.id}
+                          key={tagId}
                           type="button"
-                          onClick={() => toggleTag(tag.id)}
+                          onClick={() => toggleTag(tagId)}
                           style={{
                             backgroundColor: isSelected ? tagColor : 'rgba(255, 255, 255, 0.05)',
                             color: isSelected ? getContrastColor(tagColor) : '#6b7280',

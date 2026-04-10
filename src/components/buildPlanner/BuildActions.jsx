@@ -116,7 +116,7 @@ export default function BuildActions({ data }) {
       saves.push(buildToSave)
       localStorage.setItem('div2_builds_v2', JSON.stringify(saves))
       showAlert('Succès', `Build "${name}" sauvegardé dans la Buildothèque !`)
-    }, { showDescription: true, showTags: true, availableTags: data?.buildsTags || [] })
+    }, { showDescription: true, showTags: true, availableTags: data?.buildsTags ? Object.values(data.buildsTags) : [] })
   }
 
   const loadBuild = (index) => {

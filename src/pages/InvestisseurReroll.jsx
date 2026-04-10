@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { RefreshCw, Coins, Box, Cpu, Shirt, Star, Info, Settings, Target, Play, Square, Check, ChevronDown, RotateCcw } from 'lucide-react';
+import {RefreshCw, Coins, Box, Cpu, Shirt, Star, Info, Settings, Target, Play, Square, Check, ChevronDown, RotateCcw, CreditCard} from 'lucide-react';
 import { GameIcon, resolveAsset, resolveAttribut, GEAR_SLOT_ICONS_IMG } from '../components/common/GameAssets.jsx';
 import MarkdownText from '../components/common/MarkdownText.jsx';
 
@@ -215,11 +215,11 @@ const InvestisseurReroll = ({ allAttributs, allEquipements, allTalents, onClose 
               <div className="flex items-center gap-2">
                 <h3 className="text-xl font-black text-white uppercase tracking-tighter leading-none">Objectifs de reroll</h3>
                 {targets.secondaries.length > 0 && (
-                  <span className="bg-shd/20 text-shd px-2 py-0.5 rounded text-[10px] font-black tabular-nums">{targets.secondaries.length}/3</span>
+                  <span className="bg-shd/20 text-shd px-2 py-0.5 rounded text-xs font-black tabular-nums">{targets.secondaries.length}/3</span>
                 )}
                 <ChevronDown className={`w-5 h-5 text-zinc-600 transition-transform duration-300 ${isTargetPanelCollapsed ? '' : 'rotate-180'}`} />
               </div>
-              <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-1.5">Configurez les attributs cibles pour l'auto-reroll</p>
+              <p className="text-xs text-zinc-500 font-bold uppercase tracking-widest mt-1.5">Configurez les attributs cibles pour l'auto-reroll</p>
             </div>
           </div>
           <div className="flex items-center gap-4">
@@ -245,7 +245,7 @@ const InvestisseurReroll = ({ allAttributs, allEquipements, allTalents, onClose 
                  setTargets({ essential: null, secondaries: [] });
                  setIsAutoRerolling(false);
               }}
-              className="text-[10px] text-zinc-600 hover:text-zinc-400 font-bold uppercase tracking-widest transition-colors"
+              className="text-xs text-zinc-600 hover:text-zinc-400 font-bold uppercase tracking-widest transition-colors"
             >
               Réinitialiser
             </button>
@@ -264,10 +264,10 @@ const InvestisseurReroll = ({ allAttributs, allEquipements, allTalents, onClose 
               <div className="border-t border-tactical-border/50 pt-8">
                 <div className="grid grid-cols-[280px_1fr] gap-y-6">
                   {/* En-têtes de colonnes */}
-                  <div className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1 pr-8">
+                  <div className="text-xs font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1 pr-8">
                     Essentiels
                   </div>
-                  <div className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1 pl-8 border-l border-tactical-border/20">
+                  <div className="text-xs font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1 pl-8 border-l border-tactical-border/20">
                     Secondaires
                   </div>
 
@@ -280,7 +280,7 @@ const InvestisseurReroll = ({ allAttributs, allEquipements, allTalents, onClose 
                             <button 
                               key={a.id}
                               onClick={() => setTargets(p => ({...p, essential: p.essential === a.id ? null : a.id}))}
-                              className={`flex items-center gap-3 p-2 px-0 rounded text-left text-[10px] font-bold uppercase transition-all ${targets.essential === a.id ? 'text-shd' : 'text-zinc-500 hover:text-zinc-300'}`}
+                              className={`flex items-center gap-3 p-2 px-0 rounded text-left text-xs font-bold uppercase transition-all ${targets.essential === a.id ? 'text-shd' : 'text-zinc-500 hover:text-zinc-300'}`}
                             >
                               <div className="w-5 h-5 flex items-center justify-center transition-colors">
                                 <GameIcon src={resolveAsset(resolveAttribut(a))} size="w-5 h-5" color={getCategoryColor(a.categorie)} />
@@ -303,7 +303,7 @@ const InvestisseurReroll = ({ allAttributs, allEquipements, allTalents, onClose 
                                 key={a.id}
                                 disabled={isFull}
                                 onClick={() => toggleSecondaryTarget(a.id)}
-                                className={`flex items-center gap-3 p-2 px-0 rounded text-left text-[10px] font-bold uppercase transition-all ${isSelected ? 'text-zinc-100' : isFull ? 'opacity-20 cursor-not-allowed' : 'text-zinc-500 hover:text-zinc-300'}`}
+                                className={`flex items-center gap-3 p-2 px-0 rounded text-left text-xs font-bold uppercase transition-all ${isSelected ? 'text-zinc-100' : isFull ? 'opacity-20 cursor-not-allowed' : 'text-zinc-500 hover:text-zinc-300'}`}
                               >
                                 <div className="w-5 h-5 flex items-center justify-center transition-colors">
                                   <GameIcon src={resolveAsset(resolveAttribut(a))} size="w-5 h-5" color={getCategoryColor(a.categorie)} />
@@ -343,7 +343,7 @@ const InvestisseurReroll = ({ allAttributs, allEquipements, allTalents, onClose 
                 {maskStats && (
                   <>
                     <div className="bg-black/20 p-5 rounded border border-tactical-border/50">
-                      <h3 className="text-[10px] font-black text-zinc-600 uppercase mb-4 flex items-center gap-2 tracking-[0.2em]">
+                      <h3 className="text-xs font-black text-zinc-600 uppercase mb-4 flex items-center gap-2 tracking-[0.2em]">
                         <Info className="w-3 h-3" /> Attribut Essentiel
                       </h3>
                       <div className="flex items-center justify-between">
@@ -368,7 +368,7 @@ const InvestisseurReroll = ({ allAttributs, allEquipements, allTalents, onClose 
                     </div>
 
                     <div className="grid gap-4">
-                      <h3 className="text-[10px] font-black text-zinc-600 uppercase flex items-center gap-2 tracking-[0.2em] ml-1">
+                      <h3 className="text-xs font-black text-zinc-600 uppercase flex items-center gap-2 tracking-[0.2em] ml-1">
                         <Settings className="w-3 h-3" /> Attributs secondaires
                       </h3>
                       {maskStats.attributes.map((attr, index) => (
@@ -437,7 +437,6 @@ const InvestisseurReroll = ({ allAttributs, allEquipements, allTalents, onClose 
                   <h3 className="text-red-400 font-black uppercase tracking-tighter text-lg leading-tight">
                     {talentData.nom}
                   </h3>
-                  <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">Talent Unique</p>
                 </div>
              </div>
              <MarkdownText className="text-[12px] text-zinc-400 leading-relaxed">
@@ -473,44 +472,49 @@ const InvestisseurReroll = ({ allAttributs, allEquipements, allTalents, onClose 
             </div>
 
             <div className="space-y-5 relative z-10">
+
+              <div className="grid grid-cols-2 gap-4 pb-4 border-b border-tactical-border">
+                <div className="group">
+                  <p className="text-zinc-500 text-xs font-bold uppercase tracking-wider mb-1">Rerolls</p>
+                  <p className="text-xl font-black text-white group-hover:text-shd transition-colors">{totalRerolls}</p>
+                </div>
+              </div>
+
                <div className="flex items-center justify-between group">
                  <div>
-                   <p className="text-red-400 text-[10px] font-black uppercase tracking-widest mb-1">Composants exotiques</p>
+                   <p className="text-red-400 text-xs font-black uppercase tracking-widest mb-1">Composants exotiques</p>
                    <p className="text-4xl font-black tabular-nums text-white group-hover:text-red-400 transition-colors leading-none">{cumulativeExotic}</p>
                  </div>
                  <Star className="w-8 h-8 text-red-500/20 group-hover:text-red-500/40 transition-colors" />
                </div>
 
-               <div className="grid grid-cols-2 gap-4 pt-4 border-t border-tactical-border">
-                 <div className="group">
-                    <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-wider mb-1">Rerolls</p>
-                    <p className="text-xl font-black text-white group-hover:text-shd transition-colors">{totalRerolls}</p>
-                 </div>
-                 <div className="group text-right">
-                    <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-wider mb-1">E-Crédits</p>
-                    <p className="text-xl font-black text-white group-hover:text-yellow-500 transition-colors">{(totalRerolls * REROLL_COST.credits).toLocaleString()}</p>
-                 </div>
-               </div>
 
                <div className="space-y-3 pt-4 border-t border-tactical-border">
-                  <div className="flex items-center justify-between text-sm">
-                    <div className="flex items-center gap-2 text-zinc-400">
-                      <Box className="w-4 h-4" />
-                      <span className="uppercase font-bold text-[10px] tracking-wider">Polycarbonate</span>
-                    </div>
-                    <span className="font-mono font-black text-white">{(totalRerolls * REROLL_COST.polycarbonate).toLocaleString()}</span>
-                  </div>
+                 <div className="flex items-center justify-between text-sm">
+                   <div className="flex items-center gap-2 text-zinc-400">
+                     <CreditCard className="w-4 h-4" />
+                     <span className="uppercase font-bold text-xs tracking-wider">E-Crédits</span>
+                   </div>
+                   <span className="font-mono font-black text-white">{(totalRerolls * REROLL_COST.credits).toLocaleString()}</span>
+                 </div>
+                 <div className="flex items-center justify-between text-sm">
+                   <div className="flex items-center gap-2 text-zinc-400">
+                     <Box className="w-4 h-4" />
+                     <span className="uppercase font-bold text-xs tracking-wider">Polycarbonate</span>
+                   </div>
+                   <span className="font-mono font-black text-white">{(totalRerolls * REROLL_COST.polycarbonate).toLocaleString()}</span>
+                 </div>
                   <div className="flex items-center justify-between text-sm">
                     <div className="flex items-center gap-2 text-zinc-400">
                       <Cpu className="w-4 h-4" />
-                      <span className="uppercase font-bold text-[10px] tracking-wider">Électronique</span>
+                      <span className="uppercase font-bold text-xs tracking-wider">Électronique</span>
                     </div>
                     <span className="font-mono font-black text-white">{(totalRerolls * REROLL_COST.electronique).toLocaleString()}</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <div className="flex items-center gap-2 text-zinc-400">
                       <Shirt className="w-4 h-4" />
-                      <span className="uppercase font-bold text-[10px] tracking-wider">Tissu protecteur</span>
+                      <span className="uppercase font-bold text-xs tracking-wider">Tissu protecteur</span>
                     </div>
                     <span className="font-mono font-black text-white">{(totalRerolls * REROLL_COST.tissu).toLocaleString()}</span>
                   </div>

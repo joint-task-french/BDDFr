@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Sidebar from './Sidebar'
 import MobileOverlay from './MobileOverlay'
 
-export default function Layout() {
+export default function Layout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
@@ -25,7 +25,7 @@ export default function Layout() {
         </header>
 
         <div className="flex-1 overflow-auto">
-          <Outlet />
+          {children || <Outlet />}
         </div>
       </main>
     </div>

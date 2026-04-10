@@ -1,4 +1,18 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useMemo } from 'react'
+
+/**
+ * Calcule si la couleur du texte doit être noire ou blanche selon la luminosité de l'arrière-plan.
+ * @param {string} hex - Couleur au format hexadécimal (ex: #ffffff)
+ * @returns {string} 'white' ou 'black'
+ */
+const getContrastColor = (hex) => {
+  if (!hex) return 'white'
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000
+  return (yiq >= 128) ? 'black' : 'white'
+}
 
 export default function Dialog({ 
   open, 
@@ -72,24 +86,16 @@ export default function Dialog({
     )
   }
 
-  const colorClasses = {
-    red: 'bg-red-500/20 text-red-400 border-red-500/50',
-    blue: 'bg-blue-500/20 text-blue-400 border-blue-500/50',
-    yellow: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50',
-    green: 'bg-green-500/20 text-green-400 border-green-500/50',
-    gray: 'bg-gray-500/20 text-gray-400 border-gray-500/50',
-    orange: 'bg-orange-500/20 text-orange-400 border-orange-500/50',
-    purple: 'bg-purple-500/20 text-purple-400 border-purple-500/50',
-    indigo: 'bg-indigo-500/20 text-indigo-400 border-indigo-500/50',
-    pink: 'bg-pink-500/20 text-pink-400 border-pink-500/50',
-    cyan: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/50',
-  };
+
+  const sortedAvailableTags = useMemo(() => {
+    return [...availableTags].sort((a, b) => (a.label || '').trim().localeCompare((b.label || '').trim()))
+  }, [availableTags])
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
       <div className="w-full max-w-md bg-tactical-panel border border-tactical-border rounded-lg shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-tactical-border bg-gradient-to-r from-tactical-panel to-tactical-bg">
+        <div className="px-6 py-4 border-b border-tactical-border bg-linear-to-r from-tactical-panel to-tactical-bg">
           <h3 className="text-lg font-bold text-white uppercase tracking-widest flex items-center gap-2">
             {type === 'confirm' && <span className="text-shd">⚠️</span>}
             {type === 'prompt' && <span className="text-blue-400">📝</span>}
@@ -108,7 +114,7 @@ export default function Dialog({
             <form onSubmit={handleConfirm} className="space-y-4">
               <div>
                 {showDescription && (
-                  <label className="block text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
+                  <label className="block text-xs text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
                     Nom du build
                   </label>
                 )}
@@ -124,7 +130,7 @@ export default function Dialog({
               
               {showDescription && (
                 <div>
-                  <label className="block text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
+                  <label className="block text-xs text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
                     Description (optionnelle)
                   </label>
                   <textarea
@@ -137,24 +143,27 @@ export default function Dialog({
                 </div>
               )}
 
-              {showTags && availableTags.length > 0 && (
+              {showTags && sortedAvailableTags.length > 0 && (
                 <div>
-                  <label className="block text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-2 ml-1">
+                  <label className="block text-xs text-gray-500 uppercase tracking-widest font-bold mb-2 ml-1">
                     Tags
                   </label>
                   <div className="flex flex-wrap gap-2">
-                    {availableTags.map(tag => {
-                      const isSelected = selectedTags.includes(tag.id);
+                    {sortedAvailableTags.map(tag => {
+                      const tagId = tag.slug || tag.id;
+                      const isSelected = selectedTags.includes(tagId);
+                      const tagColor = tag.color || '#6b7280';
                       return (
                         <button
-                          key={tag.id}
+                          key={tagId}
                           type="button"
-                          onClick={() => toggleTag(tag.id)}
-                          className={`px-3 py-1 rounded text-[10px] font-bold uppercase transition-all border ${
-                            isSelected 
-                              ? (colorClasses[tag.color] || 'bg-shd/20 text-shd border-shd/50')
-                              : 'bg-white/5 text-gray-500 border-white/10 hover:border-white/20'
-                          }`}
+                          onClick={() => toggleTag(tagId)}
+                          style={{
+                            backgroundColor: isSelected ? tagColor : 'rgba(255, 255, 255, 0.05)',
+                            color: isSelected ? getContrastColor(tagColor) : '#6b7280',
+                            borderColor: isSelected ? tagColor : 'rgba(255, 255, 255, 0.1)'
+                          }}
+                          className="px-3 py-1 rounded text-xs font-bold uppercase transition-all border hover:border-white/20"
                         >
                           {tag.label}
                         </button>
@@ -166,7 +175,7 @@ export default function Dialog({
 
               {showAuthor && (
                 <div>
-                  <label className="block text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
+                  <label className="block text-xs text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
                     Pseudo de publication
                   </label>
                   <input
@@ -176,7 +185,7 @@ export default function Dialog({
                     placeholder="Votre pseudo..."
                     className="w-full px-4 py-3 bg-tactical-bg border border-tactical-border rounded text-white focus:outline-none focus:ring-1 focus:ring-shd focus:border-shd transition-all"
                   />
-                  <p className="mt-1 text-[10px] text-gray-500 italic">
+                  <p className="mt-1 text-xs text-gray-500 italic">
                     Ce pseudo sera affiché publiquement sur la Buildothèque. Par défaut, votre pseudo Discord est utilisé.
                   </p>
                 </div>

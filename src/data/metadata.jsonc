@@ -22,6 +22,18 @@
   ],
   "changelog": [
     {
+      "date": "2026-04-10",
+      "changements": [
+        "### Changements BDDFr :",
+        {
+          "titre": "Ajouts :",
+          "description": [
+            "Code de triche de Kazuhisa Hashimoto, un investissement indispensable pour l'avenir de notre base de donnees."
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-04-07",
       "changements": [
         "### Changements BDDFr :",

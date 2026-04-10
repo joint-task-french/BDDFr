@@ -25,6 +25,13 @@ export default function SearchBar({ value, onChange, placeholder = "Rechercher d
         return () => clearTimeout(timeoutId)
     }, [localValue, onChange, value])
 
+    const handleBlur = () => {
+        if (localValue !== value) {
+            lastSentValue.current = localValue
+            onChange(localValue)
+        }
+    }
+
     return (
         <div className="relative mb-4">
             <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -34,6 +41,7 @@ export default function SearchBar({ value, onChange, placeholder = "Rechercher d
                 type="text"
                 value={localValue}
                 onChange={e => setLocalValue(e.target.value)}
+                onBlur={handleBlur}
                 placeholder={placeholder}
                 className="w-full pl-10 pr-4 py-2.5 bg-tactical-panel border border-tactical-border rounded text-gray-200 placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-shd text-sm uppercase tracking-wide"
             />

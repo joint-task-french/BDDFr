@@ -50,7 +50,7 @@ const DATA_FILES_MAP = {
 const SLUG_KEYED_FILES = new Set([
   'armes', 'attributs', 'classSpe', 'competences', 'ensembles',
   'equipements', 'modsArmes', 'modsCompetences', 'modsEquipements',
-  'statistiques', 'talentsArmes', 'talentsAutres', 'talentsEquipements', 'talentsPrototypes',
+  'statistiques', 'talentsArmes', 'talentsAutres', 'talentsEquipements', 'talentsPrototypes', 'buildsTags',
 ])
 
 function injectSlugs(obj) {

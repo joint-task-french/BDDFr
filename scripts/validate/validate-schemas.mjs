@@ -5,8 +5,8 @@
  * Usage: node scripts/validate/validate-schemas.mjs
  * Exit code 0 = OK, 1 = erreurs trouvées
  */
-import { readFileSync, readdirSync } from 'fs'
-import { join, dirname, basename } from 'path'
+import { readFileSync, readdirSync, statSync } from 'fs'
+import { join, dirname, basename, relative } from 'path'
 import { fileURLToPath } from 'url'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
@@ -25,28 +25,52 @@ function stripComments(text) {
 
 // Mapping fichier JSONC → fichier schema
 const VALIDATIONS = [
-  { data: 'armes/armes.jsonc', schema: 'armes.schema.json' },
-  { data: 'armes/armes-type.jsonc', schema: 'armes-type.schema.json' },
-  { data: 'equipements/equipements.jsonc', schema: 'equipements.schema.json' },
-  { data: 'equipements/equipements-type.jsonc', schema: 'equipements-type.schema.json' },
-  { data: 'attributs/attributs.jsonc', schema: 'attributs.schema.json' },
-  { data: 'attributs/attributs-type.jsonc', schema: 'attributs-type.schema.json' },
-  { data: 'armes/talents-armes.jsonc', schema: 'talents-armes.schema.json' },
-  { data: 'equipements/talents-equipements.jsonc', schema: 'talents-equipements.schema.json' },
-  { data: 'equipements/ensembles.jsonc', schema: 'ensembles.schema.json' },
-  { data: 'competences.jsonc', schema: 'competences.schema.json' },
-  { data: 'class-spe.jsonc', schema: 'class-spe.schema.json' },
-  { data: 'armes/mods-armes.jsonc', schema: 'mods-armes.schema.json' },
-  { data: 'equipements/mods-equipements.jsonc', schema: 'mods-equipements.schema.json' },
-  { data: 'mods-competences.jsonc', schema: 'mods-competences.schema.json' },
-  { data: 'armes/mods-armes-type.jsonc', schema: 'mods-armes-type.schema.json' },
-  { data: 'metadata.jsonc', schema: 'metadata.schema.json' },
-  { data: 'builds/builds.jsonc', schema: 'builds.schema.json' },
-  { data: 'builds/tags.jsonc', schema: 'tags.schema.json' },
+  { data: 'armes/armes.jsonc', schema: 'armes/armes.schema.json' },
+  { data: 'armes/armes-type.jsonc', schema: 'types/armes-type.schema.json' },
+  { data: 'equipements/equipements.jsonc', schema: 'equipements/equipements.schema.json' },
+  { data: 'equipements/equipements-type.jsonc', schema: 'types/equipements-type.schema.json' },
+  { data: 'attributs/attributs.jsonc', schema: 'autres/attributs.schema.json' },
+  { data: 'attributs/attributs-type.jsonc', schema: 'types/attributs-type.schema.json' },
+  { data: 'armes/talents-armes.jsonc', schema: 'armes/talents-armes.schema.json' },
+  { data: 'equipements/talents-equipements.jsonc', schema: 'equipements/talents-equipements.schema.json' },
+  { data: 'equipements/ensembles.jsonc', schema: 'equipements/ensembles.schema.json' },
+  { data: 'competences.jsonc', schema: 'autres/competences.schema.json' },
+  { data: 'class-spe.jsonc', schema: 'autres/class-spe.schema.json' },
+  { data: 'armes/mods-armes.jsonc', schema: 'armes/mods-armes.schema.json' },
+  { data: 'equipements/mods-equipements.jsonc', schema: 'equipements/mods-equipements.schema.json' },
+  { data: 'mods-competences.jsonc', schema: 'autres/mods-competences.schema.json' },
+  { data: 'armes/mods-armes-type.jsonc', schema: 'types/mods-armes-type.schema.json' },
+  { data: 'metadata.jsonc', schema: 'autres/metadata.schema.json' },
+  { data: 'builds/builds.jsonc', schema: 'autres/builds.schema.json' },
+  { data: 'builds/tags.jsonc', schema: 'autres/tags.schema.json' },
 ]
 
 const ajv = new Ajv({ allErrors: true, strict: false })
 addFormats(ajv)
+
+// Précharger tous les schémas (récursif) pour permettre les $ref relatifs
+function listSchemaFiles(dir, base = '') {
+  const entries = readdirSync(dir)
+  const files = []
+  for (const name of entries) {
+    const full = join(dir, name)
+    const rel = base ? `${base}/${name}` : name
+    const stat = statSync(full)
+    if (stat.isDirectory()) {
+      files.push(...listSchemaFiles(full, rel))
+    } else if (name.endsWith('.schema.json')) {
+      files.push(rel.replace(/\\/g, '/'))
+    }
+  }
+  return files
+}
+
+const schemaFiles = listSchemaFiles(SCHEMA_DIR)
+for (const relPath of schemaFiles) {
+  const content = JSON.parse(readFileSync(join(SCHEMA_DIR, relPath), 'utf8'))
+  // Utiliser le chemin relatif comme clé d'identité pour résoudre les $ref relatifs
+  ajv.addSchema(content, relPath)
+}
 
 let hasErrors = false
 let totalFiles = 0

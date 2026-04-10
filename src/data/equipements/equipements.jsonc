@@ -2139,7 +2139,8 @@
     "attributs": [
       {
         "nom": "degats_a_la_sante_es",
-        "valeur": 14
+        "valeur": 14,
+        "prototypeValue": 21
       },
       {}
     ],

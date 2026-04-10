@@ -39,6 +39,7 @@ const availablePages = Object.entries(markdownFiles)
         title: metadata.title || id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
         description: metadata.description || '',
         date: metadata.date || null,
+        update: metadata.update || null,
         tags: metadata.tags || [],
         authors: metadata.authors || [],
         content
@@ -67,9 +68,9 @@ function sortPages(pages, sortId) {
     return [...pages].sort((a, b) => {
         switch (sortId) {
             case 'date-desc':
-                return (b.date || '').localeCompare(a.date || '');
+                return (b.update || b.date || '').localeCompare(a.update || a.date || '');
             case 'date-asc':
-                return (a.date || '').localeCompare(b.date || '');
+                return (a.update || a.date || '').localeCompare(b.update || b.date || '');
             case 'alpha-asc':
                 return a.title.localeCompare(b.title, 'fr');
             case 'alpha-desc':
@@ -165,6 +166,15 @@ export default function PageViewer() {
                             <p className="text-sm w-20 shrink-0">Date :</p>
                             <span className="px-2.5 py-1 bg-tactical-hover text-gray-300 text-xs font-bold uppercase tracking-widest rounded border border-tactical-border">
                                 {formatDate(currentPage.date)}
+                            </span>
+                        </div>
+                    )}
+
+                    {currentPage.update && (
+                        <div className="flex flex-row py-1 text-xs font-bold gap-4 items-center">
+                            <p className="text-sm w-20 shrink-0">Mis a jours :</p>
+                            <span className="px-2.5 py-1 bg-tactical-hover text-gray-300 text-xs font-bold uppercase tracking-widest rounded border border-tactical-border">
+                                {formatDate(currentPage.update)}
                             </span>
                         </div>
                     )}

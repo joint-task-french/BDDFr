@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Attribut Appliqué (partagé)",
+  "description": "Structure d'un attribut tel qu'appliqué sur une arme ou un équipement",
+  "type": "object",
+  "required": [
+    "nom"
+  ],
+  "properties": {
+    "nom": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)"
+    },
+    "valeur": {
+      "type": "number",
+      "description": "Valeur de l'attribut sur cet objet"
+    },
+    "prototypeValue": {
+      "type": "number",
+      "description": "Valeur de l'attribut sur cet objet si prototype"
+    }
+  },
+  "additionalProperties": false
+}

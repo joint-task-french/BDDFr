@@ -2,6 +2,7 @@
 title: Escalade et équipement Prototypes
 description: Introduction aux nouveaux équipements de qualité prototype.
 date: 2026-04-06
+update: 2026-04-09
 tags: [guide, prototypes]
 authors: [ocelus_ftnl, marcoo888]
 ---
@@ -23,35 +24,35 @@ Le mode Escalade porte bien son nom : à chaque Tier franchi, la difficulté gri
 
 En contrepartie, ce mode utilise un système de jetons à déposer pour démarrer la mission, générant un profit de groupe et un bonus pour l'hôte de la session. Voici l'évolution exacte de la difficulté et des gains par Tier :
 
-| Tier        | Dégâts Ennemi | Santé Ennemi | Protection Ennemi |
-|:------------|:--------------|:-------------|:------------------|
-| **Tier 0**  | 100 %         | 100 %        | 100 %             |
-| **Tier 1**  | 150 %         | 160 %        | 160 %             |
-| **Tier 2**  | 200 %         | 200 %        | 200 %             |
-| **Tier 3**  | 250 %         | 250 %        | 250 %             |
-| **Tier 4**  | 300 %         | 300 %        | 300 %             |
-| **Tier 5**  | 350 %         | 350 %        | 350 %             |
-| **Tier 6**  | 400 %         | 450 %        | 450 %             |
-| **Tier 7**  | 450 %         | 530 %        | 530 %             |
-| **Tier 8**  | 500 %         | 650 %        | 650 %             |
-| **Tier 9**  | 550 %         | 700 %        | 700 %             |
-| **Tier 10** | 550 %         | 800 %        | 800 %             |
+| Tier        | Dégâts Ennemi    | Santé Ennemi    | Protection Ennemi    |
+|:------------|:-----------------|:----------------|:---------------------|
+| **Tier 0**  | 100 **%**        | 100 **%**       | 100 **%**            |
+| **Tier 1**  | 150 **%**        | 160 **%**       | 160 **%**            |
+| **Tier 2**  | 200 **%**        | 200 **%**       | 200 **%**            |
+| **Tier 3**  | 250 **%**        | 250 **%**       | 250 **%**            |
+| **Tier 4**  | 300 **%**        | 300 **%**       | 300 **%**            |
+| **Tier 5**  | 350 **%**        | 350 **%**       | 350 **%**            |
+| **Tier 6**  | 400 **%**        | 450 **%**       | 450 **%**            |
+| **Tier 7**  | 450 **%**        | 530 **%**       | 530 **%**            |
+| **Tier 8**  | 500 **%**        | 650 **%**       | 650 **%**            |
+| **Tier 9**  | 550 **%**        | 700 **%**       | 700 **%**            |
+| **Tier 10** | 550 **%**        | 800 **%**       | 800 **%**            |
 
 ### Les Mutateurs : Un défi supplémentaire
 Augmenter les statistiques des ennemis ne suffisait pas. L'Escalade introduit 2 mutateurs globaux (*Imperturbable* et *Jambes en feu*) et 4 mutateurs spécifiques aux ennemis. Plus vous montez dans les Tiers, plus vous avez de chances de croiser des adversaires dotés de ces modificateurs :
 
-| Tier         | Moissonneur   | Suppresseur  | Ancre  | Spécialiste soutien  | Imperturbable | Jambes en feu |
-|:-------------|:--------------|:-------------|:-------|:---------------------|---------------|---------------|
-| **Tier 1**   | 60 %          | 0 %          | 0 %    | 0 %                  | ❌             | ❌             |
-| **Tier 2**   | 60 %          | 0 %          | 0 %    | 0 %                  | ✅             | ❌             |
-| **Tier 3**   | 75 %          | 35 %         | 0 %    | 0 %                  | ✅             | ❌             |
-| **Tier 4**   | 75 %          | 35 %         | 0 %    | 0 %                  | ✅             | ❌             |
-| **Tier 5**   | 75 %          | 35 %         | 35 %   | 0 %                  | ✅             | ❌             |
-| **Tier 6**   | 75 %          | 35 %         | 60 %   | 0 %                  | ✅             | ✅             |
-| **Tier 7**   | 75 %          | 35 %         | 60 %   | 35 %                 | ✅             | ✅             |
-| **Tier 8**   | 75 %          | 35 %         | 75 %   | 60 %                 | ✅             | ✅             |
-| **Tier 9**   | 75 %          | 60 %         | 75 %   | 60 %                 | ✅             | ✅             |
-| **Tier 10**  | 75 %          | 60 %         | 75 %   | 75 %                 | ✅             | ✅             |
+| Tier        | Moissonneur | Suppresseur | Ancre     | Spécialiste soutien | Imperturbable | Jambes en feu |
+|:------------|:------------|:------------|:----------|:--------------------|---------------|---------------|
+| **Tier 1**  | 60 **%**    | 0 **%**     | 0 **%**   | 0 **%**             | ❌             | ❌             |
+| **Tier 2**  | 60 **%**    | 0 **%**     | 0 **%**   | 0 **%**             | ✅             | ❌             |
+| **Tier 3**  | 75 **%**    | 35 **%**    | 0 **%**   | 0 **%**             | ✅             | ❌             |
+| **Tier 4**  | 75 **%**    | 35 **%**    | 0 **%**   | 0 **%**             | ✅             | ❌             |
+| **Tier 5**  | 75 **%**    | 35 **%**    | 35 **%**  | 0 **%**             | ✅             | ❌             |
+| **Tier 6**  | 75 **%**    | 35 **%**    | 60 **%**  | 0 **%**             | ✅             | ✅             |
+| **Tier 7**  | 75 **%**    | 35 **%**    | 60 **%**  | 35 **%**            | ✅             | ✅             |
+| **Tier 8**  | 75 **%**    | 35 **%**    | 75 **%**  | 60 **%**            | ✅             | ✅             |
+| **Tier 9**  | 75 **%**    | 60 **%**    | 75 **%**  | 60 **%**            | ✅             | ✅             |
+| **Tier 10** | 75 **%**    | 60 **%**    | 75 **%**  | 75 **%**            | ✅             | ✅             |
 
 #### Modificateurs ennemis :
 
@@ -73,16 +74,21 @@ Augmenter les statistiques des ennemis ne suffisait pas. L'Escalade introduit 2 
 
 Actuellement, le mode Escalade est l'unique moyen de mettre la main sur l'équipement Prototype. Oubliez le butin ciblé : ici, tout est question de hasard. Chaque ennemi éliminé possède une petite chance de faire tomber une pièce d'équipement ou une arme Prototype. Naturellement, cette probabilité augmente avec la difficulté :
 
-* **Tier 1 :** 0,20 % par ennemi
-* **Tier 2 :** 0,25 % par ennemi
-* **Tier 3 :** 0,30 % par ennemi
-* **Tier 4 :** 0,30 % par ennemi
-* **Tier 5 :** 0,40 % par ennemi
-* **Tier 6 :** 0,60 % par ennemi
-* **Tier 7 :** 0,70 % par ennemi
-* **Tier 8 :** 1,00 % par ennemi
-* **Tier 9 :** 1,30 % par ennemi
-* **Tier 10 :** 1,50 % par ennemi
+| Tier        | taux de drop  | kill nécessaires |
+|-------------|---------------|------------------|
+| **Tier 0**  | 0,10 **%**    | **~** 1000       |
+| **Tier 1**  | 0,15 **%**    | **~** 667        |
+| **Tier 2**  | 0,20 **%**    | **~** 500        |
+| **Tier 3**  | 0,30 **%**    | **~** 333        |
+| **Tier 4**  | 0,45 **%**    | **~** 222        |
+| **Tier 5**  | 0,60 **%**    | **~** 167        |
+| **Tier 6**  | 0,80 **%**    | **~** 125        |
+| **Tier 7**  | 1,00 **%**    | **~** 100        |
+| **Tier 8**  | 1,30 **%**    | **~** 77         |
+| **Tier 9**  | 1,60 **%**    | **~** 63         |
+| **Tier 10** | 2,00 **%**    | **~** 50         |
+
+
 
 ### Récompenses de fin de mission :
 | Tier        | Dépôt de jetons | Profit Hôte | Profit Groupe | Données de terrain | Étalonnage SHD | Composants exotiques |
@@ -114,6 +120,7 @@ Pour les plus chanceux, il est même possible d'avoir plusieurs statistiques max
 * **4 statistiques au maximum :** 0,1 %
 
 > **L'astuce à retenir :** Les attributs nommés (comme les dégâts de tir à la tête sur le [*Mort blanche*](/db/armes/mort_blanche) ou les dégâts sur cible non abritée sur les [*Genouillères astucieuses*](/db/equipements/genouilleres_astucieuses)) sont toujours générés à leur valeur maximale, sans dépendre de ces probabilités.
+> _Note : Attention cependant, vous n'avez pas de garantie d'avoir une autre statistique au maximum en plus de la statistique nommée !_
 
 ### Les Augmentations (Augments)
 Chaque pièce d'équipement Prototype est dotée d'un mini-talent unique appelée "Augmentation". Celle-ci commence à une valeur de base et peut être améliorée jusqu'au niveau 10 en jouant avec la pièce équipée.
@@ -164,4 +171,5 @@ Si l'Augmentation présente sur votre pièce ne correspond pas à votre build, v
 
 *Sources :*
 - *[Poste Reddit de dognuttz](https://www.reddit.com/r/thedivision/comments/1safynu/psa_escalation_prototype_gear_drop_chances_roll/)*
+- *[Vidéo YouTube de Joker Farina](https://www.youtube.com/watch?v=DCRh8nsavto)* *(mise a jour des taux de drop)*
 - Expérimentations en jeu

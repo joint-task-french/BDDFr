@@ -1,10 +1,12 @@
-import {lazy, Suspense, useEffect} from 'react'
+import {lazy, Suspense, useEffect, useState} from 'react'
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import Loader from './components/common/Loader'
 import PageViewer from "./pages/PageViewer.jsx";
 import { apiBuildotheque } from './utils/apiBuildotheque'
 import { useDataLoader } from './hooks/useDataLoader'
+import { useKonamiCode } from './hooks/useKonamiCode'
+import InvestisseurReroll from './pages/InvestisseurReroll.jsx'
 
 const DatabasePage = lazy(() => import('./pages/DatabasePage'))
 const BuildPlannerPage = lazy(() => import('./pages/build/BuildPlannerPage.jsx'))
@@ -20,6 +22,13 @@ export default function App() {
     const location = useLocation()
     const navigate = useNavigate()
     const { data } = useDataLoader()
+    const [secretSession, setSecretSession] = useState(0)
+
+    useKonamiCode(() => setSecretSession(prev => prev + 1))
+
+    useEffect(() => {
+        setSecretSession(0);
+    }, [location.pathname]);
 
     useEffect(() => {
         if (data.metadata?.buildLibraryApiUrl) {
@@ -62,7 +71,7 @@ export default function App() {
 
     return (
         <Routes>
-            <Route element={<Layout />}>
+            <Route element={<Layout children={secretSession > 0 ? <InvestisseurReroll key={secretSession} allAttributs={data.attributs} allEquipements={data.equipements} allTalents={data.talentsEquipements} onClose={() => setSecretSession(0)} /> : null} />}>
                 <Route index element={<SuspensePage><DatabasePage /></SuspensePage>} />
                 <Route path="db/:category/:slug?/:modifier?" element={<SuspensePage><DatabasePage /></SuspensePage>} />
                 <Route path="planner" element={<SuspensePage><BuildPlannerPage /></SuspensePage>} />

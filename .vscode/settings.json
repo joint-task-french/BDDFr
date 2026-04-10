@@ -2,87 +2,87 @@
     "json.schemas": [
         {
             "fileMatch": ["/src/data/attributs/attributs.jsonc"],
-            "url": "./src/data/schemas/attributs.schema.json"
+            "url": "./src/data/schemas/autres/attributs.schema.json"
         },
         {
             "fileMatch": ["/src/data/armes/armes.jsonc"],
-            "url": "./src/data/schemas/armes.schema.json"
+            "url": "./src/data/schemas/armes/armes.schema.json"
         },
         {
             "fileMatch": ["/src/data/armes/armes-type.jsonc"],
-            "url": "./src/data/schemas/armes-type.schema.json"
+            "url": "./src/data/schemas/types/armes-type.schema.json"
         },
         {
             "fileMatch": ["/src/data/attributs/attributs-type.jsonc"],
-            "url": "./src/data/schemas/attributs-type.schema.json"
+            "url": "./src/data/schemas/types/attributs-type.schema.json"
         },
         {
             "fileMatch": ["/src/data/equipements/equipements-type.jsonc"],
-            "url": "./src/data/schemas/equipements-type.schema.json"
+            "url": "./src/data/schemas/types/equipements-type.schema.json"
         },
         {
             "fileMatch": ["/src/data/equipements/equipements.jsonc"],
-            "url": "./src/data/schemas/equipements.schema.json"
+            "url": "./src/data/schemas/equipements/equipements.schema.json"
         },
         {
             "fileMatch": ["/src/data/class-spe.jsonc"],
-            "url": "./src/data/schemas/class-spe.schema.json"
+            "url": "./src/data/schemas/autres/class-spe.schema.json"
         },
         {
             "fileMatch": ["/src/data/armes/talents-armes.jsonc"],
-            "url": "./src/data/schemas/talents-armes.schema.json"
+            "url": "./src/data/schemas/armes/talents-armes.schema.json"
         },
         {
             "fileMatch": ["/src/data/equipements/talents-equipements.jsonc"],
-            "url": "./src/data/schemas/talents-equipements.schema.json"
+            "url": "./src/data/schemas/equipements/talents-equipements.schema.json"
         },
         {
             "fileMatch": ["/src/data/talents-prototypes.jsonc"],
-            "url": "./src/data/schemas/talents-prototypes.schema.json"
+            "url": "./src/data/schemas/armes/talents-prototypes.schema.json"
         },
         {
             "fileMatch": ["/src/data/talents-autres.jsonc"],
-            "url": "./src/data/schemas/talents-autres.schema.json"
+            "url": "./src/data/schemas/autres/talents-autres.schema.json"
         },
         {
             "fileMatch": ["/src/data/equipements/ensembles.jsonc"],
-            "url": "./src/data/schemas/ensembles.schema.json"
+            "url": "./src/data/schemas/equipements/ensembles.schema.json"
         },
         {
             "fileMatch": ["/src/data/competences.jsonc"],
-            "url": "./src/data/schemas/competences.schema.json"
+            "url": "./src/data/schemas/autres/competences.schema.json"
         },
         {
             "fileMatch": ["/src/data/armes/mods-armes.jsonc"],
-            "url": "./src/data/schemas/mods-armes.schema.json"
+            "url": "./src/data/schemas/armes/mods-armes.schema.json"
         },
         {
             "fileMatch": ["/src/data/equipements/mods-equipements.jsonc"],
-            "url": "./src/data/schemas/mods-equipements.schema.json"
+            "url": "./src/data/schemas/equipements/mods-equipements.schema.json"
         },
         {
             "fileMatch": ["/src/data/mods-competences.jsonc"],
-            "url": "./src/data/schemas/mods-competences.schema.json"
+            "url": "./src/data/schemas/autres/mods-competences.schema.json"
         },
         {
             "fileMatch": ["/src/data/metadata.jsonc"],
-            "url": "./src/data/schemas/metadata.schema.json"
+            "url": "./src/data/schemas/autres/metadata.schema.json"
         },
         {
             "fileMatch": ["/src/data/attributs/statistiques.jsonc"],
-            "url": "./src/data/schemas/statistiques.schema.json"
+            "url": "./src/data/schemas/common/statistiques.schema.json"
         },
         {
             "fileMatch": ["/src/data/builds/builds.jsonc"],
-            "url": "./src/data/schemas/builds.schema.json"
+            "url": "./src/data/schemas/autres/builds.schema.json"
         },
         {
             "fileMatch": ["/src/data/builds/tags.jsonc"],
-            "url": "./src/data/schemas/tags.schema.json"
+            "url": "./src/data/schemas/autres/tags.schema.json"
         },
         {
             "fileMatch": ["/src/data/armes/mods-armes-type.jsonc"],
-            "url": "./src/data/schemas/mods-armes-type.schema.json"
+            "url": "./src/data/schemas/types/mods-armes-type.schema.json"
         }
     ]
 }

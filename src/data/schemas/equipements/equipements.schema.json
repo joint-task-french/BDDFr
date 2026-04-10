@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Équipements — The Division 2",
+  "description": "Toutes les pièces d'équipement. Clé = slug de l'équipement.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[a-z0-9_]+$": {
+      "type": "object",
+      "required": [
+        "nom",
+        "emplacement"
+      ],
+      "properties": {
+        "nom": {
+          "type": "string"
+        },
+        "description" : {
+          "type": "string",
+          "description": "texte de lore lié a l'équipement"
+        },
+        "marque": {
+          "type": "string",
+          "pattern": "^([a-z0-9_]+|\\*)$",
+          "description": "Slug de la marque/gear set, ou 'Exotique'"
+        },
+        "emplacement": {
+          "type": "string",
+          "enum": [
+            "masque",
+            "torse",
+            "holster",
+            "sac_a_dos",
+            "gants",
+            "genouilleres"
+          ]
+        },
+        "attributEssentiel": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "offensif",
+              "defensif",
+              "utilitaire"
+            ]
+          }
+        },
+        "attributs": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "../common/attribut-applique.schema.json"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "talents": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          }
+        },
+        "talentsPrototypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          }
+        },
+        "mod": {
+          "oneOf": [
+            { "type": "boolean" },
+            { "type": "integer" }
+          ]
+        },
+        "estNomme": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "improvise",
+            "standard",
+            "gear_set",
+            "exotique"
+          ]
+        },
+        "obtention": {
+          "$ref": "../common/obtention.schema.json"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur l'équipement"
+        }
+      }
+    }
+  }
+}

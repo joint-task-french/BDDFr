@@ -39,9 +39,17 @@ export default function SelectionModal({ open, title, onClose, children, filters
                 type="text"
                 value={searchValue || ''}
                 onChange={e => onSearch?.(e.target.value)}
-                className="w-48 sm:w-64 pl-8 pr-3 py-2 border border-tactical-border rounded bg-tactical-bg text-gray-200 placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-shd text-sm uppercase tracking-wide"
+                className="w-48 sm:w-64 pl-8 pr-8 py-2 border border-tactical-border rounded bg-tactical-bg text-gray-200 placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-shd text-sm uppercase tracking-wide"
                 placeholder="Filtrer..."
               />
+              {searchValue && (
+                <button
+                  onClick={() => onSearch?.('')}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-shd"
+                >
+                  ✕
+                </button>
+              )}
             </div>
             <button onClick={onClose} className="text-gray-500 hover:text-shd text-2xl leading-none px-1">&times;</button>
           </div>

@@ -439,7 +439,7 @@ const InvestisseurReroll = ({ allAttributs, allEquipements, allTalents, onClose 
                   </h3>
                 </div>
              </div>
-             <MarkdownText className="text-[12px] text-zinc-400 leading-relaxed">
+             <MarkdownText className="text-sm text-zinc-400 leading-relaxed">
                 {talentData.description}
              </MarkdownText>
           </div>

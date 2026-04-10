@@ -3945,7 +3945,8 @@
     "mod": true,
     "obtention": {
       "butinCible": true,
-      "cachesExotiques": true
+      "cachesExotiques": true,
+      "represailles": "Parias, Fin de mission"
     },
     "attributEssentiel": [
       "offensif",
@@ -3965,6 +3966,7 @@
     "mod": true,
     "obtention": {
       "mission": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
       "description": "Traque Fardeau de la vérité <Alani Kelso> Mission Roosevelt Island"
     },
     "attributEssentiel": [
@@ -4039,7 +4041,8 @@
     "mod": true,
     "obtention": {
       "cachesExotiques": true,
-      "butinCible": true
+      "butinCible": true,
+      "represailles": "Rikers, Escouade d'extermination"
     },
     "attributEssentiel": [
       "offensif"
@@ -4064,6 +4067,7 @@
     "mod": true,
     "obtention": {
       "mission": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
       "description": "Traque Crossroads <Le Directeur> Mission Potomac Event Center"
     },
     "attributEssentiel": [
@@ -4115,6 +4119,7 @@
     "mod": true,
     "obtention": {
       "mission": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
       "description": "Traque Nuances de rouge <Théo Parnell> Mission Siège de l'administration spatiale"
     },
     "attributEssentiel": [
@@ -4290,7 +4295,7 @@
     "type": "exotique"
   },
   "poing_sanglant": {
-    "nom": "Poing sanglant",
+    "nom": "Poings sanglant",
     "description": "\"Une montre cassée donne l'heure deux fois par jour. 13" ,
     "emplacement": "gants",
     "mod": false,
@@ -4480,6 +4485,7 @@
     "mod": false,
     "obtention": {
       "mission": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
       "description": "Traque Le pacte <Le sommet> Tidal Basin "
     },
     "attributEssentiel": [

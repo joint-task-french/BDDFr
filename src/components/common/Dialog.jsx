@@ -88,10 +88,10 @@ export default function Dialog({
 
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
       <div className="w-full max-w-md bg-tactical-panel border border-tactical-border rounded-lg shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-tactical-border bg-gradient-to-r from-tactical-panel to-tactical-bg">
+        <div className="px-6 py-4 border-b border-tactical-border bg-linear-to-r from-tactical-panel to-tactical-bg">
           <h3 className="text-lg font-bold text-white uppercase tracking-widest flex items-center gap-2">
             {type === 'confirm' && <span className="text-shd">⚠️</span>}
             {type === 'prompt' && <span className="text-blue-400">📝</span>}
@@ -110,7 +110,7 @@ export default function Dialog({
             <form onSubmit={handleConfirm} className="space-y-4">
               <div>
                 {showDescription && (
-                  <label className="block text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
+                  <label className="block text-xs text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
                     Nom du build
                   </label>
                 )}
@@ -126,7 +126,7 @@ export default function Dialog({
               
               {showDescription && (
                 <div>
-                  <label className="block text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
+                  <label className="block text-xs text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
                     Description (optionnelle)
                   </label>
                   <textarea
@@ -141,7 +141,7 @@ export default function Dialog({
 
               {showTags && availableTags.length > 0 && (
                 <div>
-                  <label className="block text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-2 ml-1">
+                  <label className="block text-xs text-gray-500 uppercase tracking-widest font-bold mb-2 ml-1">
                     Tags
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -158,7 +158,7 @@ export default function Dialog({
                             color: isSelected ? getContrastColor(tagColor) : '#6b7280',
                             borderColor: isSelected ? tagColor : 'rgba(255, 255, 255, 0.1)'
                           }}
-                          className="px-3 py-1 rounded text-[10px] font-bold uppercase transition-all border hover:border-white/20"
+                          className="px-3 py-1 rounded text-xs font-bold uppercase transition-all border hover:border-white/20"
                         >
                           {tag.label}
                         </button>
@@ -170,7 +170,7 @@ export default function Dialog({
 
               {showAuthor && (
                 <div>
-                  <label className="block text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
+                  <label className="block text-xs text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
                     Pseudo de publication
                   </label>
                   <input
@@ -180,7 +180,7 @@ export default function Dialog({
                     placeholder="Votre pseudo..."
                     className="w-full px-4 py-3 bg-tactical-bg border border-tactical-border rounded text-white focus:outline-none focus:ring-1 focus:ring-shd focus:border-shd transition-all"
                   />
-                  <p className="mt-1 text-[10px] text-gray-500 italic">
+                  <p className="mt-1 text-xs text-gray-500 italic">
                     Ce pseudo sera affiché publiquement sur la Buildothèque. Par défaut, votre pseudo Discord est utilisé.
                   </p>
                 </div>

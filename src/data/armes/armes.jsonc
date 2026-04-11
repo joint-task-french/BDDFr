@@ -4092,6 +4092,7 @@
     "estExotique": true,
     "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
+      "represailles": "Black Tusk, Escouade d'extermination",
       "description": "Boutique du mode Descent\nCoût : 350 crédits NSA"
     },
     "estNomme": false,
@@ -4334,6 +4335,7 @@
     "obtention": {
       "raid": "raid 2 : Cheval de fer",
       "darkZone": true,
+      "represailles": "Black Tusk, Fin de mission",
       "description": "1% en tuant un boss du raid et 10% coffre final"
     },
     "estNomme": false,
@@ -4381,7 +4383,7 @@
     "degatsBase": 716000,
     "estExotique": true,
     "obtention": {
-      "represailles": "Parias,Excouade d'extermination",
+      "represailles": "Parias,Escouade d'extermination",
       "butinCible": true,
       "cachesExotiques": true,
       "description": "Tuer un boss Parias, 1/3/5/7% normal/difficile/défi/héroïque"
@@ -4501,6 +4503,7 @@
     "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "mission": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
       "description": "Récompense de Traque :\nUnited Ironworks : le général Anderson\nMaître - 100% (la 1er fois)."
     },
     "estNomme": false,
@@ -4582,6 +4585,7 @@
       "mission": true,
       "cachesExotiques": true,
       "butinCible": true,
+      "represailles": "Black Tusk, Fin de mission",
       "description": "Terminer les 3 zones de l'expédition Kenly College."
     },
     "estNomme": false,
@@ -4611,7 +4615,8 @@
     "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "butinCible": true,
-      "cachesExotiques": true
+      "cachesExotiques": true,
+      "represailles": "Nettoyeurs, fin de mission"
     },
     "estNomme": false,
     "talents": [
@@ -4640,6 +4645,7 @@
     "obtention": {
       "raid": "raid 1 : Opération Heures Sombres",
       "darkZone": true,
+      "represailles": "Black Tusk, Fin de mission",
       "description": "1% en tuant un boss du raid et 10% coffre final."
     },
     "estNomme": false,
@@ -4701,6 +4707,7 @@
     "obtention": {
       "darkZone": true,
       "mission": true,
+      "represailles": "Black Tusk, Fin de mission",
       "description": "Uniquement en difficulté légendaire 5%, boss nommé en forteresse ou summit"
     },
     "estNomme": false,
@@ -4731,6 +4738,7 @@
     "obtention": {
       "butinCible": true,
       "cachesExotiques": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
       "description": "Finir 5 défis de Summit en une ascension."
     },
     "estNomme": false,
@@ -4997,7 +5005,7 @@
     "obtention": {
       "butinCible": true,
       "cachesExotiques": true,
-      "represailles": "Parias, Excouade d'extermination"
+      "represailles": "Parias, Escouade d'extermination"
     },
     "estNomme": false,
     "talents": [
@@ -5110,6 +5118,7 @@
     "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "mission": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
       "description": "Récompense de Traque :\nTidal Basin : Le pacte\nMaître - 100% (la 1er fois)."
     },
     "estNomme": false,
@@ -5768,6 +5777,7 @@
       "tireur_a_couvert"
     ],
     "obtention": {
+      "represailles": "True sons, Fin de mission",
       "description": "Evenement 10 ans de The division"
     },
     "emplacementsMods": {},
@@ -5924,6 +5934,28 @@
       "canon": "rail_sous_canon_long",
       "chargeur": "chargeur_762",
       "viseur": "rail_optique_long"
+    }
+  },
+  "l_archiviste": {
+    "nom": "L'Archivisite",
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 31,
+    "rpm": 650,
+    "chargeur": 30,
+    "rechargement": 1.91,
+    "headshot": 55,
+    "degatsBase": 58900,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "ranger"
+    ],
+    "emplacementsMods": {
+      "bouche": "bouche_556",
+      "canon": "rail_sous_canon_long",
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique"
     }
   }
 }

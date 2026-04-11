@@ -624,7 +624,8 @@
     "icon": "ranger",
     "perfectDescription": "Augmente les dégâts d'arme de 2% pour chaque tranche de 3m entre vous et votre cible.",
     "armesParfaites": [
-      "grand_baton_d_ekim"
+      "grand_baton_d_ekim",
+      "l_archiviste"
     ],
     "compatibilite": {
       "fusil": true,

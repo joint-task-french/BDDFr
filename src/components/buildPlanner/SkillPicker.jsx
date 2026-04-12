@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { useBuild } from '../../context/BuildContext'
 import { flattenCompetences } from '../../utils/competenceUtils'
 import SelectionModal from '../common/SelectionModal'
@@ -20,10 +21,10 @@ export default function SkillPicker({ data, slotIndex, onClose }) {
     let list = skills
     if (typeFilter !== 'all') list = list.filter(s => s.competence === typeFilter)
     if (search) {
-      const term = search.toLowerCase()
+      const term = normalizeText(search)
       list = list.filter(s =>
-        s.competence.toLowerCase().includes(term) ||
-        s.variante.toLowerCase().includes(term)
+        normalizeText(s.competence).includes(term) ||
+        normalizeText(s.variante).includes(term)
       )
     }
     return list

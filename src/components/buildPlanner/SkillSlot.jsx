@@ -1,15 +1,9 @@
 import { useState, useMemo, useEffect } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { useBuild } from '../../context/BuildContext'
 import { formatModAttributs } from '../../utils/modCompatibility'
 import MarkdownText from '../common/MarkdownText'
 
-/**
- * Normalise un nom pour comparaison.
- */
-function normalize(s) {
-  if (!s) return ''
-  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().trim()
-}
 
 /**
  * Trouve les emplacements de mods compatibles pour une compétence donnée.
@@ -30,21 +24,21 @@ function getSkillModSlots(skill) {
 function getCompatibleSkillMods(competenceSlug, emplacement, modsCompetences, specialisation) {
   if (!modsCompetences || !competenceSlug) return []
   const modsList = Array.isArray(modsCompetences) ? modsCompetences : Object.values(modsCompetences)
-  const compNorm = normalize(competenceSlug)
-  const empNorm = normalize(emplacement)
+  const compNorm = normalizeText(competenceSlug)
+  const empNorm = normalizeText(emplacement)
 
   return modsList.filter(m => {
     // Vérifier la compatibilité avec la compétence
     if (m.compatible && m.compatible.length > 0) {
-      const isCompat = m.compatible.some(c => normalize(c) === compNorm)
+      const isCompat = m.compatible.some(c => normalizeText(c) === compNorm)
       if (!isCompat) return false
     } else if (m.competence) {
       // Fallback sur le champ competence
-      if (normalize(m.competence) !== compNorm) return false
+      if (normalizeText(m.competence) !== compNorm) return false
     }
     // Vérifier la compatibilité avec l'emplacement
     if (emplacement && m.emplacement) {
-      if (normalize(m.emplacement) !== empNorm) return false
+      if (normalizeText(m.emplacement) !== empNorm) return false
     }
     // Vérifier prerequis de spécialisation
     if (m.prerequis) return m.prerequis === specialisation
@@ -221,11 +215,11 @@ function SkillModPicker({ competenceSlug, emplacement, modsCompetences, allAttri
 
   const filtered = useMemo(() => {
     if (!search) return compatibleMods
-    const s = search.toLowerCase()
+    const s = normalizeText(search)
     return compatibleMods.filter(m =>
-      (m.nom || m.slug || '').toLowerCase().includes(s) ||
-      (m.emplacement || '').toLowerCase().includes(s) ||
-      formatModAttributs(m, allAttributs, statistiques).toLowerCase().includes(s)
+      normalizeText(m.nom || m.slug || '').includes(s) ||
+      normalizeText(m.emplacement || '').includes(s) ||
+      normalizeText(formatModAttributs(m, allAttributs, statistiques)).includes(s)
     )
   }, [compatibleMods, allAttributs, statistiques, search])
 

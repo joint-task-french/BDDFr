@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { normalizeText } from '../../utils/textUtils.js'
 import { useDataLoader } from '../../hooks/useDataLoader.js'
 import { decodeBuild, resolveBuild } from '../../utils/buildShare.js'
 import Loader from '../../components/common/Loader.jsx'
@@ -471,11 +472,12 @@ export default function BuildLibraryPage() {
   }
 
   const filteredLocalBuilds = useMemo(() => {
+    const term = normalizeText(searchTerm)
     const filtered = localBuilds.filter(build => {
-      const matchesSearch = !searchTerm ||
-          build.nom?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          build.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          build.auteur?.toLowerCase().includes(searchTerm.toLowerCase())
+      const matchesSearch = !term ||
+          normalizeText(build.nom).includes(term) ||
+          normalizeText(build.description).includes(term) ||
+          normalizeText(build.auteur).includes(term)
 
       const matchesTags = selectedTags.length === 0 ||
           selectedTags.every(tagId => build.tags?.includes(tagId))
@@ -486,16 +488,17 @@ export default function BuildLibraryPage() {
   }, [localBuilds, searchTerm, selectedTags, sortBy])
 
   const filteredPredefinedBuilds = useMemo(() => {
+    const term = normalizeText(searchTerm)
     const combined = [
       ...(data.builds || []),
       ...remoteBuilds
     ]
 
     const filtered = combined.filter(build => {
-      const matchesSearch = !searchTerm ||
-          build.nom?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          build.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          build.auteur?.toLowerCase().includes(searchTerm.toLowerCase())
+      const matchesSearch = !term ||
+          normalizeText(build.nom).includes(term) ||
+          normalizeText(build.description).includes(term) ||
+          normalizeText(build.auteur).includes(term)
 
       const matchesTags = selectedTags.length === 0 ||
           selectedTags.every(tagId => build.tags?.includes(tagId))

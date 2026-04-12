@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { useBuild } from '../../context/BuildContext'
 import SelectionModal from '../common/SelectionModal'
 import MarkdownText from '../common/MarkdownText'
@@ -14,10 +15,10 @@ export default function PrototypeTalentPicker({ data, slotKey, onClose }) {
 
   const filtered = useMemo(() => {
     if (!search) return talents
-    const term = search.toLowerCase()
+    const term = normalizeText(search)
     return talents.filter(t =>
-        t.nom.toLowerCase().includes(term) ||
-        (t.description || '').toLowerCase().includes(term)
+        normalizeText(t.nom).includes(term) ||
+        normalizeText(t.description || '').includes(term)
     )
   }, [talents, search])
 

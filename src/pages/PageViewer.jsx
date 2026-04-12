@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { normalizeText } from '../utils/textUtils';
 import MarkdownText from '../components/common/MarkdownText';
 import SearchBar from '../components/database/SearchBar';
 
@@ -191,10 +192,10 @@ export default function PageViewer() {
     // Pages filtrées par recherche textuelle uniquement (pour calculer les compteurs de tags dynamiques)
     const searchFilteredPages = availablePages.filter(p => {
         if (searchTerm === '') return true;
-        const searchLower = searchTerm.toLowerCase();
-        return p.title.toLowerCase().includes(searchLower) ||
-            p.description.toLowerCase().includes(searchLower) ||
-            p.tags.some(tag => tag.toLowerCase().includes(searchLower));
+        const term = normalizeText(searchTerm);
+        return normalizeText(p.title).includes(term) ||
+            normalizeText(p.description).includes(term) ||
+            p.tags.some(tag => normalizeText(tag).includes(term));
     });
 
     // Pages correspondant aux tags sélectionnés (base pour les compteurs dynamiques)

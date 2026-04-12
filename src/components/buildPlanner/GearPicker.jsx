@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { useBuild } from '../../context/BuildContext'
 import { getGearSlotLabel } from '../../utils/formatters'
 import { getGearFilters, getGearDefaults, applyGearFilters } from '../../config/filterConfigs'
@@ -62,10 +63,10 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
   const filtered = useMemo(() => {
     let list = afterFilters
     if (search) {
-      const term = search.toLowerCase()
+      const term = normalizeText(search)
       list = list.filter(p =>
-          p.nom.toLowerCase().includes(term) ||
-          (p.marque || '').toLowerCase().includes(term)
+          normalizeText(p.nom).includes(term) ||
+          normalizeText(p.marque || '').includes(term)
       )
     }
     // Sort: exotics (0) > named (1) > gear sets (2) > standard (3) > improvise (4)

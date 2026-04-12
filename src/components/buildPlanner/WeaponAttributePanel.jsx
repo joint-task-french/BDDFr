@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { getWeaponEssentialAttributes } from '../../utils/formatters'
 import { isWeaponModCompatible, formatModAttributs } from '../../utils/modCompatibility'
 import AttributeSlider from './AttributeSlider'
@@ -210,10 +211,10 @@ function ModPicker({ mods, type, weapon, allAttributs, onSelect, onClose }) {
     let list = modsList.filter(m => m.type === type && !m.estExotique)
     list = list.filter(m => isWeaponModCompatible(m, weapon))
     if (search) {
-      const s = search.toLowerCase()
+      const s = normalizeText(search)
       list = list.filter(m =>
-          (m.nom || '').toLowerCase().includes(s) ||
-          formatModAttributs(m, allAttributs).toLowerCase().includes(s)
+          normalizeText(m.nom || '').includes(s) ||
+          normalizeText(formatModAttributs(m, allAttributs)).includes(s)
       )
     }
     return list

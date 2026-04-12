@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { resolveAttribut, resolveAsset, GameIcon } from '../common/GameAssets.jsx'
 
 const CAT_COLORS = {
@@ -37,15 +38,15 @@ export default function AttributePicker({ attributs, cible, categorie, essentiel
     else if (essentiel === false) list = list.filter(a => !a.estEssentiel)
     if (categorie) list = list.filter(a => a.categorie === categorie)
     if (exclude.length > 0) {
-      const excLow = exclude.map(n => (n || '').toLowerCase())
+      const excNorm = exclude.map(n => normalizeText(n))
       list = list.filter(a => 
-        !excLow.includes(a.nom.toLowerCase()) && 
-        !excLow.includes((a.slug || '').toLowerCase())
+        !excNorm.includes(normalizeText(a.nom)) && 
+        !excNorm.includes(normalizeText(a.slug || ''))
       )
     }
     if (search) {
-      const s = search.toLowerCase()
-      list = list.filter(a => a.nom.toLowerCase().includes(s))
+      const s = normalizeText(search)
+      list = list.filter(a => normalizeText(a.nom).includes(s))
     }
     return list
   }, [attributs, cible, categorie, exclude, search])

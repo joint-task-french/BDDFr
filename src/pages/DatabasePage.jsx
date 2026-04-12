@@ -1,5 +1,6 @@
 import { useMemo, useCallback, useEffect, useState } from 'react'
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
+import { normalizeText } from '../utils/textUtils'
 import { useDataLoader } from '../hooks/useDataLoader'
 import Loader from '../components/common/Loader'
 import CategoryNav from '../components/database/CategoryNav'
@@ -260,7 +261,7 @@ export default function DatabasePage() {
     }
 
     if (searchTerm) {
-      const term = searchTerm.toLowerCase()
+      const term = normalizeText(searchTerm)
 
       const slugDict = {}
       const populateDict = (source, nameField = 'nom') => {
@@ -268,7 +269,7 @@ export default function DatabasePage() {
         const items = Array.isArray(source) ? source : Object.values(source)
         items.forEach(item => {
           if (item && item.slug && item[nameField]) {
-            slugDict[item.slug] = String(item[nameField]).toLowerCase()
+            slugDict[item.slug] = normalizeText(String(item[nameField]))
           }
         })
       }
@@ -289,10 +290,11 @@ export default function DatabasePage() {
         if (!val) return ''
         if (typeof val === 'string') {
           const resolved = slugDict[val]
-          return resolved ? `${val.toLowerCase()} ${resolved}` : val.toLowerCase()
+          const normalizedVal = normalizeText(val)
+          return resolved ? `${normalizedVal} ${resolved}` : normalizedVal
         }
         if (typeof val === 'number' || typeof val === 'boolean') {
-          return String(val).toLowerCase()
+          return normalizeText(String(val))
         }
         if (Array.isArray(val)) {
           return val.map(extractText).join(' ')
@@ -305,7 +307,7 @@ export default function DatabasePage() {
 
       items = items.filter(item => {
         const fullItemText = extractText(item)
-        const descenteText = item.descente?.levels?.base?.toLowerCase() || ''
+        const descenteText = normalizeText(item.descente?.levels?.base || '')
         return fullItemText.includes(term) || descenteText.includes(term)
       })
     }

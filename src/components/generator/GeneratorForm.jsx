@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 
 /**
  * Formulaire générique piloté par une configuration de champs.
@@ -340,9 +341,9 @@ function AutocompleteInput({ field, value, onChange, onSelect, suggestions }) {
   }, [value, list])
 
   const filtered = useMemo(() => {
-    const q = (query || displayValue || '').toLowerCase()
+    const q = normalizeText(query || displayValue || '')
     if (!q) return list.slice(0, 20)
-    return list.filter(s => s.label.toLowerCase().includes(q) || s.value.toLowerCase().includes(q)).slice(0, 20)
+    return list.filter(s => normalizeText(s.label).includes(q) || normalizeText(s.value).includes(q)).slice(0, 20)
   }, [list, query, displayValue])
 
   useEffect(() => {
@@ -406,10 +407,10 @@ function AutocompleteArrayInput({ field, value, onChange, suggestions }) {
   }, [list, suggestions])
 
   const filtered = useMemo(() => {
-    const q = query.toLowerCase()
-    const existing = new Set(items.map(i => (typeof i === 'string' ? i : i).toLowerCase()))
-    let res = list.filter(s => !existing.has(s.value.toLowerCase()))
-    if (q) res = res.filter(s => s.label.toLowerCase().includes(q) || s.value.toLowerCase().includes(q))
+    const q = normalizeText(query)
+    const existing = new Set(items.map(i => normalizeText(typeof i === 'string' ? i : i)))
+    let res = list.filter(s => !existing.has(normalizeText(s.value)))
+    if (q) res = res.filter(s => normalizeText(s.label).includes(q) || normalizeText(s.value).includes(q))
     return res.slice(0, 20)
   }, [list, query, items])
 

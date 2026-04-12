@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { useBuild } from '../../context/BuildContext'
 import { getWeaponTypeLabel, getClassicWeaponTypes } from '../../utils/formatters'
 import { getWeaponFilters, getWeaponDefaults, applyWeaponFilters } from '../../config/filterConfigs'
@@ -57,11 +58,11 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
   const filtered = useMemo(() => {
     let list = afterFilters
     if (search) {
-      const term = search.toLowerCase()
+      const term = normalizeText(search)
       list = list.filter(w =>
-        w.nom.toLowerCase().includes(term) ||
-        (w.fabricant || '').toLowerCase().includes(term) ||
-        (getWeaponTypeLabel(data.armes_type, w.type)).toLowerCase().includes(term)
+        normalizeText(w.nom).includes(term) ||
+        normalizeText(w.fabricant || '').includes(term) ||
+        normalizeText(getWeaponTypeLabel(data.armes_type, w.type)).includes(term)
       )
     }
     return list

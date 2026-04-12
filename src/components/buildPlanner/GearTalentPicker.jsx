@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { useBuild } from '../../context/BuildContext'
 import { getGearSlotLabel } from '../../utils/formatters'
 import { getTalentEquipFilters, getTalentEquipDefaults, applyTalentEquipFilters } from '../../config/filterConfigs'
@@ -30,10 +31,10 @@ export default function GearTalentPicker({ data, slotKey, onClose }) {
 
   const filtered = useMemo(() => {
     if (!search) return afterFilters
-    const term = search.toLowerCase()
+    const term = normalizeText(search)
     return afterFilters.filter(t =>
-        t.nom.toLowerCase().includes(term) ||
-        (t.description || '').toLowerCase().includes(term)
+        normalizeText(t.nom).includes(term) ||
+        normalizeText(t.description || '').includes(term)
     )
   }, [afterFilters, search])
 

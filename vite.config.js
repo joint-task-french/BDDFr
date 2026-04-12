@@ -11,6 +11,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
       },
       manifest: {
         "short_name": "BDDFr",

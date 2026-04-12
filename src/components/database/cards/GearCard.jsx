@@ -189,7 +189,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                 <div className="flex flex-row items-center gap-2 justify-between">
                   <div className="flex items-center gap-2">
                     {isMarque && <span className="text-xs font-bold text-shd bg-shd/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Marque</span>}
-                    {isExotic && <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
+                    {isExotic && <span className="text-xs font-bold text-red-400 bg-red-500/10 px-1.5 py-0.5 rounded uppercase tracking-widest border border-red-500/20">Exotique</span>}
                     {isNamed && <span className="text-xs font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
                     {isGearSet && <span className="text-xs font-bold text-emerald-400 bg-emerald-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Gear Set</span>}
                     {isImprovised && <span className="text-xs font-bold text-indigo-400 bg-indigo-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Improvisé</span>}

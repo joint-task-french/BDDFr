@@ -2119,7 +2119,7 @@
   },
   "optimisation_de_transfert": {
     "nom": "Optimisation de transfert",
-    "description": "(PVE) Augmente de +15% la récupération de compétence Ruche par tier de compétence.\nFaire exploser une ruche annule vos temps de recharge de compétence et donne surcharge pendant 15s.\nS'il est déjà au Tier de compétence 6, cet effet s'applique également à tous les alliés.\nLes alliés qui reçoivent cet effet ne peuvent plus en bénéficier pendant 120s.",
+    "description": "(PVE) Augmente de **+15% la récupération de compétence Ruche** par tier de compétence.\nFaire exploser une ruche annule vos temps de recharge de compétence et donne **surcharge** pendant **15s**.\nS'il est déjà au Tier de compétence 6, cet effet s'applique également à tous les alliés.\nLes alliés qui reçoivent cet effet ne peuvent plus en bénéficier pendant **120s**.\n(PVP) Faire exploser une ruche annule les temps de recharge de compétence de tous les alliés et confère **+6 au Tier de compétence** pendant 15s.\nes alliés qui reçoivent cet effet ne peuvent plus en bénéficier pendant 120s.",
     "emplacement": "gants",
     "estExotique": true
   },
@@ -2175,13 +2175,13 @@
   "esquive_reparatrice": {
     "nom": "Esquive réparatrice",
     "description": "Vous réparez 5% (3%) de votre protection pour chaque mètre de course d'un couvert à l'autre.\nLes dégâts subis lors d'un changement d'abri sont restaurés pendant 10s.",
-    "emplacement": "genouilleres",
+    "emplacement": "holster",
     "estExotique": true
   },
   "exuberant": {
     "nom": "Exubérant",
     "description": "Infliger des dégâts à un ennemi avec une grenade ou frapper un ennemi avec une attaque au corps à corps active Voir rouge.\nVoir rouge confère +25% aux dégâts d'arme +100% aux dégâts de corps à corps.\nVoir rouge dure 20 secondes et possède un temps de recharge de 60 secondes.\nUne fois en recharge, infliger des dégâts à un ennemi avec une attaque de corps à corps ou frapper un ennemi avec l'effet d'une grenade réinitialise instantanément ce temps de recharge.",
-    "emplacement": "torse",
+    "emplacement": "gants",
     "estExotique": true
   },
   "poigne_de_fer": {
@@ -2193,27 +2193,27 @@
   "ecran_de_fumee": {
     "nom": "Ecran de fumée",
     "icon": "ecran_de_fumee",
-    "description": "(PVE) Quand votre protection est détruite, vous lâchez une bombe fumigène qui empêche les ennemis de vous voir pendant 3s.\nTemps de recharge : 40s",
-    "emplacement": "torse",
+    "description": "(PVE) Quand votre protection est détruite, vous lâchez une bombe fumigène qui empêche les ennemis de vous voir pendant 3s.\nTemps de recharge : 40s\n(PVP) Quand votre protection est détruite, vous lâcher une bombe fumigène, vous bénéficiez de 100% de résistance à l'impulsion, et votre plaque est masquée pendant 2s.\nTemps de recharge : 40s",
+    "emplacement": "gants",
     "estExotique": true
   },
   "maillon_faible": {
     "nom": "Maillon faible",
     "description": "Dégâts d'arme accrus de 30% contre les ennemis des rangs les plus faibles actuellement en combat, selon la hiérarchie des Tiers.\nTier 1 : chasseur, renégat, chef, tank, bouclier, armes lourdes, lance-roquettes, médecin, contrôleur, chien de guerre, maraudeur\nTier 2 : support, ingénieur, garde du corps, immobilisateur, poseur de bombe, mini-char, opérateur de drone\nTier 3 : tout autre ennemi ou proxy de compétence",
-    "emplacement": "masque",
+    "emplacement": "gants",
     "estExotique": true
   },
   "parkour": {
     "nom": "Parkour !",
     "icon": "parkour",
-    "description": "(PVE) Se déplacer d'un abri à un autre ou franchir un obstacle recharge votre arme actuelle et vous bénéficiez d'un bonus de +25% à la protection pendant 5s.",
+    "description": "Se déplacer d'un abri à un autre ou franchir un obstacle **recharge** votre arme actuelle et vous bénéficiez d'un bonus de **+25% (+12%) de protection bonus** pendant **5s.**",
     "emplacement": "genouilleres",
     "estExotique": true
   },
   "ostracisation": {
     "nom": "Ostracisation",
     "description": "Toucher un ennemi lui applique une marque.\nLa marque disparaît au bout de 15s, ou à la mort de l'ennemi marqué.\nVous subissez +600% de dégâts de l'ennemi marqué.\nVous infligez +20% de dégâts aux ennemis non marqués.\nS'il ne reste qu'un ennemi en combat, la marque disparaît et ne peut pas être appliquée de nouveau.",
-    "emplacement": "masque",
+    "emplacement": "genouilleres",
     "estExotique": true
   },
   "elimination_confirmee": {
@@ -2237,7 +2237,7 @@
   "charge_toxique": {
     "nom": "Charge toxique",
     "description": "Les effets d'état infligent également un débuff de dégâts sur la durée pendant 10s.\nLe total de dégâts infligés est égal à 50% (20%) des dégâts de votre grenade offensive et est accru par vos attributs d'effet d'état.",
-    "emplacement": "torse",
+    "emplacement": "masque",
     "estExotique": true
   },
   "cercle_vicieux": {
@@ -2255,7 +2255,7 @@
   "abrege": {
     "nom": "Abrégé",
     "description": "Si vos armes principale et secondaire ne sont pas exotiques ou spécifiées et du même type, le talent de l'arme secondaire sera également appliqué à l'arme principale.\nNe s'applique pas si le talent de l'arme principale ou secondaire inclut un changement d'arme.\nNe s'applique pas si les talents des armes principales et secondaire sont les mêmes.",
-    "emplacement": "torse",
+    "emplacement": "masque",
     "estExotique": true
   },
   "avantage_sanglant": {
@@ -2264,11 +2264,11 @@
     "emplacement": "torse",
     "estExotique": true
   },
-  "hoarder": {
-    "nom": "Hoarder",
+  "amasseur_de_butin": {
+    "nom": "amasseur_de_butin",
     "icon": "hoarder",
     "description": "+3 capacité de grenade.\n+50% Portée des grenades.\n+35% Dégâts des grenades.\n+25% dégâts des grenades pour chaque ennemi supplémentaire \"attrapé\" dans l'explosion",
-    "emplacement": "sac_a_dos",
+    "emplacement": "torse",
     "estExotique": true
   },
   "challenger": {
@@ -2751,53 +2751,6 @@
       }
     }
   },
-  "capacitif": {
-    "nom": "Capacitif",
-    "description": "TODO: Description du talent",
-    "emplacement": "torse",
-    "descente": {
-      "boucles": [
-        "Avidité",
-        "Colère",
-        "Gourmandise",
-        "Paresse"
-      ],
-      "categorie": "utilitaire",
-      "levels": {
-        "1": {
-          "duree_competence": 10
-        },
-        "2": {
-          "duree_competence": 20
-        },
-        "3": {
-          "duree_competence": 30
-        },
-        "4": {
-          "duree_competence": 40
-        },
-        "5": {
-          "duree_competence": 50
-        },
-        "6": {
-          "duree_competence": 60
-        },
-        "7": {
-          "duree_competence": 70
-        },
-        "8": {
-          "duree_competence": 80
-        },
-        "9": {
-          "duree_competence": 90
-        },
-        "10": {
-          "duree_competence": 100
-        },
-        "base": "Equipé, ce talent confère +{duree_competence}% à la durée de compétence."
-      }
-    }
-  },
   "regle_d_engagement": {
     "nom": "Règle d'engagement",
     "description": "Tirer sur un ennemi affecté par un effet d'état lui applique une marque.\nTuer un ennemi marqué vous octroie un chargeur plein de munitions à pointe creuse pour votre arme active, et un demi-chargeur pour l'arme active de l'agent pour le reste du groupe.\nLa marque dure 10 secondes.\nLes munitions à pointe creuse augmentent les dégâts d'arme de 20% et infligent un saignement.",
@@ -2908,7 +2861,7 @@
   },
   "stoique": {
     "nom": "Stoïque",
-    "description": "Confère +4% de résistance aux dégâts pour chaque ennemi qui vous cible.\nLe bonus est multiplié par 1,x ou X est le nombre de d'agents dans votre groupe.",
+    "description": "Confère +4% de résistance aux dégâts pour chaque ennemi qui vous cible.\nLe bonus est multiplié par 1,x ou X est le nombre de d'agents dans votre groupe.\nNe fonctionne pas en PVP.",
     "emplacement": "gear_set",
     "gearSet": "aegis"
   },
@@ -2951,7 +2904,7 @@
   "exercice_cordial": {
     "nom": "Exercice cordial",
     "description": "Pour chaque coeur sur vos pièces d'équipement, vous recevez **+40%** des deux autres bonus de doeur. Les Tiers de compétence comptent pour **15% d'efficacité de compétence** quand ces bonus sont appliqués.",
-    "emplacement": "gear_set"
+    "emplacement": "torse"
   },
   "coeur_externe": {
     "nom": "Coeur externe",

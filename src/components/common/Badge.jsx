@@ -1,6 +1,6 @@
 export default function Badge({ type }) {
   const styles = {
-    exotic: 'bg-shd/20 text-shd border-shd/40',
+    exotic: 'bg-red-500/10 text-red-400 border-red-500/20',
     named: 'bg-yellow-900/30 text-yellow-400 border-yellow-500/40',
     gearset: 'bg-emerald-900/30 text-emerald-400 border-emerald-500/40',
     standard: 'bg-gray-800/50 text-gray-400 border-gray-600/40',

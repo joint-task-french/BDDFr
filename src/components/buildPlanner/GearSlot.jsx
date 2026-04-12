@@ -128,7 +128,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
           {piece ? (
               <div className={`border-l-2 ${borderColor} pl-3`}>
                 <div className="flex items-center gap-2">
-                  {piece.type === 'exotique' && <span className="text-shd text-xs font-bold">EXOTIQUE</span>}
+                  {piece.type === 'exotique' && <span className="text-red-400 text-xs font-bold">EXOTIQUE</span>}
                   {piece.estNomme && piece.type !== 'exotique' && <span className="text-yellow-500 text-xs font-bold">NOMMÉ</span>}
                   {piece.type === 'gear_set' && <span className="text-emerald-400 text-xs font-bold">GEAR SET</span>}
                 </div>
@@ -171,7 +171,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                             : talentsEquipements?.find(t => t.slug === slug || t.nom === slug)
                         return (
                             <div key={i} className={i > 0 ? "mt-3" : ""}>
-                              <div className="text-xs text-shd font-bold uppercase tracking-widest">
+                              <div className="text-xs text-red-400 font-bold uppercase tracking-widest">
                                 {resolved?.nom ? `Talent : ${resolved.nom}` : 'Talent Exotique'}
                               </div>
                               <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">

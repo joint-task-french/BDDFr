@@ -31,7 +31,7 @@ export default function TalentInline({ talent, isExotic = false, allArmes, allEq
           {talent.nom}
         </span>
         {talent.estExotique && (
-            <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1 py-0.5 rounded uppercase tracking-widest">
+            <span className="text-xs font-bold text-red-400 bg-red-500/10 px-1 py-0.5 rounded uppercase tracking-widest border border-red-500/20">
             Exotique
           </span>
         )}

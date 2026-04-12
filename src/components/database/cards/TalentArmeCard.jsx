@@ -75,7 +75,7 @@ export default function TalentArmeCard({ item, armes, isStatic }) {
             <GameIcon src={talentIcon} alt="" size="w-6 h-6" />
             <div className={`font-bold text-sm uppercase tracking-wide ${nameColor}`}>{item.nom}</div>
             {isExotic && (
-                <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1 py-0.5 rounded uppercase tracking-widest">
+                <span className="text-xs font-bold text-red-400 bg-red-500/10 px-1 py-0.5 rounded uppercase tracking-widest border border-red-500/20">
               Exotique
             </span>
             )}

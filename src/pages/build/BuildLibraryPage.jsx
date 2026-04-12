@@ -141,7 +141,7 @@ function ItemMini({ item, ensemble, slot }) {
           <GameIcon
               src={icon}
               size="w-5 h-5"
-              color={isGearSet ? undefined : colorClass}
+              color={isGearSet || isSkill ? undefined : colorClass}
           />
         </div>
         <div className="flex flex-col min-w-0 leading-tight">

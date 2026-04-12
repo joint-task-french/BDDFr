@@ -18,12 +18,6 @@ export default defineConfig({
         "name": "BDDFr",
         "icons": [
           {
-            "src": "favicon_150x150.png",
-            "type": "image/png",
-            "sizes": "150x150",
-            "purpose": "any maskable"
-          },
-          {
             "src": "favicon_192x192.png",
             "type": "image/png",
             "sizes": "192x192"

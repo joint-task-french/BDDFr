@@ -130,14 +130,15 @@ export function GameIcon({ src, alt = '', size = 'w-5 h-5', className = '', colo
 
   if (color) {
     const isHex = color.startsWith('#')
-    // Classe Tailwind : on convertit text-* en bg-* pour le background
+    // Si c'est une classe Tailwind (ex: text-shd), on la garde pour currentColor
+    // et on tente aussi bg-* au cas où le CSS est généré.
     const colorClass = !isHex ? color.replace(/^text-/, 'bg-') : ''
 
     return (
         <span
             role="img"
             aria-label={alt}
-            className={`${size} shrink-0 inline-block ${colorClass} ${className}`}
+            className={`${size} shrink-0 inline-block ${!isHex ? color : ''} ${colorClass} ${className}`}
             style={{
               maskImage: `url(${src})`,
               WebkitMaskImage: `url(${src})`,
@@ -147,7 +148,7 @@ export function GameIcon({ src, alt = '', size = 'w-5 h-5', className = '', colo
               WebkitMaskRepeat: 'no-repeat',
               maskPosition: 'center',
               WebkitMaskPosition: 'center',
-              ...(isHex ? { backgroundColor: color } : {}),
+              backgroundColor: isHex ? color : 'currentColor',
             }}
         />
     )

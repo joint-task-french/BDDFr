@@ -14,6 +14,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
     const colors = HEADER_COLORS[headerColor] || HEADER_COLORS.red
     const isExotic = weapon?.estExotique
     const isSpecific = weapon?.type === 'arme_specifique'
+    const hasPredefinedTalent = weapon?.talents && weapon.talents.length > 0 && weapon.talents.some(t => t && t !== 'n/a' && t !== '')
     const nameColor = isPrototype ? 'text-cyan-400' : 'text-white'
     const borderColor = isPrototype ? 'border-cyan-500/50' : 'border-tactical-border'
     const headerBg = isPrototype ? 'bg-cyan-500/10' : colors.bg
@@ -73,7 +74,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                         <div className="flex justify-between items-start">
                             <div>
                                 <div className={`font-bold ${nameColor} text-sm uppercase tracking-wide`}>
-                                    {isExotic && <span className="text-shd mr-1">★</span>}
+                                    {isExotic && <span className="text-red-400 mr-1">★</span>}
                                     {weapon.nom}
                                 </div>
                                 <div className="text-xs text-gray-500">
@@ -127,7 +128,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                       : data?.talentsArmes?.find(t => t.slug === slug || t.nom === slug)
                                     return (
                                         <div key={i} className={i > 0 ? "mt-3" : ""}>
-                                            <div className="text-xs text-shd font-bold uppercase tracking-widest">
+                                            <div className="text-xs text-red-400 font-bold uppercase tracking-widest">
                                                 {resolved?.nom ? `Talent : ${resolved.nom}` : 'Talent Exotique'}
                                             </div>
                                             <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">
@@ -137,7 +138,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                     )
                                 })}
                             </div>
-                        ) : weapon.estNomme && weapon.talents && weapon.talents.length > 0 && weapon.talents.some(t => t && t !== 'n/a' && t !== '') && !talent ? (
+                        ) : weapon.estNomme && hasPredefinedTalent && !talent ? (
                             /* Arme nommée avec talent pré-inscrit — affiché si aucun talent n'a été manuellement sélectionné */
                             (() => {
                                 const slug = weapon.talents.find(t => t && t !== 'n/a' && t !== '')
@@ -192,7 +193,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                                 )}
                                             </div>
                                             {/* Les talents des armes nommées sont fixes */}
-                                            {(!weapon.estNomme && !isPerfect && onSelectTalent) && (
+                                            {((!weapon.estNomme || !hasPredefinedTalent) && !isPerfect && onSelectTalent) && (
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); onSelectTalent() }}
                                                     className="text-xs text-gray-600 hover:text-shd transition-colors"
@@ -208,7 +209,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                     </div>
                                 )
                             })()
-                        ) : (!weapon.estExotique && !weapon.estNomme && !isSpecific && onSelectTalent) ? (
+                        ) : (!weapon.estExotique && (!weapon.estNomme || !hasPredefinedTalent) && !isSpecific && onSelectTalent) ? (
                             <div className="mt-3 pt-3 border-t border-tactical-border">
                                 <button
                                     onClick={(e) => { e.stopPropagation(); onSelectTalent() }}

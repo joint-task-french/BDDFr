@@ -6,6 +6,7 @@ import { getGearFilters, getGearDefaults, applyGearFilters } from '../../config/
 import SelectionModal from '../common/SelectionModal'
 import FilterPanel from '../database/FilterPanel'
 import Badge from '../common/Badge'
+import { resolveAsset, GameIcon } from '../common/GameAssets'
 
 const SLOT_ORDER = {
   'masque': 1,
@@ -139,28 +140,55 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
             const borderClass = p.type === 'exotique' ? 'border-shd/60 bg-shd/5'
                 : p.estNomme ? 'border-yellow-600/40 bg-yellow-900/5'
                     : p.type === 'gear_set' ? 'border-emerald-600/40 bg-emerald-900/5' : ''
+            const isExotic = p.type === 'exotique'
+            const marqueNom = resolveMarque(p.marque)
+            const mainText = isExotic ? p.nom : (marqueNom || p.nom)
+            const subText = isExotic ? (p.marque ? marqueNom : 'Équipement Exotique') : (marqueNom ? p.nom : 'Équipement Improvisé')
+
+            // Résolution de l'icône : d'abord l'icône spécifique de la pièce, 
+            // sinon l'icône spécifiée dans l'ensemble (marque/gear set),
+            // sinon le slug de marque, sinon l'icône générique par emplacement.
+            const ensemble = data.ensembles?.[p.marque]
+            const iconSlug = p.icon || ensemble?.icon || p.marque || p.emplacement
+
+            // Résolution du nom du talent
+            const talentSlug = p.talents && p.talents.length > 0 ? p.talents[0] : null
+            const talentData = talentSlug ? (data.talentsEquipements?.[talentSlug] || data.talentsAutres?.[talentSlug]) : null
+            const talentName = talentData?.nom || talentSlug
+
             return (
                 <div
                     key={p.nom}
                     onClick={() => !blocked && select(p)}
-                    className={`modal-item group ${borderClass} ${blocked ? 'disabled' : ''}`}
+                    className={`modal-item group flex gap-3 ${borderClass} ${blocked ? 'disabled' : ''}`}
                 >
-                  {p.type === 'exotique' && <Badge type="exotic" />}
-                  {p.estNomme && p.type !== 'exotique' && <Badge type="named" />}
-                  {p.type === 'gear_set' && <Badge type="gearset" />}
-                  {blocked && <div className="text-xs text-red-400 mt-1">⚠ Exotique déjà équipé</div>}
-                  <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-shd transition-colors mt-1">
-                    {p.nom}
+                  <div className="shrink-0 pt-1">
+                    <GameIcon
+                        src={resolveAsset(iconSlug)}
+                        alt={marqueNom || p.nom}
+                        size="w-10 h-10"
+                        color={isExotic ? 'text-shd' : p.type === 'gear_set' ? 'text-emerald-500' : 'text-gray-400'}
+                    />
                   </div>
-                  <div className="text-xs text-gray-500">{resolveMarque(p.marque)}</div>
-                  {Array.isArray(p.attributEssentiel) && p.attributEssentiel.length > 0 && (
-                      <div className="text-xs text-blue-400 mt-1">
-                        {p.attributEssentiel.includes('random') ? 'Aléatoire' : p.attributEssentiel.join(', ')}
-                      </div>
-                  )}
-                  {p.talents && p.talents.length > 0 && (
-                      <div className="text-xs text-shd/70 mt-1">🏅 {p.talents[0]}</div>
-                  )}
+
+                  <div className="flex-1 min-w-0">
+                    {p.type === 'exotique' && <Badge type="exotic" />}
+                    {p.estNomme && p.type !== 'exotique' && <Badge type="named" />}
+                    {p.type === 'gear_set' && <Badge type="gearset" />}
+                    {blocked && <div className="text-xs text-red-400 mt-1">⚠ Exotique déjà équipé</div>}
+                    <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-shd transition-colors mt-1 truncate">
+                      {mainText}
+                    </div>
+                    <div className="text-xs text-gray-400 font-medium truncate">{subText}</div>
+                    {Array.isArray(p.attributEssentiel) && p.attributEssentiel.length > 0 && (
+                        <div className="text-xs text-blue-400 mt-1">
+                          {p.attributEssentiel.includes('random') ? 'Aléatoire' : p.attributEssentiel.join(', ')}
+                        </div>
+                    )}
+                    {talentName && (
+                        <div className="text-xs text-shd/70 mt-1">🏅 {talentName}</div>
+                    )}
+                  </div>
                 </div>
             )
           })}

@@ -7,6 +7,7 @@ import SelectionModal from '../common/SelectionModal'
 import FilterPanel from '../database/FilterPanel'
 import Badge from '../common/Badge'
 import StatChip from '../common/StatChip'
+import { resolveAsset, GameIcon } from '../common/GameAssets'
 
 const MODE_TITLES = {
   special: 'Arme Spécifique (Spécialisation)',
@@ -110,13 +111,23 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
             <div
               key={w.nom}
               onClick={() => onSelect(w)}
-              className="modal-item group border-purple-500/30 bg-purple-500/5"
+              className="modal-item group flex gap-3 border-purple-500/30 bg-purple-500/5"
             >
-              <div className="text-xs font-bold uppercase tracking-widest bg-purple-500/15 text-purple-400 px-1.5 py-0.5 rounded inline-block mb-1">
-                {w._specIcone} {w._specNom}
+              <div className="shrink-0 pt-1">
+                <GameIcon
+                  src={resolveAsset(w.icon || w._specIcone)}
+                  alt={w.nom}
+                  size="w-10 h-10"
+                  color="text-purple-400"
+                />
               </div>
-              <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-purple-400 transition-colors">
-                {w.nom}
+              <div className="flex-1 min-w-0">
+                <div className="text-[10px] font-bold uppercase tracking-widest bg-purple-500/15 text-purple-400 px-1.5 py-0.5 rounded inline-block mb-1">
+                  {w._specNom}
+                </div>
+                <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-purple-400 transition-colors truncate">
+                  {w.nom}
+                </div>
               </div>
             </div>
           ))}
@@ -127,27 +138,42 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
             <h4 className="text-sm font-bold text-red-400 uppercase tracking-widest mb-2 px-2 sticky top-0 bg-tactical-panel/90 py-2 z-10 border-b border-red-500/20">
               {type === 'armePoing' ? 'Arme de poing' : getWeaponTypeLabel(data.armes_type, type)} ({weapons.length})
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {weapons.map(w => {
                 const blocked = w.estExotique && !canEquipExotic
+                const isExotic = w.estExotique
+                const mainText = isExotic ? w.nom : (w.fabricant || getWeaponTypeLabel(data.armes_type, w.type))
+                const subText = isExotic ? w.fabricant : w.nom
+
                 return (
                   <div
                     key={w.nom}
                     onClick={() => !blocked && onSelect(w)}
-                    className={`modal-item group ${w.estExotique ? 'border-shd/40 bg-shd/5' : ''} ${blocked ? 'disabled' : ''}`}
+                    className={`modal-item group flex gap-3 ${w.estExotique ? 'border-shd/40 bg-shd/5' : ''} ${blocked ? 'disabled' : ''}`}
                   >
-                    {w.estExotique && <Badge type="exotic" />}
-                    {blocked && (
-                      <div className="text-xs text-red-400 mt-1">⚠ Exotique déjà équipée</div>
-                    )}
-                    <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-shd transition-colors mt-1">
-                      {w.nom}
+                    <div className="shrink-0 pt-1">
+                      <GameIcon
+                        src={resolveAsset(w.type)}
+                        alt={w.type}
+                        size="w-10 h-10"
+                        color={isExotic ? 'text-shd' : 'text-gray-400'}
+                      />
                     </div>
-                    <div className="text-xs text-gray-500">{w.fabricant}</div>
-                    <div className="flex flex-wrap gap-1.5 mt-2">
-                      <StatChip icon="⚡" value={w.rpm ? `${w.rpm} CPM` : null} />
-                      <StatChip icon="📦" value={w.chargeur || null} />
-                      <StatChip icon="💥" value={w.degatsBase ? w.degatsBase.toLocaleString('fr-FR') : null} color="text-red-400" />
+
+                    <div className="flex-1 min-w-0">
+                      {w.estExotique && <Badge type="exotic" />}
+                      {blocked && (
+                        <div className="text-xs text-red-400 mt-1">⚠ Exotique déjà équipée</div>
+                      )}
+                      <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-shd transition-colors mt-1 truncate">
+                        {mainText}
+                      </div>
+                      <div className="text-xs text-gray-400 font-medium truncate">{subText}</div>
+                      <div className="flex flex-wrap gap-1.5 mt-2">
+                        <StatChip icon="⚡" value={w.rpm ? `${w.rpm} CPM` : null} />
+                        <StatChip icon="📦" value={w.chargeur || null} />
+                        <StatChip icon="💥" value={w.degatsBase ? w.degatsBase.toLocaleString('fr-FR') : null} color="text-red-400" />
+                      </div>
                     </div>
                   </div>
                 )

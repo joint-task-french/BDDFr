@@ -132,7 +132,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                         Prototype
                       </button>
                   )}
-                  {isExotic && <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Exotique</span>}
+                  {isExotic && <span className="text-xs font-bold text-red-400 bg-red-500/10 px-1.5 py-0.5 rounded uppercase tracking-widest border border-red-500/20">Exotique</span>}
                   {isNamed && <span className="text-xs font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Nommé</span>}
                   {isSpecific && <span className="text-xs font-bold text-purple-400 bg-purple-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">Arme spécifique</span>}
                 </div>

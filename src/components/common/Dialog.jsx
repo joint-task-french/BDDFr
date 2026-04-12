@@ -58,6 +58,10 @@ export default function Dialog({
     return () => { document.body.style.overflow = 'unset' }
   }, [open, type]) // Retrait de defaultValue, defaultDescription, defaultTags pour éviter les resets pendant la saisie
 
+  const sortedAvailableTags = useMemo(() => {
+    return [...availableTags].sort((a, b) => (a.label || '').trim().localeCompare((b.label || '').trim()))
+  }, [availableTags])
+
   if (!open) return null
 
   const handleConfirm = (e) => {
@@ -87,9 +91,6 @@ export default function Dialog({
   }
 
 
-  const sortedAvailableTags = useMemo(() => {
-    return [...availableTags].sort((a, b) => (a.label || '').trim().localeCompare((b.label || '').trim()))
-  }, [availableTags])
 
   return (
     <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">

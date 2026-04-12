@@ -1934,9 +1934,7 @@
     "nom": "Core Strength",
     "type": "gear_set",
     "attributsEssentiels": [
-      "defensif",
-      "offensif",
-      "utilitaire"
+      "random"
     ],
     "bonus2pieces": {
       "attributs": [
@@ -1974,9 +1972,7 @@
     "type": "improvise",
     "icon": "improvise",
     "attributsEssentiels": [
-      "defensif",
-      "offensif",
-      "utilitaire"
+      "random"
     ],
     "notes": "Les équipements improvisé ont la particularité de pouvoir porté un mod sur toutes de leurs pieces."
   },

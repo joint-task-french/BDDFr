@@ -23,21 +23,27 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques, a
     if (!slug) return slug
 
     // 1. Chercher d'abord dans attributs.jsonc (allAttributs)
+    let searchSlug = slug;
+    if (slug === 'offensif') searchSlug = 'degats_armes';
+    else if (slug === 'defensif') searchSlug = 'protection';
+    else if (slug === 'utilitaire') searchSlug = 'tiers_de_competence';
+
     if (allAttributs) {
       const attrList = Array.isArray(allAttributs) ? allAttributs : Object.values(allAttributs)
-      const attr = attrList.find(a => a.slug === slug)
+      const attr = attrList.find(a => a.slug === searchSlug || a.slug === slug)
       if (attr) return attr.nom
     }
 
     // 2. Chercher dans statistiques.jsonc (statistiques)
     if (statistiques && !Array.isArray(statistiques)) {
+      if (statistiques[searchSlug]) return statistiques[searchSlug].nom
       if (statistiques[slug]) return statistiques[slug].nom
       const normalized = slug.replace(/_de_/g, '_')
       if (statistiques[normalized]) return statistiques[normalized].nom
     }
     const statList = Array.isArray(statistiques) ? statistiques : Object.values(statistiques || {})
     // Chercher correspondance exacte
-    const stat = statList.find(s => s.slug === slug)
+    const stat = statList.find(s => s.slug === searchSlug || s.slug === slug)
     if (stat) return stat.nom
     // Chercher correspondance approximative (ex: tiers_de_competence → tiers_competence)
     const normalized = slug.replace(/_de_/g, '_')
@@ -72,11 +78,20 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques, a
               {item.attributsEssentiels && item.attributsEssentiels.length > 0 && (
                   <div className="flex flex-wrap gap-1 mt-1.5">
                     {item.attributsEssentiels.map((attrSlug, i) => {
+                      // Normalisation des slugs pour les attributs essentiels
+                      let targetSlug = attrSlug;
+                      if (attrSlug === 'offensif') targetSlug = 'degats_armes';
+                      else if (attrSlug === 'defensif') targetSlug = 'protection';
+                      else if (attrSlug === 'utilitaire') targetSlug = 'tiers_de_competence';
+
                       const attrList = Array.isArray(allAttributs) ? allAttributs : Object.values(allAttributs || {})
-                      const attrObj = attrList.find(a => a.slug === attrSlug)
+                      const attrObj = attrList.find(a => a.slug === targetSlug || a.slug === attrSlug)
+                      
+                      const icon = resolveAsset(resolveAttribut(attrObj || { categorie: attrSlug, estEssentiel: true }))
+                      
                       return (
                         <span key={i} className="text-xs font-bold uppercase tracking-widest bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded flex items-center gap-1">
-                          <GameIcon src={resolveAsset(resolveAttribut(attrObj || { categorie: attrSlug, estEssentiel: true }))} alt="" size="w-3 h-3" />
+                          <GameIcon src={icon} alt="" size="w-3 h-3" />
                           {resolveAttrName(attrSlug)}
                         </span>
                       )

@@ -103,6 +103,14 @@ export default function BuildActions({ data }) {
       
       if (!name) return
 
+      const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
+      const exists = saves.some(b => b.nom.toLowerCase() === name.toLowerCase())
+      
+      if (exists) {
+        showAlert('Nom déjà utilisé', `Un build nommé "${name}" existe déjà dans votre navigateur. Veuillez choisir un autre nom.`)
+        return
+      }
+
       const buildToSave = {
         nom: name,
         description: description,
@@ -112,7 +120,6 @@ export default function BuildActions({ data }) {
         likes: 0
       }
 
-      const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
       saves.push(buildToSave)
       localStorage.setItem('div2_builds_v2', JSON.stringify(saves))
       showAlert('Succès', `Build "${name}" sauvegardé dans la Buildothèque !`)

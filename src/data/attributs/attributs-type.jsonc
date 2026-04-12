@@ -13,5 +13,10 @@
         "nom": "Utilitaire",
         "icon": "utilitaire",
         "color": "yellow"
+    },
+    "random": {
+        "nom": "Aléatoire",
+        "icon": "random",
+        "color": "gray"
     }
 }

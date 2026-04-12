@@ -42,7 +42,8 @@
             "enum": [
               "offensif",
               "defensif",
-              "utilitaire"
+              "utilitaire",
+              "random"
             ]
           }
         },

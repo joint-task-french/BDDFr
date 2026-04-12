@@ -153,7 +153,9 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
                   </div>
                   <div className="text-xs text-gray-500">{resolveMarque(p.marque)}</div>
                   {Array.isArray(p.attributEssentiel) && p.attributEssentiel.length > 0 && (
-                      <div className="text-xs text-blue-400 mt-1">{p.attributEssentiel.join(', ')}</div>
+                      <div className="text-xs text-blue-400 mt-1">
+                        {p.attributEssentiel.includes('random') ? 'Aléatoire' : p.attributEssentiel.join(', ')}
+                      </div>
                   )}
                   {p.talents && p.talents.length > 0 && (
                       <div className="text-xs text-shd/70 mt-1">🏅 {p.talents[0]}</div>

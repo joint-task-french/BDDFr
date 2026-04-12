@@ -70,6 +70,10 @@ export function resolveAttribut(attr) {
   const cat = attr.categorie
   if (!cat) return null
   const normalizedCat = cat.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+
+  // Cas spécial pour l'icône random
+  if (normalizedCat === 'random') return 'random'
+
   if (attr.estEssentiel) return `essentiel_${normalizedCat}`
   if (attr.estMod) return `mod_${normalizedCat}`
   return `attribut_${normalizedCat}`
@@ -96,7 +100,7 @@ function buildIndex(globResult) {
 }
 
 // Talents d'armes (classiques + exotiques)
-const _allAssets = import.meta.glob('../../img/**/*.{png,jpg,jpeg,webp}', { eager: true })
+const _allAssets = import.meta.glob('../../img/**/*.{png,jpg,jpeg,webp,svg}', { eager: true })
 export const ALL_ASSETS = buildIndex(_allAssets)
 
 /**

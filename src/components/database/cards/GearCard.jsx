@@ -115,7 +115,28 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
 
   // Résoudre les attributs essentiels en objets complets avec valeurs
   const resolvedEssentialAttrs = useMemo(() => {
-    return attrsEssentiels.map(attrSlug => {
+    return attrsEssentiels.flatMap(attrSlug => {
+      if (attrSlug === 'random') {
+        return ['offensif', 'defensif', 'utilitaire'].map(slug => {
+          let targetSlug = slug;
+          if (slug === 'offensif') targetSlug = 'degats_armes';
+          else if (slug === 'defensif') targetSlug = 'protection';
+          else if (slug === 'utilitaire') targetSlug = 'tiers_de_competence';
+
+          const ref = allAttributs && !Array.isArray(allAttributs)
+              ? allAttributs[targetSlug] || allAttributs[slug]
+              : allAttributs?.find(a => a.slug === targetSlug || a.slug === slug);
+
+          return {
+            slug,
+            targetSlug,
+            ref,
+            label: getAttrCategoryLabel(attributsType, slug),
+            isRandom: true
+          };
+        });
+      }
+
       let targetSlug = attrSlug;
       if (attrSlug === 'offensif') targetSlug = 'degats_armes';
       else if (attrSlug === 'defensif') targetSlug = 'protection';
@@ -231,7 +252,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                         <div key={i} className="text-xs flex items-center gap-1.5 justify-between">
                           <div className="flex items-center gap-1.5 text-shd">
                             <GameIcon src={resolveAsset(resolveAttribut(attr.ref || { categorie: attr.slug, estEssentiel: true }))} alt="" size="w-3.5 h-3.5" />
-                            <span className="opacity-80">{attr.label} :</span>
+                            <span className="opacity-80">{attr.label} {attr.isRandom && <span className="text-[10px] opacity-50">(Aléatoire)</span>} :</span>
                           </div>
                           <span className={`font-bold ${isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
                             {isSkillTier ? (
@@ -243,6 +264,11 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                         </div>
                     )
                   })}
+                  {attrsEssentiels.includes('random') && (
+                      <div className="text-[10px] text-blue-400/60 italic mt-1 px-1 border-l border-blue-400/20">
+                        Note: Un seul de ces attributs est présent (aléatoire).
+                      </div>
+                  )}
                 </div>
               </div>
           )}

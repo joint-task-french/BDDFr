@@ -4648,9 +4648,7 @@
     "marque": "core_strength",
     "emplacement": "masque",
     "attributEssentiel": [
-      "defensif",
-      "offensif",
-      "utilitaire"
+      "random"
     ],
     "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "mod": true,
@@ -4661,9 +4659,7 @@
     "marque": "core_strength",
     "emplacement": "sac_a_dos",
     "attributEssentiel": [
-      "defensif",
-      "offensif",
-      "utilitaire"
+      "random"
     ],
     "mod": true,
     "type": "gear_set"
@@ -4673,9 +4669,7 @@
     "marque": "core_strength",
     "emplacement": "torse",
     "attributEssentiel": [
-      "defensif",
-      "offensif",
-      "utilitaire"
+      "random"
     ],
     "mod": true,
     "type": "gear_set"
@@ -4685,9 +4679,7 @@
     "marque": "core_strength",
     "emplacement": "gants",
     "attributEssentiel": [
-      "defensif",
-      "offensif",
-      "utilitaire"
+      "random"
     ],
     "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "mod": false,
@@ -4698,9 +4690,7 @@
     "marque": "core_strength",
     "emplacement": "holster",
     "attributEssentiel": [
-      "defensif",
-      "offensif",
-      "utilitaire"
+      "random"
     ],
     "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "mod": false,
@@ -4711,9 +4701,7 @@
     "marque": "core_strength",
     "emplacement": "genouilleres",
     "attributEssentiel": [
-      "defensif",
-      "offensif",
-      "utilitaire"
+      "random"
     ],
     "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "mod": false,

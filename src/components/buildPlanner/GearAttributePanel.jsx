@@ -84,7 +84,8 @@ function mapEssentialNames(names) {
     'offensif': 'offensif',
     'defensif': 'defensif',
     'défensif': 'defensif',
-    'utilitaire': 'utilitaire'
+    'utilitaire': 'utilitaire',
+    'random': 'random'
   }
   return names.map(n => map[n] || n).filter(Boolean)
 }

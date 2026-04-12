@@ -142,9 +142,19 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
                     : p.type === 'gear_set' ? 'border-emerald-600/40 bg-emerald-900/5' : ''
             const isExotic = p.type === 'exotique'
             const marqueNom = resolveMarque(p.marque)
-            const mainText = isExotic ? p.nom : marqueNom
-            const subText = isExotic ? (p.marque ? marqueNom : 'Équipement Exotique') : p.nom
-            const iconSlug = p.marque || p.emplacement
+            const mainText = isExotic ? p.nom : (marqueNom || p.nom)
+            const subText = isExotic ? (p.marque ? marqueNom : 'Équipement Exotique') : (marqueNom ? p.nom : 'Équipement Improvisé')
+
+            // Résolution de l'icône : d'abord l'icône spécifique de la pièce, 
+            // sinon l'icône spécifiée dans l'ensemble (marque/gear set),
+            // sinon le slug de marque, sinon l'icône générique par emplacement.
+            const ensemble = data.ensembles?.[p.marque]
+            const iconSlug = p.icon || ensemble?.icon || p.marque || p.emplacement
+
+            // Résolution du nom du talent
+            const talentSlug = p.talents && p.talents.length > 0 ? p.talents[0] : null
+            const talentData = talentSlug ? (data.talentsEquipements?.[talentSlug] || data.talentsAutres?.[talentSlug]) : null
+            const talentName = talentData?.nom || talentSlug
 
             return (
                 <div
@@ -175,8 +185,8 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
                           {p.attributEssentiel.includes('random') ? 'Aléatoire' : p.attributEssentiel.join(', ')}
                         </div>
                     )}
-                    {p.talents && p.talents.length > 0 && (
-                        <div className="text-xs text-shd/70 mt-1">🏅 {p.talents[0]}</div>
+                    {talentName && (
+                        <div className="text-xs text-shd/70 mt-1">🏅 {talentName}</div>
                     )}
                   </div>
                 </div>

@@ -368,6 +368,9 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
         {pickerOpen === 'essential-0' && (
             <AttributePicker
                 attributs={allAttributs}
+                ensembles={ensembles}
+                marque={piece?.marque}
+                piece={piece}
                 cible="equipement"
                 essentiel={true}
                 exclude={usedNames}
@@ -380,6 +383,9 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
         {pickerOpen && pickerOpen.startsWith('classic-') && (
             <AttributePicker
                 attributs={allAttributs}
+                ensembles={ensembles}
+                marque={piece?.marque}
+                piece={piece}
                 cible="equipement"
                 essentiel={false}
                 exclude={usedNames}

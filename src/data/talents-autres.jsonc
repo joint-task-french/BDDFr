@@ -267,5 +267,52 @@
         }
       }
     }
+  },
+  "capacitif": {
+    "nom": "Capacitif",
+    "description": "TODO: Description du talent",
+    "emplacement": "masque",
+    "descente": {
+      "boucles": [
+        "Avidité",
+        "Colère",
+        "Gourmandise",
+        "Paresse"
+      ],
+      "categorie": "utilitaire",
+      "levels": {
+        "1": {
+          "duree_competence": 10
+        },
+        "2": {
+          "duree_competence": 20
+        },
+        "3": {
+          "duree_competence": 30
+        },
+        "4": {
+          "duree_competence": 40
+        },
+        "5": {
+          "duree_competence": 50
+        },
+        "6": {
+          "duree_competence": 60
+        },
+        "7": {
+          "duree_competence": 70
+        },
+        "8": {
+          "duree_competence": 80
+        },
+        "9": {
+          "duree_competence": 90
+        },
+        "10": {
+          "duree_competence": 100
+        },
+        "base": "Equipé, ce talent confère +{duree_competence}% à la durée de compétence."
+      }
+    }
   }
 }

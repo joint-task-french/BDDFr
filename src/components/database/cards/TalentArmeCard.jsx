@@ -132,6 +132,25 @@ export default function TalentArmeCard({ item, armes, isStatic }) {
             </div>
         )}
 
+        {isExotic && (
+            <div className="px-4 pb-2 text-xs text-red-500/70 flex flex-col items-start gap-1">
+              <span className="text-red-400 font-bold uppercase tracking-widest">Arme exotique :</span>
+              <ul className="text-xs list-disc list-inside">
+                {(Array.isArray(armes) ? armes : Object.values(armes || {})).filter(a => a.talents?.includes(item.slug)).map(a => (
+                    <li key={a.slug}>
+                      <Link
+                          to={`/db/armes/${a.slug}`}
+                          className="text-red-300 hover:underline hover:text-red-400 transition-colors"
+                          onClick={e => e.stopPropagation()}
+                      >
+                        {a.nom}
+                      </Link>
+                    </li>
+                ))}
+              </ul>
+            </div>
+        )}
+
 
         {compatTypes.length > 0 && !showPerfect && (
             <div className="px-4 py-2 border-t border-tactical-border/50 flex flex-wrap gap-1">

@@ -11,7 +11,6 @@
     "degatsBase": 387000,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762"
     }
@@ -28,7 +27,6 @@
     "degatsBase": 58900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//ok
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -48,7 +46,6 @@
     "degatsBase": 58900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -68,7 +65,6 @@
     "degatsBase": 49100,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -111,7 +107,6 @@
     "degatsBase": 57200,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -154,7 +149,6 @@
     "degatsBase": 67200,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "viseur": "rail_optique",
@@ -173,7 +167,6 @@
     "degatsBase": 64700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -218,7 +211,6 @@
     "degatsBase": 57600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -238,7 +230,6 @@
     "degatsBase": 57600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -258,7 +249,6 @@
     "degatsBase": 57600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -278,7 +268,6 @@
     "degatsBase": 45300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -320,7 +309,6 @@
     "degatsBase": 52600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -362,7 +350,6 @@
     "degatsBase": 52600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -382,7 +369,6 @@
     "degatsBase": 46900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -425,7 +411,6 @@
     "degatsBase": 49800,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -467,7 +452,6 @@
     "degatsBase": 51300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "viseur": "rail_optique_long",
@@ -507,7 +491,6 @@
     "degatsBase": 47400,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -527,7 +510,6 @@
     "degatsBase": 47400,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -570,7 +552,6 @@
     "degatsBase": 59200,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -590,7 +571,6 @@
     "degatsBase": 59200,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -610,7 +590,6 @@
     "degatsBase": 59200,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -630,7 +609,6 @@
     "degatsBase": 44800,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": { //ok
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -675,7 +653,6 @@
     "degatsBase": 55900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -717,7 +694,6 @@
     "degatsBase": 57600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -757,7 +733,6 @@
     "degatsBase": 63500,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -799,7 +774,6 @@
     "degatsBase": 54300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": { //OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
@@ -860,7 +834,6 @@
     "degatsBase": 52300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
@@ -880,7 +853,6 @@
     "degatsBase": 62400,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
@@ -958,7 +930,6 @@
     "degatsBase": 48300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
@@ -1029,7 +1000,6 @@
     "degatsBase": 48300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
@@ -1049,7 +1019,6 @@
     "degatsBase": 48300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
@@ -1069,7 +1038,6 @@
     "degatsBase": 67700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
@@ -1088,7 +1056,6 @@
     "degatsBase": 65200,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
@@ -1108,7 +1075,6 @@
     "degatsBase": 65200,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
@@ -1153,7 +1119,6 @@
     "degatsBase": 71500,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "viseur": "rail_optique_long",
@@ -1173,7 +1138,6 @@
     "degatsBase": 71500,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762",
       "viseur": "rail_optique_long",
@@ -1193,7 +1157,6 @@
     "degatsBase": 71500,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762",
       "viseur": "rail_optique_long",
@@ -1235,7 +1198,6 @@
     "degatsBase": 61100,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "viseur": "rail_optique_long",
@@ -1255,7 +1217,6 @@
     "degatsBase": 61100,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "viseur": "rail_optique_long",
@@ -1297,7 +1258,6 @@
     "degatsBase": 57600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_court",
@@ -1339,7 +1299,6 @@
     "degatsBase": 49500,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique",
@@ -1412,7 +1371,6 @@
     "degatsBase": 91700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_45",
@@ -1431,7 +1389,6 @@
     "degatsBase": 91700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_45",
@@ -1450,7 +1407,6 @@
     "degatsBase": 88300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_45",
@@ -1469,7 +1425,6 @@
     "degatsBase": 88300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_45",
@@ -1488,7 +1443,6 @@
     "degatsBase": 102600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_9mm"
@@ -1506,7 +1460,6 @@
     "degatsBase": 53000,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_9mm"
@@ -1560,7 +1513,6 @@
     "degatsBase": 189200,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "viseur": "rail_optique_court"
     }
@@ -1611,7 +1563,6 @@
     "degatsBase": 129900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet"
     }
@@ -1627,7 +1578,6 @@
     "headshot": 100,
     "degatsBase": 117400,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_45",
@@ -1646,7 +1596,6 @@
     "headshot": 100,
     "degatsBase": 117400,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_45",
@@ -1665,7 +1614,6 @@
     "headshot": 100,
     "degatsBase": 117400,
     "estNomme": true,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_45",
@@ -1685,7 +1633,6 @@
     "degatsBase": 100700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "viseur": "micro_rail_optique",
       "canon": "gadget"
@@ -1703,7 +1650,6 @@
     "degatsBase": 94000,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
       "viseur": "micro_rail_optique",
@@ -1775,7 +1721,6 @@
     "degatsBase": 211300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "barillet"
     }
@@ -1792,7 +1737,6 @@
     "degatsBase": 204800,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "barillet",
       "canon": "gadget"
@@ -1847,7 +1791,6 @@
     "degatsBase": 233300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//ok
       "chargeur": "barillet",
       "viseur": "rail_optique_court"
@@ -1889,7 +1832,6 @@
     "degatsBase": 233300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "barillet",
       "viseur": "rail_optique_court"
@@ -1931,7 +1873,6 @@
     "obtention": {
       "description": "Évènement limité"
     },
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "barillet",
       "viseur": "rail_optique_court"
@@ -1949,7 +1890,6 @@
     "degatsBase": 114300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "viseur": "micro_rail_optique",
@@ -1972,7 +1912,6 @@
     "obtention": {
       "darkZone": true
     },
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "viseur": "micro_rail_optique",
@@ -2060,7 +1999,6 @@
     "degatsBase": 180800,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_integre",
       "viseur": "rail_optique_court",
@@ -2126,7 +2064,6 @@
     "degatsBase": 349800,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "viseur": "rail_optique_court",
       "canon": "rail_sous_canon_court"
@@ -2144,7 +2081,6 @@
     "degatsBase": 349800,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "viseur": "rail_optique_court",
       "canon": "rail_sous_canon_court"
@@ -2162,7 +2098,6 @@
     "degatsBase": 349800,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "viseur": "rail_optique_court",
       "canon": "rail_sous_canon_court"
@@ -2200,7 +2135,6 @@
     "degatsBase": 389900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "magasin_tubulaire",
       "viseur": "rail_optique_court",
@@ -2219,7 +2153,6 @@
     "degatsBase": 389900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "magasin_tubulaire",
       "viseur": "rail_optique_court",
@@ -2259,7 +2192,6 @@
     "degatsBase": 389900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "magasin_tubulaire",
       "viseur": "rail_optique_court",
@@ -2302,7 +2234,6 @@
     "degatsBase": 678100,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {},
     "armePoing": true
   },
@@ -2352,7 +2283,6 @@
     "degatsBase": 635700,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
     "emplacementsMods": {},
     "attributs_essentiels": [
       {
@@ -2416,7 +2346,6 @@
     "degatsBase": 703700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "magasin_tubulaire",
       "viseur": "rail_optique_court",
@@ -2435,7 +2364,6 @@
     "degatsBase": 703700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//ok
       "chargeur": "magasin_tubulaire",
       "viseur": "rail_optique_long",
@@ -2454,7 +2382,6 @@
     "degatsBase": 703700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "magasin_tubulaire",
       "viseur": "rail_optique_court",
@@ -2494,7 +2421,6 @@
     "degatsBase": 716000,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "magasin_tubulaire"
     }
@@ -2530,7 +2456,6 @@
     "degatsBase": 409600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//ok
       "chargeur": "magasin_tubulaire",
       "viseur": "rail_optique_court",
@@ -2549,7 +2474,6 @@
     "degatsBase": 409600,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "magasin_tubulaire",
       "viseur": "rail_optique_court",
@@ -2574,7 +2498,6 @@
     "degatsBase": 206400,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -2646,7 +2569,6 @@
     "degatsBase": 145900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_556",
@@ -2688,7 +2610,6 @@
     "degatsBase": 412500,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_762",
@@ -2708,7 +2629,6 @@
     "degatsBase": 412500,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_762",
@@ -2750,7 +2670,6 @@
     "degatsBase": 412500,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_762",
@@ -2770,7 +2689,6 @@
     "degatsBase": 441600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_integre",
       "bouche": "bouche_762",
@@ -2810,7 +2728,6 @@
     "degatsBase": 156700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_762",
@@ -2830,7 +2747,6 @@
     "degatsBase": 156700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_762",
@@ -2902,7 +2818,6 @@
     "degatsBase": 409400,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_762",
@@ -2922,7 +2837,6 @@
     "degatsBase": 409400,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_556",
@@ -2967,7 +2881,6 @@
     "degatsBase": 417700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_762",
@@ -2987,7 +2900,6 @@
     "degatsBase": 433600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762_precision",
       "viseur": "rail_optique_long",
@@ -3006,7 +2918,6 @@
     "degatsBase": 428700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_integre",
       "bouche": "bouche_762",
@@ -3027,7 +2938,6 @@
     "degatsBase": 433600,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
     "attributs_essentiels": [
       {
         "nom": "degats_fusil_de_precision_es"
@@ -3088,7 +2998,6 @@
     "degatsBase": 409400,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_556",
@@ -3109,7 +3018,6 @@
     "estExotique": false,
     "estNomme": true,
     "notes": "A démonter pour fabriquer le Nemesis, c'est une arme unique.",
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_556",
@@ -3129,7 +3037,6 @@
     "degatsBase": 409400,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_556",
@@ -3149,7 +3056,6 @@
     "degatsBase": 403800,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_556",
@@ -3191,7 +3097,6 @@
     "degatsBase": 48500,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "bouche": "bouche_9mm",
@@ -3210,7 +3115,6 @@
     "degatsBase": 46700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "bouche": "bouche_9mm",
@@ -3229,7 +3133,6 @@
     "degatsBase": 53900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3249,7 +3152,6 @@
     "degatsBase": 53900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3269,7 +3171,6 @@
     "degatsBase": 53900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3289,7 +3190,6 @@
     "degatsBase": 53900,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique",
@@ -3309,7 +3209,6 @@
     "degatsBase": 63600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "viseur": "rail_optique_court",
       "bouche": "bouche"
@@ -3327,7 +3226,6 @@
     "degatsBase": 63600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3367,7 +3265,6 @@
     "degatsBase": 58700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3386,7 +3283,6 @@
     "degatsBase": 58700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3405,7 +3301,6 @@
     "degatsBase": 58700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3424,7 +3319,6 @@
     "degatsBase": 40500,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3444,7 +3338,6 @@
     "degatsBase": 39300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique",
@@ -3464,7 +3357,6 @@
     "degatsBase": 38300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3509,7 +3401,6 @@
     "degatsBase": 46400,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_court",
@@ -3548,7 +3439,6 @@
     "degatsBase": 76900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3568,7 +3458,6 @@
     "degatsBase": 76900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3588,7 +3477,6 @@
     "degatsBase": 63700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_45_acp",
       "viseur": "rail_optique_court",
@@ -3608,7 +3496,6 @@
     "degatsBase": 63700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_45_acp",
       "viseur": "rail_optique_court",
@@ -3628,7 +3515,6 @@
     "degatsBase": 78400,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "viseur": "rail_optique_court"
     }
@@ -3645,7 +3531,6 @@
     "degatsBase": 50600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {}
   },
   "l_acquis": {
@@ -3698,7 +3583,6 @@
     "degatsBase": 39500,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "bouche": "bouche_556",
       "viseur": "rail_optique_court"
@@ -3716,7 +3600,6 @@
     "degatsBase": 39500,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
     "emplacementsMods": {
       "bouche": "bouche_556",
       "viseur": "rail_optique_court"
@@ -3781,7 +3664,6 @@
     "degatsBase": 47800,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3801,7 +3683,6 @@
     "degatsBase": 47800,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
@@ -3821,7 +3702,6 @@
     "degatsBase": 150300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -3841,7 +3721,6 @@
     "degatsBase": 92400,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -3861,7 +3740,6 @@
     "degatsBase": 107000,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -3901,7 +3779,6 @@
     "degatsBase": 129200,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_762",
@@ -3921,7 +3798,6 @@
     "degatsBase": 129200,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -3989,7 +3865,6 @@
     "degatsBase": 231300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762",
       "viseur": "rail_optique_long",
@@ -4009,7 +3884,6 @@
     "degatsBase": 231300,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "viseur": "rail_optique",
@@ -4028,7 +3902,6 @@
     "degatsBase": 100600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -4071,7 +3944,6 @@
     "degatsBase": 103000,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -4119,7 +3991,6 @@
     "degatsBase": 145900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -4139,7 +4010,6 @@
     "degatsBase": 145900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -4185,7 +4055,6 @@
     "degatsBase": 125900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "viseur": "rail_optique",
@@ -4204,7 +4073,6 @@
     "degatsBase": 121300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -4245,7 +4113,6 @@
     "degatsBase": 97700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "viseur": "rail_optique",
@@ -4286,7 +4153,6 @@
     "degatsBase": 124900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -4362,7 +4228,6 @@
     "degatsBase": 107300,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -5335,7 +5200,6 @@
     "degatsBase": 67200,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
@@ -5355,7 +5219,6 @@
     "degatsBase": 52600,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -5427,7 +5290,6 @@
     },
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
@@ -5486,7 +5348,6 @@
     "degatsBase": 67200,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
     "obtention": {
       "description": "Évènement limité"
     },
@@ -5571,7 +5432,6 @@
     "degatsBase": 387000,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
     "notes": "+320300 dégats de base, -200 de cpm",
     "emplacementsMods": {
       "chargeur": "chargeur_762_precision",
@@ -5637,7 +5497,6 @@
     "degatsBase": 635700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {}
   },
   "fusil_calibre_12_a_double_canon": {
@@ -5652,7 +5511,6 @@
     "degatsBase": 678900,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {}
   },
   "stack_broker": {
@@ -5668,7 +5526,6 @@
     "notes": "-30200 dégâts de base + 60 cpm",
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
     "emplacementsMods": {
       "viseur": "rail_optique_court",
       "canon": "rail_sous_canon_court"
@@ -5690,7 +5547,6 @@
     "obtention": {
       "description": "Évènement limité"
     },
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_45_acp",
       "bouche": "bouche_45_acp",
@@ -5731,7 +5587,6 @@
     "degatsBase": 51000,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "bouche": "bouche_9mm",
@@ -5821,7 +5676,6 @@
     "obtention": {
       "description": "Primes Houndsman, évenement"
     },
-    "talents": [],
     "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "viseur": "rail_optique_long",
@@ -5863,7 +5717,6 @@
     "degatsBase": 95700,
     "estExotique": false,
     "estNomme": false,
-    "talents": [],
     "emplacementsMods": {
       "viseur": "micro_rail_optique",
       "canon": "lateral",

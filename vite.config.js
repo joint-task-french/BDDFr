@@ -21,12 +21,17 @@ export default defineConfig({
             "src": "favicon_192x192.png",
             "type": "image/png",
             "sizes": "192x192"
+          },
+          {
+            "src": "favicon_512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
           }
         ],
         "start_url": process.env.VITE_BASE_PATH || '/BDDFr',
         "display": "standalone",
         "theme_color": "#15181d",
-        "background_color": "#0d0f12"
+        "background_color": "#2c3e50"
       }
     })
   ],

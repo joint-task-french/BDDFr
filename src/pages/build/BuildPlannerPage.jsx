@@ -110,7 +110,7 @@ function BuildPlannerContent({ data }) {
       </div>
 
       {/* Layout 2 colonnes : build editor + stats sidebar */}
-      <div className="flex flex-col xl:flex-row gap-6">
+      <div className="flex flex-col xl:flex-row gap-6 items-start">
         {/* Colonne principale — éditeur de build */}
         <div className="flex-1 min-w-0">
           {/* Armes */}
@@ -142,10 +142,8 @@ function BuildPlannerContent({ data }) {
         </div>
 
         {/* Sidebar — statistiques du build */}
-        <aside className="w-full xl:w-80 shrink-0">
-          <div className="xl:sticky xl:top-20">
-            <BuildStatsPanel data={data} />
-          </div>
+        <aside className="w-full xl:w-96 shrink-0 xl:sticky xl:top-4 xl:max-h-[calc(100vh-2rem)] xl:overflow-y-auto pr-0 xl:pr-2 custom-scrollbar">
+          <BuildStatsPanel data={data} />
         </aside>
       </div>
     </div>

@@ -855,7 +855,12 @@
       "offensif"
     ],
     "bonus1piece": {
-      "attributs": []
+      "attributs": [
+        {
+          "slug": "degats_de_headshot_eqp",
+          "value": 13
+        }
+      ]
     },
     "bonus2pieces": {
       "attributs": [

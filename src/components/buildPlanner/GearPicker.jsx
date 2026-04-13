@@ -167,7 +167,7 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
                         src={resolveAsset(iconSlug)}
                         alt={marqueNom || p.nom}
                         size="w-10 h-10"
-                        color={isExotic ? 'text-shd' : p.type === 'gear_set' ? 'text-emerald-500' : 'text-gray-400'}
+                        color={isExotic ? 'text-red-400' : p.type === 'gear_set' ? 'text-emerald-500' : 'text-gray-400'}
                     />
                   </div>
 

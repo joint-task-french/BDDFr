@@ -433,17 +433,9 @@ export function useBuildStats(data) {
       const chd = getStatTotalFromMap(allStats, 'degats_coup_critique')
       const chc = Math.min(60, getStatTotalFromMap(allStats, 'probabilite_coup_critique'))
 
-      // Bonus de Dégâts toutes armes (TWD) - supposé inclus dans weaponDamageBonus ou gearAttributeTotals
-      // Dans Division 2, AWD et TWD s'additionnent avant de multiplier la base
       const wdMultiplier = 1 + (lvl + weaponDamageBonus + typeDamageBonus) / 100
-      
-      // Calcul des dégâts de base (affichés dans l'inventaire)
       const baseModified = base * wdMultiplier
 
-      // Calcul des variantes de dégâts
-      // DMG = BASE x (1+AWD%) x (1+TWD%) x (1+HSD%+CHD%) x (1+DTA%/DTH%) x (1+DTOOC%) x (1+AMP1%) ...
-      // Note: HSD et CHD s'additionnent s'ils se produisent en même temps (Headshot Critique)
-      
       const calcDmg = (isCrit, isHeadshot, targetStat, oocStat) => {
         let critHsdMult = 1
         if (isCrit && isHeadshot) critHsdMult += (chd + hsd) / 100
@@ -468,8 +460,6 @@ export function useBuildStats(data) {
         }
       }
 
-      // Dégâts moyens (pondérés par la probabilité de critique)
-      // On sépare la moyenne sur les tirs au corps et la moyenne sur les headshots
       const chcFactor = chc / 100
       const invChcFactor = 1 - chcFactor
 
@@ -482,16 +472,13 @@ export function useBuildStats(data) {
       const multMultiplier = (1 + ooc / 100) * (1 + Math.max(dta, dth) / 100)
       const finalDamage = Math.round(baseModified * multMultiplier)
 
-      // On retire les attributs appliqués au calcul principal pour éviter les doublons dans la liste sous l'arme
-      // On retire aussi tous les bonus de dégâts spécifiques aux autres types d'armes
       const filteredStats = { ...allStats }
       
-      // Récupérer tous les slugs de statistiques de types d'armes pour les exclure
       const allTypeStatSlugs = Object.values(data.armes_type || {}).map(t => t.statistique).filter(Boolean)
       
       const statsToRemove = [
         'degats_arme', 
-        ...allTypeStatSlugs, // On retire TOUS les types d'armes (on rajoute le bon s'il y en a un plus bas si besoin, mais ici on veut surtout nettoyer)
+        ...allTypeStatSlugs,
         'degats_protections', 
         'degats_sante', 
         'degats_cible_non_abritee', 
@@ -545,8 +532,6 @@ export function useBuildStats(data) {
     return stats
   }, [build.weapons, build.sidearm, build.specialWeapon, build.weaponMods, build.sidearmMods, build.expertise, build.weaponEssentialValues, build.weaponAttributes, build.sidearmAttribute, gearModTotals, offensiveGearAttributeTotals, data.attributs, data.armes_type, data.statistiques])
 
-  // Totaux combinés (équipement + mods d'équipement + ensembles)
-  // Les mods d'armes et attributs d'armes ne sont PAS inclus ici — ils sont spécifiques à chaque arme
   const allAttributeTotals = useMemo(() => {
     const combined = {}
     const mergeIn = (source) => {
@@ -557,13 +542,11 @@ export function useBuildStats(data) {
       }
     }
     mergeIn(gearAttributeTotals)
-    // weaponAttributeTotals retiré car spécifique à l'arme tenue
     mergeIn(gearModTotals)
     mergeIn(setAttributeTotals || {})
     return combined
   }, [gearAttributeTotals, gearModTotals, setAttributeTotals])
 
-  // Attributs groupés par catégorie
   const attributesByCategory = useMemo(() => {
     const groups = { offensif: [], defensif: [], utilitaire: [], autre: [] }
     for (const entry of Object.values(allAttributeTotals)) {
@@ -574,7 +557,6 @@ export function useBuildStats(data) {
     return groups
   }, [allAttributeTotals])
 
-  // Mods d'armes équipés
   const equippedWeaponMods = useMemo(() => {
     const mods = []
     if (build.weaponMods) {
@@ -591,7 +573,6 @@ export function useBuildStats(data) {
     return mods
   }, [build.weaponMods, build.sidearmMods])
 
-  // Mods d'équipement équipés
   const equippedGearMods = useMemo(() => {
     const mods = []
     for (const [slot, slotMods] of Object.entries(build.gearMods || {})) {
@@ -603,14 +584,11 @@ export function useBuildStats(data) {
     return mods
   }, [build.gearMods])
 
-  // Compétences
   const equippedSkills = useMemo(() => (build.skills || []).filter(Boolean), [build.skills])
 
-  // Spécialisation
   const specialisation = build.specialisation
   const specialisationLabel = specialisation ? build.SPECIALISATIONS?.[specialisation]?.label : null
 
-  // Compteurs
   const totalGearPieces = useMemo(() => Object.values(build.gear || {}).filter(Boolean).length, [build.gear])
   const totalWeapons = useMemo(() => {
     let c = 0
@@ -621,13 +599,10 @@ export function useBuildStats(data) {
     return c
   }, [build.specialWeapon, build.weapons, build.sidearm])
 
-  // Talents équipés
   const equippedTalents = useMemo(() => {
     const talents = []
-    // Armes
     if (build.weaponTalents) build.weaponTalents.forEach((t, i) => { if (t) talents.push({ slot: `Arme ${i + 1}`, ...t }) })
     if (build.sidearmTalent) talents.push({ slot: 'Poing', ...build.sidearmTalent })
-    // Équipement
     if (build.gearTalents) {
       for (const [slot, t] of Object.entries(build.gearTalents)) {
         if (t) talents.push({ slot, ...t })
@@ -636,10 +611,7 @@ export function useBuildStats(data) {
     return talents
   }, [build.weaponTalents, build.sidearmTalent, build.gearTalents])
 
-  // Statistiques calculées (Protection, Santé, etc.)
   const calculatedStats = useMemo(() => {
-    // Valeurs de base niveau 40 (estimations standard Division 2)
-    // On somme la protection de base de chaque pièce d'équipement réellement équipée + expertise
     let baseArmorFromGear = 0
     let armorFromExpertise = 0
 
@@ -652,7 +624,6 @@ export function useBuildStats(data) {
           const pb = typeInfo.protectionBase
           baseArmorFromGear += pb
           
-          // L'expertise sur l'équipement (+1% armure de base par grade d'expertise)
           const grade = build.expertise?.[slot] || 0
           if (grade > 0) {
             armorFromExpertise += (pb * grade * 0.01)
@@ -661,10 +632,8 @@ export function useBuildStats(data) {
       }
     }
     
-    // Si aucune pièce n'est équipée, on garde une valeur de base à 0
     let totalArmor = baseArmorFromGear
 
-    // Somme des attributs de protection (Points et Pourcentages)
     let armorPoints = 0
     let armorPercent = 0
 
@@ -686,8 +655,6 @@ export function useBuildStats(data) {
     processSource(gearModTotals)
     processSource(setAttributeTotals)
 
-    // Calcul final : (Base Gear + Cores/Attributs Pts + Expertise) * (1 + Bonus%)
-    // L'expertise est calculée sur la base de la pièce, elle est ensuite multipliée par les bonus de marque/mod
     const armorBeforePercent = totalArmor + armorPoints + armorFromExpertise
 
     const finalArmor = Math.round(armorBeforePercent * (1 + (armorPercent / 100)))
@@ -707,12 +674,9 @@ export function useBuildStats(data) {
     gearAttributeTotals
   ])
 
-  // On injecte les stats calculées dans les catégories
   const attributesByCategoryFinal = useMemo(() => {
     const groups = { ...attributesByCategory }
     
-    // Injecter Armure totale au début de la section défensive
-    // Inclure aussi le détail de la protection de base si non nul
     const extraStats = [
       calculatedStats.protection_totale
     ]

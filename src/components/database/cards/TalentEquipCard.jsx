@@ -26,19 +26,31 @@ export default function TalentEquipCard({ item, equipements, ensembles, equipeme
   const isUrlPerfect = params.slug === item.slug && params.modifier === 'parfait'
   const forcePerfect = searchParams.get('parfait') === 'true'
 
-  const [showPerfect, setShowPerfect] = useState(isUrlPerfect || forcePerfect)
+  const [showPerfect, setShowPerfect] = useState(isUrlPerfect || forcePerfect || !item.description)
 
   useEffect(() => {
     if (isStatic) {
-      setShowPerfect(forcePerfect)
+      setShowPerfect(forcePerfect || !item.description)
     } else if (params.slug === item.slug) {
-      setShowPerfect(params.modifier === 'parfait')
+      setShowPerfect(params.modifier === 'parfait' || !item.description)
     }
-  }, [params.modifier, params.slug, item.slug, isStatic])
+  }, [params.modifier, params.slug, item.slug, isStatic, item.description, forcePerfect])
 
   const togglePerfect = (e) => {
     e.preventDefault()
     e.stopPropagation()
+
+    if (!item.description) {
+      const category = params.category || 'talentsEquipements'
+      const basePath = `/db/${category}/${item.slug}`
+      navigate({
+        pathname: `${basePath}/parfait`,
+        search: location.search
+      }, {
+        replace: params.slug === item.slug
+      })
+      return
+    }
 
     const nextState = !showPerfect
     setShowPerfect(nextState)
@@ -56,7 +68,7 @@ export default function TalentEquipCard({ item, equipements, ensembles, equipeme
     })
   }
 
-  const description = showPerfect && hasPerfect ? item.perfectDescription : item.description
+  const description = (showPerfect && hasPerfect) || !item.description ? item.perfectDescription : item.description
 
   return (
       <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden flex flex-col h-full ${borderColor ? `border-l-2 ${borderColor}` : ''}`}>
@@ -71,6 +83,8 @@ export default function TalentEquipCard({ item, equipements, ensembles, equipeme
                   <button
                       onClick={togglePerfect}
                       className={`ml-auto flex items-center gap-1 text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border transition-all ${
+                          !item.description ? 'cursor-default' : ''
+                      } ${
                           showPerfect
                               ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/40'
                               : 'bg-tactical-bg text-gray-500 border-tactical-border hover:border-gray-500'

@@ -156,7 +156,7 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
                         src={resolveAsset(w.type)}
                         alt={w.type}
                         size="w-10 h-10"
-                        color={isExotic ? 'text-shd' : 'text-gray-400'}
+                        color={isExotic ? 'text-red-400' : 'text-gray-400'}
                       />
                     </div>
 

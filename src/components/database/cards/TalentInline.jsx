@@ -12,11 +12,10 @@ export default function TalentInline({ talent, isExotic = false, allArmes, allEq
   if (!talent) return null
   const icon = resolveAsset(talent.icon)
   const nameColor = talent.estExotique ? 'text-red-400' : 'text-shd'
-  const isPerfectNamed = isNamed && talent.perfectDescription
-
+  const isPerfectNamed = (isNamed && talent.perfectDescription) || !talent.description
   const [showPerfect, setShowPerfect] = useState(isPerfectNamed)
 
-  const description = showPerfect ? talent.perfectDescription : talent.description
+  const description = (showPerfect && talent.perfectDescription) || !talent.description ? talent.perfectDescription : talent.description
   const compatTypes = talent.compatibilite
     ? Object.entries(talent.compatibilite).filter(([, v]) => v).map(([k]) => k)
     : []

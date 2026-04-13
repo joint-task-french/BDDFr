@@ -2416,7 +2416,6 @@
   "rafraichissement": {
     "nom": "Rafraîchissement",
     "icon": "rafraichissement",
-    "description": "Version parfaite uniquement",
     "perfectDescription": "L'arme tire un jet d'eau.\nEn touchant des agents alliés, vous leur conférez des effets cumulables (max 5) qui se dissipent toutes les 2s.\nTant qu'il dispose d'au moins 1 effet, l'allié bénéficie de +50% de protection contre les altérations d'état.",
     "armesParfaites": [
       "rafraichisseur"
@@ -2425,7 +2424,6 @@
   },
   "precis": {
     "nom": "Précis",
-    "description": "Version parfaite uniquement",
     "perfectDescription": "+80% à la précision",
     "armesParfaites": [
       "le_fendoir"
@@ -2487,7 +2485,6 @@
   "allegro": {
     "nom": "Allegro",
     "icon": "allegro",
-    "description": "Version parfaite uniquement",
     "perfectDescription": "+15% de cadence de tir",
     "armesParfaites": [
       "main_invisible"
@@ -2540,7 +2537,6 @@
   "lumieres_scintillantes": {
     "nom": "Lumières scintillantes",
     "icon": "lumieres_scintillantes",
-    "description": "Version parfaite uniquement",
     "perfectDescription": "Seules la nuit et ses lumières scintillantes, emplissent les têtes d'une joie débordante",
     "armesParfaites": [
       "oh_noel"
@@ -2558,7 +2554,6 @@
   "extra": {
     "nom": "Extra",
     "icon": "extra",
-    "description": "Version parfaite uniquement",
     "estExotique": false,
     "perfectDescription": "+50% à la capacité de chargeur.",
     "armesParfaites": [
@@ -2609,7 +2604,6 @@
   },
   "optimise": {
     "nom": "Optimisé",
-    "description": "Version parfaite uniquement",
     "perfectDescription": "+40% au maniement d'arme.",
     "armesParfaites": [
       "nouveau_et_fiable"
@@ -2693,7 +2687,6 @@
   },
   "munitions_catalysantes": {
     "nom": "munitions_catalysantes",
-    "description": "Version parfaite uniquement",
     "estExotique": false,
     "perfectDescription": "Les ennemis touchés perdent 50% de résistance aux brûlures pendant 5s.",
     "armesParfaites": [
@@ -2702,7 +2695,6 @@
   },
   "mouvements_jazz": {
     "nom": "Mouvements jazz",
-    "description": "Version parfaite uniquement",
     "estExotique": false,
     "perfectDescription": "+50% à la vitesse de rechargement.",
     "armesParfaites": [
@@ -2712,7 +2704,6 @@
   "distance": {
     "nom": "Distance",
     "icon": "distance",
-    "description": "Version parfaite uniquement",
     "estExotique": false,
     "perfectDescription": "+100% à la portée optimale.",
     "armesParfaites": [
@@ -2726,7 +2717,6 @@
   },
   "vif": {
     "nom": "Vif",
-    "description": "Version parfaite uniquement",
     "estExotique": false,
     "perfectDescription": "Réaliser un changement d'abri confère +20% aux dégâts d'arme pendant 20s.",
     "armesParfaites": [

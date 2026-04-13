@@ -1316,7 +1316,6 @@
   },
   "rafale": {
     "nom": "Rafale",
-    "description": "Talent parfait uniquement",
     "perfectDescription": "Tous les effets d'état que vous appliquez appliquent également l'effet Chute de neige à la cible.",
     "emplacement": "genouilleres",
     "equipementsParfaits": [
@@ -1492,7 +1491,6 @@
   },
   "perplexite": {
     "nom": "Perplexité",
-    "description": "Talent parfait uniquement",
     "perfectDescription": "Quand vous infligez des dégâts d'arme à un ennemi, 50% des dégâts sont redirigés vers un autre ennemi se trouvant à moins de 30 mètres.\nS'il n'y a pas d'autre ennemi à proximité, les dégâts s'infligent normalement.\nNe s'applique pas aux plaques de protection",
     "emplacement": "genouilleres",
     "equipementsParfaits": [

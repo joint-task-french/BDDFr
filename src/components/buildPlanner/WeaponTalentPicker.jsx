@@ -24,6 +24,7 @@ export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClos
     if (!wType || !data.talentsArmes) return []
     const list = Array.isArray(data.talentsArmes) ? data.talentsArmes : Object.values(data.talentsArmes || {})
     return list.filter(t => {
+      if (!t.description) return false
       if (t.estExotique) return false
       if (!t.compatibilite) return true
       return t.compatibilite[wType] === true

@@ -11,6 +11,10 @@
         "nom",
         "emplacement"
       ],
+      "anyOf": [
+        { "required": ["description"] },
+        { "required": ["perfectDescription"] }
+      ],
       "properties": {
         "nom": {
           "type": "string"

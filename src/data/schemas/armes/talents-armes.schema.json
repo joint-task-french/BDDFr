@@ -10,6 +10,10 @@
       "required": [
         "nom"
       ],
+      "anyOf": [
+        { "required": ["description"] },
+        { "required": ["perfectDescription"] }
+      ],
       "properties": {
         "nom": {
           "type": "string"

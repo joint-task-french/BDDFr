@@ -21,9 +21,18 @@ export default function CompactListView({ items, category, CardComponent, extraP
     setExpandedSlug(expandedSlug === slug ? null : slug)
   }
 
-  const handleCardClick = (slug) => {
-    const newUrl = `/db/${category.key}/${slug}${location.search}`
-    if (location.pathname !== `/db/${category.key}/${slug}`) {
+  const handleCardClick = (item) => {
+    const slug = item.slug || slugify(item.nom)
+    let basePath = `/db/${category.key}/${slug}`
+    
+    // Si c'est un talent sans description classique, il est forcément parfait
+    const isTalent = category.key === 'talentsArmes' || category.key === 'talentsEquipements';
+    if (isTalent && !item.description && item.perfectDescription) {
+      basePath += `/parfait`;
+    }
+
+    const newUrl = `${basePath}${location.search}`
+    if (location.pathname !== basePath) {
       navigate(newUrl, { replace: true })
     }
   }
@@ -64,7 +73,7 @@ export default function CompactListView({ items, category, CardComponent, extraP
                   <div className="p-4 bg-black/20 overflow-x-auto">
                     <div 
                       className="min-w-fit cursor-pointer hover:ring-1 hover:ring-shd/50 rounded-lg transition-all"
-                      onClick={() => handleCardClick(slug)}
+                      onClick={() => handleCardClick(item)}
                     >
                       <CardComponent item={item} {...extraProps} />
                     </div>

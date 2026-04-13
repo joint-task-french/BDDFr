@@ -440,7 +440,7 @@ export function useBuildStats(data) {
       // Calcul des dégâts de base (affichés dans l'inventaire)
       const baseModified = base * wdMultiplier
 
-      // Calcul des variantes de dégâts (selon degats.md)
+      // Calcul des variantes de dégâts
       // DMG = BASE x (1+AWD%) x (1+TWD%) x (1+HSD%+CHD%) x (1+DTA%/DTH%) x (1+DTOOC%) x (1+AMP1%) ...
       // Note: HSD et CHD s'additionnent s'ils se produisent en même temps (Headshot Critique)
       

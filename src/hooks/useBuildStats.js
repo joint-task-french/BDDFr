@@ -209,7 +209,7 @@ export function useBuildStats(data) {
       if (ensemble.bonus2pieces) checkBonus(2, ensemble.bonus2pieces)
       if (ensemble.bonus3pieces) checkBonus(3, ensemble.bonus3pieces)
       if (ensemble.bonus4pieces) checkBonus(4, ensemble.bonus4pieces)
-      const entry = { slug: marqueSlug, nom: ensemble.nom, type: ensemble.type, count, maxPieces: ensemble.type === 'gear_set' ? 6 : 3, bonuses }
+      const entry = { slug: marqueSlug, nom: ensemble.nom, type: ensemble.type, count, maxPieces: ensemble.type === 'gear_set' ? 4 : 3, bonuses }
       if (ensemble.type === 'gear_set') gearSets.push(entry)
       else brandSets.push(entry)
     }

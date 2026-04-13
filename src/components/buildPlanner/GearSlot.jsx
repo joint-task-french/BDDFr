@@ -80,9 +80,9 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
   const borderColor = isPrototype
       ? 'border-l-cyan-500'
       : piece?.type === 'exotique'
-          ? 'border-l-shd'
+          ? 'border-l-red-400'
           : piece?.estNomme
-              ? 'border-l-yellow-500'
+              ? 'border-l-shd'
               : piece?.type === 'gear_set'
                   ? 'border-l-emerald-500'
                   : 'border-l-blue-500'

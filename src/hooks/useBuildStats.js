@@ -483,8 +483,22 @@ export function useBuildStats(data) {
       const finalDamage = Math.round(baseModified * multMultiplier)
 
       // On retire les attributs appliqués au calcul principal pour éviter les doublons dans la liste sous l'arme
+      // On retire aussi tous les bonus de dégâts spécifiques aux autres types d'armes
       const filteredStats = { ...allStats }
-      const statsToRemove = ['degats_arme', typeStatSlug, 'degats_protections', 'degats_sante', 'degats_cible_non_abritee', 'degats_headshot', 'degats_coup_critique', 'probabilite_coup_critique'].filter(Boolean)
+      
+      // Récupérer tous les slugs de statistiques de types d'armes pour les exclure
+      const allTypeStatSlugs = Object.values(data.armes_type || {}).map(t => t.statistique).filter(Boolean)
+      
+      const statsToRemove = [
+        'degats_arme', 
+        ...allTypeStatSlugs, // On retire TOUS les types d'armes (on rajoute le bon s'il y en a un plus bas si besoin, mais ici on veut surtout nettoyer)
+        'degats_protections', 
+        'degats_sante', 
+        'degats_cible_non_abritee', 
+        'degats_headshot', 
+        'degats_coup_critique', 
+        'probabilite_coup_critique'
+      ].filter(Boolean)
       
       Object.keys(filteredStats).forEach(attrSlug => {
         const attrDef = data.attributs?.[attrSlug]

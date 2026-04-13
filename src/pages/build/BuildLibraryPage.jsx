@@ -244,9 +244,10 @@ export default function BuildLibraryPage() {
     }
 
     // Sinon chargement classique
-    const [top, recent] = await Promise.all([
+    const [top, recent, likes] = await Promise.all([
       apiBuildotheque.fetchTopBuilds({ limit: 6 }, effectiveApiUrl),
-      apiBuildotheque.fetchRecentBuilds({ limit: 6 }, effectiveApiUrl)
+      apiBuildotheque.fetchRecentBuilds({ limit: 6 }, effectiveApiUrl),
+      apiBuildotheque.isAuthenticated() ? apiBuildotheque.fetchUserLikes(effectiveApiUrl) : Promise.resolve([])
     ])
     setTopBuilds(top?.builds || [])
     setRecentBuilds(recent?.builds || [])
@@ -817,7 +818,14 @@ export default function BuildLibraryPage() {
 
 function BuildCard({ build, data, onView, onPublish, onEdit, onDelete, isLocal, apiUrl, userHash }) {
   const [likes, setLikes] = useState(build.likes || 0)
+  const [isLiked, setIsLiked] = useState(build.isLiked || apiBuildotheque.getUserLikes().includes(build.id))
   const [isLiking, setIsLiking] = useState(false)
+
+  // Synchronisation si le build change (par ex. suite à un rechargement global)
+  useEffect(() => {
+    setLikes(build.likes || 0)
+    setIsLiked(build.isLiked || apiBuildotheque.getUserLikes().includes(build.id))
+  }, [build.likes, build.isLiked, build.id])
 
   // La condition stricte de suppression locale OU si l'ID API correspond exactement au SHA-512 stocké dans userHash
   const isAuthor = isLocal ? true : (build.auteurId && userHash && build.auteurId === userHash)
@@ -830,12 +838,37 @@ function BuildCard({ build, data, onView, onPublish, onEdit, onDelete, isLocal, 
     }
     if (isLocal || !build.id) return
 
+    const previousLikes = likes
+    const previousIsLiked = isLiked
+    const newIsLiked = !isLiked
+
+    // Mise à jour optimiste pour une réactivité immédiate
+    setIsLiked(newIsLiked)
+    setLikes(prev => newIsLiked ? prev + 1 : Math.max(0, prev - 1))
     setIsLiking(true)
-    const result = await apiBuildotheque.toggleLike(build.id, apiUrl)
-    if (result && result.likes !== undefined) {
-      setLikes(result.likes)
+
+    try {
+      const result = await apiBuildotheque.toggleLike(build.id, apiUrl)
+      if (result) {
+        // Si l'API renvoie les valeurs réelles, on les utilise pour se synchroniser
+        if (result.likes !== undefined) {
+          setLikes(result.likes)
+        }
+        if (result.isLiked !== undefined) {
+          setIsLiked(result.isLiked)
+        }
+      } else {
+        // Rollback en cas d'erreur de l'API
+        setLikes(previousLikes)
+        setIsLiked(previousIsLiked)
+      }
+    } catch (err) {
+      console.error("Erreur lors du like:", err)
+      setLikes(previousLikes)
+      setIsLiked(previousIsLiked)
+    } finally {
+      setIsLiking(false)
     }
-    setIsLiking(false)
   }
 
   const resolved = useMemo(() => {
@@ -930,11 +963,12 @@ function BuildCard({ build, data, onView, onPublish, onEdit, onDelete, isLocal, 
                       <button
                           onClick={handleLike}
                           disabled={isLiking}
-                          className={`flex items-center gap-1 px-1.5 py-0.5 rounded border text-xs font-black transition-all ${
-                              isLiking ? 'opacity-50 cursor-wait' : 'hover:scale-110'
-                          } text-shd/80 bg-shd/5 border-shd/20`}
+                          className={`flex items-center gap-1 px-2 py-0.5 rounded border text-xs font-black transition-all ${
+                              isLiking ? 'opacity-50 cursor-wait' : 'hover:scale-110 active:scale-95'
+                          } ${isLiked ? 'text-shd bg-shd/20 border-shd/40' : 'text-white/60 bg-white/5 border-white/10'}`}
+                          title={isLiked ? "Retirer mon like" : "Liker ce build"}
                       >
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4" fill={isLiked ? "currentColor" : "none"} stroke="currentColor" strokeWidth={isLiked ? 0 : 2} viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                         </svg>
                         {likes}

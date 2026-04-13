@@ -8,6 +8,7 @@ class ApiBuildotheque {
     this.token = localStorage.getItem('buildLibrary_token') || null;
     this.initialLoadPromise = null;
     this.cachedInitialData = null;
+    this.userLikes = []; // IDs des builds likés par l'utilisateur
 
     try {
       const rawUser = localStorage.getItem('buildLibrary_user');
@@ -86,7 +87,13 @@ class ApiBuildotheque {
           this.fetchRecentBuilds({ limit: 6 }, url)
         ]);
 
-        this.cachedInitialData = { top, recent };
+        let likes = [];
+        if (this.isAuthenticated()) {
+          likes = await this.fetchUserLikes(url);
+          this.userLikes = likes;
+        }
+
+        this.cachedInitialData = { top, recent, likes };
         return this.cachedInitialData;
       } catch (e) {
         console.error("Preload Error:", e);
@@ -252,11 +259,49 @@ class ApiBuildotheque {
           'Accept': 'application/json',
         }
       });
-      return await response.json();
+      const data = await response.json();
+      
+      // Mise à jour locale du cache des likes
+      if (data && data.isLiked !== undefined) {
+        if (data.isLiked) {
+          if (!this.userLikes.includes(buildId)) this.userLikes.push(buildId);
+        } else {
+          this.userLikes = this.userLikes.filter(id => id !== buildId);
+        }
+      }
+      
+      return data;
     } catch (e) {
       console.error("API Like Error:", e);
       return null;
     }
+  }
+
+  async fetchUserLikes(metadataBaseUrl) {
+    if (!this.token) return [];
+    const url = this.getBaseUrl(metadataBaseUrl);
+    try {
+      console.log(`Fetching user likes from: ${url}/likes`);
+      const response = await fetch(`${url}/likes`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+          'Authorization': `Bearer ${this.token}`,
+          'Accept': 'application/json',
+        }
+      });
+      if (!response.ok) throw new Error('Erreur API Likes');
+      const likes = await response.json(); // On suppose que c'est un tableau d'IDs
+      this.userLikes = Array.isArray(likes) ? likes : [];
+      return this.userLikes;
+    } catch (e) {
+      console.error("API User Likes Error:", e);
+      return [];
+    }
+  }
+
+  getUserLikes() {
+    return this.userLikes;
   }
 
   async publishBuild(buildData, metadataBaseUrl) {

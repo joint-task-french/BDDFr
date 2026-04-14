@@ -36,13 +36,13 @@ export function useBuildStats(data) {
 
   // Helper pour résoudre les informations d'un attribut ou d'une statistique
   const resolveAttrInfo = (attrSlug) => {
-    if (!attrSlug) return { nom: '', unite: '%', categorie: 'autre' }
+    if (!attrSlug) return { nom: '', unite: '', categorie: 'autre' }
 
     const def = data.attributs?.[attrSlug]
     if (def) return { 
       nom: def.nom, 
-      unite: def.unite || '%', 
-      categorie: def.categorie || 'autre', 
+      unite: def.unite ?? '',
+      categorie: def.categorie || 'autre',
       min: def.min, 
       max: def.max, 
       statistiques: def.statistiques 
@@ -75,7 +75,7 @@ export function useBuildStats(data) {
         else if (norm.includes('maniement') || norm.includes('precision') || norm.includes('stabilite') || norm.includes('rechargement') || norm.includes('chargeur') || norm.includes('munitions') || norm.includes('echange')) cat = 'maniement'
         else cat = 'autre'
       }
-      return { nom: stat.nom, unite: '%', categorie: cat }
+      return { nom: stat.nom, unite: stat.unite ?? '', categorie: cat }
     }
 
     // Fallback pour les slugs inconnus (ex: targets de la montre)
@@ -105,8 +105,8 @@ export function useBuildStats(data) {
 
     return { 
       nom: attrSlug.replace(/_arm$|_eqp$|_mod$/, '').replace(/_shd$/, ' (Montre)').replace(/_/g, ' '), 
-      unite: '%', 
-      categorie: cat 
+      unite: '',
+      categorie: cat
     }
   }
 
@@ -144,7 +144,7 @@ export function useBuildStats(data) {
             watchStats[statId] = {
               nom: config.label || config.nom || statId,
               total: val,
-              unite: config.unite || '%',
+              unite: config.unite ?? config.unit ?? resolveAttrInfo(targetSlug).unite,
               categorie: catKey,
               slug: targetSlug,
               sourceNom: "Montre SHD"
@@ -215,8 +215,8 @@ export function useBuildStats(data) {
               setAttributeTotals[attr.slug] = { 
                 nom: info.nom, 
                 total: 0, 
-                unite: info.unite || '%', 
-                categorie: info.categorie, 
+                unite: info.unite ?? '',
+                categorie: info.categorie,
                 slug: attr.slug 
               }
             }
@@ -309,14 +309,15 @@ export function useBuildStats(data) {
       const info = resolveAttrInfo(src.slug)
       const targets = info.statistiques || [src.slug]
       targets.forEach(t => {
-        if (!globalMerged[t]) globalMerged[t] = { 
+        const targetInfo = resolveAttrInfo(t)
+        if (!globalMerged[t]) globalMerged[t] = {
           total: 0, 
-          unite: src.unite || '%',
-          categorie: src.categorie || info.categorie,
-          sources: [] 
+          unite: targetInfo.unite ?? src.unite ?? '',
+          categorie: src.categorie || targetInfo.categorie || info.categorie,
+          sources: []
         }
         globalMerged[t].total += src.total
-        globalMerged[t].sources.push({ nom: src.sourceNom, valeur: src.total, unite: src.unite })
+        globalMerged[t].sources.push({ nom: src.sourceNom, valeur: src.total, unite: src.unite ?? targetInfo.unite ?? '' })
       })
     })
 
@@ -347,19 +348,18 @@ export function useBuildStats(data) {
           wStats[t] += val
 
           if (!groupedStats[t]) {
-            const targetInfo = resolveAttrInfo(t)
             // Filtrer : On ne garde pour l'arme que ce qui est offensif ou maniement
             if (targetInfo.categorie !== 'offensif' && targetInfo.categorie !== 'maniement') return
 
             groupedStats[t] = {
               nom: targetInfo.nom,
               total: 0,
-              unite: targetInfo.unite || sourceUnite || '%',
+              unite: targetInfo.unite ?? sourceUnite ?? info.unite ?? '',
               sources: []
             }
           }
           groupedStats[t].total += val
-          groupedStats[t].sources.push({ nom: sourceNom, valeur: val, unite: sourceUnite || info.unite })
+          groupedStats[t].sources.push({ nom: sourceNom, valeur: val, unite: sourceUnite ?? info.unite ?? targetInfo.unite ?? '' })
         })
       }
 

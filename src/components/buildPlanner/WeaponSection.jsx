@@ -5,17 +5,73 @@ import WeaponPicker from './WeaponPicker'
 import WeaponTalentPicker from './WeaponTalentPicker'
 import PrototypeTalentPicker from './PrototypeTalentPicker'
 import {GameIcon, resolveAsset} from "../common/GameAssets.jsx";
+import { getWeaponTypeLabel } from '../../utils/formatters'
 
 export default function WeaponSection({ data }) {
-  const { specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods, sidearm, sidearmTalent, sidearmAttribute, sidearmMods, specialisation, SPECIALISATIONS, expertise, maxExpertiseLevel, weaponEssentialValues, prototypes, prototypeTalents, dispatch } = useBuild()
+  const { specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods, sidearm, sidearmTalent, sidearmAttribute, sidearmMods, specialisation, SPECIALISATIONS, classSpe, expertise, maxExpertiseLevel, weaponEssentialValues, prototypes, prototypeTalents, specialWeaponBonusPoints, dispatch } = useBuild()
   const [pickerOpen, setPickerOpen] = useState(null)
   const [talentPickerSlot, setTalentPickerSlot] = useState(null)
   const [protoTalentSlot, setProtoTalentSlot] = useState(null)
 
   const handleExpertise = (slot, level) => dispatch({ type: 'SET_EXPERTISE_LEVEL', slot, level })
+  const classStats = specialisation ? classSpe?.[specialisation]?.classStats : null
+  const bonusArmeConfig = classStats?.bonusArme
+  const weaponTypeChoices = Object.entries(data.armes_type || {}).filter(([, def]) => def?.type !== 'specifique')
+  const totalBonusPoints = Object.values(specialWeaponBonusPoints || {}).reduce((sum, value) => sum + (Number(value) || 0), 0)
+
+  const setBonusPoints = (weaponType, nextPoints) => {
+    if (!bonusArmeConfig) return
+    dispatch({
+      type: 'SET_SPECIAL_WEAPON_BONUS_POINT',
+      weaponType,
+      points: nextPoints,
+      maxElement: bonusArmeConfig.maxElement,
+      maxPoints: bonusArmeConfig.maxPoints,
+    })
+  }
 
   const specLabel = specialisation ? SPECIALISATIONS[specialisation]?.label : null
   const specIcon = specialisation ? <GameIcon src={resolveAsset(SPECIALISATIONS[specialisation]?.icon)} size='w-6 h-6' /> : '🎖️'
+  const specialWeaponBonusPanel = (specialWeapon && bonusArmeConfig) ? (
+    <div className="border border-purple-500/20 rounded bg-purple-900/10 p-3">
+      <div className="flex items-center justify-between gap-2 mb-2">
+        <span className="text-xs text-purple-200/80">
+          {totalBonusPoints}/{bonusArmeConfig.maxPoints} points
+        </span>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        {weaponTypeChoices.map(([weaponType]) => {
+          const points = specialWeaponBonusPoints?.[weaponType] || 0
+          const maxPerType = bonusArmeConfig.maxElement || 3
+          const bonusPercent = points * (bonusArmeConfig.valeurParPoint || 0)
+          const canIncrease = points < maxPerType && totalBonusPoints < (bonusArmeConfig.maxPoints || 9)
+          const canDecrease = points > 0
+          return (
+            <div key={weaponType} className="flex items-center justify-between gap-2 bg-black/20 border border-purple-500/10 rounded px-2 py-1.5">
+              <div className="min-w-0">
+                <div className="text-xs text-gray-300 truncate">{getWeaponTypeLabel(data.armes_type, weaponType)}</div>
+                <div className="text-2xs text-purple-300/80">+{bonusPercent}% ({points}/{maxPerType})</div>
+              </div>
+              <div className="flex items-center gap-1 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setBonusPoints(weaponType, points - 1)}
+                  disabled={!canDecrease}
+                  className="w-6 h-6 rounded border border-purple-400/30 text-purple-200 disabled:opacity-30"
+                >-</button>
+                <button
+                  type="button"
+                  onClick={() => setBonusPoints(weaponType, points + 1)}
+                  disabled={!canIncrease}
+                  className="w-6 h-6 rounded border border-purple-400/30 text-purple-200 disabled:opacity-30"
+                >+</button>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  ) : null
 
   return (
     <>
@@ -28,6 +84,13 @@ export default function WeaponSection({ data }) {
           armesType={data.armes_type}
           onSelect={() => setPickerOpen('special')}
           onRemove={() => dispatch({ type: 'REMOVE_SPECIAL_WEAPON' })}
+          expertiseSlot="special"
+          expertiseLevel={expertise?.special || 0}
+          onExpertiseChange={handleExpertise}
+          maxExpertiseLevel={maxExpertiseLevel}
+          extraPanel={specialWeaponBonusPanel}
+          extraPanelTitle="Bonus de spécialisation"
+          extraPanelDefaultOpen={false}
           badge={specLabel && (
             <span className="text-xs font-bold uppercase tracking-widest bg-purple-500/15 text-purple-400 px-1.5 py-0.5 rounded flex flex-row items-center gap-1">
               {specIcon} {specLabel}

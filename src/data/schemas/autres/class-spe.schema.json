@@ -10,7 +10,8 @@
       "required": [
         "cle",
         "nom",
-        "arme"
+        "arme",
+        "classStats"
       ],
       "properties": {
         "cle": {
@@ -157,6 +158,58 @@
               "description": "Notes libres sur l'arme"
             }
           }
+        },
+        "classStats": {
+          "type": "object",
+          "required": [
+            "bonusArme",
+            "bonusAttributs"
+          ],
+          "properties": {
+            "bonusArme": {
+              "type": "object",
+              "required": [
+                "maxPoints",
+                "maxElement",
+                "valeurParPoint"
+              ],
+              "properties": {
+                "maxPoints": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "maxElement": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "valeurParPoint": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false
+            },
+            "bonusAttributs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "nom",
+                  "valeur"
+                ],
+                "properties": {
+                  "nom": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9_]+$"
+                  },
+                  "valeur": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
         }
       }
     }

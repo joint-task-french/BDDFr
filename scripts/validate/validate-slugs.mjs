@@ -142,6 +142,13 @@ const RELATIONS = [
         targetFile: 'attributs/attributs.jsonc',
         targetKey: 'statistiques'
     },
+    {
+        name: "Class-spe -> Attributs (bonusAttributs)",
+        sourceFile: 'attributs/attributs.jsonc',
+        targetFile: 'class-spe.jsonc',
+        targetKey: 'nom',
+        targetPath: ['classStats', 'bonusAttributs']
+    },
 
     // ==========================================
     // 🛠️ MODS & COMPÉTENCES
@@ -213,12 +220,27 @@ function loadJsonc(filename) {
  * @param {Set<string>} results Set accumulateur pour éviter les doublons de traitement.
  * @returns {Set<string>}
  */
-function extractValues(data, targetKey, targetIsKey = false, results = new Set()) {
+function hasPathSequence(path, sequence = []) {
+    if (!sequence || sequence.length === 0) return true
+    let seqIndex = 0
+    for (const segment of path) {
+        if (segment === sequence[seqIndex]) {
+            seqIndex++
+            if (seqIndex === sequence.length) return true
+        }
+    }
+    return false
+}
+
+function extractValues(data, targetKey, targetIsKey = false, results = new Set(), targetPath = null, currentPath = []) {
     if (Array.isArray(data)) {
-        data.forEach(item => extractValues(item, targetKey, targetIsKey, results))
+        data.forEach((item, index) => extractValues(item, targetKey, targetIsKey, results, targetPath, [...currentPath, `[${index}]`]))
     } else if (typeof data === 'object' && data !== null) {
         for (const [key, value] of Object.entries(data)) {
             if (key === targetKey) {
+                if (targetPath && !hasPathSequence(currentPath, targetPath)) {
+                    continue
+                }
 
                 if (targetIsKey) {
                     // Extraction des clés (ex: "compatibilite": { "fusil": true, "pistolet": false })
@@ -242,7 +264,7 @@ function extractValues(data, targetKey, targetIsKey = false, results = new Set()
 
             } else {
                 // Parcours récursif en profondeur
-                extractValues(value, targetKey, targetIsKey, results)
+                extractValues(value, targetKey, targetIsKey, results, targetPath, [...currentPath, key])
             }
         }
     }
@@ -277,7 +299,7 @@ for (const rule of RELATIONS) {
     const validSlugsSet = new Set(Object.keys(sourceData))
 
     // 2. Extraction dynamique de toutes les références utilisées dans le fichier cible
-    const usedSlugsSet = extractValues(targetData, rule.targetKey, rule.targetIsKey)
+    const usedSlugsSet = extractValues(targetData, rule.targetKey, rule.targetIsKey, new Set(), rule.targetPath)
 
     // 3. Identification des erreurs
     const invalidReferences = []

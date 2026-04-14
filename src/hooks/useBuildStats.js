@@ -182,7 +182,8 @@ export function useBuildStats(data) {
     const setAttributeTotals = {}
     const gearSets = []
     const brandSets = []
-    
+    const classStats = build.specialisation ? build.classSpe?.[build.specialisation]?.classStats : null
+
     const parseAndAddBonus = (bonus) => {
       if (!bonus) return
       if (typeof bonus === 'string') {
@@ -306,6 +307,13 @@ export function useBuildStats(data) {
     // Ajouter les bonus d'ensemble calculés précédemment
     Object.values(setAttributeTotals).forEach(entry => {
       addStatToGear(entry.slug, entry.total, entry.categorie)
+    })
+
+    // Ajouter les bonus globaux de spécialisation (classStats.bonusAttributs)
+    ;(classStats?.bonusAttributs || []).forEach(attr => {
+      if (!attr?.nom || attr.valeur == null) return
+      const info = resolveAttrInfo(attr.nom)
+      addStatToGear(attr.nom, attr.valeur, info.categorie)
     })
 
     // --------------------------------------------------------------------------
@@ -505,6 +513,13 @@ export function useBuildStats(data) {
         const val = ess.valeur != null ? ess.valeur : (essVals[slug] != null ? essVals[slug] : attrDef.max)
         addStat(slug, val, "Bonus de type")
       })
+
+      // Bonus d'arme de spécialisation: points configurés par type d'arme
+      const configuredPoints = Number(build.specialWeaponBonusPoints?.[slot.data.type] || 0)
+      const valuePerPoint = Number(classStats?.bonusArme?.valeurParPoint || 0)
+      if (configuredPoints > 0 && valuePerPoint > 0 && typeData?.statistique) {
+        addStat(typeData.statistique, configuredPoints * valuePerPoint, 'Bonus arme spécialisation')
+      }
 
       // Bonus d'expertise de l'arme
       const expertiseLvl = build.expertise?.[slot.key] || 0

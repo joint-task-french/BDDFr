@@ -7,6 +7,7 @@ import { apiBuildotheque } from '../../utils/apiBuildotheque'
 export default function BuildActions({ data }) {
   const {
     specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods,
+    specialWeaponBonusPoints,
     sidearm, sidearmTalent, sidearmAttribute, sidearmMods,
     gear, gearTalents, gearAttributes, gearMods,
     skills, skillMods, modValues,
@@ -46,7 +47,7 @@ export default function BuildActions({ data }) {
       type: 'confirm',
       onConfirm: (val) => {
         setDialog(p => ({ ...p, open: false }))
-        if (val) onConfirm()
+        if (val !== false) onConfirm()
       },
       onCancel: () => setDialog(p => ({ ...p, open: false }))
     }))
@@ -71,6 +72,7 @@ export default function BuildActions({ data }) {
 
   const buildState = {
     specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods,
+    specialWeaponBonusPoints,
     sidearm, sidearmTalent, sidearmAttribute, sidearmMods,
     gear, gearTalents, gearAttributes, gearMods,
     skills, skillMods, modValues,

@@ -9,6 +9,8 @@ const STORAGE_KEY = 'div2_current_build'
 const getDefaultState = () => ({
     // Arme spécifique (signature) — détermine la spécialisation
     specialWeapon: null,
+    // Répartition des points bonusArme de la spécialisation: { [weaponType]: points }
+    specialWeaponBonusPoints: {},
     // Armes classiques : primaire, secondaire
     weapons: [null, null],
     weaponTalents: [null, null],
@@ -42,6 +44,7 @@ const getDefaultState = () => ({
     expertise: {
       weapon0: 0, weapon1: 0, sidearm: 0,
       masque: 0, torse: 0, holster: 0, sac_a_dos: 0, gants: 0, genouilleres: 0,
+      special: 0,
     },
     // Prototypes : booleans par slot
     prototypes: {
@@ -66,7 +69,13 @@ const getInitialState = () => {
       const parsed = JSON.parse(saved)
       // On s'assure de fusionner avec les niveaux de la montre actuels 
       // pour que les changements dans la page Montre soient reflétés
-      return { ...defaultState, ...parsed, shdLevels: getSHDLevels() }
+      return {
+        ...defaultState,
+        ...parsed,
+        expertise: { ...defaultState.expertise, ...(parsed.expertise || {}) },
+        specialWeaponBonusPoints: { ...(parsed.specialWeaponBonusPoints || {}) },
+        shdLevels: getSHDLevels(),
+      }
     }
   } catch (e) {
     console.error("Failed to load build from localStorage", e)
@@ -77,10 +86,42 @@ const getInitialState = () => {
 function buildReducer(state, action) {
   switch (action.type) {
     case 'SET_SPECIAL_WEAPON': {
-      return { ...state, specialWeapon: action.weapon }
+      return {
+        ...state,
+        specialWeapon: action.weapon,
+        specialWeaponBonusPoints: {},
+        expertise: { ...state.expertise, special: 0 },
+      }
     }
     case 'REMOVE_SPECIAL_WEAPON': {
-      return { ...state, specialWeapon: null }
+      return {
+        ...state,
+        specialWeapon: null,
+        specialWeaponBonusPoints: {},
+        expertise: { ...state.expertise, special: 0 },
+      }
+    }
+    case 'SET_SPECIAL_WEAPON_BONUS_POINT': {
+      const weaponType = action.weaponType
+      if (!weaponType) return state
+      const maxElement = Number.isFinite(action.maxElement) ? action.maxElement : 3
+      const maxPoints = Number.isFinite(action.maxPoints) ? action.maxPoints : 9
+      const requested = Math.max(0, Math.min(maxElement, action.points || 0))
+
+      const current = { ...(state.specialWeaponBonusPoints || {}) }
+      const otherTotal = Object.entries(current)
+        .filter(([key]) => key !== weaponType)
+        .reduce((sum, [, value]) => sum + (Number(value) || 0), 0)
+      const allowedForType = Math.max(0, maxPoints - otherTotal)
+      const nextValue = Math.min(requested, allowedForType)
+
+      if (nextValue <= 0) {
+        delete current[weaponType]
+      } else {
+        current[weaponType] = nextValue
+      }
+
+      return { ...state, specialWeaponBonusPoints: current }
     }
     case 'SET_WEAPON': {
       const weapons = [...state.weapons]
@@ -275,7 +316,14 @@ function buildReducer(state, action) {
       const shdFromBuild = action.build.shdLevels || {};
       const mergedShd = { ...getSHDLevels(), ...shdFromBuild };
       const defaultState = getDefaultState();
-      return { ...defaultState, ...action.build, editingInfo: action.editingInfo || null, shdLevels: mergedShd }
+      return {
+        ...defaultState,
+        ...action.build,
+        expertise: { ...defaultState.expertise, ...(action.build.expertise || {}) },
+        specialWeaponBonusPoints: { ...(action.build.specialWeaponBonusPoints || {}) },
+        editingInfo: action.editingInfo || null,
+        shdLevels: mergedShd,
+      }
     }
     case 'SET_EDITING_INFO':
       return { ...state, editingInfo: action.editingInfo }
@@ -344,7 +392,12 @@ export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
   // Sauvegarder le build dans le localStorage à chaque changement
   useEffect(() => {
     // Éviter de sauvegarder si le state est vide (on peut vérifier gear par exemple)
-    const hasContent = state.weapons.some(Boolean) || state.sidearm || Object.values(state.gear).some(Boolean)
+    const hasContent =
+      state.specialWeapon ||
+      state.weapons.some(Boolean) ||
+      state.sidearm ||
+      Object.values(state.gear).some(Boolean) ||
+      state.skills.some(Boolean)
     if (hasContent) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
     } else {

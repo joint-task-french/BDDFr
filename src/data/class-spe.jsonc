@@ -20,6 +20,23 @@
       "talents": [],
       "attributs": [],
       "attributs_essentiels": []
+    },
+    "classStats": {
+      "bonusArme": {
+        "maxPoints": 9,
+        "maxElement": 3,
+        "valeurParPoint": 5
+      },
+      "bonusAttributs": [
+        {
+          "nom": "degats_sur_cible_non_abritee_eqp",
+          "valeur": 5
+        },
+        {
+          "nom": "protection_impulsion_eqp",
+          "valeur": 50
+        }
+      ]
     }
   },
   "survivaliste": {
@@ -42,6 +59,27 @@
       "talents": [],
       "attributs": [],
       "attributs_essentiels": []
+    },
+    "classStats": {
+      "bonusArme": {
+        "maxPoints": 9,
+        "maxElement": 3,
+        "valeurParPoint": 5
+      },
+      "bonusAttributs": [
+        {
+          "nom": "protection_impulsion_eqp",
+          "valeur": 50
+        },
+        {
+          "nom": "protection_contre_ennemi_elite_mod",
+          "valeur": 10
+        },
+        {
+          "nom": "recup_de_competence_eqp",
+          "valeur": 10
+        }
+      ]
     }
   },
   "tireur_elite": {
@@ -64,6 +102,27 @@
       "talents": [],
       "attributs": [],
       "attributs_essentiels": []
+    },
+    "classStats": {
+      "bonusArme": {
+        "maxPoints": 9,
+        "maxElement": 3,
+        "valeurParPoint": 5
+      },
+      "bonusAttributs": [
+        {
+          "nom": "protection_impulsion_eqp",
+          "valeur": 50
+        },
+        {
+          "nom": "degats_de_headshot_eqp",
+          "valeur": 15
+        },
+        {
+          "nom": "stabilite_eqp",
+          "valeur": 15
+        }
+      ]
     }
   },
   "artilleur": {
@@ -86,6 +145,23 @@
       "talents": [],
       "attributs": [],
       "attributs_essentiels": []
+    },
+    "classStats": {
+      "bonusArme": {
+        "maxPoints": 9,
+        "maxElement": 3,
+        "valeurParPoint": 5
+      },
+      "bonusAttributs": [
+        {
+          "nom": "protection_pour_eliminations_eqp",
+          "valeur": 10
+        },
+        {
+          "nom": "protection_impulsion_eqp",
+          "valeur": 50
+        }
+      ]
     }
   },
   "technicien": {
@@ -108,6 +184,23 @@
       "talents": [],
       "attributs": [],
       "attributs_essentiels": []
+    },
+    "classStats": {
+      "bonusArme": {
+        "maxPoints": 9,
+        "maxElement": 3,
+        "valeurParPoint": 5
+      },
+      "bonusAttributs": [
+        {
+          "nom": "tiers_de_competence",
+          "valeur": 1
+        },
+        {
+          "nom": "protection_impulsion_eqp",
+          "valeur": 50
+        }
+      ]
     }
   },
   "incendiaire": {
@@ -130,6 +223,19 @@
       "talents": [],
       "attributs": [],
       "attributs_essentiels": []
+    },
+    "classStats": {
+      "bonusArme": {
+        "maxPoints": 9,
+        "maxElement": 3,
+        "valeurParPoint": 5
+      },
+      "bonusAttributs": [
+        {
+          "nom": "protection_impulsion_eqp",
+          "valeur": 50
+        }
+      ]
     }
   }
 }

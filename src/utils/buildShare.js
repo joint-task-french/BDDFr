@@ -1,7 +1,7 @@
 import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 
 const GEAR_ORDER = ['masque', 'torse', 'holster', 'sac_a_dos', 'gants', 'genouilleres']
-const ALL_SLOTS = ['weapon0', 'weapon1', 'sidearm', ...GEAR_ORDER]
+const ALL_SLOTS = ['weapon0', 'weapon1', 'sidearm', ...GEAR_ORDER, 'special']
 
 function trimArray(arr) {
   if (!arr || !Array.isArray(arr)) return null
@@ -61,7 +61,8 @@ export function encodeBuild(state) {
     trimArray(ALL_SLOTS.map(slot => state.prototypeTalents?.[slot] ? (state.prototypeTalents[slot].slug || state.prototypeTalents[slot].nom) : null)),
     Object.keys(wev).length > 0 ? wev : null,
     mv,
-    state.shdLevels && Object.values(state.shdLevels).some(l => l > 0) ? state.shdLevels : null
+    state.shdLevels && Object.values(state.shdLevels).some(l => l > 0) ? state.shdLevels : null,
+    state.specialWeaponBonusPoints && Object.keys(state.specialWeaponBonusPoints).length > 0 ? state.specialWeaponBonusPoints : null
   ]
 
   const finalArr = trimArray(arr) || []
@@ -99,6 +100,7 @@ export function decodeBuild(encoded) {
       if (arr[18]) compact.wev = arr[18]
       if (arr[19]) compact.mv = arr[19]
       if (arr[20]) compact.shd = arr[20]
+      if (arr[21]) compact.swbp = arr[21]
 
       return compact
     }
@@ -256,7 +258,7 @@ export function resolveBuild(compact, data) {
   })
   while (build.skillMods.length < 2) build.skillMods.push(null)
 
-  build.expertise = { weapon0: 0, weapon1: 0, sidearm: 0, masque: 0, torse: 0, holster: 0, sac_a_dos: 0, gants: 0, genouilleres: 0 }
+  build.expertise = { weapon0: 0, weapon1: 0, sidearm: 0, masque: 0, torse: 0, holster: 0, sac_a_dos: 0, gants: 0, genouilleres: 0, special: 0 }
   if (compact.exp) {
     if (Array.isArray(compact.exp)) {
       ALL_SLOTS.forEach((slot, i) => { if (compact.exp[i]) build.expertise[slot] = compact.exp[i] })
@@ -300,6 +302,8 @@ export function resolveBuild(compact, data) {
     degats_competence: 0, recuperation_competence: 0, duree_competence: 0, reparation_competence: 0,
     precision: 0, stabilite: 0, vitesse_rechargement: 0, vitesse_echange: 0
   }
+
+  build.specialWeaponBonusPoints = compact.swbp || {}
 
   return build
 }

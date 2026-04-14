@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { getWeaponTypeLabel, getWeaponEssentialAttributes } from '../../utils/formatters'
 import MarkdownText from '../common/MarkdownText'
 import StatChip from '../common/StatChip'
@@ -10,7 +11,7 @@ const HEADER_COLORS = {
     gray:   { bg: 'bg-gray-500/10',   border: 'border-gray-500/30',   text: 'text-gray-400',   hover: 'group-hover:text-gray-500/50' },
 }
 
-export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch, data, isPrototype, prototypeTalent, onSelectPrototypeTalent }) {
+export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch, data, isPrototype, prototypeTalent, onSelectPrototypeTalent, extraPanel, extraPanelTitle = 'Options', extraPanelDefaultOpen = false }) {
     const colors = HEADER_COLORS[headerColor] || HEADER_COLORS.red
     const isExotic = weapon?.estExotique
     const isNamed = weapon?.estNomme
@@ -30,6 +31,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
     const headerText = isPrototype ? 'text-cyan-400' : (isNamed ? 'text-shd' : 'text-blue-400')
 
     const nameColor = isPrototype ? 'text-cyan-400' : 'text-white'
+    const [isExtraPanelOpen, setIsExtraPanelOpen] = useState(extraPanelDefaultOpen)
 
     return (
         <div className="build-slot group" onClick={weapon ? undefined : onSelect}>
@@ -132,6 +134,23 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                     maxLevel={maxExpertiseLevel}
                                     disabled={isPrototype}
                                 />
+                            </div>
+                        )}
+                        {extraPanel && (
+                            <div className="mt-3 pt-3 border-t border-tactical-border">
+                                <button
+                                    type="button"
+                                    onClick={(e) => { e.stopPropagation(); setIsExtraPanelOpen(v => !v) }}
+                                    className="w-full flex items-center justify-between text-xs text-purple-300 font-bold uppercase tracking-widest hover:text-purple-200"
+                                >
+                                    <span>{extraPanelTitle}</span>
+                                    <span className="text-gray-500">{isExtraPanelOpen ? '▾' : '▸'}</span>
+                                </button>
+                                {isExtraPanelOpen && (
+                                    <div className="mt-2">
+                                        {extraPanel}
+                                    </div>
+                                )}
                             </div>
                         )}
                         {/* Talents exotiques (depuis talents[]) — non modifiables */}

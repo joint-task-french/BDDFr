@@ -284,6 +284,7 @@ export function useBuildStats(data) {
       const attrs = build.gearAttributes?.[slot]
       if (attrs) {
         [...(attrs.essentiels || []), ...(attrs.classiques || [])].forEach(a => {
+          if (!a) return
           if (a.valeur != null) addStatToGear(a.slug || a.nom, a.valeur, a.categorie)
         })
       }
@@ -482,6 +483,7 @@ export function useBuildStats(data) {
       // Initialiser avec les stats globales (Équipement + Montre)
       Object.entries(globalMerged).forEach(([slug, entry]) => {
         entry.sources.forEach(src => {
+          if (!src || src.valeur == null) return
           addStat(slug, src.valeur, src.nom, src.unite)
         })
       })
@@ -489,6 +491,7 @@ export function useBuildStats(data) {
       // Ajouter les attributs spécifiques à l'arme
       const ownAttrs = Array.isArray(slot.attrs) ? slot.attrs : (slot.attrs ? [slot.attrs] : [])
       ownAttrs.forEach(a => {
+        if (!a) return
         addStat(a.slug || a.nom, a.valeur, "Attribut d'arme")
       })
 
@@ -701,6 +704,7 @@ function calculateCores(gearAttributes, gear, ensemblesMap, attributsRepo) {
     const attrs = gearAttributes?.[slot]
     if (attrs?.essentiels && attrs.essentiels.length > 0) {
       attrs.essentiels.forEach(ess => {
+        if (!ess) return
         const nc = normCat(ess.categorie)
         if (counts[nc] !== undefined) {
           counts[nc]++

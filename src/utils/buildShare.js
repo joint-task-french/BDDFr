@@ -216,16 +216,16 @@ export function resolveBuild(compact, data) {
       GEAR_ORDER.forEach((slot, i) => {
         if (compact.ga[i]) {
           build.gearAttributes[slot] = {
-            essentiels: (compact.ga[i][0] || []).map(a => resolveAttr(a)),
-            classiques: (compact.ga[i][1] || []).map(a => resolveAttr(a)),
+            essentiels: (compact.ga[i][0] || []).map(a => resolveAttr(a)).filter(Boolean),
+            classiques: (compact.ga[i][1] || []).map(a => resolveAttr(a)).filter(Boolean),
           }
         }
       })
     } else {
       for (const [slot, entry] of Object.entries(compact.ga)) {
         build.gearAttributes[slot] = {
-          essentiels: (entry.e || []).map(a => resolveAttr(a)),
-          classiques: (entry.c || []).map(a => resolveAttr(a)),
+          essentiels: (entry.e || []).map(a => resolveAttr(a)).filter(Boolean),
+          classiques: (entry.c || []).map(a => resolveAttr(a)).filter(Boolean),
         }
       }
     }

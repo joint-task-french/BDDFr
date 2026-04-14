@@ -39,6 +39,7 @@ const VALIDATIONS = [
   { data: 'armes/mods-armes.jsonc', schema: 'armes/mods-armes.schema.json' },
   { data: 'equipements/mods-equipements.jsonc', schema: 'equipements/mods-equipements.schema.json' },
   { data: 'mods-competences.jsonc', schema: 'autres/mods-competences.schema.json' },
+  { data: 'montre/montre.jsonc', schema: 'autres/montre.schema.json' },
   { data: 'armes/mods-armes-type.jsonc', schema: 'types/mods-armes-type.schema.json' },
   { data: 'metadata.jsonc', schema: 'autres/metadata.schema.json' },
   { data: 'builds/builds.jsonc', schema: 'autres/builds.schema.json' },

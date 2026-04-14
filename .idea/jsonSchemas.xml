@@ -215,6 +215,23 @@
             </SchemaInfo>
           </value>
         </entry>
+        <entry key="montre.schema">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="montre.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/autres/montre.schema.json" />
+              <option name="schemaVersion" value="JSON Schema 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/data/montre/montre.jsonc" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
         <entry key="mods-armes-type.schema">
           <value>
             <SchemaInfo>

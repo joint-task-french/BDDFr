@@ -69,6 +69,10 @@
             "url": "./src/data/schemas/autres/metadata.schema.json"
         },
         {
+            "fileMatch": ["/src/data/montre/montre.jsonc"],
+            "url": "./src/data/schemas/autres/montre.schema.json"
+        },
+        {
             "fileMatch": ["/src/data/attributs/statistiques.jsonc"],
             "url": "./src/data/schemas/common/statistiques.schema.json"
         },

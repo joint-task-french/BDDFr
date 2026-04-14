@@ -122,11 +122,11 @@
           "statistique": "vitesse_rechargement"
         },
         "capacite_munitions": {
-          "ratio": 0.2,
+          "ratio": 0.4,
           "label": "Capacité de munitions",
           "max": 20,
           "unit": "%",
-          "step": 0.2,
+          "step": 0.4,
           "statistique": "capacite_munitions"
         }
       }

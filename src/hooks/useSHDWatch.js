@@ -1,43 +1,33 @@
 import { useState, useEffect } from 'react';
 
-// Charger le fichier JSONC de la montre pour en extraire les clés dynamiquement
-const rawMontre = import.meta.glob('../data/montre/montre.jsonc', { query: '?raw', eager: true, import: 'default' })['../data/montre/montre.jsonc'];
-
-function stripJsonComments(text) {
-  if (!text) return '';
-  let cleanText = text.replace(/^\uFEFF/, '');
-  return cleanText.replace(/("(?:\\.|[^\\"])*")|(\/\*[\s\S]*?\*\/)|(\/\/(?:.*)$)/gm, (match, string) => {
-    if (string) return string;
-    return '';
-  });
-}
-
-const config = JSON.parse(stripJsonComments(rawMontre));
-const DEFAULT_SHD_LEVELS = {};
-
-// Extraire toutes les stats de la config pour initialiser les niveaux à 0
-if (config && config.categories) {
-  Object.values(config.categories).forEach(cat => {
-    if (cat.stats) {
-      Object.keys(cat.stats).forEach(statId => {
-        DEFAULT_SHD_LEVELS[statId] = 0;
-      });
-    }
-  });
-}
-
 const STORAGE_KEY = 'div2_shd_watch';
 
-export function getSHDLevels() {
+function buildDefaultLevels(montreConfig) {
+  const defaults = {};
+  if (!montreConfig?.categories) return defaults;
+
+  Object.values(montreConfig.categories).forEach(cat => {
+    if (!cat?.stats) return;
+    Object.keys(cat.stats).forEach(statId => {
+      defaults[statId] = 0;
+    });
+  });
+
+  return defaults;
+}
+
+export function getSHDLevels(montreConfig) {
+  const defaults = buildDefaultLevels(montreConfig);
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
-      return { ...DEFAULT_SHD_LEVELS, ...JSON.parse(saved) };
+      const parsed = JSON.parse(saved);
+      return { ...defaults, ...parsed };
     }
   } catch (e) {
     console.error("Failed to load SHD levels", e);
   }
-  return { ...DEFAULT_SHD_LEVELS };
+  return { ...defaults };
 }
 
 export function saveSHDLevels(levels) {
@@ -50,16 +40,20 @@ export function saveSHDLevels(levels) {
   }
 }
 
-export function useSHDWatch() {
-  const [shdLevels, setShdLevels] = useState(getSHDLevels());
+export function useSHDWatch(montreConfig) {
+  const [shdLevels, setShdLevels] = useState(() => getSHDLevels(montreConfig));
 
   useEffect(() => {
     const handleUpdate = () => {
-      setShdLevels(getSHDLevels());
+      setShdLevels(getSHDLevels(montreConfig));
     };
     window.addEventListener('shd-levels-updated', handleUpdate);
     return () => window.removeEventListener('shd-levels-updated', handleUpdate);
-  }, []);
+  }, [montreConfig]);
+
+  useEffect(() => {
+    setShdLevels(getSHDLevels(montreConfig));
+  }, [montreConfig]);
 
   const updateStat = (statId, level) => {
     const newLevels = { ...shdLevels, [statId]: level };
@@ -68,8 +62,10 @@ export function useSHDWatch() {
   };
 
   const setAllToMax = () => {
+    const defaultLevels = buildDefaultLevels(montreConfig);
+    const keys = Object.keys(defaultLevels).length > 0 ? Object.keys(defaultLevels) : Object.keys(shdLevels || {});
     const newLevels = {};
-    Object.keys(DEFAULT_SHD_LEVELS).forEach(key => {
+    keys.forEach(key => {
       newLevels[key] = 50;
     });
     setShdLevels(newLevels);
@@ -77,8 +73,9 @@ export function useSHDWatch() {
   };
 
   const resetAll = () => {
-    setShdLevels(DEFAULT_SHD_LEVELS);
-    saveSHDLevels(DEFAULT_SHD_LEVELS);
+    const defaultLevels = buildDefaultLevels(montreConfig);
+    setShdLevels(defaultLevels);
+    saveSHDLevels(defaultLevels);
   };
 
   return {

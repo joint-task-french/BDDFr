@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Montre SHD — The Division 2",
+  "type": "object",
+  "required": ["categories", "max_points_per_stat"],
+  "properties": {
+    "categories": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "label", "color", "bgColor", "borderColor", "accentColor", "icon", "stats"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "color": { "type": "string", "minLength": 1 },
+          "bgColor": { "type": "string", "minLength": 1 },
+          "borderColor": { "type": "string", "minLength": 1 },
+          "accentColor": { "type": "string", "minLength": 1 },
+          "icon": { "type": "string", "minLength": 1 },
+          "stats": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": {
+              "type": "object",
+              "required": ["ratio", "label", "max", "step"],
+              "properties": {
+                "ratio": { "type": "number" },
+                "label": { "type": "string", "minLength": 1 },
+                "max": { "type": "number", "minimum": 0 },
+                "unit": { "type": "string" },
+                "unite": { "type": "string" },
+                "step": { "type": "number", "exclusiveMinimum": 0 },
+                "target": { "type": "string" },
+                "statistique": { "type": "string" }
+              },
+              "additionalProperties": false,
+              "anyOf": [
+                { "required": ["unit"] },
+                { "required": ["unite"] }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "max_points_per_stat": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}
+

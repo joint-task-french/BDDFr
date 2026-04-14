@@ -28,6 +28,15 @@ function normCat(cat) {
   return cat.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
 }
 
+function inferUnitFromSources(sources = []) {
+  const nonEmptyUnits = sources
+    .map(s => s?.unite)
+    .filter(u => typeof u === 'string' && u.trim() !== '')
+  if (nonEmptyUnits.length === 0) return ''
+  const uniqueUnits = [...new Set(nonEmptyUnits)]
+  return uniqueUnits.length === 1 ? uniqueUnits[0] : ''
+}
+
 /**
  * Hook qui calcule toutes les statistiques du build actuel.
  */
@@ -321,6 +330,10 @@ export function useBuildStats(data) {
       })
     })
 
+    Object.values(globalMerged).forEach(entry => {
+      if (!entry.unite) entry.unite = inferUnitFromSources(entry.sources)
+    })
+
     // --------------------------------------------------------------------------
     // 6: Récupération des statistiques des armes (chaque arme séparément fusionnée)
     // --------------------------------------------------------------------------
@@ -404,6 +417,10 @@ export function useBuildStats(data) {
       if (expertiseLvl > 0) {
         addStat('degats_arme', expertiseLvl, "Expertise")
       }
+
+      Object.values(groupedStats).forEach(entry => {
+        if (!entry.unite) entry.unite = inferUnitFromSources(entry.sources)
+      })
       
       // --------------------------------------------------------------------------
       // Calcul des dégâts selon la formule :

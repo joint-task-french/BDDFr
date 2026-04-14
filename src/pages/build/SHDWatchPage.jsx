@@ -6,7 +6,7 @@ import Loader from '../../components/common/Loader';
 
 export default function SHDWatchPage() {
   const { data, loading } = useDataLoader();
-  const { shdLevels, updateStat, setAllToMax, resetAll } = useSHDWatch();
+  const { shdLevels, updateStat, setAllToMax, resetAll } = useSHDWatch(data.montre);
 
   // On utilise les catégories depuis les données JSONC si disponibles
   const SHD_CATEGORIES = useMemo(() => {

@@ -132,7 +132,7 @@ export default function SHDWatchPage() {
                       size="w-8 h-8"
                     />
                   </div>
-                  <span className={`text-[10px] md:text-xs font-bold uppercase tracking-widest ${isActive ? 'text-shd' : 'text-gray-500'}`}>
+                  <span className={`text-xs md:text-xs font-bold uppercase tracking-widest ${isActive ? 'text-shd' : 'text-gray-500'}`}>
                     {cat.label}
                   </span>
                 </button>
@@ -222,12 +222,12 @@ export default function SHDWatchPage() {
                       <h3 className={`text-xl font-black uppercase tracking-widest ${currentCategory.color}`}>
                         {currentCategory.label}
                       </h3>
-                      <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Amélioration de l'agent</p>
+                      <p className="text-xs text-gray-500 uppercase tracking-widest font-bold">Amélioration de l'agent</p>
                     </div>
                   </div>
                   
                   <div className="text-right hidden sm:block">
-                    <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Points attribués</div>
+                    <div className="text-xs text-gray-500 uppercase tracking-widest font-bold mb-1">Points attribués</div>
                     <div className={`text-2xl font-black ${currentCategory.color}`}>
                       {currentCategory.stats.reduce((acc, s) => acc + (shdLevels?.[s.id] || 0), 0)}
                       <span className="text-gray-600 text-sm ml-1">/ 200</span>
@@ -253,7 +253,7 @@ export default function SHDWatchPage() {
                             </div>
                           </div>
                           <div className="text-right">
-                            <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold block">Niveau</span>
+                            <span className="text-xs text-gray-500 uppercase tracking-widest font-bold block">Niveau</span>
                             <span className="text-xl font-black text-white leading-none">
                               {level}<span className="text-gray-600 text-sm">/{maxLevel}</span>
                             </span>
@@ -291,7 +291,7 @@ export default function SHDWatchPage() {
                 {/* Footer informatif */}
                 <div className="px-6 py-4 bg-black/40 border-t border-tactical-border flex justify-between items-center">
                   <div className="flex items-center gap-4">
-                    <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Progression totale montre</div>
+                    <div className="text-xs text-gray-500 uppercase tracking-widest font-bold">Progression totale montre</div>
                     <div className="flex items-center gap-2">
                       <div className="w-32 h-1 bg-gray-800 rounded-full overflow-hidden">
                         <div className="h-full bg-shd" style={{ width: `${(totalPoints / 800) * 100}%` }}></div>

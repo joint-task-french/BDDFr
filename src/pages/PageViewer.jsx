@@ -260,7 +260,7 @@ export default function PageViewer() {
                                             }`}
                                             disabled={isDisabled}
                                         >
-                                            {tag} <span className="text-[10px] opacity-60">({count})</span>
+                                            {tag} <span className="text-xs opacity-60">({count})</span>
                                         </button>
                                     );
                                 })}

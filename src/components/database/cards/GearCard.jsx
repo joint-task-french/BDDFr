@@ -252,7 +252,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                         <div key={i} className="text-xs flex items-center gap-1.5 justify-between">
                           <div className="flex items-center gap-1.5 text-shd">
                             <GameIcon src={resolveAsset(resolveAttribut(attr.ref || { categorie: attr.slug, estEssentiel: true }))} alt="" size="w-3.5 h-3.5" />
-                            <span className="opacity-80">{attr.label} {attr.isRandom && <span className="text-[10px] opacity-50">(Aléatoire)</span>} :</span>
+                            <span className="opacity-80">{attr.label} {attr.isRandom && <span className="text-xs opacity-50">(Aléatoire)</span>} :</span>
                           </div>
                           <span className={`font-bold ${isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
                             {isSkillTier ? (
@@ -265,7 +265,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                     )
                   })}
                   {attrsEssentiels.includes('random') && (
-                      <div className="text-[10px] text-blue-400/60 italic mt-1 px-1 border-l border-blue-400/20">
+                      <div className="text-xs text-blue-400/60 italic mt-1 px-1 border-l border-blue-400/20">
                         Note: Un seul de ces attributs est présent (aléatoire).
                       </div>
                   )}

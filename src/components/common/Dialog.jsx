@@ -132,7 +132,7 @@ export default function Dialog({
                   />
                   {maxInputLength && (
                     <div className="flex justify-end mt-1">
-                      <span className={`text-[10px] uppercase font-bold tracking-tighter ${inputValue.length >= maxInputLength ? 'text-red-400' : 'text-gray-600'}`}>
+                      <span className={`text-xs uppercase font-bold tracking-tighter ${inputValue.length >= maxInputLength ? 'text-red-400' : 'text-gray-600'}`}>
                         {inputValue.length} / {maxInputLength}
                       </span>
                     </div>
@@ -154,7 +154,7 @@ export default function Dialog({
                     />
                     {maxDescriptionLength && (
                       <div className="flex justify-end mt-1">
-                        <span className={`text-[10px] uppercase font-bold tracking-tighter ${description.length >= maxDescriptionLength ? 'text-red-400' : 'text-gray-600'}`}>
+                        <span className={`text-xs uppercase font-bold tracking-tighter ${description.length >= maxDescriptionLength ? 'text-red-400' : 'text-gray-600'}`}>
                           {description.length} / {maxDescriptionLength}
                         </span>
                       </div>

@@ -72,8 +72,6 @@ const getInitialState = () => {
   return defaultState
 }
 
-const INITIAL_STATE = getInitialState()
-
 function buildReducer(state, action) {
   switch (action.type) {
     case 'SET_SPECIAL_WEAPON': {
@@ -274,14 +272,15 @@ function buildReducer(state, action) {
     case 'LOAD_BUILD': {
       const shdFromBuild = action.build.shdLevels || {};
       const mergedShd = { ...getSHDLevels(), ...shdFromBuild };
-      return { ...INITIAL_STATE, ...action.build, editingInfo: action.editingInfo || null, shdLevels: mergedShd }
+      const defaultState = getInitialState();
+      return { ...defaultState, ...action.build, editingInfo: action.editingInfo || null, shdLevels: mergedShd }
     }
     case 'SET_EDITING_INFO':
       return { ...state, editingInfo: action.editingInfo }
     case 'CLEAR_EDITING_INFO':
       return { ...state, editingInfo: null }
     case 'RESET':
-      return { ...INITIAL_STATE }
+      return getInitialState()
     default:
       return state
   }
@@ -305,8 +304,11 @@ export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
       }
       return { ...state, prototypes, expertise, prototypeTalents }
     }
+    if (action.type === 'RESET') {
+      return getInitialState()
+    }
     return buildReducer(state, action)
-  }, INITIAL_STATE)
+  }, undefined, getInitialState)
 
   // Initialize specialisation cache from data
   const SPECIALISATIONS = useMemo(() => getSpecialisations(classSpe), [classSpe])
@@ -328,8 +330,9 @@ export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
 
   // Sauvegarder le build dans le localStorage à chaque changement
   useEffect(() => {
-    // On ne veut pas sauvegarder un state vide ou initial si on vient de charger
-    if (state !== INITIAL_STATE) {
+    // Éviter de sauvegarder si le state est vide (on peut vérifier gear par exemple)
+    const hasContent = state.weapons.some(Boolean) || state.sidearm || Object.values(state.gear).some(Boolean)
+    if (hasContent) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
     }
   }, [state])

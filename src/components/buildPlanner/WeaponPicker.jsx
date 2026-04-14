@@ -122,7 +122,7 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-[10px] font-bold uppercase tracking-widest bg-purple-500/15 text-purple-400 px-1.5 py-0.5 rounded inline-block mb-1">
+                <div className="text-xs font-bold uppercase tracking-widest bg-purple-500/15 text-purple-400 px-1.5 py-0.5 rounded inline-block mb-1">
                   {w._specNom}
                 </div>
                 <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-purple-400 transition-colors truncate">

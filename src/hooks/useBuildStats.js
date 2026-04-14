@@ -69,10 +69,10 @@ export function useBuildStats(data) {
       }
       if (!cat) {
         const norm = attrSlug.toLowerCase()
-        if (norm.includes('degat') || norm.includes('critique') || norm.includes('headshot') || norm.includes('arme') || norm.includes('sante')) cat = 'offensif'
-        else if (norm.includes('protect') || norm.includes('armure') || norm.includes('resistance')) cat = 'defensif'
+        if (norm.includes('degat') || norm.includes('critique') || norm.includes('headshot') || norm.includes('arme') || norm.includes('cadence')) cat = 'offensif'
+        else if (norm.includes('protect') || norm.includes('armure') || norm.includes('resistance') || norm.includes('sante')) cat = 'defensif'
         else if (norm.includes('competence') || norm.includes('recup') || norm.includes('duree')) cat = 'utilitaire'
-        else if (norm.includes('maniement') || norm.includes('precision') || norm.includes('stabilite') || norm.includes('rechargement')) cat = 'maniement'
+        else if (norm.includes('maniement') || norm.includes('precision') || norm.includes('stabilite') || norm.includes('rechargement') || norm.includes('chargeur') || norm.includes('munitions') || norm.includes('echange')) cat = 'maniement'
         else cat = 'autre'
       }
       return { nom: stat.nom, unite: '%', categorie: cat }
@@ -97,10 +97,10 @@ export function useBuildStats(data) {
     }
     
     if (cat === 'autre') {
-      if (norm.includes('degat') || norm.includes('critique') || norm.includes('headshot') || norm.includes('arme') || norm.includes('sante')) cat = 'offensif'
-      else if (norm.includes('protect') || norm.includes('armure') || norm.includes('resistance')) cat = 'defensif'
+      if (norm.includes('degat') || norm.includes('critique') || norm.includes('headshot') || norm.includes('arme') || norm.includes('cadence')) cat = 'offensif'
+      else if (norm.includes('protect') || norm.includes('armure') || norm.includes('resistance') || norm.includes('sante')) cat = 'defensif'
       else if (norm.includes('competence') || norm.includes('recup') || norm.includes('duree')) cat = 'utilitaire'
-      else if (norm.includes('maniement') || norm.includes('precision') || norm.includes('stabilite') || norm.includes('rechargement')) cat = 'maniement'
+      else if (norm.includes('maniement') || norm.includes('precision') || norm.includes('stabilite') || norm.includes('rechargement') || norm.includes('chargeur') || norm.includes('munitions') || norm.includes('echange')) cat = 'maniement'
     }
 
     return { 
@@ -347,6 +347,10 @@ export function useBuildStats(data) {
           wStats[t] += val
 
           if (!groupedStats[t]) {
+            const targetInfo = resolveAttrInfo(t)
+            // Filtrer : On ne garde pour l'arme que ce qui est offensif ou maniement
+            if (targetInfo.categorie !== 'offensif' && targetInfo.categorie !== 'maniement') return
+
             groupedStats[t] = {
               nom: targetInfo.nom,
               total: 0,
@@ -511,15 +515,35 @@ export function useBuildStats(data) {
       const info = resolveAttrInfo(slug)
       const nc = normCat(entry.categorie || info.categorie)
       if (displayStats[nc]) {
-        displayStats[nc].push({ slug, nom: info.nom, total: entry.total, unite: entry.unite })
+        displayStats[nc].push({ 
+          slug, 
+          nom: info.nom, 
+          total: entry.total, 
+          unite: entry.unite,
+          sources: entry.sources // Passer les sources pour l'affichage détaillé
+        })
       }
     })
 
-    // Ajouter l'armure totale calculée dans la catégorie défensive
-    displayStats.defensif.push({ slug: 'protection_totale', nom: "Armure totale", total: finalArmor, unite: "pts" })
+    // Ajouter l'armure totale calculée dans la catégorie défensive avec sources
+    displayStats.defensif.push({ 
+      slug: 'protection_totale', 
+      nom: "Armure totale", 
+      total: finalArmor, 
+      unite: "pts",
+      sources: [
+        { nom: "Armure de base", valeur: baseArmor, unite: "pts" },
+        ...(expertiseArmor > 0 ? [{ nom: "Expertise", valeur: expertiseArmor, unite: "pts" }] : []),
+        ...(armorBonusPoints > 0 ? [{ nom: "Bonus fixes", valeur: armorBonusPoints, unite: "pts" }] : []),
+        ...(armorBonusPercent > 0 ? [{ nom: "Bonus %", valeur: armorBonusPercent, unite: "%" }] : [])
+      ]
+    })
+
+    const { counts: coreCounts, sources: coreSources } = calculateCores(build.gearAttributes, build.gear, ensemblesMap, data.attributs)
 
     return {
-      coreStats: calculateCores(build.gearAttributes, build.gear, ensemblesMap, data.attributs),
+      coreStats: coreCounts,
+      coreSources: coreSources,
       weaponStats: finalWeapons,
       attributesByCategory: displayStats,
       setBonuses: { gearSets, brandSets },
@@ -539,6 +563,7 @@ export function useBuildStats(data) {
 
 function calculateCores(gearAttributes, gear, ensemblesMap, attributsRepo) {
   const counts = { offensif: 0, defensif: 0, utilitaire: 0 }
+  const sources = { offensif: [], defensif: [], utilitaire: [] }
   const slots = ['masque', 'torse', 'holster', 'sac_a_dos', 'gants', 'genouilleres']
   
   slots.forEach(slot => {
@@ -549,7 +574,10 @@ function calculateCores(gearAttributes, gear, ensemblesMap, attributsRepo) {
     if (attrs?.essentiels && attrs.essentiels.length > 0) {
       attrs.essentiels.forEach(ess => {
         const nc = normCat(ess.categorie)
-        if (counts[nc] !== undefined) counts[nc]++
+        if (counts[nc] !== undefined) {
+          counts[nc]++
+          sources[nc].push({ nom: slot.charAt(0).toUpperCase() + slot.slice(1), valeur: 1 })
+        }
       })
     } else {
       // Fallback sur l'ensemble si pas d'attribut sélectionné
@@ -558,13 +586,19 @@ function calculateCores(gearAttributes, gear, ensemblesMap, attributsRepo) {
         ensemble.attributsEssentiels.forEach(essName => {
           const cat = resolveCoreCategory(essName, attributsRepo)
           const nc = normCat(cat)
-          if (counts[nc] !== undefined) counts[nc]++
+          if (counts[nc] !== undefined) {
+            counts[nc]++
+            sources[nc].push({ nom: `${slot.charAt(0).toUpperCase() + slot.slice(1)} (${ensemble.nom})`, valeur: 1 })
+          }
         })
       }
     }
   })
+
+  // Vérifier aussi les bonus d'ensemble qui pourraient donner des coeurs (ex: +1 Tier compétence)
+  // Note: On peut itérer sur setAttributeTotals s'il contient des 'niveau_competence' etc.
   
-  return counts
+  return { counts, sources }
 }
 
 function getEquippedTalents(build) {

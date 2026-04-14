@@ -1,73 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useSHDWatch } from '../../hooks/useSHDWatch';
+import { useDataLoader } from '../../hooks/useDataLoader';
 import { GameIcon, resolveAsset } from '../../components/common/GameAssets';
-
-const SHD_CATEGORIES = [
-  {
-    id: 'offensif',
-    label: 'Offensif',
-    color: 'text-red-500',
-    bgColor: 'bg-red-500/10',
-    borderColor: 'border-red-500/30',
-    accentColor: 'accent-red-500',
-    icon: 'offensif',
-    stats: [
-      { id: 'degats_arme', label: "Dégâts d'arme", max: 10, unit: '%', step: 0.2 },
-      { id: 'degats_coup_critique', label: "Dégâts de coup critique", max: 20, unit: '%', step: 0.4 },
-      { id: 'probabilite_coup_critique', label: "Probabilité de coup critique", max: 10, unit: '%', step: 0.2 },
-      { id: 'degats_headshot', label: "Dégâts de headshot", max: 20, unit: '%', step: 0.4 },
-    ]
-  },
-  {
-    id: 'defensif',
-    label: 'Défensif',
-    color: 'text-blue-500',
-    bgColor: 'bg-blue-500/10',
-    borderColor: 'border-blue-500/30',
-    accentColor: 'accent-blue-500',
-    icon: 'defensif',
-    stats: [
-      { id: 'protection', label: "Protection", max: 10, unit: '%', step: 0.2 },
-      { id: 'resistance_alterations', label: "Résistance aux altérations", max: 10, unit: '%', step: 0.2 },
-      { id: 'regeneration_protection', label: "Régénération de protection", max: 10, unit: '%', step: 0.2 },
-      { id: 'sante', label: "Santé", max: 10, unit: '%', step: 0.2 },
-    ]
-  },
-  {
-    id: 'maniement',
-    label: 'Maniement',
-    color: 'text-emerald-500',
-    bgColor: 'bg-emerald-500/10',
-    borderColor: 'border-emerald-500/30',
-    accentColor: 'accent-emerald-500',
-    icon: 'random',
-    stats: [
-      { id: 'precision', label: "Précision", max: 10, unit: '%', step: 0.2 },
-      { id: 'stabilite', label: "Stabilité", max: 10, unit: '%', step: 0.2 },
-      { id: 'vitesse_rechargement', label: "Vitesse de rechargement", max: 10, unit: '%', step: 0.2 },
-      { id: 'vitesse_echange', label: "Vitesse d'échange", max: 10, unit: '%', step: 0.2 },
-    ]
-  },
-  {
-    id: 'utilitaire',
-    label: 'Utilitaire',
-    color: 'text-yellow-500',
-    bgColor: 'bg-yellow-500/10',
-    borderColor: 'border-yellow-500/30',
-    accentColor: 'accent-yellow-500',
-    icon: 'utilitaire',
-    stats: [
-      { id: 'degats_competence', label: "Dégâts de compétence", max: 10, unit: '%', step: 0.2 },
-      { id: 'recuperation_competence', label: "Récupération de compétence", max: 10, unit: '%', step: 0.2 },
-      { id: 'duree_competence', label: "Durée de compétence", max: 10, unit: '%', step: 0.2 },
-      { id: 'reparation_competence', label: "Réparation de compétence", max: 10, unit: '%', step: 0.2 },
-    ]
-  }
-];
+import Loader from '../../components/common/Loader';
 
 export default function SHDWatchPage() {
+  const { data, loading } = useDataLoader();
   const { shdLevels, updateStat, setAllToMax, resetAll } = useSHDWatch();
-  const [selectedCat, setSelectedCat] = useState(SHD_CATEGORIES[0].id);
+
+  // On utilise les catégories depuis les données JSONC si disponibles
+  const SHD_CATEGORIES = useMemo(() => {
+    if (!data.montre?.categories) return [];
+    return Object.values(data.montre.categories).map(cat => ({
+      ...cat,
+      stats: Object.entries(cat.stats).map(([id, stat]) => ({
+        id,
+        ...stat
+      }))
+    }));
+  }, [data.montre]);
+
+  const [selectedCat, setSelectedCat] = useState(null);
+
+  // Initialiser la catégorie sélectionnée quand les données sont chargées
+  React.useEffect(() => {
+    if (SHD_CATEGORIES.length > 0 && !selectedCat) {
+      setSelectedCat(SHD_CATEGORIES[0].id);
+    }
+  }, [SHD_CATEGORIES, selectedCat]);
+
   const [isMobile, setIsMobile] = useState(false);
 
   React.useEffect(() => {
@@ -77,18 +38,25 @@ export default function SHDWatchPage() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  if (loading) return <Loader />;
+  if (SHD_CATEGORIES.length === 0) return null;
+
   const currentCategory = SHD_CATEGORIES.find(c => c.id === selectedCat);
 
   const handleLevelChange = (statId, level) => {
     updateStat(statId, parseInt(level));
+    // Forcer un rafraîchissement global via le context
+    window.dispatchEvent(new Event('shd-levels-updated'));
   };
 
   const handleSetAllToMax = () => {
     setAllToMax();
+    window.dispatchEvent(new Event('shd-levels-updated'));
   };
 
   const handleResetAll = () => {
     resetAll();
+    window.dispatchEvent(new Event('shd-levels-updated'));
   };
 
   const totalPoints = Object.values(shdLevels || {}).reduce((acc, val) => acc + val, 0);
@@ -234,98 +202,106 @@ export default function SHDWatchPage() {
         {/* Détails de la catégorie sélectionnée */}
         <div className="lg:col-span-6">
           <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden flex flex-col h-full">
-            {/* Header de catégorie — Style cohérent avec le Planner */}
-            <div className={`px-6 py-4 border-b border-tactical-border flex items-center justify-between ${currentCategory.bgColor}`}>
-              <div className="flex items-center gap-4">
-                <div className="p-1">
-                  <GameIcon 
-                    src={resolveAsset(currentCategory.icon)} 
-                    alt="" 
-                    size="w-10 h-10" 
-                  />
-                </div>
-                <div>
-                  <h3 className={`text-xl font-black uppercase tracking-widest ${currentCategory.color}`}>
-                    {currentCategory.label}
-                  </h3>
-                  <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Amélioration de l'agent</p>
-                </div>
+            {!currentCategory ? (
+              <div className="flex-1 flex items-center justify-center p-12 text-gray-500 italic">
+                Sélectionnez une catégorie pour voir les détails
               </div>
-              
-              <div className="text-right hidden sm:block">
-                <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Points attribués</div>
-                <div className={`text-2xl font-black ${currentCategory.color}`}>
-                  {currentCategory.stats.reduce((acc, s) => acc + (shdLevels[s.id] || 0), 0)}
-                  <span className="text-gray-600 text-sm ml-1">/ 200</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-6 space-y-8 flex-1 overflow-y-auto custom-scrollbar">
-              {currentCategory.stats.map(stat => {
-                const level = shdLevels?.[stat.id] || 0;
-                const value = (level * stat.step).toFixed(1);
-                const maxLevel = Math.round(stat.max / stat.step);
-                const progress = (level / maxLevel) * 100;
-
-                return (
-                  <div key={stat.id} className="group">
-                    <div className="flex justify-between items-end mb-3">
-                      <div>
-                        <span className="text-xs text-gray-400 uppercase tracking-widest font-bold block mb-1 group-hover:text-shd transition-colors">{stat.label}</span>
-                        <div className="flex items-baseline gap-2">
-                          <span className="text-3xl font-black text-white leading-none">{value}</span>
-                          <span className="text-sm font-bold text-gray-500 uppercase">{stat.unit}</span>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold block">Niveau</span>
-                        <span className="text-xl font-black text-white leading-none">
-                          {level}<span className="text-gray-600 text-sm">/{maxLevel}</span>
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="relative h-4 flex items-center">
-                      <div className="absolute w-full h-1.5 bg-black/60 rounded-full overflow-hidden border border-white/5">
-                        <div 
-                          className="h-full shadow-[0_0_10px_rgba(0,0,0,0.5)]" 
-                          style={{ 
-                            width: `${progress}%`, 
-                            backgroundColor: isActiveColor(currentCategory.id),
-                            boxShadow: `0 0 8px ${isActiveColor(currentCategory.id)}44`
-                          }}
-                        ></div>
-                      </div>
-                      <input
-                        type="range"
-                        min="0"
-                        max={maxLevel}
-                        step="1"
-                        value={level}
-                        onChange={(e) => handleLevelChange(stat.id, e.target.value)}
-                        className={`absolute w-full h-6 bg-transparent appearance-none cursor-pointer focus:outline-none z-10 
-                          [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-none [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:rotate-45 [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(255,255,255,0.5)] [&::-webkit-slider-thumb]:border-none
-                          [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:rounded-none [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:rotate-45 [&::-moz-range-thumb]:border-none`}
+            ) : (
+              <>
+                {/* Header de catégorie — Style cohérent avec le Planner */}
+                <div className={`px-6 py-4 border-b border-tactical-border flex items-center justify-between ${currentCategory.bgColor}`}>
+                  <div className="flex items-center gap-4">
+                    <div className="p-1">
+                      <GameIcon 
+                        src={resolveAsset(currentCategory.icon)} 
+                        alt="" 
+                        size="w-10 h-10" 
                       />
                     </div>
+                    <div>
+                      <h3 className={`text-xl font-black uppercase tracking-widest ${currentCategory.color}`}>
+                        {currentCategory.label}
+                      </h3>
+                      <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Amélioration de l'agent</p>
+                    </div>
                   </div>
-                );
-              })}
-            </div>
-            
-            {/* Footer informatif */}
-            <div className="px-6 py-4 bg-black/40 border-t border-tactical-border flex justify-between items-center">
-              <div className="flex items-center gap-4">
-                <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Progression totale montre</div>
-                <div className="flex items-center gap-2">
-                  <div className="w-32 h-1 bg-gray-800 rounded-full overflow-hidden">
-                    <div className="h-full bg-shd" style={{ width: `${(totalPoints / 800) * 100}%` }}></div>
+                  
+                  <div className="text-right hidden sm:block">
+                    <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Points attribués</div>
+                    <div className={`text-2xl font-black ${currentCategory.color}`}>
+                      {currentCategory.stats.reduce((acc, s) => acc + (shdLevels?.[s.id] || 0), 0)}
+                      <span className="text-gray-600 text-sm ml-1">/ 200</span>
+                    </div>
                   </div>
-                  <span className="text-xs font-black text-shd">{totalPoints}/800</span>
                 </div>
-              </div>
-            </div>
+
+                <div className="p-6 space-y-8 flex-1 overflow-y-auto custom-scrollbar">
+                  {currentCategory.stats.map(stat => {
+                    const level = shdLevels?.[stat.id] || 0;
+                    const value = (level * stat.step).toFixed(1);
+                    const maxLevel = Math.round(stat.max / stat.step);
+                    const progress = (level / maxLevel) * 100;
+
+                    return (
+                      <div key={stat.id} className="group">
+                        <div className="flex justify-between items-end mb-3">
+                          <div>
+                            <span className="text-xs text-gray-400 uppercase tracking-widest font-bold block mb-1 group-hover:text-shd transition-colors">{stat.label}</span>
+                            <div className="flex items-baseline gap-2">
+                              <span className="text-3xl font-black text-white leading-none">{value}</span>
+                              <span className="text-sm font-bold text-gray-500 uppercase">{stat.unit}</span>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold block">Niveau</span>
+                            <span className="text-xl font-black text-white leading-none">
+                              {level}<span className="text-gray-600 text-sm">/{maxLevel}</span>
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="relative h-4 flex items-center">
+                          <div className="absolute w-full h-1.5 bg-black/60 rounded-full overflow-hidden border border-white/5">
+                            <div 
+                              className="h-full shadow-[0_0_10px_rgba(0,0,0,0.5)]" 
+                              style={{ 
+                                width: `${progress}%`, 
+                                backgroundColor: isActiveColor(currentCategory.id),
+                                boxShadow: `0 0 8px ${isActiveColor(currentCategory.id)}44`
+                              }}
+                            ></div>
+                          </div>
+                          <input
+                            type="range"
+                            min="0"
+                            max={maxLevel}
+                            step="1"
+                            value={level}
+                            onChange={(e) => handleLevelChange(stat.id, e.target.value)}
+                            className={`absolute w-full h-6 bg-transparent appearance-none cursor-pointer focus:outline-none z-10 
+                              [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-none [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:rotate-45 [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(255,255,255,0.5)] [&::-webkit-slider-thumb]:border-none
+                              [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:rounded-none [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:rotate-45 [&::-moz-range-thumb]:border-none`}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                
+                {/* Footer informatif */}
+                <div className="px-6 py-4 bg-black/40 border-t border-tactical-border flex justify-between items-center">
+                  <div className="flex items-center gap-4">
+                    <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Progression totale montre</div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-32 h-1 bg-gray-800 rounded-full overflow-hidden">
+                        <div className="h-full bg-shd" style={{ width: `${(totalPoints / 800) * 100}%` }}></div>
+                      </div>
+                      <span className="text-xs font-black text-shd">{totalPoints}/800</span>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
           
           <div className="mt-6 bg-tactical-panel/40 border border-tactical-border rounded-lg p-4 flex gap-4 items-start">

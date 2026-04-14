@@ -35,6 +35,17 @@ export default function BuildStatsPanel({ data }) {
           <CoreAttributeBars coreStats={coreStats} attributsType={data.attributs_type} />
         </Section>
 
+        {/* Statistiques Offensives Globales */}
+        {attributesByCategory.offensif.length > 0 && (
+          <Section title="Offensif" icon="🔥">
+            <div className="space-y-0.5">
+              {attributesByCategory.offensif.map((attr, i) => (
+                <GlobalStatRow key={i} attr={attr} color="text-red-400" />
+              ))}
+            </div>
+          </Section>
+        )}
+
         {/* Statistiques de Protection / Défensives */}
         {attributesByCategory.defensif.length > 0 && (
           <Section title="Protection" icon="🛡️">

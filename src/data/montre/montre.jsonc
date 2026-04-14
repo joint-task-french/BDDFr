@@ -1,0 +1,179 @@
+{
+  "categories": {
+    "offensif": {
+      "id": "offensif",
+      "label": "Offensif",
+      "color": "text-red-500",
+      "bgColor": "bg-red-500/10",
+      "borderColor": "border-red-500/30",
+      "accentColor": "accent-red-500",
+      "icon": "offensif",
+      "stats": {
+        "degats_arme": {
+          "ratio": 0.2,
+          "label": "Dégâts d'arme",
+          "max": 10,
+          "unit": "%",
+          "step": 0.2,
+          "statistique": "degats_arme"
+        },
+        "degats_coup_critique": {
+          "ratio": 0.4,
+          "label": "Dégâts de coup critique",
+          "max": 20,
+          "unit": "%",
+          "step": 0.4,
+          "statistique": "degats_coup_critique"
+        },
+        "probabilite_coup_critique": {
+          "ratio": 0.2,
+          "label": "Probabilité de coup critique",
+          "max": 10,
+          "unit": "%",
+          "step": 0.2,
+          "statistique": "probabilite_coup_critique"
+        },
+        "degats_headshot": {
+          "ratio": 0.4,
+          "label": "Dégâts de headshot",
+          "max": 20,
+          "unit": "%",
+          "step": 0.4,
+          "statistique": "degats_headshot"
+        }
+      }
+    },
+    "defensif": {
+      "id": "defensif",
+      "label": "Défensif",
+      "color": "text-blue-500",
+      "bgColor": "bg-blue-500/10",
+      "borderColor": "border-blue-500/30",
+      "accentColor": "accent-blue-500",
+      "icon": "defensif",
+      "stats": {
+        "protection": {
+          "ratio": 0.2,
+          "label": "Protection total",
+          "max": 10,
+          "unit": "%",
+          "step": 0.2,
+          "target": "protection_shd",
+          "statistique": "protection"
+        },
+        "resistance_alterations": {
+          "ratio": 0.2,
+          "label": "Résistance aux altérations d'état",
+          "max": 10,
+          "unit": "%",
+          "step": 0.2,
+          "statistique": "resistance_effets_etat"
+        },
+        "resistance_explosion": {
+          "ratio": 0.2,
+          "label": "Résistance - Explosion",
+          "max": 10,
+          "unit": "%",
+          "step": 0.2,
+          "statistique": "resistance_explosion"
+        },
+        "sante": {
+          "ratio": 0.2,
+          "label": "Santé totale",
+          "max": 10,
+          "unit": "%",
+          "step": 0.2,
+          "target": "sante_shd",
+          "statistique": "sante"
+        }
+      }
+    },
+    "maniement": {
+      "id": "maniement",
+      "label": "Maniement",
+      "color": "text-emerald-500",
+      "bgColor": "bg-emerald-500/10",
+      "borderColor": "border-emerald-500/30",
+      "accentColor": "accent-emerald-500",
+      "icon": "random",
+      "stats": {
+        "precision": {
+          "ratio": 0.2,
+          "label": "Précision",
+          "max": 10,
+          "unit": "%",
+          "step": 0.2,
+          "statistique": "precision"
+        },
+        "stabilite": {
+          "ratio": 0.2,
+          "label": "Stabilité",
+          "max": 10,
+          "unit": "%",
+          "step": 0.2,
+          "statistique": "stabilite"
+        },
+        "vitesse_rechargement": {
+          "ratio": 0.2,
+          "label": "Vitesse de rechargement",
+          "max": 10,
+          "unit": "%",
+          "step": 0.2,
+          "statistique": "vitesse_rechargement"
+        },
+        "capacite_munitions": {
+          "ratio": 0.2,
+          "label": "Capacité de munitions",
+          "max": 20,
+          "unit": "%",
+          "step": 0.2,
+          "statistique": "capacite_munitions"
+        }
+      }
+    },
+    "utilitaire": {
+      "id": "utilitaire",
+      "label": "Utilitaire",
+      "color": "text-yellow-500",
+      "bgColor": "bg-yellow-500/10",
+      "borderColor": "border-yellow-500/30",
+      "accentColor": "accent-yellow-500",
+      "icon": "utilitaire",
+      "stats": {
+        "degats_competence": {
+          "ratio": 0.2,
+          "label": "Dégâts de compétence",
+          "max": 10,
+          "unit": "%",
+          "step": 0.2,
+          "statistique": "degats_competence"
+        },
+        "recuperation_competence": {
+          "ratio": 0.2,
+          "label": "Récupération de compétence",
+          "max": 10,
+          "unit": "%",
+          "step": 0.2,
+          "statistique": "recup_competence"
+        },
+        "duree_competence": {
+          "ratio": 0.4,
+          "label": "Durée de compétence",
+          "max": 20,
+          "unit": "%",
+          "step": 0.4,
+          "statistique": "duree_competence"
+        },
+        "reparation_competence": {
+          "ratio": 0.2,
+          "label": "Réparation de compétence",
+          "max": 10,
+          "unit": "%",
+          "step": 0.2,
+          "statistique": "competence_reparation"
+        }
+      }
+    }
+  },
+  "max_points_per_stat": 50
+}

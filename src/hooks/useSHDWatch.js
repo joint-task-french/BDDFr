@@ -1,29 +1,32 @@
 import { useState, useEffect } from 'react';
 
-const STORAGE_KEY = 'div2_shd_watch';
+// Charger le fichier JSONC de la montre pour en extraire les clés dynamiquement
+const rawMontre = import.meta.glob('../data/montre/montre.jsonc', { query: '?raw', eager: true, import: 'default' })['../data/montre/montre.jsonc'];
 
-const DEFAULT_SHD_LEVELS = {
-  // Offensif
-  degats_arme: 0,
-  degats_coup_critique: 0,
-  probabilite_coup_critique: 0,
-  degats_headshot: 0,
-  // Défensif
-  protection: 0,
-  resistance_alterations: 0,
-  regeneration_protection: 0,
-  sante: 0,
-  // Utilitaire
-  degats_competence: 0,
-  recuperation_competence: 0,
-  duree_competence: 0,
-  reparation_competence: 0,
-  // Maniement
-  precision: 0,
-  stabilite: 0,
-  vitesse_rechargement: 0,
-  vitesse_echange: 0,
-};
+function stripJsonComments(text) {
+  if (!text) return '';
+  let cleanText = text.replace(/^\uFEFF/, '');
+  return cleanText.replace(/("(?:\\.|[^\\"])*")|(\/\*[\s\S]*?\*\/)|(\/\/(?:.*)$)/gm, (match, string) => {
+    if (string) return string;
+    return '';
+  });
+}
+
+const config = JSON.parse(stripJsonComments(rawMontre));
+const DEFAULT_SHD_LEVELS = {};
+
+// Extraire toutes les stats de la config pour initialiser les niveaux à 0
+if (config && config.categories) {
+  Object.values(config.categories).forEach(cat => {
+    if (cat.stats) {
+      Object.keys(cat.stats).forEach(statId => {
+        DEFAULT_SHD_LEVELS[statId] = 0;
+      });
+    }
+  });
+}
+
+const STORAGE_KEY = 'div2_shd_watch';
 
 export function getSHDLevels() {
   try {

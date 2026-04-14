@@ -39,6 +39,7 @@ const DATA_FILES_MAP = {
   modsCompetences: 'mods-competences.jsonc',
   modsEquipements: 'equipements/mods-equipements.jsonc',
   statistiques: 'attributs/statistiques.jsonc',
+  montre: 'montre/montre.jsonc',
   talentsArmes: 'armes/talents-armes.jsonc',
   talentsAutres: 'talents-autres.jsonc',
   talentsEquipements: 'equipements/talents-equipements.jsonc',

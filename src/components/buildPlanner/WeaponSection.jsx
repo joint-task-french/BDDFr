@@ -4,6 +4,7 @@ import WeaponSlot from './WeaponSlot'
 import WeaponPicker from './WeaponPicker'
 import WeaponTalentPicker from './WeaponTalentPicker'
 import PrototypeTalentPicker from './PrototypeTalentPicker'
+import {GameIcon, resolveAsset} from "../common/GameAssets.jsx";
 
 export default function WeaponSection({ data }) {
   const { specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods, sidearm, sidearmTalent, sidearmAttribute, sidearmMods, specialisation, SPECIALISATIONS, expertise, maxExpertiseLevel, weaponEssentialValues, prototypes, prototypeTalents, dispatch } = useBuild()
@@ -14,7 +15,7 @@ export default function WeaponSection({ data }) {
   const handleExpertise = (slot, level) => dispatch({ type: 'SET_EXPERTISE_LEVEL', slot, level })
 
   const specLabel = specialisation ? SPECIALISATIONS[specialisation]?.label : null
-  const specIcon = specialisation ? SPECIALISATIONS[specialisation]?.icon : '🎖️'
+  const specIcon = specialisation ? <GameIcon src={resolveAsset(SPECIALISATIONS[specialisation]?.icon)} size='w-6 h-6' /> : '🎖️'
 
   return (
     <>
@@ -28,7 +29,7 @@ export default function WeaponSection({ data }) {
           onSelect={() => setPickerOpen('special')}
           onRemove={() => dispatch({ type: 'REMOVE_SPECIAL_WEAPON' })}
           badge={specLabel && (
-            <span className="text-xs font-bold uppercase tracking-widest bg-purple-500/15 text-purple-400 px-1.5 py-0.5 rounded">
+            <span className="text-xs font-bold uppercase tracking-widest bg-purple-500/15 text-purple-400 px-1.5 py-0.5 rounded flex flex-row items-center gap-1">
               {specIcon} {specLabel}
             </span>
           )}

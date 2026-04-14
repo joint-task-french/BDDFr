@@ -1545,7 +1545,7 @@
     "bonus3pieces": {
       "attributs": [
         {
-          "slug": "degats_de_competence_eqp",
+          "slug": "efficacite_de_competence",
           "value": 8
         }
       ]

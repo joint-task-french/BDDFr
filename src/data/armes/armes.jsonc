@@ -1513,7 +1513,7 @@
     "degatsBase": 189200,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//ok
       "viseur": "rail_optique_court"
     }
   },
@@ -1721,7 +1721,7 @@
     "degatsBase": 211300,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//ok
       "chargeur": "barillet"
     }
   },
@@ -1852,7 +1852,7 @@
     "talents": [
       "resolu"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//ok
       "chargeur": "barillet",
       "viseur": "rail_optique_court"
     }
@@ -2063,9 +2063,9 @@
     "degatsBase": 349800,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+    "emplacementsMods": {//ok
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
     }
   },
   "sasg_12": {
@@ -2191,10 +2191,10 @@
     "degatsBase": 389900,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//ok
       "chargeur": "magasin_tubulaire",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
     }
   },
   "enforcer": {
@@ -2233,7 +2233,7 @@
     "degatsBase": 678100,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {},
+    "emplacementsMods": {},//ok
     "armePoing": true
   },
   "allume_feu": {
@@ -2727,11 +2727,11 @@
     "degatsBase": 156700,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//ok
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_762",
       "viseur": "rail_optique_long",
-      "canon": "rail_sous_canon_long"
+      "canon": "rail_sous_canon_court"
     }
   },
   "svd_parachutiste": {
@@ -2836,10 +2836,10 @@
     "degatsBase": 409400,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_762_precision",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique_long",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
       "canon": "rail_sous_canon_long"
     }
   },
@@ -3044,7 +3044,7 @@
     }
   },
   "tactical_308": {
-    "nom": "Tacticol .308",
+    "nom": "Tactical .308",
     "type": "fusil_precision",
     "fabricant": "CADEX DEFENSE",
     "portee": 50,
@@ -3055,9 +3055,9 @@
     "degatsBase": 403800,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//ok
       "chargeur": "chargeur_762_precision",
-      "bouche": "bouche_556",
+      "bouche": "bouche_762",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
     }
@@ -4099,10 +4099,10 @@
     "talents": [
       "fusilier"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+    "emplacementsMods": {//ok
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
     }
   },
   "usc_45_acp": {

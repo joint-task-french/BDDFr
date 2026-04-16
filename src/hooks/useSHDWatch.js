@@ -3,10 +3,30 @@ import { useState, useEffect } from 'react';
 export const STORAGE_KEY = 'div2_shd_watch';
 export const SHD_LEVELS_UPDATED_EVENT = 'shd-levels-updated';
 
-function clampLevel(level) {
+function clampLevel(level, maxLevel = Number.POSITIVE_INFINITY) {
   const parsed = Number(level);
   if (!Number.isFinite(parsed)) return 0;
-  return Math.max(0, Math.min(50, Math.round(parsed)));
+  return Math.max(0, Math.min(maxLevel, Math.round(parsed)));
+}
+
+function resolveMaxLevelForStat(statId, montreConfig) {
+  const globalMax = Number(montreConfig?.max_points_per_stat);
+  const fallbackMax = Number.isFinite(globalMax) ? globalMax : Number.POSITIVE_INFINITY;
+  if (!montreConfig?.categories || !statId) return fallbackMax;
+
+  for (const category of Object.values(montreConfig.categories)) {
+    const stat = category?.stats?.[statId];
+    if (!stat) continue;
+
+    const step = Number(stat.step);
+    const max = Number(stat.max);
+    if (Number.isFinite(step) && step > 0 && Number.isFinite(max) && max >= 0) {
+      return Math.round(max / step);
+    }
+    return fallbackMax;
+  }
+
+  return fallbackMax;
 }
 
 function buildDefaultLevels(montreConfig) {
@@ -23,6 +43,21 @@ function buildDefaultLevels(montreConfig) {
   return defaults;
 }
 
+export function normalizeSHDLevels(levels, montreConfig) {
+  const defaults = buildDefaultLevels(montreConfig);
+  const normalized = { ...defaults };
+  if (!levels || typeof levels !== 'object') return normalized;
+
+  Object.entries(levels).forEach(([statId, level]) => {
+    const isKnownInConfig = Object.prototype.hasOwnProperty.call(defaults, statId);
+    if (isKnownInConfig || !montreConfig?.categories) {
+      normalized[statId] = clampLevel(level, resolveMaxLevelForStat(statId, montreConfig));
+    }
+  });
+
+  return normalized;
+}
+
 export function getSHDLevels(montreConfig) {
   const defaults = buildDefaultLevels(montreConfig);
   if (typeof window === 'undefined') return { ...defaults };
@@ -32,7 +67,7 @@ export function getSHDLevels(montreConfig) {
     if (saved) {
       const parsed = JSON.parse(saved);
       if (parsed && typeof parsed === 'object') {
-        return { ...defaults, ...parsed };
+        return normalizeSHDLevels(parsed, montreConfig);
       }
     }
   } catch (e) {
@@ -41,13 +76,14 @@ export function getSHDLevels(montreConfig) {
   return { ...defaults };
 }
 
-export function saveSHDLevels(levels) {
+export function saveSHDLevels(levels, montreConfig) {
   if (typeof window === 'undefined') return;
 
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(levels));
+    const normalizedLevels = normalizeSHDLevels(levels, montreConfig);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(normalizedLevels));
     // Événement local (même onglet) pour synchroniser les pages Build.
-    window.dispatchEvent(new CustomEvent(SHD_LEVELS_UPDATED_EVENT, { detail: levels }));
+    window.dispatchEvent(new CustomEvent(SHD_LEVELS_UPDATED_EVENT, { detail: normalizedLevels }));
   } catch (e) {
     console.error("Failed to save SHD levels", e);
   }
@@ -82,8 +118,9 @@ export function useSHDWatch(montreConfig) {
 
   const updateStat = (statId, level) => {
     setShdLevels(prev => {
-      const newLevels = { ...prev, [statId]: clampLevel(level) };
-      saveSHDLevels(newLevels);
+      const maxLevel = resolveMaxLevelForStat(statId, montreConfig);
+      const newLevels = { ...prev, [statId]: clampLevel(level, maxLevel) };
+      saveSHDLevels(newLevels, montreConfig);
       return newLevels;
     });
   };
@@ -94,9 +131,9 @@ export function useSHDWatch(montreConfig) {
       const keys = Object.keys(defaultLevels).length > 0 ? Object.keys(defaultLevels) : Object.keys(prev || {});
       const newLevels = {};
       keys.forEach(key => {
-        newLevels[key] = 50;
+        newLevels[key] = resolveMaxLevelForStat(key, montreConfig);
       });
-      saveSHDLevels(newLevels);
+      saveSHDLevels(newLevels, montreConfig);
       return newLevels;
     });
   };
@@ -104,7 +141,7 @@ export function useSHDWatch(montreConfig) {
   const resetAll = () => {
     setShdLevels(() => {
       const defaultLevels = buildDefaultLevels(montreConfig);
-      saveSHDLevels(defaultLevels);
+      saveSHDLevels(defaultLevels, montreConfig);
       return defaultLevels;
     });
   };

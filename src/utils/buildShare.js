@@ -3,6 +3,19 @@ import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from
 const GEAR_ORDER = ['masque', 'torse', 'holster', 'sac_a_dos', 'gants', 'genouilleres']
 const ALL_SLOTS = ['weapon0', 'weapon1', 'sidearm', ...GEAR_ORDER, 'special']
 
+function normalizeImportedShdLevels(levels) {
+  if (!levels || typeof levels !== 'object') return null
+
+  const normalized = {}
+  Object.entries(levels).forEach(([statId, level]) => {
+    const parsed = Number(level)
+    if (!Number.isFinite(parsed)) return
+    normalized[statId] = Math.max(0, Math.round(parsed))
+  })
+
+  return Object.keys(normalized).length > 0 ? normalized : null
+}
+
 function trimArray(arr) {
   if (!arr || !Array.isArray(arr)) return null
   let i = arr.length
@@ -303,12 +316,8 @@ export function resolveBuild(compact, data) {
     if (compact.mv.s) build.modValues.skillMods = compact.mv.s
   }
   
-  build.shdLevels = compact.shd || {
-    degats_arme: 0, degats_coup_critique: 0, probabilite_coup_critique: 0, degats_headshot: 0,
-    protection: 0, resistance_alterations: 0, regeneration_protection: 0, sante: 0,
-    degats_competence: 0, recuperation_competence: 0, duree_competence: 0, reparation_competence: 0,
-    precision: 0, stabilite: 0, vitesse_rechargement: 0, vitesse_echange: 0
-  }
+  const normalizedShd = normalizeImportedShdLevels(compact.shd)
+  if (normalizedShd) build.shdLevels = normalizedShd
 
   build.specialWeaponBonusPoints = compact.swbp || {}
 

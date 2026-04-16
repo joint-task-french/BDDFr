@@ -11,6 +11,7 @@ export default function BuildActions({ data }) {
     sidearm, sidearmTalent, sidearmAttribute, sidearmMods,
     gear, gearTalents, gearAttributes, gearMods,
     skills, skillMods, modValues,
+    shdLevels,
     expertise, prototypes, prototypeTalents, weaponEssentialValues,
     editingInfo, dispatch
   } = useBuild()
@@ -76,6 +77,7 @@ export default function BuildActions({ data }) {
     sidearm, sidearmTalent, sidearmAttribute, sidearmMods,
     gear, gearTalents, gearAttributes, gearMods,
     skills, skillMods, modValues,
+    shdLevels,
     expertise, prototypes, prototypeTalents, weaponEssentialValues,
   }
 

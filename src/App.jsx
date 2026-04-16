@@ -77,9 +77,9 @@ export default function App() {
             <Route element={<Layout children={secretSession > 0 ? <InvestisseurReroll key={secretSession} allAttributs={data.attributs} allEquipements={data.equipements} allTalents={data.talentsEquipements} onClose={() => setSecretSession(0)} /> : null} />}>
                 <Route index element={<SuspensePage><DatabasePage /></SuspensePage>} />
                 <Route path="db/:category/:slug?/:modifier?" element={<SuspensePage><DatabasePage /></SuspensePage>} />
-                <Route path="planner" element={<SuspensePage><BuildProvider classSpe={data.classSpe} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildPlannerPage /></BuildProvider></SuspensePage>} />
-                <Route path="library" element={<SuspensePage><BuildProvider classSpe={data.classSpe} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildLibraryPage /></BuildProvider></SuspensePage>} />
-                <Route path="build" element={<SuspensePage><BuildProvider classSpe={data.classSpe} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildPlannerPage /></BuildProvider></SuspensePage>} />
+                <Route path="planner" element={<SuspensePage><BuildProvider classSpe={data.classSpe} montreConfig={data.montre} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildPlannerPage /></BuildProvider></SuspensePage>} />
+                <Route path="library" element={<SuspensePage><BuildProvider classSpe={data.classSpe} montreConfig={data.montre} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildLibraryPage /></BuildProvider></SuspensePage>} />
+                <Route path="build" element={<SuspensePage><BuildProvider classSpe={data.classSpe} montreConfig={data.montre} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildPlannerPage /></BuildProvider></SuspensePage>} />
                 <Route path="shd" element={<SuspensePage><SHDWatchPage /></SuspensePage>} />
                 <Route path="changelog" element={<SuspensePage><ChangelogPage /></SuspensePage>} />
                 <Route path="generator" element={<SuspensePage><GeneratorPage /></SuspensePage>} />

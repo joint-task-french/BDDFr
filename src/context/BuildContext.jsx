@@ -1,12 +1,12 @@
 import { createContext, useContext, useReducer, useCallback, useMemo, useEffect } from 'react'
 import { getSpecFromWeapon, getSpecialisations } from '../utils/formatters'
-import { getSHDLevels, SHD_LEVELS_UPDATED_EVENT, STORAGE_KEY as SHD_STORAGE_KEY } from '../hooks/useSHDWatch'
+import { getSHDLevels, normalizeSHDLevels, SHD_LEVELS_UPDATED_EVENT, STORAGE_KEY as SHD_STORAGE_KEY } from '../hooks/useSHDWatch'
 
 const BuildContext = createContext(null)
 
 const STORAGE_KEY = 'div2_current_build'
 
-const getDefaultState = () => ({
+const getDefaultState = (montreConfig) => ({
     // Arme spécifique (signature) — détermine la spécialisation
     specialWeapon: null,
     // Répartition des points bonusArme de la spécialisation: { [weaponType]: points }
@@ -38,8 +38,8 @@ const getDefaultState = () => ({
     skillMods: [null, null],
     // Valeurs utilisateur des mods (curseurs) : { gearMods: { slot: { modIndex: { attrSlug: val } } }, skillMods: { slotIndex: { modIndex: { attrSlug: val } } } }
     modValues: { gearMods: {}, skillMods: {} },
-    // Niveaux de la montre SHD (0-50 pour chaque stat)
-    shdLevels: getSHDLevels(),
+    // Niveaux de la montre SHD (bornes dynamiques via montre.jsonc)
+    shdLevels: getSHDLevels(montreConfig),
     // Expertise : niveaux 0-20 par slot
     expertise: {
       weapon0: 0, weapon1: 0, sidearm: 0,
@@ -60,8 +60,8 @@ const getDefaultState = () => ({
     editingInfo: null, // { type: 'local' | 'api', id: string, originalMetadata: {nom, description, tags} }
   })
 
-const getInitialState = () => {
-  const defaultState = getDefaultState()
+const getInitialState = (montreConfig) => {
+  const defaultState = getDefaultState(montreConfig)
 
   try {
     const saved = localStorage.getItem(STORAGE_KEY)
@@ -74,7 +74,7 @@ const getInitialState = () => {
         ...parsed,
         expertise: { ...defaultState.expertise, ...(parsed.expertise || {}) },
         specialWeaponBonusPoints: { ...(parsed.specialWeaponBonusPoints || {}) },
-        shdLevels: getSHDLevels(),
+        shdLevels: getSHDLevels(montreConfig),
       }
     }
   } catch (e) {
@@ -88,7 +88,7 @@ function normalizeSkillModsForSlot(slotMods) {
   return Array.isArray(slotMods) ? [...slotMods] : [slotMods]
 }
 
-function buildReducer(state, action) {
+function buildReducer(state, action, montreConfig) {
   switch (action.type) {
     case 'SET_SPECIAL_WEAPON': {
       return {
@@ -324,16 +324,21 @@ function buildReducer(state, action) {
       return { ...state, prototypeTalents }
     }
     case 'SET_SHD_LEVEL': {
-      const shdLevels = { ...state.shdLevels, [action.stat]: Math.max(0, Math.min(50, action.level)) }
+      const shdLevels = normalizeSHDLevels(
+        { ...state.shdLevels, [action.stat]: action.level },
+        montreConfig
+      )
       return { ...state, shdLevels }
     }
     case 'REFRESH_SHD_LEVELS': {
-      return { ...state, shdLevels: getSHDLevels() }
+      return { ...state, shdLevels: getSHDLevels(montreConfig) }
     }
     case 'LOAD_BUILD': {
-      const shdFromBuild = action.build.shdLevels || {};
-      const mergedShd = { ...getSHDLevels(), ...shdFromBuild };
-      const defaultState = getDefaultState();
+      const shdFromWatch = getSHDLevels(montreConfig);
+      const hasBuildShd = action.build.shdLevels && typeof action.build.shdLevels === 'object' && Object.keys(action.build.shdLevels).length > 0;
+      const shdFromBuild = hasBuildShd ? normalizeSHDLevels(action.build.shdLevels, montreConfig) : null;
+      const mergedShd = shdFromBuild ? { ...shdFromWatch, ...shdFromBuild } : shdFromWatch;
+      const defaultState = getDefaultState(montreConfig);
       return {
         ...defaultState,
         ...action.build,
@@ -348,13 +353,13 @@ function buildReducer(state, action) {
     case 'CLEAR_EDITING_INFO':
       return { ...state, editingInfo: null }
     case 'RESET':
-      return getDefaultState()
+      return getDefaultState(montreConfig)
     default:
       return state
   }
 }
 
-export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
+export function BuildProvider({ children, classSpe, montreConfig, maxExpertiseLevel = 20 }) {
   const [state, dispatch] = useReducer((state, action) => {
     // Wrap the reducer to inject maxExpertiseLevel
     if (action.type === 'SET_EXPERTISE_LEVEL') {
@@ -373,10 +378,10 @@ export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
       return { ...state, prototypes, expertise, prototypeTalents }
     }
     if (action.type === 'RESET') {
-      return getDefaultState()
+      return getDefaultState(montreConfig)
     }
-    return buildReducer(state, action)
-  }, undefined, getInitialState)
+    return buildReducer(state, action, montreConfig)
+  }, undefined, () => getInitialState(montreConfig))
 
   // Initialize specialisation cache from data
   const SPECIALISATIONS = useMemo(() => getSpecialisations(classSpe), [classSpe])

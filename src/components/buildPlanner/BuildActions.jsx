@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useBuild } from '../../context/BuildContext'
 import { generateShareUrl, decodeBuild, resolveBuild } from '../../utils/buildShare'
 import Dialog from '../common/Dialog'
@@ -17,6 +18,7 @@ export default function BuildActions({ data }) {
   } = useBuild()
   const [showSaves, setShowSaves] = useState(false)
   const [shareStatus, setShareStatus] = useState(null) // null | 'copied' | 'error'
+  const location = useLocation()
 
   const [dialog, setDialog] = useState({
     open: false,
@@ -325,9 +327,26 @@ export default function BuildActions({ data }) {
     })
   }
 
+  const buildCleanPlannerUrl = (pathname, search = '') => {
+    const rawBase = import.meta.env.BASE_URL || '/'
+    const basePath = rawBase.endsWith('/') ? rawBase.slice(0, -1) : rawBase
+    const normalizedPath = pathname?.startsWith('/') ? pathname : `/${pathname || 'build'}`
+    return `${basePath}${normalizedPath}${search}`
+  }
+
   const reset = () => {
     showConfirm('Réinitialiser', 'Voulez-vous vraiment réinitialiser tout le build ?', () => {
       dispatch({ type: 'RESET' })
+
+      const params = new URLSearchParams(location.search)
+      params.delete('build-id')
+      params.delete('b')
+      params.delete('edit')
+      const nextSearch = params.toString()
+
+      const routePath = location.pathname || '/build'
+      const cleanUrl = buildCleanPlannerUrl(routePath, nextSearch ? `?${nextSearch}` : '')
+      window.history.replaceState(null, '', cleanUrl)
     })
   }
 

@@ -58,6 +58,8 @@ const getDefaultState = (montreConfig) => ({
     },
     // Infos sur le build en cours d'édition (si chargé depuis la bibliothèque)
     editingInfo: null, // { type: 'local' | 'api', id: string, originalMetadata: {nom, description, tags} }
+    // Source du build actuellement chargé (persistée pour restaurer l'URL/le contexte)
+    activeBuildSource: null, // { type: 'api'|'share'|'local', id?: string, encoded?: string }
   })
 
 const getInitialState = (montreConfig) => {
@@ -345,6 +347,7 @@ function buildReducer(state, action, montreConfig) {
         expertise: { ...defaultState.expertise, ...(action.build.expertise || {}) },
         specialWeaponBonusPoints: { ...(action.build.specialWeaponBonusPoints || {}) },
         editingInfo: action.editingInfo || null,
+        activeBuildSource: action.activeBuildSource || null,
         shdLevels: mergedShd,
       }
     }

@@ -4,6 +4,97 @@
   "description": "Toutes les armes (classiques + exotiques) avec statistiques et talents. Clé = slug de l'arme.",
   "type": "object",
   "additionalProperties": false,
+  "definitions": {
+    "attributApplique": {
+      "type": "object",
+      "required": [
+        "nom"
+      ],
+      "properties": {
+        "nom": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)"
+        },
+        "valeur": {
+          "type": "number",
+          "description": "Valeur de l'attribut sur cet objet"
+        },
+        "prototypeValue": {
+          "type": "number",
+          "description": "Valeur de l'attribut sur cet objet si prototype"
+        }
+      },
+      "additionalProperties": false
+    },
+    "obtention": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description de comment obtenir l'objet (peut être vide)"
+        },
+        "butinCible": {
+          "oneOf": [
+            { "type": "boolean" },
+            { "type": "string", "minLength": 1 }
+          ],
+          "description": "Disponible via butin ciblé — true/false ou string décrivant les conditions"
+        },
+        "cachesExotiques": {
+          "type": "boolean",
+          "description": "Disponible via caches exotiques"
+        },
+        "mission": {
+          "oneOf": [
+            { "type": "boolean" },
+            { "type": "string", "minLength": 1 }
+          ],
+          "description": "Disponible via une mission — true/false ou string décrivant les conditions"
+        },
+        "darkZone": {
+          "oneOf": [
+            { "type": "boolean" },
+            { "type": "string", "minLength": 1 }
+          ],
+          "description": "Disponible dans la Darkzone"
+        },
+        "raid": {
+          "oneOf": [
+            { "type": "boolean" },
+            { "type": "string", "minLength": 1 }
+          ],
+          "description": "Disponible via un raid — true/false ou string décrivant les conditions"
+        },
+        "craft": {
+          "oneOf": [
+            { "type": "boolean" },
+            { "type": "string", "minLength": 1 }
+          ],
+          "description": "Disponible au craft — true/false ou string décrivant les conditions"
+        },
+        "reconstitue": {
+          "oneOf": [
+            { "type": "boolean" },
+            { "type": "string", "minLength": 1 }
+          ],
+          "description": "Schemas disponible dans les caches reconstitué — true/false ou string décrivant les conditions"
+        },
+        "incursion": {
+          "oneOf": [
+            { "type": "boolean" },
+            { "type": "string", "minLength": 1 }
+          ],
+          "description": "Disponible via une incursion — true/false ou string décrivant les conditions"
+        },
+        "represailles": {
+          "type": "string",
+          "description": "Nom de la faction pour schémas représailles (optionnel)"
+        }
+      }
+    }
+  },
   "patternProperties": {
     "^[a-z0-9_]+$": {
       "type": "object",
@@ -86,14 +177,14 @@
           "type": "array",
           "description": "Attributs fixés par défaut sur cette arme, avec leur valeur spécifique. Le nom référence un attribut dans attributs.jsonc.",
           "items": {
-            "$ref": "../common/attribut-applique.schema.json"
+            "$ref": "#/definitions/attributApplique"
           }
         },
         "attributs_essentiels": {
           "type": "array",
           "description": "Écrase les attributs essentiels fixés par défaut sur cette arme, avec leur valeur spécifique. Le nom référence un attribut dans attributs.jsonc.",
           "items": {
-            "$ref": "../common/attribut-applique.schema.json"
+            "$ref": "#/definitions/attributApplique"
           }
         },
         "degatsBase": {
@@ -133,7 +224,7 @@
           }
         },
         "obtention": {
-          "$ref": "../common/obtention.schema.json"
+          "$ref": "#/definitions/obtention"
         },
         "emplacementsMods": {
           "type": "object",

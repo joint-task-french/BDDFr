@@ -91,23 +91,6 @@
             </SchemaInfo>
           </value>
         </entry>
-        <entry key="changelog.schema">
-          <value>
-            <SchemaInfo>
-              <option name="generatedName" value="New Schema" />
-              <option name="name" value="changelog.schema" />
-              <option name="relativePathToSchema" value="src/data/schemas/changelog.schema.json" />
-              <option name="schemaVersion" value="JSON Schema 7" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="path" value="src/data/changelog.jsonc" />
-                  </Item>
-                </list>
-              </option>
-            </SchemaInfo>
-          </value>
-        </entry>
         <entry key="class-spe.schema">
           <value>
             <SchemaInfo>
@@ -237,7 +220,7 @@
             <SchemaInfo>
               <option name="generatedName" value="New Schema" />
               <option name="name" value="mods-armes-type.schema" />
-              <option name="relativePathToSchema" value="src/data/schemas/mods-armes-type.schema.json" />
+              <option name="relativePathToSchema" value="src/data/schemas/types/mods-armes-type.schema.json" />
               <option name="schemaVersion" value="JSON Schema 7" />
               <option name="patterns">
                 <list>
@@ -305,7 +288,7 @@
             <SchemaInfo>
               <option name="generatedName" value="New Schema" />
               <option name="name" value="statistiques.schema" />
-              <option name="relativePathToSchema" value="src/data/schemas/statistiques.schema.json" />
+              <option name="relativePathToSchema" value="src/data/schemas/common/statistiques.schema.json" />
               <option name="schemaVersion" value="JSON Schema 7" />
               <option name="patterns">
                 <list>
@@ -356,7 +339,7 @@
             <SchemaInfo>
               <option name="generatedName" value="New Schema" />
               <option name="name" value="talents-autres.schema" />
-              <option name="relativePathToSchema" value="src/data/schemas/talents-autres.schema.json" />
+              <option name="relativePathToSchema" value="src/data/schemas/autres/talents-autres.schema.json" />
               <option name="schemaVersion" value="JSON Schema 7" />
               <option name="patterns">
                 <list>
@@ -390,7 +373,7 @@
             <SchemaInfo>
               <option name="generatedName" value="New Schema" />
               <option name="name" value="talents-prototypes.schema" />
-              <option name="relativePathToSchema" value="src/data/schemas/talents-prototypes.schema.json" />
+              <option name="relativePathToSchema" value="src/data/schemas/armes/talents-prototypes.schema.json" />
               <option name="schemaVersion" value="JSON Schema 7" />
               <option name="patterns">
                 <list>

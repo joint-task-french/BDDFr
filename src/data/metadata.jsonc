@@ -22,6 +22,18 @@
   ],
   "changelog": [
     {
+      "date": "2026-04-20",
+      "changements": [
+        "### Changements BDDFr :",
+        {
+          "titre": "Corrections :",
+          "description": [
+            "Affichage des unité dans les attributs des ensembles de marques/gear_set."
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-04-10",
       "changements": [
         "### Changements BDDFr :",

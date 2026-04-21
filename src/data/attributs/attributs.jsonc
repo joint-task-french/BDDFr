@@ -522,6 +522,22 @@
       "protection"
     ]
   },
+  "protection_eqp": {
+    "nom": "Protection",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 5,
+    "max": 15,
+    "description": "Augmente la valeur totale d'armure",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "protection"
+    ]
+  },
   "maniement_d_arme_eqp": {
     "nom": "Maniement d'arme",
     "categorie": "offensif",
@@ -677,6 +693,22 @@
       "equipement"
     ],
     "unite": "pts/s",
+    "min": 1,
+    "max": 4925,
+    "description": "Régénère l'armure au fil du temps",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "regeneration_protection"
+    ]
+  },
+  "regeneration_de_protection_percent_eqp": {
+    "nom": "Régénération de protection",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
     "min": 1,
     "max": 4925,
     "description": "Régénère l'armure au fil du temps",
@@ -884,7 +916,7 @@
     "cible": [
       "equipement"
     ],
-    "unite": "pts",
+    "unite": "%",
     "min": 1,
     "max": 18935,
     "description": "Augmente la valeur totale de santé",

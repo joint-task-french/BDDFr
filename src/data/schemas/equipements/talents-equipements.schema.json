@@ -4,6 +4,64 @@
   "description": "Clé = slug du talent.",
   "type": "object",
   "additionalProperties": false,
+  "definitions": {
+    "descente": {
+      "type": "object",
+      "required": [
+        "boucles",
+        "categorie",
+        "levels"
+      ],
+      "properties": {
+        "boucles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "categorie": {
+          "type": "string",
+          "enum": [
+            "offensif",
+            "defensif",
+            "utilitaire",
+            "exotique"
+          ]
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes spécifiques au mode Descente"
+        },
+        "levels": {
+          "type": "object",
+          "required": [
+            "base"
+          ],
+          "properties": {
+            "base": {
+              "type": "string",
+              "description": "Description du talent avec variables : {var_name}, {other_var_name}..."
+            }
+          },
+          "additionalProperties": {
+            "type": "object",
+            "description": "Valeurs des variables pour un niveau donné (ex: '1', '2', etc.)",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
   "patternProperties": {
     "^[a-z0-9_]+$": {
       "type": "object",
@@ -69,7 +127,7 @@
           "description": "Notes libres sur le talent"
         },
         "descente": {
-          "$ref": "../common/descente.schema.json"
+          "$ref": "#/definitions/descente"
         }
       }
     }

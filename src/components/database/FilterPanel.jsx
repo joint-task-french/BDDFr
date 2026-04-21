@@ -67,6 +67,14 @@ export function useFilterPanel({ filters, values, onChange, onReset }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3">
         {[...filters]
           .sort((a, b) => {
+            const orderA = typeof a.order === 'number' ? a.order : null
+            const orderB = typeof b.order === 'number' ? b.order : null
+            if (orderA !== null || orderB !== null) {
+              if (orderA === null) return 1
+              if (orderB === null) return -1
+              if (orderA !== orderB) return orderA - orderB
+            }
+
             const getOrder = (f) => {
               if (f.type === 'select' || f.type === 'multiselect') return 1
               if (f.type === 'range') return 2
@@ -102,7 +110,7 @@ function FilterField({ filter, value, onChange }) {
   switch (filter.type) {
     case 'select':
       return (
-        <div>
+        <div className={filter.containerClassName || ''}>
           <label className="block text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">{filter.label}</label>
           <select
             value={value || ''}
@@ -118,8 +126,11 @@ function FilterField({ filter, value, onChange }) {
       )
 
     case 'checkboxes':
+      if (filter.dropdown) {
+        return <CheckboxesDropdownField filter={filter} value={value} onChange={onChange} />
+      }
       return (
-        <div className="sm:col-span-2 lg:col-span-3">
+        <div className={filter.containerClassName || 'sm:col-span-2 lg:col-span-3'}>
           <label className="block text-xs text-gray-500 font-bold uppercase tracking-widest mb-1.5">{filter.label}</label>
           <div className="flex flex-wrap gap-1.5">
             {filter.options.map(opt => {
@@ -150,7 +161,7 @@ function FilterField({ filter, value, onChange }) {
 
     case 'toggle':
       return (
-        <div className="flex flex-col gap-1 py-1">
+        <div className={`${filter.containerClassName || ''} flex flex-col gap-1 py-1`}>
           <label className="block text-xs font-bold uppercase tracking-widest invisible">Invisible Label</label>
           <div className="flex items-center gap-2">
             <button
@@ -176,7 +187,7 @@ function FilterField({ filter, value, onChange }) {
 
       const isGst = !!filter.isGearSetType
       return (
-        <div className="flex flex-col gap-1 py-1">
+        <div className={`${filter.containerClassName || ''} flex flex-col gap-1 py-1`}>
           <label className="block text-xs font-bold uppercase tracking-widest invisible">Invisible Label</label>
           <div className="flex items-center gap-2.5">
             <button type="button" onClick={cycle}
@@ -231,6 +242,62 @@ function FilterField({ filter, value, onChange }) {
     default:
       return null
   }
+}
+
+function CheckboxesDropdownField({ filter, value, onChange }) {
+  const [open, setOpen] = useState(false)
+  const selected = Array.isArray(value) ? value : []
+  const selectedCount = selected.length
+  const summary = selectedCount === 0
+    ? 'Aucun'
+    : `${selectedCount} sélectionné${selectedCount > 1 ? 's' : ''}`
+
+  const toggleOption = (optionValue) => {
+    const current = Array.isArray(value) ? value : []
+    const checked = current.includes(optionValue)
+    onChange(checked ? current.filter(v => v !== optionValue) : [...current, optionValue])
+  }
+
+  return (
+    <div className={filter.containerClassName || 'sm:col-span-2 lg:col-span-3'}>
+      <label className="block text-xs text-gray-500 font-bold uppercase tracking-widest mb-1.5">{filter.label}</label>
+
+      <div className="relative">
+        <button
+          type="button"
+          onClick={() => setOpen(prev => !prev)}
+          className={`w-full flex items-center justify-between bg-tactical-bg border rounded px-2 py-1.5 text-xs text-gray-200 transition-all focus:outline-none focus:ring-1 focus:ring-shd ${
+            open ? 'border-shd/60' : 'border-tactical-border hover:border-gray-500'
+          }`}
+        >
+          <span>{summary}</span>
+          <span className="text-[10px] leading-none text-gray-400">{open ? '▲' : '▼'}</span>
+        </button>
+
+        {open && (
+          <div className="absolute z-20 mt-1 w-full max-h-64 overflow-y-auto rounded border border-tactical-border bg-tactical-panel p-1.5 shadow-xl">
+            {filter.options.map(opt => {
+              const checked = selected.includes(opt.value)
+              return (
+                <label
+                  key={opt.value}
+                  className="flex items-center gap-2 px-2 py-1.5 rounded text-xs text-gray-200 hover:bg-tactical-bg/70 cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => toggleOption(opt.value)}
+                    className="accent-orange-500"
+                  />
+                  <span>{opt.label}</span>
+                </label>
+              )
+            })}
+          </div>
+        )}
+      </div>
+    </div>
+  )
 }
 
 /**

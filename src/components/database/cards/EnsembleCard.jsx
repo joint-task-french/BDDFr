@@ -188,6 +188,20 @@ function BonusRow({ level, bonus, color, talents, statistiques, allAttributs }) 
     return slug.replace(/_/g, ' ')
   }
 
+    const resolveAttrUnite = (slug) => {
+        if (!slug) return slug
+
+        // 1. Chercher d'abord dans attributs.jsonc (allAttributs)
+        if (allAttributs) {
+            const attrList = Array.isArray(allAttributs) ? allAttributs : Object.values(allAttributs)
+            const attr = attrList.find(a => a.slug === slug)
+            if (attr) return attr.unite
+        }
+
+        return '%'
+    }
+
+
   if (typeof bonus === 'string') {
     return (
         <div className="flex items-start gap-2 text-xs">
@@ -212,12 +226,7 @@ function BonusRow({ level, bonus, color, talents, statistiques, allAttributs }) 
           {bonus.attributs && bonus.attributs.map((attr, i) => (
               <span key={i} className="text-gray-300 leading-tight">
                 {attr.value > 0 ? '+' : ''}{attr.value}{
-                  attr.slug.includes('taille_chargeur') ||
-                  attr.slug.includes('capacite_munitions') ||
-                  attr.slug.includes('utilitaire') ||
-                  attr.slug.includes('menace') ||
-                  attr.slug.includes('portee_optimale')
-                      ? '' : '%'
+                  resolveAttrUnite(attr.slug)
               }{' '}
                 {resolveAttrName(attr.slug)}
               </span>

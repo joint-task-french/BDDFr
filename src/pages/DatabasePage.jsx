@@ -74,6 +74,14 @@ const SORT_CATEGORIES = {
   descente:           { options: DESCENTE_SORT_OPTIONS, default: DESCENTE_DEFAULT_SORT, apply: applySortDescente },
 }
 
+function areFilterValuesEqual(a, b) {
+  if (Array.isArray(a) && Array.isArray(b)) {
+    if (a.length !== b.length) return false
+    return a.every((value, index) => value === b[index])
+  }
+  return a === b
+}
+
 function getFiltersConfig(category, data, values) {
   switch (category) {
     case 'armes':             return { filters: getWeaponFilters(data), defaults: getWeaponDefaults(data), apply: applyWeaponFilters }
@@ -195,7 +203,9 @@ export default function DatabasePage() {
 
       const cleanValues = {}
       for (const [k, v] of Object.entries(newValues)) {
-        if (v !== '' && v !== null && !(Array.isArray(v) && v.length === 0)) {
+        const defaultValue = filterConfig?.defaults?.[k]
+        const isDefault = defaultValue !== undefined && areFilterValuesEqual(v, defaultValue)
+        if (!isDefault && v !== '' && v !== null && !(Array.isArray(v) && v.length === 0)) {
           cleanValues[k] = v
         }
       }
@@ -208,7 +218,7 @@ export default function DatabasePage() {
 
       return prev
     }, { replace: true })
-  }, [activeCategory, setSearchParams])
+  }, [activeCategory, setSearchParams, filterConfig])
 
   const handleFilterReset = useCallback(() => {
     setSearchParams(prev => {

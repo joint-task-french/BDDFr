@@ -561,8 +561,41 @@ export function applyModArmeFilters(items, filters) {
 
 export function getEnsembleFilters(data) {
   const statsSet = new Map()
+  const bonusStatsSet = new Map()
   const ensembles = Array.isArray(data?.ensembles) ? data.ensembles : Object.values(data?.ensembles || {})
   const statistiques = data?.statistiques || {}
+  const attributs = Array.isArray(data?.attributs) ? data.attributs : Object.values(data?.attributs || {})
+
+  const humanizeSlug = (slug) => {
+    const normalized = String(slug || '').replace(/_eqp$/i, '')
+    const text = normalized.replace(/_/g, ' ').trim()
+    return text ? text.charAt(0).toUpperCase() + text.slice(1) : 'Attribut inconnu'
+  }
+
+  const resolveStatLabel = (slug) => {
+    if (!slug) return 'Attribut inconnu'
+    const baseSlug = String(slug).replace(/_eqp$/i, '')
+
+    const fromStat = statistiques[slug]?.nom || statistiques[baseSlug]?.nom
+    if (fromStat) return fromStat
+
+    const fromAttribut = attributs.find(attr =>
+        Array.isArray(attr?.statistiques) &&
+        (attr.statistiques.includes(slug) || attr.statistiques.includes(baseSlug))
+    )?.nom
+    if (fromAttribut) return fromAttribut
+
+    return humanizeSlug(slug)
+  }
+
+  const getBonusAttributSlugs = (ensemble) => {
+    return Object.entries(ensemble || {})
+        .filter(([key]) => /^bonus\d+pieces$/.test(key))
+        .flatMap(([, bonus]) => Array.isArray(bonus?.attributs) ? bonus.attributs : [])
+        .map(attr => attr?.slug)
+        .filter(Boolean)
+  }
+
   for (const ens of ensembles) {
     if (ens.attributsEssentiels) {
       for (const slug of ens.attributsEssentiels) {
@@ -572,32 +605,87 @@ export function getEnsembleFilters(data) {
         }
       }
     }
+
+    for (const slug of getBonusAttributSlugs(ens)) {
+      if (!bonusStatsSet.has(slug)) {
+        bonusStatsSet.set(slug, resolveStatLabel(slug))
+      }
+    }
   }
+
   const attrOptions = [...statsSet.entries()]
       .sort((a, b) => a[1].localeCompare(b[1], 'fr'))
       .map(([value, label]) => ({ value, label }))
 
+  const bonusAttrOptions = [...bonusStatsSet.entries()]
+      .sort((a, b) => a[1].localeCompare(b[1], 'fr'))
+      .map(([value, label]) => ({ value, label }))
+
   return [
-    { key: 'isGearSet', type: 'tri-state', label: 'Type', trueLabel: 'set', falseLabel: 'marque', isGearSetType: true },
     {
       key: 'attributEssentiel', type: 'select', label: 'Attribut essentiel',
       options: attrOptions,
+      order: 10,
+      containerClassName: 'sm:col-span-2 lg:col-span-3',
+    },
+    {
+      key: 'bonusAttributs', type: 'checkboxes', label: 'Attributs bonus des pièces',
+      options: bonusAttrOptions,
+      dropdown: true,
+      order: 20,
+      containerClassName: 'sm:col-span-1 lg:col-span-1',
+    },
+    {
+      key: 'bonusAttributsCumulatif',
+      type: 'toggle',
+      label: 'Cumulatif',
+      order: 21,
+      containerClassName: 'sm:col-span-1 lg:col-span-1',
+    },
+    {
+      key: 'isGearSet',
+      type: 'tri-state',
+      label: 'Type',
+      trueLabel: 'set',
+      falseLabel: 'marque',
+      isGearSetType: true,
+      order: 30,
     },
   ]
 }
 
 export function getEnsembleDefaults() {
-  return { isGearSet: null, attributEssentiel: '' }
+  return { isGearSet: null, attributEssentiel: '', bonusAttributs: [], bonusAttributsCumulatif: true }
 }
 
 export function applyEnsembleFilters(items, filters) {
   const list = Array.isArray(items) ? items : Object.values(items || {})
+
+  const getBonusAttributSlugs = (ensemble) => {
+    return Object.entries(ensemble || {})
+        .filter(([key]) => /^bonus\d+pieces$/.test(key))
+        .flatMap(([, bonus]) => Array.isArray(bonus?.attributs) ? bonus.attributs : [])
+        .map(attr => attr?.slug)
+        .filter(Boolean)
+  }
+
   return list.filter(item => {
     if (filters.isGearSet !== null && filters.isGearSet !== undefined) {
       const isGS = item.type === 'gear_set'
       if (isGS !== filters.isGearSet) return false
     }
     if (filters.attributEssentiel && !(Array.isArray(item.attributsEssentiels) && item.attributsEssentiels.includes(filters.attributEssentiel))) return false
+
+    const selectedBonusAttributs = Array.isArray(filters.bonusAttributs) ? filters.bonusAttributs : []
+    if (selectedBonusAttributs.length > 0) {
+      const bonusSlugs = new Set(getBonusAttributSlugs(item))
+      const isCumulatif = !!filters.bonusAttributsCumulatif
+      const matches = isCumulatif
+          ? selectedBonusAttributs.every(slug => bonusSlugs.has(slug))
+          : selectedBonusAttributs.some(slug => bonusSlugs.has(slug))
+      if (!matches) return false
+    }
+
     return true
   }).sort((a, b) => {
     // Gear sets après marques

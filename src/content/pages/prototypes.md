@@ -2,7 +2,7 @@
 title: Escalade et équipement Prototypes
 description: Introduction aux nouveaux équipements de qualité prototype.
 date: 2026-04-06
-update: 2026-04-09
+update: 2026-04-21
 tags: [guide, prototypes]
 authors: [ocelus_ftnl, marcoo888]
 ---

@@ -3,7 +3,7 @@ import { useParams, useSearchParams } from 'react-router-dom'
 import { MapContainer, ImageOverlay, ZoomControl, useMap, Marker, Tooltip, useMapEvents } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import { resolveMapImage, GameIcon, resolveIcon } from '../utils/gameAssets.jsx'
+import { resolveMapImage, GameIcon, resolveAsset } from "../components/common/GameAssets.jsx";
 import { loadJsonc } from '../utils/dataLoader.js'
 import Loader from '../components/common/Loader.jsx'
 
@@ -259,7 +259,7 @@ export default function MapPage() {
                                     <label key={cat.id} className="flex items-center gap-3 cursor-pointer group">
                                         <input type="checkbox" checked={activeCategories.includes(cat.id)} onChange={() => toggleCategory(cat.id)} className="hidden" />
                                         <div className={`w-4 h-4 rounded-sm border flex items-center justify-center transition-colors shrink-0 ${activeCategories.includes(cat.id) ? 'border-shd bg-shd/20' : 'border-gray-600 bg-transparent'}`}>{activeCategories.includes(cat.id) && <div className="w-2 h-2 bg-shd rounded-sm" />}</div>
-                                        <div className="w-5 h-5 flex items-center justify-center shrink-0"><GameIcon src={resolveIcon(cat.icon)} className="w-full h-full object-contain" /></div>
+                                        <div className="w-5 h-5 flex items-center justify-center shrink-0"><GameIcon src={resolveAsset(cat.icon)} className="w-full h-full object-contain" /></div>
                                         <span className="text-sm text-gray-300 group-hover:text-white transition-colors">{cat.name}</span>
                                     </label>
                                 ))}
@@ -327,7 +327,7 @@ export default function MapPage() {
 
                     {visibleMarkers.map(marker => {
                         const catDef = currentMapConfig.categories?.find(c => c.id === marker.category) || {}
-                        const iconUrl = resolveIcon(catDef.icon)
+                        const iconUrl = resolveAsset(catDef.icon)
                         const customIcon = L.divIcon({
                             html: `<div style="background-color: ${catDef.color || '#3b82f6'}; box-shadow: 0 0 10px ${catDef.color || '#3b82f6'}80;" class="w-8 h-8 rounded-full border border-black/50 flex items-center justify-center shadow-lg p-1 cursor-pointer hover:scale-110 transition-transform">${iconUrl ? `<img src="${iconUrl}" style="filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.6));" class="w-full h-full object-contain" />` : ''}</div>`,
                             className: 'bg-transparent border-0',
@@ -416,7 +416,7 @@ export default function MapPage() {
                             <div className="flex justify-between items-start mb-4">
                                 <div className="flex items-center gap-3">
                                     <div className="w-8 h-8 rounded-full border border-black/50 flex items-center justify-center shadow-lg p-1 shrink-0" style={{ backgroundColor: selectedMarker.categoryDef?.color || '#3b82f6', boxShadow: `0 0 10px ${selectedMarker.categoryDef?.color || '#3b82f6'}80` }}>
-                                        {selectedMarker.categoryDef?.icon && <img src={resolveIcon(selectedMarker.categoryDef.icon)} className="w-full h-full object-contain filter drop-shadow-md" />}
+                                        {selectedMarker.categoryDef?.icon && <img src={resolveAsset(selectedMarker.categoryDef.icon)} className="w-full h-full object-contain filter drop-shadow-md" />}
                                     </div>
                                     <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-widest" style={{ color: selectedMarker.categoryDef?.color || '#fff' }}>
                                         {selectedMarker.label}

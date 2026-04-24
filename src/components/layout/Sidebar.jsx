@@ -4,7 +4,7 @@ import { NavLink, useLocation, Link } from 'react-router-dom'
 import JTFrLogo from '../common/JTFrLogo.jsx'
 import { InfoToolTip } from "../common/InfoToolTip.jsx"
 import { loadJsonc } from '../../utils/dataLoader.js'
-import { GameIcon, resolveIcon } from '../../utils/gameAssets.jsx'
+import { GameIcon, resolveAsset } from '../common/GameAssets.jsx'
 import { apiBuildotheque } from '../../utils/apiBuildotheque'
 import metadata from '../../data/metadata.jsonc?raw'
 
@@ -139,7 +139,7 @@ export default function Sidebar({ open, onClose }) {
                               }`}
                           >
                             <div className="w-5 h-5 shrink-0 flex items-center justify-center opacity-80">
-                              <GameIcon src={resolveIcon(map.icon)} className="w-full h-full object-contain" />
+                              <GameIcon src={resolveAsset(map.icon)} className="w-full h-full object-contain" />
                             </div>
                             {map.name}
                           </Link>

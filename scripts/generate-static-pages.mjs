@@ -169,7 +169,7 @@ if (metadata.changelog && metadata.changelog.length > 0) {
 
 const pages_fixes = [
     { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez et partagez vos configurations d\'équipement.' },
-    { path: 'map', title: 'Carte Interactive — BDDFr', description: 'Explorez Washington D.C., New York et d\'autres zones avec notre carte interactive.' }
+    { path: 'map', title: 'Carte Interactive — BDDFr', description: 'Explorez Washington D.C., New York et d\'autres zones avec notre carte interactive.' },
     { path: 'changelog', title: 'Mises à jour — BDDFr', description: changelogDesc },
     { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' },
     { path: 'pages', title: 'Bibliothèque de Documents — BDDFr', description: 'Consultez nos guides et documents du réseau SHD.' },

@@ -5814,5 +5814,19 @@
       "chargeur": "chargeur_556",
       "viseur": "rail_optique"
     }
+  },
+  "premiere_floraison": {
+    "nom": "Première floraison",
+    "type": "fusil_assaut",
+    "portee": 31,
+    "rpm": 700,
+    "chargeur": 30,
+    "headshot": 157.7,
+    "degatsBase": 57600,
+    "estNomme": true,
+    "talents": [
+      "recolte_de_fleurs"
+    ],
+    "description": "Les fleurs de cerisier sont éphèmères :\nElles ne durent généralement pas plus de deux semaines. Vos ennemis eux, tiendront beaucoup moins longtemps."
   }
 }

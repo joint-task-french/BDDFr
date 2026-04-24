@@ -22,13 +22,14 @@
   ],
   "changelog": [
     {
-      "date": "2026-04-20",
+      "date": "2026-04-21",
       "changements": [
         "### Changements BDDFr :",
         {
           "titre": "Corrections :",
           "description": [
-            "Affichage des unité dans les attributs des ensembles de marques/gear_set."
+            "Affichage des unité dans les attributs des ensembles de marques/gear_set.",
+            "Mise a jour de l'article sur les prototypes suite aux changements en jeu."
           ]
         }
       ]

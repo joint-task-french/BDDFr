@@ -2,7 +2,7 @@
 title: Escalade et équipement Prototypes
 description: Introduction aux nouveaux équipements de qualité prototype.
 date: 2026-04-06
-update: 2026-04-09
+update: 2026-04-21
 tags: [guide, prototypes]
 authors: [ocelus_ftnl, marcoo888]
 ---
@@ -74,19 +74,19 @@ Augmenter les statistiques des ennemis ne suffisait pas. L'Escalade introduit 2 
 
 Actuellement, le mode Escalade est l'unique moyen de mettre la main sur l'équipement Prototype. Oubliez le butin ciblé : ici, tout est question de hasard. Chaque ennemi éliminé possède une petite chance de faire tomber une pièce d'équipement ou une arme Prototype. Naturellement, cette probabilité augmente avec la difficulté :
 
-| Tier        | taux de drop  | kill nécessaires |
-|-------------|---------------|------------------|
-| **Tier 0**  | 0,10 **%**    | **~** 1000       |
-| **Tier 1**  | 0,15 **%**    | **~** 667        |
-| **Tier 2**  | 0,20 **%**    | **~** 500        |
-| **Tier 3**  | 0,30 **%**    | **~** 333        |
-| **Tier 4**  | 0,45 **%**    | **~** 222        |
-| **Tier 5**  | 0,60 **%**    | **~** 167        |
-| **Tier 6**  | 0,80 **%**    | **~** 125        |
-| **Tier 7**  | 1,00 **%**    | **~** 100        |
-| **Tier 8**  | 1,30 **%**    | **~** 77         |
-| **Tier 9**  | 1,60 **%**    | **~** 63         |
-| **Tier 10** | 2,00 **%**    | **~** 50         |
+| Tier         | taux de drop | kill nécessaires |
+|--------------|--------------|------------------|
+| **Tier 0**   | 0,10 %       | **~** 1000       |
+| **Tier 1**   | 0,20 %       | **~** 500        |
+| **Tier 2**   | 0,40 %       | **~** 250        |
+| **Tier 3**   | 0,60 %       | **~** 167        |
+| **Tier 4**   | 0,60 %       | **~** 167        |
+| **Tier 5**   | 0,80 %       | **~** 125        |
+| **Tier 6**   | 1,25 %       | **~** 80         |
+| **Tier 7**   | 1,50 %       | **~** 67         |
+| **Tier 8**   | 2,00 %       | **~** 50         |
+| **Tier 9**   | 2,50 %       | **~** 40         |
+| **Tier 10**  | 3,00 %       | **~** 33         |
 
 
 
@@ -105,6 +105,106 @@ Actuellement, le mode Escalade est l'unique moyen de mettre la main sur l'équip
 | **Tier 9**  | 70              | 76          | 20            |                    |                |                      |
 | **Tier 10** | 87              | 94          | 25            |                    |                |                      |
 
+### Rotation hebdomadaire des missions :
+
+<details open>
+<summary>Rotation 1</summary>
+
+* The Tombs
+* Manning National Zoo
+* Siège de la banque
+* Musée d'histoire américaine
+* Siège de l'Administration spatiale
+
+</details>
+
+<details open>
+<summary>Rotation 2</summary>
+
+* Pathway Park
+* Camp White Oak
+* Grand Washington Hotel
+* Jefferson Trade Center
+* Bunker fédéral d'urgence 
+
+</details>
+
+<details open>
+<summary>Rotation 3</summary>
+
+* Wall Street
+* Roosevelt island
+* Siège du DCE
+* Musée de l'Air et de l'Espace
+* District Union Arena
+
+</details>
+
+<details open>
+<summary>Rotation 4</summary>
+
+* Tanker échoué
+* Musée ViewPoint
+* Jefferson Trade Center
+* Siège de la banque
+* Siège du DCE
+
+</details>
+
+<details open>
+<summary>Rotation 5</summary>
+
+* Liberty Island
+* Potomac Event Center
+* Musée d'histoire américaine
+* Jefferson Plaza
+* Musée de l'Air et de l'Espace
+
+</details>
+
+<details open>
+<summary>Rotation 6</summary>
+
+* Musée d'art
+* Capitole
+* Jefferson Plaza
+* Lincoln Memorial
+* Bunker fédéral d'urgence
+
+</details>
+
+<details open>
+<summary>Rotation 7</summary>
+
+* Musée d'art
+* Manning National Zoo
+* Camp White Oak
+* Le Pentagone
+* Laboratoires de recherche de la DARPA
+
+</details>
+
+<details open>
+<summary>Rotation 8</summary>
+
+* Stade de Coney Island
+* Parc d'attractions de Coney Island
+* Musée ViewPoint
+* Capitole
+* Potomac Event Center
+
+</details>
+
+<details open>
+<summary>Rotation 9</summary>
+
+* Le Pentagone
+* Laboratoires de recherche de la DARPA
+* District Union Arena
+* Roosevelt island
+* Siège de l'Administration spatiale
+
+</details>
 
 ---
 
@@ -171,5 +271,4 @@ Si l'Augmentation présente sur votre pièce ne correspond pas à votre build, v
 
 *Sources :*
 - *[Poste Reddit de dognuttz](https://www.reddit.com/r/thedivision/comments/1safynu/psa_escalation_prototype_gear_drop_chances_roll/)*
-- *[Vidéo YouTube de Joker Farina](https://www.youtube.com/watch?v=DCRh8nsavto)* *(mise a jour des taux de drop)*
 - Expérimentations en jeu

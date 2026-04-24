@@ -2747,5 +2747,13 @@
       "interchange",
       "trader"
     ]
+  },
+  "recolte_de_fleurs": {
+    "nom": "Récolte de fleurs",
+    "estExotique": false,
+    "perfectDescription": "Augmente les dégâts d'arme de **3,3%** pour chaque tranche de  **10%** de protection et santé combinés qu'il reste à l'ennemi.",
+    "armesParfaites": [
+      "premiere_floraison"
+    ]
   }
 }

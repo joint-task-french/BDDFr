@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { MapContainer, ImageOverlay, ZoomControl, useMap, Marker, Tooltip, useMapEvents, Polygon } from 'react-leaflet'
+import { renderToString } from 'react-dom/server'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { resolveMapImage, GameIcon, resolveAsset } from "../components/common/GameAssets.jsx";
@@ -249,7 +250,6 @@ export default function MapPage() {
         return currentMapConfig.markers.filter(marker => activeCategories.includes(marker.category))
     }, [currentMapConfig?.markers, activeCategories])
 
-    // Les zones (quartiers) ne sont plus soumises au filtre par catégorie
     const visibleZones = useMemo(() => {
         return currentMapConfig?.zones || []
     }, [currentMapConfig?.zones])
@@ -352,6 +352,8 @@ export default function MapPage() {
                                                 <div className="flex flex-col gap-1.5">
                                                     {cats.map(cat => {
                                                         const checked = activeCategories.includes(cat.id);
+                                                        const bgColor = cat.backgroundColor || 'transparent'
+                                                        const iColor = cat.iconColor || cat.color || '#ffffff'
                                                         return (
                                                             <button
                                                                 key={cat.id}
@@ -362,8 +364,8 @@ export default function MapPage() {
                                                                         : 'bg-tactical-bg/80 text-gray-500 border-tactical-border hover:border-gray-500 hover:text-gray-400'
                                                                 }`}
                                                             >
-                                                                <div className={`w-5 h-5 flex items-center justify-center shrink-0 ${checked ? 'opacity-100' : 'opacity-50'}`}>
-                                                                    <GameIcon src={resolveAsset(cat.icon)} className="w-full h-full object-contain" />
+                                                                <div className={`w-5 h-5 flex items-center justify-center rounded-full shrink-0 ${checked ? 'opacity-100' : 'opacity-50'}`} style={{ backgroundColor: bgColor }}>
+                                                                    <GameIcon src={resolveAsset(cat.icon)} color={iColor} className="w-full h-full object-contain" />
                                                                 </div>
                                                                 <span className="flex-1">{cat.name}</span>
                                                             </button>
@@ -413,7 +415,7 @@ export default function MapPage() {
                     {/* AFFICHAGE DES QUARTIERS (ZONES) */}
                     {visibleZones.map(zone => {
                         const catDef = currentMapConfig.categories?.find(c => c.id === zone.category) || {}
-                        const fallbackColor = catDef.color || '#3b82f6'
+                        const fallbackColor = catDef.iconColor || catDef.color || '#3b82f6'
 
                         const bColor = zone.borderColor || zone.color || fallbackColor
                         const fColor = zone.fillColor || zone.color || fallbackColor
@@ -456,8 +458,18 @@ export default function MapPage() {
                     {visibleMarkers.map(marker => {
                         const catDef = currentMapConfig.categories?.find(c => c.id === marker.category) || {}
                         const iconUrl = resolveAsset(catDef.icon)
+                        const bgColor = catDef.backgroundColor || 'transparent'
+                        const iconColor = catDef.iconColor || catDef.color || '#ffffff'
+                        const borderStyle = bgColor !== 'transparent' ? 'border border-black/50' : 'border-0'
+                        const shadowStyle = bgColor !== 'transparent' ? `box-shadow: 0 0 10px ${bgColor}80;` : ''
+
+                        // Conversion du composant React en HTML pour Leaflet
+                        const iconHtml = renderToString(
+                            <GameIcon src={iconUrl} color={iconColor} className="w-full h-full object-contain filter drop-shadow-md" />
+                        )
+
                         const customIcon = L.divIcon({
-                            html: `<div style="background-color: ${catDef.color || '#3b82f6'}; box-shadow: 0 0 10px ${catDef.color || '#3b82f6'}80;" class="w-8 h-8 rounded-full border border-black/50 flex items-center justify-center shadow-lg p-1 cursor-pointer hover:scale-110 transition-transform">${iconUrl ? `<img src="${iconUrl}" style="filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.6));" class="w-full h-full object-contain" />` : ''}</div>`,
+                            html: `<div style="background-color: ${bgColor}; ${shadowStyle}" class="w-8 h-8 rounded-full ${borderStyle} flex items-center justify-center shadow-lg p-1 cursor-pointer hover:scale-110 transition-transform">${iconHtml}</div>`,
                             className: 'bg-transparent border-0',
                             iconSize: [32, 32], iconAnchor: [16, 16], tooltipAnchor: [0, -16]
                         })
@@ -473,7 +485,7 @@ export default function MapPage() {
                             >
                                 <Tooltip direction="top" offset={[0, -5]} opacity={1} className="tactical-map-tooltip">
                                     <div className="bg-tactical-panel/95 border border-tactical-border rounded p-3 backdrop-blur-sm min-w-[200px] shadow-2xl text-left font-sans">
-                                        <h4 className="font-bold text-sm mb-1 uppercase tracking-widest" style={{ color: catDef.color || '#fff' }}>{marker.label}</h4>
+                                        <h4 className="font-bold text-sm mb-1 uppercase tracking-widest" style={{ color: iconColor }}>{marker.label}</h4>
                                         <div className="w-full h-px bg-tactical-border mb-2 opacity-50"></div>
                                         <p className="text-xs text-gray-300 m-0 leading-relaxed whitespace-pre-wrap">{marker.description}</p>
                                         {(marker.extendedDescription || marker.image) && (
@@ -566,10 +578,13 @@ export default function MapPage() {
                         <div className="p-6 overflow-y-auto">
                             <div className="flex justify-between items-start mb-4">
                                 <div className="flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-full border border-black/50 flex items-center justify-center shadow-lg p-1 shrink-0" style={{ backgroundColor: selectedMarker.categoryDef?.color || '#3b82f6', boxShadow: `0 0 10px ${selectedMarker.categoryDef?.color || '#3b82f6'}80` }}>
-                                        {selectedMarker.categoryDef?.icon && <img src={resolveAsset(selectedMarker.categoryDef.icon)} className="w-full h-full object-contain filter drop-shadow-md" />}
+                                    <div
+                                        className={`w-8 h-8 rounded-full ${selectedMarker.categoryDef?.backgroundColor && selectedMarker.categoryDef?.backgroundColor !== 'transparent' ? 'border border-black/50' : 'border-0'} flex items-center justify-center shadow-lg p-1 shrink-0`}
+                                        style={{ backgroundColor: selectedMarker.categoryDef?.backgroundColor || 'transparent', boxShadow: selectedMarker.categoryDef?.backgroundColor && selectedMarker.categoryDef?.backgroundColor !== 'transparent' ? `0 0 10px ${selectedMarker.categoryDef.backgroundColor}80` : 'none' }}
+                                    >
+                                        {selectedMarker.categoryDef?.icon && <GameIcon src={resolveAsset(selectedMarker.categoryDef.icon)} color={selectedMarker.categoryDef?.iconColor || selectedMarker.categoryDef?.color || '#ffffff'} className="w-full h-full object-contain filter drop-shadow-md" />}
                                     </div>
-                                    <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-widest" style={{ color: selectedMarker.categoryDef?.color || '#fff' }}>
+                                    <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-widest" style={{ color: selectedMarker.categoryDef?.iconColor || selectedMarker.categoryDef?.color || '#fff' }}>
                                         {selectedMarker.label}
                                     </h2>
                                 </div>

@@ -12,21 +12,21 @@
                 "id": "white_house",
                 "name": "Maison Blanche",
                 "icon": "maison_blanche",
-                "color": "#ff8000",
+                "iconColor": "#ff8000",
                 "group": "Zones de sécurité"
             },
             {
                 "id": "refuges",
                 "name": "Refuges",
                 "icon": "planque",
-                "color": "#ff8000",
+                "iconColor": "#ff8000",
                 "group": "Zones de sécurité"
             },
             {
                 "id": "planques",
                 "name": "Planques",
                 "icon": "planque",
-                "color": "#ff8000",
+                "iconColor": "#ff8000",
                 "group": "Zones de sécurité"
             }
         ],

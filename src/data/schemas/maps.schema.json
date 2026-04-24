@@ -40,10 +40,20 @@
                     "type": "string",
                     "description": "Nom ou chemin de l'icône"
                 },
+                "iconColor": {
+                    "type": "string",
+                    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$",
+                    "description": "Couleur passée au paramètre color de l'icône (ex: '#ff8000')"
+                },
+                "backgroundColor": {
+                    "type": "string",
+                    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$",
+                    "description": "Couleur de fond du cercle du marqueur (transparent si non défini)"
+                },
                 "color": {
                     "type": "string",
                     "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-                    "description": "Couleur hexadécimale pour le marqueur (ex: '#ef4444')"
+                    "description": "Couleur de fallback si iconColor n'est pas défini"
                 },
                 "group": {
                     "type": "string",

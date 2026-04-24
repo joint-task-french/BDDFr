@@ -154,10 +154,9 @@ export default function MapPage() {
     const [loadingError, setLoadingError] = useState(null)
     const [activeCategories, setActiveCategories] = useState([])
     const [filterPanelOpen, setFilterPanelOpen] = useState(true)
+    const [collapsedGroups, setCollapsedGroups] = useState({})
     const [hudCoords, setHUDCoords] = useState({ x: '0', y: '0' })
     const [contextMenu, setContextMenu] = useState(null)
-
-    // NOUVEL ÉTAT : Le marqueur sélectionné pour afficher ses détails
     const [selectedMarker, setSelectedMarker] = useState(null)
 
     useEffect(() => {
@@ -190,18 +189,66 @@ export default function MapPage() {
         return parentMapConfig
     }, [mapsConfig, mapId, subMapId])
 
+    // Initialisation depuis l'URL au chargement de la carte
     useEffect(() => {
         if (currentMapConfig?.categories) {
-            setActiveCategories(currentMapConfig.categories.map(c => c.id))
-        } else {
-            setActiveCategories([])
+            const urlCats = searchParams.get('cats')
+            if (urlCats !== null) {
+                setActiveCategories(urlCats === '' ? [] : urlCats.split(','))
+            } else {
+                setActiveCategories(currentMapConfig.categories.map(c => c.id))
+            }
         }
+    }, [currentMapConfig, searchParams])
+
+    // Groupement des catégories
+    const groupedCategories = useMemo(() => {
+        if (!currentMapConfig?.categories) return {}
+        return currentMapConfig.categories.reduce((acc, cat) => {
+            const g = cat.group || 'Général'
+            if (!acc[g]) acc[g] = []
+            acc[g].push(cat)
+            return acc
+        }, {})
     }, [currentMapConfig])
 
+    // RÉÉCRITURE SILENCIEUSE DE L'URL
+    const rewriteUrlParams = (categories) => {
+        const url = new URL(window.location.href)
+        const allIds = currentMapConfig.categories.map(c => c.id)
+
+        if (categories.length === allIds.length) {
+            url.searchParams.delete('cats')
+        } else {
+            url.searchParams.set('cats', categories.join(','))
+        }
+
+        window.history.replaceState(null, '', url.toString())
+    }
+
+    const updateActiveCategories = (newCats) => {
+        setActiveCategories(newCats)
+        rewriteUrlParams(newCats)
+    }
+
     const toggleCategory = (categoryId) => {
-        setActiveCategories(prev =>
-            prev.includes(categoryId) ? prev.filter(id => id !== categoryId) : [...prev, categoryId]
-        )
+        const next = activeCategories.includes(categoryId)
+            ? activeCategories.filter(id => id !== categoryId)
+            : [...activeCategories, categoryId]
+        updateActiveCategories(next)
+    }
+
+    const toggleGroup = (groupName, cats) => {
+        const ids = cats.map(c => c.id)
+        const allIn = ids.every(id => activeCategories.includes(id))
+        const next = allIn
+            ? activeCategories.filter(id => !ids.includes(id))
+            : [...new Set([...activeCategories, ...ids])]
+        updateActiveCategories(next)
+    }
+
+    const toggleCollapse = (groupName) => {
+        setCollapsedGroups(prev => ({ ...prev, [groupName]: !prev[groupName] }))
     }
 
     const handleCopyLocation = () => {
@@ -247,21 +294,49 @@ export default function MapPage() {
                 }
             `}</style>
 
-            {/* PANNEAU DE FILTRES */}
+            {/* PANNEAU DE FILTRES REFAIT */}
             {currentMapConfig.categories?.length > 0 && (
                 <div className="absolute top-4 right-4 z-[400] flex flex-col items-end">
                     <button onClick={() => setFilterPanelOpen(!filterPanelOpen)} className="mb-2 p-2 bg-tactical-panel/90 border border-tactical-border rounded shadow-lg text-gray-400 hover:text-white backdrop-blur-sm"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" /></svg></button>
                     {filterPanelOpen && (
-                        <div className="bg-tactical-panel/90 border border-tactical-border rounded-lg p-4 backdrop-blur-sm min-w-[220px] shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-                            <h3 className="text-white text-xs font-bold uppercase tracking-widest border-b border-tactical-border pb-2 mb-3">Légende & Filtres</h3>
-                            <div className="space-y-2">
-                                {currentMapConfig.categories.map(cat => (
-                                    <label key={cat.id} className="flex items-center gap-3 cursor-pointer group">
-                                        <input type="checkbox" checked={activeCategories.includes(cat.id)} onChange={() => toggleCategory(cat.id)} className="hidden" />
-                                        <div className={`w-4 h-4 rounded-sm border flex items-center justify-center transition-colors shrink-0 ${activeCategories.includes(cat.id) ? 'border-shd bg-shd/20' : 'border-gray-600 bg-transparent'}`}>{activeCategories.includes(cat.id) && <div className="w-2 h-2 bg-shd rounded-sm" />}</div>
-                                        <div className="w-5 h-5 flex items-center justify-center shrink-0"><GameIcon src={resolveAsset(cat.icon)} className="w-full h-full object-contain" /></div>
-                                        <span className="text-sm text-gray-300 group-hover:text-white transition-colors">{cat.name}</span>
-                                    </label>
+                        <div className="bg-tactical-panel/95 border border-tactical-border rounded-lg p-4 backdrop-blur-md min-w-[260px] max-h-[85vh] overflow-y-auto shadow-2xl custom-scrollbar">
+                            <h3 className="text-white text-xs font-bold uppercase tracking-widest border-b border-tactical-border pb-2 mb-4">Tactical Overlay</h3>
+                            <div className="space-y-6">
+                                {Object.entries(groupedCategories).map(([groupName, cats]) => (
+                                    <div key={groupName} className="group/section">
+                                        <div className="flex items-center justify-between mb-2">
+                                            <div
+                                                className="flex items-center gap-2 cursor-pointer select-none"
+                                                onClick={() => toggleCollapse(groupName)}
+                                            >
+                                                <svg className={`w-3 h-3 text-shd transition-transform ${collapsedGroups[groupName] ? '-rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                                <span className="text-[11px] font-black text-gray-400 uppercase tracking-tighter">{groupName}</span>
+                                            </div>
+                                            <button
+                                                onClick={() => toggleGroup(groupName, cats)}
+                                                className="text-[9px] text-gray-600 hover:text-shd uppercase font-mono transition-colors"
+                                            >
+                                                {cats.every(c => activeCategories.includes(c.id)) ? '[Désactiver]' : '[Activer]'}
+                                            </button>
+                                        </div>
+
+                                        {!collapsedGroups[groupName] && (
+                                            <div className="space-y-2 pl-2 border-l border-tactical-border/30 ml-1.5">
+                                                {cats.map(cat => (
+                                                    <label key={cat.id} className="flex items-center gap-3 cursor-pointer group/item">
+                                                        <input type="checkbox" checked={activeCategories.includes(cat.id)} onChange={() => toggleCategory(cat.id)} className="hidden" />
+                                                        <div className={`w-3.5 h-3.5 rounded-sm border flex items-center justify-center transition-all ${activeCategories.includes(cat.id) ? 'border-shd bg-shd/20 shadow-[0_0_8px_rgba(255,109,0,0.3)]' : 'border-gray-700 bg-transparent'}`}>
+                                                            {activeCategories.includes(cat.id) && <div className="w-1.5 h-1.5 bg-shd rounded-px" />}
+                                                        </div>
+                                                        <div className="w-4 h-4 flex items-center justify-center shrink-0 opacity-70 group-hover/item:opacity-100 transition-opacity">
+                                                            <GameIcon src={resolveAsset(cat.icon)} className="w-full h-full object-contain" />
+                                                        </div>
+                                                        <span className={`text-xs transition-colors ${activeCategories.includes(cat.id) ? 'text-gray-200' : 'text-gray-500'}`}>{cat.name}</span>
+                                                    </label>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -339,7 +414,6 @@ export default function MapPage() {
                                 key={marker.id}
                                 position={[marker.coords[1], marker.coords[0]]}
                                 icon={customIcon}
-                                // L'ÉVÉNEMENT DE CLIC POUR OUVRIR LA FICHE
                                 eventHandlers={{
                                     click: () => setSelectedMarker({ ...marker, categoryDef: catDef })
                                 }}
@@ -397,9 +471,8 @@ export default function MapPage() {
                 <div className="absolute inset-0 z-[2000] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" onClick={() => setSelectedMarker(null)}>
                     <div
                         className="bg-tactical-panel border border-tactical-border rounded-lg shadow-2xl max-w-lg w-full max-h-[85vh] overflow-hidden flex flex-col"
-                        onClick={e => e.stopPropagation()} // Empêche de fermer si on clique DANS la boîte
+                        onClick={e => e.stopPropagation()}
                     >
-                        {/* En-tête avec image éventuelle */}
                         {selectedMarker.image && (
                             <div className="w-full h-48 sm:h-64 relative bg-black shrink-0">
                                 <img
@@ -411,7 +484,6 @@ export default function MapPage() {
                             </div>
                         )}
 
-                        {/* Contenu textuel */}
                         <div className="p-6 overflow-y-auto">
                             <div className="flex justify-between items-start mb-4">
                                 <div className="flex items-center gap-3">

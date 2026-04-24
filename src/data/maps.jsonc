@@ -52,7 +52,9 @@
                 "category": "quartiers",
                 "label": "Downtown East",
                 "description": "Quartier principalement contrôlé par les Hyènes.",
-                "color": "#ef4444",
+                "borderColor": "#ff6d00",
+                "fillColor": "#ef4444",
+                "fillOpacity": 0.25,
                 "coords": [
                     [8180, 5954],
                     [8952, 5954],

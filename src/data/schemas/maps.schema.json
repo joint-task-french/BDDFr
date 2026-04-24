@@ -114,8 +114,24 @@
                 },
                 "color": {
                     "type": "string",
-                    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-                    "description": "Couleur de remplissage et de bordure du polygone"
+                    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$",
+                    "description": "Couleur générale si bordure et remplissage sont identiques"
+                },
+                "borderColor": {
+                    "type": "string",
+                    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$",
+                    "description": "Couleur spécifique de la ligne de bordure"
+                },
+                "fillColor": {
+                    "type": "string",
+                    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$",
+                    "description": "Couleur spécifique du remplissage intérieur"
+                },
+                "fillOpacity": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Niveau d'opacité du filtre intérieur (0.0 à 1.0)"
                 },
                 "coords": {
                     "type": "array",

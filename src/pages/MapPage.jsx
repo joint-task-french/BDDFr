@@ -4,7 +4,7 @@ import { MapContainer, ImageOverlay, ZoomControl, useMap, Marker, Tooltip, useMa
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { resolveMapImage, GameIcon, resolveAsset } from "../components/common/GameAssets.jsx";
-import { loadJsonc } from '../utils/dataLoader.js'
+import { useDataLoader } from '../hooks/useDataLoader.js'
 import Loader from '../components/common/Loader.jsx'
 
 const BASE = import.meta.env.BASE_URL
@@ -149,9 +149,9 @@ export default function MapPage() {
     const { mapId, subMapId } = useParams()
     const [searchParams] = useSearchParams()
 
-    const [mapsConfig, setMapsConfig] = useState(null)
-    const [loading, setLoading] = useState(true)
-    const [loadingError, setLoadingError] = useState(null)
+    const { data, loading, error: loadingError } = useDataLoader()
+    const mapsConfig = data?.maps
+
     const [activeCategories, setActiveCategories] = useState([])
     const [filterPanelOpen, setFilterPanelOpen] = useState(true)
     const [collapsedGroups, setCollapsedGroups] = useState({})
@@ -159,26 +159,8 @@ export default function MapPage() {
     const [contextMenu, setContextMenu] = useState(null)
     const [selectedMarker, setSelectedMarker] = useState(null)
 
-    useEffect(() => {
-        setLoading(true)
-        loadJsonc(`${BASE}${BASE.endsWith('/') ? '' : '/'}data/maps.jsonc`)
-            .then(data => {
-                if (Array.isArray(data)) {
-                    setMapsConfig(data)
-                } else {
-                    throw new Error("Format JSONC invalide (tableau attendu)")
-                }
-                setLoading(false)
-            })
-            .catch(err => {
-                console.error("Erreur chargement maps:", err)
-                setLoadingError(err.message)
-                setLoading(false)
-            })
-    }, [])
-
     const currentMapConfig = useMemo(() => {
-        if (!mapsConfig) return null
+        if (!mapsConfig || !Array.isArray(mapsConfig) || mapsConfig.length === 0) return null
         const activeMapId = mapId || mapsConfig[0]?.id
         const parentMapConfig = mapsConfig.find(m => m.id === activeMapId) || mapsConfig[0]
 

@@ -23,7 +23,8 @@
                 "id": "info",
                 "name": "Informations",
                 "icon": "calibre12",
-                "color": "#0000ff"
+                "color": "#0000ff",
+                "group": "Informations"
             }
         ],
         "markers": [

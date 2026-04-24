@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { NavLink, useLocation, Link } from 'react-router-dom'
 import JTFrLogo from '../common/JTFrLogo.jsx'
 import { InfoToolTip } from "../common/InfoToolTip.jsx"
-import { loadJsonc } from '../../utils/dataLoader.js'
+import { useDataLoader } from '../../hooks/useDataLoader.js'
 import { GameIcon, resolveAsset } from '../common/GameAssets.jsx'
 import { apiBuildotheque } from '../../utils/apiBuildotheque'
 import metadata from '../../data/metadata.jsonc?raw'
@@ -30,28 +30,15 @@ export default function Sidebar({ open, onClose }) {
   const isMapActive = location.pathname.startsWith('/map')
   const isBuildActive = location.pathname.startsWith('/build') || location.pathname.startsWith('/shd') || location.pathname.startsWith('/library')
 
-  const [mapsConfig, setMapsConfig] = useState([])
-  const [loadingError, setLoadingError] = useState(false)
+  const { data, error } = useDataLoader()
+  const mapsConfig = Array.isArray(data?.maps) ? data.maps : []
+  const loadingError = !!error
+
   const [buildsExpanded, setBuildsExpanded] = useState(true)
   const [mapsExpanded, setMapsExpanded] = useState(true)
   const [user, setUser] = useState(apiBuildotheque.user)
 
   useEffect(() => {
-    setLoadingError(false)
-    loadJsonc(`${BASE}${BASE.endsWith('/') ? '' : '/'}data/maps.jsonc`)
-        .then(data => {
-          if (Array.isArray(data)) {
-            setMapsConfig(data)
-          } else {
-            console.error("Format JSONC invalide (tableau attendu)")
-            setLoadingError(true)
-          }
-        })
-        .catch(err => {
-          console.error("Erreur chargement sidebar maps:", err)
-          setLoadingError(true)
-        })
-
     const handleAuthChange = (e) => {
       console.log("Sidebar: Auth change detected", e.detail?.user);
       setUser(e.detail?.user || null)

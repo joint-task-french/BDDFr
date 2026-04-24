@@ -2,50 +2,49 @@
     {
         "id":"washington",
         "name":"Washington D.C.",
-        "icon":"calibre12",
+        "icon":"maison_blanche",
         "bounds":[[0,0],[8050,15250]],
         "map":"washington_complete",
         "minZoom":-4,
         "maxZoom":3,
-        "categories":[],
-        "markers":[]
-    },
-    {
-        "id":"new_york",
-        "name":"New York",
-        "icon":"calibre12",
-        "bounds":[[0,0],[865,1050]],
-        "map":"new_york",
-        "minZoom":-4,
-        "maxZoom":3,
-        "categories": [
-            { // Sample category
-                "id": "info",
-                "name": "Informations",
-                "icon": "calibre12",
-                "color": "#0000ff",
-                "group": "Informations"
+        "categories":[
+            {
+                "id": "white_house",
+                "name": "Maison Blanche",
+                "icon": "maison_blanche",
+                "color": "#ff8000",
+                "group": "Zones de sécurité"
+            },
+            {
+                "id": "refuges",
+                "name": "Refuges",
+                "icon": "planque",
+                "color": "#ff8000",
+                "group": "Zones de sécurité"
+            },
+            {
+                "id": "planques",
+                "name": "Planques",
+                "icon": "planque",
+                "color": "#ff8000",
+                "group": "Zones de sécurité"
             }
         ],
-        "markers": [
-            { // Sample marker
-                "id": "information",
-                "coords": [475, 500],
-                "category": "info",
-                "label": "Information :",
-                "description": "La carte de new-york est assez peu qualitative actuellement, si vous avec une meilleur version n'hésitez pas a nous en faire part !"
+        "markers":[
+            {
+                "id": "maison_blanche",
+                "coords": [7440, 4776],
+                "category": "white_house",
+                "label": "Maison Blanche",
+                "description": "Base d'opération principal de la SHD a Washington D.C."
+            },
+            {
+                "id": "planque_downton_east",
+                "coords": [8827, 5180],
+                "category": "planques",
+                "label": "Planque Downton East",
+                "description": "Planque située dans le quartier de Downton East."
             }
         ]
-    },
-    {
-        "id": "brooklyn",
-        "name": "Brooklyn",
-        "icon": "calibre12",
-        "bounds": [[0, 0], [2600, 4100]],
-        "map": "brooklyn",
-        "minZoom": -4,
-        "maxZoom": 3,
-        "categories": [],
-        "markers": []
     }
 ]

@@ -161,7 +161,7 @@ if (metadata.changelog && metadata.changelog.length > 0) {
 const pages_fixes = [
     { path: 'db', title: 'Base de données — BDDFr', description: 'Base de données française pour The Division 2.' },
     { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez et partagez vos configurations d\'équipement.' },
-    { path: 'map', title: 'Carte Interactive — BDDFr', description: 'Explorez Washington D.C., New York et d\'autres zones avec notre carte interactive.' }
+    { path: 'map', title: 'Carte Interactive — BDDFr', description: 'Explorez Washington D.C., New York et d\'autres zones avec notre carte interactive.' },
     { path: 'changelog', title: 'Mises à jour — BDDFr', description: changelogDesc },
     { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' },
     { path: 'pages', title: 'Bibliothèque de Documents — BDDFr', description: 'Consultez nos guides et documents du réseau SHD.' },
@@ -266,7 +266,6 @@ async function generate() {
             sitemapEntries.push(`${BASE_URL}/${p.path}`);
         }
 
-        // Génération des pages pour les cartes (Maps)
         for (const map of mapsData) {
             const processMap = (m, parentId = null) => {
                 const formatter = categoryFormatters['maps'];
@@ -289,6 +288,29 @@ async function generate() {
 
         console.log("📸 Début des captures d'écran...");
         const categoriesToProcess = Object.keys(categoryTitles);
+
+        let globalStartTime = Date.now();
+        let totalSubTasks = 0;
+
+        for (const cat of categoriesToProcess) {
+            if (cat === 'descente') totalSubTasks++;
+            else {
+                totalSubTasks++;
+                if (cat === 'talentsArmes' || cat === 'talentsEquipements') totalSubTasks++;
+                if (cat === 'armes' || cat === 'equipements') totalSubTasks++;
+            }
+        }
+        let completedSubTasks = 0;
+
+        const formatEta = (ms) => {
+            if (!isFinite(ms) || ms < 0) return '0s';
+            const h = Math.floor(ms / 3600000);
+            const m = Math.floor((ms % 3600000) / 60000);
+            const s = Math.floor((ms % 60000) / 1000);
+            if (h > 0) return `${h}h ${m}m ${s}s`;
+            if (m > 0) return `${m}m ${s}s`;
+            return `${s}s`;
+        };
 
         for (const categoryKey of categoriesToProcess) {
             const categoryOgDir = path.join(exportOgImagesDir, categoryKey);
@@ -358,45 +380,56 @@ async function generate() {
 
                     await new Promise(r => setTimeout(r, 2000));
 
-                    const cards = await page.$$('.og-target-card');
-                    for (const card of cards) {
-                        const slug = await page.evaluate(el => el.getAttribute('data-slug'), card);
+                    // NOUVELLE LOGIQUE : on ne stocke plus les handles, on extrait d'abord les slugs
+                    const cardMetadatas = await page.$$eval('.og-target-card', els => {
+                        return els.map(el => {
+                            const select = el.querySelector('select');
+                            return {
+                                slug: el.getAttribute('data-slug'),
+                                hasPerfect: Array.from(el.querySelectorAll('button')).some(b => b.textContent.includes('Parfait')),
+                                hasPrototype: Array.from(el.querySelectorAll('button')).some(b => b.textContent.includes('Prototype')),
+                                descenteLevels: select ? Array.from(select.options).map(o => o.value) : ['1']
+                            };
+                        });
+                    });
+
+                    const totalCards = cardMetadatas.length;
+                    let processedCards = 0;
+                    const startTime = Date.now();
+
+                    if (totalCards > 0) {
+                        console.log(`\n▶️ [${categoryKey}${suffixLog}] Traitement de ${totalCards} éléments...`);
+                    }
+
+                    for (const meta of cardMetadatas) {
+                        processedCards++;
+                        const { slug, hasPerfect, hasPrototype, descenteLevels } = meta;
                         if (!slug) continue;
 
-                        if (isPerfect) {
-                            const hasPerfectBtn = await page.evaluate(el => {
-                                return Array.from(el.querySelectorAll('button')).some(b => b.textContent.includes('Parfait'));
-                            }, card);
-                            if (!hasPerfectBtn) continue;
-                        }
+                        if (isPerfect && !hasPerfect) continue;
+                        if (isPrototype && !hasPrototype) continue;
 
-                        if (isPrototype) {
-                            const hasPrototypeBtn = await page.evaluate(el => {
-                                return Array.from(el.querySelectorAll('button')).some(b => b.textContent.includes('Prototype'));
-                            }, card);
-                            if (!hasPrototypeBtn) continue;
-                        }
-
-                        let levelsToProcess = [''];
-                        if (isDescente) {
-                            levelsToProcess = await page.evaluate(el => {
-                                const select = el.querySelector('select');
-                                return select ? Array.from(select.options).map(o => o.value) : ['1'];
-                            }, card);
-                        }
+                        const levelsToProcess = isDescente ? descenteLevels : [''];
 
                         for (const level of levelsToProcess) {
                             if (isDescente) {
-                                await page.evaluate((el, lvl) => {
+                                // On modifie la valeur du composant en évitant d'utiliser un vieux handle
+                                await page.evaluate((s, lvl) => {
+                                    const el = document.querySelector(`.og-target-card[data-slug="${s}"]`);
+                                    if (!el) return;
                                     const select = el.querySelector('select');
                                     if (select && select.value !== lvl) {
                                         const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLSelectElement.prototype, "value").set;
                                         if (nativeInputValueSetter) nativeInputValueSetter.call(select, lvl);
                                         select.dispatchEvent(new Event('change', { bubbles: true }));
                                     }
-                                }, card, level);
+                                }, slug, level);
                                 await new Promise(r => setTimeout(r, 400));
                             }
+
+                            // RÉCUPÉRATION DU HANDLE FRAIS (Évite le Protocol error)
+                            let card = await page.$(`.og-target-card[data-slug="${slug}"]`);
+                            if (!card) continue;
 
                             const levelSuffix = isDescente ? `-${level}` : suffix;
                             const levelSuffixLog = isDescente ? ` (Niv. ${level})` : suffixLog;
@@ -440,6 +473,12 @@ async function generate() {
 
                             while (attempts > 0 && !success) {
                                 try {
+                                    // Si c'est un nouvel essai de la boucle, on s'assure d'avoir un handle frais
+                                    if (attempts < 3) {
+                                        card = await page.$(`.og-target-card[data-slug="${slug}"]`);
+                                        if (!card) throw new Error("Élément introuvable dans le DOM (détaché).");
+                                    }
+
                                     await page.evaluate((el, icon) => {
                                         const rect = el.getBoundingClientRect();
                                         el.style.setProperty('width', rect.width + 'px', 'important');
@@ -461,6 +500,7 @@ async function generate() {
                                             setTimeout(resolve, 3000);
                                         });
                                     }, card);
+
                                     await new Promise(r => setTimeout(r, 300));
                                     await card.screenshot({ path: imageOutputPath, type: 'jpeg', quality: 85 });
 
@@ -471,20 +511,27 @@ async function generate() {
                                         if (wm) wm.remove();
                                     }, card);
 
-                                    console.log(`📸 [${categoryKey}] Généré : ${slug}${levelSuffix}.jpg`);
+                                    const elapsed = Date.now() - startTime;
+                                    const avgTime = elapsed / processedCards;
+                                    const etaMs = (totalCards - processedCards) * avgTime;
+
+                                    console.log(`📸 [${categoryKey}] Généré : ${slug}${levelSuffix}.jpg [${processedCards}/${totalCards}] (ETA: ${formatEta(etaMs)})`);
+
                                     imageHashes[hashKey] = currentHash;
                                     success = true;
                                 } catch (e) {
                                     attempts--;
-                                    await page.evaluate(el => {
-                                        el.style.removeProperty('width');
-                                        el.classList.remove('puppeteer-teleport');
-                                        const wm = el.querySelector('.watermark-overlay');
-                                        if (wm) wm.remove();
-                                    }, card).catch(() => {});
+                                    if (card) {
+                                        await page.evaluate(el => {
+                                            el.style.removeProperty('width');
+                                            el.classList.remove('puppeteer-teleport');
+                                            const wm = el.querySelector('.watermark-overlay');
+                                            if (wm) wm.remove();
+                                        }, card).catch(() => {});
+                                    }
 
                                     if (attempts > 0) {
-                                        console.warn(`⚠️ [${categoryKey}] Timeout pour ${slug}${levelSuffixLog}, tentative restante: ${attempts}...`);
+                                        console.warn(`⚠️ [${categoryKey}] Erreur/Timeout pour ${slug}${levelSuffixLog}, tentative restante: ${attempts}...`);
                                         await new Promise(r => setTimeout(r, 2000));
                                     } else {
                                         console.error(`❌ [${categoryKey}] Échec définitif pour ${slug}${levelSuffixLog}:`, e.message);
@@ -492,7 +539,26 @@ async function generate() {
                                 }
                             }
                         }
+
+                        if (processedCards % 25 === 0 && processedCards !== totalCards) {
+                            const elapsed = Date.now() - startTime;
+                            const avgTime = elapsed / processedCards;
+                            const etaMsCat = (totalCards - processedCards) * avgTime;
+
+                            const globalElapsed = Date.now() - globalStartTime;
+                            const currentTaskProgress = totalCards > 0 ? (processedCards / totalCards) : 1;
+                            const globalProgressFraction = (completedSubTasks + currentTaskProgress) / totalSubTasks;
+                            const globalEtaMs = Math.max(0, (globalElapsed / globalProgressFraction) - globalElapsed);
+
+                            console.log(`⏳ [${categoryKey}${suffixLog}] Progression en cours... ${processedCards}/${totalCards} (ETA Catégorie: ${formatEta(etaMsCat)} | ETA Global: ${formatEta(globalEtaMs)})`);
+                        }
                     }
+
+                    if (totalCards > 0) {
+                        console.log(`✅ [${categoryKey}${suffixLog}] Terminé ! (${totalCards}/${totalCards})`);
+                    }
+
+                    completedSubTasks++;
                 };
 
                 if (categoryKey === 'descente') {

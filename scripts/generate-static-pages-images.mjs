@@ -515,7 +515,7 @@ async function generate() {
                                     const avgTime = elapsed / processedCards;
                                     const etaMs = (totalCards - processedCards) * avgTime;
 
-                                    console.log(`📸 [${categoryKey}] Généré : ${slug}${levelSuffix}.jpg [${processedCards}/${totalCards}] (ETA: ${formatEta(etaMs)})`);
+                                    console.log(`📸 [${categoryKey}] [${processedCards}/${totalCards}] (ETA: ${formatEta(etaMs)}) Généré : ${slug}${levelSuffix}.jpg`);
 
                                     imageHashes[hashKey] = currentHash;
                                     success = true;

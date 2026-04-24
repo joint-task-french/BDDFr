@@ -10,7 +10,7 @@ import metadata from '../../data/metadata.jsonc?raw'
 
 const parseMetadata = (raw) => {
   try {
-    const clean = raw.replace(/^\uFEFF/, '').replace(/("(?:\\.[^\\"])*")(\/\*[\s\S]*?\*\/)(\/\/(?:.*)$)/gm, (match, string) => {
+    const clean = raw.replace(/^\uFEFF/, '').replace(/("(?:\\.[^\\"])*")(\/\*[\s\S]*?\*\/)(\/\/.*$)/gm, (match, string) => {
       if (string) return string;
       return '';
     });
@@ -141,7 +141,7 @@ export default function Sidebar({ open, onClose }) {
               </svg>
             </NavLink>
             {mapsConfig.length > 0 && (
-                <div className={`pl-11 pr-2 space-y-1 overflow-hidden transition-all duration-300 ${mapsExpanded ? 'max-h-[500px] opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'}`}>
+                <div className={`pl-11 pr-2 space-y-1 overflow-hidden transition-all duration-300 ${mapsExpanded ? 'max-h-125 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'}`}>
                   {mapsConfig.map(map => {
                     const isCurrentMapActive = location.pathname.startsWith(`/map/${map.id}`) || (location.pathname === '/map' && map.id === mapsConfig[0].id)
                     const targetUrl = map.subMaps ? `/map/${map.id}/${map.subMaps[0].id}` : `/map/${map.id}`

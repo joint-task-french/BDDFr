@@ -28,10 +28,12 @@ const BASE = import.meta.env.BASE_URL
 export default function Sidebar({ open, onClose }) {
   const location = useLocation()
   const isMapActive = location.pathname.startsWith('/map')
+  const isBuildActive = location.pathname.startsWith('/build') || location.pathname.startsWith('/shd') || location.pathname.startsWith('/library')
 
   const [mapsConfig, setMapsConfig] = useState([])
   const [loadingError, setLoadingError] = useState(false)
   const [buildsExpanded, setBuildsExpanded] = useState(true)
+  const [mapsExpanded, setMapsExpanded] = useState(true)
   const [user, setUser] = useState(apiBuildotheque.user)
 
   useEffect(() => {
@@ -102,27 +104,44 @@ export default function Sidebar({ open, onClose }) {
             </svg>
             Base de Données
           </NavLink>
-
+          <NavLink to="/pages" className={linkClass} onClick={onClose}>
+            <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            Documents
+          </NavLink>
           <div>
             <NavLink
                 to="/map"
-                className={({ isActive }) => `flex items-center gap-3 px-3 py-2.5 rounded text-sm font-bold uppercase tracking-widest transition-all duration-200 border ${
+                className={({ isActive }) => `flex justify-between items-center group px-3 py-2.5 rounded text-sm font-bold uppercase tracking-widest transition-all duration-200 border ${
                     isActive || isMapActive
                         ? 'bg-shd/10 text-shd border-shd/30'
                         : 'text-gray-400 hover:bg-tactical-hover hover:text-gray-200 border-transparent'
                 }`}
-                onClick={() => { if(window.innerWidth < 768) onClose() }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMapsExpanded(!mapsExpanded);
+                }}
             >
-              <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+              <div className="flex items-center gap-3">
+                <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                        d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg>
+                Carte Interactive
+              </div>
+              <svg
+                  className={`w-4 h-4 transition-transform duration-200 ${mapsExpanded ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
-              Carte Interactive
             </NavLink>
-
-            {/* Menu dynamisé */}
-            {isMapActive && mapsConfig.length > 0 && (
-                <div className="pl-11 pr-2 mt-2 space-y-1">
+            {mapsConfig.length > 0 && (
+                <div className={`pl-11 pr-2 space-y-1 overflow-hidden transition-all duration-300 ${mapsExpanded ? 'max-h-[500px] opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'}`}>
                   {mapsConfig.map(map => {
                     const isCurrentMapActive = location.pathname.startsWith(`/map/${map.id}`) || (location.pathname === '/map' && map.id === mapsConfig[0].id)
                     const targetUrl = map.subMaps ? `/map/${map.id}/${map.subMaps[0].id}` : `/map/${map.id}`
@@ -132,14 +151,18 @@ export default function Sidebar({ open, onClose }) {
                           <Link
                               to={targetUrl}
                               onClick={window.innerWidth < 768 && !map.subMaps ? onClose : undefined}
-                              className={`flex items-center gap-2 px-3 py-1.5 rounded text-xs font-bold uppercase tracking-widest transition-colors border ${
+                              className={`group flex items-center gap-2 px-3 py-1.5 rounded text-xs font-bold uppercase tracking-widest transition-colors border ${
                                   isCurrentMapActive
                                       ? 'bg-shd/10 text-shd border-shd/30'
                                       : 'text-gray-500 hover:text-gray-300 hover:bg-tactical-hover border-transparent'
                               }`}
                           >
                             <div className="w-5 h-5 shrink-0 flex items-center justify-center opacity-80">
-                              <GameIcon src={resolveAsset(map.icon)} className="w-full h-full object-contain" />
+                              <GameIcon
+                                  src={resolveAsset(map.icon)}
+                                  className="w-full h-full object-contain"
+                                  color={isCurrentMapActive ? "text-shd" : "text-gray-500 group-hover:text-gray-300"}
+                              />
                             </div>
                             {map.name}
                           </Link>
@@ -172,18 +195,20 @@ export default function Sidebar({ open, onClose }) {
                   })}
                 </div>
             )}
-
             {loadingError && (
                 <div className="text-[10px] text-red-500 font-mono pl-11 pr-2 mt-2 uppercase">
                   [ERROR] Impossible de charger maps.jsonc
                 </div>
             )}
           </div>
-
-          <div className="pt-2">
+          <div>
             <NavLink
                 to="/build"
-                className={nav => `${linkClass(nav)} flex justify-between items-center group`}
+                className={({ isActive }) => `flex justify-between items-center group px-3 py-2.5 rounded text-sm font-bold uppercase tracking-widest transition-all duration-200 border ${
+                    isActive || isBuildActive
+                        ? 'bg-shd/10 text-shd border-shd/30'
+                        : 'text-gray-400 hover:bg-tactical-hover hover:text-gray-200 border-transparent'
+                }`}
                 onClick={(e) => {
                   e.preventDefault();
                   setBuildsExpanded(!buildsExpanded);
@@ -204,8 +229,7 @@ export default function Sidebar({ open, onClose }) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </NavLink>
-
-            <div className={`pl-11 pr-2 mt-2 space-y-1 overflow-hidden transition-all duration-300 ${buildsExpanded ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className={`pl-11 pr-2 space-y-1 overflow-hidden transition-all duration-300 ${buildsExpanded ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'}`}>
 
               <NavLink
                   to="/shd"
@@ -218,6 +242,11 @@ export default function Sidebar({ open, onClose }) {
                   }
                   onClick={onClose}
               >
+                <div className="w-5 h-5 shrink-0 flex items-center justify-center opacity-80">
+                  <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
                 Ma Montre SHD
               </NavLink>
               <NavLink
@@ -231,6 +260,11 @@ export default function Sidebar({ open, onClose }) {
                   }
                   onClick={onClose}
               >
+                <div className="w-5 h-5 shrink-0 flex items-center justify-center opacity-80">
+                  <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                  </svg>
+                </div>
                 Buildothèque
               </NavLink>
               <NavLink
@@ -244,28 +278,22 @@ export default function Sidebar({ open, onClose }) {
                   }
                   onClick={onClose}
               >
+                <div className="w-5 h-5 shrink-0 flex items-center justify-center opacity-80">
+                  <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                  </svg>
+                </div>
                 Build Planner
               </NavLink>
             </div>
           </div>
-
-          <div className="pt-2 space-y-1">
-            <NavLink to="/pages" className={linkClass} onClick={onClose}>
-              <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
-              Documents
-            </NavLink>
-
-            <NavLink to="/changelog" className={linkClass} onClick={onClose}>
-              <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              Changelog
-            </NavLink>
-          </div>
+          <NavLink to="/changelog" className={linkClass} onClick={onClose}>
+            <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Changelog
+          </NavLink>
         </nav>
 
         <div className="flex-1" />
@@ -318,7 +346,7 @@ export default function Sidebar({ open, onClose }) {
               <button
                   onClick={() => apiBuildotheque.loginDiscord(apiBuildotheque.baseUrl || DEFAULT_API_URL)}
                   className="flex items-center justify-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] text-white py-2 rounded font-bold text-xs uppercase transition-colors"
-                style={{ height: '36px' }}
+                  style={{ height: '36px' }}
               >
                 <div className="flex items-center gap-2 px-3">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

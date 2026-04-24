@@ -46,7 +46,7 @@
     "ajv-formats": "^3.0.1",
     "jsonc-parser": "^3.3.1",
     "tailwindcss": "^4.2.2",
-    "vite": "^8.0.8",
+    "vite": "^8.0.9",
     "vite-plugin-pwa": "^1.2.0"
   },
   "overrides": {

@@ -380,7 +380,7 @@ async function generate() {
 
                     await new Promise(r => setTimeout(r, 2000));
 
-                    // NOUVELLE LOGIQUE : on ne stocke plus les handles, on extrait d'abord les slugs
+                    // Extraction des métadonnées du DOM
                     const cardMetadatas = await page.$$eval('.og-target-card', els => {
                         return els.map(el => {
                             const select = el.querySelector('select');
@@ -393,164 +393,172 @@ async function generate() {
                         });
                     });
 
-                    const totalCards = cardMetadatas.length;
-                    let processedCards = 0;
-                    const startTime = Date.now();
+                    // NOUVEAU : On pré-filtre les tâches réelles pour avoir un total exact
+                    const tasks = [];
+                    for (const meta of cardMetadatas) {
+                        if (!meta.slug) continue;
+                        if (isPerfect && !meta.hasPerfect) continue;
+                        if (isPrototype && !meta.hasPrototype) continue;
 
-                    if (totalCards > 0) {
-                        console.log(`\n▶️ [${categoryKey}${suffixLog}] Traitement de ${totalCards} éléments...`);
+                        const levels = isDescente ? meta.descenteLevels : [''];
+                        for (const level of levels) {
+                            tasks.push({ slug: meta.slug, level });
+                        }
                     }
 
-                    for (const meta of cardMetadatas) {
+                    const totalCards = tasks.length;
+                    let processedCards = 0;
+
+                    let itemsRendered = 0;
+                    let timeRendering = 0;
+
+                    const printProgress = () => {
+                        const avgRenderTime = itemsRendered > 0 ? (timeRendering / itemsRendered) : 1500;
+                        const etaMsCat = (totalCards - processedCards) * avgRenderTime;
+
+                        const globalElapsed = Date.now() - globalStartTime;
+                        const currentTaskProgress = totalCards > 0 ? (processedCards / totalCards) : 1;
+                        const globalProgressFraction = (completedSubTasks + currentTaskProgress) / totalSubTasks;
+                        const globalEtaMs = Math.max(0, (globalElapsed / globalProgressFraction) - globalElapsed);
+
+                        console.log(`⏳ [${categoryKey}${suffixLog}] Progression en cours... ${processedCards}/${totalCards} (ETA Catégorie: ${formatEta(etaMsCat)} | ETA Global: ${formatEta(globalEtaMs)})`);
+                    };
+
+                    if (totalCards > 0) {
+                        console.log(`\n▶️ [${categoryKey}${suffixLog}] Traitement de ${totalCards} éléments pertinents...`);
+                    }
+
+                    for (const task of tasks) {
                         processedCards++;
-                        const { slug, hasPerfect, hasPrototype, descenteLevels } = meta;
-                        if (!slug) continue;
+                        const { slug, level } = task;
 
-                        if (isPerfect && !hasPerfect) continue;
-                        if (isPrototype && !hasPrototype) continue;
-
-                        const levelsToProcess = isDescente ? descenteLevels : [''];
-
-                        for (const level of levelsToProcess) {
-                            if (isDescente) {
-                                // On modifie la valeur du composant en évitant d'utiliser un vieux handle
-                                await page.evaluate((s, lvl) => {
-                                    const el = document.querySelector(`.og-target-card[data-slug="${s}"]`);
-                                    if (!el) return;
-                                    const select = el.querySelector('select');
-                                    if (select && select.value !== lvl) {
-                                        const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLSelectElement.prototype, "value").set;
-                                        if (nativeInputValueSetter) nativeInputValueSetter.call(select, lvl);
-                                        select.dispatchEvent(new Event('change', { bubbles: true }));
-                                    }
-                                }, slug, level);
-                                await new Promise(r => setTimeout(r, 400));
-                            }
-
-                            // RÉCUPÉRATION DU HANDLE FRAIS (Évite le Protocol error)
-                            let card = await page.$(`.og-target-card[data-slug="${slug}"]`);
-                            if (!card) continue;
-
-                            const levelSuffix = isDescente ? `-${level}` : suffix;
-                            const levelSuffixLog = isDescente ? ` (Niv. ${level})` : suffixLog;
-
-                            const cardHtml = await page.evaluate(el => {
-                                const clone = el.cloneNode(true);
-                                const allElements = clone.getElementsByTagName('*');
-                                for (let i = 0; i < allElements.length; i++) {
-                                    const node = allElements[i];
-                                    node.removeAttribute('id');
-                                    node.removeAttribute('for');
-                                    node.removeAttribute('style');
-                                    node.removeAttribute('class');
-                                    node.removeAttribute('tabindex');
-
-                                    Array.from(node.attributes).forEach(attr => {
-                                        if (attr.name.startsWith('data-') || attr.name.startsWith('aria-')) {
-                                            node.removeAttribute(attr.name);
-                                        }
-                                        if (attr.value && /:[a-z0-9]+:/i.test(attr.value)) {
-                                            node.removeAttribute(attr.name);
-                                        }
-                                    });
-
-                                    if (node.tagName === 'OPTION') node.removeAttribute('selected');
-                                    if (node.tagName === 'SELECT') node.removeAttribute('value');
+                        if (isDescente) {
+                            await page.evaluate((s, lvl) => {
+                                const el = document.querySelector(`.og-target-card[data-slug="${s}"]`);
+                                if (!el) return;
+                                const select = el.querySelector('select');
+                                if (select && select.value !== lvl) {
+                                    const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLSelectElement.prototype, "value").set;
+                                    if (nativeInputValueSetter) nativeInputValueSetter.call(select, lvl);
+                                    select.dispatchEvent(new Event('change', { bubbles: true }));
                                 }
-                                return clone.innerHTML;
-                            }, card);
+                            }, slug, level);
+                            await new Promise(r => setTimeout(r, 400));
+                        }
 
-                            const currentHash = crypto.createHash('md5').update(cardHtml).digest('hex');
-                            const hashKey = `${categoryKey}_${slug}${levelSuffix}`;
-                            const imageOutputPath = path.join(categoryOgDir, `${slug}${levelSuffix}.jpg`);
+                        let card = await page.$(`.og-target-card[data-slug="${slug}"]`);
+                        if (!card) continue;
 
-                            if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) {
-                                continue;
+                        const levelSuffix = isDescente ? `-${level}` : suffix;
+                        const levelSuffixLog = isDescente ? ` (Niv. ${level})` : suffixLog;
+
+                        const cardHtml = await page.evaluate(el => {
+                            const clone = el.cloneNode(true);
+                            const allElements = clone.getElementsByTagName('*');
+                            for (let i = 0; i < allElements.length; i++) {
+                                const node = allElements[i];
+                                node.removeAttribute('id');
+                                node.removeAttribute('for');
+                                node.removeAttribute('style');
+                                node.removeAttribute('class');
+                                node.removeAttribute('tabindex');
+
+                                Array.from(node.attributes).forEach(attr => {
+                                    if (attr.name.startsWith('data-') || attr.name.startsWith('aria-')) node.removeAttribute(attr.name);
+                                    if (attr.value && /:[a-z0-9]+:/i.test(attr.value)) node.removeAttribute(attr.name);
+                                });
+
+                                if (node.tagName === 'OPTION') node.removeAttribute('selected');
+                                if (node.tagName === 'SELECT') node.removeAttribute('value');
                             }
+                            return clone.innerHTML;
+                        }, card);
 
-                            let attempts = 3;
-                            let success = false;
+                        const currentHash = crypto.createHash('md5').update(cardHtml).digest('hex');
+                        const hashKey = `${categoryKey}_${slug}${levelSuffix}`;
+                        const imageOutputPath = path.join(categoryOgDir, `${slug}${levelSuffix}.jpg`);
 
-                            while (attempts > 0 && !success) {
-                                try {
-                                    // Si c'est un nouvel essai de la boucle, on s'assure d'avoir un handle frais
-                                    if (attempts < 3) {
-                                        card = await page.$(`.og-target-card[data-slug="${slug}"]`);
-                                        if (!card) throw new Error("Élément introuvable dans le DOM (détaché).");
+                        // Si en cache, on ignore la génération visuelle
+                        if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) {
+                            if (processedCards % 25 === 0 && processedCards !== totalCards) printProgress();
+                            continue;
+                        }
+
+                        let attempts = 3;
+                        let success = false;
+                        const renderStart = Date.now();
+
+                        while (attempts > 0 && !success) {
+                            try {
+                                if (attempts < 3) {
+                                    card = await page.$(`.og-target-card[data-slug="${slug}"]`);
+                                    if (!card) throw new Error("Élément introuvable dans le DOM (détaché).");
+                                }
+
+                                await page.evaluate((el, icon) => {
+                                    const rect = el.getBoundingClientRect();
+                                    el.style.setProperty('width', rect.width + 'px', 'important');
+                                    el.classList.add('puppeteer-teleport');
+                                    if (!el.querySelector('.watermark-overlay')) {
+                                        const img = document.createElement('img');
+                                        img.src = icon; img.className = 'watermark-overlay';
+                                        el.appendChild(img);
                                     }
+                                }, card, WATERMARK_URL);
 
-                                    await page.evaluate((el, icon) => {
-                                        const rect = el.getBoundingClientRect();
-                                        el.style.setProperty('width', rect.width + 'px', 'important');
-                                        el.classList.add('puppeteer-teleport');
-                                        if (!el.querySelector('.watermark-overlay')) {
-                                            const img = document.createElement('img');
-                                            img.src = icon; img.className = 'watermark-overlay';
-                                            el.appendChild(img);
-                                        }
-                                    }, card, WATERMARK_URL);
+                                await page.evaluate(el => {
+                                    return new Promise((resolve) => {
+                                        const wm = el.querySelector('.watermark-overlay');
+                                        if (!wm) return resolve();
+                                        if (wm.complete && wm.naturalWidth > 0) return resolve();
+                                        wm.onload = resolve;
+                                        wm.onerror = resolve;
+                                        setTimeout(resolve, 3000);
+                                    });
+                                }, card);
 
-                                    await page.evaluate(el => {
-                                        return new Promise((resolve) => {
-                                            const wm = el.querySelector('.watermark-overlay');
-                                            if (!wm) return resolve();
-                                            if (wm.complete && wm.naturalWidth > 0) return resolve();
-                                            wm.onload = resolve;
-                                            wm.onerror = resolve;
-                                            setTimeout(resolve, 3000);
-                                        });
-                                    }, card);
+                                await new Promise(r => setTimeout(r, 300));
+                                await card.screenshot({ path: imageOutputPath, type: 'jpeg', quality: 85 });
 
-                                    await new Promise(r => setTimeout(r, 300));
-                                    await card.screenshot({ path: imageOutputPath, type: 'jpeg', quality: 85 });
+                                await page.evaluate(el => {
+                                    el.style.removeProperty('width');
+                                    el.classList.remove('puppeteer-teleport');
+                                    const wm = el.querySelector('.watermark-overlay');
+                                    if (wm) wm.remove();
+                                }, card);
 
+                                timeRendering += (Date.now() - renderStart);
+                                itemsRendered++;
+
+                                const avgRenderTime = timeRendering / itemsRendered;
+                                const etaMsCat = (totalCards - processedCards) * avgRenderTime;
+
+                                console.log(`📸 [${categoryKey}] [${processedCards}/${totalCards}] (ETA Cat: ${formatEta(etaMsCat)}) Généré : ${slug}${levelSuffix}.jpg`);
+
+                                imageHashes[hashKey] = currentHash;
+                                success = true;
+                            } catch (e) {
+                                attempts--;
+                                if (card) {
                                     await page.evaluate(el => {
                                         el.style.removeProperty('width');
                                         el.classList.remove('puppeteer-teleport');
                                         const wm = el.querySelector('.watermark-overlay');
                                         if (wm) wm.remove();
-                                    }, card);
+                                    }, card).catch(() => {});
+                                }
 
-                                    const elapsed = Date.now() - startTime;
-                                    const avgTime = elapsed / processedCards;
-                                    const etaMs = (totalCards - processedCards) * avgTime;
-
-                                    console.log(`📸 [${categoryKey}] [${processedCards}/${totalCards}] (ETA: ${formatEta(etaMs)}) Généré : ${slug}${levelSuffix}.jpg`);
-
-                                    imageHashes[hashKey] = currentHash;
-                                    success = true;
-                                } catch (e) {
-                                    attempts--;
-                                    if (card) {
-                                        await page.evaluate(el => {
-                                            el.style.removeProperty('width');
-                                            el.classList.remove('puppeteer-teleport');
-                                            const wm = el.querySelector('.watermark-overlay');
-                                            if (wm) wm.remove();
-                                        }, card).catch(() => {});
-                                    }
-
-                                    if (attempts > 0) {
-                                        console.warn(`⚠️ [${categoryKey}] Erreur/Timeout pour ${slug}${levelSuffixLog}, tentative restante: ${attempts}...`);
-                                        await new Promise(r => setTimeout(r, 2000));
-                                    } else {
-                                        console.error(`❌ [${categoryKey}] Échec définitif pour ${slug}${levelSuffixLog}:`, e.message);
-                                    }
+                                if (attempts > 0) {
+                                    console.warn(`⚠️ [${categoryKey}] Erreur/Timeout pour ${slug}${levelSuffixLog}, tentative restante: ${attempts}...`);
+                                    await new Promise(r => setTimeout(r, 2000));
+                                } else {
+                                    console.error(`❌ [${categoryKey}] Échec définitif pour ${slug}${levelSuffixLog}:`, e.message);
                                 }
                             }
                         }
 
                         if (processedCards % 25 === 0 && processedCards !== totalCards) {
-                            const elapsed = Date.now() - startTime;
-                            const avgTime = elapsed / processedCards;
-                            const etaMsCat = (totalCards - processedCards) * avgTime;
-
-                            const globalElapsed = Date.now() - globalStartTime;
-                            const currentTaskProgress = totalCards > 0 ? (processedCards / totalCards) : 1;
-                            const globalProgressFraction = (completedSubTasks + currentTaskProgress) / totalSubTasks;
-                            const globalEtaMs = Math.max(0, (globalElapsed / globalProgressFraction) - globalElapsed);
-
-                            console.log(`⏳ [${categoryKey}${suffixLog}] Progression en cours... ${processedCards}/${totalCards} (ETA Catégorie: ${formatEta(etaMsCat)} | ETA Global: ${formatEta(globalEtaMs)})`);
+                            printProgress();
                         }
                     }
 

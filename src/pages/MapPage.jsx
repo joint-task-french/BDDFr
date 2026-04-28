@@ -578,6 +578,7 @@ export default function MapPage() {
                 <MapEditorOverlay
                     map={leafletMap}
                     mapConfig={currentMapConfig}
+                    allMaps={mapsConfig}
                     onClose={() => {
                         const next = new URLSearchParams(searchParams)
                         next.delete('editor')

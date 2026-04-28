@@ -40,6 +40,41 @@ function genId(prefix) {
 }
 
 // ---------------------------------------------------------------------------
+// Sérialisation JSONC : pretty-print 4 espaces, mais points [X,Y] sur 1 ligne
+// ---------------------------------------------------------------------------
+function isCoordPair(v) {
+    return Array.isArray(v) && v.length === 2 && typeof v[0] === 'number' && typeof v[1] === 'number'
+}
+
+function stringifyValue(value, indent, level) {
+    const pad = indent.repeat(level)
+    const padInner = indent.repeat(level + 1)
+
+    if (value === null || typeof value !== 'object') {
+        return JSON.stringify(value)
+    }
+
+    if (Array.isArray(value)) {
+        if (value.length === 0) return '[]'
+        // Point [X,Y] sur une seule ligne
+        if (isCoordPair(value)) {
+            return `[${value[0]}, ${value[1]}]`
+        }
+        const items = value.map(v => padInner + stringifyValue(v, indent, level + 1))
+        return `[\n${items.join(',\n')}\n${pad}]`
+    }
+
+    const keys = Object.keys(value)
+    if (keys.length === 0) return '{}'
+    const entries = keys.map(k => `${padInner}${JSON.stringify(k)}: ${stringifyValue(value[k], indent, level + 1)}`)
+    return `{\n${entries.join(',\n')}\n${pad}}`
+}
+
+function stringifyMaps(maps) {
+    return stringifyValue(maps, '    ', 0)
+}
+
+// ---------------------------------------------------------------------------
 // Hook: stack undo / redo
 // ---------------------------------------------------------------------------
 function useHistory(initial) {
@@ -82,7 +117,7 @@ function useHistory(initial) {
     return { state, commit, undo, redo, reset, setSilent: setState }
 }
 
-export default function MapEditorOverlay({ map, mapConfig, onClose }) {
+export default function MapEditorOverlay({ map, mapConfig, allMaps, onClose }) {
     // état édité (zones + markers)
     const initial = useMemo(() => ({
         zones: (mapConfig?.zones || []).map(z => ({ ...z, coords: clonePoly(z.coords) })),
@@ -550,29 +585,28 @@ export default function MapEditorOverlay({ map, mapConfig, onClose }) {
     // Export JSONC
     // -----------------------------------------------------------------------
     const exportJSON = () => {
-        const payload = {
-            zones: state.zones.map(z => ({
-                id: z.id,
-                ...(z.category ? { category: z.category } : {}),
-                label: z.label,
-                ...(z.description ? { description: z.description } : {}),
-                ...(z.color ? { color: z.color } : {}),
-                ...(z.borderColor ? { borderColor: z.borderColor } : {}),
-                ...(z.fillColor ? { fillColor: z.fillColor } : {}),
-                ...(z.fillOpacity !== undefined ? { fillOpacity: z.fillOpacity } : {}),
-                coords: z.coords.map(c => [Math.round(c[0]), Math.round(c[1])])
-            })),
-            markers: state.markers.map(m => ({
-                id: m.id,
-                coords: [Math.round(m.coords[0]), Math.round(m.coords[1])],
-                category: m.category,
-                label: m.label,
-                description: m.description,
-                ...(m.extendedDescription ? { extendedDescription: m.extendedDescription } : {}),
-                ...(m.image ? { image: m.image } : {})
-            }))
+        const editedZones = state.zones.map(z => ({
+            ...z,
+            coords: z.coords.map(c => [Math.round(c[0]), Math.round(c[1])])
+        }))
+        const editedMarkers = state.markers.map(m => ({
+            ...m,
+            coords: [Math.round(m.coords[0]), Math.round(m.coords[1])]
+        }))
+
+        // Reconstruit le tableau complet de cartes en remplaçant zones/markers de la carte courante
+        const updateMap = (m) => {
+            if (m.id === mapConfig?.id) {
+                return { ...m, zones: editedZones, markers: editedMarkers }
+            }
+            if (Array.isArray(m.subMaps)) {
+                return { ...m, subMaps: m.subMaps.map(updateMap) }
+            }
+            return m
         }
-        const text = JSON.stringify(payload, null, 4)
+        const fullMaps = Array.isArray(allMaps) ? allMaps.map(updateMap) : [{ ...(mapConfig || {}), zones: editedZones, markers: editedMarkers }]
+
+        const text = stringifyMaps(fullMaps)
         navigator.clipboard?.writeText(text).catch(() => {})
         // eslint-disable-next-line no-console
         console.log('[MapEditor] export JSONC:\n', text)

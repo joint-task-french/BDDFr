@@ -162,7 +162,11 @@ export default function MapPage() {
     const mapsConfig = data?.maps
 
     const [activeCategories, setActiveCategories] = useState([])
-    const [filterPanelOpen, setFilterPanelOpen] = useState(true)
+    const [filterPanelOpen, setFilterPanelOpen] = useState(() => {
+        if (typeof window === 'undefined') return true
+        // Replié par défaut en mobile (breakpoint sm de Tailwind = 640px)
+        return window.matchMedia('(min-width: 640px)').matches
+    })
     const [collapsedGroups, setCollapsedGroups] = useState({})
     const [hudCoords, setHUDCoords] = useState({ x: '0', y: '0' })
     const [contextMenu, setContextMenu] = useState(null)
@@ -178,7 +182,7 @@ export default function MapPage() {
         if (!leafletMap) return
         const t = setTimeout(() => { try { leafletMap.invalidateSize() } catch (_) {} }, 60)
         return () => clearTimeout(t)
-    }, [editorActive, leafletMap])
+    }, [editorActive, leafletMap, filterPanelOpen])
 
     const currentMapConfig = useMemo(() => {
         if (!mapsConfig || !Array.isArray(mapsConfig) || mapsConfig.length === 0) return null
@@ -309,101 +313,25 @@ export default function MapPage() {
                 }
             `}</style>
 
-            {/* PANNEAU DE FILTRES */}
-            {currentMapConfig.categories?.length > 0 && (
-                <div className="absolute top-4 right-4 z-400 flex flex-col items-end">
-                    <button
-                        onClick={() => setFilterPanelOpen(!filterPanelOpen)}
-                        className={`mb-2 flex items-center gap-2 px-4 py-2 rounded text-xs font-bold uppercase tracking-widest border transition-all ${
-                            filterPanelOpen || inactiveCount > 0
-                                ? 'bg-shd/20 text-shd border-shd/40'
-                                : 'bg-tactical-panel/90 text-gray-400 border-tactical-border hover:border-gray-500 backdrop-blur-sm'
-                        }`}
-                    >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-                        </svg>
-                        Filtres
-                        {inactiveCount > 0 && (
-                            <span className="bg-shd text-black px-1.5 py-0.5 rounded-full text-xs font-black">{activeCategories.length}</span>
-                        )}
-                    </button>
-
-                    {filterPanelOpen && (
-                        <div className="bg-tactical-panel/95 border border-tactical-border rounded-lg p-4 shadow-xl backdrop-blur-sm min-w-[300px] sm:min-w-[380px] max-h-[80vh] overflow-y-auto">
-                            <div className="flex items-center justify-between mb-3">
-                                <span className="text-xs text-gray-400 font-bold uppercase tracking-widest">Légende & Filtres</span>
-                                <div className="flex gap-2">
-                                    {inactiveCount > 0 && (
-                                        <button onClick={handleReset}
-                                                className="text-xs text-red-400 font-bold uppercase tracking-widest hover:text-red-300 transition-colors">
-                                            Réinitialiser
-                                        </button>
-                                    )}
-                                    <button onClick={() => setFilterPanelOpen(false)}
-                                            className="text-gray-500 hover:text-shd text-lg leading-none">&times;</button>
-                                </div>
-                            </div>
-
-                            <div className="space-y-4">
-                                {Object.entries(groupedCategories).map(([groupName, cats]) => {
-                                    const allActive = cats.every(c => activeCategories.includes(c.id));
-
-                                    return (
-                                        <div key={groupName} className="flex flex-col gap-1">
-                                            <div className="flex items-center justify-between mb-1.5 mt-2">
-                                                <div
-                                                    className="flex items-center gap-2 cursor-pointer group"
-                                                    onClick={() => toggleCollapse(groupName)}
-                                                >
-                                                    <label className="block text-xs text-gray-500 font-bold uppercase tracking-widest cursor-pointer mb-0 group-hover:text-gray-300 transition-colors">
-                                                        {groupName}
-                                                    </label>
-                                                    <span className="text-xs leading-none text-gray-500 group-hover:text-gray-400">
-                                                        {collapsedGroups[groupName] ? '▼' : '▲'}
-                                                    </span>
-                                                </div>
-                                                <button
-                                                    onClick={() => toggleGroup(groupName, cats)}
-                                                    className="text-xs text-gray-500 hover:text-gray-300 font-bold uppercase tracking-widest transition-colors"
-                                                >
-                                                    {allActive ? 'Désactiver' : 'Activer'}
-                                                </button>
-                                            </div>
-
-                                            {!collapsedGroups[groupName] && (
-                                                <div className="grid grid-cols-2 gap-1.5">
-                                                    {cats.map(cat => {
-                                                        const checked = activeCategories.includes(cat.id);
-                                                        const bgColor = cat.backgroundColor || 'transparent'
-                                                        const iColor = cat.iconColor || cat.color || '#ffffff'
-                                                        return (
-                                                            <button
-                                                                key={cat.id}
-                                                                onClick={() => toggleCategory(cat.id)}
-                                                                title={cat.name}
-                                                                className={`flex items-center gap-2 px-2 py-1.5 rounded text-xs font-bold uppercase tracking-wide border transition-all text-left overflow-hidden ${
-                                                                    checked
-                                                                        ? 'bg-shd/20 text-shd border-shd/40'
-                                                                        : 'bg-tactical-bg/80 text-gray-500 border-tactical-border hover:border-gray-500 hover:text-gray-400'
-                                                                }`}
-                                                            >
-                                                                <div className={`w-5 h-5 flex items-center justify-center rounded-full shrink-0 ${checked ? 'opacity-100' : 'opacity-50'}`} style={{ backgroundColor: bgColor }}>
-                                                                    <GameIcon src={resolveAsset(cat.icon)} color={iColor} className="w-full h-full object-contain" />
-                                                                </div>
-                                                                <span className="flex-1 truncate">{cat.name}</span>
-                                                            </button>
-                                                        )
-                                                    })}
-                                                </div>
-                                            )}
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        </div>
+            {/* BOUTON TOGGLE FILTRES (overlay sur la map quand sidebar fermée) */}
+            {currentMapConfig.categories?.length > 0 && !filterPanelOpen && (
+                <button
+                    onClick={() => setFilterPanelOpen(true)}
+                    title="Ouvrir le panneau filtres"
+                    className={`absolute top-4 right-4 z-[400] flex items-center gap-2 px-3 py-2 rounded border text-xs font-bold uppercase tracking-widest transition-colors shadow-lg ${
+                        inactiveCount > 0
+                            ? 'bg-shd/20 text-shd border-shd/60 hover:bg-shd/30'
+                            : 'bg-tactical-panel text-gray-300 border-tactical-border hover:border-shd/60 hover:text-shd'
+                    }`}
+                >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                    </svg>
+                    Filtres
+                    {inactiveCount > 0 && (
+                        <span className="bg-shd text-black px-1.5 py-0.5 rounded-full text-[10px] font-black leading-none">{activeCategories.length}</span>
                     )}
-                </div>
+                </button>
             )}
 
             {/* CARTE LEAFLET */}
@@ -630,6 +558,106 @@ export default function MapPage() {
                 </div>
             )}
             </div>
+
+            {/* SIDEBAR LATÉRALE FILTRES — côte à côte avec la map */}
+            {currentMapConfig.categories?.length > 0 && filterPanelOpen && (
+                <aside className="absolute inset-0 z-[500] sm:relative sm:inset-auto h-full w-full sm:w-[380px] shrink-0 flex flex-col bg-tactical-panel border-l border-tactical-border shadow-2xl text-gray-200 font-sans text-xs">
+                    {/* Header — aligné sur le style des autres panneaux (Dialog / MapEditorOverlay) */}
+                    <div className="flex items-center justify-between px-4 py-3 border-b border-tactical-border bg-linear-to-r from-tactical-panel to-tactical-bg/30">
+                        <div className="flex items-center gap-2">
+                            <svg className="w-4 h-4 text-shd" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                            </svg>
+                            <span className="text-shd font-bold uppercase tracking-widest text-xs">Filtres</span>
+                        </div>
+                        <button
+                            onClick={() => setFilterPanelOpen(false)}
+                            title="Fermer"
+                            className="px-2 py-1 rounded border border-tactical-border hover:border-red-500/60 hover:text-red-300 text-xs uppercase tracking-widest transition-colors"
+                        >
+                            ✕
+                        </button>
+                    </div>
+
+                    {/* Barre d'actions */}
+                    <div className="flex items-center justify-between px-4 py-2 border-b border-tactical-border bg-tactical-bg/40">
+                        <span className="text-xs text-gray-400 uppercase tracking-widest">
+                            {activeCategories.length}/{allCatIds.length} actifs
+                        </span>
+                        <button
+                            onClick={handleReset}
+                            disabled={inactiveCount === 0}
+                            className={`text-xs font-bold uppercase tracking-widest border rounded px-2 py-1 transition-colors ${
+                                inactiveCount > 0
+                                    ? 'text-red-400 border-red-500/40 hover:bg-red-500/20 hover:text-red-300'
+                                    : 'text-gray-600 border-tactical-border opacity-50 cursor-not-allowed'
+                            }`}
+                        >
+                            Réinitialiser
+                        </button>
+                    </div>
+
+                    {/* Corps scrollable — sections séparées comme dans MapEditorOverlay */}
+                    <div className="flex-1 overflow-y-auto">
+                        {Object.entries(groupedCategories).map(([groupName, cats]) => {
+                            const allActive = cats.every(c => activeCategories.includes(c.id));
+                            const collapsed = collapsedGroups[groupName];
+
+                            return (
+                                <div key={groupName} className="p-3 border-b border-tactical-border">
+                                    <div className="flex items-center justify-between mb-2">
+                                        <button
+                                            type="button"
+                                            onClick={() => toggleCollapse(groupName)}
+                                            className="flex items-center gap-2 group"
+                                        >
+                                            <span className="text-xs leading-none text-shd/70 group-hover:text-shd transition-colors">
+                                                {collapsed ? '▶' : '▼'}
+                                            </span>
+                                            <span className="text-xs uppercase tracking-widest text-shd/80 font-bold group-hover:text-shd transition-colors">
+                                                {groupName}
+                                            </span>
+                                        </button>
+                                        <button
+                                            onClick={() => toggleGroup(groupName, cats)}
+                                            className="text-xs text-gray-500 hover:text-gray-300 font-bold uppercase tracking-widest transition-colors"
+                                        >
+                                            {allActive ? 'Désactiver' : 'Activer'}
+                                        </button>
+                                    </div>
+
+                                    {!collapsed && (
+                                        <div className="grid grid-cols-2 gap-1.5">
+                                            {cats.map(cat => {
+                                                const checked = activeCategories.includes(cat.id);
+                                                const bgColor = cat.backgroundColor || 'transparent'
+                                                const iColor = cat.iconColor || cat.color || '#ffffff'
+                                                return (
+                                                    <button
+                                                        key={cat.id}
+                                                        onClick={() => toggleCategory(cat.id)}
+                                                        title={cat.name}
+                                                        className={`flex items-center gap-2 px-2 py-1.5 rounded text-xs font-bold uppercase tracking-wide border transition-all text-left overflow-hidden ${
+                                                            checked
+                                                                ? 'bg-shd/20 text-shd border-shd/40'
+                                                                : 'bg-tactical-bg/80 text-gray-500 border-tactical-border hover:border-shd/50 hover:text-gray-300'
+                                                        }`}
+                                                    >
+                                                        <div className={`w-5 h-5 flex items-center justify-center rounded-full shrink-0 ${checked ? 'opacity-100' : 'opacity-50'}`} style={{ backgroundColor: bgColor }}>
+                                                            <GameIcon src={resolveAsset(cat.icon)} color={iColor} className="w-full h-full object-contain" />
+                                                        </div>
+                                                        <span className="flex-1 truncate">{cat.name}</span>
+                                                    </button>
+                                                )
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+                            )
+                        })}
+                    </div>
+                </aside>
+            )}
 
             {/* ÉDITEUR DE CARTE (DEV ONLY) — sidebar côte à côte avec la map */}
             {import.meta.env.DEV && editorActive && leafletMap && currentMapConfig && (

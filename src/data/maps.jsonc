@@ -38,6 +38,13 @@
                 "icon": "planque",
                 "iconColor": "#ff8000",
                 "group": "Zones de sécurité"
+            },
+            {
+                "id": "missions_affectation",
+                "name": "Affectations Confidentiels",
+                "icon": "affectation_confidentiel",
+                "iconColor": "#ffffff",
+                "group": "Missions"
             }
         ],
         "zones": [
@@ -911,6 +918,69 @@
                 "category": "planques_dz",
                 "label": "Planque Dark Zone Ouest",
                 "description": ""
+            },
+            {
+                "id": "affectation_armurerie_national_bond",
+                "coords": [7966, 5304],
+                "category": "missions_affectation",
+                "label": "Armurerie de National Bond",
+                "description": "Localiser et détruire l'armurerie des True Sons dans la National Bond Bank."
+            },
+            {
+                "id": "affectation_sauvetage_civils_aquarium",
+                "coords": [8330, 4154],
+                "category": "missions_affectation",
+                "label": "Sauvetage de civils à l'aquarium",
+                "description": "Secourez un groupe de civils retenus prisonniers par les Hyènes à l'aquarium central."
+            },
+            {
+                "id": "affectation_otages_du_theatre_nelson",
+                "coords": [9339, 4459],
+                "category": "missions_affectation",
+                "label": "Otages du Théâtre Nelson",
+                "description": "Sauvez les otages détenus dans le Théâtre Nelson."
+            },
+            {
+                "id": "affectation_infiltration_du_nightclub",
+                "coords": [9435, 5716],
+                "category": "missions_affectation",
+                "label": "Infiltration du nightclub",
+                "description": "Retrouvez l'Agent Lee et détruisez la production d'Épice des Hyènes."
+            },
+            {
+                "id": "affectation_alerte_de_securite_de_la_nsa",
+                "coords": [12469, 2267],
+                "category": "missions_affectation",
+                "label": "Alerte de sécurité de la NSA",
+                "description": "Enquêtez sur la source de l'alerte de sécurité de la NSA près du National Mall."
+            },
+            {
+                "id": "affectation_recuperation_a_la_bibliogheque_du_congres",
+                "coords": [12727, 1915],
+                "category": "missions_affectation",
+                "label": "Récupération à la Biblioghèque du Congrès",
+                "description": "Retracez kes derniers déplacements connus de Monica Schapera, l'agent disparu de la Division, à la Bibliothèque du Congrès."
+            },
+            {
+                "id": "affectation_sauvetage_du_centre_de_detention",
+                "coords": [5713, 5911],
+                "category": "missions_affectation",
+                "label": "Sauvetage du centre de détention",
+                "description": "Infiltrez un centre de détention des True Sons et libérez les prisoniers."
+            },
+            {
+                "id": "affectation_site_du_crash_de_ambassade",
+                "coords": [4117, 6402],
+                "category": "missions_affectation",
+                "label": "Site du crash de l'ambassade",
+                "description": "Localisez et sécurises un hélicoptère de la JTF abattu à l'ambassade du Mexique."
+            },
+            {
+                "id": "affectation_route_de_ravitaillement_de_la_marina",
+                "coords": [2482, 5709],
+                "category": "missions_affectation",
+                "label": "Route de ravitaillement de la marina",
+                "description": "Neutralisez la route de ravitaillement des Parias sur le Potomac"
             }
         ]
     }

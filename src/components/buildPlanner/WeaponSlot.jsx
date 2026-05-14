@@ -76,7 +76,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                         </button>
                     )}
                     {weapon && (
-                        <button onClick={(e) => { e.stopPropagation(); onRemove?.() }} className={`${headerText} hover:text-white text-xs p-1`}>✕</button>
+                        <button onClick={(e) => { e.stopPropagation(); onRemove?.() }} className={`${headerText} hover:text-white text-xs p-1`} aria-label="Retirer l'arme">✕</button>
                     )}
                 </div>
             </div>
@@ -200,6 +200,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                                     onClick={(e) => { e.stopPropagation(); onSelectTalent() }}
                                                     className="text-xs text-gray-600 hover:text-shd transition-colors"
                                                     title="Changer le talent"
+                                                    aria-label="Changer le talent"
                                                 >✎</button>
                                             )}
                                         </div>
@@ -233,6 +234,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                                     onClick={(e) => { e.stopPropagation(); onSelectTalent() }}
                                                     className="text-xs text-gray-600 hover:text-shd transition-colors"
                                                     title="Changer le talent"
+                                                    aria-label="Changer le talent"
                                                 >✎</button>
                                             )}
                                         </div>
@@ -267,6 +269,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                                     onClick={(e) => { e.stopPropagation(); onSelectPrototypeTalent() }}
                                                     className="text-xs text-gray-600 hover:text-cyan-400 transition-colors"
                                                     title="Changer le talent prototype"
+                                                    aria-label="Changer le talent prototype"
                                                 >✎</button>
                                             )}
                                         </div>

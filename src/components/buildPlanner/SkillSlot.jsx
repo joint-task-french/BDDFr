@@ -73,7 +73,7 @@ export default function SkillSlot({ slotIndex, skill, skillMods, modsCompetences
     <div className="build-slot group" onClick={skill ? undefined : onSelect}>
       <div className="px-3 py-2 bg-yellow-500/10 border-b border-yellow-500/30 flex justify-between items-center">
         <span className="text-yellow-400 text-xs font-bold uppercase tracking-widest">⚡ Compétence {slotIndex + 1}</span>
-        {skill && <button onClick={remove} className="text-red-400 hover:text-red-300 text-xs p-1">✕</button>}
+        {skill && <button onClick={remove} className="text-red-400 hover:text-red-300 text-xs p-1" aria-label="Retirer la compétence">✕</button>}
       </div>
       <div className="p-3 min-h-25">
         {skill ? (
@@ -123,6 +123,7 @@ export default function SkillSlot({ slotIndex, skill, skillMods, modsCompetences
                               <button
                                 onClick={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, modIndex: i, mod: null }) }}
                                 className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
+                                aria-label="Retirer le mod"
                               >✕</button>
                             </div>
                             {equipped.attributs && equipped.attributs.map((entry) => {
@@ -233,7 +234,7 @@ function SkillModPicker({ competenceSlug, emplacement, modsCompetences, allAttri
       <div className="bg-tactical-panel border border-tactical-border rounded-lg w-full max-w-md max-h-[70vh] flex flex-col" onClick={e => e.stopPropagation()}>
         <div className="px-4 py-3 border-b border-tactical-border flex justify-between items-center">
           <span className="text-sm text-white font-bold uppercase tracking-widest">Mod — {emplacement}</span>
-          <button onClick={onClose} className="text-gray-500 hover:text-white text-lg">✕</button>
+          <button onClick={onClose} className="text-gray-500 hover:text-white text-lg" aria-label="Fermer la sélection de mod">✕</button>
         </div>
         {compatibleMods.length > 3 && (
           <div className="px-4 py-2 border-b border-tactical-border/50">

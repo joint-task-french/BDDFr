@@ -2,7 +2,7 @@
 title: Escalade et équipement Prototypes
 description: Introduction aux nouveaux équipements de qualité prototype.
 date: 2026-04-06
-update: 2026-04-09
+update: 2026-04-21
 tags: [guide, prototypes]
 authors: [ocelus_ftnl, marcoo888]
 ---
@@ -74,19 +74,19 @@ Augmenter les statistiques des ennemis ne suffisait pas. L'Escalade introduit 2 
 
 Actuellement, le mode Escalade est l'unique moyen de mettre la main sur l'équipement Prototype. Oubliez le butin ciblé : ici, tout est question de hasard. Chaque ennemi éliminé possède une petite chance de faire tomber une pièce d'équipement ou une arme Prototype. Naturellement, cette probabilité augmente avec la difficulté :
 
-| Tier         | taux de drop | kill nécessaires |
-|--------------|--------------|------------------|
-| **Tier 0**   | 0,10 %       | **~** 1000       |
-| **Tier 1**   | 0,20 %       | **~** 500        |
-| **Tier 2**   | 0,40 %       | **~** 250        |
-| **Tier 3**   | 0,60 %       | **~** 167        |
-| **Tier 4**   | 0,60 %       | **~** 167        |
-| **Tier 5**   | 0,80 %       | **~** 125        |
-| **Tier 6**   | 1,25 %       | **~** 80         |
-| **Tier 7**   | 1,50 %       | **~** 67         |
-| **Tier 8**   | 2,00 %       | **~** 50         |
-| **Tier 9**   | 2,50 %       | **~** 40         |
-| **Tier 10**  | 3,00 %       | **~** 33         |
+| Tier         | taux de drop | butin ciblé | kill nécessaires (non ciblé) |
+|--------------|--------------|-------------|------------------------------|
+| **Tier 0**   | 0,10 %       | ? %         | **~** 1000                   |
+| **Tier 1**   | 0,20 %       | 5.0 %       | **~** 500                    |
+| **Tier 2**   | 0,40 %       | 11.0 %      | **~** 250                    |
+| **Tier 3**   | 0,60 %       | 16.0 %      | **~** 167                    |
+| **Tier 4**   | 0,60 %       | 22.0 %      | **~** 167                    |
+| **Tier 5**   | 0,80 %       | 28.0 %      | **~** 125                    |
+| **Tier 6**   | 1,25 %       | 39.0 %      | **~** 80                     |
+| **Tier 7**   | 1,50 %       | 45.0 %      | **~** 67                     |
+| **Tier 8**   | 2,00 %       | 50.0 %      | **~** 50                     |
+| **Tier 9**   | 2,50 %       | 56.0 %      | **~** 40                     |
+| **Tier 10**  | 3,00 %       | 62.0 %      | **~** 33                     |
 
 
 
@@ -248,15 +248,18 @@ Pour faire évoluer vos Augmentations ou les modifier, il vous faudra une nouvel
 ### Le coût des améliorations (Niveaux d'Augmentation)
 Une fois votre pièce montée en expérience (en jouant avec), vous devez dépenser des Cœurs pour valider le passage au niveau supérieur :
 
-* **Niveau 1 → Niveau 2 :** 1 Cœur
-* **Niveau 2 → Niveau 3 :** 2 Cœurs
-* **Niveau 3 → Niveau 4 :** 2 Cœurs
-* **Niveau 4 → Niveau 5 :** 3 Cœurs
-* **Niveau 5 → Niveau 6 :** 3 Cœurs
-* **Niveau 6 → Niveau 7 :** 4 Cœurs
-* **Niveau 7 → Niveau 8 :** 4 Cœurs
-* **Niveau 8 → Niveau 9 :** 5 Cœurs
-* **Niveau 9 → Niveau 10 :** 6 Cœurs
+| Niveau d'augmentation    | Experience nécessaires         | Équivalent en level SHD   | Cœurs nécessaires |
+|--------------------------|--------------------------------|---------------------------|-------------------|
+| niveau **1** -> **2**    | **~** 5,3M  _(total : 5,3M)_   | 8 levels  _(total : 8)_   | **1** Cœur        |
+| niveau **2** -> **3**    | **~** 10,6M _(total : 15,9M)_  | 15 levels _(total : 23)_  | **2** Cœurs       |
+| niveau **3** -> **4**    | **~** 15,9M _(total : 31,8M)_  | 23 levels _(total : 46)_  | **2** Cœurs       |
+| niveau **4** -> **5**    | **~** 21,2M _(total : 53,0M)_  | 30 levels _(total : 76)_  | **3** Cœurs       |
+| niveau **5** -> **6**    | **~** 26,9M _(total : 79,9M)_  | 38 levels _(total : 114)_ | **3** Cœurs       |
+| niveau **6** -> **7**    | **~** 31,8M _(total : 111,7M)_ | 45 levels _(total : 159)_ | **4** Cœurs       |
+| niveau **7** -> **8**    | **~** 36,8M _(total : 148,5M)_ | 53 levels _(total : 212)_ | **4** Cœurs       |
+| niveau **8** -> **9**    | **~** 42,4M _(total : 190,9M)_ | 61 levels _(total : 273)_ | **5** Cœurs       |
+| niveau **9** -> **10**   | **~** 48,3M _(total : 239,2M)_ | 69 levels _(total : 342)_ | **6** Cœurs       |
+
 
 ### Le coût de Ré-attribution (Reroll)
 Si l'Augmentation présente sur votre pièce ne correspond pas à votre build, vous pouvez la reroll.
@@ -271,4 +274,5 @@ Si l'Augmentation présente sur votre pièce ne correspond pas à votre build, v
 
 *Sources :*
 - *[Poste Reddit de dognuttz](https://www.reddit.com/r/thedivision/comments/1safynu/psa_escalation_prototype_gear_drop_chances_roll/)*
+- *[Post Reddit de hanunisap](https://www.reddit.com/r/thedivision/comments/1sxkxyn/leveling_up_augments_for_prototype_gears/?share_id=aqh3g6t5ceNucGvNyIQ49)*
 - Expérimentations en jeu

@@ -381,7 +381,7 @@ export default function BuildActions({ data }) {
         <div className="absolute top-full right-0 mt-2 w-72 bg-tactical-panel border border-tactical-border rounded-lg shadow-xl z-40 overflow-hidden">
           <div className="px-4 py-3 border-b border-tactical-border flex justify-between items-center">
             <span className="text-sm font-bold text-white uppercase tracking-widest">Builds sauvegardés</span>
-            <button onClick={() => setShowSaves(false)} className="text-gray-500 hover:text-shd">&times;</button>
+            <button onClick={() => setShowSaves(false)} className="text-gray-500 hover:text-shd" aria-label="Fermer la liste des builds">&times;</button>
           </div>
           <div className="p-2 border-b border-tactical-border/50">
             <button onClick={importFromText}
@@ -402,13 +402,13 @@ export default function BuildActions({ data }) {
                     </div>
                   </div>
                   <div className="flex gap-1">
-                    <button onClick={() => loadBuild(i)} className="px-2 py-1 rounded text-xs font-bold text-shd bg-shd/10 border border-shd/30 hover:bg-shd/20" title="Charger">
+                    <button onClick={() => loadBuild(i)} className="px-2 py-1 rounded text-xs font-bold text-shd bg-shd/10 border border-shd/30 hover:bg-shd/20" title="Charger" aria-label="Charger">
                       📂
                     </button>
-                    <button onClick={() => editBuild(i)} className="px-2 py-1 rounded text-xs font-bold text-blue-400 bg-blue-900/10 border border-blue-500/20 hover:bg-blue-900/30" title="Modifier">
+                    <button onClick={() => editBuild(i)} className="px-2 py-1 rounded text-xs font-bold text-blue-400 bg-blue-900/10 border border-blue-500/20 hover:bg-blue-900/30" title="Modifier" aria-label="Modifier">
                       ✏️
                     </button>
-                    <button onClick={() => deleteBuild(i)} className="px-2 py-1 rounded text-xs font-bold text-red-400 bg-red-900/10 border border-red-500/20 hover:bg-red-900/30" title="Supprimer">
+                    <button onClick={() => deleteBuild(i)} className="px-2 py-1 rounded text-xs font-bold text-red-400 bg-red-900/10 border border-red-500/20 hover:bg-red-900/30" title="Supprimer" aria-label="Supprimer">
                       ✕
                     </button>
                   </div>

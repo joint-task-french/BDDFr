@@ -149,10 +149,10 @@
     "degatsBase": 67200,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//ok
       "chargeur": "chargeur_762",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
     }
   },
   "ak_m_du_marche_noire": {
@@ -331,10 +331,10 @@
     "talents": [
       "stabilisation"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//ok
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
-      "viseur": "rail_optique",
+      "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
     }
   },
@@ -552,9 +552,9 @@
     "degatsBase": 59200,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
-      "chargeur": "chargeur_762",
-      "bouche": "bouche_762",
+    "emplacementsMods": {//ok
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
       "viseur": "rail_optique",
       "canon": "rail_sous_canon_long"
     }
@@ -5501,7 +5501,11 @@
     "degatsBase": 635700,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {}
+    "emplacementsMods": {//ok
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long"
+    }
   },
   "fusil_calibre_12_a_double_canon": {
     "nom": "Fusil calibre 12 à double canon",
@@ -5591,7 +5595,7 @@
     "degatsBase": 51000,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//ok
       "chargeur": "chargeur_9mm",
       "bouche": "bouche_9mm",
       "viseur": "rail_optique_long",
@@ -5794,7 +5798,7 @@
     }
   },
   "l_archiviste": {
-    "nom": "L'Archivisite",
+    "nom": "L'Archiviste",
     "type": "fusil_assaut",
     "fabricant": "",
     "portee": 31,
@@ -5813,6 +5817,47 @@
       "canon": "rail_sous_canon_long",
       "chargeur": "chargeur_556",
       "viseur": "rail_optique"
+    }
+  },
+  "premiere_floraison": {
+    "nom": "Première floraison",
+    "type": "fusil_assaut",
+    "portee": 31,
+    "rpm": 700,
+    "chargeur": 30,
+    "rechargement": 1.85,
+    "headshot": 55,
+    "degatsBase": 57600,
+    "estNomme": true,
+    "talents": [
+      "recolte_de_fleurs"
+    ],
+    "description": "Les fleurs de cerisier sont éphèmères :\nElles ne durent généralement pas plus de deux semaines. Vos ennemis eux, tiendront beaucoup moins longtemps.",
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique"
+    }
+  },
+  "le_gros_titre": {
+    "nom": "Le gros titre",
+    "type": "fusil_mitrailleur",
+    "portee": 40,
+    "rpm": 600,
+    "chargeur": 100,
+    "rechargement": 1.96,
+    "headshot": 185.2,
+    "degatsBase": 62200,
+    "estNomme": true,
+    "talents": [
+      "contrainte"
+    ],
+    "description": "\"Pourquoi perdre du temps a lire les infos quand on peut être l'info ?\" - The Reed",
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "bouche": "bouche_762",
+      "canon": "rail_sous_canon_long",
+      "viseur": "rail_optique_long"
     }
   }
 }

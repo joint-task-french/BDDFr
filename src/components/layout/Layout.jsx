@@ -14,7 +14,13 @@ export default function Layout({ children }) {
       <main className="flex-1 flex flex-col overflow-hidden">
         {/* Mobile header */}
         <header className="md:hidden flex items-center gap-3 px-4 py-3 bg-tactical-panel border-b border-tactical-border">
-          <button onClick={() => setSidebarOpen(true)} className="text-gray-400 hover:text-shd p-1">
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="text-gray-400 hover:text-shd p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-shd rounded"
+            aria-label="Ouvrir le menu de navigation"
+            aria-expanded={sidebarOpen}
+            aria-controls="mobile-sidebar"
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>

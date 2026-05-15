@@ -63,7 +63,11 @@ export default function Sidebar({ open, onClose }) {
               Réseau <span className="text-shd">SHD</span>: <span className='text-blue-700'>JT</span><span className='text-white'>F</span><span className='text-red-500'>r</span>
             </h1>
           </div>
-          <button onClick={onClose} className="md:hidden text-gray-500 hover:text-shd p-2 -mr-2">
+          <button
+            onClick={onClose}
+            className="md:hidden text-gray-500 hover:text-shd p-2 -mr-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-shd rounded"
+            aria-label="Fermer le menu de navigation"
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>

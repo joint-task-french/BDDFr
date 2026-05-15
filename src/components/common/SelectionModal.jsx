@@ -46,12 +46,13 @@ export default function SelectionModal({ open, title, onClose, children, filters
                 <button
                   onClick={() => onSearch?.('')}
                   className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-shd"
+                  aria-label="Effacer la recherche"
                 >
                   ✕
                 </button>
               )}
             </div>
-            <button onClick={onClose} className="text-gray-500 hover:text-shd text-2xl leading-none px-1">&times;</button>
+            <button onClick={onClose} className="text-gray-500 hover:text-shd text-2xl leading-none px-1" aria-label="Fermer la fenêtre">&times;</button>
           </div>
         </div>
 

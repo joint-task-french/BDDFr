@@ -60,7 +60,8 @@ export function useFilterPanel({ filters, values, onChange, onReset }) {
             </button>
           )}
           <button onClick={() => setOpen(false)}
-            className="text-gray-500 hover:text-shd text-lg leading-none">&times;</button>
+            className="text-gray-500 hover:text-shd text-lg leading-none"
+            aria-label="Fermer les filtres">&times;</button>
         </div>
       </div>
 

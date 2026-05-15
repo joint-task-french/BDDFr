@@ -123,7 +123,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                   Prototype
                 </button>
             )}
-            {piece && <button onClick={remove} className="text-red-400 hover:text-red-300 text-xs p-1">✕</button>}
+            {piece && <button onClick={remove} className="text-red-400 hover:text-red-300 text-xs p-1" aria-label="Retirer l'équipement">✕</button>}
           </div>
         </div>
         <div className="p-3 min-h-25">
@@ -226,6 +226,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                                     onClick={(e) => { e.stopPropagation(); onSelectTalent() }}
                                     className="text-xs text-gray-600 hover:text-shd transition-colors"
                                     title="Changer le talent"
+                                    aria-label="Changer le talent"
                                 >✎</button>
                             )}
                           </div>
@@ -257,6 +258,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                                             onClick={(e) => { e.stopPropagation(); onSelectPrototypeTalent() }}
                                             className="text-xs text-gray-600 hover:text-cyan-400 transition-colors"
                                             title="Changer le talent prototype"
+                                            aria-label="Changer le talent prototype"
                                         >✎</button>
                                     )}
                                 </div>

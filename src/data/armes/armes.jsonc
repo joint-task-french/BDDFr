@@ -5838,5 +5838,26 @@
       "bouche": "bouche_556",
       "viseur": "rail_optique"
     }
+  },
+  "le_gros_titre": {
+    "nom": "Le gros titre",
+    "type": "fusil_mitrailleur",
+    "portee": 40,
+    "rpm": 600,
+    "chargeur": 100,
+    "rechargement": 1.96,
+    "headshot": 185.2,
+    "degatsBase": 62200,
+    "estNomme": true,
+    "talents": [
+      "contrainte"
+    ],
+    "description": "\"Pourquoi perdre du temps a lire les infos quand on peut être l'info ?\" - The Reed",
+    "emplacementsMods": {
+      "chargeur": "bande_munitions",
+      "bouche": "bouche_762",
+      "canon": "rail_sous_canon_long",
+      "viseur": "rail_optique_long"
+    }
   }
 }

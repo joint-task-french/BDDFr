@@ -52,7 +52,9 @@ export default function SearchBar({ value, onChange, placeholder = "Rechercher d
                         lastSentValue.current = ''
                         onChange('')
                     }}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-shd"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-shd focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-shd rounded-sm p-0.5"
+                    aria-label="Effacer la recherche"
+                    title="Effacer la recherche"
                 >
                     ✕
                 </button>

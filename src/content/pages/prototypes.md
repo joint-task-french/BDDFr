@@ -102,7 +102,7 @@ Actuellement, le mode Escalade est l'unique moyen de mettre la main sur l'équip
 | **Tier 6**  | 29              | 34          | 10            | 10                 | 3              | 1                    |
 | **Tier 7**  | 41              | 46          | 13            | 10                 | 4              | 1                    |
 | **Tier 8**  | 54              | 60          | 16            | 10                 | 4              | 2                    |
-| **Tier 9**  | 70              | 76          | 20            |                    |                |                      |
+| **Tier 9**  | 70              | 76          | 20            | 10                 | 4              | 2                    |
 | **Tier 10** | 87              | 94          | 25            | 10                 | 5              | 3                    |
 
 ### Rotation hebdomadaire des missions :
@@ -216,7 +216,7 @@ Pour les plus chanceux, il est même possible d'avoir plusieurs statistiques max
 
 * **1 statistique au maximum :** 100 %
 * **2 statistiques au maximum :** 5 %
-* **3 statistiques au maximum :** 1,0 %
+* **3 statistiques au maximum :** 1 %
 * **4 statistiques au maximum :** 0,1 %
 
 > **L'astuce à retenir :** Les attributs nommés (comme les dégâts de tir à la tête sur le [*Mort blanche*](/db/armes/mort_blanche) ou les dégâts sur cible non abritée sur les [*Genouillères astucieuses*](/db/equipements/genouilleres_astucieuses)) sont toujours générés à leur valeur maximale, sans dépendre de ces probabilités.
@@ -227,15 +227,15 @@ Chaque pièce d'équipement Prototype est dotée d'un mini-talent unique appelé
 
 Voici les 9 Augmentations disponibles, avec leur évolution par niveau :
 
-* [**Amalgame :**](/db/talentsPrototypes/amalgame) Chaque balle a une chance d'appliquer un effet d'état aléatoire. *(Base : 0,5 % | Max : 2,3 % | +0,2 % par niveau)*
-* [**Anomalie :**](/db/talentsPrototypes/anomalie) Vous soigne d'un pourcentage des dégâts infligés par vos compétences. *(Base : 2,0 % | Max : 4,7 % | +0,3 % par niveau)*
-* [**Atomisation :**](/db/talentsPrototypes/atomisation) Augmente le rayon et les dégâts de vos grenades. *(Base : 12,5 % | Max : 21,5 % | +1,0 % par niveau)*
-* [**Écho :**](/db/talentsPrototypes/echo) Chaque balle tirée a une chance de doubler ses dégâts. *(Base : 1,2 % | Max : 3,0 % | +0,2 % par niveau)*
-* [**Entropie :**](/db/talentsPrototypes/entropie) Votre santé maximale augmente d'un pourcentage de votre armure de base. *(Base : 5,0 % | Max : 14,0 % | +1,0 % par niveau)*
-* [**Paradoxe :**](/db/talentsPrototypes/paradoxe) Chance de récupérer 2 balles dans le chargeur à chaque tir. *(Base : 1,5 % | Max : 6,0 % | +0,5 % par niveau)*
-* [**Quantum :**](/db/talentsPrototypes/quantum) Chance de devenir immunisé aux dégâts pendant 2 secondes (non rafraichissable tant qu'actif). *(Base : 1,0 % | Max : 2,8 % | +0,2 % par niveau)*
-* [**Synesthésie :**](/db/talentsPrototypes/synesthesie) Chaque tir réussi a une chance de réduire le temps de recharge de vos compétences de 0,2s. *(Base : 2,5 % | Max : 4,3 % | +0,2 % par niveau)*
-* [**Traqueur :**](/db/talentsPrototypes/traqueur) Augmente la durée des effets d'état que vous appliquez. *(Base : 5,0 % | Max : 14,0 % | +1,0 % par niveau)*
+* [**Amalgame :**](/db/talentsPrototypes/amalgame) Chaque balle a une chance d'appliquer un effet d'état aléatoire. *(Base : 1,6 % | Max : 4,3 % | +0,3 % par niveau)*
+* [**Anomalie :**](/db/talentsPrototypes/anomalie) Vous soigne d'un pourcentage des dégâts infligés par vos compétences. *(Base : 10 % | Max : 28 % | +2 % par niveau)*
+* [**Atomisation :**](/db/talentsPrototypes/atomisation) Augmente le rayon et les dégâts de vos grenades. *(Base : 12,5 % | Max : 21,5 % | +1 % par niveau)*
+* [**Écho :**](/db/talentsPrototypes/echo) Chaque balle tirée a une chance de doubler ses dégâts. *(Base : 1,2 % | Max : 3 % | +0,2 % par niveau)*
+* [**Entropie :**](/db/talentsPrototypes/entropie) Votre santé maximale augmente d'un pourcentage de votre armure de base. *(Base : 5 % | Max : 14 % | +1 % par niveau)*
+* [**Paradoxe :**](/db/talentsPrototypes/paradoxe) Chance de récupérer 2 balles dans le chargeur à chaque tir. *(Base : 1,5 % | Max : 6 % | +0,5 % par niveau)*
+* [**Quantum :**](/db/talentsPrototypes/quantum) Chance de devenir immunisé aux dégâts pendant 2 secondes (non rafraichissable tant qu'actif). *(Base : 1 % | Max : 4,6 % | +0,4 % par niveau)*
+* [**Synesthésie :**](/db/talentsPrototypes/synesthesie) Chaque tir réussi a une chance de réduire le temps de recharge de vos compétences de 0,2s. *(Base : 5 % | Max : 14 % | +1 % par niveau)*
+* [**Traqueur :**](/db/talentsPrototypes/traqueur) Augmente la durée des effets d'état que vous appliquez. *(Base : 5 % | Max : 14 % | +1 % par niveau)*
 
 ---
 

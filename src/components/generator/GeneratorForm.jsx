@@ -433,7 +433,7 @@ function AutocompleteArrayInput({ field, value, onChange, suggestions }) {
           {items.map((item, i) => (
             <span key={i} className="inline-flex items-center gap-1 px-2 py-0.5 bg-shd/10 text-shd border border-shd/30 rounded text-xs">
               {labelMap[item] || item}
-              <button type="button" onClick={() => remove(i)} className="text-shd/60 hover:text-red-400 ml-0.5">✕</button>
+              <button type="button" onClick={() => remove(i)} className="text-shd/60 hover:text-red-400 ml-0.5" aria-label="Supprimer">✕</button>
             </span>
           ))}
         </div>
@@ -486,7 +486,7 @@ function ArrayInput({ field, value, onChange }) {
                 placeholder={field.placeholder || ''} className={`${inputClass} flex-1`} />
             )}
             <button type="button" onClick={() => remove(i)}
-              className="text-red-400 hover:text-red-300 text-xs px-2 py-1 border border-red-500/30 rounded hover:bg-red-500/10 transition-colors shrink-0">
+              className="text-red-400 hover:text-red-300 text-xs px-2 py-1 border border-red-500/30 rounded hover:bg-red-500/10 transition-colors shrink-0" aria-label="Supprimer">
               ✕
             </button>
           </div>
@@ -541,7 +541,7 @@ function ObjectArrayInput({ field, value, onChange, suggestions, allData }) {
               ))}
             </div>
             <button type="button" onClick={() => remove(i)}
-              className="text-red-400 hover:text-red-300 text-xs px-2 py-1 border border-red-500/30 rounded hover:bg-red-500/10 transition-colors shrink-0 mt-5">
+              className="text-red-400 hover:text-red-300 text-xs px-2 py-1 border border-red-500/30 rounded hover:bg-red-500/10 transition-colors shrink-0 mt-5" aria-label="Supprimer">
               ✕
             </button>
           </div>

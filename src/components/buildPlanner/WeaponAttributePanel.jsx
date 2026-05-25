@@ -195,6 +195,7 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
                               <button
                                   onClick={() => { const m = [...(weaponMods || [])]; m[idx] = null; onChangeMods(m) }}
                                   className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
+                                  aria-label="Retirer"
                               >✕</button>
                             </div>
                         ) : (
@@ -313,7 +314,7 @@ function ModPicker({ mods, type, weapon, allAttributs, statistiques, onSelect, o
         <div className="bg-tactical-panel border border-tactical-border rounded-lg w-full max-w-md max-h-[70vh] flex flex-col" onClick={e => e.stopPropagation()}>
           <div className="px-4 py-3 border-b border-tactical-border flex justify-between items-center">
             <span className="text-sm text-white font-bold uppercase tracking-widest">Mod — {type}</span>
-            <button onClick={onClose} className="text-gray-500 hover:text-white text-lg">✕</button>
+            <button onClick={onClose} className="text-gray-500 hover:text-white text-lg" aria-label="Fermer">✕</button>
           </div>
           <div className="px-4 py-2 border-b border-tactical-border/50">
             <input

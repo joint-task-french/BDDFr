@@ -72,7 +72,7 @@ export default function ReviewModal({ loadedData, savedItems, categories, dataKe
                 {hasChanges ? 'Vérifiez les changements avant de procéder à l\'export' : 'Aucune modification enregistrée'}
               </p>
             </div>
-            <button onClick={onCancel} disabled={isProcessing} className="text-gray-500 hover:text-white text-lg px-2 disabled:opacity-50">✕</button>
+            <button onClick={onCancel} disabled={isProcessing} className="text-gray-500 hover:text-white text-lg px-2 disabled:opacity-50" aria-label="Fermer">✕</button>
           </div>
 
           <div className="overflow-y-auto flex-1 p-5 space-y-4">

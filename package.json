@@ -24,7 +24,7 @@
     "previewUnbuild": "vite preview"
   },
   "dependencies": {
-    "framer-motion": "^12.38.0",
+    "framer-motion": "^12.40.0",
     "jimp": "^1.6.1",
     "jszip": "^3.10.1",
     "lucide-react": "^1.14.0",

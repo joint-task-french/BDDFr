@@ -103,7 +103,7 @@ Actuellement, le mode Escalade est l'unique moyen de mettre la main sur l'équip
 | **Tier 7**  | 41              | 46          | 13            | 10                 | 4              | 1                    |
 | **Tier 8**  | 54              | 60          | 16            | 10                 | 4              | 2                    |
 | **Tier 9**  | 70              | 76          | 20            |                    |                |                      |
-| **Tier 10** | 87              | 94          | 25            |                    |                |                      |
+| **Tier 10** | 87              | 94          | 25            | 10                 | 5              | 3                    |
 
 ### Rotation hebdomadaire des missions :
 

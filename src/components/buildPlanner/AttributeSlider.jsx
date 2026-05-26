@@ -63,7 +63,7 @@ export default function AttributeSlider({ attribute, onChange, onPick, onRemove,
           ) : '—'}{attribute.unite || ''}
         </span>
         {canChangeAttribute && onRemove && (
-          <button onClick={onRemove} className="text-gray-600 hover:text-red-400 text-xs ml-0.5" title="Retirer">✕</button>
+          <button onClick={onRemove} className="text-gray-600 hover:text-red-400 text-xs ml-0.5" title="Retirer" aria-label="Retirer">✕</button>
         )}
       </div>
       {!readOnly && min != null && max != null && min !== max && (

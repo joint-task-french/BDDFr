@@ -1,5 +1,9 @@
 import fs from 'fs';
 import path from 'path';
+import {
+    readJsonc, slugify, loadEmbedData, loadCategoryItems, descenteLevels, buildIconIndex, exportItemIcon,
+    itemEmbed, staticPageEmbed, documentEmbed, renderEmbedTag, injectIntoHtml,
+} from './lib/discord-embed.mjs';
 
 const DIST_DIR = './dist';
 const DATA_DIR = './src/data';
@@ -15,28 +19,16 @@ const BASE_URL = VITE_BASE_PATH ? (DOMAIN ? (DOMAIN.startsWith('http') ? DOMAIN 
 const BASE_PATH = VITE_BASE_PATH || (DOMAIN ? '' : (process.env.GITHUB_ACTIONS ? `/${repo}` : '/BDDFr'));
 const DIVISION_ORANGE = "#ff8000";
 
-function parseJsonc(filePath) {
-    try {
-        const content = fs.readFileSync(filePath, 'utf-8');
-        const stripped = content.replace(/\\"|"(?:\\"|[^"])*"|(\/\/.*|\/\*[\s\S]*?\*\/)/g, (m, g) => g ? "" : m);
-        return JSON.parse(stripped);
-    } catch (e) { return null; }
-}
+const parseJsonc = readJsonc;
 
 const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes', 'armes-type.jsonc')) || {};
 const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements', 'equipements-type.jsonc')) || {};
 const ensembles = parseJsonc(path.join(DATA_DIR, 'equipements', 'ensembles.jsonc')) || {};
-const classSpe = parseJsonc(path.join(DATA_DIR, 'class-spe.jsonc')) || {};
 const metadata = parseJsonc(path.join(DATA_DIR, 'metadata.jsonc')) || {};
 
 const getWpnType = (t) => weaponTypes[t] || { nom: t?.replace('_', ' ') };
 const getGearType = (e) => gearTypes[e] || { nom: e };
 const getBrandName = (slug) => ensembles[slug]?.nom || slug;
-
-function slugify(name) {
-    if (!name) return '';
-    return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
-}
 
 function parseFrontmatter(rawContent) {
     const regex = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/;
@@ -59,29 +51,15 @@ function parseFrontmatter(rawContent) {
     return { metadata, content: match[2] };
 }
 
-function getAllFiles(dirPath, arrayOfFiles = []) {
-    if (!fs.existsSync(dirPath)) return arrayOfFiles;
-    const files = fs.readdirSync(dirPath);
-    files.forEach(file => {
-        const fullPath = path.join(dirPath, file);
-        if (fs.statSync(fullPath).isDirectory()) arrayOfFiles = getAllFiles(fullPath, arrayOfFiles);
-        else arrayOfFiles.push(fullPath);
-    });
-    return arrayOfFiles;
-}
-
-const iconIndex = {};
-getAllFiles(ASSETS_DIR).filter(f => f.endsWith('.png')).forEach(file => {
-    const rawName = path.basename(file, '.png');
-    iconIndex[slugify(rawName)] = file;
-});
+const iconIndex = buildIconIndex(ASSETS_DIR);
+const embedData = loadEmbedData(DATA_DIR);
 
 const categoryFormatters = {
     'armes': (item) => {
         const typeInfo = getWpnType(item.type);
         const rarete = item.estExotique ? '🔴 ' : (item.estNomme ? '🟡 ' : (item.isSignature ? '🟠 ' : ''));
         return {
-            title: `${rarete}${item.nom} (${typeInfo.nom}) — BDDFr`,
+            title: `${rarete}${item.nom} (${item.speNom || typeInfo.nom}) — BDDFr`,
             description: item.description ||
                 `Dégâts : ${item.degatsBase || 0}\nPortée : ${item.portee || 0}m\nCPM : ${item.rpm || 0}\n` +
                 `Chargeur : ${item.chargeur || 0}\nRechargement : ${item.rechargement || 0}s\nHeadshot : +${item.headshot}%`
@@ -184,7 +162,7 @@ const categoryMap = {
     'modsCompetences': 'mods-competences.jsonc'
 };
 
-const stubTemplate = (title, description, imagePath, pagePath) => {
+const stubTemplate = (title, description, imagePath, pagePath, embed = null) => {
     const fullUrl = `${BASE_URL}/${pagePath}`;
     const mainImageUrl = `${BASE_URL}/${imagePath}`;
     const safeDesc = (description || '').replace(/"/g, '&quot;');
@@ -206,6 +184,7 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
     <meta property="og:description" content="${safeDesc}">
     <meta property="og:image" content="${mainImageUrl}">
     <meta name="twitter:card" content="summary">
+    ${renderEmbedTag(embed)}
     <script>window.location.replace("${BASE_URL}/#/${pagePath}" + window.location.search + window.location.hash);</script>
 </head>
 <body><p>Redirection vers <a href="${BASE_URL}/${pagePath}">${title}</a>...</p></body>
@@ -220,81 +199,34 @@ async function generate() {
     for (const page of pages_fixes) {
         const targetDir = path.join(DIST_DIR, page.path);
         if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-        fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(page.title, page.description, 'favicon_150x150.png', page.path));
+        fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(page.title, page.description, 'favicon_150x150.png', page.path,
+            staticPageEmbed({ data: embedData, baseUrl: BASE_URL, pagePath: page.path, title: page.title })));
         sitemapEntries.push(`${BASE_URL}/${page.path}`);
     }
 
-    const exportIconsDir = path.join(DIST_DIR, 'og-icons');
-    if (!fs.existsSync(exportIconsDir)) fs.mkdirSync(exportIconsDir, { recursive: true });
+    const indexHtmlPath = path.join(DIST_DIR, 'index.html');
+    if (fs.existsSync(indexHtmlPath)) {
+        const rootEmbed = staticPageEmbed({ data: embedData, baseUrl: BASE_URL, pagePath: '', title: 'JTFr — BDDFr' });
+        fs.writeFileSync(indexHtmlPath, injectIntoHtml(fs.readFileSync(indexHtmlPath, 'utf-8'), rootEmbed));
+    }
 
     const categoriesToProcess = [...Object.keys(categoryMap), 'descente'];
 
     for (const categoryKey of categoriesToProcess) {
-        let items = [];
-
-        if (categoryKey === 'descente') {
-            const wTalents = parseJsonc(path.join(DATA_DIR, 'talents-armes.jsonc')) || {};
-            const gTalents = parseJsonc(path.join(DATA_DIR, 'talents-equipements.jsonc')) || {};
-            items = [
-                ...Object.entries(wTalents).map(([s, v]) => ({ ...v, slug: s })),
-                ...Object.entries(gTalents).map(([s, v]) => ({ ...v, slug: s }))
-            ].filter(i => i.descente);
-        } else {
-            const filePath = path.join(DATA_DIR, categoryMap[categoryKey]);
-            if (!fs.existsSync(filePath)) continue;
-            const rawData = parseJsonc(filePath);
-            if (!rawData) continue;
-
-            if (categoryKey === 'competences') {
-                Object.entries(rawData).forEach(([skillKey, skill]) => {
-                    skill.variantes.forEach(v => items.push({ ...v, competence: skill.competence, skillSlug: skillKey }));
-                });
-            } else if (categoryKey === 'armes') {
-                items = Array.isArray(rawData) ? [...rawData] : Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
-                if (classSpe) {
-                    Object.values(classSpe).forEach(spe => {
-                        if (spe.arme && spe.arme.nom) {
-                            items.push({
-                                ...spe.arme,
-                                slug: slugify(spe.arme.nom),
-                                isSignature: true,
-                                type: spe.nom
-                            });
-                        }
-                    });
-                }
-            } else if (!Array.isArray(rawData)) {
-                items = Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
-            } else {
-                items = rawData;
-            }
-        }
+        const items = loadCategoryItems(embedData, categoryKey);
 
         for (const item of items) {
             const itemSlug = item.slug || slugify(item.nom || item.variante || 'Element');
             if (!itemSlug) continue;
 
-            const possibleIconKeys = [item.icon, itemSlug, item.skillSlug, item.marque, item.ensemble, item.type, item.emplacement].filter(Boolean).map(k => slugify(k));
-            let iconPath = null, resolvedFileName = null;
-            for (const key of possibleIconKeys) {
-                if (iconIndex[key]) {
-                    iconPath = iconIndex[key];
-                    resolvedFileName = `${key}.png`;
-                    break;
-                }
-            }
-
-            let publicImageUrl = 'favicon_150x150.png';
-            if (iconPath && resolvedFileName) {
-                const dest = path.join(exportIconsDir, resolvedFileName);
-                if (!fs.existsSync(dest)) fs.copyFileSync(iconPath, dest);
-                publicImageUrl = `og-icons/${resolvedFileName}`;
-            }
+            const publicImageUrl = exportItemIcon(iconIndex, item, itemSlug, DIST_DIR) || 'favicon_150x150.png';
+            const thumbnailPath = publicImageUrl === 'favicon_150x150.png' ? null : publicImageUrl;
+            const embedFor = (variant) => itemEmbed({ data: embedData, baseUrl: BASE_URL, categoryKey, item, slug: itemSlug, variant, thumbnailPath });
 
             const formatter = categoryFormatters[categoryKey] || categoryFormatters['default'];
 
             if (categoryKey === 'descente') {
-                const levels = Object.keys(item.descente.levels).filter(k => k !== 'base').sort((a,b)=>parseInt(a)-parseInt(b));
+                const levels = descenteLevels(item);
 
                 for (const level of levels) {
                     const { title, description } = formatter(item, level);
@@ -302,14 +234,14 @@ async function generate() {
 
                     const targetDir = path.join(DIST_DIR, pagePath);
                     if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-                    fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(title, description, publicImageUrl, pagePath));
+                    fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(title, description, publicImageUrl, pagePath, embedFor(level)));
                     sitemapEntries.push(`${BASE_URL}/${pagePath}`);
 
                     if (level === levels[0]) {
                         const defaultPath = `db/descente/${itemSlug}`;
                         const defaultDir = path.join(DIST_DIR, defaultPath);
                         if (!fs.existsSync(defaultDir)) fs.mkdirSync(defaultDir, { recursive: true });
-                        fs.writeFileSync(path.join(defaultDir, 'index.html'), stubTemplate(title, description, publicImageUrl, defaultPath));
+                        fs.writeFileSync(path.join(defaultDir, 'index.html'), stubTemplate(title, description, publicImageUrl, defaultPath, embedFor(level)));
                         sitemapEntries.push(`${BASE_URL}/${defaultPath}`);
                     }
                 }
@@ -319,7 +251,7 @@ async function generate() {
                 const targetDir = path.join(DIST_DIR, pagePath);
 
                 if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-                fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(title, description, publicImageUrl, pagePath));
+                fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(title, description, publicImageUrl, pagePath, embedFor(null)));
                 sitemapEntries.push(`${BASE_URL}/${pagePath}`);
 
                 if ((categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') && !item.estExotique && item.perfectDescription) {
@@ -328,7 +260,7 @@ async function generate() {
                     if (!fs.existsSync(targetDirParfait)) fs.mkdirSync(targetDirParfait, { recursive: true });
 
                     const parfaitTitle = title.replace(' —', ' (Parfait) —');
-                    fs.writeFileSync(path.join(targetDirParfait, 'index.html'), stubTemplate(parfaitTitle, description, publicImageUrl, parfaitPath));
+                    fs.writeFileSync(path.join(targetDirParfait, 'index.html'), stubTemplate(parfaitTitle, description, publicImageUrl, parfaitPath, embedFor('parfait')));
                     sitemapEntries.push(`${BASE_URL}/${parfaitPath}`);
                 }
 
@@ -338,7 +270,7 @@ async function generate() {
                     if (!fs.existsSync(targetDirPrototype)) fs.mkdirSync(targetDirPrototype, { recursive: true });
 
                     const prototypeTitle = title.replace(' —', ' (Prototype) —');
-                    fs.writeFileSync(path.join(targetDirPrototype, 'index.html'), stubTemplate(prototypeTitle, description, publicImageUrl, prototypePath));
+                    fs.writeFileSync(path.join(targetDirPrototype, 'index.html'), stubTemplate(prototypeTitle, description, publicImageUrl, prototypePath, embedFor('prototype')));
                     sitemapEntries.push(`${BASE_URL}/${prototypePath}`);
                 }
             }
@@ -361,7 +293,8 @@ async function generate() {
 
             fs.writeFileSync(
                 path.join(targetDirPage, 'index.html'),
-                stubTemplate(title, description, 'favicon_150x150.png', pagePath)
+                stubTemplate(title, description, 'favicon_150x150.png', pagePath,
+                    documentEmbed({ data: embedData, baseUrl: BASE_URL, pageId, meta: metadata }))
             );
             sitemapEntries.push(`${BASE_URL}/${pagePath}`);
         }
@@ -374,4 +307,4 @@ async function generate() {
     console.log(`✅ Terminé : ${sitemapEntries.length} pages.`);
 }
 
-generate().catch(console.error);
+generate().catch(console.error);

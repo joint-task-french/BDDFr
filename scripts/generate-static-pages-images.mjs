@@ -1,15 +1,15 @@
+/**
+ * Pages statiques AVEC captures des cartes (Puppeteer sur le serveur de dev).
+ * Les captures alimentent l'image Open Graph et la galerie de l'embed Discord ;
+ * l'ecriture des pages elle-meme est commune : scripts/lib/site-pages.mjs.
+ */
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import puppeteer from 'puppeteer';
 import { spawn } from 'child_process';
 import crypto from 'crypto';
-import {
-    readJsonc, slugify, loadEmbedData, loadCategoryItems, descenteLevels, buildIconIndex, exportItemIcon,
-    itemEmbed, staticPageEmbed, documentEmbed, renderEmbedTag, injectIntoHtml,
-} from './lib/discord-embed.mjs';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { loadEmbedData, buildIconIndex } from './lib/discord-embed.mjs';
+import { writeSitePages, ITEM_CATEGORIES } from './lib/site-pages.mjs';
 
 const DIST_DIR = './dist';
 const DATA_DIR = './src/data';
@@ -24,177 +24,10 @@ const [owner, repo] = repoFullName.split('/');
 const DOMAIN = process.env.DOMAIN;
 const VITE_BASE_PATH = process.env.VITE_BASE_PATH ? process.env.VITE_BASE_PATH.replace(/\/$/, '') : null;
 const BASE_URL = VITE_BASE_PATH ? (DOMAIN ? (DOMAIN.startsWith('http') ? DOMAIN : `https://${DOMAIN}`) + VITE_BASE_PATH : VITE_BASE_PATH) : (DOMAIN ? (DOMAIN.startsWith('http') ? DOMAIN : `https://${DOMAIN}`) : (process.env.PUBLIC_URL || (process.env.GITHUB_ACTIONS ? `https://${owner}.github.io/${repo}` : 'http://localhost:5173/BDDFr')));
-const BASE_PATH = VITE_BASE_PATH || (DOMAIN ? '' : (process.env.PUBLIC_PATH || (process.env.GITHUB_ACTIONS ? `/${repo}` : '/BDDFr')));
-const DIVISION_ORANGE = "#ff8000";
 
 const WATERMARK_URL = `${DEV_SERVER_URL}/favicon_150x150.png`;
 const WATERMARK_OPACITY = 0.15;
 const WATERMARK_SIZE = '60px';
-
-const parseJsonc = readJsonc;
-
-const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes', 'armes-type.jsonc')) || {};
-const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements', 'equipements-type.jsonc')) || {};
-const ensembles = parseJsonc(path.join(DATA_DIR, 'equipements', 'ensembles.jsonc')) || {};
-const metadata = parseJsonc(path.join(DATA_DIR, 'metadata.jsonc')) || {};
-const embedData = loadEmbedData(DATA_DIR);
-const iconIndex = buildIconIndex(ASSETS_DIR);
-
-const getWpnType = (t) => weaponTypes[t] || { nom: t?.replace('_', ' ') };
-const getGearType = (e) => gearTypes[e] || { nom: e };
-const getBrandName = (slug) => ensembles[slug]?.nom || slug;
-
-function parseFrontmatter(rawContent) {
-    const regex = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/;
-    const match = rawContent.match(regex);
-    if (!match) return { metadata: {}, content: rawContent };
-
-    const metadata = {};
-    match[1].split('\n').forEach(line => {
-        const [key, ...rest] = line.split(':');
-        if (key && rest.length) {
-            let value = rest.join(':').trim();
-            if (value.startsWith('[') && value.endsWith(']')) {
-                value = value.slice(1, -1).split(',').map(s => s.trim().replace(/^['"]|['"]$/g, ''));
-            } else {
-                value = value.replace(/^['"]|['"]$/g, '');
-            }
-            metadata[key.trim()] = value;
-        }
-    });
-    return { metadata, content: match[2] };
-}
-
-const categoryFormatters = {
-    'armes': (item) => {
-        const typeInfo = getWpnType(item.type);
-        const raretePrefix = item.estExotique ? '🔴 ' : (item.estNomme ? '🟡 ' : (item.isSignature ? '🟠 ' : ''));
-        const speSuffix = item.speNom ? ` (${item.speNom})` : '';
-        return {
-            title: `${raretePrefix}${item.nom}${speSuffix} — BDDFr`,
-            description: typeInfo.nom || 'Arme'
-        };
-    },
-    'equipements': (item) => {
-        const typeInfo = getGearType(item.emplacement);
-        const raretePrefix = item.estExotique ? '🔴 ' : (item.estNomme ? '🟡 ' : '');
-        const cleanName = (item.nom || '').replace(/\\"/g, '"').replace(/"/g, '');
-        return {
-            title: `${raretePrefix}${cleanName} — BDDFr`,
-            description: `${getBrandName(item.marque)} (${typeInfo.nom})`
-        };
-    },
-    'ensembles': (item) => ({
-        title: `🔗 ${item.nom} — BDDFr`,
-        description: "Ensemble d'équipement"
-    }),
-    'competences': (item) => ({
-        title: `⚡ ${item.competence} (${item.variante}) — BDDFr`,
-        description: "Compétence"
-    }),
-    'attributs': (item) => ({
-        title: `📊 ${item.nom} — BDDFr`,
-        description: "Attribut"
-    }),
-    'talentsPrototypes': (item) => ({
-        title: `✨ ${item.nom} — BDDFr`,
-        description: "Talent Prototype"
-    }),
-    'descente': (item, level) => ({
-        title: `🧬 ${item.nom} (Niv. ${level || 1}) — BDDFr`,
-        description: `Talent du mode Descente : ${item.descente?.categorie || 'Spécial'}`
-    }),
-    'default': (item) => ({
-        title: `${item.nom || item.competence || 'Élément'} — BDDFr`,
-        description: "Élément de la base de données"
-    })
-};
-
-const categoryTitles = {
-    'armes': 'Armes',
-    'equipements': 'Équipements',
-    'ensembles': 'Ensembles',
-    'competences': 'Compétences',
-    'attributs': 'Attributs',
-    'talentsArmes': 'Talents d\'armes',
-    'talentsEquipements': 'Talents d\'équipements',
-    'modsArmes': 'Mods d\'armes',
-    'modsEquipements': 'Mods d\'équipements',
-    'modsCompetences': 'Mods de compétences',
-    'talentsPrototypes': 'Talents Prototypes',
-    'descente': 'Descente'
-};
-
-let changelogDesc = 'Historique des changements.';
-if (metadata.changelog && metadata.changelog.length > 0) {
-    const latest = metadata.changelog.reduce((prev, current) => {
-        const getDateStr = (entry) => typeof entry.date === 'string' ? entry.date : (entry.date?.to || entry.date?.from || '');
-        const prevDate = getDateStr(prev);
-        const currDate = getDateStr(current);
-        return (currDate > prevDate) ? current : prev;
-    });
-
-    let rawText = '';
-    if (latest.patch) rawText += latest.patch + " - ";
-    latest.changements.forEach(ch => {
-        if (typeof ch === 'string') rawText += ch + " ";
-        else if (typeof ch === 'object') {
-            if (ch.titre) rawText += ch.titre + " ";
-            if (Array.isArray(ch.description)) rawText += ch.description.join(" ") + " ";
-            else if (typeof ch.description === 'string') rawText += ch.description + " ";
-        }
-    });
-    changelogDesc = rawText.replace(/[*_~`#\[\]]/g, '').replace(/-\s/g, '').replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim();
-    if (changelogDesc.length > 250) changelogDesc = changelogDesc.substring(0, 247) + '...';
-}
-
-const pages_fixes = [
-    { path: 'db', title: 'Base de données — BDDFr', description: 'Base de données française pour The Division 2.' },
-    { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez et partagez vos configurations d\'équipement.' },
-    { path: 'changelog', title: 'Mises à jour — BDDFr', description: changelogDesc },
-    { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' },
-    { path: 'pages', title: 'Bibliothèque de Documents — BDDFr', description: 'Consultez nos guides et documents du réseau SHD.' },
-    { path: 'library', title: 'Bibliothèque de builds — BDDFr', description: 'Liste de builds partagé par la communauté.' }
-];
-
-const stubTemplate = (title, description, imagePath, pagePath, embed = null) => {
-    const fullUrl = `${BASE_URL}/${pagePath}`;
-    const mainImageUrl = `${BASE_URL}/${imagePath}`;
-    const safeDesc = (description || '').replace(/"/g, '&quot;');
-
-    const cardType = imagePath === 'favicon_150x150.png' ? 'summary' : 'summary_large_image';
-
-    return `<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="${BASE_URL}/favicon_150x150.png">
-    <title>${title}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="canonical" href="${fullUrl}" />
-    <meta name="theme-color" content="${DIVISION_ORANGE}">
-    <meta name="description" content="${safeDesc}">
-    <meta property="og:site_name" content="JTFr — BDDFr">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="${fullUrl}">
-    <meta property="og:title" content="${title}">
-    <meta property="og:description" content="${safeDesc}">
-    <meta property="og:image" content="${mainImageUrl}">
-    
-    <meta name="twitter:card" content="${cardType}">
-    ${renderEmbedTag(embed)}
-    
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="${BASE_URL}/sitemap.xml" />
-    <meta name="google-site-verification" content="7RVJ1PYMFGr6I8QTccLetMBScdq_leHW6-8ql-wvRcw" />
-    <script>
-        var origin = window.location.origin;
-        var target = origin + "${BASE_PATH}/#/${pagePath}" + window.location.search + window.location.hash;
-        window.location.replace(target);
-    </script>
-</head>
-<body><p>Redirection vers <a href="${BASE_URL}/${pagePath}">${title}</a>...</p></body>
-</html>`;
-};
 
 function startDevServer() {
     console.log("🔄 Démarrage du serveur de développement local...");
@@ -224,33 +57,17 @@ async function generate() {
             args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
         });
 
-        const sitemapEntries = [`${BASE_URL}/`];
-
-        const indexHtmlPath = path.join(DIST_DIR, 'index.html');
-        if (fs.existsSync(indexHtmlPath)) {
-            const rootEmbed = staticPageEmbed({ data: embedData, baseUrl: BASE_URL, pagePath: '', title: 'JTFr — BDDFr' });
-            fs.writeFileSync(indexHtmlPath, injectIntoHtml(fs.readFileSync(indexHtmlPath, 'utf-8'), rootEmbed));
-        }
-        const today = new Date().toISOString().split('T')[0];
         const exportOgImagesDir = path.join(DIST_DIR, 'og-images');
         if (!fs.existsSync(exportOgImagesDir)) fs.mkdirSync(exportOgImagesDir, { recursive: true });
 
         const hashFilePath = path.join(exportOgImagesDir, 'hashes.json');
         let imageHashes = {};
         if (fs.existsSync(hashFilePath)) {
-            try { imageHashes = JSON.parse(fs.readFileSync(hashFilePath, 'utf-8')); } catch (e) {}
-        }
-
-        for (const p of pages_fixes) {
-            const targetDir = path.join(DIST_DIR, p.path);
-            if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-            fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(p.title, p.description, 'favicon_150x150.png', p.path,
-                staticPageEmbed({ data: embedData, baseUrl: BASE_URL, pagePath: p.path, title: p.title })));
-            sitemapEntries.push(`${BASE_URL}/${p.path}`);
+            try { imageHashes = JSON.parse(fs.readFileSync(hashFilePath, 'utf-8')); } catch { /* cache illisible : tout est regenere */ }
         }
 
         console.log("📸 Début des captures d'écran...");
-        const categoriesToProcess = Object.keys(categoryTitles);
+        const categoriesToProcess = ITEM_CATEGORIES;
 
         for (const categoryKey of categoriesToProcess) {
             const categoryOgDir = path.join(exportOgImagesDir, categoryKey);
@@ -474,129 +291,23 @@ async function generate() {
 
         fs.writeFileSync(hashFilePath, JSON.stringify(imageHashes, null, 2));
 
-        console.log("\n🔗 Génération des fichiers HTML et du Sitemap...");
+        console.log("\n🔗 Génération des pages HTML et du Sitemap...");
 
-        for (const [categoryKey, titleObj] of Object.entries(categoryTitles)) {
-            const pagePath = `db/${categoryKey}`;
-            const targetDir = path.join(DIST_DIR, pagePath);
-            if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-
-            const title = `${titleObj} — BDDFr`;
-            const description = `Parcourez la base de données : ${titleObj}`;
-
-            fs.writeFileSync(
-                path.join(targetDir, 'index.html'),
-                stubTemplate(title, description, 'favicon_150x150.png', pagePath,
-                    staticPageEmbed({ data: embedData, baseUrl: BASE_URL, pagePath, title }))
-            );
-            sitemapEntries.push(`${BASE_URL}/${pagePath}`);
-        }
-
-        for (const categoryKey of categoriesToProcess) {
-            const items = loadCategoryItems(embedData, categoryKey);
-
-            for (const item of items) {
-                const itemSlug = item.slug || slugify(item.nom || item.variante || 'Element');
-                const formatter = categoryFormatters[categoryKey] || categoryFormatters['default'];
-                const thumbnailPath = exportItemIcon(iconIndex, item, itemSlug, DIST_DIR);
-                // L'image OG (capture de la carte) va dans la galerie, l'icone en miniature.
-                const embedFor = (variant, imagePath) => itemEmbed({
-                    data: embedData, baseUrl: BASE_URL, categoryKey, item, slug: itemSlug, variant, thumbnailPath,
-                    imagePath: imagePath === 'favicon_150x150.png' ? null : imagePath,
-                });
-
-                if (categoryKey === 'descente') {
-                    const levels = descenteLevels(item);
-
-                    for (const level of levels) {
-                        const res = formatter(item, level);
-                        const pagePath = `db/descente/${itemSlug}/${level}`;
-                        const imagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}-${level}.jpg`))
-                            ? `og-images/${categoryKey}/${itemSlug}-${level}.jpg`
-                            : 'favicon_150x150.png';
-
-                        const targetDir = path.join(DIST_DIR, pagePath);
-                        if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-                        fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(res.title, res.description, imagePath, pagePath, embedFor(level, imagePath)));
-                        sitemapEntries.push(`${BASE_URL}/${pagePath}`);
-
-                        if (level === levels[0]) {
-                            const defaultPath = `db/descente/${itemSlug}`;
-                            const defaultDir = path.join(DIST_DIR, defaultPath);
-                            if (!fs.existsSync(defaultDir)) fs.mkdirSync(defaultDir, { recursive: true });
-                            fs.writeFileSync(path.join(defaultDir, 'index.html'), stubTemplate(res.title, res.description, imagePath, defaultPath, embedFor(level, imagePath)));
-                            sitemapEntries.push(`${BASE_URL}/${defaultPath}`);
-                        }
-                    }
-                } else {
-                    const res = formatter(item);
-                    const imagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}.jpg`)) ? `og-images/${categoryKey}/${itemSlug}.jpg` : 'favicon_150x150.png';
-                    const pagePath = `db/${categoryKey}/${itemSlug}`;
-
-                    const targetDir = path.join(DIST_DIR, pagePath);
-                    if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-                    fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(res.title, res.description, imagePath, pagePath, embedFor(null, imagePath)));
-                    sitemapEntries.push(`${BASE_URL}/${pagePath}`);
-
-                    if ((categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') && !item.estExotique && item.perfectDescription) {
-                        const parfaitPath = `db/${categoryKey}/${itemSlug}/parfait`;
-                        const parfaitImagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}-parfait.jpg`))
-                            ? `og-images/${categoryKey}/${itemSlug}-parfait.jpg`
-                            : 'favicon_150x150.png';
-
-                        const targetDirParfait = path.join(DIST_DIR, parfaitPath);
-                        if (!fs.existsSync(targetDirParfait)) fs.mkdirSync(targetDirParfait, { recursive: true });
-
-                        const parfaitTitle = res.title.replace(' —', ' (Parfait) —');
-                        fs.writeFileSync(path.join(targetDirParfait, 'index.html'), stubTemplate(parfaitTitle, res.description, parfaitImagePath, parfaitPath, embedFor('parfait', parfaitImagePath)));
-                        sitemapEntries.push(`${BASE_URL}/${parfaitPath}`);
-                    }
-
-                    if (categoryKey === 'armes' || categoryKey === 'equipements') {
-                        const prototypePath = `db/${categoryKey}/${itemSlug}/prototype`;
-                        const prototypeImagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}-prototype.jpg`))
-                            ? `og-images/${categoryKey}/${itemSlug}-prototype.jpg`
-                            : 'favicon_150x150.png';
-
-                        const targetDirPrototype = path.join(DIST_DIR, prototypePath);
-                        if (!fs.existsSync(targetDirPrototype)) fs.mkdirSync(targetDirPrototype, { recursive: true });
-
-                        const prototypeTitle = res.title.replace(' —', ' (Prototype) —');
-                        fs.writeFileSync(path.join(targetDirPrototype, 'index.html'), stubTemplate(prototypeTitle, res.description, prototypeImagePath, prototypePath, embedFor('prototype', prototypeImagePath)));
-                        sitemapEntries.push(`${BASE_URL}/${prototypePath}`);
-                    }
-                }
-            }
-        }
-
-        if (fs.existsSync(PAGES_DIR)) {
-            const mdFiles = fs.readdirSync(PAGES_DIR).filter(f => f.endsWith('.md'));
-            for (const file of mdFiles) {
-                const pageId = file.replace('.md', '');
-                const rawContent = fs.readFileSync(path.join(PAGES_DIR, file), 'utf-8');
-                const { metadata } = parseFrontmatter(rawContent);
-
-                const title = (metadata.title || pageId) + ' — BDDFr';
-                const description = metadata.description || `Document: ${metadata.title || pageId}`;
-                const pagePath = `pages/${pageId}`;
-
-                const targetDirPage = path.join(DIST_DIR, pagePath);
-                if (!fs.existsSync(targetDirPage)) fs.mkdirSync(targetDirPage, { recursive: true });
-
-                fs.writeFileSync(
-                    path.join(targetDirPage, 'index.html'),
-                    stubTemplate(title, description, 'favicon_150x150.png', pagePath,
-                        documentEmbed({ data: embedData, baseUrl: BASE_URL, pageId, meta: metadata }))
-                );
-                sitemapEntries.push(`${BASE_URL}/${pagePath}`);
-            }
-        }
-
-        fs.writeFileSync(path.join(DIST_DIR, '404.html'), `<!DOCTYPE html><html><head><meta charset="utf-8"><script>window.location.replace(window.location.origin + "${BASE_PATH}/?redirect="+encodeURIComponent(window.location.pathname+window.location.search+window.location.hash));</script></head><body><p>Redirection...</p></body></html>`);
-        const sitemap = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapEntries.map(url => `  <url><loc>${url}</loc><lastmod>${today}</lastmod></url>`).join('\n')}</urlset>`;
-        fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap);
-        fs.writeFileSync(path.join(DIST_DIR, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${BASE_URL}/sitemap.xml`);
-        console.log(`✅ Terminé ! ${sitemapEntries.length} pages traitées.`);
+        // Captures nommees `<slug>[-parfait|-prototype|-<niveau>].jpg` par la boucle ci-dessus.
+        const imageFor = (categoryKey, slug, variant) => {
+            const suffix = variant ? `-${variant}` : '';
+            const rel = `og-images/${categoryKey}/${slug}${suffix}.jpg`;
+            return fs.existsSync(path.join(DIST_DIR, rel)) ? rel : null;
+        };
+        const { pages } = writeSitePages({
+            distDir: DIST_DIR,
+            baseUrl: BASE_URL,
+            data: loadEmbedData(DATA_DIR),
+            iconIndex: buildIconIndex(ASSETS_DIR),
+            pagesDir: PAGES_DIR,
+            imageFor,
+        });
+        console.log(`✅ Terminé ! ${pages} pages indexables.`);
 
     } finally {
         if (browser) await browser.close();

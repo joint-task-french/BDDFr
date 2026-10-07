@@ -1,4 +1,8 @@
-import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
+// Import par defaut : lz-string est en CommonJS, et les generateurs de pages statiques
+// (Node, sans Vite) importent aussi ce module pour encoder les liens « Utiliser dans un build ».
+import lzString from 'lz-string'
+
+const { compressToEncodedURIComponent, decompressFromEncodedURIComponent } = lzString
 
 const GEAR_ORDER = ['masque', 'torse', 'holster', 'sac_a_dos', 'gants', 'genouilleres']
 const ALL_SLOTS = ['weapon0', 'weapon1', 'sidearm', ...GEAR_ORDER, 'special']

@@ -22,6 +22,7 @@
 import fs from 'fs';
 import path from 'path';
 import { parse as parseJsoncText } from 'jsonc-parser';
+import { encodeBuild } from '../../src/utils/buildShare.js';
 
 export const MAX_PAYLOAD_BYTES = 3000;
 export const MAX_COMPONENTS = 40;
@@ -246,9 +247,9 @@ export function describeItem(data, categoryKey, item, variant = null) {
             ].filter(Boolean);
             const talents = (item.talents || []).map(t => {
                 const tal = data.talentsArmes?.[t];
-                return tal ? `**${escapeMd(tal.nom)}** — ${truncate(cleanDesc(tal.description), 260)}` : escapeMd(t);
+                return `**Talent : ${escapeMd(tal?.nom || t)}**${tal?.description ? `\n${truncate(cleanDesc(tal.description), 260)}` : ''}`;
             });
-            d.body = talents.length ? `__Talent${talents.length > 1 ? 's' : ''}__\n${talents.join('\n')}` : '';
+            d.body = talents.join('\n\n');
             if (item.description) d.extra.push(quote(`*${truncate(cleanDesc(item.description).replace(/\*/g, ''), 220)}*`));
             if (item.notes) d.extra.push(`-# ${escapeMd(item.notes)}`);
             break;
@@ -265,9 +266,9 @@ export function describeItem(data, categoryKey, item, variant = null) {
             if (item.mod !== undefined) d.stats.push(`🔧 Emplacement de mod : **${item.mod ? 'oui' : 'non'}**`);
             const talents = (item.talents || []).map(t => {
                 const tal = data.talentsEquipements?.[t] || data.talentsArmes?.[t];
-                return tal ? `**${escapeMd(tal.nom)}** — ${truncate(cleanDesc(tal.description), 260)}` : escapeMd(t);
+                return `**Talent : ${escapeMd(tal?.nom || t)}**${tal?.description ? `\n${truncate(cleanDesc(tal.description), 260)}` : ''}`;
             });
-            d.body = talents.length ? `__Talent${talents.length > 1 ? 's' : ''}__\n${talents.join('\n')}` : '';
+            d.body = talents.join('\n\n');
             if (item.description) d.extra.push(quote(`*${truncate(cleanDesc(item.description).replace(/\*/g, ''), 220)}*`));
             break;
         }
@@ -495,31 +496,65 @@ export function renderEmbedTag(payload) {
 
 const isAbsoluteBase = (baseUrl) => /^https?:\/\//i.test(baseUrl || '');
 
-function footerFor(data) {
-    const version = data.metadata?.version;
-    return ['JTFr — BDDFr', version].filter(Boolean).join(' · ');
+/**
+ * URL publique d'une page. GitHub Pages sert chaque page depuis
+ * `<chemin>/index.html` et redirige (301) `<chemin>` vers `<chemin>/` : on vise
+ * directement la forme avec slash final (liens, canonical, sitemap).
+ * Les fichiers (images...) gardent leur chemin tel quel.
+ */
+export function pageUrl(baseUrl, pagePath = '') {
+    const [p, query = ''] = String(pagePath).split(/(?=\?)/);
+    if (!p) return `${baseUrl}/${query}`;
+    if (/\.[a-z0-9]+$/i.test(p)) return `${baseUrl}/${pagePath}`;
+    return `${baseUrl}/${p.replace(/\/+$/, '')}/${query}`;
+}
+
+const FOOTER = 'JTFr — BDDFr';
+
+const GEAR_ORDER = ['masque', 'torse', 'holster', 'sac_a_dos', 'gants', 'genouilleres'];
+
+/**
+ * Lien vers le Build Planner avec l'item pre-selectionne, encode au format de
+ * partage de l'app (`build?b=`, cf. src/utils/buildShare.js). Seuls les items
+ * qui occupent un emplacement de build en ont un : armes, equipements,
+ * competences. Retourne null sinon.
+ */
+export function buildPlannerPath(data, categoryKey, item, variant = null) {
+    const state = {};
+    if (categoryKey === 'armes') {
+        if (item.isSignature) {
+            state.specialWeapon = { slug: item.slug };
+        } else if (data.weaponTypes?.[item.type]?.type === 'secondaire') {
+            state.sidearm = { slug: item.slug };
+            if (variant === 'prototype') state.prototypes = { sidearm: true };
+        } else {
+            state.weapons = [{ slug: item.slug }, null];
+            if (variant === 'prototype') state.prototypes = { weapon0: true };
+        }
+    } else if (categoryKey === 'equipements') {
+        if (!GEAR_ORDER.includes(item.emplacement)) return null;
+        state.gear = { [item.emplacement]: { slug: item.slug } };
+        if (variant === 'prototype') state.prototypes = { [item.emplacement]: true };
+    } else if (categoryKey === 'competences') {
+        if (!item.skillSlug) return null;
+        state.skills = [{ competenceSlug: item.skillSlug, slug: item.slug }, null];
+    } else {
+        return null;
+    }
+    const encoded = encodeBuild(state);
+    return encoded ? `build?b=${encoded}` : null;
 }
 
 /** Pages d'un item de la DB (y compris variantes parfait / prototype / niveau de descente). */
 export function itemEmbed({ data, baseUrl, categoryKey, item, slug, variant = null, thumbnailPath = null, imagePath = null }) {
     if (!isAbsoluteBase(baseUrl)) return null;
     const d = describeItem(data, categoryKey, item, variant);
-    const url = (p) => `${baseUrl}/${p}`;
+    const url = (p) => pageUrl(baseUrl, p);
     const pagePath = `db/${categoryKey}/${slug}${variant ? `/${variant}` : ''}`;
 
-    const main = [
-        { label: 'Ouvrir dans la BDD', url: url(pagePath), emoji: '🔎' },
-        { label: CATEGORY_LABELS[categoryKey] || 'Catégorie', url: url(`db/${categoryKey}`), emoji: '📚' },
-    ];
-    // Variantes : bascule normal <-> parfait / prototype.
-    const base = `db/${categoryKey}/${slug}`;
-    if ((categoryKey === 'talentsArmes' || categoryKey === 'talentsEquipements') && !item.estExotique && item.perfectDescription) {
-        main.push(variant === 'parfait' ? { label: 'Version standard', url: url(base), emoji: '⚪' } : { label: 'Version parfaite', url: url(`${base}/parfait`), emoji: '🟡' });
-    }
-    if (categoryKey === 'armes' || categoryKey === 'equipements') {
-        main.push(variant === 'prototype' ? { label: 'Version standard', url: url(base), emoji: '⚪' } : { label: 'Prototype', url: url(`${base}/prototype`), emoji: '🧪' });
-    }
-    main.push({ label: 'Build Planner', url: url('build'), emoji: '🛠️' });
+    const main = [{ label: 'Ouvrir dans la BDD', url: url(pagePath), emoji: '🔎' }];
+    const buildPath = buildPlannerPath(data, categoryKey, item, variant);
+    if (buildPath) main.push({ label: 'Utiliser dans un build', url: url(buildPath), emoji: '🛠️' });
 
     const rows = [main];
     if (categoryKey === 'descente') {
@@ -538,14 +573,14 @@ export function itemEmbed({ data, baseUrl, categoryKey, item, slug, variant = nu
         thumbnailUrl: thumbnailPath ? url(thumbnailPath) : url('favicon_150x150.png'),
         imageUrls: imagePath ? [url(imagePath)] : [],
         buttonRows: rows,
-        footer: footerFor(data),
+        footer: FOOTER,
     });
 }
 
 /** Pages hors DB (build, changelog, documents, accueil...). */
-export function pageEmbed({ data, baseUrl, pagePath, title, subtitle, body, stats, buttons = [], imagePath = null }) {
+export function pageEmbed({ baseUrl, pagePath, title, subtitle, body, stats, buttons = [], imagePath = null, openButton = true }) {
     if (!isAbsoluteBase(baseUrl)) return null;
-    const url = (p) => (p ? `${baseUrl}/${p}` : `${baseUrl}/`);
+    const url = (p) => pageUrl(baseUrl, p);
     return buildComponentEmbed({
         title,
         subtitle,
@@ -555,10 +590,10 @@ export function pageEmbed({ data, baseUrl, pagePath, title, subtitle, body, stat
         thumbnailUrl: url('favicon_150x150.png'),
         imageUrls: imagePath ? [url(imagePath)] : [],
         buttonRows: [[
-            { label: 'Ouvrir', url: url(pagePath), emoji: '🔎' },
+            openButton && { label: 'Ouvrir', url: url(pagePath), emoji: '🔎' },
             ...buttons.map(b => ({ ...b, url: url(b.path) })),
-        ]],
-        footer: footerFor(data),
+        ].filter(Boolean)],
+        footer: FOOTER,
     });
 }
 
@@ -582,7 +617,8 @@ export function staticPageEmbed({ data, baseUrl, pagePath, title }) {
     switch (pagePath) {
         case '':
             return pageEmbed({
-                data, baseUrl, pagePath, title: 'JTFr — BDDFr',
+                // Pas de bouton "Ouvrir" : il ferait doublon avec "Base de donnees".
+                data, baseUrl, pagePath, title: 'JTFr — BDDFr', openButton: false,
                 subtitle: data.metadata?.titre || 'Base de données française — The Division 2',
                 stats: [data.metadata?.version && `📌 Version du jeu : **${data.metadata.version}**`].filter(Boolean),
                 body: 'Armes, équipements, ensembles, talents, compétences et mods — en français, avec un Build Planner et une bibliothèque de builds communautaires.',
@@ -591,12 +627,13 @@ export function staticPageEmbed({ data, baseUrl, pagePath, title }) {
                     { label: 'Build Planner', path: 'build', emoji: '🛠️' },
                     { label: 'Builds', path: 'library', emoji: '📂' },
                     { label: 'Mises à jour', path: 'changelog', emoji: '📰' },
+                    { label: 'Documents', path: 'pages', emoji: '📄' },
                 ],
             });
         case 'db':
             return pageEmbed({
                 data, baseUrl, pagePath, title: plain, subtitle: 'Base de données française — The Division 2',
-                body: Object.entries(CATEGORY_LABELS).map(([k, label]) => `[${label}](${baseUrl}/db/${k})`).join(' · '),
+                body: Object.entries(CATEGORY_LABELS).map(([k, label]) => `[${label}](${pageUrl(baseUrl, `db/${k}`)})`).join(' · '),
                 buttons: [{ label: 'Armes', path: 'db/armes', emoji: '🔫' }, { label: 'Équipements', path: 'db/equipements', emoji: '🦺' }, { label: 'Build Planner', path: 'build', emoji: '🛠️' }],
             });
         case 'changelog': {

@@ -4,6 +4,7 @@ import {
   serializePayload, payloadBytes, countComponents, buildComponentEmbed, injectIntoHtml, renderEmbedTag,
   CATEGORY_FILES, COMPONENT, MAX_PAYLOAD_BYTES, MAX_COMPONENTS, MAX_GALLERY_ITEMS, MAX_URL_LENGTH,
 } from './discord-embed.mjs'
+import { decodeBuild } from '../../src/utils/buildShare.js'
 
 const BASE_URL = 'https://joint-task-french.github.io/BDDFr'
 const data = loadEmbedData('./src/data')
@@ -105,15 +106,41 @@ describe('Discord component embeds', () => {
     expect(violations(doc)).toEqual([])
   })
 
-  it('garde les boutons vers la BDD et les variantes', () => {
-    const weapon = items.find(i => i.id === 'armes/acr/')
-    const buttons = weapon.payload.component.components
-      .filter(c => c.type === COMPONENT.ACTION_ROW).flatMap(r => r.components)
-    expect(buttons.map(b => b.url)).toEqual(expect.arrayContaining([
-      `${BASE_URL}/db/armes/acr`,
-      `${BASE_URL}/db/armes`,
-      `${BASE_URL}/db/armes/acr/prototype`,
-    ]))
+  const buttonsOf = (id) => items.find(i => i.id === id).payload.component.components
+    .filter(c => c.type === COMPONENT.ACTION_ROW).flatMap(r => r.components)
+  const buildOf = (id) => {
+    const btn = buttonsOf(id).find(b => b.label === 'Utiliser dans un build')
+    return btn ? decodeBuild(new URL(btn.url).searchParams.get('b')) : null
+  }
+
+  it('propose "Ouvrir dans la BDD" puis "Utiliser dans un build" sur les items injectables', () => {
+    expect(buttonsOf('armes/acr/').map(b => b.label)).toEqual(['Ouvrir dans la BDD', 'Utiliser dans un build'])
+    // Slash final : GitHub Pages redirige (301) les chemins sans slash.
+    expect(buttonsOf('armes/acr/')[0].url).toBe(`${BASE_URL}/db/armes/acr/`)
+    expect(buttonsOf('armes/acr/')[1].url).toMatch(new RegExp(`^${BASE_URL}/build/\\?b=~`))
+  })
+
+  it("pre-selectionne l'item dans le bon emplacement du planner", () => {
+    expect(buildOf('armes/acr/')).toEqual({ w: ['acr'] })
+    expect(buildOf('armes/acr/prototype')).toEqual({ w: ['acr'], p: [1] })
+    const pistol = loadCategoryItems(data, 'armes').find(a => data.weaponTypes[a.type]?.type === 'secondaire')
+    expect(buildOf(`armes/${pistol.slug}/`)).toEqual({ sa: pistol.slug })
+    const signature = loadCategoryItems(data, 'armes').find(a => a.isSignature)
+    expect(buildOf(`armes/${signature.slug}/`)).toEqual({ sw: signature.slug })
+    expect(buildOf('equipements/poigne_mortelle/')).toEqual({ g: [null, null, null, null, 'poigne_mortelle'] })
+    expect(buildOf('competences/abri_intelligent_precision/')).toEqual({ s: [['abri_intelligent', 'abri_intelligent_precision']] })
+  })
+
+  it("n'a pas de bouton build pour ce qui ne s'injecte pas directement", () => {
+    for (const id of ['talentsArmes/tir_destabilisant/', 'talentsArmes/tir_destabilisant/parfait', 'ensembles/ongoing_directive/', 'attributs/degats_fusil_d_assaut_es/']) {
+      expect(buttonsOf(id).map(b => b.label), id).toEqual(['Ouvrir dans la BDD'])
+    }
+  })
+
+  it("accueil : pas de bouton \"Ouvrir\" (doublon de la BDD), lien vers les documents", () => {
+    const home = staticPageEmbed({ data, baseUrl: BASE_URL, pagePath: '', title: 'JTFr — BDDFr' })
+    const labels = home.component.components.filter(c => c.type === COMPONENT.ACTION_ROW).flatMap(r => r.components).map(b => b.label)
+    expect(labels).toEqual(['Base de données', 'Build Planner', 'Builds', 'Mises à jour', 'Documents'])
   })
 
   it('degrade le contenu plutot que de depasser 3000 octets', () => {

@@ -1,11 +1,55 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-
+# Mises a jour de dependances Dependabot.
+#
+# Les `groups` sont essentiels : sans eux, Dependabot ouvre une PR par paquet.
+# C'est ainsi que `react` a ete monte en 19.2.8 alors que `react-dom` restait en
+# 19.2.6 — React 19.2 leve une erreur fatale sur un ecart de version, et le site
+# est reste en ecran blanc. Les paquets qui doivent bouger ensemble sont donc
+# regroupes dans une seule PR.
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      # react et react-dom DOIVENT avoir exactement la meme version.
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "react-router"
+          - "react-router-dom"
+      # La chaine de build Vite/Tailwind : les plugins suivent le coeur.
+      build-tooling:
+        patterns:
+          - "vite"
+          - "@vitejs/*"
+          - "vite-plugin-*"
+          - "tailwindcss"
+          - "@tailwindcss/*"
+      # Outillage de dev (lint, tests) : peu risque, groupe large.
+      dev-tooling:
+        dependency-type: "development"
+        patterns:
+          - "eslint"
+          - "@eslint/*"
+          - "eslint-plugin-*"
+          - "globals"
+          - "vitest"
+          - "jsdom"
+      # Le reste des dependances applicatives, par type de mise a jour.
+      production-minor-patch:
+        dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Les actions GitHub aussi : elles executent du code avec un token en ecriture.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      github-actions:
+        patterns: ["*"]

@@ -80,7 +80,7 @@
         "icon": {
           "type": "string",
           "pattern": "^[a-z0-9_]+$",
-          "description": "Slug du fichier icône dans game_assets/talents/equipements/ (sans .png)"
+          "description": "Slug du fichier icône dans game_assets/talents/equipements/ (sans extension)"
         },
         "description": {
           "type": "string"

@@ -433,7 +433,7 @@ function AutocompleteArrayInput({ field, value, onChange, suggestions }) {
           {items.map((item, i) => (
             <span key={i} className="inline-flex items-center gap-1 px-2 py-0.5 bg-shd/10 text-shd border border-shd/30 rounded text-xs">
               {labelMap[item] || item}
-              <button type="button" onClick={() => remove(i)} className="text-shd/60 hover:text-red-400 ml-0.5">✕</button>
+              <button type="button" onClick={() => remove(i)} className="text-shd/60 hover:text-red-400 ml-0.5" aria-label="Retirer l'élément">✕</button>
             </span>
           ))}
         </div>

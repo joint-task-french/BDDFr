@@ -1,15 +1,65 @@
-import React, { useState, useEffect } from 'react'
+import React, { memo, useCallback, useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { GameIcon, WEAPON_TYPE_ICONS, GEAR_SLOT_ICONS_IMG, resolveAttribut, resolveAsset } from '../common/GameAssets.jsx'
 import {getWeaponTypeLabel, getGearSlotLabel, getAttrCategoryLabel, formatNumber, calculateMaxDamage, buildGearSlotLabels} from '../../utils/formatters'
 import { slugify } from "../../utils/slugify.js"
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
+import { useCollection } from '../../context/collectionStore'
+
+const CompactItem = memo(function CompactItem({
+  item, slug, category, CardComponent, extraProps, selected, expanded,
+  onToggle, onOpen, menuHandlers,
+}) {
+  return (
+    <div
+      id={`item-${slug}`}
+      className={`bg-tactical-panel border rounded-lg overflow-hidden transition-all shadow-lg ${
+        selected ? 'border-shd ring-1 ring-shd/50' : 'border-tactical-border'
+      }`}
+      {...menuHandlers(category?.key, item)}
+    >
+      <div
+        className={`px-4 py-2 flex items-center gap-4 hover:bg-white/5 transition-colors ${expanded ? 'border-b border-tactical-border/50 bg-white/5' : ''}`}
+        onClick={() => onToggle(slug)}
+      >
+        <CompactRow item={item} category={category} extraProps={extraProps} />
+        <div className={`ml-auto text-gray-500 transition-transform ${expanded ? 'rotate-180' : ''}`}>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {expanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="overflow-hidden"
+          >
+            <div className="p-4 bg-black/20 overflow-x-auto">
+              <div
+                className="min-w-fit cursor-pointer hover:ring-1 hover:ring-shd/50 rounded-lg transition-all"
+                onClick={() => onOpen(item)}
+              >
+                <CardComponent item={item} {...extraProps} />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+})
 
 export default function CompactListView({ items, category, CardComponent, extraProps }) {
   const { slug: urlSlug } = useParams()
   const navigate = useNavigate()
   const location = useLocation()
   const [expandedSlug, setExpandedSlug] = useState(urlSlug)
+  const { itemMenuHandlers, isSelected } = useCollection()
 
   useEffect(() => {
     if (urlSlug) {
@@ -17,11 +67,11 @@ export default function CompactListView({ items, category, CardComponent, extraP
     }
   }, [urlSlug])
 
-  const toggleExpand = (slug) => {
-    setExpandedSlug(expandedSlug === slug ? null : slug)
-  }
+  const toggleExpand = useCallback((slug) => {
+    setExpandedSlug(prev => (prev === slug ? null : slug))
+  }, [])
 
-  const handleCardClick = (item) => {
+  const handleCardClick = useCallback((item) => {
     const slug = item.slug || slugify(item.nom)
     let basePath = `/db/${category.key}/${slug}`
     
@@ -35,53 +85,26 @@ export default function CompactListView({ items, category, CardComponent, extraP
     if (location.pathname !== basePath) {
       navigate(newUrl, { replace: true })
     }
-  }
+  }, [category, location.pathname, location.search, navigate])
 
   return (
     <div className="space-y-2 fade-in">
       {items.map((item) => {
         const slug = item.slug || slugify(item.nom)
-        const isExpanded = expandedSlug === slug
-
         return (
-          <div 
-            key={slug} 
-            id={`item-${slug}`}
-            className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden transition-all shadow-lg"
-          >
-            <div
-              className={`px-4 py-2 flex items-center gap-4 hover:bg-white/5 transition-colors ${isExpanded ? 'border-b border-tactical-border/50 bg-white/5' : ''}`}
-              onClick={() => toggleExpand(slug)}
-            >
-              <CompactRow item={item} category={category} extraProps={extraProps} />
-              <div className={`ml-auto text-gray-500 transition-transform ${isExpanded ? 'rotate-180' : ''}`}>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </div>
-            </div>
-            
-            <AnimatePresence>
-              {isExpanded && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.25, ease: 'easeInOut' }}
-                  className="overflow-hidden"
-                >
-                  <div className="p-4 bg-black/20 overflow-x-auto">
-                    <div 
-                      className="min-w-fit cursor-pointer hover:ring-1 hover:ring-shd/50 rounded-lg transition-all"
-                      onClick={() => handleCardClick(item)}
-                    >
-                      <CardComponent item={item} {...extraProps} />
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          <CompactItem
+            key={slug}
+            item={item}
+            slug={slug}
+            category={category}
+            CardComponent={CardComponent}
+            extraProps={extraProps}
+            selected={isSelected(category?.key, item)}
+            expanded={expandedSlug === slug}
+            onToggle={toggleExpand}
+            onOpen={handleCardClick}
+            menuHandlers={itemMenuHandlers}
+          />
         )
       })}
     </div>

@@ -36,20 +36,13 @@ import {
   DESCENTE_SORT_OPTIONS, DESCENTE_DEFAULT_SORT, applySortDescente
 } from '../config/filterConfigs'
 import ScrollToTopButton from '../components/common/ScrollToTopButton'
-
-const CATEGORIES = [
-  { key: 'armes', label: 'Armes', icon: '🔫' },
-  { key: 'equipements', label: 'Équipements', icon: '🛡️' },
-  { key: 'ensembles', label: 'Ensembles', icon: '🔗' },
-  { key: 'competences', label: 'Compétences', icon: '⚡' },
-  { key: 'talentsArmes', label: "Talents d'Armes", icon: '🎯' },
-  { key: 'talentsEquipements', label: "Talents d'Équipements", icon: '🏅' },
-  { key: 'talentsPrototypes', label: "Talents Prototypes", icon: '🧬' },
-  { key: 'modsArmes', label: "Mods d'Armes", icon: '🔧' },
-  { key: 'modsEquipements', label: "Mods d'Équipements", icon: '⚙️' },
-  { key: 'modsCompetences', label: 'Mods de Compétences', icon: '💎' },
-  { key: 'descente', label: 'Descente', icon: '🧬' },
-]
+import { CATEGORIES } from '../config/categories'
+import { CollectionProvider } from '../context/CollectionContext'
+import { useCollection } from '../context/collectionStore'
+import ItemContextMenu from '../components/database/ItemContextMenu'
+import ComparisonTray from '../components/database/ComparisonTray'
+import ComparisonView from '../components/database/ComparisonView'
+import ListsPanel from '../components/database/ListsPanel'
 
 // Catégories qui ont des filtres avancés
 const FILTER_CATEGORIES = new Set([
@@ -100,8 +93,11 @@ function getFiltersConfig(category, data, values) {
   }
 }
 
-export default function DatabasePage() {
+function DatabaseBrowser() {
   const { data, loading, error, progress } = useDataLoader()
+  const { lists } = useCollection()
+  const [showLists, setShowLists] = useState(false)
+  const [showComparison, setShowComparison] = useState(false)
   const { category, slug } = useParams()
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
@@ -356,11 +352,21 @@ export default function DatabasePage() {
 
   return (
       <div className="p-4 sm:p-6 lg:p-8 max-w-screen-xl mx-auto">
-        <div className="mb-6">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-widest mb-1">
-            Base de <span className='text-shd'>Données</span>
-          </h2>
-          <p className="text-sm text-gray-500">The Division 2 — Données en français</p>
+        <div className="mb-6 flex items-start justify-between gap-4">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-widest mb-1">
+              Base de <span className='text-shd'>Données</span>
+            </h2>
+            <p className="text-sm text-gray-500">The Division 2 — Données en français</p>
+          </div>
+          <button
+              onClick={() => setShowLists(true)}
+              className="shrink-0 px-3 py-2 rounded border border-tactical-border bg-tactical-panel text-gray-400 hover:border-gray-500 hover:text-gray-200 transition-all flex items-center gap-2 uppercase tracking-widest text-xs font-bold"
+          >
+            <span aria-hidden="true">☰</span>
+            <span className="hidden sm:inline">Mes listes</span>
+            {lists.length > 0 && <span className="text-shd">{lists.length}</span>}
+          </button>
         </div>
 
         <SearchBar value={searchTerm} onChange={handleSearchTermChange} />
@@ -410,8 +416,26 @@ export default function DatabasePage() {
             allData={data}
             isCompactMode={isCompactMode}
         />
-        {console.log('DatabasePage: rendu ScrollToTopButton')}
         <ScrollToTopButton />
+
+        <ItemContextMenu />
+        <ComparisonTray onOpen={() => setShowComparison(true)} />
+        {showComparison && <ComparisonView onClose={() => setShowComparison(false)} />}
+        {showLists && <ListsPanel onClose={() => setShowLists(false)} />}
       </div>
+  )
+}
+
+/**
+ * Fournit l'etat partage (listes, comparateur, menu contextuel) a tout l'arbre
+ * de la base. `useDataLoader` etant un singleton, l'appeler ici ne coute rien.
+ */
+export default function DatabasePage() {
+  const { data } = useDataLoader()
+
+  return (
+      <CollectionProvider data={data}>
+        <DatabaseBrowser />
+      </CollectionProvider>
   )
 }

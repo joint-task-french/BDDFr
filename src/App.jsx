@@ -5,7 +5,6 @@ import Loader from './components/common/Loader'
 import { apiBuildotheque } from './utils/apiBuildotheque'
 import { useDataLoader } from './hooks/useDataLoader'
 import { useKonamiCode } from './hooks/useKonamiCode'
-import InvestisseurReroll from './pages/InvestisseurReroll.jsx'
 import { BuildProvider } from './context/BuildContext.jsx'
 
 const DatabasePage = lazy(() => import('./pages/DatabasePage'))
@@ -15,6 +14,8 @@ const SHDWatchPage = lazy(() => import('./pages/build/SHDWatchPage.jsx'))
 const ChangelogPage = lazy(() => import('./pages/ChangelogPage'))
 const GeneratorPage = lazy(() => import('./pages/GeneratorPage'))
 const PageViewer = lazy(() => import('./pages/PageViewer.jsx'))
+// Easter egg (code Konami) : charge a la demande, jamais au demarrage.
+const InvestisseurReroll = lazy(() => import('./pages/InvestisseurReroll.jsx'))
 
 function SuspensePage({ children }) {
     return <Suspense fallback={<Loader />}>{children}</Suspense>
@@ -43,14 +44,12 @@ export default function App() {
         const token = params.get('token')
 
         if (token) {
-            console.log("App: Auth parameters found in URL");
             apiBuildotheque.handleAuthCallback(token)
 
             // Nettoyer l'URL
             params.delete('token')
             const newSearch = params.toString()
             const cleanUrl = `${location.pathname}${newSearch ? `?${newSearch}` : ''}`;
-            console.log("App: Cleaning URL to", cleanUrl);
             navigate(cleanUrl, { replace: true })
         }
     }, [location.search, location.pathname, navigate])
@@ -74,7 +73,11 @@ export default function App() {
 
     return (
         <Routes>
-            <Route element={<Layout children={secretSession > 0 ? <InvestisseurReroll key={secretSession} allAttributs={data.attributs} allEquipements={data.equipements} allTalents={data.talentsEquipements} onClose={() => setSecretSession(0)} /> : null} />}>
+            <Route element={<Layout children={secretSession > 0 ? (
+                <Suspense fallback={null}>
+                    <InvestisseurReroll key={secretSession} allAttributs={data.attributs} allEquipements={data.equipements} allTalents={data.talentsEquipements} onClose={() => setSecretSession(0)} />
+                </Suspense>
+            ) : null} />}>
                 <Route index element={<SuspensePage><DatabasePage /></SuspensePage>} />
                 <Route path="db/:category/:slug?/:modifier?" element={<SuspensePage><DatabasePage /></SuspensePage>} />
                 <Route path="planner" element={<SuspensePage><BuildProvider classSpe={data.classSpe} montreConfig={data.montre} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildPlannerPage /></BuildProvider></SuspensePage>} />

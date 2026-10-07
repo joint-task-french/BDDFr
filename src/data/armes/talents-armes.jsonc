@@ -1429,9 +1429,9 @@
   },
   "martelement": {
     "nom": "Martèlement",
-    "description": "Après **3** éliminations consécutives, le chargeur se remplit et les **dégâts de l'arme sont augmentés de +40%** (25%) pendant **10s** (15s).",
+    "description": "Après **3** éliminations consécutives, le chargeur se remplit et les **dégâts de l'arme sont augmentés de +40%** (28%) pendant **10s** (16s).",
     "icon": "martelement",
-    "perfectDescription": "Après **2** éliminations consécutives, le chargeur se remplit et les **dégâts de l'arme sont augmentés de +40%** (25%) pendant **10s** (15s).",
+    "perfectDescription": "Après **2** éliminations consécutives, le chargeur se remplit et les **dégâts de l'arme sont augmentés de +40%** (28%) pendant **10s** (16s).",
     "notes": "(PVP)",
     "armesParfaites": [
       "tsunami",
@@ -1500,9 +1500,9 @@
   },
   "motive": {
     "nom": "Motivé",
-    "description": "Le rechargement confère +1% aux dégâts d'arme pendant 10s.\nPeut se cumuler jusqu'à 25 fois.",
+    "description": "Le rechargement confère **+1%** (+2%) aux dégâts d'arme pendant **10s**.\nPeut se cumuler jusqu'à **25** (12) fois.",
     "icon": "motive",
-    "perfectDescription": "Le rechargement confère +6% aux dégâts d'arme pendant 10s. Peut se cumuler jusqu'à 5 fois.",
+    "perfectDescription": "Le rechargement confère **+6%** (+5%) aux dégâts d'arme pendant **10s**. Peut se cumuler jusqu'à **5** fois.",
     "armesParfaites": [
       "baguette_magique"
     ],
@@ -1902,14 +1902,14 @@
   },
   "imprudence": {
     "nom": "Imprudence",
-    "description": "Inflige **+3.5%** (2.5%) **de dégâts** au **tir suivant** avec la même arme pour **chaque plomb** qui touche la cible si au moins **6** plombs touchent la cible.",
+    "description": "Inflige **+3.5%** (1.8%) **de dégâts** au **tir suivant** avec la même arme pour **chaque plomb** qui touche la cible si au moins **6** plombs touchent la cible.",
     "icon": "imprudence",
-    "perfectDescription": "Inflige **+3.5%** (2.5%) **de dégâts** au **tir suivant** avec la même arme pour **chaque plomb** qui touche la cible si au moins **4** plombs touchent la cible.",
+    "perfectDescription": "Inflige **+3.5%** (1.8%) **de dégâts** au **tir suivant** avec la même arme pour **chaque plomb** qui touche la cible si au moins **4** plombs touchent la cible.",
     "armesParfaites": [
       "comme_de_la_colle",
       "epine"
     ],
-    "notes": "(PVP))",
+    "notes": "(PVP)",
     "compatibilite": {
       "fusil": false,
       "calibre_12": true,
@@ -2586,7 +2586,7 @@
   "lumieres_scintillantes": {
     "nom": "Lumières scintillantes",
     "icon": "lumieres_scintillantes",
-    "perfectDescription": "Seules la nuit et ses lumières scintillantes, emplissent les têtes d'une joie débordante.",
+    "perfectDescription": "Seules la nuit et ses lumières scintillantes, emplissent les têtes d'une joie débordante.\n+137% dégâts de headshot",
     "armesParfaites": [
       "oh_noel"
     ],
@@ -2737,7 +2737,7 @@
   "munitions_catalysantes": {
     "nom": "munitions_catalysantes",
     "estExotique": false,
-    "perfectDescription": "Les ennemis touchés perdent **50%** de résistance aux brûlures pendant **5s* (2s)*.",
+    "perfectDescription": "Les ennemis touchés perdent **50%** de résistance aux brûlures pendant **5s** (2s).",
     "notes": "(PVP)",
     "armesParfaites": [
       "allume_feu"
@@ -2798,7 +2798,16 @@
       "interchange",
       "trader"
     ],
-    "notes": "(PVP)"
+    "notes": "(PVP)",
+    "compatibilite": {
+      "fusil": true,
+      "calibre_12": true,
+      "fusil_assaut": true,
+      "fusil_mitrailleur": true,
+      "fusil_precision": true,
+      "pistolet": false,
+      "pistolet_mitrailleur":true
+    }
   },
   "recolte_de_fleurs": {
     "nom": "Récolte de fleurs",
@@ -2817,6 +2826,33 @@
     "nom": "Caducée",
     "description": "Les coups critiques vous soignent, vous et vos alliés, à hauteur de **3%** (2%) des **dégâts infligés** par le coup.",
     "notes": "(PVP)",
+    "estExotique": true
+  },
+  "casse_tete": {
+    "nom": "Casse-tête",
+    "description": "Dégats d'arme accrus de **30%** (18%) **contre les ennemis confus**.\nAu baut de **4** (3) éliminations, inflige Confusion au prochain ennemi touché.",
+    "notes": "(PVP)",
+    "prerequis": "n/a",
+    "armesParfaites": [
+      "arret_cerebral",
+      "qui_peut_le_plus"
+    ],
+    "icone": "",
+    "compatibilite": {
+      "fusil": true,
+      "calibre_12": true,
+      "fusil_assaut": true,
+      "fusil_mitrailleur": true,
+      "fusil_precision": true,
+      "pistolet": true,
+      "pistolet_mitrailleur":true
+    }
+  },
+  "reglement_de_comptes": {
+    "nom": "Règlement de comptes",
+    "icone": "",
+    "description": "**Toucher un ennemi** avec cette arme lui applique une **marque**. Vous ne pouvez appliquer **qu'une seule marque à la fois**. Si vous touchez un autre ennemi, **la marque lui est transférée**.\n**Davantage de marques** peuvent être appliquées sur le même ennemi par **d'autres agents** utilisant cette arme. **4** marques maximum peuvent être appliquées sur un ennemi.\nCette arme inflige **+20% de dégâts accrus** aux ennemis marqués. Le bonus augmente de **5%** pour chaque **marque en plus de la vôtre**.",
+    "prerequis": "n/a",
     "estExotique": true
   }
 }

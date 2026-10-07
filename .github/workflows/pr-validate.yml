@@ -19,13 +19,13 @@ jobs:
           node-version: 24
           cache: npm
 
-      - run: npm install
+      - run: npm ci
 
       - name: Valider les JSONC avec les schémas
         run: npm run validate
 
   build-check:
-    name: Vérification du build
+    name: Build et smoke test
     needs: validate
     runs-on: ubuntu-latest
     steps:
@@ -36,7 +36,25 @@ jobs:
           node-version: 24
           cache: npm
 
-      - run: npm install
+      - run: npm ci
 
       - name: Build de vérification
         run: npm run build
+
+      - name: Cache Chrome (Puppeteer)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/puppeteer
+          key: puppeteer-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            puppeteer-${{ runner.os }}-
+
+      - name: Installation de Chrome
+        run: npx puppeteer browsers install chrome
+
+      # Charge reellement l'application dans un navigateur : c'est le seul
+      # filet qui attrape un ecran blanc (versions React desynchronisees) ou un
+      # catalogue vide (JSONC illisible) — le build, lui, reussit dans les deux
+      # cas.
+      - name: Smoke test (chargement navigateur)
+        run: npm run smoke

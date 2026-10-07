@@ -11,7 +11,7 @@
     "degatsBase": 387000,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "magasin_tubulaire"
     }
   },
@@ -260,6 +260,7 @@
     "nom": "Burn Out",
     "type": "fusil_assaut",
     "fabricant": "GIAT INDUSTRIES",
+    "description": "\"Tu veux que je fasse encore un putain de tour de garde ? Eh, tu sais quoi ? Va chier. J'me barre.\"\n- Krazinski, avant \"l'incident\"",
     "portee": 26,
     "rpm": 900,
     "chargeur": 30,
@@ -271,11 +272,11 @@
     "talents": [
       "a_vide"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
     }
   },
   "g36_militaire": {
@@ -491,17 +492,19 @@
     "degatsBase": 47400,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
+    "emplacementsMods": {//OK
       "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "chargeur": "chargeur_556",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
+
     }
   },
   "vision_glorieuse": {
     "nom": "Vision glorieuse",
     "type": "fusil_assaut",
     "fabricant": "PATRIOT ORDNANCE FACTORY",
+    "description": "\"Rien ne dure éternellement.\"\n- Le Compensateur",
     "portee": 17,
     "notes": "Le talent est inclus dans les statistiques de l'arme",
     "rpm": 850,
@@ -2911,7 +2914,7 @@
   "mort_blanche": {
     "nom": "Mort blanche",
     "type": "fusil_precision",
-    "description": "\"La neige me manque.\" - S.H.",
+    "description": "\"La neige me manque.\"- S.H.",
     "fabricant": "IZHMASH",
     "portee": 50,
     "rpm": 55,
@@ -3196,9 +3199,9 @@
     "degatsBase": 63600,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "viseur": "rail_optique_court",
-      "bouche": "bouche"
+      "bouche": "bouche_9mm"
     }
   },
   "pp_19_ameliore": {
@@ -4056,7 +4059,7 @@
     "emplacementsMods": {
       "chargeur": "chargeur_762",
       "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "canon": "rail_sous_canon_court"
     }
   },
   "sig_716": {
@@ -4111,9 +4114,9 @@
     "degatsBase": 97700,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "viseur": "rail_optique",
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_45_acp",
+      "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
     }
   },
@@ -5845,10 +5848,10 @@
     "type": "fusil_mitrailleur",
     "portee": 40,
     "rpm": 600,
-    "chargeur": 100,
-    "rechargement": 1.96,
-    "headshot": 185.2,
-    "degatsBase": 62200,
+    "chargeur": 120,
+    "rechargement": 2.66,
+    "headshot": 65,
+    "degatsBase": 65200,
     "estNomme": true,
     "obtention": {
       "description": "Récompense de l'affectation confidentielle : \nL'anomalie du Capitol Globe "
@@ -5857,7 +5860,7 @@
       "contrainte"
     ],
     "description": "\"Pourquoi perdre du temps a lire les infos quand on peut être l'info ?\" - The Reed",
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "bouche": "bouche_762",
       "canon": "rail_sous_canon_long",
@@ -5940,6 +5943,76 @@
       "chargeur_de_caducee",
       "accessoire_sous_canon_de_caducee",
       "bouche_de_caducee"
+    ]
+  },
+  "qui_peut_le_plus": {
+    "nom": "Qui peut le plus",
+    "description": "La confusion est le premier pas vers la lucidité.",
+    "type": "fusil_mitrailleur",
+    "fabricant": "",
+    "portee": 30,
+    "rpm": 700,
+    "chargeur": 30,
+    "rechargement": 2.89,
+    "headshot": 65,
+    "degatsBase": 61100,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "casse_tete"
+    ],
+    "emplacementsMods": {//OK
+      "viseur": "rail_optique_long",
+      "chargeur": "chargeur_556",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
+    }
+  },
+  "arret_cerebral": {
+    "nom": "Arrêt cérébral",
+    "type": "fusil",
+    "fabricant": "",
+    "portee": 60,
+    "rpm": 380,
+    "chargeur": 20,
+    "rechargement": 2.59,
+    "headshot": 60,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "casse_tete"
+    ],
+    "emplacementsMods": {
+      "viseur": "rail_optique_long",
+      "chargeur": "chargeur_762",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
+  },
+  "sous_boss": {
+    "nom": "Sous-boss",
+    "type": "pistolet_mitrailleur",
+    "description": "Ne trahis jamais tes amis.",
+    "obtention": {
+      "mission": true,
+      "description": "Récompense de Traque :\nTens Nightclub : Zodiac\nMaître - 100% (la 1er fois).",
+      "represailles": "Black Tusks, escouades d'extermination"
+    },
+    "fabricant": "",
+    "portee": 19,
+    "rpm": 900,
+    "chargeur": 50,
+    "rechargement": 1.40,
+    "headshot": 50,
+    "degatsBase": 50600,
+    "estExotique": true,
+    "estNomme": false,
+    "talents": [
+      "reglement_de_comptes"
+    ],
+    "modsPredefinis": [
+      "optique_de_sous_boss"
     ]
   }
 }

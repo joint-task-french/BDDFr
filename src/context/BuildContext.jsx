@@ -1,6 +1,8 @@
 import { createContext, useContext, useReducer, useCallback, useMemo, useEffect } from 'react'
 import { getSpecFromWeapon, getSpecialisations } from '../utils/formatters'
 import { getSHDLevels, normalizeSHDLevels, SHD_LEVELS_UPDATED_EVENT, STORAGE_KEY as SHD_STORAGE_KEY } from '../hooks/useSHDWatch'
+import { encodeBuild, decodeBuild, resolveBuild } from '../utils/buildShare'
+import { getLoadedData } from '../hooks/useDataLoader'
 
 const BuildContext = createContext(null)
 
@@ -62,27 +64,71 @@ const getDefaultState = (montreConfig) => ({
     activeBuildSource: null, // { type: 'api'|'share'|'local', id?: string, encoded?: string }
   })
 
+/**
+ * Serialise le build pour le stockage local.
+ *
+ * Le state embarque les OBJETS items complets. Les stocker tels quels figeait
+ * les valeurs au moment de la sauvegarde : apres un reequilibrage du jeu, un
+ * build restaure affichait encore les anciennes statistiques. On persiste donc
+ * des slugs (meme encodage que le partage d'URL), re-resolus au chargement
+ * contre les donnees courantes.
+ */
+function serializeBuild(state) {
+  return {
+    v: 2,
+    b: encodeBuild(state),
+    // Metadonnees de session : elles referencent des identifiants de build,
+    // pas des donnees de jeu, donc pas concernees par la re-resolution.
+    editingInfo: state.editingInfo || null,
+    activeBuildSource: state.activeBuildSource || null,
+  }
+}
+
 const getInitialState = (montreConfig) => {
   const defaultState = getDefaultState(montreConfig)
 
+  let parsed
   try {
     const saved = localStorage.getItem(STORAGE_KEY)
-    if (saved) {
-      const parsed = JSON.parse(saved)
-      // On s'assure de fusionner avec les niveaux de la montre actuels 
-      // pour que les changements dans la page Montre soient reflétés
+    if (!saved) return defaultState
+    parsed = JSON.parse(saved)
+  } catch (e) {
+    console.warn('Build local illisible, on repart d un build vide', e)
+    return defaultState
+  }
+
+  try {
+    // Format 2 : slugs compacts, re-resolus contre les donnees courantes.
+    if (parsed?.v === 2) {
+      const compact = parsed.b ? decodeBuild(parsed.b) : null
+      const resolved = compact ? resolveBuild(compact, getLoadedData()) : null
+      if (!resolved) return defaultState
       return {
         ...defaultState,
-        ...parsed,
-        expertise: { ...defaultState.expertise, ...(parsed.expertise || {}) },
-        specialWeaponBonusPoints: { ...(parsed.specialWeaponBonusPoints || {}) },
+        ...resolved,
+        editingInfo: parsed.editingInfo || null,
+        activeBuildSource: parsed.activeBuildSource || null,
+        expertise: { ...defaultState.expertise, ...(resolved.expertise || {}) },
+        specialWeaponBonusPoints: { ...(resolved.specialWeaponBonusPoints || {}) },
         shdLevels: getSHDLevels(montreConfig),
       }
     }
+
+    // Format 1 (historique) : objets complets. Lu une derniere fois ; la
+    // prochaine sauvegarde reecrira en format 2.
+    return {
+      ...defaultState,
+      ...parsed,
+      expertise: { ...defaultState.expertise, ...(parsed.expertise || {}) },
+      specialWeaponBonusPoints: { ...(parsed.specialWeaponBonusPoints || {}) },
+      shdLevels: getSHDLevels(montreConfig),
+    }
   } catch (e) {
-    console.error("Failed to load build from localStorage", e)
+    // Donnees indisponibles ou build irrecuperable : ne jamais empecher le
+    // planner de demarrer.
+    console.warn('Restauration du build impossible', e)
+    return defaultState
   }
-  return defaultState
 }
 
 function normalizeSkillModsForSlot(slotMods) {
@@ -415,7 +461,10 @@ export function BuildProvider({ children, classSpe, montreConfig, maxExpertiseLe
     }
   }, [dispatch])
 
-  // Sauvegarder le build dans le localStorage à chaque changement
+  // Sauvegarder le build dans le localStorage, en differé.
+  // Sans debounce, chaque mouvement de curseur declenchait un JSON.stringify de
+  // tout le state (qui embarque les objets items complets) suivi d'une ecriture
+  // localStorage synchrone sur le thread principal.
   useEffect(() => {
     // Éviter de sauvegarder si le state est vide (on peut vérifier gear par exemple)
     const hasContent =
@@ -424,10 +473,35 @@ export function BuildProvider({ children, classSpe, montreConfig, maxExpertiseLe
       state.sidearm ||
       Object.values(state.gear).some(Boolean) ||
       state.skills.some(Boolean)
-    if (hasContent) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
-    } else {
-      localStorage.removeItem(STORAGE_KEY)
+
+    const persist = () => {
+      try {
+        if (hasContent) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(serializeBuild(state)))
+        } else {
+          localStorage.removeItem(STORAGE_KEY)
+        }
+      } catch (e) {
+        // Quota depasse ou stockage indisponible (navigation privee) : le
+        // planner doit continuer a fonctionner sans persistance.
+        console.warn('Sauvegarde du build impossible', e)
+      }
+    }
+
+    const timer = setTimeout(persist, 300)
+    // Filet de securite : si l'onglet est ferme ou masque avant la fin du
+    // debounce, on ecrit immediatement pour ne pas perdre la derniere edition.
+    const flush = () => {
+      if (document.visibilityState === 'hidden') {
+        clearTimeout(timer)
+        persist()
+      }
+    }
+    document.addEventListener('visibilitychange', flush)
+
+    return () => {
+      clearTimeout(timer)
+      document.removeEventListener('visibilitychange', flush)
     }
   }, [state])
 
@@ -436,7 +510,12 @@ export function BuildProvider({ children, classSpe, montreConfig, maxExpertiseLe
   const hasExoticGear = Object.values(state.gear).some(g => g?.type === 'exotique')
 
   // Compétences déjà utilisées (par type)
-  const usedSkillTypes = state.skills.filter(Boolean).map(s => s.competence)
+  // Memoise : ce tableau entre dans les dependances de `value` ci-dessous, une
+  // nouvelle reference a chaque rendu y annulerait toute la memoisation.
+  const usedSkillTypes = useMemo(
+    () => state.skills.filter(Boolean).map(s => s.competence),
+    [state.skills]
+  )
 
   const canEquipExoticWeapon = useCallback((slot) => {
     if (!hasExoticWeapon) return true
@@ -470,7 +549,11 @@ export function BuildProvider({ children, classSpe, montreConfig, maxExpertiseLe
     return required // retourne la spé manquante
   }, [specialisation])
 
-  const value = {
+  // Sans useMemo, cet objet etait recree a chaque rendu du provider : tous les
+  // consommateurs de useBuild() re-rendaient systematiquement, et les
+  // useCallback ci-dessus ne servaient a rien puisque l'identite de `value`
+  // changeait de toute facon.
+  const value = useMemo(() => ({
     ...state,
     dispatch,
     specialisation,
@@ -485,7 +568,22 @@ export function BuildProvider({ children, classSpe, montreConfig, maxExpertiseLe
     canEquipSkill,
     skillNeedsSpec,
     usedSkillTypes,
-  }
+  }), [
+    state,
+    dispatch,
+    specialisation,
+    SPECIALISATIONS,
+    classSpe,
+    maxExpertiseLevel,
+    hasExoticWeapon,
+    hasExoticGear,
+    canEquipExoticWeapon,
+    canEquipExoticSidearm,
+    canEquipExoticGear,
+    canEquipSkill,
+    skillNeedsSpec,
+    usedSkillTypes,
+  ])
 
   return <BuildContext.Provider value={value}>{children}</BuildContext.Provider>
 }

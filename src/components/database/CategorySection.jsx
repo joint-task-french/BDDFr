@@ -13,6 +13,9 @@ import CompactListView from './CompactListView'
 import MarkdownText from '../common/MarkdownText'
 import {useLocation, useNavigate} from "react-router-dom";
 import {slugify} from "../../utils/slugify.js";
+import { memo, useCallback, useMemo } from 'react'
+import { useCollection } from '../../context/collectionStore'
+import { itemKey } from '../../utils/itemIdentity'
 
 // Layout grids par catégorie
 const GRID_CONFIG = {
@@ -64,7 +67,61 @@ function GenericCard({ item }) {
   )
 }
 
+/**
+ * Carte memoisee.
+ *
+ * Sans cela, ouvrir le menu contextuel changeait la valeur du CollectionContext,
+ * ce qui re-rendait CategorySection et donc les 280 cartes : ~270 ms de blocage
+ * a chaque clic droit (mesure : 4 ms avec une seule carte). Toutes les props
+ * sont ici des references stables sauf `selected`, qui ne change que pour la
+ * carte concernee.
+ */
+const ItemCard = memo(function ItemCard({
+  item, categoryKey, CardComponent, extraProps, selected, onOpen, menuHandlers,
+}) {
+  const slug = item.slug || slugify(item.nom)
+
+  return (
+    <div
+        id={`item-${slug}`}
+        className={`h-full grid cursor-pointer transition-all rounded-lg og-target-card ${
+            selected ? 'ring-2 ring-shd' : 'hover:ring-2 hover:ring-shd/50'
+        }`}
+        onClick={() => onOpen(item)}
+        data-slug={slug}
+        {...menuHandlers(categoryKey, item)}
+    >
+      <CardComponent item={item} {...extraProps} />
+    </div>
+  )
+})
+
 export default function CategorySection({ category, items, searchTerm, allData, isCompactMode }) {
+  // Ces hooks etaient appeles apres le retour anticipe ci-dessous : leur ordre
+  // changeait selon que la categorie etait vide ou non.
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { itemMenuHandlers, isSelected } = useCollection();
+
+  const handleItemClick = useCallback((item) => {
+    const itemSlug = item.slug || item.nom;
+    const pathParts = location.pathname.split('/');
+    const currentSlug = pathParts[3];
+    const currentModifier = pathParts[4];
+
+    let newPath = `/db/${category.key}/${itemSlug}`;
+
+    // Si c'est un talent sans description classique, il est forcément parfait
+    const isTalent = category.key === 'talentsArmes' || category.key === 'talentsEquipements';
+    if (isTalent && !item.description && item.perfectDescription) {
+      newPath += `/parfait`;
+    } else if (currentSlug === itemSlug && currentModifier) {
+      newPath += `/${currentModifier}`;
+    }
+
+    navigate(`${newPath}${location.search}`, { replace: true });
+  }, [category, location.pathname, location.search, navigate]);
+
   if (!items || items.length === 0) {
     return (
       <div className="text-center py-16">
@@ -78,8 +135,11 @@ export default function CategorySection({ category, items, searchTerm, allData, 
   const CardComponent = CARD_COMPONENTS[category?.key] || GenericCard
   const gridClass = GRID_CONFIG[category?.key] || 'grid-cols-1 sm:grid-cols-2'
 
-  // Props supplémentaires pour certaines cards
-  const extraProps = {}
+  // Props supplémentaires pour certaines cards.
+  // Memoise : cet objet est passe a chaque carte memoisee, une nouvelle
+  // reference a chaque rendu annulerait toute la memoisation.
+  const extraProps = useMemo(() => {
+    const extraProps = {}
 
   // Type data disponibles pour toutes les catégories qui en ont besoin
   if (allData?.armes_type) extraProps.armesType = allData.armes_type
@@ -122,27 +182,8 @@ export default function CategorySection({ category, items, searchTerm, allData, 
     if (allData?.classSpe) extraProps.classSpe = allData.classSpe
   }
 
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleItemClick = (item) => {
-    const itemSlug = item.slug || item.nom;
-    const pathParts = location.pathname.split('/');
-    const currentSlug = pathParts[3];
-    const currentModifier = pathParts[4];
-
-    let newPath = `/db/${category.key}/${itemSlug}`;
-    
-    // Si c'est un talent sans description classique, il est forcément parfait
-    const isTalent = category.key === 'talentsArmes' || category.key === 'talentsEquipements';
-    if (isTalent && !item.description && item.perfectDescription) {
-      newPath += `/parfait`;
-    } else if (currentSlug === itemSlug && currentModifier) {
-      newPath += `/${currentModifier}`;
-    }
-
-    navigate(`${newPath}${location.search}`, { replace: true });
-  };
+    return extraProps
+  }, [category?.key, allData])
 
   if (isCompactMode) {
     return (
@@ -174,17 +215,17 @@ export default function CategorySection({ category, items, searchTerm, allData, 
         <span className="text-xs text-gray-500 font-bold">{items.length} entrées</span>
       </div>
       <div className={`grid ${gridClass} gap-3`}>
-        {items.map((item, i) => (
-          <div
-              key={item.slug || slugify(item.nom)}
-              id={`item-${item.slug || slugify(item.nom)}`}
-              className="h-full grid cursor-pointer transition-all hover:ring-2 hover:ring-shd/50 rounded-lg og-target-card"
-              onClick={() => handleItemClick(item)}
-              data-slug={item.slug || slugify(item.nom)}
-          >
-            <CardComponent item={item} {...extraProps} />
-          </div>
-
+        {items.map((item) => (
+          <ItemCard
+              key={itemKey(category.key, item) || slugify(item.nom)}
+              item={item}
+              categoryKey={category.key}
+              CardComponent={CardComponent}
+              extraProps={extraProps}
+              selected={isSelected(category.key, item)}
+              onOpen={handleItemClick}
+              menuHandlers={itemMenuHandlers}
+          />
         ))}
       </div>
     </div>

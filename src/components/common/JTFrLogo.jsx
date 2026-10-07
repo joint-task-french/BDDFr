@@ -1,4 +1,4 @@
-import logo from '../../img/assets/logo_JTFr_100x100.png'
+import logo from '../../img/assets/logo_JTFr_100x100.webp'
 
 export default function JTFrLogo({ className = 'w-8 h-8' }) {
   return (

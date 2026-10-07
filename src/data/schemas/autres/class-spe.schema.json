@@ -43,7 +43,7 @@
             "icon": {
               "type": "string",
               "pattern": "^[a-z0-9_]+$",
-              "description": "Slug du fichier icône dans game_assets/armes/specialisations/ (sans .png)"
+              "description": "Slug du fichier icône dans game_assets/armes/specialisations/ (sans extension)"
             },
             "type": {
               "type": "string",

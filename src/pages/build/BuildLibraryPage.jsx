@@ -6,6 +6,7 @@ import { decodeBuild, resolveBuild } from '../../utils/buildShare.js'
 import Loader from '../../components/common/Loader.jsx'
 import { GameIcon, resolveAsset, GEAR_SLOT_ICONS_IMG, WEAPON_TYPE_ICONS } from '../../components/common/GameAssets.jsx'
 import { apiBuildotheque } from '../../utils/apiBuildotheque.js'
+import ApiErrorBanner from '../../components/common/ApiErrorBanner'
 import Dialog from '../../components/common/Dialog.jsx'
 
 /**
@@ -564,6 +565,7 @@ export default function BuildLibraryPage() {
 
   return (
       <div className="p-4 sm:p-6 lg:p-8 max-w-screen-2xl mx-auto">
+        <ApiErrorBanner />
         <div className="mb-8 flex justify-between items-center">
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-widest mb-1">

@@ -2909,5 +2909,17 @@
     ],
     "estExotique": true,
     "compatible": []
+  },
+  "optique_de_sous_boss": {
+    "nom": "Optique de Sous-boss",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
   }
 }

@@ -243,7 +243,7 @@ function DatabaseBrowser() {
   // APPLICATION DES FILTRES ET DU TRI AVEC RÉSOLUTION GLOBALE
   // =========================================================
   const filteredData = useMemo(() => {
-    let items = []
+    let items
 
     if (activeCategory === 'descente') {
       const wTalents = Object.values(data?.talentsArmes || {})

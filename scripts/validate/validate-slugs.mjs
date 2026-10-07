@@ -208,7 +208,7 @@ function loadJsonc(filename) {
         fileCache.set(filename, data)
         return data
     } catch (e) {
-        throw new Error(`Impossible de charger ou parser ${filename} : ${e.message}`)
+        throw new Error(`Impossible de charger ou parser ${filename} : ${e.message}`, { cause: e })
     }
 }
 

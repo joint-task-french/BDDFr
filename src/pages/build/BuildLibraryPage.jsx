@@ -87,7 +87,7 @@ function ItemMini({ item, ensemble, slot }) {
   const isGearSet = item?.type === 'gear_set' || ensemble?.type === 'gear_set'
   const isSkillItem = isSkill && item
 
-  let icon = null
+  let icon
 
   if (isWeapon) {
     icon = resolveAsset(item?.icon) || WEAPON_TYPE_ICONS[item?.type]
@@ -105,8 +105,9 @@ function ItemMini({ item, ensemble, slot }) {
 
   const name = isSkill ? item?.variante : item?.nom
 
-  let colorClass = 'text-gray-400'
-  let borderColor = 'border-white/10'
+  // Toutes les branches ci-dessous assignent couleur et bordure.
+  let colorClass
+  let borderColor
   let bgColor = 'bg-black/40'
 
   if (item) {

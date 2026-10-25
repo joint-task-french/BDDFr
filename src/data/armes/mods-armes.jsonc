@@ -2921,5 +2921,149 @@
     ],
     "estExotique": true,
     "compatible": []
+  },
+  "lunette_prima_donna": {
+    "nom": "Lunette Prima Donna",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "degats_de_headshot_arm",
+        "valeur": 25
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_prima_donna": {
+    "nom": "Chargeur Prima Donna",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "maniement_d_arme_arm",
+        "valeur": 7.5
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "accessoire_sous_canon_prima_donna": {
+    "nom": "Accessoire sous canon Prima Donna",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "maniement_d_arme_arm",
+        "valeur": 7.5
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_prima_donna": {
+    "nom": "Bouche Prima Donna",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "degats_de_headshot_arm",
+        "valeur": 20
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "optique_clean_cut": {
+    "nom": "Optique Clean Cut",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "harnais_magazine": {
+    "nom": "Harnais Magazine",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "munitions_mod",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "poignee_sous_canon": {
+    "nom": "Poignée sous canon",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "maniement_d_arme_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_en_dents_de_scie": {
+    "nom": "Bouche en dents de scie",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "vitesse_de_rechargement_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "optique_vertigo": {
+    "nom": "Optique Vertigo",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_vertigo": {
+    "nom": "Chargeur Vertigo",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "munitions_mod",
+        "valeur": 50
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "accessoire_sous_canon_vertigo": {
+    "nom": "Accessoire sous canon Vertigo",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "vitesse_de_rechargement_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_vertigo": {
+    "nom": "Bouche Vertigo",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "cadence_de_tir_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
   }
 }

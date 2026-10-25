@@ -5971,6 +5971,7 @@
   "arret_cerebral": {
     "nom": "Arrêt cérébral",
     "type": "fusil",
+    "description": "Laissez-moi clarifier les choses.",
     "fabricant": "",
     "portee": 60,
     "rpm": 380,
@@ -6014,5 +6015,200 @@
     "modsPredefinis": [
       "optique_de_sous_boss"
     ]
+  },
+  "old_glory": {
+    "nom": "Old Glory",
+    "type": "pistolet_mitrailleur",
+    "description": "\"Eh fiston, tu viens de mettre en doute mon honneur ?\" - Major Jefferson Dutton",
+    "fabricant": "",
+    "obtention": {
+      "description": "Récompense de l'affectation confidentielle : \nAttaque du réservoir McMillan"
+    },
+    "portee": 21,
+    "rpm": 550,
+    "chargeur": 32,
+    "rechargement": 1.47,
+    "headshot": 50,
+    "degatsBase": 76900,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "corps_a_corps"
+    ],
+    "emplacementsMods": {
+      "viseur": "rail_optique_court",
+      "chargeur": "chargeur_9mm",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_9mm"
+    }
+  },
+  "inapercu": {
+    "nom": "Inaperçu",
+    "type": "calibre_12",
+    "description": "C'est comme ça.",
+    "fabricant": "",
+    "portee": 14,
+    "rpm": 180,
+    "chargeur": 7,
+    "rechargement": 2.77,
+    "headshot": 65,
+    "degatsBase": 349800,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "preservation"
+    ],
+    "emplacementsMods": {
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "rabid_d": {
+    "nom": "Rabid D5O",
+    "type": "pistolet",
+    "description": "C'est en effet une arme rare qui peut être à la fois létale et non létale.",
+    "obtention": {
+      "description": "Event seulement"
+    },
+    "fabricant": "",
+    "portee": 18,
+    "rpm": 200,
+    "chargeur": 8,
+    "rechargement": 2.04,
+    "headshot": 120,
+    "degatsBase": 189200,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "l_ecume_aux_levres"
+    ],
+    "emplacementsMods": {
+      "viseur": "rail_optique_court"
+    }
+  },
+  "prima_donna": {
+    "nom": "Prima Donna",
+    "type": "fusil_precision",
+    "fabricant": "",
+    "description": "Tu ne peux pas te battre contre nous.",
+    "modsPredefinis": [
+      "lunette_prima_donna",
+      "chargeur_prima_donna",
+      "accessoire_sous_canon_prima_donna",
+      "bouche_prima_donna"
+    ],
+    "obtention": {
+      "incursion": true
+    },
+    "portee": 55,
+    "rpm": 55,
+    "chargeur": 7,
+    "rechargement": 3.99,
+    "headshot": 20,
+    "degatsBase": 417700,
+    "estExotique": true,
+    "estNomme": false,
+    "talents": [
+      "tu_peux_regarder",
+      "mais_pas_toucher"
+    ]
+  },
+  "steel_sons_acr": {
+    "nom": "Steel & Sons ACR",
+    "type": "fusil",
+    "description": "Les bons outils font les bons ouvriers.",
+    "fabricant": "",
+    "portee": 45,
+    "rpm": 420,
+    "chargeur": 40,
+    "rechargement": 2.02,
+    "headshot": 100,
+    "degatsBase": 92400,
+    "estExotique": true,
+    "estNomme": false,
+    "talents": [
+      "racket"
+    ],
+    "modsPredefinis": [
+      "optique_clean_cut",
+      "harnais_magazine",
+      "poignee_sous_canon",
+      "bouche_en_dents_de_scie"
+    ]
+  },
+  "incendia": {
+    "nom": "Incendia",
+    "type": "fusil_precision",
+    "fabricant": "",
+    "description": "\"Il y a quelque chose dans les flammes... Une voix. Elle me parle.\" - Iris Sullivan",
+    "obtention": {
+      "description": "Récompense de l'affectation confidentielle : \nL'enfer de District Mall"
+    },
+    "portee": 60,
+    "rpm": 60,
+    "chargeur": 9,
+    "rechargement": 4.29,
+    "headshot": 55,
+    "degatsBase": 409400,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "tir_chanceux"
+    ],
+    "emplacementsMods": {
+      "viseur": "rail_optique",
+      "chargeur": "chargeur_762_precision",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
+  },
+  "cuit_vapeur": {
+    "nom": "Cuit-vapeur",
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "description": "Attention. Surface chaude.",
+    "portee": 31,
+    "rpm": 650,
+    "chargeur": 30,
+    "rechargement": 1.84,
+    "headshot": 75,
+    "degatsBase": 59200,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "point_d_ebullition"
+    ],
+    "emplacementsMods": {
+      "viseur": "rail_optique",
+      "chargeur": "chargeur_556",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
+    }
+  },
+  "vertigo": {
+    "nom": "Vertigo",
+    "type": "fusil_mitrailleur",
+    "fabricant": "",
+    "description": "Où que tu sois, sors de ta planque !",
+    "portee": 35,
+    "rpm": 825,
+    "chargeur": 250,
+    "rechargement": 2.90,
+    "headshot": 65,
+    "degatsBase": 49500,
+    "estExotique": true,
+    "estNomme": false,
+    "talents": [
+      "stupefaction"
+    ],
+    "modsPredefinis": [
+      "optique_vertigo",
+      "chargeur_vertigo",
+      "accessoire_sous_canon_vertigo",
+      "bouche_vertigo"
+    ],
+    "obtention": {
+      "description": "Event : Lune rouge"
+    }
   }
 }

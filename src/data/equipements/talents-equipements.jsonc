@@ -2,7 +2,11 @@
 {
   "complementarite": {
     "nom": "Complémentarité",
-    "description": "Le dernier ennemi blessé par une compétence est marqué.\nInfliger des dégâts d'arme à cet ennemi supprime la marque et diminue les temps de recharge de 6s.\nNe consomme pas la marque si aucune compétence n'est en recharge.\nTemps de recharge : 4s",
+    "description": "Le dernier ennemi blessé par une compétence est marqué.\nInfliger des dégâts d'arme à cet ennemi supprime la marque et diminue les temps de recharge de **6s**.\nNe consomme pas la marque si aucune compétence n'est en recharge.\nTemps de recharge : **4s**.",
+    "perfectDescription": "Le dernier ennemi blessé par une compétence est marqué.\nInfliger des dégâts d'arme à cet ennemi supprime la marque et diminue les temps de recharge de **12s**.\nNe consomme pas la marque si aucune compétence n'est en recharge.\nTemps de recharge : **4s**.",
+    "equipementsParfaits": [
+      "rapprochement"
+    ],
     "emplacement": "torse"
   },
   "dynamisation": {
@@ -724,7 +728,11 @@
   },
   "reaffectation": {
     "nom": "Réaffectation",
-    "description": "Éliminer un ennemi ajoute 1 munition d'un type de munition spéciale aléatoire dans votre arme d'appoint.\nTemps de recharge : 15s",
+    "description": "Éliminer un ennemi ajoute **1** munition d'un type de munition spéciale aléatoire dans votre arme d'appoint.\nTemps de recharge : **15s**.",
+    "perfectDescription": "Éliminer un ennemi ajoute **1** munition d'un type de munition spéciale aléatoire dans votre arme d'appoint.\nTemps de recharge : **8s**.",
+    "equipementsParfaits": [
+      "coup_de_maitre"
+    ],
     "emplacement": "torse"
   },
   "exploseur": {
@@ -1235,8 +1243,12 @@
   },
   "protecteur_bouclier": {
     "nom": "Protecteur",
-    "description": "Quand votre bouclier est emdommagé, vous gagnez +5% de protection bonus et tous vos alliés gagnent 15% de votre protection bonus pendant 3s.\n\n Temps de rechargment : 3s.",
+    "description": "Quand votre bouclier est endommagé, vous gagnez **+5% de protection bonus** et tous vos alliés gagnent **15%** de votre **protection bonus** pendant **3s**.\n\nTemps de recharge : **3s**.",
     "notes": "Le jeu comporte deux talents de sac avec le nom \"Protecteur\"",
+    "perfectDescription": "Quand votre bouclier est endommagé, vous gagnez **+25% de protection bonus** et tous vos alliés gagnent **35%** de votre **protection bonus** pendant **3s**.\n\nTemps de recharge : **3s**.",
+    "equipementsParfaits": [
+      "conservateur"
+    ],
     "emplacement": "sac_a_dos",
     "descente": {
       "notes": "Le jeu comporte deux talents de sac avec le nom \"Protecteur\"",
@@ -1813,7 +1825,11 @@
   },
   "trepanation": {
     "nom": "Trépanation",
-    "description": "Les headshots augmentent le total de dégâts d'arme de 10% pendant 1.5s (5s avec les fusils de précision).\nLes éliminations par heashot augmentent le total de dégâts d'arme de 15% pendant 10s.",
+    "description": "Les headshots augmentent le total de **dégâts d'arme** de **10%** pendant **1.5s** (**5s** avec les fusils de précision).\nLes éliminations par headshot augmentent le total de **dégâts d'arme** de **15%** pendant **10s**.",
+    "perfectDescription": "Les headshots augmentent le total de **dégâts d'arme** de **20%** pendant **1.5s** (**5s** avec les fusils de précision).\nLes éliminations par headshot augmentent le total de **dégâts d'arme** de **15%** pendant **10s**.",
+    "equipementsParfaits": [
+      "paf_pasteque"
+    ],
     "emplacement": "sac_a_dos",
     "descente": {
       "boucles": [
@@ -2131,7 +2147,7 @@
   },
   "inflexibilite": {
     "nom": "Inflexibilité",
-    "description": "Immunité au vacillement par les explosions.\nAugmente le total de dégâts d'arme de 3% pour chaque seconde que vous restez immobile.\nCe bonus peut se cumuler 10 fois jusqu'à ce que vous bougiez.\nLe cumul de bonus se dissipe 10s après avoir bougé.",
+    "description": "Immunité au vacillement par les explosions.\nAugmente le total de **dégâts d'arme** de **3%** pour chaque seconde que vous restez immobile.\nCe bonus peut se cumuler **10** fois jusqu'à ce que vous bougiez.\nLe cumul de bonus se dissipe **10s** après avoir bougé.",
     "emplacement": "genouilleres",
     "estExotique": true
   },
@@ -2192,7 +2208,7 @@
   },
   "poigne_de_fer": {
     "nom": "Poigne de fer",
-    "description": "Pénalité de recul -50% en tirant de la hanche.\nPénalité de recul -50% en tirant à l'aveuglette depuis un abri.",
+    "description": "**+50% de maniabilité d'arme**",
     "emplacement": "gants",
     "estExotique": true
   },
@@ -2212,7 +2228,7 @@
   "parkour": {
     "nom": "Parkour !",
     "icon": "parkour",
-    "description": "Se déplacer d'un abri à un autre ou franchir un obstacle **recharge** votre arme actuelle et vous bénéficiez d'un bonus de **+25% (+12%) de protection bonus** pendant **5s.**",
+    "description": "Réaliser un changement d'abri ou franchir un obstacle **recharge** l'arme utilisée et confère **+25% (+12%) de protection bonus** pendant **5s**.",
     "emplacement": "genouilleres",
     "estExotique": true
   },
@@ -2291,7 +2307,7 @@
   },
   "plan_de_fuite": {
     "nom": "Plan de fuite",
-    "description": "Franchir un obstacle confère +10% de vitesse de déplacement pendant 3s.\nAu bout de 5s d'immobilité, vous recevez +20% de vitesse de déplacement pendant 5s.\nRecevoir un effet d'état confère +10% de vitesse de déplacement pendant 5s.\nLe bonus de vitesse de déplacement max. est de 20%.\nCes bonus ne se cumulent pas avec les bonus de déplacement d'autres sources.\n-50% aux pénalités d'entrave au déplacement causées par les effets d'état.",
+    "description": "**+20% de vitesse de déplacement**",
     "emplacement": "genouilleres",
     "estExotique": true
   },
@@ -2962,5 +2978,34 @@
     "emplacement": "torse",
     "gear_set": "ortiz_reficere",
     "prerequis": "prototype_de_nanite_a_application_rapide_ortiz"
+  },
+  "combustion_spontanee": {
+    "nom": "Combustion spontanée",
+    "description": "Chaque effet d'état que vous appliquez a **40%** de chances d'infliger également un effet de **brûlure** à l'ennemi\nSi l'effet d'état initialement appliqué était une brûlure, l'ennemi subira **+25% de dégâts de brûlure** pendant toute la durée de cet effet.",
+    "notes": "(PVP)",
+    "emplacement": "gear_set",
+    "gear_set": "ember_engine"
+  },
+  "point_de_tension": {
+    "nom": "Point de tension",
+    "description": "Augmente les chances d'infliger l'effet de brûlure de Combustion spontanée de 20%.",
+    "notes": "(PVP)",
+    "emplacement": "torse",
+    "gear_set": "ember_engine",
+    "prerequis": "combustion_spontanee"
+  },
+  "chauffe_a_blanc": {
+    "nom": "Chauffé à blanc",
+    "description": "Augmente la durée du malus de dégâts de brûlure de Combustion spontanée de +50%.",
+    "notes": "(PVP)",
+    "emplacement": "sac_a_dos",
+    "gear_set": "ember_engine",
+    "prerequis": "combustion_spontanee"
+  },
+  "roi_du_leurre": {
+    "nom": "Roi du leurre",
+    "description": "Pendant le combat, la Lune passera par ses différentes phases toues les **5s**.\nÀ partir de la **nouvelle lune**, tous les dégâts que vous infligez seront amplifiés de **5%**. La valeur de l'amplificateur augmentera de **5%** à chaque phase jusqu'à atteindre **25%** lors de la **pleine lune**, puis elle diminuera jusqu'à ce que la Lune revienne à la **nouvelle lune**, relançant ainsi le cycle.\nPendant une **pleine lune**, le déploiement d'un **leurre* lui confèrera l'effet **surchage** et le cycle sera **suspendu pendant 10s**.",
+    "emplacement": "sac_a_dos",
+    "estExotique": true
   }
 }

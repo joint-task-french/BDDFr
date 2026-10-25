@@ -106,7 +106,8 @@
     "perfectDescription": "Éliminer un ennemi répare **15%** (30%) de votre protection sur **5s** (10s).\nLes éliminations par headshot améliorent la réparation de **+15%** (10%) supplémentaires.",
     "armesParfaites": [
       "p320_xcompact",
-      "bouclier_d_emeline"
+      "bouclier_d_emeline",
+      "inapercu"
     ],
     "notes": "(PVP)",
     "compatibilite": {
@@ -337,7 +338,8 @@
     "icon": "corps_a_corps",
     "perfectDescription": "Tuer une cible située dans un rayon de **7m** augmente les dégâts d'arme de **+38%** (30%) pendant **10s**.",
     "armesParfaites": [
-      "carcajou_furieux"
+      "carcajou_furieux",
+      "old_glory"
     ],
     "notes": "(PVP)",
     "compatibilite": {
@@ -1250,7 +1252,8 @@
     "description": "Augmente la **capacité du chargeur** de **20%**.\nLes tirs ratés effectués depuis un abri ont une probabilité de **100%** de retourner dans le chargeur.",
     "perfectDescription": "Augmente la **capacité du chargeur** de **30%**.\nLes tirs ratés effectués depuis un abri ont une probabilité de **100%** de retourner dans le chargeur.",
     "armesParfaites": [
-      "secret_du_chef"
+      "secret_du_chef",
+      "incendia"
     ],
     "icon": "tir_chanceux",
     "compatibilite": {
@@ -1822,10 +1825,10 @@
   },
   "resolu": {
     "nom": "Résolu",
-    "description": "Après avoir tué un ennemi avec un headshot, le tir suivant qui touche un ennemi est un headshot garanti.",
+    "description": "Après avoir tué un ennemi avec un headshot, le tir suivant qui touche un ennemi est un headshot garanti.\nMême si le talent est actif, le fait de tuer un ennemi ne déclenchera pas à nouveau le talent.",
     "icon": "resolu",
     "perfectDescription": "Après avoir tué un ennemi avec un headshot, le tir suivant qui touche un ennemi est un headshot critique garanti.\nMême si le talent est actif, le fait de tuer un ennemi ne déclenchera pas à nouveau le talent.",
-    "notes": "La version \"normal\" est considéré comme \"parfait\" dans les zone de pvp ",
+    "notes": "",
     "armesParfaites": [
       "relique",
       "prophete"
@@ -2831,6 +2834,7 @@
   "casse_tete": {
     "nom": "Casse-tête",
     "description": "Dégats d'arme accrus de **30%** (18%) **contre les ennemis confus**.\nAu baut de **4** (3) éliminations, inflige Confusion au prochain ennemi touché.",
+    "perfectDescription": "Dégats d'arme accrus de **35%** **contre les ennemis confus**.\nAu baut de **3** éliminations, inflige Confusion au prochain ennemi touché.",
     "notes": "(PVP)",
     "prerequis": "n/a",
     "armesParfaites": [
@@ -2852,6 +2856,64 @@
     "nom": "Règlement de comptes",
     "icone": "",
     "description": "**Toucher un ennemi** avec cette arme lui applique une **marque**. Vous ne pouvez appliquer **qu'une seule marque à la fois**. Si vous touchez un autre ennemi, **la marque lui est transférée**.\n**Davantage de marques** peuvent être appliquées sur le même ennemi par **d'autres agents** utilisant cette arme. **4** marques maximum peuvent être appliquées sur un ennemi.\nCette arme inflige **+20% de dégâts accrus** aux ennemis marqués. Le bonus augmente de **5%** pour chaque **marque en plus de la vôtre**.",
+    "prerequis": "n/a",
+    "estExotique": true
+  },
+  "l_ecume_aux_levres": {
+    "nom": "L'écume aux lèvres",
+    "icone": "",
+    "description": "",
+    "prerequis": "n/a",
+    "estExotique":false,
+    "perfectDescription": "Après avoir tué un ennemie avec un headshot, inflige **entrave** au prochain ennemi touché.\nAugmente les dégâts d'arme de **25% sur les ennemis entravés**.",
+    "armesParfaites": [
+      "rabid_d50"
+    ]
+  },
+  "racket": {
+    "nom": "Racket",
+    "icone": "",
+    "description": "Les tirs au corps infligent 1 effet cumulable à l'ennemi pendant **10s**.\nMaximun d'effets : **4**.\nToucher un ennemi différent supprime tous les effets.\n\nCette arme inflige**+4% de dégâts accrus** par effets cumulé.\n\nVotre prochain **headshot** sur un ennemi portant des effets cumulés consommera tous les effets pour infliger **+11% de dégâts accrus** pour chacun d'entre eux.\n\nSi vous détruisez le **point faible** d'un ennemi, celui-ci subit **+30% de dégâts accrus** de votre part pendant **5s**.",
+    "prerequis": "n/a",
+    "estExotique": true
+  },
+  "tu_peux_regarder": {
+    "nom": "Tu peux regarder...",
+    "icone": "",
+    "description": "Hors combat, confère **10 effets cumulés**.\nCette arme inflige **+11% de dégâts accrus** par effet.",
+    "prerequis": "n/a",
+    "estExotique": true
+  },
+  "mais_pas_toucher": {
+    "nom": "... mais pas toucher !",
+    "icone": "",
+    "description": "**1 effet cumulé** est dépensés pour réparer complètement une instance de dégâts subis.\nVous obtenez 1 effet toutes les **3s**.",
+    "prerequis": "n/a",
+    "estExotique": true
+  },
+  "point_d_ebullition": {
+    "nom": "Point d'ébullition",
+    "description": "Les premiers **53%** de votre chargeur auront **-100% de probabilité de coup critique**.\nLe reste du chargeur aura 100% de probabilité de coup critique.",
+    "perfectDescription": "Les premiers **48%** de votre chargeur auront **-100% de probabilité de coup critique**.\nLe reste du chargeur aura 100% de probabilité de coup critique.",
+    "armesParfaites": [
+      "cuit_vapeur"
+    ],
+    "prerequis": "n/a",
+    "icone": "",
+    "compatibilite": {
+      "fusil": false,
+      "calibre_12": false,
+      "fusil_assaut": true,
+      "fusil_mitrailleur": true,
+      "fusil_precision": false,
+      "pistolet": false,
+      "pistolet_mitrailleur":true
+    }
+  },
+  "stupefaction": {
+    "nom": "Stupéfaction",
+    "icone": "",
+    "description": "Chaque fois que cette arme rend un ennemi **fixé**, celui-ci subit l'effet **désorientation**, et vous ainsi que vos alliés bénéficiez d'un bonus de **+30% de dégâts infligés aux cibles à découvert** pendant **15s**.",
     "prerequis": "n/a",
     "estExotique": true
   }

@@ -333,7 +333,7 @@
       "attributs": [
         {
           "slug": "competences_de_reparation_eqp",
-          "value": 15
+          "value": 30
         }
       ]
     },
@@ -345,7 +345,7 @@
         },
         {
           "slug": "duree_competence_eqp",
-          "value": 15
+          "value": 30
         }
       ]
     },
@@ -2071,5 +2071,34 @@
     },
     "talentTorse": "nanites_en_surchage",
     "talentSac": "suppresseurs_ameliores"
+  },
+  "ember_engine": {
+    "nom": "Ember Engine",
+    "type": "gear_set",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "efficacite_de_competence",
+          "value": 8
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "effets_d_etat_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "combustion_spontanee"
+    },
+    "talentTorse": "point_de_tension",
+    "talentSac": "chauffe_a_blanc"
   }
 }

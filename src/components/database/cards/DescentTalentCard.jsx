@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { slugify } from '../../../utils/slugify.js';
 import MarkdownText from '../../common/MarkdownText'
+import { resolveAsset } from '../../common/GameAssets'
 
 export default function DescentTalentCard({ item, isStatic }) {
     const { nom, icon, descente, isWeaponTalent } = item;
@@ -71,7 +72,7 @@ export default function DescentTalentCard({ item, isStatic }) {
                     <div className="flex items-center gap-3">
                         {icon && (
                             <img
-                                src={`/img/game_assets/talents/${isWeaponTalent ? 'arme' : 'equipements'}/${icon}.png`}
+                                src={resolveAsset(icon)}
                                 alt={nom}
                                 className="w-8 h-8 object-contain"
                                 onError={(e) => { e.target.style.display = 'none'; }}

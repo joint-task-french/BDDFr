@@ -286,7 +286,7 @@ export const FIELDS = {
           { value: 'gear_set', label: 'Gear Set', color: 'green' },
           { value: 'marque', label: 'Marque', color: 'blue' },
         ]},
-      { key: 'icon', label: 'Logo (fichier)', type: 'text', placeholder: 'nom-du-icon.png' },
+      { key: 'icon', label: 'Logo (fichier)', type: 'text', placeholder: 'nom-du-icon' },
       { key: 'attributsEssentiels', label: 'Attributs essentiels', type: 'tagSelect', dynamicOptions: 'attributsTypes' },
       { key: 'bonus1piece', label: 'Bonus 1 pièce', type: 'objectGroup', hiddenWhen: { key: 'type', value: 'gear_set' }, fields: [
           { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [

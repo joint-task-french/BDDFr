@@ -11,6 +11,8 @@ Ce projet permet de consulter et de contribuer aux données concernant les armes
 - **Génération statique** : Scripts pour générer des pages statiques et des images dans les embeds sur les réseaux sociaux.
 - **Validation automatique** : Utilisation de schémas JSON pour garantir l'intégrité des données.
 - **Build Planner** : Outil intégré pour planifier et visualiser vos builds.
+- **Comparateur** : Comparez jusqu'à 4 éléments d'une même catégorie côte à côte (clic droit sur un élément → *Comparer*). Toutes les armes se comparent entre elles ; les équipements et les mods, uniquement à emplacement égal.
+- **Listes personnelles** : Créez des listes d'éléments (clic droit → *Ajouter à une liste*), enregistrées dans votre navigateur, exportables et importables en JSON.
 - **Open Source** : Système de contribution via GitHub (Issues et Pull Requests).
 
 ## 🛠️ Installation et Développement
@@ -33,7 +35,11 @@ npm install
 - `npm run dev` : Lance le serveur de développement Vite.
 - `npm run build` : Compile le projet pour la production et génère les pages statiques.
 - `npm run sync-data` : Synchronise les fichiers de données de `src/data/` vers `public/data/`.
-- `npm run validate` : Valide les fichiers JSONC par rapport aux schémas définis.
+- `npm run validate` : Valide les fichiers JSONC par rapport aux schémas définis, puis lance les tests.
+- `npm test` : Lance la suite de tests (Vitest).
+- `npm run smoke` : Charge l'application compilée dans un vrai navigateur et échoue à la moindre erreur.
+- `npm run lint` : Analyse statique du code (ESLint).
+- `npm run generate-types` : Régénère les types TypeScript depuis les schémas JSON.
 
 ## 📁 Structure du Projet
 

@@ -5,21 +5,21 @@
  * Icônes de talents, compétences et marques : import.meta.glob dynamique (auto-découverte).
  *
  * Pour ajouter un nouvel asset talent/compétence/marque :
- *   1. Déposer le fichier .png dans le bon dossier sous src/img/game_assets/
- *   2. Renseigner le champ "icon" dans le JSONC correspondant avec le nom du fichier (sans .png)
+ *   1. Déposer le fichier .webp dans le bon dossier sous src/img/game_assets/
+ *   2. Renseigner le champ "icon" dans le JSONC correspondant avec le nom du fichier (sans extension)
  *   → L'icône sera automatiquement disponible, aucun code à modifier.
  */
 
 // ================================================================
 // ICÔNES TYPE D'ARME (fixes, peu nombreux)
 // ================================================================
-import arme_fusil_assaut from '../../img/game_assets/armes/fusil_assaut.png'
-import arme_fusil from '../../img/game_assets/armes/fusil.png'
-import arme_sniper from '../../img/game_assets/armes/sniper.png'
-import arme_pistolet_mitrailleur from '../../img/game_assets/armes/pistolet_mitrailleur.png'
-import arme_lmg from '../../img/game_assets/armes/fusil_mitrailleur.png'
-import arme_calibre12 from '../../img/game_assets/armes/calibre12.png'
-import arme_pistolet from '../../img/game_assets/armes/pistolet.png'
+import arme_fusil_assaut from '../../img/game_assets/armes/fusil_assaut.webp'
+import arme_fusil from '../../img/game_assets/armes/fusil.webp'
+import arme_sniper from '../../img/game_assets/armes/sniper.webp'
+import arme_pistolet_mitrailleur from '../../img/game_assets/armes/pistolet_mitrailleur.webp'
+import arme_lmg from '../../img/game_assets/armes/fusil_mitrailleur.webp'
+import arme_calibre12 from '../../img/game_assets/armes/calibre12.webp'
+import arme_pistolet from '../../img/game_assets/armes/pistolet.webp'
 
 export const WEAPON_TYPE_ICONS = {
   fusil_assaut: arme_fusil_assaut,
@@ -34,12 +34,12 @@ export const WEAPON_TYPE_ICONS = {
 // ================================================================
 // ICÔNES TYPE D'ÉQUIPEMENT (fixes, peu nombreux)
 // ================================================================
-import equip_masque from '../../img/game_assets/equipements-type/masque.png'
-import equip_torse from '../../img/game_assets/equipements-type/torse.png'
-import equip_holster from '../../img/game_assets/equipements-type/holster.png'
-import equip_sac from '../../img/game_assets/equipements-type/sac.png'
-import equip_gants from '../../img/game_assets/equipements-type/gants.png'
-import equip_genouilleres from '../../img/game_assets/equipements-type/genouilleres.png'
+import equip_masque from '../../img/game_assets/equipements-type/masque.webp'
+import equip_torse from '../../img/game_assets/equipements-type/torse.webp'
+import equip_holster from '../../img/game_assets/equipements-type/holster.webp'
+import equip_sac from '../../img/game_assets/equipements-type/sac.webp'
+import equip_gants from '../../img/game_assets/equipements-type/gants.webp'
+import equip_genouilleres from '../../img/game_assets/equipements-type/genouilleres.webp'
 
 export const GEAR_SLOT_ICONS_IMG = {
   masque: equip_masque,
@@ -82,7 +82,7 @@ export function resolveAttribut(attr) {
 // ================================================================
 // CHARGEMENT DYNAMIQUE — import.meta.glob (eager)
 // Scanne automatiquement les dossiers et indexe par nom de fichier.
-// Pour ajouter une icône : déposer le .png dans le dossier, c'est tout.
+// Pour ajouter une icône : déposer le .webp dans le dossier, c'est tout.
 // ================================================================
 
 /**
@@ -91,16 +91,22 @@ export function resolveAttribut(attr) {
  */
 function buildIndex(globResult) {
   const index = {}
-  for (const [path, mod] of Object.entries(globResult)) {
-    // path ex: "../img/game_assets/talents/arme/killer.png"
+  for (const [path, url] of Object.entries(globResult)) {
+    // path ex: "../img/game_assets/talents/arme/killer.webp"
     const slug = path.split('/').pop().replace(/\.\w+$/, '')
-    index[slug] = mod.default
+    index[slug] = url
   }
   return index
 }
 
-// Talents d'armes (classiques + exotiques)
-const _allAssets = import.meta.glob('../../img/**/*.{png,jpg,jpeg,webp,svg}', { eager: true })
+// `query: '?url'` force Vite a produire des URL d'assets et jamais le contenu
+// du fichier : l'index reste une simple table slug -> URL, cachable et sans
+// base64 dans le bundle JS (cf. build.assetsInlineLimit dans vite.config.js).
+const _allAssets = import.meta.glob('../../img/**/*.{png,jpg,jpeg,webp,svg}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
 export const ALL_ASSETS = buildIndex(_allAssets)
 
 /**

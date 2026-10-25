@@ -1,17 +1,60 @@
 /**
  * Service pour interagir avec l'API Buildotheque.
+ *
+ * Gestion des erreurs : chaque `catch` renvoyait `null` ou `[]`, ce qui rendait
+ * une panne reseau indistinguable d'un resultat legitimement vide — l'UI
+ * affichait « aucun build » aussi bien quand l'API etait tombee que quand la
+ * recherche ne donnait rien. Desormais :
+ *   - les listes renvoient `{ builds, total, error }` (champ `error` additif :
+ *     les appelants existants continuent de lire `.builds` et `.total`) ;
+ *   - `lastError` retient la derniere erreur ;
+ *   - un evenement `api-error` est emis, pour qu'une banniere s'affiche sans
+ *     que chaque appelant ait a gerer le cas.
  */
+
+const TOKEN_KEY = 'buildLibrary_token';
+const USER_KEY = 'buildLibrary_user';
+const API_URL_OVERRIDE_KEY = 'buildLibraryApiUrl_override';
+
+export const API_ERROR_EVENT = 'api-error';
+
+/** Lecture de localStorage tolerante (navigation privee, quota, stockage bloque). */
+function readStorage(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function removeStorage(key) {
+  try {
+    localStorage.removeItem(key);
+  } catch {
+    /* stockage indisponible */
+  }
+}
+
+function writeStorage(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    /* stockage indisponible */
+  }
+}
 
 class ApiBuildotheque {
   constructor() {
-    this.baseUrl = localStorage.getItem('buildLibraryApiUrl_override') || null;
-    this.token = localStorage.getItem('buildLibrary_token') || null;
+    this.baseUrl = readStorage(API_URL_OVERRIDE_KEY) || null;
+    this.token = readStorage(TOKEN_KEY) || null;
     this.initialLoadPromise = null;
     this.cachedInitialData = null;
     this.userLikes = []; // IDs des builds likés par l'utilisateur
+    this.tokenExpiry = null;
+    this.lastError = null;
 
     try {
-      const rawUser = localStorage.getItem('buildLibrary_user');
+      const rawUser = readStorage(USER_KEY);
       // Protection contre les vieilles données corrompues dans le cache
       if (rawUser && rawUser !== 'undefined' && rawUser !== '[object Object]') {
         this.user = JSON.parse(rawUser);
@@ -19,16 +62,22 @@ class ApiBuildotheque {
         this.user = null;
       }
     } catch (e) {
-      console.warn("Données utilisateur invalides nettoyées.");
+      console.warn('Données utilisateur invalides nettoyées.');
       this.user = null;
-      localStorage.removeItem('buildLibrary_user');
+      removeStorage(USER_KEY);
     }
 
-    // Si le token est présent mais l'utilisateur est vide, on force le décodage du JWT.
-    if (this.token && !this.user) {
+    // Le JWT est toujours redecode : le cache localStorage ne contient pas
+    // l'expiration, indispensable pour ne pas afficher une session perimee.
+    if (this.token) {
       this.decodeAndSetUser(this.token);
+      if (this.isTokenExpired()) {
+        this.clearSession();
+      }
     }
   }
+
+  // --- Session ------------------------------------------------------------
 
   decodeAndSetUser(token) {
     try {
@@ -41,26 +90,84 @@ class ApiBuildotheque {
         base64 += new Array(5 - pad).join('=');
       }
 
-      const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-      }).join(''));
+      const jsonPayload = decodeURIComponent(
+        window.atob(base64)
+          .split('')
+          .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+          .join('')
+      );
 
       const userData = JSON.parse(jsonPayload);
 
       this.user = {
         id: userData.sub,
         username: userData.username,
-        avatar: userData.avatar
+        avatar: userData.avatar,
       };
+      // `exp` est exprime en secondes depuis l'epoch (RFC 7519).
+      this.tokenExpiry = Number.isFinite(userData.exp) ? userData.exp * 1000 : null;
 
-      localStorage.setItem('buildLibrary_user', JSON.stringify(this.user));
+      writeStorage(USER_KEY, JSON.stringify(this.user));
       return true;
     } catch (e) {
-      console.error("Erreur critique lors du décodage du JWT:", e);
+      console.error('Erreur critique lors du décodage du JWT:', e);
       this.user = null;
       return false;
     }
   }
+
+  isTokenExpired() {
+    return this.tokenExpiry !== null && Date.now() >= this.tokenExpiry;
+  }
+
+  /** Purge la session locale, sans emettre d'evenement. */
+  clearSession() {
+    this.token = null;
+    this.user = null;
+    this.tokenExpiry = null;
+    this.userLikes = [];
+    removeStorage(TOKEN_KEY);
+    removeStorage(USER_KEY);
+  }
+
+  /**
+   * La seule presence d'un token ne suffit pas : sans controle de `exp`, l'UI
+   * affichait « connecte » avec un JWT perime et chaque action echouait en
+   * silence.
+   */
+  isAuthenticated() {
+    if (!this.token) return false;
+    if (this.isTokenExpired()) {
+      this.clearSession();
+      return false;
+    }
+    return true;
+  }
+
+  loginDiscord(metadataBaseUrl) {
+    const url = this.getBaseUrl(metadataBaseUrl);
+    if (!url) {
+      this.reportFailure('Connexion Discord : aucune URL d API configurée.');
+      return;
+    }
+    window.location.href = `${url}/auth/discord`;
+  }
+
+  handleAuthCallback(token) {
+    if (token) {
+      this.token = token;
+      writeStorage(TOKEN_KEY, token);
+      this.decodeAndSetUser(token);
+    }
+    window.dispatchEvent(new CustomEvent('auth-change', { detail: { user: this.user } }));
+  }
+
+  async logout() {
+    this.clearSession();
+    window.dispatchEvent(new CustomEvent('auth-change', { detail: { user: null } }));
+  }
+
+  // --- URL de base --------------------------------------------------------
 
   setBaseUrl(url, metadataBaseUrl) {
     this.baseUrl = url || metadataBaseUrl;
@@ -70,9 +177,141 @@ class ApiBuildotheque {
     return this.baseUrl || metadataBaseUrl;
   }
 
+  // --- Socle de requete ---------------------------------------------------
+
+  /** Enregistre l'erreur et previent l'UI. Renvoie toujours le message. */
+  reportFailure(message) {
+    this.lastError = { message, at: Date.now() };
+    console.error('[Buildothèque]', message);
+    try {
+      window.dispatchEvent(new CustomEvent(API_ERROR_EVENT, { detail: { message } }));
+    } catch {
+      /* environnement sans DOM */
+    }
+    return message;
+  }
+
+  getLastError() {
+    return this.lastError;
+  }
+
+  clearLastError() {
+    this.lastError = null;
+  }
+
   /**
-   * Précharge les builds "top" et "recent" pour une navigation plus rapide.
+   * Requete unique partagee par tous les points d'entree.
+   * Renvoie `{ data, error }` : jamais d'exception, et jamais d'ambiguite
+   * entre « vide » et « en panne ».
    */
+  async request(path, { baseUrl, method = 'GET', body, auth = false, label } = {}) {
+    if (!baseUrl) {
+      return { data: null, error: this.reportFailure(`${label} : aucune URL d API configurée.`) };
+    }
+    if (auth && !this.isAuthenticated()) {
+      return { data: null, error: this.reportFailure(`${label} : session expirée ou absente.`) };
+    }
+
+    const headers = { Accept: 'application/json' };
+    if (auth) headers.Authorization = `Bearer ${this.token}`;
+    if (body !== undefined) headers['Content-Type'] = 'application/json';
+
+    try {
+      const response = await fetch(`${baseUrl}${path}`, {
+        method,
+        mode: 'cors',
+        headers,
+        ...(body !== undefined ? { body: JSON.stringify(body) } : {}),
+      });
+
+      if (response.status === 401 || response.status === 403) {
+        // Le serveur a rejete le token : la session locale est perimee.
+        this.clearSession();
+        return { data: null, error: this.reportFailure(`${label} : session refusée par le serveur.`) };
+      }
+      if (!response.ok) {
+        return { data: null, error: this.reportFailure(`${label} : erreur serveur (HTTP ${response.status}).`) };
+      }
+      // Une suppression réussie peut ne rien renvoyer.
+      if (response.status === 204) {
+        return { data: true, error: null };
+      }
+
+      return { data: await response.json(), error: null };
+    } catch (e) {
+      // TypeError = reseau injoignable ou CORS ; le reste = reponse illisible.
+      const cause = e instanceof TypeError ? 'service injoignable' : e.message;
+      return { data: null, error: this.reportFailure(`${label} : ${cause}.`) };
+    }
+  }
+
+  /** Construit la query string commune aux endpoints de liste. */
+  buildListQuery(params = {}) {
+    const q = new URLSearchParams();
+    if (params.text) q.append('text', params.text);
+    if (params.tags) q.append('tags', Array.isArray(params.tags) ? params.tags.join(',') : params.tags);
+    if (params.auteurId) q.append('auteurId', params.auteurId);
+    if (params.limit) q.append('limit', params.limit);
+    if (params.offset) q.append('offset', params.offset);
+    if (params.random !== undefined) q.append('random', params.random);
+    const s = q.toString();
+    return s ? `?${s}` : '';
+  }
+
+  /**
+   * Les trois listes ne differaient que par leur chemin : meme construction de
+   * query, meme gestion d'erreur, meme forme de retour.
+   */
+  async fetchList(path, params, metadataBaseUrl, label) {
+    const { data, error } = await this.request(path + this.buildListQuery(params), {
+      baseUrl: this.getBaseUrl(metadataBaseUrl),
+      label,
+    });
+
+    // Forme retro-compatible : `.builds` et `.total` restent lisibles tels
+    // quels ; `.error` distingue la panne du resultat vide.
+    if (error) return { builds: [], total: 0, error };
+    return { builds: data?.builds ?? [], total: data?.total ?? 0, error: null };
+  }
+
+  // --- Lectures -----------------------------------------------------------
+
+  async fetchBuilds(params = {}, metadataBaseUrl) {
+    return this.fetchList('/builds', params, metadataBaseUrl, 'Recherche de builds');
+  }
+
+  async fetchRecentBuilds(params = {}, metadataBaseUrl) {
+    return this.fetchList('/builds/recent', params, metadataBaseUrl, 'Builds récents');
+  }
+
+  async fetchTopBuilds(params = {}, metadataBaseUrl) {
+    return this.fetchList('/builds/top', params, metadataBaseUrl, 'Builds populaires');
+  }
+
+  async fetchBuildById(buildId, metadataBaseUrl) {
+    const { data } = await this.request(`/builds/${buildId}`, {
+      baseUrl: this.getBaseUrl(metadataBaseUrl),
+      label: 'Chargement du build',
+    });
+    return data;
+  }
+
+  async fetchUserLikes(metadataBaseUrl) {
+    if (!this.isAuthenticated()) return [];
+    const { data } = await this.request('/likes', {
+      baseUrl: this.getBaseUrl(metadataBaseUrl),
+      auth: true,
+      label: 'Récupération des favoris',
+    });
+    this.userLikes = Array.isArray(data) ? data : [];
+    return this.userLikes;
+  }
+
+  getUserLikes() {
+    return this.userLikes;
+  }
+
+  /** Précharge les builds "top" et "recent" pour une navigation plus rapide. */
   async preloadInitialBuilds(metadataBaseUrl) {
     if (this.initialLoadPromise) return this.initialLoadPromise;
 
@@ -80,296 +319,84 @@ class ApiBuildotheque {
     if (!url) return null;
 
     this.initialLoadPromise = (async () => {
-      try {
-        console.log("Preloading initial builds...");
-        const [top, recent] = await Promise.all([
-          this.fetchTopBuilds({ limit: 6 }, url),
-          this.fetchRecentBuilds({ limit: 6 }, url)
-        ]);
+      const [top, recent] = await Promise.all([
+        this.fetchTopBuilds({ limit: 6 }, url),
+        this.fetchRecentBuilds({ limit: 6 }, url),
+      ]);
 
-        let likes = [];
-        if (this.isAuthenticated()) {
-          likes = await this.fetchUserLikes(url);
-          this.userLikes = likes;
-        }
-
-        this.cachedInitialData = { top, recent, likes };
-        return this.cachedInitialData;
-      } catch (e) {
-        console.error("Preload Error:", e);
+      // Un prechargement en echec ne doit pas etre mis en cache : sinon la page
+      // Buildothèque afficherait durablement un resultat vide apres une panne
+      // passagere.
+      if (top.error || recent.error) {
         this.initialLoadPromise = null;
         this.cachedInitialData = null;
         return null;
       }
+
+      let likes = [];
+      if (this.isAuthenticated()) {
+        likes = await this.fetchUserLikes(url);
+        this.userLikes = likes;
+      }
+
+      this.cachedInitialData = { top, recent, likes };
+      return this.cachedInitialData;
     })();
 
     return this.initialLoadPromise;
   }
 
-  async fetchBuilds(params = {}, metadataBaseUrl) {
-    const url = this.getBaseUrl(metadataBaseUrl);
-    const queryParams = new URLSearchParams();
-    if (params.text) queryParams.append('text', params.text);
-    if (params.tags) queryParams.append('tags', Array.isArray(params.tags) ? params.tags.join(',') : params.tags);
-    if (params.auteurId) queryParams.append('auteurId', params.auteurId);
-    if (params.limit) queryParams.append('limit', params.limit);
-    if (params.offset) queryParams.append('offset', params.offset);
-    if (params.random !== undefined) queryParams.append('random', params.random);
-
-    const queryString = queryParams.toString();
-    const fullUrl = `${url}/builds${queryString ? `?${queryString}` : ''}`;
-
-    try {
-      console.log(`Fetching builds from: ${fullUrl}`);
-      const response = await fetch(fullUrl, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'Accept': 'application/json',
-        }
-      });
-      if (!response.ok) {
-        console.error(`HTTP error! status: ${response.status}`);
-        throw new Error('Erreur lors de la récupération des builds');
-      }
-      const data = await response.json();
-      return data;
-    } catch (e) {
-      console.error("API Fetch Error:", e);
-      return { builds: [], total: 0 };
-    }
-  }
-
-  async fetchRecentBuilds(params = {}, metadataBaseUrl) {
-    const url = this.getBaseUrl(metadataBaseUrl);
-    const queryParams = new URLSearchParams();
-    if (params.text) queryParams.append('text', params.text);
-    if (params.tags) queryParams.append('tags', Array.isArray(params.tags) ? params.tags.join(',') : params.tags);
-    if (params.auteurId) queryParams.append('auteurId', params.auteurId);
-    if (params.limit) queryParams.append('limit', params.limit);
-    if (params.offset) queryParams.append('offset', params.offset);
-
-    const queryString = queryParams.toString();
-    const fullUrl = `${url}/builds/recent${queryString ? `?${queryString}` : ''}`;
-
-    try {
-      console.log(`Fetching recent builds from: ${fullUrl}`);
-      const response = await fetch(fullUrl, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'Accept': 'application/json',
-        }
-      });
-      if (!response.ok) throw new Error('Erreur API Recent');
-      return await response.json();
-    } catch (e) {
-      console.error("API Recent Error:", e);
-      return { builds: [], total: 0 };
-    }
-  }
-
-  async fetchTopBuilds(params = {}, metadataBaseUrl) {
-    const url = this.getBaseUrl(metadataBaseUrl);
-    const queryParams = new URLSearchParams();
-    if (params.text) queryParams.append('text', params.text);
-    if (params.tags) queryParams.append('tags', Array.isArray(params.tags) ? params.tags.join(',') : params.tags);
-    if (params.auteurId) queryParams.append('auteurId', params.auteurId);
-    if (params.limit) queryParams.append('limit', params.limit);
-    if (params.offset) queryParams.append('offset', params.offset);
-
-    const queryString = queryParams.toString();
-    const fullUrl = `${url}/builds/top${queryString ? `?${queryString}` : ''}`;
-
-    try {
-      console.log(`Fetching top builds from: ${fullUrl}`);
-      const response = await fetch(fullUrl, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'Accept': 'application/json',
-        }
-      });
-      if (!response.ok) throw new Error('Erreur API Top');
-      return await response.json();
-    } catch (e) {
-      console.error("API Top Error:", e);
-      return { builds: [], total: 0 };
-    }
-  }
-
-  async fetchBuildById(buildId, metadataBaseUrl) {
-    const url = this.getBaseUrl(metadataBaseUrl);
-    try {
-      console.log(`Fetching build by id: ${url}/builds/${buildId}`);
-      const response = await fetch(`${url}/builds/${buildId}`, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'Accept': 'application/json',
-        }
-      });
-      if (!response.ok) {
-        console.error(`HTTP error! status: ${response.status}`);
-        throw new Error('Erreur lors de la récupération du build');
-      }
-      return await response.json();
-    } catch (e) {
-      console.error("API Fetch By ID Error:", e);
-      return null;
-    }
-  }
-
-  async loginDiscord(metadataBaseUrl) {
-    const url = this.getBaseUrl(metadataBaseUrl);
-    console.log(`Redirecting to Discord login at: ${url}/auth/discord`);
-    window.location.href = `${url}/auth/discord`;
-  }
-
-  handleAuthCallback(token) {
-    console.log("Handling auth callback...", { hasToken: !!token });
-    if (token) {
-      this.token = token;
-      localStorage.setItem('buildLibrary_token', token);
-      this.decodeAndSetUser(token);
-    }
-
-    console.log("Dispatching auth-change event...");
-    window.dispatchEvent(new CustomEvent('auth-change', { detail: { user: this.user } }));
-  }
-
-  async logout() {
-    console.log("Logging out...");
-    this.token = null;
-    this.user = null;
-    localStorage.removeItem('buildLibrary_token');
-    localStorage.removeItem('buildLibrary_user');
-    window.dispatchEvent(new CustomEvent('auth-change', { detail: { user: null } }));
-  }
+  // --- Ecritures ----------------------------------------------------------
 
   async toggleLike(buildId, metadataBaseUrl) {
-    if (!this.token) return null;
-    const url = this.getBaseUrl(metadataBaseUrl);
-    try {
-      const response = await fetch(`${url}/builds/${buildId}/like`, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Authorization': `Bearer ${this.token}`,
-          'Accept': 'application/json',
-        }
-      });
-      const data = await response.json();
-      
-      // Mise à jour locale du cache des likes
-      if (data && data.isLiked !== undefined) {
-        if (data.isLiked) {
-          if (!this.userLikes.includes(buildId)) this.userLikes.push(buildId);
-        } else {
-          this.userLikes = this.userLikes.filter(id => id !== buildId);
-        }
+    const { data } = await this.request(`/builds/${buildId}/like`, {
+      baseUrl: this.getBaseUrl(metadataBaseUrl),
+      method: 'POST',
+      auth: true,
+      label: 'Mise à jour du favori',
+    });
+
+    // Mise à jour locale du cache des likes
+    if (data && data.isLiked !== undefined) {
+      if (data.isLiked) {
+        if (!this.userLikes.includes(buildId)) this.userLikes.push(buildId);
+      } else {
+        this.userLikes = this.userLikes.filter(id => id !== buildId);
       }
-      
-      return data;
-    } catch (e) {
-      console.error("API Like Error:", e);
-      return null;
     }
-  }
-
-  async fetchUserLikes(metadataBaseUrl) {
-    if (!this.token) return [];
-    const url = this.getBaseUrl(metadataBaseUrl);
-    try {
-      console.log(`Fetching user likes from: ${url}/likes`);
-      const response = await fetch(`${url}/likes`, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'Authorization': `Bearer ${this.token}`,
-          'Accept': 'application/json',
-        }
-      });
-      if (!response.ok) throw new Error('Erreur API Likes');
-      const likes = await response.json(); // On suppose que c'est un tableau d'IDs
-      this.userLikes = Array.isArray(likes) ? likes : [];
-      return this.userLikes;
-    } catch (e) {
-      console.error("API User Likes Error:", e);
-      return [];
-    }
-  }
-
-  getUserLikes() {
-    return this.userLikes;
+    return data;
   }
 
   async publishBuild(buildData, metadataBaseUrl) {
-    if (!this.token) return null;
-    const url = this.getBaseUrl(metadataBaseUrl);
-    try {
-      const response = await fetch(`${url}/builds`, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Authorization': `Bearer ${this.token}`,
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(buildData)
-      });
-      if (!response.ok) throw new Error('Erreur lors de la publication du build');
-      return await response.json();
-    } catch (e) {
-      console.error("API Publish Error:", e);
-      return null;
-    }
+    const { data } = await this.request('/builds', {
+      baseUrl: this.getBaseUrl(metadataBaseUrl),
+      method: 'POST',
+      body: buildData,
+      auth: true,
+      label: 'Publication du build',
+    });
+    return data;
   }
 
   async updateBuild(buildId, buildData, metadataBaseUrl) {
-    if (!this.token) return null;
-    const url = this.getBaseUrl(metadataBaseUrl);
-    try {
-      const response = await fetch(`${url}/builds/${buildId}`, {
-        method: 'PATCH',
-        mode: 'cors',
-        headers: {
-          'Authorization': `Bearer ${this.token}`,
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(buildData)
-      });
-      if (!response.ok) throw new Error('Erreur lors de la mise à jour du build');
-      return await response.json();
-    } catch (e) {
-      console.error("API Update Error:", e);
-      return null;
-    }
+    const { data } = await this.request(`/builds/${buildId}`, {
+      baseUrl: this.getBaseUrl(metadataBaseUrl),
+      method: 'PATCH',
+      body: buildData,
+      auth: true,
+      label: 'Mise à jour du build',
+    });
+    return data;
   }
 
   async deleteBuild(buildId, metadataBaseUrl) {
-    if (!this.token) return null;
-    const url = this.getBaseUrl(metadataBaseUrl);
-    try {
-      const response = await fetch(`${url}/builds/${buildId}`, {
-        method: 'DELETE',
-        mode: 'cors',
-        headers: {
-          'Authorization': `Bearer ${this.token}`,
-          'Accept': 'application/json',
-        }
-      });
-      if (!response.ok) throw new Error('Erreur lors de la suppression du build');
-      return true;
-    } catch (e) {
-      console.error("API Delete Error:", e);
-      return false;
-    }
-  }
-
-  isAuthenticated() {
-    return !!this.token;
+    const { error } = await this.request(`/builds/${buildId}`, {
+      baseUrl: this.getBaseUrl(metadataBaseUrl),
+      method: 'DELETE',
+      auth: true,
+      label: 'Suppression du build',
+    });
+    return !error;
   }
 }
 

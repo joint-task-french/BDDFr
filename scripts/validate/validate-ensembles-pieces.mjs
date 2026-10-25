@@ -40,7 +40,7 @@ function loadJsonc(filename) {
         const content = readFileSync(filepath, 'utf8')
         return JSON.parse(stripComments(content))
     } catch (e) {
-        throw new Error(`Impossible de charger ${filename} : ${e.message}`)
+        throw new Error(`Impossible de charger ${filename} : ${e.message}`, { cause: e })
     }
 }
 

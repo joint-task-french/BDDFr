@@ -12,6 +12,12 @@ permissions:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
+# Une seule execution par issue : evite qu'une rafale d'editions d'issue
+# ne lance des dizaines de jobs concurrents avec un token en ecriture.
+concurrency:
+  group: contribution-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
 jobs:
   create-pr:
     if: startsWith(github.event.issue.title, '[Contribution]')
@@ -30,13 +36,26 @@ jobs:
           cache: 'npm'
 
       - name: Installer les dépendances
-        run: npm install
+        run: npm ci
 
       - name: Appliquer le patch JSONC
         id: apply-patch
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: node scripts/apply-contribution-patch.mjs
+
+      - name: Vérifier que seuls les JSONC de données ont été modifiés
+        run: |
+          # Garde-fou independant de la validation du script : meme si celle-ci
+          # etait contournee, on refuse de continuer si un fichier hors
+          # src/data/**.jsonc a ete cree ou modifie par le patch.
+          UNEXPECTED=$(git status --porcelain | awk '{print $2}' | grep -vE '^src/data/.*\.jsonc$' || true)
+          if [ -n "$UNEXPECTED" ]; then
+            echo "::error::Le patch a modifié des fichiers hors src/data/ :"
+            echo "$UNEXPECTED"
+            exit 1
+          fi
+          echo "OK : seuls des JSONC de src/data/ ont été modifiés."
 
       - name: Valider les JSONC (Sécurité locale)
         run: npm run validate

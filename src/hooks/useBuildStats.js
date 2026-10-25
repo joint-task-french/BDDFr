@@ -3,25 +3,30 @@ import { useBuild } from '../context/BuildContext'
 import { normalizeText } from '../utils/textUtils'
 
 /**
- * Mapping attribut essentiel → catégorie de core.
+ * Categories de coeur reconnues. Alignees sur l'enum du schema
+ * src/data/schemas/equipements/ensembles.schema.json, qui contraint deja
+ * `attributsEssentiels` a ['offensif', 'defensif', 'utilitaire', 'random'].
  */
-function resolveCoreCategory(essentialName, attributs) {
-  if (!essentialName) return null
-  const norm = essentialName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+export const CORE_CATEGORIES = new Set(['offensif', 'defensif', 'utilitaire'])
 
-  if (!attributs) return null
-  const match = Object.values(attributs).find(a => {
-    if (!a.estEssentiel || !a.cible?.includes('equipement')) return false
-    const aNorm = a.nom.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    const slugNorm = a.slug.toLowerCase().replace(/_/g, ' ')
-    return aNorm === norm || aNorm.includes(norm) || norm.includes(aNorm) || slugNorm.includes(norm) || norm.includes(slugNorm)
-  })
-  if (match) return match.categorie
-  
-  if (norm.includes('degat') || norm.includes('arme') || norm.includes('offensif')) return 'offensif'
-  if (norm.includes('protect') || norm.includes('armure') || norm.includes('defensif')) return 'defensif'
-  if (norm.includes('competence') || norm.includes('tier') || norm.includes('utilitaire')) return 'utilitaire'
-  return null
+/**
+ * Mapping attribut essentiel -> categorie de coeur.
+ *
+ * `attributsEssentiels` contient DEJA des categories, pas des noms d'attributs :
+ * l'ancienne implementation faisait du rapprochement flou (inclusion de
+ * sous-chaines sur des noms francais, puis heuristiques sur 'degat', 'armure',
+ * 'tier'...) pour retrouver une information deja presente telle quelle. Une
+ * correspondance approximative pouvait produire une statistique fausse sans le
+ * moindre signal ; le schema garantissant les valeurs, une correspondance
+ * exacte suffit.
+ *
+ * 'random' est une valeur legitime : un coeur aleatoire n'est attribuable a
+ * aucune categorie, il n est donc pas compte.
+ */
+export function resolveCoreCategory(essentialCategory) {
+  if (!essentialCategory) return null
+  const cat = normCat(essentialCategory)
+  return CORE_CATEGORIES.has(cat) ? cat : null
 }
 
 function normCat(cat) {
@@ -717,7 +722,7 @@ export function useBuildStats(data) {
       ]
     })
 
-    const { counts: coreCounts, sources: coreSources } = calculateCores(build.gearAttributes, build.gear, ensemblesMap, data.attributs)
+    const { counts: coreCounts, sources: coreSources } = calculateCores(build.gearAttributes, build.gear, ensemblesMap)
 
     return {
       coreStats: coreCounts,
@@ -740,7 +745,7 @@ export function useBuildStats(data) {
 
 // --- Fonctions Helpers auxiliaires ---
 
-function calculateCores(gearAttributes, gear, ensemblesMap, attributsRepo) {
+function calculateCores(gearAttributes, gear, ensemblesMap) {
   const counts = { offensif: 0, defensif: 0, utilitaire: 0 }
   const sources = { offensif: [], defensif: [], utilitaire: [] }
   const slots = ['masque', 'torse', 'holster', 'sac_a_dos', 'gants', 'genouilleres']
@@ -764,7 +769,7 @@ function calculateCores(gearAttributes, gear, ensemblesMap, attributsRepo) {
       const ensemble = (piece.marque && piece.marque !== '*') ? ensemblesMap[piece.marque] : null
       if (ensemble?.attributsEssentiels) {
         ensemble.attributsEssentiels.forEach(essName => {
-          const cat = resolveCoreCategory(essName, attributsRepo)
+          const cat = resolveCoreCategory(essName)
           const nc = normCat(cat)
           if (counts[nc] !== undefined) {
             counts[nc]++

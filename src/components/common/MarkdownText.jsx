@@ -1,11 +1,15 @@
-import { useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'
 import rehypeRaw from 'rehype-raw'
 import { useNavigate } from 'react-router-dom'
 import {resolveAsset} from "./GameAssets.jsx";
-import MermaidDiagram from "./MermaidDiagram.jsx";
+// Mermaid et ses dependances (cytoscape, katex, un chunk par type de diagramme)
+// pesaient ~414 Ko dans le chunk MarkdownText, charge sur la page Base de
+// donnees alors que les diagrammes n existent que dans quelques pages de
+// contenu. Charge uniquement si un bloc ```mermaid est rencontre.
+const MermaidDiagram = lazy(() => import("./MermaidDiagram.jsx"));
 
 export default function MarkdownText({ children, className = "" }) {
     const [zoomedImage, setZoomedImage] = useState(null);
@@ -57,7 +61,11 @@ export default function MarkdownText({ children, className = "" }) {
                     code: ({node, inline, className: codeClassName, children: codeChildren, ...props}) => {
                         const match = /language-(\w+)/.exec(codeClassName || '')
                         if (!inline && match && match[1] === 'mermaid') {
-                            return <MermaidDiagram chart={String(codeChildren).replace(/\n$/, '')} />
+                            return (
+                                <Suspense fallback={<pre className="bg-tactical-hover p-4 rounded my-4 text-xs text-gray-500 border border-tactical-border">Chargement du diagramme…</pre>}>
+                                    <MermaidDiagram chart={String(codeChildren).replace(/\n$/, '')} />
+                                </Suspense>
+                            )
                         }
                         return inline
                             ? <code className="bg-tactical-hover text-shd px-1.5 py-0.5 rounded text-sm font-mono" {...props}>{codeChildren}</code>
@@ -65,7 +73,10 @@ export default function MarkdownText({ children, className = "" }) {
                     },
                     pre: ({node, children: preChildren, ...props}) => {
                         const child = Array.isArray(preChildren) ? preChildren[0] : preChildren
-                        if (child?.type === MermaidDiagram) {
+                        // Le rendu `code` enveloppe le diagramme dans un Suspense :
+                        // on remonte ce Suspense tel quel plutot que de le glisser
+                        // dans un <pre>.
+                        if (child?.type === Suspense) {
                             return child
                         }
                         return <pre className="bg-tactical-hover p-4 rounded my-4 overflow-x-auto border border-tactical-border" {...props}>{preChildren}</pre>

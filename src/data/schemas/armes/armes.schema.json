@@ -114,7 +114,7 @@
         "icon": {
           "type": "string",
           "pattern": "^[a-z0-9_]+$",
-          "description": "Slug du fichier icône du talent exotique/nommé dans game_assets/talents/arme/ (sans .png)"
+          "description": "Slug du fichier icône du talent exotique/nommé dans game_assets/talents/arme/ (sans extension)"
         },
         "type": {
           "type": "string",

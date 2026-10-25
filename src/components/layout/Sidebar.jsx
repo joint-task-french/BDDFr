@@ -27,7 +27,6 @@ export default function Sidebar({ open, onClose }) {
 
   useEffect(() => {
     const handleAuthChange = (e) => {
-      console.log("Sidebar: Auth change detected", e.detail?.user);
       setUser(e.detail?.user || null)
     }
     window.addEventListener('auth-change', handleAuthChange)

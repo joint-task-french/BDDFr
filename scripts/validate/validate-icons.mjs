@@ -6,7 +6,7 @@
  * Exit code 0 = OK, 1 = erreurs trouvées
  */
 import { readFileSync, readdirSync, existsSync, statSync } from 'fs'
-import { join, dirname, relative, basename } from 'path'
+import { join, dirname, relative, basename, extname } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -26,8 +26,12 @@ function stripComments(text) {
 }
 
 /**
- * Récupère récursivement tous les fichiers .png dans un dossier donné.
+ * Récupère récursivement toutes les images dans un dossier donné.
+ * Les assets sont en WebP (scripts/convert-images-webp.mjs) ; les autres
+ * formats restent acceptés pour ne pas dépendre d'un format unique.
  */
+const IMAGE_EXTENSIONS = ['.webp', '.png', '.jpg', '.jpeg', '.svg'];
+
 function getAllImages(dir, fileList = []) {
     if (!existsSync(dir)) return fileList;
     const files = readdirSync(dir);
@@ -35,7 +39,7 @@ function getAllImages(dir, fileList = []) {
         const filepath = join(dir, file);
         if (statSync(filepath).isDirectory()) {
             getAllImages(filepath, fileList);
-        } else if (file.endsWith('.png')) {
+        } else if (IMAGE_EXTENSIONS.some(ext => file.toLowerCase().endsWith(ext))) {
             fileList.push(filepath);
         }
     }
@@ -75,9 +79,9 @@ const identifierToPathMap = new Map()
 
 availableImagesPaths.forEach(filepath => {
     const relPath = relative(IMG_DIR, filepath).replace(/\\/g, '/');
-    const relPathNoExt = relPath.replace(/\.png$/, '');
+    const relPathNoExt = relPath.replace(/\.[^.]+$/, '');
     const baseName = basename(filepath);
-    const baseNameNoExt = basename(filepath, '.png');
+    const baseNameNoExt = basename(filepath, extname(filepath));
 
     validIconIdentifiers.add(relPath);
     validIconIdentifiers.add(relPathNoExt);

@@ -25,12 +25,12 @@ jobs:
 
     steps:
       - name: Checkout du dépôt
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: dev
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '24'
           cache: 'npm'
@@ -63,7 +63,7 @@ jobs:
       - name: Créer la Pull Request
         id: cpr
         if: success()
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: "feat(data): contribution via issue #${{ github.event.issue.number }}"
           title: "Contribution de données: #${{ github.event.issue.number }}"
@@ -75,7 +75,7 @@ jobs:
 
       - name: Succès - Fermer l'issue
         if: success() && steps.cpr.outputs.pull-request-number
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const prUrl = "${{ steps.cpr.outputs.pull-request-url }}";
@@ -94,7 +94,7 @@ jobs:
 
       - name: Erreur - Commenter l'issue
         if: failure()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             await github.rest.issues.createComment({

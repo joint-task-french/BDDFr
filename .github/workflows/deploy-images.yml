@@ -27,10 +27,10 @@ jobs:
 
     steps:
       - name: 📥 Checkout du code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: ⚙️ Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: 'npm'
@@ -42,7 +42,7 @@ jobs:
         run: npx puppeteer browsers install chrome
 
       - name: 🗄️ Cache Puppeteer (Chrome)
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cache/puppeteer
           key: puppeteer-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
@@ -53,7 +53,7 @@ jobs:
         run: npm run build
 
       - name: 🖼️ Restauration du cache des images
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: dist/og-images
           key: og-images-${{ github.run_id }}
@@ -77,10 +77,10 @@ jobs:
           echo "✅ Nettoyage terminé. Le nouveau cache sera généré et sauvegardé à la fin du job."
 
       - name: 🔧 Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: 📤 Upload de l'artefact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: './dist'
 

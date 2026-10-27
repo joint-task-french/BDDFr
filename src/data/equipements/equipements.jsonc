@@ -4508,7 +4508,7 @@
   },
   "genouilleres_d_acosta": {
     "nom": "Genouillères d'Acosta",
-    "description": "Ils se sont fait choper par la JTF, mais ils n'ont pas ma maîtrise de dingo du parkour. - Eva Acosta",
+    "description": "\"Ils se sont fait choper par la JTF, mais ils n'ont pas ma maîtrise de dingo du parkour.\" - Eva Acosta",
     "emplacement": "genouilleres",
     "mod": false,
     "obtention": {
@@ -4517,14 +4517,14 @@
       "represailles": "Parias, Escouade D'extermination"
     },
     "attributEssentiel": [
-      "defensif"
+      "offensif"
     ],
     "attributs": [
       {
-        "nom": "maniement_d_arme_eqp"
+        "nom": "probabilite_de_coup_critique_eqp"
       },
       {
-        "nom": "sante_eqp"
+        "nom": "protection_contre_alterations_d_etat_eqp"
       }
     ],
     "talents": [
@@ -5011,5 +5011,136 @@
     "notes": "",
     "obtention": {
     }
+  },
+  "masque_scba": {
+    "nom": "Masque SCBA",
+    "marque": "ember_engine",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set",
+    "notes": "",
+    "obtention": {
+      "butinCible": true
+    }
+  },
+  "sac_renforce": {
+    "nom": "Sac renforcé",
+    "marque": "ember_engine",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set",
+    "notes": "",
+    "obtention": {
+      "butinCible": true
+    }
+  },
+  "plastron_renforce": {
+    "nom": "Plastron renforcé",
+    "marque": "ember_engine",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set",
+    "notes": "",
+    "obtention": {
+      "butinCible": true
+    }
+  },
+  "gants_ignifuges": {
+    "nom": "Gants ignifugés",
+    "marque": "ember_engine",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set",
+    "notes": "",
+    "obtention": {
+      "butinCible": true
+    }
+  },
+  "holster_mains_de_feu": {
+    "nom": "Holster Mains de feu",
+    "marque": "ember_engine",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set",
+    "notes": "",
+    "obtention": {
+      "butinCible": true
+    }
+  },
+  "genouilleres_ignifugees": {
+    "nom": "Genouillères ignifugées",
+    "marque": "ember_engine",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set",
+    "notes": "",
+    "obtention": {
+      "butinCible": true
+    }
+  },
+  "conservateur": {
+    "nom": "Conservateur",
+    "marque": "5_11_tactical",
+    "description": "Partager, c'est aimer.",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["protecteur_bouclier"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "paf_pasteque": {
+    "nom": "Paf, pastèque",
+    "marque": "airaldi_holdings",
+    "description": "N'importe quel flingue fera l'affaire.",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["trepanation"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "rapprochement": {
+    "nom": "Rapprochement",
+    "marque": "richter_kaiser_gmbh",
+    "description": "",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["complementarite"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "coup_de_maitre": {
+    "nom": "Coup de maître",
+    "marque": "imminence_armaments",
+    "description": "",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["reaffectation"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "sarru": {
+    "nom": "Sarru",
+    "description": "Ce leurre tromperait même un dieu.",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "obtention": {
+      "description": "Event : Lune rouge"
+    },
+    "attributEssentiel": [
+      "offensif",
+    "defensif",
+    "utilitaire"
+    ],
+    "attributs": [],
+    "talents": [
+      "roi_du_leurre"
+    ],
+    "type": "exotique"
   }
 }
